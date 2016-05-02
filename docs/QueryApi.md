@@ -22,6 +22,9 @@ import wavefront_client
 from wavefront_client.rest import ApiException
 from pprint import pprint
 
+# Configure HOST Url: host
+wavefront_client.configuration.host = 'YOUR_INSTANCE_URL'  # example : 'https://metrics.wavefront.com'
+
 # Configure API key authorization: api_key
 wavefront_client.configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
@@ -29,23 +32,23 @@ wavefront_client.configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_client.QueryApi()
-q = 'q_example' # str | the query expression to execute
+q = 'q_example' # str | the query expression to execute , example `sum(rate(ts(~agent.points.*.received)))`
 s = 's_example' # str | the start time of the query window
-g = 'g_example' # str | the granularity of the points returned
-n = 'n_example' # str | name used to identify the query (optional)
-e = 'e_example' # str | the end time of the query window (null to use now) (optional)
-p = 'p_example' # str | the maximum number of points to return (optional)
-i = true # bool | whether series with only points that are outside of the query window will be returned (defaults to true) (optional)
+g = 'd' # str | the granularity of the points returned, default= d
+n = 'sample_query' # str | name used to identify the query (optional)
+#e = 'e_example' # str | the end time of the query window (null to use now) (optional)
+#p = 'p_example' # str | the maximum number of points to return (optional)
+i = True # bool | whether series with only points that are outside of the query window will be returned (defaults to true) (optional)
 auto_events = true # bool | whether events for sources included in the query will be automatically returned by the query (optional)
-summarization = 'summarization_example' # str | summarization strategy to use when bucketing points together (optional)
-list_mode = true # bool | retrieve events more optimally displayed for a list (optional)
-strict = true # bool | do not return points outside the query window [q;s), defaults to false (optional)
+summarization = 'MEAN' # str | summarization strategy to use when bucketing points together (optional)
+list_mode = True # bool | retrieve events more optimally displayed for a list (optional)
+strict = True # bool | do not return points outside the query window [q;s), defaults to false (optional)
 include_obsolete_metrics = true # bool | include metrics that have not been reporting recently, defaults to false (optional)
-sorted = false # bool | sorts the output so that returned series are in order, defaults to false (optional) (default to false)
+sorted = False # bool | sorts the output so that returned series are in order, defaults to false (optional) (default to false)
 
-try: 
+try:
     # Perform a charting query against Wavefront servers which returns the appropriate points in the specified time window and granularity
-    api_response = api_instance.chart(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted)
+    api_response = api_instance.chart(q, s, g, n=n, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling QueryApi->chart: %s\n" % e
