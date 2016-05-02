@@ -22,9 +22,19 @@ pip install git+https://github.com/wavefrontHQ/python-client.git
 ```
 (you may need to run `pip` with root permission: `sudo pip install git+https://github.com/wavefrontHQ/python-client.git`)
 
+
+If you are installing it on OS X El Capitan then you may have to ignore the ``six`` package installation as OS X El Capitan ships with six 1.4.1 installed already
+
+```
+
+sudo pip install --ignore-installed six git+https://github.com/wavefrontHQ/python-client.git
+
+```
+
+
 Then import the package:
 ```python
-import wavefront_client 
+import wavefront_client
 ```
 
 ### Setuptools
@@ -51,6 +61,9 @@ import wavefront_client
 from wavefront_client.rest import ApiException
 from pprint import pprint
 
+
+# Configure HOST Url: host
+wavefront_client.configuration.host = 'YOUR_INSTANCE_URL'  # example : 'https://metrics.wavefront.com'
 # Configure API key authorization: api_key
 wavefront_client.configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
