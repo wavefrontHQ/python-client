@@ -155,7 +155,7 @@ class RESTClientObject(object):
                                                   encode_multipart=True,
                                                   headers=headers)
 
-                if headers['Content-Type'] == 'text/plain1':
+                if headers['Content-Type'] == 'text/plain':
                     r = self.pool_manager.request(method, url,
                                                   fields=post_params,
                                                   encode_multipart=False,
