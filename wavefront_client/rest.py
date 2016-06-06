@@ -156,9 +156,9 @@ class RESTClientObject(object):
                                                   headers=headers)
 
                 if headers['Content-Type'] == 'text/plain':
-                    r = self.pool_manager.request(method, url,
-                                                  fields=post_params,
-                                                  encode_multipart=False,
+                    r = self.pool_manager.urlopen(method,
+                                                  url,
+                                                  body=body,
                                                   headers=headers)
 
             # For `GET`, `HEAD`
