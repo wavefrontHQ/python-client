@@ -20,6 +20,7 @@ https://www.dropbox.com/developers/core/sdks/python
 """
 from __future__ import absolute_import
 
+import os
 import sys
 import io
 import json
@@ -98,13 +99,21 @@ class RESTClientObject(object):
         key_file = Configuration().key_file
 
         # https pool manager
-        self.pool_manager = urllib3.PoolManager(
-            num_pools=pools_size,
-            cert_reqs=cert_reqs,
-            ca_certs=ca_certs,
-            cert_file=cert_file,
-            key_file=key_file
-        )
+        pool_manager_options = {
+            'num_pools': pools_size,
+            'cert_reqs': cert_reqs,
+            'ca_certs': ca_certs,
+            'cert_file': cert_file,
+            'key_file': key_file
+        }
+        # https pool manager
+        if 'https_proxy' in os.environ:
+            self.pool_manager = urllib3.proxy_from_url(
+                os.environ['https_proxy'],
+                **pool_manager_options
+            )
+        else:
+            self.pool_manager = urllib3.PoolManager(**pool_manager_options)
 
     def request(self, method, url, query_params=None, headers=None,
                 body=None, post_params=None):
