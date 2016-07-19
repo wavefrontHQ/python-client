@@ -103,7 +103,8 @@ class RESTClientObject(object):
             cert_reqs=cert_reqs,
             ca_certs=ca_certs,
             cert_file=cert_file,
-            key_file=key_file
+            key_file=key_file,
+            timeout=urllib3.Timeout(connect=10.0, read=5.0)
         )
 
     def request(self, method, url, query_params=None, headers=None,
@@ -150,6 +151,7 @@ class RESTClientObject(object):
 #                                                  fields=post_params,
 #                                                  encode_multipart=False,
 #                                                  headers=headers)
+
                     r = self.pool_manager.urlopen(
                         method,
                         url,
