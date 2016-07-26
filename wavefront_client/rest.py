@@ -104,7 +104,8 @@ class RESTClientObject(object):
             'cert_reqs': cert_reqs,
             'ca_certs': ca_certs,
             'cert_file': cert_file,
-            'key_file': key_file
+            'key_file': key_file,
+            'timeout': urllib3.Timeout(connect=10.0, read=5.0)
         }
         # https pool manager
         if 'https_proxy' in os.environ:
