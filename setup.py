@@ -4,7 +4,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "wavefront_client"
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 
 
 
