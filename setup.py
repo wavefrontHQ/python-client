@@ -3,8 +3,8 @@
 import sys
 from setuptools import setup, find_packages
 
-NAME = "wavefront_client"
-VERSION = "1.0.2"
+NAME = "wavefront-api-client"
+VERSION = "1.0.0"
 
 
 
@@ -15,21 +15,21 @@ VERSION = "1.0.2"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = ["urllib3 >= 1.10", "six >= 1.9", "certifi", "python-dateutil"]
 
 setup(
     name=NAME,
     version=VERSION,
     description="Wavefront Public API",
-    author="Wavefront",
-    author_email="support@wavefront.com",
-    url="https://github.com/wavefrontHQ/python-client",
-    keywords=["Wavefront", "Wavefront Public API"],
+    author_email="",
+    url="",
+    keywords=["Swagger", "Wavefront Public API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-   license="Apache License",
     long_description="""\
-    The Wavefront Public APIs are published for customers to use when interacting with Wavefront servers.  They can be used to automate commonly executed operations such as tagging sources automatically. Please note that you will need to supply the X-AUTH-TOKEN header with a valid token.;
+    &lt;p&gt;Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.&lt;/p&gt;&lt;p&gt;When you make API calls outside the Wavefront UI you must add the header \&quot;Authorization: Bearer &amp;lt;&amp;lt;API-TOKEN&amp;gt;&amp;gt;\&quot; to your HTTP requests.&lt;/p&gt;&lt;p&gt;For legacy versions of the Wavefront API, see the &lt;a href=\&quot;/api-docs/ui/deprecated\&quot;&gt;legacy API documentation&lt;/a&gt;.&lt;/p&gt;
     """
 )
+
+
