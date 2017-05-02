@@ -32,6 +32,13 @@ Or you can install from Github via pip:
 pip install git+https://github.com/wavefronthq/python-client.git
 ```
 
+Or you can install from PyPi via pip:
+
+```sh
+pip install wavefront-api-client
+```
+
+
 To use the bindings, import the package:
 
 ```python
