@@ -3,8 +3,8 @@
 import sys
 from setuptools import setup, find_packages
 
-NAME = "wavefront-api-client"
-VERSION = "1.0.0"
+NAME = "wavefront-client"
+VERSION = "2.1.0"
 
 
 
@@ -21,9 +21,10 @@ setup(
     name=NAME,
     version=VERSION,
     description="Wavefront Public API",
-    author_email="",
-    url="",
-    keywords=["Swagger", "Wavefront Public API"],
+    author="Wavefront Support",
+    author_email="support@wavefront.com",
+    url="https://github.com/wavefrontHQ/python-client",
+    keywords=["Swagger", "Wavefront", "API", "Wavefront Public API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
