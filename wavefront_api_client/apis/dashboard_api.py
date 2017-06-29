@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class DashboardApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_dashboard_tag(self, id, tag_value, **kwargs):
         """
         Add a tag to a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_dashboard_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_dashboard_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -61,7 +52,7 @@ class DashboardApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_dashboard_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.add_dashboard_tag_with_http_info(id, tag_value, **kwargs)
@@ -72,15 +63,11 @@ class DashboardApi(object):
         Add a tag to a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_dashboard_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_dashboard_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -89,7 +76,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -113,14 +100,13 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -139,7 +125,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/dashboard/{id}/tag/{tagValue}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -148,7 +134,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -159,22 +145,18 @@ class DashboardApi(object):
         Create a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_dashboard(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_dashboard(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Dashboard body: Example Body:  <pre>{   \"name\": \"Dashboard API example\",   \"id\": \"api-example\",   \"url\": \"api-example\",   \"description\": \"Dashboard Description\",   \"sections\": [     {       \"name\": \"Section 1\",       \"rows\": [         {           \"charts\": [             {               \"name\": \"Chart 1\",               \"description\": \"description1\",               \"sources\": [                 {                   \"name\": \"Source1\",                   \"query\": \"ts()\"                 }               ]             }           ]         }       ]     }   ] }</pre>
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_dashboard_with_http_info(**kwargs)
         else:
             (data) = self.create_dashboard_with_http_info(**kwargs)
@@ -185,15 +167,11 @@ class DashboardApi(object):
         Create a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_dashboard_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_dashboard_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Dashboard body: Example Body:  <pre>{   \"name\": \"Dashboard API example\",   \"id\": \"api-example\",   \"url\": \"api-example\",   \"description\": \"Dashboard Description\",   \"sections\": [     {       \"name\": \"Section 1\",       \"rows\": [         {           \"charts\": [             {               \"name\": \"Chart 1\",               \"description\": \"description1\",               \"sources\": [                 {                   \"name\": \"Source1\",                   \"query\": \"ts()\"                 }               ]             }           ]         }       ]     }   ] }</pre>
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
@@ -201,7 +179,7 @@ class DashboardApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -219,10 +197,9 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -243,7 +220,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/dashboard', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -252,7 +229,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -263,22 +240,18 @@ class DashboardApi(object):
         Delete a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_dashboard(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_dashboard(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_dashboard_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_dashboard_with_http_info(id, **kwargs)
@@ -289,15 +262,11 @@ class DashboardApi(object):
         Delete a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_dashboard_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_dashboard_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
@@ -305,7 +274,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -326,12 +295,11 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -346,7 +314,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/dashboard/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -355,7 +323,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -366,15 +334,11 @@ class DashboardApi(object):
         Get all dashboards for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_dashboard(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_dashboard(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedDashboard
@@ -382,7 +346,7 @@ class DashboardApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_all_dashboard_with_http_info(**kwargs)
         else:
             (data) = self.get_all_dashboard_with_http_info(**kwargs)
@@ -393,15 +357,11 @@ class DashboardApi(object):
         Get all dashboards for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_dashboard_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_dashboard_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedDashboard
@@ -410,7 +370,7 @@ class DashboardApi(object):
         """
 
         all_params = ['offset', 'limit']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -428,14 +388,13 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'offset' in params:
-            query_params['offset'] = params['offset']
+            query_params.append(('offset', params['offset']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
 
         header_params = {}
 
@@ -450,7 +409,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/dashboard', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -459,7 +418,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -470,22 +429,18 @@ class DashboardApi(object):
         Get a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_dashboard_with_http_info(id, **kwargs)
         else:
             (data) = self.get_dashboard_with_http_info(id, **kwargs)
@@ -496,15 +451,11 @@ class DashboardApi(object):
         Get a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
@@ -512,7 +463,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -533,12 +484,11 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -553,7 +503,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/dashboard/{id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -562,7 +512,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -573,15 +523,11 @@ class DashboardApi(object):
         Get the version history of a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard_history(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard_history(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -590,7 +536,7 @@ class DashboardApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_dashboard_history_with_http_info(id, **kwargs)
         else:
             (data) = self.get_dashboard_history_with_http_info(id, **kwargs)
@@ -601,15 +547,11 @@ class DashboardApi(object):
         Get the version history of a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard_history_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard_history_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -619,7 +561,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id', 'offset', 'limit']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -640,16 +582,15 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}/history'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'offset' in params:
-            query_params['offset'] = params['offset']
+            query_params.append(('offset', params['offset']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
 
         header_params = {}
 
@@ -664,7 +605,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/dashboard/{id}/history', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -673,7 +614,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerHistoryResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -684,22 +625,18 @@ class DashboardApi(object):
         Get all tags associated with a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_dashboard_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.get_dashboard_tags_with_http_info(id, **kwargs)
@@ -710,15 +647,11 @@ class DashboardApi(object):
         Get all tags associated with a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -726,7 +659,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -747,12 +680,11 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -767,7 +699,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/dashboard/{id}/tag', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -776,7 +708,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerTagsResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -787,15 +719,11 @@ class DashboardApi(object):
         Get a specific version of a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard_version(id, version, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard_version(id, version, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerDashboard
@@ -803,7 +731,7 @@ class DashboardApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_dashboard_version_with_http_info(id, version, **kwargs)
         else:
             (data) = self.get_dashboard_version_with_http_info(id, version, **kwargs)
@@ -814,15 +742,11 @@ class DashboardApi(object):
         Get a specific version of a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_dashboard_version_with_http_info(id, version, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_dashboard_version_with_http_info(id, version, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerDashboard
@@ -831,7 +755,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id', 'version']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -855,14 +779,13 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}/history/{version}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'version' in params:
             path_params['version'] = params['version']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -877,7 +800,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/dashboard/{id}/history/{version}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -886,7 +809,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -897,15 +820,11 @@ class DashboardApi(object):
         Remove a tag from a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_dashboard_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_dashboard_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -913,7 +832,7 @@ class DashboardApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_dashboard_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.remove_dashboard_tag_with_http_info(id, tag_value, **kwargs)
@@ -924,15 +843,11 @@ class DashboardApi(object):
         Remove a tag from a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_dashboard_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_dashboard_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -941,7 +856,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -965,14 +880,13 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -987,7 +901,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/dashboard/{id}/tag/{tagValue}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -996,7 +910,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1007,15 +921,11 @@ class DashboardApi(object):
         Set all tags associated with a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_dashboard_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_dashboard_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -1023,7 +933,7 @@ class DashboardApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_dashboard_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.set_dashboard_tags_with_http_info(id, **kwargs)
@@ -1034,15 +944,11 @@ class DashboardApi(object):
         Set all tags associated with a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_dashboard_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_dashboard_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -1051,7 +957,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1072,12 +978,11 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1098,7 +1003,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/dashboard/{id}/tag', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1107,7 +1012,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1118,22 +1023,18 @@ class DashboardApi(object):
         Undelete a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.undelete_dashboard(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.undelete_dashboard(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.undelete_dashboard_with_http_info(id, **kwargs)
         else:
             (data) = self.undelete_dashboard_with_http_info(id, **kwargs)
@@ -1144,15 +1045,11 @@ class DashboardApi(object):
         Undelete a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.undelete_dashboard_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.undelete_dashboard_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerDashboard
                  If the method is called asynchronously,
@@ -1160,7 +1057,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1181,12 +1078,11 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}/undelete'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1201,7 +1097,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/dashboard/{id}/undelete', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1210,7 +1106,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1221,15 +1117,11 @@ class DashboardApi(object):
         Update a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_dashboard(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_dashboard(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Dashboard body: Example Body:  <pre>{   \"name\": \"Dashboard API example\",   \"id\": \"api-example\",   \"url\": \"api-example\",   \"description\": \"Dashboard Description\",   \"sections\": [     {       \"name\": \"Section 1\",       \"rows\": [         {           \"charts\": [             {               \"name\": \"Chart 1\",               \"description\": \"description1\",               \"sources\": [                 {                   \"name\": \"Source1\",                   \"query\": \"ts()\"                 }               ]             }           ]         }       ]     }   ] }</pre>
         :return: ResponseContainerDashboard
@@ -1237,7 +1129,7 @@ class DashboardApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_dashboard_with_http_info(id, **kwargs)
         else:
             (data) = self.update_dashboard_with_http_info(id, **kwargs)
@@ -1248,15 +1140,11 @@ class DashboardApi(object):
         Update a specific dashboard
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_dashboard_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_dashboard_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Dashboard body: Example Body:  <pre>{   \"name\": \"Dashboard API example\",   \"id\": \"api-example\",   \"url\": \"api-example\",   \"description\": \"Dashboard Description\",   \"sections\": [     {       \"name\": \"Section 1\",       \"rows\": [         {           \"charts\": [             {               \"name\": \"Chart 1\",               \"description\": \"description1\",               \"sources\": [                 {                   \"name\": \"Source1\",                   \"query\": \"ts()\"                 }               ]             }           ]         }       ]     }   ] }</pre>
         :return: ResponseContainerDashboard
@@ -1265,7 +1153,7 @@ class DashboardApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1286,12 +1174,11 @@ class DashboardApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/dashboard/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1312,7 +1199,7 @@ class DashboardApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/dashboard/{id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1321,7 +1208,7 @@ class DashboardApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

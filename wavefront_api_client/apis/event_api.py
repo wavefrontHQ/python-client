@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class EventApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_event_tag(self, id, tag_value, **kwargs):
         """
         Add a tag to a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_event_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_event_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -61,7 +52,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_event_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.add_event_tag_with_http_info(id, tag_value, **kwargs)
@@ -72,15 +63,11 @@ class EventApi(object):
         Add a tag to a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_event_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_event_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -89,7 +76,7 @@ class EventApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -113,14 +100,13 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -139,7 +125,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/event/{id}/tag/{tagValue}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -148,7 +134,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -159,22 +145,18 @@ class EventApi(object):
         Close a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.close_event(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.close_event(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.close_event_with_http_info(id, **kwargs)
         else:
             (data) = self.close_event_with_http_info(id, **kwargs)
@@ -185,15 +167,11 @@ class EventApi(object):
         Close a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.close_event_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.close_event_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
@@ -201,7 +179,7 @@ class EventApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -222,12 +200,11 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}/close'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -242,7 +219,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/event/{id}/close', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -251,7 +228,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerEvent',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -262,22 +239,18 @@ class EventApi(object):
         Create a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_event(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_event(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_event_with_http_info(**kwargs)
         else:
             (data) = self.create_event_with_http_info(**kwargs)
@@ -288,15 +261,11 @@ class EventApi(object):
         Create a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_event_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_event_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
@@ -304,7 +273,7 @@ class EventApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -322,10 +291,9 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -346,7 +314,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/event', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -355,7 +323,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerEvent',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -366,22 +334,18 @@ class EventApi(object):
         Delete a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_event(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_event(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_event_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_event_with_http_info(id, **kwargs)
@@ -392,15 +356,11 @@ class EventApi(object):
         Delete a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_event_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_event_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
@@ -408,7 +368,7 @@ class EventApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -429,12 +389,11 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -449,7 +408,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/event/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -458,7 +417,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerEvent',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -469,15 +428,11 @@ class EventApi(object):
         List all the events for a customer within a time range
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_events_with_time_range(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_events_with_time_range(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int earliest_start_time_epoch_millis:
         :param int latest_start_time_epoch_millis:
         :param str cursor:
@@ -487,7 +442,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_all_events_with_time_range_with_http_info(**kwargs)
         else:
             (data) = self.get_all_events_with_time_range_with_http_info(**kwargs)
@@ -498,15 +453,11 @@ class EventApi(object):
         List all the events for a customer within a time range
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_events_with_time_range_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_events_with_time_range_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int earliest_start_time_epoch_millis:
         :param int latest_start_time_epoch_millis:
         :param str cursor:
@@ -517,7 +468,7 @@ class EventApi(object):
         """
 
         all_params = ['earliest_start_time_epoch_millis', 'latest_start_time_epoch_millis', 'cursor', 'limit']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -535,18 +486,17 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'earliest_start_time_epoch_millis' in params:
-            query_params['earliestStartTimeEpochMillis'] = params['earliest_start_time_epoch_millis']
+            query_params.append(('earliestStartTimeEpochMillis', params['earliest_start_time_epoch_millis']))
         if 'latest_start_time_epoch_millis' in params:
-            query_params['latestStartTimeEpochMillis'] = params['latest_start_time_epoch_millis']
+            query_params.append(('latestStartTimeEpochMillis', params['latest_start_time_epoch_millis']))
         if 'cursor' in params:
-            query_params['cursor'] = params['cursor']
+            query_params.append(('cursor', params['cursor']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
 
         header_params = {}
 
@@ -561,7 +511,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/event', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -570,7 +520,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedEvent',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -581,22 +531,18 @@ class EventApi(object):
         Get a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_event(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_event_with_http_info(id, **kwargs)
         else:
             (data) = self.get_event_with_http_info(id, **kwargs)
@@ -607,15 +553,11 @@ class EventApi(object):
         Get a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_event_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
@@ -623,7 +565,7 @@ class EventApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -644,12 +586,11 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -664,7 +605,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/event/{id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -673,7 +614,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerEvent',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -684,22 +625,18 @@ class EventApi(object):
         Get all tags associated with a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_event_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_event_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.get_event_tags_with_http_info(id, **kwargs)
@@ -710,15 +647,11 @@ class EventApi(object):
         Get all tags associated with a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_event_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_event_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -726,7 +659,7 @@ class EventApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -747,12 +680,11 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -767,7 +699,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/event/{id}/tag', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -776,7 +708,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerTagsResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -787,15 +719,11 @@ class EventApi(object):
         Remove a tag from a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_event_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_event_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -803,7 +731,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_event_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.remove_event_tag_with_http_info(id, tag_value, **kwargs)
@@ -814,15 +742,11 @@ class EventApi(object):
         Remove a tag from a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_event_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_event_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -831,7 +755,7 @@ class EventApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -855,14 +779,13 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -881,7 +804,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/event/{id}/tag/{tagValue}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -890,7 +813,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -901,15 +824,11 @@ class EventApi(object):
         Set all tags associated with a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_event_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_event_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -917,7 +836,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_event_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.set_event_tags_with_http_info(id, **kwargs)
@@ -928,15 +847,11 @@ class EventApi(object):
         Set all tags associated with a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_event_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_event_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -945,7 +860,7 @@ class EventApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -966,12 +881,11 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -992,7 +906,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/event/{id}/tag', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1001,7 +915,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1012,15 +926,11 @@ class EventApi(object):
         Update a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_event(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_event(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
         :return: ResponseContainerEvent
@@ -1028,7 +938,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_event_with_http_info(id, **kwargs)
         else:
             (data) = self.update_event_with_http_info(id, **kwargs)
@@ -1039,15 +949,11 @@ class EventApi(object):
         Update a specific event
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_event_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_event_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
         :return: ResponseContainerEvent
@@ -1056,7 +962,7 @@ class EventApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1077,12 +983,11 @@ class EventApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/event/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1103,7 +1008,7 @@ class EventApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/event/{id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1112,7 +1017,7 @@ class EventApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerEvent',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

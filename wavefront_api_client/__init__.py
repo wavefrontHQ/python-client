@@ -131,5 +131,3 @@ from .apis.webhook_api import WebhookApi
 from .api_client import ApiClient
 
 from .configuration import Configuration
-
-configuration = Configuration()

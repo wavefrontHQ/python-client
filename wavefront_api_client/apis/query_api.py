@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class QueryApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def query_api(self, q, s, g, **kwargs):
         """
         Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
         Long time spans and small granularities can take a long time to calculate
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.query_api(q, s, g, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.query_api(q, s, g, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str q: the query expression to execute (required)
         :param str s: the start time of the query window in epoch milliseconds (required)
         :param str g: the granularity of the points returned (required)
@@ -72,7 +63,7 @@ class QueryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.query_api_with_http_info(q, s, g, **kwargs)
         else:
             (data) = self.query_api_with_http_info(q, s, g, **kwargs)
@@ -83,15 +74,11 @@ class QueryApi(object):
         Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
         Long time spans and small granularities can take a long time to calculate
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.query_api_with_http_info(q, s, g, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.query_api_with_http_info(q, s, g, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str q: the query expression to execute (required)
         :param str s: the start time of the query window in epoch milliseconds (required)
         :param str g: the granularity of the points returned (required)
@@ -111,7 +98,7 @@ class QueryApi(object):
         """
 
         all_params = ['q', 's', 'g', 'n', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'include_obsolete_metrics', 'sorted']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -138,36 +125,35 @@ class QueryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/chart/api'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'n' in params:
-            query_params['n'] = params['n']
+            query_params.append(('n', params['n']))
         if 'q' in params:
-            query_params['q'] = params['q']
+            query_params.append(('q', params['q']))
         if 's' in params:
-            query_params['s'] = params['s']
+            query_params.append(('s', params['s']))
         if 'e' in params:
-            query_params['e'] = params['e']
+            query_params.append(('e', params['e']))
         if 'g' in params:
-            query_params['g'] = params['g']
+            query_params.append(('g', params['g']))
         if 'p' in params:
-            query_params['p'] = params['p']
+            query_params.append(('p', params['p']))
         if 'i' in params:
-            query_params['i'] = params['i']
+            query_params.append(('i', params['i']))
         if 'auto_events' in params:
-            query_params['autoEvents'] = params['auto_events']
+            query_params.append(('autoEvents', params['auto_events']))
         if 'summarization' in params:
-            query_params['summarization'] = params['summarization']
+            query_params.append(('summarization', params['summarization']))
         if 'list_mode' in params:
-            query_params['listMode'] = params['list_mode']
+            query_params.append(('listMode', params['list_mode']))
         if 'strict' in params:
-            query_params['strict'] = params['strict']
+            query_params.append(('strict', params['strict']))
         if 'include_obsolete_metrics' in params:
-            query_params['includeObsoleteMetrics'] = params['include_obsolete_metrics']
+            query_params.append(('includeObsoleteMetrics', params['include_obsolete_metrics']))
         if 'sorted' in params:
-            query_params['sorted'] = params['sorted']
+            query_params.append(('sorted', params['sorted']))
 
         header_params = {}
 
@@ -182,7 +168,7 @@ class QueryApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/chart/api', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -191,7 +177,7 @@ class QueryApi(object):
                                         files=local_var_files,
                                         response_type='QueryResult',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -202,15 +188,11 @@ class QueryApi(object):
         Perform a raw data query against Wavefront servers that returns second granularity points grouped by tags
         An API to check if ingested points are as expected.  Points ingested within a single second are averaged when returned.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.query_raw(metric, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.query_raw(metric, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str metric: metric to query ingested points for (cannot contain wildcards) (required)
         :param str host: host to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
         :param str source: source to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
@@ -221,7 +203,7 @@ class QueryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.query_raw_with_http_info(metric, **kwargs)
         else:
             (data) = self.query_raw_with_http_info(metric, **kwargs)
@@ -232,15 +214,11 @@ class QueryApi(object):
         Perform a raw data query against Wavefront servers that returns second granularity points grouped by tags
         An API to check if ingested points are as expected.  Points ingested within a single second are averaged when returned.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.query_raw_with_http_info(metric, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.query_raw_with_http_info(metric, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str metric: metric to query ingested points for (cannot contain wildcards) (required)
         :param str host: host to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
         :param str source: source to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
@@ -252,7 +230,7 @@ class QueryApi(object):
         """
 
         all_params = ['metric', 'host', 'source', 'start_time', 'end_time']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -273,20 +251,19 @@ class QueryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/chart/raw'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'host' in params:
-            query_params['host'] = params['host']
+            query_params.append(('host', params['host']))
         if 'source' in params:
-            query_params['source'] = params['source']
+            query_params.append(('source', params['source']))
         if 'metric' in params:
-            query_params['metric'] = params['metric']
+            query_params.append(('metric', params['metric']))
         if 'start_time' in params:
-            query_params['startTime'] = params['start_time']
+            query_params.append(('startTime', params['start_time']))
         if 'end_time' in params:
-            query_params['endTime'] = params['end_time']
+            query_params.append(('endTime', params['end_time']))
 
         header_params = {}
 
@@ -301,7 +278,7 @@ class QueryApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/chart/raw', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -310,7 +287,7 @@ class QueryApi(object):
                                         files=local_var_files,
                                         response_type='list[Timeseries]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
