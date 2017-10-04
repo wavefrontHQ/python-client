@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -32,43 +32,48 @@ class ChartSettings(object):
     """
     swagger_types = {
         'type': 'str',
-        'max': 'float',
-        'y1_units': 'str',
         'min': 'float',
+        'max': 'float',
+        'plain_markdown_content': 'str',
+        'line_type': 'str',
+        'stack_type': 'str',
+        'expected_data_spacing': 'int',
+        'windowing': 'str',
+        'window_size': 'int',
+        'show_hosts': 'bool',
+        'show_labels': 'bool',
+        'show_raw_values': 'bool',
+        'auto_column_tags': 'bool',
+        'column_tags': 'str',
+        'tag_mode': 'str',
+        'num_tags': 'int',
+        'custom_tags': 'list[str]',
+        'group_by_source': 'bool',
+        'sort_values_descending': 'bool',
         'y1_max': 'float',
         'y1_min': 'float',
-        'window_size': 'int',
+        'y1_units': 'str',
         'y0_scale_si_by1024': 'bool',
         'y1_scale_si_by1024': 'bool',
         'y0_unit_autoscaling': 'bool',
         'y1_unit_autoscaling': 'bool',
-        'expected_data_spacing': 'int',
-        'line_type': 'str',
-        'group_by_source': 'bool',
-        'stack_type': 'str',
-        'ymax': 'float',
-        'ymin': 'float',
-        'xmax': 'float',
-        'xmin': 'float',
-        'time_based_coloring': 'bool',
-        'custom_tags': 'list[str]',
-        'sort_values_descending': 'bool',
-        'windowing': 'str',
-        'show_hosts': 'bool',
-        'show_labels': 'bool',
-        'show_raw_values': 'bool',
-        'num_tags': 'int',
-        'tag_mode': 'str',
+        'invert_dynamic_legend_hover_control': 'bool',
         'fixed_legend_enabled': 'bool',
+        'fixed_legend_use_raw_stats': 'bool',
         'fixed_legend_position': 'str',
         'fixed_legend_display_stats': 'list[str]',
-        'fixed_legend_filter_field': 'str',
-        'fixed_legend_filter_limit': 'int',
         'fixed_legend_filter_sort': 'str',
-        'fixed_legend_use_raw_stats': 'bool',
-        'invert_dynamic_legend_hover_control': 'bool',
+        'fixed_legend_filter_limit': 'int',
+        'fixed_legend_filter_field': 'str',
+        'fixed_legend_hide_label': 'bool',
+        'xmax': 'float',
+        'xmin': 'float',
+        'ymax': 'float',
+        'ymin': 'float',
+        'time_based_coloring': 'bool',
         'sparkline_display_value_type': 'str',
         'sparkline_display_color': 'str',
+        'sparkline_display_vertical_position': 'str',
         'sparkline_display_horizontal_position': 'str',
         'sparkline_display_font_size': 'str',
         'sparkline_display_prefix': 'str',
@@ -78,58 +83,57 @@ class ChartSettings(object):
         'sparkline_fill_color': 'str',
         'sparkline_value_color_map_colors': 'list[str]',
         'sparkline_value_color_map_values_v2': 'list[float]',
+        'sparkline_value_color_map_values': 'list[int]',
         'sparkline_value_color_map_apply_to': 'str',
         'sparkline_decimal_precision': 'int',
         'sparkline_value_text_map_text': 'list[str]',
-        'sparkline_value_text_map_thresholds': 'list[float]',
-        'markdown_content': 'str',
-        'plain_markdown_content': 'str',
-        'fixed_legend_hide_label': 'bool',
-        'sparkline_display_vertical_position': 'str',
-        'sparkline_value_color_map_values': 'list[int]',
-        'auto_column_tags': 'bool',
-        'column_tags': 'str'
+        'sparkline_value_text_map_thresholds': 'list[float]'
     }
 
     attribute_map = {
         'type': 'type',
-        'max': 'max',
-        'y1_units': 'y1Units',
         'min': 'min',
+        'max': 'max',
+        'plain_markdown_content': 'plainMarkdownContent',
+        'line_type': 'lineType',
+        'stack_type': 'stackType',
+        'expected_data_spacing': 'expectedDataSpacing',
+        'windowing': 'windowing',
+        'window_size': 'windowSize',
+        'show_hosts': 'showHosts',
+        'show_labels': 'showLabels',
+        'show_raw_values': 'showRawValues',
+        'auto_column_tags': 'autoColumnTags',
+        'column_tags': 'columnTags',
+        'tag_mode': 'tagMode',
+        'num_tags': 'numTags',
+        'custom_tags': 'customTags',
+        'group_by_source': 'groupBySource',
+        'sort_values_descending': 'sortValuesDescending',
         'y1_max': 'y1Max',
         'y1_min': 'y1Min',
-        'window_size': 'windowSize',
+        'y1_units': 'y1Units',
         'y0_scale_si_by1024': 'y0ScaleSIBy1024',
         'y1_scale_si_by1024': 'y1ScaleSIBy1024',
         'y0_unit_autoscaling': 'y0UnitAutoscaling',
         'y1_unit_autoscaling': 'y1UnitAutoscaling',
-        'expected_data_spacing': 'expectedDataSpacing',
-        'line_type': 'lineType',
-        'group_by_source': 'groupBySource',
-        'stack_type': 'stackType',
-        'ymax': 'ymax',
-        'ymin': 'ymin',
-        'xmax': 'xmax',
-        'xmin': 'xmin',
-        'time_based_coloring': 'timeBasedColoring',
-        'custom_tags': 'customTags',
-        'sort_values_descending': 'sortValuesDescending',
-        'windowing': 'windowing',
-        'show_hosts': 'showHosts',
-        'show_labels': 'showLabels',
-        'show_raw_values': 'showRawValues',
-        'num_tags': 'numTags',
-        'tag_mode': 'tagMode',
+        'invert_dynamic_legend_hover_control': 'invertDynamicLegendHoverControl',
         'fixed_legend_enabled': 'fixedLegendEnabled',
+        'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
         'fixed_legend_position': 'fixedLegendPosition',
         'fixed_legend_display_stats': 'fixedLegendDisplayStats',
-        'fixed_legend_filter_field': 'fixedLegendFilterField',
-        'fixed_legend_filter_limit': 'fixedLegendFilterLimit',
         'fixed_legend_filter_sort': 'fixedLegendFilterSort',
-        'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
-        'invert_dynamic_legend_hover_control': 'invertDynamicLegendHoverControl',
+        'fixed_legend_filter_limit': 'fixedLegendFilterLimit',
+        'fixed_legend_filter_field': 'fixedLegendFilterField',
+        'fixed_legend_hide_label': 'fixedLegendHideLabel',
+        'xmax': 'xmax',
+        'xmin': 'xmin',
+        'ymax': 'ymax',
+        'ymin': 'ymin',
+        'time_based_coloring': 'timeBasedColoring',
         'sparkline_display_value_type': 'sparklineDisplayValueType',
         'sparkline_display_color': 'sparklineDisplayColor',
+        'sparkline_display_vertical_position': 'sparklineDisplayVerticalPosition',
         'sparkline_display_horizontal_position': 'sparklineDisplayHorizontalPosition',
         'sparkline_display_font_size': 'sparklineDisplayFontSize',
         'sparkline_display_prefix': 'sparklineDisplayPrefix',
@@ -139,62 +143,61 @@ class ChartSettings(object):
         'sparkline_fill_color': 'sparklineFillColor',
         'sparkline_value_color_map_colors': 'sparklineValueColorMapColors',
         'sparkline_value_color_map_values_v2': 'sparklineValueColorMapValuesV2',
+        'sparkline_value_color_map_values': 'sparklineValueColorMapValues',
         'sparkline_value_color_map_apply_to': 'sparklineValueColorMapApplyTo',
         'sparkline_decimal_precision': 'sparklineDecimalPrecision',
         'sparkline_value_text_map_text': 'sparklineValueTextMapText',
-        'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds',
-        'markdown_content': 'markdownContent',
-        'plain_markdown_content': 'plainMarkdownContent',
-        'fixed_legend_hide_label': 'fixedLegendHideLabel',
-        'sparkline_display_vertical_position': 'sparklineDisplayVerticalPosition',
-        'sparkline_value_color_map_values': 'sparklineValueColorMapValues',
-        'auto_column_tags': 'autoColumnTags',
-        'column_tags': 'columnTags'
+        'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds'
     }
 
-    def __init__(self, type=None, max=None, y1_units=None, min=None, y1_max=None, y1_min=None, window_size=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, expected_data_spacing=None, line_type=None, group_by_source=None, stack_type=None, ymax=None, ymin=None, xmax=None, xmin=None, time_based_coloring=None, custom_tags=None, sort_values_descending=None, windowing=None, show_hosts=None, show_labels=None, show_raw_values=None, num_tags=None, tag_mode=None, fixed_legend_enabled=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_use_raw_stats=None, invert_dynamic_legend_hover_control=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, markdown_content=None, plain_markdown_content=None, fixed_legend_hide_label=None, sparkline_display_vertical_position=None, sparkline_value_color_map_values=None, auto_column_tags=None, column_tags=None):
+    def __init__(self, type=None, min=None, max=None, plain_markdown_content=None, line_type=None, stack_type=None, expected_data_spacing=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmax=None, xmin=None, ymax=None, ymin=None, time_based_coloring=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None):
         """
         ChartSettings - a model defined in Swagger
         """
 
         self._type = None
-        self._max = None
-        self._y1_units = None
         self._min = None
+        self._max = None
+        self._plain_markdown_content = None
+        self._line_type = None
+        self._stack_type = None
+        self._expected_data_spacing = None
+        self._windowing = None
+        self._window_size = None
+        self._show_hosts = None
+        self._show_labels = None
+        self._show_raw_values = None
+        self._auto_column_tags = None
+        self._column_tags = None
+        self._tag_mode = None
+        self._num_tags = None
+        self._custom_tags = None
+        self._group_by_source = None
+        self._sort_values_descending = None
         self._y1_max = None
         self._y1_min = None
-        self._window_size = None
+        self._y1_units = None
         self._y0_scale_si_by1024 = None
         self._y1_scale_si_by1024 = None
         self._y0_unit_autoscaling = None
         self._y1_unit_autoscaling = None
-        self._expected_data_spacing = None
-        self._line_type = None
-        self._group_by_source = None
-        self._stack_type = None
-        self._ymax = None
-        self._ymin = None
-        self._xmax = None
-        self._xmin = None
-        self._time_based_coloring = None
-        self._custom_tags = None
-        self._sort_values_descending = None
-        self._windowing = None
-        self._show_hosts = None
-        self._show_labels = None
-        self._show_raw_values = None
-        self._num_tags = None
-        self._tag_mode = None
+        self._invert_dynamic_legend_hover_control = None
         self._fixed_legend_enabled = None
+        self._fixed_legend_use_raw_stats = None
         self._fixed_legend_position = None
         self._fixed_legend_display_stats = None
-        self._fixed_legend_filter_field = None
-        self._fixed_legend_filter_limit = None
         self._fixed_legend_filter_sort = None
-        self._fixed_legend_use_raw_stats = None
-        self._invert_dynamic_legend_hover_control = None
+        self._fixed_legend_filter_limit = None
+        self._fixed_legend_filter_field = None
+        self._fixed_legend_hide_label = None
+        self._xmax = None
+        self._xmin = None
+        self._ymax = None
+        self._ymin = None
+        self._time_based_coloring = None
         self._sparkline_display_value_type = None
         self._sparkline_display_color = None
+        self._sparkline_display_vertical_position = None
         self._sparkline_display_horizontal_position = None
         self._sparkline_display_font_size = None
         self._sparkline_display_prefix = None
@@ -204,31 +207,56 @@ class ChartSettings(object):
         self._sparkline_fill_color = None
         self._sparkline_value_color_map_colors = None
         self._sparkline_value_color_map_values_v2 = None
+        self._sparkline_value_color_map_values = None
         self._sparkline_value_color_map_apply_to = None
         self._sparkline_decimal_precision = None
         self._sparkline_value_text_map_text = None
         self._sparkline_value_text_map_thresholds = None
-        self._markdown_content = None
-        self._plain_markdown_content = None
-        self._fixed_legend_hide_label = None
-        self._sparkline_display_vertical_position = None
-        self._sparkline_value_color_map_values = None
-        self._auto_column_tags = None
-        self._column_tags = None
+        self.discriminator = None
 
         self.type = type
-        if max is not None:
-          self.max = max
-        if y1_units is not None:
-          self.y1_units = y1_units
         if min is not None:
           self.min = min
+        if max is not None:
+          self.max = max
+        if plain_markdown_content is not None:
+          self.plain_markdown_content = plain_markdown_content
+        if line_type is not None:
+          self.line_type = line_type
+        if stack_type is not None:
+          self.stack_type = stack_type
+        if expected_data_spacing is not None:
+          self.expected_data_spacing = expected_data_spacing
+        if windowing is not None:
+          self.windowing = windowing
+        if window_size is not None:
+          self.window_size = window_size
+        if show_hosts is not None:
+          self.show_hosts = show_hosts
+        if show_labels is not None:
+          self.show_labels = show_labels
+        if show_raw_values is not None:
+          self.show_raw_values = show_raw_values
+        if auto_column_tags is not None:
+          self.auto_column_tags = auto_column_tags
+        if column_tags is not None:
+          self.column_tags = column_tags
+        if tag_mode is not None:
+          self.tag_mode = tag_mode
+        if num_tags is not None:
+          self.num_tags = num_tags
+        if custom_tags is not None:
+          self.custom_tags = custom_tags
+        if group_by_source is not None:
+          self.group_by_source = group_by_source
+        if sort_values_descending is not None:
+          self.sort_values_descending = sort_values_descending
         if y1_max is not None:
           self.y1_max = y1_max
         if y1_min is not None:
           self.y1_min = y1_min
-        if window_size is not None:
-          self.window_size = window_size
+        if y1_units is not None:
+          self.y1_units = y1_units
         if y0_scale_si_by1024 is not None:
           self.y0_scale_si_by1024 = y0_scale_si_by1024
         if y1_scale_si_by1024 is not None:
@@ -237,60 +265,40 @@ class ChartSettings(object):
           self.y0_unit_autoscaling = y0_unit_autoscaling
         if y1_unit_autoscaling is not None:
           self.y1_unit_autoscaling = y1_unit_autoscaling
-        if expected_data_spacing is not None:
-          self.expected_data_spacing = expected_data_spacing
-        if line_type is not None:
-          self.line_type = line_type
-        if group_by_source is not None:
-          self.group_by_source = group_by_source
-        if stack_type is not None:
-          self.stack_type = stack_type
-        if ymax is not None:
-          self.ymax = ymax
-        if ymin is not None:
-          self.ymin = ymin
-        if xmax is not None:
-          self.xmax = xmax
-        if xmin is not None:
-          self.xmin = xmin
-        if time_based_coloring is not None:
-          self.time_based_coloring = time_based_coloring
-        if custom_tags is not None:
-          self.custom_tags = custom_tags
-        if sort_values_descending is not None:
-          self.sort_values_descending = sort_values_descending
-        if windowing is not None:
-          self.windowing = windowing
-        if show_hosts is not None:
-          self.show_hosts = show_hosts
-        if show_labels is not None:
-          self.show_labels = show_labels
-        if show_raw_values is not None:
-          self.show_raw_values = show_raw_values
-        if num_tags is not None:
-          self.num_tags = num_tags
-        if tag_mode is not None:
-          self.tag_mode = tag_mode
+        if invert_dynamic_legend_hover_control is not None:
+          self.invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
         if fixed_legend_enabled is not None:
           self.fixed_legend_enabled = fixed_legend_enabled
+        if fixed_legend_use_raw_stats is not None:
+          self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
         if fixed_legend_position is not None:
           self.fixed_legend_position = fixed_legend_position
         if fixed_legend_display_stats is not None:
           self.fixed_legend_display_stats = fixed_legend_display_stats
-        if fixed_legend_filter_field is not None:
-          self.fixed_legend_filter_field = fixed_legend_filter_field
-        if fixed_legend_filter_limit is not None:
-          self.fixed_legend_filter_limit = fixed_legend_filter_limit
         if fixed_legend_filter_sort is not None:
           self.fixed_legend_filter_sort = fixed_legend_filter_sort
-        if fixed_legend_use_raw_stats is not None:
-          self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
-        if invert_dynamic_legend_hover_control is not None:
-          self.invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
+        if fixed_legend_filter_limit is not None:
+          self.fixed_legend_filter_limit = fixed_legend_filter_limit
+        if fixed_legend_filter_field is not None:
+          self.fixed_legend_filter_field = fixed_legend_filter_field
+        if fixed_legend_hide_label is not None:
+          self.fixed_legend_hide_label = fixed_legend_hide_label
+        if xmax is not None:
+          self.xmax = xmax
+        if xmin is not None:
+          self.xmin = xmin
+        if ymax is not None:
+          self.ymax = ymax
+        if ymin is not None:
+          self.ymin = ymin
+        if time_based_coloring is not None:
+          self.time_based_coloring = time_based_coloring
         if sparkline_display_value_type is not None:
           self.sparkline_display_value_type = sparkline_display_value_type
         if sparkline_display_color is not None:
           self.sparkline_display_color = sparkline_display_color
+        if sparkline_display_vertical_position is not None:
+          self.sparkline_display_vertical_position = sparkline_display_vertical_position
         if sparkline_display_horizontal_position is not None:
           self.sparkline_display_horizontal_position = sparkline_display_horizontal_position
         if sparkline_display_font_size is not None:
@@ -309,6 +317,8 @@ class ChartSettings(object):
           self.sparkline_value_color_map_colors = sparkline_value_color_map_colors
         if sparkline_value_color_map_values_v2 is not None:
           self.sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
+        if sparkline_value_color_map_values is not None:
+          self.sparkline_value_color_map_values = sparkline_value_color_map_values
         if sparkline_value_color_map_apply_to is not None:
           self.sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
         if sparkline_decimal_precision is not None:
@@ -317,20 +327,6 @@ class ChartSettings(object):
           self.sparkline_value_text_map_text = sparkline_value_text_map_text
         if sparkline_value_text_map_thresholds is not None:
           self.sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
-        if markdown_content is not None:
-          self.markdown_content = markdown_content
-        if plain_markdown_content is not None:
-          self.plain_markdown_content = plain_markdown_content
-        if fixed_legend_hide_label is not None:
-          self.fixed_legend_hide_label = fixed_legend_hide_label
-        if sparkline_display_vertical_position is not None:
-          self.sparkline_display_vertical_position = sparkline_display_vertical_position
-        if sparkline_value_color_map_values is not None:
-          self.sparkline_value_color_map_values = sparkline_value_color_map_values
-        if auto_column_tags is not None:
-          self.auto_column_tags = auto_column_tags
-        if column_tags is not None:
-          self.column_tags = column_tags
 
     @property
     def type(self):
@@ -364,6 +360,29 @@ class ChartSettings(object):
         self._type = type
 
     @property
+    def min(self):
+        """
+        Gets the min of this ChartSettings.
+        Min value of Y-axis.  Set to null or leave blank for auto
+
+        :return: The min of this ChartSettings.
+        :rtype: float
+        """
+        return self._min
+
+    @min.setter
+    def min(self, min):
+        """
+        Sets the min of this ChartSettings.
+        Min value of Y-axis.  Set to null or leave blank for auto
+
+        :param min: The min of this ChartSettings.
+        :type: float
+        """
+
+        self._min = min
+
+    @property
     def max(self):
         """
         Gets the max of this ChartSettings.
@@ -387,50 +406,396 @@ class ChartSettings(object):
         self._max = max
 
     @property
-    def y1_units(self):
+    def plain_markdown_content(self):
         """
-        Gets the y1_units of this ChartSettings.
-        For plots with multiple Y-axes, units for right-side Y-axis
+        Gets the plain_markdown_content of this ChartSettings.
+        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.
 
-        :return: The y1_units of this ChartSettings.
+        :return: The plain_markdown_content of this ChartSettings.
         :rtype: str
         """
-        return self._y1_units
+        return self._plain_markdown_content
 
-    @y1_units.setter
-    def y1_units(self, y1_units):
+    @plain_markdown_content.setter
+    def plain_markdown_content(self, plain_markdown_content):
         """
-        Sets the y1_units of this ChartSettings.
-        For plots with multiple Y-axes, units for right-side Y-axis
+        Sets the plain_markdown_content of this ChartSettings.
+        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.
 
-        :param y1_units: The y1_units of this ChartSettings.
+        :param plain_markdown_content: The plain_markdown_content of this ChartSettings.
         :type: str
         """
 
-        self._y1_units = y1_units
+        self._plain_markdown_content = plain_markdown_content
 
     @property
-    def min(self):
+    def line_type(self):
         """
-        Gets the min of this ChartSettings.
-        Min value of Y-axis.  Set to null or leave blank for auto
+        Gets the line_type of this ChartSettings.
+        Plot interpolation type.  linear is default
 
-        :return: The min of this ChartSettings.
-        :rtype: float
+        :return: The line_type of this ChartSettings.
+        :rtype: str
         """
-        return self._min
+        return self._line_type
 
-    @min.setter
-    def min(self, min):
+    @line_type.setter
+    def line_type(self, line_type):
         """
-        Sets the min of this ChartSettings.
-        Min value of Y-axis.  Set to null or leave blank for auto
+        Sets the line_type of this ChartSettings.
+        Plot interpolation type.  linear is default
 
-        :param min: The min of this ChartSettings.
-        :type: float
+        :param line_type: The line_type of this ChartSettings.
+        :type: str
+        """
+        allowed_values = ["linear", "step-before", "step-after", "basis", "cardinal", "monotone"]
+        if line_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `line_type` ({0}), must be one of {1}"
+                .format(line_type, allowed_values)
+            )
+
+        self._line_type = line_type
+
+    @property
+    def stack_type(self):
+        """
+        Gets the stack_type of this ChartSettings.
+        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream
+
+        :return: The stack_type of this ChartSettings.
+        :rtype: str
+        """
+        return self._stack_type
+
+    @stack_type.setter
+    def stack_type(self, stack_type):
+        """
+        Sets the stack_type of this ChartSettings.
+        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream
+
+        :param stack_type: The stack_type of this ChartSettings.
+        :type: str
+        """
+        allowed_values = ["zero", "expand", "wiggle", "silhouette"]
+        if stack_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `stack_type` ({0}), must be one of {1}"
+                .format(stack_type, allowed_values)
+            )
+
+        self._stack_type = stack_type
+
+    @property
+    def expected_data_spacing(self):
+        """
+        Gets the expected_data_spacing of this ChartSettings.
+        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s
+
+        :return: The expected_data_spacing of this ChartSettings.
+        :rtype: int
+        """
+        return self._expected_data_spacing
+
+    @expected_data_spacing.setter
+    def expected_data_spacing(self, expected_data_spacing):
+        """
+        Sets the expected_data_spacing of this ChartSettings.
+        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s
+
+        :param expected_data_spacing: The expected_data_spacing of this ChartSettings.
+        :type: int
         """
 
-        self._min = min
+        self._expected_data_spacing = expected_data_spacing
+
+    @property
+    def windowing(self):
+        """
+        Gets the windowing of this ChartSettings.
+        For the tabular view, whether to use the full time window for the query or the last X minutes
+
+        :return: The windowing of this ChartSettings.
+        :rtype: str
+        """
+        return self._windowing
+
+    @windowing.setter
+    def windowing(self, windowing):
+        """
+        Sets the windowing of this ChartSettings.
+        For the tabular view, whether to use the full time window for the query or the last X minutes
+
+        :param windowing: The windowing of this ChartSettings.
+        :type: str
+        """
+        allowed_values = ["full", "last"]
+        if windowing not in allowed_values:
+            raise ValueError(
+                "Invalid value for `windowing` ({0}), must be one of {1}"
+                .format(windowing, allowed_values)
+            )
+
+        self._windowing = windowing
+
+    @property
+    def window_size(self):
+        """
+        Gets the window_size of this ChartSettings.
+        Width, in minutes, of the time window to use for \"last\" windowing
+
+        :return: The window_size of this ChartSettings.
+        :rtype: int
+        """
+        return self._window_size
+
+    @window_size.setter
+    def window_size(self, window_size):
+        """
+        Sets the window_size of this ChartSettings.
+        Width, in minutes, of the time window to use for \"last\" windowing
+
+        :param window_size: The window_size of this ChartSettings.
+        :type: int
+        """
+
+        self._window_size = window_size
+
+    @property
+    def show_hosts(self):
+        """
+        Gets the show_hosts of this ChartSettings.
+        For the tabular view, whether to display sources.  Default: true
+
+        :return: The show_hosts of this ChartSettings.
+        :rtype: bool
+        """
+        return self._show_hosts
+
+    @show_hosts.setter
+    def show_hosts(self, show_hosts):
+        """
+        Sets the show_hosts of this ChartSettings.
+        For the tabular view, whether to display sources.  Default: true
+
+        :param show_hosts: The show_hosts of this ChartSettings.
+        :type: bool
+        """
+
+        self._show_hosts = show_hosts
+
+    @property
+    def show_labels(self):
+        """
+        Gets the show_labels of this ChartSettings.
+        For the tabular view, whether to display labels.  Default: true
+
+        :return: The show_labels of this ChartSettings.
+        :rtype: bool
+        """
+        return self._show_labels
+
+    @show_labels.setter
+    def show_labels(self, show_labels):
+        """
+        Sets the show_labels of this ChartSettings.
+        For the tabular view, whether to display labels.  Default: true
+
+        :param show_labels: The show_labels of this ChartSettings.
+        :type: bool
+        """
+
+        self._show_labels = show_labels
+
+    @property
+    def show_raw_values(self):
+        """
+        Gets the show_raw_values of this ChartSettings.
+        For the tabular view, whether to display raw values.  Default: false
+
+        :return: The show_raw_values of this ChartSettings.
+        :rtype: bool
+        """
+        return self._show_raw_values
+
+    @show_raw_values.setter
+    def show_raw_values(self, show_raw_values):
+        """
+        Sets the show_raw_values of this ChartSettings.
+        For the tabular view, whether to display raw values.  Default: false
+
+        :param show_raw_values: The show_raw_values of this ChartSettings.
+        :type: bool
+        """
+
+        self._show_raw_values = show_raw_values
+
+    @property
+    def auto_column_tags(self):
+        """
+        Gets the auto_column_tags of this ChartSettings.
+        deprecated
+
+        :return: The auto_column_tags of this ChartSettings.
+        :rtype: bool
+        """
+        return self._auto_column_tags
+
+    @auto_column_tags.setter
+    def auto_column_tags(self, auto_column_tags):
+        """
+        Sets the auto_column_tags of this ChartSettings.
+        deprecated
+
+        :param auto_column_tags: The auto_column_tags of this ChartSettings.
+        :type: bool
+        """
+
+        self._auto_column_tags = auto_column_tags
+
+    @property
+    def column_tags(self):
+        """
+        Gets the column_tags of this ChartSettings.
+        deprecated
+
+        :return: The column_tags of this ChartSettings.
+        :rtype: str
+        """
+        return self._column_tags
+
+    @column_tags.setter
+    def column_tags(self, column_tags):
+        """
+        Sets the column_tags of this ChartSettings.
+        deprecated
+
+        :param column_tags: The column_tags of this ChartSettings.
+        :type: str
+        """
+
+        self._column_tags = column_tags
+
+    @property
+    def tag_mode(self):
+        """
+        Gets the tag_mode of this ChartSettings.
+        For the tabular view, which mode to use to determine which point tags to display
+
+        :return: The tag_mode of this ChartSettings.
+        :rtype: str
+        """
+        return self._tag_mode
+
+    @tag_mode.setter
+    def tag_mode(self, tag_mode):
+        """
+        Sets the tag_mode of this ChartSettings.
+        For the tabular view, which mode to use to determine which point tags to display
+
+        :param tag_mode: The tag_mode of this ChartSettings.
+        :type: str
+        """
+        allowed_values = ["all", "top", "custom"]
+        if tag_mode not in allowed_values:
+            raise ValueError(
+                "Invalid value for `tag_mode` ({0}), must be one of {1}"
+                .format(tag_mode, allowed_values)
+            )
+
+        self._tag_mode = tag_mode
+
+    @property
+    def num_tags(self):
+        """
+        Gets the num_tags of this ChartSettings.
+        For the tabular view, how many point tags to display
+
+        :return: The num_tags of this ChartSettings.
+        :rtype: int
+        """
+        return self._num_tags
+
+    @num_tags.setter
+    def num_tags(self, num_tags):
+        """
+        Sets the num_tags of this ChartSettings.
+        For the tabular view, how many point tags to display
+
+        :param num_tags: The num_tags of this ChartSettings.
+        :type: int
+        """
+
+        self._num_tags = num_tags
+
+    @property
+    def custom_tags(self):
+        """
+        Gets the custom_tags of this ChartSettings.
+        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode
+
+        :return: The custom_tags of this ChartSettings.
+        :rtype: list[str]
+        """
+        return self._custom_tags
+
+    @custom_tags.setter
+    def custom_tags(self, custom_tags):
+        """
+        Sets the custom_tags of this ChartSettings.
+        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode
+
+        :param custom_tags: The custom_tags of this ChartSettings.
+        :type: list[str]
+        """
+
+        self._custom_tags = custom_tags
+
+    @property
+    def group_by_source(self):
+        """
+        Gets the group_by_source of this ChartSettings.
+        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row
+
+        :return: The group_by_source of this ChartSettings.
+        :rtype: bool
+        """
+        return self._group_by_source
+
+    @group_by_source.setter
+    def group_by_source(self, group_by_source):
+        """
+        Sets the group_by_source of this ChartSettings.
+        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row
+
+        :param group_by_source: The group_by_source of this ChartSettings.
+        :type: bool
+        """
+
+        self._group_by_source = group_by_source
+
+    @property
+    def sort_values_descending(self):
+        """
+        Gets the sort_values_descending of this ChartSettings.
+        For the tabular view, whether to display display values in descending order.  Default: false
+
+        :return: The sort_values_descending of this ChartSettings.
+        :rtype: bool
+        """
+        return self._sort_values_descending
+
+    @sort_values_descending.setter
+    def sort_values_descending(self, sort_values_descending):
+        """
+        Sets the sort_values_descending of this ChartSettings.
+        For the tabular view, whether to display display values in descending order.  Default: false
+
+        :param sort_values_descending: The sort_values_descending of this ChartSettings.
+        :type: bool
+        """
+
+        self._sort_values_descending = sort_values_descending
 
     @property
     def y1_max(self):
@@ -479,27 +844,27 @@ class ChartSettings(object):
         self._y1_min = y1_min
 
     @property
-    def window_size(self):
+    def y1_units(self):
         """
-        Gets the window_size of this ChartSettings.
-        Width, in minutes, of the time window to use for \"last\" windowing
+        Gets the y1_units of this ChartSettings.
+        For plots with multiple Y-axes, units for right-side Y-axis
 
-        :return: The window_size of this ChartSettings.
-        :rtype: int
+        :return: The y1_units of this ChartSettings.
+        :rtype: str
         """
-        return self._window_size
+        return self._y1_units
 
-    @window_size.setter
-    def window_size(self, window_size):
+    @y1_units.setter
+    def y1_units(self, y1_units):
         """
-        Sets the window_size of this ChartSettings.
-        Width, in minutes, of the time window to use for \"last\" windowing
+        Sets the y1_units of this ChartSettings.
+        For plots with multiple Y-axes, units for right-side Y-axis
 
-        :param window_size: The window_size of this ChartSettings.
-        :type: int
+        :param y1_units: The y1_units of this ChartSettings.
+        :type: str
         """
 
-        self._window_size = window_size
+        self._y1_units = y1_units
 
     @property
     def y0_scale_si_by1024(self):
@@ -594,419 +959,27 @@ class ChartSettings(object):
         self._y1_unit_autoscaling = y1_unit_autoscaling
 
     @property
-    def expected_data_spacing(self):
+    def invert_dynamic_legend_hover_control(self):
         """
-        Gets the expected_data_spacing of this ChartSettings.
-        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s
+        Gets the invert_dynamic_legend_hover_control of this ChartSettings.
+        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)
 
-        :return: The expected_data_spacing of this ChartSettings.
-        :rtype: int
-        """
-        return self._expected_data_spacing
-
-    @expected_data_spacing.setter
-    def expected_data_spacing(self, expected_data_spacing):
-        """
-        Sets the expected_data_spacing of this ChartSettings.
-        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s
-
-        :param expected_data_spacing: The expected_data_spacing of this ChartSettings.
-        :type: int
-        """
-
-        self._expected_data_spacing = expected_data_spacing
-
-    @property
-    def line_type(self):
-        """
-        Gets the line_type of this ChartSettings.
-        Plot interpolation type.  linear is default
-
-        :return: The line_type of this ChartSettings.
-        :rtype: str
-        """
-        return self._line_type
-
-    @line_type.setter
-    def line_type(self, line_type):
-        """
-        Sets the line_type of this ChartSettings.
-        Plot interpolation type.  linear is default
-
-        :param line_type: The line_type of this ChartSettings.
-        :type: str
-        """
-        allowed_values = ["linear", "step-before", "step-after", "basis", "cardinal", "monotone"]
-        if line_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `line_type` ({0}), must be one of {1}"
-                .format(line_type, allowed_values)
-            )
-
-        self._line_type = line_type
-
-    @property
-    def group_by_source(self):
-        """
-        Gets the group_by_source of this ChartSettings.
-        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row
-
-        :return: The group_by_source of this ChartSettings.
+        :return: The invert_dynamic_legend_hover_control of this ChartSettings.
         :rtype: bool
         """
-        return self._group_by_source
+        return self._invert_dynamic_legend_hover_control
 
-    @group_by_source.setter
-    def group_by_source(self, group_by_source):
+    @invert_dynamic_legend_hover_control.setter
+    def invert_dynamic_legend_hover_control(self, invert_dynamic_legend_hover_control):
         """
-        Sets the group_by_source of this ChartSettings.
-        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row
+        Sets the invert_dynamic_legend_hover_control of this ChartSettings.
+        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)
 
-        :param group_by_source: The group_by_source of this ChartSettings.
+        :param invert_dynamic_legend_hover_control: The invert_dynamic_legend_hover_control of this ChartSettings.
         :type: bool
         """
 
-        self._group_by_source = group_by_source
-
-    @property
-    def stack_type(self):
-        """
-        Gets the stack_type of this ChartSettings.
-        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream
-
-        :return: The stack_type of this ChartSettings.
-        :rtype: str
-        """
-        return self._stack_type
-
-    @stack_type.setter
-    def stack_type(self, stack_type):
-        """
-        Sets the stack_type of this ChartSettings.
-        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream
-
-        :param stack_type: The stack_type of this ChartSettings.
-        :type: str
-        """
-        allowed_values = ["zero", "expand", "wiggle", "silhouette"]
-        if stack_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `stack_type` ({0}), must be one of {1}"
-                .format(stack_type, allowed_values)
-            )
-
-        self._stack_type = stack_type
-
-    @property
-    def ymax(self):
-        """
-        Gets the ymax of this ChartSettings.
-        For x-y scatterplots, max value for Y-axis.  Set null for auto
-
-        :return: The ymax of this ChartSettings.
-        :rtype: float
-        """
-        return self._ymax
-
-    @ymax.setter
-    def ymax(self, ymax):
-        """
-        Sets the ymax of this ChartSettings.
-        For x-y scatterplots, max value for Y-axis.  Set null for auto
-
-        :param ymax: The ymax of this ChartSettings.
-        :type: float
-        """
-
-        self._ymax = ymax
-
-    @property
-    def ymin(self):
-        """
-        Gets the ymin of this ChartSettings.
-        For x-y scatterplots, min value for Y-axis.  Set null for auto
-
-        :return: The ymin of this ChartSettings.
-        :rtype: float
-        """
-        return self._ymin
-
-    @ymin.setter
-    def ymin(self, ymin):
-        """
-        Sets the ymin of this ChartSettings.
-        For x-y scatterplots, min value for Y-axis.  Set null for auto
-
-        :param ymin: The ymin of this ChartSettings.
-        :type: float
-        """
-
-        self._ymin = ymin
-
-    @property
-    def xmax(self):
-        """
-        Gets the xmax of this ChartSettings.
-        For x-y scatterplots, max value for X-axis.  Set null for auto
-
-        :return: The xmax of this ChartSettings.
-        :rtype: float
-        """
-        return self._xmax
-
-    @xmax.setter
-    def xmax(self, xmax):
-        """
-        Sets the xmax of this ChartSettings.
-        For x-y scatterplots, max value for X-axis.  Set null for auto
-
-        :param xmax: The xmax of this ChartSettings.
-        :type: float
-        """
-
-        self._xmax = xmax
-
-    @property
-    def xmin(self):
-        """
-        Gets the xmin of this ChartSettings.
-        For x-y scatterplots, min value for X-axis.  Set null for auto
-
-        :return: The xmin of this ChartSettings.
-        :rtype: float
-        """
-        return self._xmin
-
-    @xmin.setter
-    def xmin(self, xmin):
-        """
-        Sets the xmin of this ChartSettings.
-        For x-y scatterplots, min value for X-axis.  Set null for auto
-
-        :param xmin: The xmin of this ChartSettings.
-        :type: float
-        """
-
-        self._xmin = xmin
-
-    @property
-    def time_based_coloring(self):
-        """
-        Gets the time_based_coloring of this ChartSettings.
-        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false
-
-        :return: The time_based_coloring of this ChartSettings.
-        :rtype: bool
-        """
-        return self._time_based_coloring
-
-    @time_based_coloring.setter
-    def time_based_coloring(self, time_based_coloring):
-        """
-        Sets the time_based_coloring of this ChartSettings.
-        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false
-
-        :param time_based_coloring: The time_based_coloring of this ChartSettings.
-        :type: bool
-        """
-
-        self._time_based_coloring = time_based_coloring
-
-    @property
-    def custom_tags(self):
-        """
-        Gets the custom_tags of this ChartSettings.
-        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode
-
-        :return: The custom_tags of this ChartSettings.
-        :rtype: list[str]
-        """
-        return self._custom_tags
-
-    @custom_tags.setter
-    def custom_tags(self, custom_tags):
-        """
-        Sets the custom_tags of this ChartSettings.
-        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode
-
-        :param custom_tags: The custom_tags of this ChartSettings.
-        :type: list[str]
-        """
-
-        self._custom_tags = custom_tags
-
-    @property
-    def sort_values_descending(self):
-        """
-        Gets the sort_values_descending of this ChartSettings.
-        For the tabular view, whether to display display values in descending order.  Default: false
-
-        :return: The sort_values_descending of this ChartSettings.
-        :rtype: bool
-        """
-        return self._sort_values_descending
-
-    @sort_values_descending.setter
-    def sort_values_descending(self, sort_values_descending):
-        """
-        Sets the sort_values_descending of this ChartSettings.
-        For the tabular view, whether to display display values in descending order.  Default: false
-
-        :param sort_values_descending: The sort_values_descending of this ChartSettings.
-        :type: bool
-        """
-
-        self._sort_values_descending = sort_values_descending
-
-    @property
-    def windowing(self):
-        """
-        Gets the windowing of this ChartSettings.
-        For the tabular view, whether to use the full time window for the query or the last X minutes
-
-        :return: The windowing of this ChartSettings.
-        :rtype: str
-        """
-        return self._windowing
-
-    @windowing.setter
-    def windowing(self, windowing):
-        """
-        Sets the windowing of this ChartSettings.
-        For the tabular view, whether to use the full time window for the query or the last X minutes
-
-        :param windowing: The windowing of this ChartSettings.
-        :type: str
-        """
-        allowed_values = ["full", "last"]
-        if windowing not in allowed_values:
-            raise ValueError(
-                "Invalid value for `windowing` ({0}), must be one of {1}"
-                .format(windowing, allowed_values)
-            )
-
-        self._windowing = windowing
-
-    @property
-    def show_hosts(self):
-        """
-        Gets the show_hosts of this ChartSettings.
-        For the tabular view, whether to display sources.  Default: true
-
-        :return: The show_hosts of this ChartSettings.
-        :rtype: bool
-        """
-        return self._show_hosts
-
-    @show_hosts.setter
-    def show_hosts(self, show_hosts):
-        """
-        Sets the show_hosts of this ChartSettings.
-        For the tabular view, whether to display sources.  Default: true
-
-        :param show_hosts: The show_hosts of this ChartSettings.
-        :type: bool
-        """
-
-        self._show_hosts = show_hosts
-
-    @property
-    def show_labels(self):
-        """
-        Gets the show_labels of this ChartSettings.
-        For the tabular view, whether to display labels.  Default: true
-
-        :return: The show_labels of this ChartSettings.
-        :rtype: bool
-        """
-        return self._show_labels
-
-    @show_labels.setter
-    def show_labels(self, show_labels):
-        """
-        Sets the show_labels of this ChartSettings.
-        For the tabular view, whether to display labels.  Default: true
-
-        :param show_labels: The show_labels of this ChartSettings.
-        :type: bool
-        """
-
-        self._show_labels = show_labels
-
-    @property
-    def show_raw_values(self):
-        """
-        Gets the show_raw_values of this ChartSettings.
-        For the tabular view, whether to display raw values.  Default: false
-
-        :return: The show_raw_values of this ChartSettings.
-        :rtype: bool
-        """
-        return self._show_raw_values
-
-    @show_raw_values.setter
-    def show_raw_values(self, show_raw_values):
-        """
-        Sets the show_raw_values of this ChartSettings.
-        For the tabular view, whether to display raw values.  Default: false
-
-        :param show_raw_values: The show_raw_values of this ChartSettings.
-        :type: bool
-        """
-
-        self._show_raw_values = show_raw_values
-
-    @property
-    def num_tags(self):
-        """
-        Gets the num_tags of this ChartSettings.
-        For the tabular view, how many point tags to display
-
-        :return: The num_tags of this ChartSettings.
-        :rtype: int
-        """
-        return self._num_tags
-
-    @num_tags.setter
-    def num_tags(self, num_tags):
-        """
-        Sets the num_tags of this ChartSettings.
-        For the tabular view, how many point tags to display
-
-        :param num_tags: The num_tags of this ChartSettings.
-        :type: int
-        """
-
-        self._num_tags = num_tags
-
-    @property
-    def tag_mode(self):
-        """
-        Gets the tag_mode of this ChartSettings.
-        For the tabular view, which mode to use to determine which point tags to display
-
-        :return: The tag_mode of this ChartSettings.
-        :rtype: str
-        """
-        return self._tag_mode
-
-    @tag_mode.setter
-    def tag_mode(self, tag_mode):
-        """
-        Sets the tag_mode of this ChartSettings.
-        For the tabular view, which mode to use to determine which point tags to display
-
-        :param tag_mode: The tag_mode of this ChartSettings.
-        :type: str
-        """
-        allowed_values = ["all", "top", "custom"]
-        if tag_mode not in allowed_values:
-            raise ValueError(
-                "Invalid value for `tag_mode` ({0}), must be one of {1}"
-                .format(tag_mode, allowed_values)
-            )
-
-        self._tag_mode = tag_mode
+        self._invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
 
     @property
     def fixed_legend_enabled(self):
@@ -1030,6 +1003,29 @@ class ChartSettings(object):
         """
 
         self._fixed_legend_enabled = fixed_legend_enabled
+
+    @property
+    def fixed_legend_use_raw_stats(self):
+        """
+        Gets the fixed_legend_use_raw_stats of this ChartSettings.
+        If true, the legend uses non-summarized stats instead of summarized
+
+        :return: The fixed_legend_use_raw_stats of this ChartSettings.
+        :rtype: bool
+        """
+        return self._fixed_legend_use_raw_stats
+
+    @fixed_legend_use_raw_stats.setter
+    def fixed_legend_use_raw_stats(self, fixed_legend_use_raw_stats):
+        """
+        Sets the fixed_legend_use_raw_stats of this ChartSettings.
+        If true, the legend uses non-summarized stats instead of summarized
+
+        :param fixed_legend_use_raw_stats: The fixed_legend_use_raw_stats of this ChartSettings.
+        :type: bool
+        """
+
+        self._fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
 
     @property
     def fixed_legend_position(self):
@@ -1084,58 +1080,6 @@ class ChartSettings(object):
         self._fixed_legend_display_stats = fixed_legend_display_stats
 
     @property
-    def fixed_legend_filter_field(self):
-        """
-        Gets the fixed_legend_filter_field of this ChartSettings.
-        Statistic to use for determining whether a series is displayed on the fixed legend
-
-        :return: The fixed_legend_filter_field of this ChartSettings.
-        :rtype: str
-        """
-        return self._fixed_legend_filter_field
-
-    @fixed_legend_filter_field.setter
-    def fixed_legend_filter_field(self, fixed_legend_filter_field):
-        """
-        Sets the fixed_legend_filter_field of this ChartSettings.
-        Statistic to use for determining whether a series is displayed on the fixed legend
-
-        :param fixed_legend_filter_field: The fixed_legend_filter_field of this ChartSettings.
-        :type: str
-        """
-        allowed_values = ["CURRENT", "MEAN", "MEDIAN", "SUM", "MIN", "MAX", "COUNT"]
-        if fixed_legend_filter_field not in allowed_values:
-            raise ValueError(
-                "Invalid value for `fixed_legend_filter_field` ({0}), must be one of {1}"
-                .format(fixed_legend_filter_field, allowed_values)
-            )
-
-        self._fixed_legend_filter_field = fixed_legend_filter_field
-
-    @property
-    def fixed_legend_filter_limit(self):
-        """
-        Gets the fixed_legend_filter_limit of this ChartSettings.
-        Number of series to include in the fixed legend
-
-        :return: The fixed_legend_filter_limit of this ChartSettings.
-        :rtype: int
-        """
-        return self._fixed_legend_filter_limit
-
-    @fixed_legend_filter_limit.setter
-    def fixed_legend_filter_limit(self, fixed_legend_filter_limit):
-        """
-        Sets the fixed_legend_filter_limit of this ChartSettings.
-        Number of series to include in the fixed legend
-
-        :param fixed_legend_filter_limit: The fixed_legend_filter_limit of this ChartSettings.
-        :type: int
-        """
-
-        self._fixed_legend_filter_limit = fixed_legend_filter_limit
-
-    @property
     def fixed_legend_filter_sort(self):
         """
         Gets the fixed_legend_filter_sort of this ChartSettings.
@@ -1165,50 +1109,194 @@ class ChartSettings(object):
         self._fixed_legend_filter_sort = fixed_legend_filter_sort
 
     @property
-    def fixed_legend_use_raw_stats(self):
+    def fixed_legend_filter_limit(self):
         """
-        Gets the fixed_legend_use_raw_stats of this ChartSettings.
-        If true, the legend uses non-summarized stats instead of summarized
+        Gets the fixed_legend_filter_limit of this ChartSettings.
+        Number of series to include in the fixed legend
 
-        :return: The fixed_legend_use_raw_stats of this ChartSettings.
-        :rtype: bool
+        :return: The fixed_legend_filter_limit of this ChartSettings.
+        :rtype: int
         """
-        return self._fixed_legend_use_raw_stats
+        return self._fixed_legend_filter_limit
 
-    @fixed_legend_use_raw_stats.setter
-    def fixed_legend_use_raw_stats(self, fixed_legend_use_raw_stats):
+    @fixed_legend_filter_limit.setter
+    def fixed_legend_filter_limit(self, fixed_legend_filter_limit):
         """
-        Sets the fixed_legend_use_raw_stats of this ChartSettings.
-        If true, the legend uses non-summarized stats instead of summarized
+        Sets the fixed_legend_filter_limit of this ChartSettings.
+        Number of series to include in the fixed legend
 
-        :param fixed_legend_use_raw_stats: The fixed_legend_use_raw_stats of this ChartSettings.
-        :type: bool
+        :param fixed_legend_filter_limit: The fixed_legend_filter_limit of this ChartSettings.
+        :type: int
         """
 
-        self._fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
+        self._fixed_legend_filter_limit = fixed_legend_filter_limit
 
     @property
-    def invert_dynamic_legend_hover_control(self):
+    def fixed_legend_filter_field(self):
         """
-        Gets the invert_dynamic_legend_hover_control of this ChartSettings.
-        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)
+        Gets the fixed_legend_filter_field of this ChartSettings.
+        Statistic to use for determining whether a series is displayed on the fixed legend
 
-        :return: The invert_dynamic_legend_hover_control of this ChartSettings.
+        :return: The fixed_legend_filter_field of this ChartSettings.
+        :rtype: str
+        """
+        return self._fixed_legend_filter_field
+
+    @fixed_legend_filter_field.setter
+    def fixed_legend_filter_field(self, fixed_legend_filter_field):
+        """
+        Sets the fixed_legend_filter_field of this ChartSettings.
+        Statistic to use for determining whether a series is displayed on the fixed legend
+
+        :param fixed_legend_filter_field: The fixed_legend_filter_field of this ChartSettings.
+        :type: str
+        """
+        allowed_values = ["CURRENT", "MEAN", "MEDIAN", "SUM", "MIN", "MAX", "COUNT"]
+        if fixed_legend_filter_field not in allowed_values:
+            raise ValueError(
+                "Invalid value for `fixed_legend_filter_field` ({0}), must be one of {1}"
+                .format(fixed_legend_filter_field, allowed_values)
+            )
+
+        self._fixed_legend_filter_field = fixed_legend_filter_field
+
+    @property
+    def fixed_legend_hide_label(self):
+        """
+        Gets the fixed_legend_hide_label of this ChartSettings.
+        deprecated
+
+        :return: The fixed_legend_hide_label of this ChartSettings.
         :rtype: bool
         """
-        return self._invert_dynamic_legend_hover_control
+        return self._fixed_legend_hide_label
 
-    @invert_dynamic_legend_hover_control.setter
-    def invert_dynamic_legend_hover_control(self, invert_dynamic_legend_hover_control):
+    @fixed_legend_hide_label.setter
+    def fixed_legend_hide_label(self, fixed_legend_hide_label):
         """
-        Sets the invert_dynamic_legend_hover_control of this ChartSettings.
-        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)
+        Sets the fixed_legend_hide_label of this ChartSettings.
+        deprecated
 
-        :param invert_dynamic_legend_hover_control: The invert_dynamic_legend_hover_control of this ChartSettings.
+        :param fixed_legend_hide_label: The fixed_legend_hide_label of this ChartSettings.
         :type: bool
         """
 
-        self._invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
+        self._fixed_legend_hide_label = fixed_legend_hide_label
+
+    @property
+    def xmax(self):
+        """
+        Gets the xmax of this ChartSettings.
+        For x-y scatterplots, max value for X-axis.  Set null for auto
+
+        :return: The xmax of this ChartSettings.
+        :rtype: float
+        """
+        return self._xmax
+
+    @xmax.setter
+    def xmax(self, xmax):
+        """
+        Sets the xmax of this ChartSettings.
+        For x-y scatterplots, max value for X-axis.  Set null for auto
+
+        :param xmax: The xmax of this ChartSettings.
+        :type: float
+        """
+
+        self._xmax = xmax
+
+    @property
+    def xmin(self):
+        """
+        Gets the xmin of this ChartSettings.
+        For x-y scatterplots, min value for X-axis.  Set null for auto
+
+        :return: The xmin of this ChartSettings.
+        :rtype: float
+        """
+        return self._xmin
+
+    @xmin.setter
+    def xmin(self, xmin):
+        """
+        Sets the xmin of this ChartSettings.
+        For x-y scatterplots, min value for X-axis.  Set null for auto
+
+        :param xmin: The xmin of this ChartSettings.
+        :type: float
+        """
+
+        self._xmin = xmin
+
+    @property
+    def ymax(self):
+        """
+        Gets the ymax of this ChartSettings.
+        For x-y scatterplots, max value for Y-axis.  Set null for auto
+
+        :return: The ymax of this ChartSettings.
+        :rtype: float
+        """
+        return self._ymax
+
+    @ymax.setter
+    def ymax(self, ymax):
+        """
+        Sets the ymax of this ChartSettings.
+        For x-y scatterplots, max value for Y-axis.  Set null for auto
+
+        :param ymax: The ymax of this ChartSettings.
+        :type: float
+        """
+
+        self._ymax = ymax
+
+    @property
+    def ymin(self):
+        """
+        Gets the ymin of this ChartSettings.
+        For x-y scatterplots, min value for Y-axis.  Set null for auto
+
+        :return: The ymin of this ChartSettings.
+        :rtype: float
+        """
+        return self._ymin
+
+    @ymin.setter
+    def ymin(self, ymin):
+        """
+        Sets the ymin of this ChartSettings.
+        For x-y scatterplots, min value for Y-axis.  Set null for auto
+
+        :param ymin: The ymin of this ChartSettings.
+        :type: float
+        """
+
+        self._ymin = ymin
+
+    @property
+    def time_based_coloring(self):
+        """
+        Gets the time_based_coloring of this ChartSettings.
+        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false
+
+        :return: The time_based_coloring of this ChartSettings.
+        :rtype: bool
+        """
+        return self._time_based_coloring
+
+    @time_based_coloring.setter
+    def time_based_coloring(self, time_based_coloring):
+        """
+        Sets the time_based_coloring of this ChartSettings.
+        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false
+
+        :param time_based_coloring: The time_based_coloring of this ChartSettings.
+        :type: bool
+        """
+
+        self._time_based_coloring = time_based_coloring
 
     @property
     def sparkline_display_value_type(self):
@@ -1261,6 +1349,29 @@ class ChartSettings(object):
         """
 
         self._sparkline_display_color = sparkline_display_color
+
+    @property
+    def sparkline_display_vertical_position(self):
+        """
+        Gets the sparkline_display_vertical_position of this ChartSettings.
+        deprecated
+
+        :return: The sparkline_display_vertical_position of this ChartSettings.
+        :rtype: str
+        """
+        return self._sparkline_display_vertical_position
+
+    @sparkline_display_vertical_position.setter
+    def sparkline_display_vertical_position(self, sparkline_display_vertical_position):
+        """
+        Sets the sparkline_display_vertical_position of this ChartSettings.
+        deprecated
+
+        :param sparkline_display_vertical_position: The sparkline_display_vertical_position of this ChartSettings.
+        :type: str
+        """
+
+        self._sparkline_display_vertical_position = sparkline_display_vertical_position
 
     @property
     def sparkline_display_horizontal_position(self):
@@ -1482,6 +1593,29 @@ class ChartSettings(object):
         self._sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
 
     @property
+    def sparkline_value_color_map_values(self):
+        """
+        Gets the sparkline_value_color_map_values of this ChartSettings.
+        deprecated
+
+        :return: The sparkline_value_color_map_values of this ChartSettings.
+        :rtype: list[int]
+        """
+        return self._sparkline_value_color_map_values
+
+    @sparkline_value_color_map_values.setter
+    def sparkline_value_color_map_values(self, sparkline_value_color_map_values):
+        """
+        Sets the sparkline_value_color_map_values of this ChartSettings.
+        deprecated
+
+        :param sparkline_value_color_map_values: The sparkline_value_color_map_values of this ChartSettings.
+        :type: list[int]
+        """
+
+        self._sparkline_value_color_map_values = sparkline_value_color_map_values
+
+    @property
     def sparkline_value_color_map_apply_to(self):
         """
         Gets the sparkline_value_color_map_apply_to of this ChartSettings.
@@ -1578,167 +1712,6 @@ class ChartSettings(object):
         """
 
         self._sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
-
-    @property
-    def markdown_content(self):
-        """
-        Gets the markdown_content of this ChartSettings.
-        The Markdown content for a Markdown display, base64-encoded
-
-        :return: The markdown_content of this ChartSettings.
-        :rtype: str
-        """
-        return self._markdown_content
-
-    @markdown_content.setter
-    def markdown_content(self, markdown_content):
-        """
-        Sets the markdown_content of this ChartSettings.
-        The Markdown content for a Markdown display, base64-encoded
-
-        :param markdown_content: The markdown_content of this ChartSettings.
-        :type: str
-        """
-
-        self._markdown_content = markdown_content
-
-    @property
-    def plain_markdown_content(self):
-        """
-        Gets the plain_markdown_content of this ChartSettings.
-        The Markdown content for a Markdown display, in plain text.  This is a derived field used for search and will not be persisted.
-
-        :return: The plain_markdown_content of this ChartSettings.
-        :rtype: str
-        """
-        return self._plain_markdown_content
-
-    @plain_markdown_content.setter
-    def plain_markdown_content(self, plain_markdown_content):
-        """
-        Sets the plain_markdown_content of this ChartSettings.
-        The Markdown content for a Markdown display, in plain text.  This is a derived field used for search and will not be persisted.
-
-        :param plain_markdown_content: The plain_markdown_content of this ChartSettings.
-        :type: str
-        """
-
-        self._plain_markdown_content = plain_markdown_content
-
-    @property
-    def fixed_legend_hide_label(self):
-        """
-        Gets the fixed_legend_hide_label of this ChartSettings.
-        deprecated
-
-        :return: The fixed_legend_hide_label of this ChartSettings.
-        :rtype: bool
-        """
-        return self._fixed_legend_hide_label
-
-    @fixed_legend_hide_label.setter
-    def fixed_legend_hide_label(self, fixed_legend_hide_label):
-        """
-        Sets the fixed_legend_hide_label of this ChartSettings.
-        deprecated
-
-        :param fixed_legend_hide_label: The fixed_legend_hide_label of this ChartSettings.
-        :type: bool
-        """
-
-        self._fixed_legend_hide_label = fixed_legend_hide_label
-
-    @property
-    def sparkline_display_vertical_position(self):
-        """
-        Gets the sparkline_display_vertical_position of this ChartSettings.
-        deprecated
-
-        :return: The sparkline_display_vertical_position of this ChartSettings.
-        :rtype: str
-        """
-        return self._sparkline_display_vertical_position
-
-    @sparkline_display_vertical_position.setter
-    def sparkline_display_vertical_position(self, sparkline_display_vertical_position):
-        """
-        Sets the sparkline_display_vertical_position of this ChartSettings.
-        deprecated
-
-        :param sparkline_display_vertical_position: The sparkline_display_vertical_position of this ChartSettings.
-        :type: str
-        """
-
-        self._sparkline_display_vertical_position = sparkline_display_vertical_position
-
-    @property
-    def sparkline_value_color_map_values(self):
-        """
-        Gets the sparkline_value_color_map_values of this ChartSettings.
-        deprecated
-
-        :return: The sparkline_value_color_map_values of this ChartSettings.
-        :rtype: list[int]
-        """
-        return self._sparkline_value_color_map_values
-
-    @sparkline_value_color_map_values.setter
-    def sparkline_value_color_map_values(self, sparkline_value_color_map_values):
-        """
-        Sets the sparkline_value_color_map_values of this ChartSettings.
-        deprecated
-
-        :param sparkline_value_color_map_values: The sparkline_value_color_map_values of this ChartSettings.
-        :type: list[int]
-        """
-
-        self._sparkline_value_color_map_values = sparkline_value_color_map_values
-
-    @property
-    def auto_column_tags(self):
-        """
-        Gets the auto_column_tags of this ChartSettings.
-        deprecated
-
-        :return: The auto_column_tags of this ChartSettings.
-        :rtype: bool
-        """
-        return self._auto_column_tags
-
-    @auto_column_tags.setter
-    def auto_column_tags(self, auto_column_tags):
-        """
-        Sets the auto_column_tags of this ChartSettings.
-        deprecated
-
-        :param auto_column_tags: The auto_column_tags of this ChartSettings.
-        :type: bool
-        """
-
-        self._auto_column_tags = auto_column_tags
-
-    @property
-    def column_tags(self):
-        """
-        Gets the column_tags of this ChartSettings.
-        deprecated
-
-        :return: The column_tags of this ChartSettings.
-        :rtype: str
-        """
-        return self._column_tags
-
-    @column_tags.setter
-    def column_tags(self, column_tags):
-        """
-        Sets the column_tags of this ChartSettings.
-        deprecated
-
-        :param column_tags: The column_tags of this ChartSettings.
-        :type: str
-        """
-
-        self._column_tags = column_tags
 
     def to_dict(self):
         """

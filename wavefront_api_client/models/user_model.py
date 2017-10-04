@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -50,13 +50,11 @@ class UserModel(object):
         self._identifier = None
         self._customer = None
         self._groups = None
+        self.discriminator = None
 
-        if identifier is not None:
-          self.identifier = identifier
-        if customer is not None:
-          self.customer = customer
-        if groups is not None:
-          self.groups = groups
+        self.identifier = identifier
+        self.customer = customer
+        self.groups = groups
 
     @property
     def identifier(self):
@@ -78,6 +76,8 @@ class UserModel(object):
         :param identifier: The identifier of this UserModel.
         :type: str
         """
+        if identifier is None:
+            raise ValueError("Invalid value for `identifier`, must not be `None`")
 
         self._identifier = identifier
 
@@ -101,6 +101,8 @@ class UserModel(object):
         :param customer: The customer of this UserModel.
         :type: str
         """
+        if customer is None:
+            raise ValueError("Invalid value for `customer`, must not be `None`")
 
         self._customer = customer
 
@@ -124,6 +126,8 @@ class UserModel(object):
         :param groups: The groups of this UserModel.
         :type: list[str]
         """
+        if groups is None:
+            raise ValueError("Invalid value for `groups`, must not be `None`")
 
         self._groups = groups
 

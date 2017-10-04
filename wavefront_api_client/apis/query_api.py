@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -198,7 +198,7 @@ class QueryApi(object):
         :param str source: source to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
         :param int start_time: start time in epoch milliseconds (cannot be more than a day in the past) null to use an hour before endTime
         :param int end_time: end time in epoch milliseconds (cannot be more than a day in the past) null to use now
-        :return: list[Timeseries]
+        :return: list[RawTimeseries]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -224,7 +224,7 @@ class QueryApi(object):
         :param str source: source to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
         :param int start_time: start time in epoch milliseconds (cannot be more than a day in the past) null to use an hour before endTime
         :param int end_time: end time in epoch milliseconds (cannot be more than a day in the past) null to use now
-        :return: list[Timeseries]
+        :return: list[RawTimeseries]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -285,7 +285,7 @@ class QueryApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[Timeseries]',
+                                        response_type='list[RawTimeseries]',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

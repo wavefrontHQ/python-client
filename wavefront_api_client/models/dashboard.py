@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -37,6 +37,7 @@ class Dashboard(object):
         'description': 'str',
         'tags': 'WFTags',
         'customer': 'str',
+        'creator_id': 'str',
         'url': 'str',
         'event_filter_type': 'str',
         'sections': 'list[DashboardSection]',
@@ -57,12 +58,11 @@ class Dashboard(object):
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'updater_id': 'str',
-        'creator_id': 'str',
         'deleted': 'bool',
         'system_owned': 'bool',
-        'favorite': 'bool',
+        'num_charts': 'int',
         'num_favorites': 'int',
-        'num_charts': 'int'
+        'favorite': 'bool'
     }
 
     attribute_map = {
@@ -72,6 +72,7 @@ class Dashboard(object):
         'description': 'description',
         'tags': 'tags',
         'customer': 'customer',
+        'creator_id': 'creatorId',
         'url': 'url',
         'event_filter_type': 'eventFilterType',
         'sections': 'sections',
@@ -92,15 +93,14 @@ class Dashboard(object):
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
-        'creator_id': 'creatorId',
         'deleted': 'deleted',
         'system_owned': 'systemOwned',
-        'favorite': 'favorite',
+        'num_charts': 'numCharts',
         'num_favorites': 'numFavorites',
-        'num_charts': 'numCharts'
+        'favorite': 'favorite'
     }
 
-    def __init__(self, name=None, id=None, parameters=None, description=None, tags=None, customer=None, url=None, event_filter_type=None, sections=None, parameter_details=None, display_description=None, display_section_table_of_contents=None, display_query_parameters=None, chart_title_scalar=None, event_query=None, default_time_window=None, default_start_time=None, default_end_time=None, chart_title_color=None, chart_title_bg_color=None, views_last_day=None, views_last_week=None, views_last_month=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, creator_id=None, deleted=None, system_owned=None, favorite=None, num_favorites=None, num_charts=None):
+    def __init__(self, name=None, id=None, parameters=None, description=None, tags=None, customer=None, creator_id=None, url=None, event_filter_type=None, sections=None, parameter_details=None, display_description=None, display_section_table_of_contents=None, display_query_parameters=None, chart_title_scalar=None, event_query=None, default_time_window=None, default_start_time=None, default_end_time=None, chart_title_color=None, chart_title_bg_color=None, views_last_day=None, views_last_week=None, views_last_month=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, deleted=None, system_owned=None, num_charts=None, num_favorites=None, favorite=None):
         """
         Dashboard - a model defined in Swagger
         """
@@ -111,6 +111,7 @@ class Dashboard(object):
         self._description = None
         self._tags = None
         self._customer = None
+        self._creator_id = None
         self._url = None
         self._event_filter_type = None
         self._sections = None
@@ -131,12 +132,12 @@ class Dashboard(object):
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._updater_id = None
-        self._creator_id = None
         self._deleted = None
         self._system_owned = None
-        self._favorite = None
-        self._num_favorites = None
         self._num_charts = None
+        self._num_favorites = None
+        self._favorite = None
+        self.discriminator = None
 
         self.name = name
         self.id = id
@@ -148,6 +149,8 @@ class Dashboard(object):
           self.tags = tags
         if customer is not None:
           self.customer = customer
+        if creator_id is not None:
+          self.creator_id = creator_id
         self.url = url
         if event_filter_type is not None:
           self.event_filter_type = event_filter_type
@@ -186,18 +189,16 @@ class Dashboard(object):
           self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
           self.updater_id = updater_id
-        if creator_id is not None:
-          self.creator_id = creator_id
         if deleted is not None:
           self.deleted = deleted
         if system_owned is not None:
           self.system_owned = system_owned
-        if favorite is not None:
-          self.favorite = favorite
-        if num_favorites is not None:
-          self.num_favorites = num_favorites
         if num_charts is not None:
           self.num_charts = num_charts
+        if num_favorites is not None:
+          self.num_favorites = num_favorites
+        if favorite is not None:
+          self.favorite = favorite
 
     @property
     def name(self):
@@ -299,7 +300,6 @@ class Dashboard(object):
     def tags(self):
         """
         Gets the tags of this Dashboard.
-        Tags assigned to this dashboard
 
         :return: The tags of this Dashboard.
         :rtype: WFTags
@@ -310,7 +310,6 @@ class Dashboard(object):
     def tags(self, tags):
         """
         Sets the tags of this Dashboard.
-        Tags assigned to this dashboard
 
         :param tags: The tags of this Dashboard.
         :type: WFTags
@@ -340,6 +339,27 @@ class Dashboard(object):
         """
 
         self._customer = customer
+
+    @property
+    def creator_id(self):
+        """
+        Gets the creator_id of this Dashboard.
+
+        :return: The creator_id of this Dashboard.
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """
+        Sets the creator_id of this Dashboard.
+
+        :param creator_id: The creator_id of this Dashboard.
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def url(self):
@@ -800,27 +820,6 @@ class Dashboard(object):
         self._updater_id = updater_id
 
     @property
-    def creator_id(self):
-        """
-        Gets the creator_id of this Dashboard.
-
-        :return: The creator_id of this Dashboard.
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """
-        Sets the creator_id of this Dashboard.
-
-        :param creator_id: The creator_id of this Dashboard.
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
     def deleted(self):
         """
         Gets the deleted of this Dashboard.
@@ -865,25 +864,25 @@ class Dashboard(object):
         self._system_owned = system_owned
 
     @property
-    def favorite(self):
+    def num_charts(self):
         """
-        Gets the favorite of this Dashboard.
+        Gets the num_charts of this Dashboard.
 
-        :return: The favorite of this Dashboard.
-        :rtype: bool
+        :return: The num_charts of this Dashboard.
+        :rtype: int
         """
-        return self._favorite
+        return self._num_charts
 
-    @favorite.setter
-    def favorite(self, favorite):
+    @num_charts.setter
+    def num_charts(self, num_charts):
         """
-        Sets the favorite of this Dashboard.
+        Sets the num_charts of this Dashboard.
 
-        :param favorite: The favorite of this Dashboard.
-        :type: bool
+        :param num_charts: The num_charts of this Dashboard.
+        :type: int
         """
 
-        self._favorite = favorite
+        self._num_charts = num_charts
 
     @property
     def num_favorites(self):
@@ -907,25 +906,25 @@ class Dashboard(object):
         self._num_favorites = num_favorites
 
     @property
-    def num_charts(self):
+    def favorite(self):
         """
-        Gets the num_charts of this Dashboard.
+        Gets the favorite of this Dashboard.
 
-        :return: The num_charts of this Dashboard.
-        :rtype: int
+        :return: The favorite of this Dashboard.
+        :rtype: bool
         """
-        return self._num_charts
+        return self._favorite
 
-    @num_charts.setter
-    def num_charts(self, num_charts):
+    @favorite.setter
+    def favorite(self, favorite):
         """
-        Sets the num_charts of this Dashboard.
+        Sets the favorite of this Dashboard.
 
-        :param num_charts: The num_charts of this Dashboard.
-        :type: int
+        :param favorite: The favorite of this Dashboard.
+        :type: bool
         """
 
-        self._num_charts = num_charts
+        self._favorite = favorite
 
     def to_dict(self):
         """

@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -32,44 +32,45 @@ class AvroBackedStandardizedDTO(object):
     """
     swagger_types = {
         'id': 'str',
+        'creator_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'updater_id': 'str',
-        'creator_id': 'str',
         'deleted': 'bool'
     }
 
     attribute_map = {
         'id': 'id',
+        'creator_id': 'creatorId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
-        'creator_id': 'creatorId',
         'deleted': 'deleted'
     }
 
-    def __init__(self, id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, creator_id=None, deleted=None):
+    def __init__(self, id=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, deleted=None):
         """
         AvroBackedStandardizedDTO - a model defined in Swagger
         """
 
         self._id = None
+        self._creator_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._updater_id = None
-        self._creator_id = None
         self._deleted = None
+        self.discriminator = None
 
         if id is not None:
           self.id = id
+        if creator_id is not None:
+          self.creator_id = creator_id
         if created_epoch_millis is not None:
           self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
           self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
           self.updater_id = updater_id
-        if creator_id is not None:
-          self.creator_id = creator_id
         if deleted is not None:
           self.deleted = deleted
 
@@ -93,6 +94,27 @@ class AvroBackedStandardizedDTO(object):
         """
 
         self._id = id
+
+    @property
+    def creator_id(self):
+        """
+        Gets the creator_id of this AvroBackedStandardizedDTO.
+
+        :return: The creator_id of this AvroBackedStandardizedDTO.
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """
+        Sets the creator_id of this AvroBackedStandardizedDTO.
+
+        :param creator_id: The creator_id of this AvroBackedStandardizedDTO.
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def created_epoch_millis(self):
@@ -156,27 +178,6 @@ class AvroBackedStandardizedDTO(object):
         """
 
         self._updater_id = updater_id
-
-    @property
-    def creator_id(self):
-        """
-        Gets the creator_id of this AvroBackedStandardizedDTO.
-
-        :return: The creator_id of this AvroBackedStandardizedDTO.
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """
-        Sets the creator_id of this AvroBackedStandardizedDTO.
-
-        :param creator_id: The creator_id of this AvroBackedStandardizedDTO.
-        :type: str
-        """
-
-        self._creator_id = creator_id
 
     @property
     def deleted(self):

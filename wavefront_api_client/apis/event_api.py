@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -237,14 +237,14 @@ class EventApi(object):
     def create_event(self, **kwargs):
         """
         Create a specific event
-        
+        The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_event(async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
@@ -259,14 +259,14 @@ class EventApi(object):
     def create_event_with_http_info(self, **kwargs):
         """
         Create a specific event
-        
+        The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_event_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
@@ -924,7 +924,7 @@ class EventApi(object):
     def update_event(self, id, **kwargs):
         """
         Update a specific event
-        
+        The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_event(id, async=True)
@@ -932,7 +932,7 @@ class EventApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
@@ -947,7 +947,7 @@ class EventApi(object):
     def update_event_with_http_info(self, id, **kwargs):
         """
         Update a specific event
-        
+        The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_event_with_http_info(id, async=True)
@@ -955,7 +955,7 @@ class EventApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 0 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.

@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -36,11 +36,11 @@ class DashboardParameterValue(object):
         'description': 'str',
         'parameter_type': 'str',
         'values_to_readable_strings': 'dict(str, str)',
+        'multivalue': 'bool',
         'dynamic_field_type': 'str',
         'query_value': 'str',
         'hide_from_view': 'bool',
         'tag_key': 'str',
-        'multivalue': 'bool',
         'allow_all': 'bool'
     }
 
@@ -50,15 +50,15 @@ class DashboardParameterValue(object):
         'description': 'description',
         'parameter_type': 'parameterType',
         'values_to_readable_strings': 'valuesToReadableStrings',
+        'multivalue': 'multivalue',
         'dynamic_field_type': 'dynamicFieldType',
         'query_value': 'queryValue',
         'hide_from_view': 'hideFromView',
         'tag_key': 'tagKey',
-        'multivalue': 'multivalue',
         'allow_all': 'allowAll'
     }
 
-    def __init__(self, label=None, default_value=None, description=None, parameter_type=None, values_to_readable_strings=None, dynamic_field_type=None, query_value=None, hide_from_view=None, tag_key=None, multivalue=None, allow_all=None):
+    def __init__(self, label=None, default_value=None, description=None, parameter_type=None, values_to_readable_strings=None, multivalue=None, dynamic_field_type=None, query_value=None, hide_from_view=None, tag_key=None, allow_all=None):
         """
         DashboardParameterValue - a model defined in Swagger
         """
@@ -68,12 +68,13 @@ class DashboardParameterValue(object):
         self._description = None
         self._parameter_type = None
         self._values_to_readable_strings = None
+        self._multivalue = None
         self._dynamic_field_type = None
         self._query_value = None
         self._hide_from_view = None
         self._tag_key = None
-        self._multivalue = None
         self._allow_all = None
+        self.discriminator = None
 
         if label is not None:
           self.label = label
@@ -85,6 +86,8 @@ class DashboardParameterValue(object):
           self.parameter_type = parameter_type
         if values_to_readable_strings is not None:
           self.values_to_readable_strings = values_to_readable_strings
+        if multivalue is not None:
+          self.multivalue = multivalue
         if dynamic_field_type is not None:
           self.dynamic_field_type = dynamic_field_type
         if query_value is not None:
@@ -93,8 +96,6 @@ class DashboardParameterValue(object):
           self.hide_from_view = hide_from_view
         if tag_key is not None:
           self.tag_key = tag_key
-        if multivalue is not None:
-          self.multivalue = multivalue
         if allow_all is not None:
           self.allow_all = allow_all
 
@@ -210,6 +211,27 @@ class DashboardParameterValue(object):
         self._values_to_readable_strings = values_to_readable_strings
 
     @property
+    def multivalue(self):
+        """
+        Gets the multivalue of this DashboardParameterValue.
+
+        :return: The multivalue of this DashboardParameterValue.
+        :rtype: bool
+        """
+        return self._multivalue
+
+    @multivalue.setter
+    def multivalue(self, multivalue):
+        """
+        Sets the multivalue of this DashboardParameterValue.
+
+        :param multivalue: The multivalue of this DashboardParameterValue.
+        :type: bool
+        """
+
+        self._multivalue = multivalue
+
+    @property
     def dynamic_field_type(self):
         """
         Gets the dynamic_field_type of this DashboardParameterValue.
@@ -298,27 +320,6 @@ class DashboardParameterValue(object):
         """
 
         self._tag_key = tag_key
-
-    @property
-    def multivalue(self):
-        """
-        Gets the multivalue of this DashboardParameterValue.
-
-        :return: The multivalue of this DashboardParameterValue.
-        :rtype: bool
-        """
-        return self._multivalue
-
-    @multivalue.setter
-    def multivalue(self, multivalue):
-        """
-        Sets the multivalue of this DashboardParameterValue.
-
-        :param multivalue: The multivalue of this DashboardParameterValue.
-        :type: bool
-        """
-
-        self._multivalue = multivalue
 
     @property
     def allow_all(self):

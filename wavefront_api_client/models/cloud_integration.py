@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -36,22 +36,24 @@ class CloudIntegration(object):
         'id': 'str',
         'service': 'str',
         'in_trash': 'bool',
+        'creator_id': 'str',
         'additional_tags': 'dict(str, str)',
         'last_received_data_point_ms': 'int',
         'last_metric_count': 'int',
         'cloud_watch': 'CloudWatchConfiguration',
         'cloud_trail': 'CloudTrailConfiguration',
-        'last_error_event': 'Event',
         'ec2': 'EC2Configuration',
+        'gcp': 'GCPConfiguration',
         'last_error': 'str',
         'last_error_ms': 'int',
+        'disabled': 'bool',
         'last_processor_id': 'str',
         'last_processing_timestamp': 'int',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'updater_id': 'str',
-        'creator_id': 'str',
         'service_refresh_rate_in_mins': 'int',
+        'last_error_event': 'Event',
         'deleted': 'bool'
     }
 
@@ -61,26 +63,28 @@ class CloudIntegration(object):
         'id': 'id',
         'service': 'service',
         'in_trash': 'inTrash',
+        'creator_id': 'creatorId',
         'additional_tags': 'additionalTags',
         'last_received_data_point_ms': 'lastReceivedDataPointMs',
         'last_metric_count': 'lastMetricCount',
         'cloud_watch': 'cloudWatch',
         'cloud_trail': 'cloudTrail',
-        'last_error_event': 'lastErrorEvent',
         'ec2': 'ec2',
+        'gcp': 'gcp',
         'last_error': 'lastError',
         'last_error_ms': 'lastErrorMs',
+        'disabled': 'disabled',
         'last_processor_id': 'lastProcessorId',
         'last_processing_timestamp': 'lastProcessingTimestamp',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
-        'creator_id': 'creatorId',
         'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
+        'last_error_event': 'lastErrorEvent',
         'deleted': 'deleted'
     }
 
-    def __init__(self, force_save=None, name=None, id=None, service=None, in_trash=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, last_error_event=None, ec2=None, last_error=None, last_error_ms=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, creator_id=None, service_refresh_rate_in_mins=None, deleted=None):
+    def __init__(self, force_save=None, name=None, id=None, service=None, in_trash=None, creator_id=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, service_refresh_rate_in_mins=None, last_error_event=None, deleted=None):
         """
         CloudIntegration - a model defined in Swagger
         """
@@ -90,34 +94,37 @@ class CloudIntegration(object):
         self._id = None
         self._service = None
         self._in_trash = None
+        self._creator_id = None
         self._additional_tags = None
         self._last_received_data_point_ms = None
         self._last_metric_count = None
         self._cloud_watch = None
         self._cloud_trail = None
-        self._last_error_event = None
         self._ec2 = None
+        self._gcp = None
         self._last_error = None
         self._last_error_ms = None
+        self._disabled = None
         self._last_processor_id = None
         self._last_processing_timestamp = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._updater_id = None
-        self._creator_id = None
         self._service_refresh_rate_in_mins = None
+        self._last_error_event = None
         self._deleted = None
+        self.discriminator = None
 
         if force_save is not None:
           self.force_save = force_save
-        if name is not None:
-          self.name = name
+        self.name = name
         if id is not None:
           self.id = id
-        if service is not None:
-          self.service = service
+        self.service = service
         if in_trash is not None:
           self.in_trash = in_trash
+        if creator_id is not None:
+          self.creator_id = creator_id
         if additional_tags is not None:
           self.additional_tags = additional_tags
         if last_received_data_point_ms is not None:
@@ -128,14 +135,16 @@ class CloudIntegration(object):
           self.cloud_watch = cloud_watch
         if cloud_trail is not None:
           self.cloud_trail = cloud_trail
-        if last_error_event is not None:
-          self.last_error_event = last_error_event
         if ec2 is not None:
           self.ec2 = ec2
+        if gcp is not None:
+          self.gcp = gcp
         if last_error is not None:
           self.last_error = last_error
         if last_error_ms is not None:
           self.last_error_ms = last_error_ms
+        if disabled is not None:
+          self.disabled = disabled
         if last_processor_id is not None:
           self.last_processor_id = last_processor_id
         if last_processing_timestamp is not None:
@@ -146,10 +155,10 @@ class CloudIntegration(object):
           self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
           self.updater_id = updater_id
-        if creator_id is not None:
-          self.creator_id = creator_id
         if service_refresh_rate_in_mins is not None:
           self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
+        if last_error_event is not None:
+          self.last_error_event = last_error_event
         if deleted is not None:
           self.deleted = deleted
 
@@ -194,6 +203,8 @@ class CloudIntegration(object):
         :param name: The name of this CloudIntegration.
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
 
         self._name = name
 
@@ -238,7 +249,9 @@ class CloudIntegration(object):
         :param service: The service of this CloudIntegration.
         :type: str
         """
-        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2"]
+        if service is None:
+            raise ValueError("Invalid value for `service`, must not be `None`")
+        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP"]
         if service not in allowed_values:
             raise ValueError(
                 "Invalid value for `service` ({0}), must be one of {1}"
@@ -267,6 +280,27 @@ class CloudIntegration(object):
         """
 
         self._in_trash = in_trash
+
+    @property
+    def creator_id(self):
+        """
+        Gets the creator_id of this CloudIntegration.
+
+        :return: The creator_id of this CloudIntegration.
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """
+        Sets the creator_id of this CloudIntegration.
+
+        :param creator_id: The creator_id of this CloudIntegration.
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def additional_tags(self):
@@ -341,7 +375,6 @@ class CloudIntegration(object):
     def cloud_watch(self):
         """
         Gets the cloud_watch of this CloudIntegration.
-        CloudWatch specific configurations. Only applicable when service=CLOUDWATCH
 
         :return: The cloud_watch of this CloudIntegration.
         :rtype: CloudWatchConfiguration
@@ -352,7 +385,6 @@ class CloudIntegration(object):
     def cloud_watch(self, cloud_watch):
         """
         Sets the cloud_watch of this CloudIntegration.
-        CloudWatch specific configurations. Only applicable when service=CLOUDWATCH
 
         :param cloud_watch: The cloud_watch of this CloudIntegration.
         :type: CloudWatchConfiguration
@@ -364,7 +396,6 @@ class CloudIntegration(object):
     def cloud_trail(self):
         """
         Gets the cloud_trail of this CloudIntegration.
-        CloudTrail specific configurations. Only applicable when service=CLOUDTRAIL
 
         :return: The cloud_trail of this CloudIntegration.
         :rtype: CloudTrailConfiguration
@@ -375,7 +406,6 @@ class CloudIntegration(object):
     def cloud_trail(self, cloud_trail):
         """
         Sets the cloud_trail of this CloudIntegration.
-        CloudTrail specific configurations. Only applicable when service=CLOUDTRAIL
 
         :param cloud_trail: The cloud_trail of this CloudIntegration.
         :type: CloudTrailConfiguration
@@ -384,31 +414,9 @@ class CloudIntegration(object):
         self._cloud_trail = cloud_trail
 
     @property
-    def last_error_event(self):
-        """
-        Gets the last_error_event of this CloudIntegration.
-
-        :return: The last_error_event of this CloudIntegration.
-        :rtype: Event
-        """
-        return self._last_error_event
-
-    @last_error_event.setter
-    def last_error_event(self, last_error_event):
-        """
-        Sets the last_error_event of this CloudIntegration.
-
-        :param last_error_event: The last_error_event of this CloudIntegration.
-        :type: Event
-        """
-
-        self._last_error_event = last_error_event
-
-    @property
     def ec2(self):
         """
         Gets the ec2 of this CloudIntegration.
-        EC2 specific configurations. Only applicable when service=EC2
 
         :return: The ec2 of this CloudIntegration.
         :rtype: EC2Configuration
@@ -419,13 +427,33 @@ class CloudIntegration(object):
     def ec2(self, ec2):
         """
         Sets the ec2 of this CloudIntegration.
-        EC2 specific configurations. Only applicable when service=EC2
 
         :param ec2: The ec2 of this CloudIntegration.
         :type: EC2Configuration
         """
 
         self._ec2 = ec2
+
+    @property
+    def gcp(self):
+        """
+        Gets the gcp of this CloudIntegration.
+
+        :return: The gcp of this CloudIntegration.
+        :rtype: GCPConfiguration
+        """
+        return self._gcp
+
+    @gcp.setter
+    def gcp(self, gcp):
+        """
+        Sets the gcp of this CloudIntegration.
+
+        :param gcp: The gcp of this CloudIntegration.
+        :type: GCPConfiguration
+        """
+
+        self._gcp = gcp
 
     @property
     def last_error(self):
@@ -472,6 +500,29 @@ class CloudIntegration(object):
         """
 
         self._last_error_ms = last_error_ms
+
+    @property
+    def disabled(self):
+        """
+        Gets the disabled of this CloudIntegration.
+        True when an aws credential failed to authenticate.
+
+        :return: The disabled of this CloudIntegration.
+        :rtype: bool
+        """
+        return self._disabled
+
+    @disabled.setter
+    def disabled(self, disabled):
+        """
+        Sets the disabled of this CloudIntegration.
+        True when an aws credential failed to authenticate.
+
+        :param disabled: The disabled of this CloudIntegration.
+        :type: bool
+        """
+
+        self._disabled = disabled
 
     @property
     def last_processor_id(self):
@@ -583,27 +634,6 @@ class CloudIntegration(object):
         self._updater_id = updater_id
 
     @property
-    def creator_id(self):
-        """
-        Gets the creator_id of this CloudIntegration.
-
-        :return: The creator_id of this CloudIntegration.
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """
-        Sets the creator_id of this CloudIntegration.
-
-        :param creator_id: The creator_id of this CloudIntegration.
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
     def service_refresh_rate_in_mins(self):
         """
         Gets the service_refresh_rate_in_mins of this CloudIntegration.
@@ -625,6 +655,27 @@ class CloudIntegration(object):
         """
 
         self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
+
+    @property
+    def last_error_event(self):
+        """
+        Gets the last_error_event of this CloudIntegration.
+
+        :return: The last_error_event of this CloudIntegration.
+        :rtype: Event
+        """
+        return self._last_error_event
+
+    @last_error_event.setter
+    def last_error_event(self, last_error_event):
+        """
+        Sets the last_error_event of this CloudIntegration.
+
+        :param last_error_event: The last_error_event of this CloudIntegration.
+        :type: Event
+        """
+
+        self._last_error_event = last_error_event
 
     @property
     def deleted(self):

@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -34,12 +34,12 @@ class Chart(object):
         'units': 'str',
         'name': 'str',
         'description': 'str',
+        'base': 'int',
+        'chart_settings': 'ChartSettings',
         'sources': 'list[ChartSourceQuery]',
         'no_default_events': 'bool',
         'interpolate_points': 'bool',
-        'chart_settings': 'ChartSettings',
         'summarization': 'str',
-        'base': 'int',
         'include_obsolete_metrics': 'bool'
     }
 
@@ -47,16 +47,16 @@ class Chart(object):
         'units': 'units',
         'name': 'name',
         'description': 'description',
+        'base': 'base',
+        'chart_settings': 'chartSettings',
         'sources': 'sources',
         'no_default_events': 'noDefaultEvents',
         'interpolate_points': 'interpolatePoints',
-        'chart_settings': 'chartSettings',
         'summarization': 'summarization',
-        'base': 'base',
         'include_obsolete_metrics': 'includeObsoleteMetrics'
     }
 
-    def __init__(self, units=None, name=None, description=None, sources=None, no_default_events=None, interpolate_points=None, chart_settings=None, summarization=None, base=None, include_obsolete_metrics=None):
+    def __init__(self, units=None, name=None, description=None, base=None, chart_settings=None, sources=None, no_default_events=None, interpolate_points=None, summarization=None, include_obsolete_metrics=None):
         """
         Chart - a model defined in Swagger
         """
@@ -64,30 +64,31 @@ class Chart(object):
         self._units = None
         self._name = None
         self._description = None
+        self._base = None
+        self._chart_settings = None
         self._sources = None
         self._no_default_events = None
         self._interpolate_points = None
-        self._chart_settings = None
         self._summarization = None
-        self._base = None
         self._include_obsolete_metrics = None
+        self.discriminator = None
 
         if units is not None:
           self.units = units
         self.name = name
         if description is not None:
           self.description = description
+        if base is not None:
+          self.base = base
+        if chart_settings is not None:
+          self.chart_settings = chart_settings
         self.sources = sources
         if no_default_events is not None:
           self.no_default_events = no_default_events
         if interpolate_points is not None:
           self.interpolate_points = interpolate_points
-        if chart_settings is not None:
-          self.chart_settings = chart_settings
         if summarization is not None:
           self.summarization = summarization
-        if base is not None:
-          self.base = base
         if include_obsolete_metrics is not None:
           self.include_obsolete_metrics = include_obsolete_metrics
 
@@ -163,6 +164,50 @@ class Chart(object):
         self._description = description
 
     @property
+    def base(self):
+        """
+        Gets the base of this Chart.
+        If the chart has a log-scale Y-axis, the base for the logarithms
+
+        :return: The base of this Chart.
+        :rtype: int
+        """
+        return self._base
+
+    @base.setter
+    def base(self, base):
+        """
+        Sets the base of this Chart.
+        If the chart has a log-scale Y-axis, the base for the logarithms
+
+        :param base: The base of this Chart.
+        :type: int
+        """
+
+        self._base = base
+
+    @property
+    def chart_settings(self):
+        """
+        Gets the chart_settings of this Chart.
+
+        :return: The chart_settings of this Chart.
+        :rtype: ChartSettings
+        """
+        return self._chart_settings
+
+    @chart_settings.setter
+    def chart_settings(self, chart_settings):
+        """
+        Sets the chart_settings of this Chart.
+
+        :param chart_settings: The chart_settings of this Chart.
+        :type: ChartSettings
+        """
+
+        self._chart_settings = chart_settings
+
+    @property
     def sources(self):
         """
         Gets the sources of this Chart.
@@ -234,29 +279,6 @@ class Chart(object):
         self._interpolate_points = interpolate_points
 
     @property
-    def chart_settings(self):
-        """
-        Gets the chart_settings of this Chart.
-        Chart settings
-
-        :return: The chart_settings of this Chart.
-        :rtype: ChartSettings
-        """
-        return self._chart_settings
-
-    @chart_settings.setter
-    def chart_settings(self, chart_settings):
-        """
-        Sets the chart_settings of this Chart.
-        Chart settings
-
-        :param chart_settings: The chart_settings of this Chart.
-        :type: ChartSettings
-        """
-
-        self._chart_settings = chart_settings
-
-    @property
     def summarization(self):
         """
         Gets the summarization of this Chart.
@@ -284,29 +306,6 @@ class Chart(object):
             )
 
         self._summarization = summarization
-
-    @property
-    def base(self):
-        """
-        Gets the base of this Chart.
-        If the chart has a log-scale Y-axis, the base for the logarithms
-
-        :return: The base of this Chart.
-        :rtype: int
-        """
-        return self._base
-
-    @base.setter
-    def base(self, base):
-        """
-        Sets the base of this Chart.
-        If the chart has a log-scale Y-axis, the base for the logarithms
-
-        :param base: The base of this Chart.
-        :type: int
-        """
-
-        self._base = base
 
     @property
     def include_obsolete_metrics(self):

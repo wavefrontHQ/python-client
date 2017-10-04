@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -522,7 +522,6 @@ class UserApi(object):
         :param async bool
         :param str id: (required)
         :param str group:
-        :param ScopedDTOConverter body:
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -546,13 +545,12 @@ class UserApi(object):
         :param async bool
         :param str id: (required)
         :param str group:
-        :param ScopedDTOConverter body:
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'group', 'body']
+        all_params = ['id', 'group']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -588,8 +586,6 @@ class UserApi(object):
             form_params.append(('group', params['group']))
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])

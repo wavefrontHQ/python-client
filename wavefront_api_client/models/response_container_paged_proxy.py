@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -47,10 +47,10 @@ class ResponseContainerPagedProxy(object):
 
         self._status = None
         self._response = None
+        self.discriminator = None
 
         self.status = status
-        if response is not None:
-          self.response = response
+        self.response = response
 
     @property
     def status(self):
@@ -79,7 +79,6 @@ class ResponseContainerPagedProxy(object):
     def response(self):
         """
         Gets the response of this ResponseContainerPagedProxy.
-        The response, if the request is successful
 
         :return: The response of this ResponseContainerPagedProxy.
         :rtype: PagedProxy
@@ -90,11 +89,12 @@ class ResponseContainerPagedProxy(object):
     def response(self, response):
         """
         Sets the response of this ResponseContainerPagedProxy.
-        The response, if the request is successful
 
         :param response: The response of this ResponseContainerPagedProxy.
         :type: PagedProxy
         """
+        if response is None:
+            raise ValueError("Invalid value for `response`, must not be `None`")
 
         self._response = response
 

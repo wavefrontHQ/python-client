@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -62,6 +62,7 @@ class HistoryResponse(object):
         self._total_items = None
         self._more_items = None
         self._sort = None
+        self.discriminator = None
 
         if items is not None:
           self.items = items
@@ -216,7 +217,6 @@ class HistoryResponse(object):
     def sort(self):
         """
         Gets the sort of this HistoryResponse.
-        How returned items have been sorted
 
         :return: The sort of this HistoryResponse.
         :rtype: Sorting
@@ -227,7 +227,6 @@ class HistoryResponse(object):
     def sort(self, sort):
         """
         Sets the sort of this HistoryResponse.
-        How returned items have been sorted
 
         :param sort: The sort of this HistoryResponse.
         :type: Sorting

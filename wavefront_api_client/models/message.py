@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -31,92 +31,70 @@ class Message(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'attributes': 'dict(str, str)',
         'scope': 'str',
         'source': 'str',
+        'attributes': 'dict(str, str)',
         'id': 'str',
         'target': 'str',
         'content': 'str',
-        'severity': 'str',
         'title': 'str',
-        'end_epoch_millis': 'int',
+        'severity': 'str',
         'start_epoch_millis': 'int',
+        'end_epoch_millis': 'int',
         'display': 'str',
         'read': 'bool'
     }
 
     attribute_map = {
-        'attributes': 'attributes',
         'scope': 'scope',
         'source': 'source',
+        'attributes': 'attributes',
         'id': 'id',
         'target': 'target',
         'content': 'content',
-        'severity': 'severity',
         'title': 'title',
-        'end_epoch_millis': 'endEpochMillis',
+        'severity': 'severity',
         'start_epoch_millis': 'startEpochMillis',
+        'end_epoch_millis': 'endEpochMillis',
         'display': 'display',
         'read': 'read'
     }
 
-    def __init__(self, attributes=None, scope=None, source=None, id=None, target=None, content=None, severity=None, title=None, end_epoch_millis=None, start_epoch_millis=None, display=None, read=None):
+    def __init__(self, scope=None, source=None, attributes=None, id=None, target=None, content=None, title=None, severity=None, start_epoch_millis=None, end_epoch_millis=None, display=None, read=None):
         """
         Message - a model defined in Swagger
         """
 
-        self._attributes = None
         self._scope = None
         self._source = None
+        self._attributes = None
         self._id = None
         self._target = None
         self._content = None
-        self._severity = None
         self._title = None
-        self._end_epoch_millis = None
+        self._severity = None
         self._start_epoch_millis = None
+        self._end_epoch_millis = None
         self._display = None
         self._read = None
+        self.discriminator = None
 
-        if attributes is not None:
-          self.attributes = attributes
         self.scope = scope
         self.source = source
+        if attributes is not None:
+          self.attributes = attributes
         if id is not None:
           self.id = id
         if target is not None:
           self.target = target
         self.content = content
-        self.severity = severity
         self.title = title
-        self.end_epoch_millis = end_epoch_millis
+        self.severity = severity
         self.start_epoch_millis = start_epoch_millis
+        self.end_epoch_millis = end_epoch_millis
         self.display = display
         if read is not None:
           self.read = read
-
-    @property
-    def attributes(self):
-        """
-        Gets the attributes of this Message.
-        A string->string map of additional properties associated with this message
-
-        :return: The attributes of this Message.
-        :rtype: dict(str, str)
-        """
-        return self._attributes
-
-    @attributes.setter
-    def attributes(self, attributes):
-        """
-        Sets the attributes of this Message.
-        A string->string map of additional properties associated with this message
-
-        :param attributes: The attributes of this Message.
-        :type: dict(str, str)
-        """
-
-        self._attributes = attributes
 
     @property
     def scope(self):
@@ -173,6 +151,29 @@ class Message(object):
             raise ValueError("Invalid value for `source`, must not be `None`")
 
         self._source = source
+
+    @property
+    def attributes(self):
+        """
+        Gets the attributes of this Message.
+        A string->string map of additional properties associated with this message
+
+        :return: The attributes of this Message.
+        :rtype: dict(str, str)
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """
+        Sets the attributes of this Message.
+        A string->string map of additional properties associated with this message
+
+        :param attributes: The attributes of this Message.
+        :type: dict(str, str)
+        """
+
+        self._attributes = attributes
 
     @property
     def id(self):
@@ -244,6 +245,31 @@ class Message(object):
         self._content = content
 
     @property
+    def title(self):
+        """
+        Gets the title of this Message.
+        Title of this message
+
+        :return: The title of this Message.
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """
+        Sets the title of this Message.
+        Title of this message
+
+        :param title: The title of this Message.
+        :type: str
+        """
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")
+
+        self._title = title
+
+    @property
     def severity(self):
         """
         Gets the severity of this Message.
@@ -275,29 +301,29 @@ class Message(object):
         self._severity = severity
 
     @property
-    def title(self):
+    def start_epoch_millis(self):
         """
-        Gets the title of this Message.
-        Title of this message
+        Gets the start_epoch_millis of this Message.
+        When this message will begin to be displayed, in epoch millis
 
-        :return: The title of this Message.
-        :rtype: str
+        :return: The start_epoch_millis of this Message.
+        :rtype: int
         """
-        return self._title
+        return self._start_epoch_millis
 
-    @title.setter
-    def title(self, title):
+    @start_epoch_millis.setter
+    def start_epoch_millis(self, start_epoch_millis):
         """
-        Sets the title of this Message.
-        Title of this message
+        Sets the start_epoch_millis of this Message.
+        When this message will begin to be displayed, in epoch millis
 
-        :param title: The title of this Message.
-        :type: str
+        :param start_epoch_millis: The start_epoch_millis of this Message.
+        :type: int
         """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")
+        if start_epoch_millis is None:
+            raise ValueError("Invalid value for `start_epoch_millis`, must not be `None`")
 
-        self._title = title
+        self._start_epoch_millis = start_epoch_millis
 
     @property
     def end_epoch_millis(self):
@@ -323,31 +349,6 @@ class Message(object):
             raise ValueError("Invalid value for `end_epoch_millis`, must not be `None`")
 
         self._end_epoch_millis = end_epoch_millis
-
-    @property
-    def start_epoch_millis(self):
-        """
-        Gets the start_epoch_millis of this Message.
-        When this message will begin to be displayed, in epoch millis
-
-        :return: The start_epoch_millis of this Message.
-        :rtype: int
-        """
-        return self._start_epoch_millis
-
-    @start_epoch_millis.setter
-    def start_epoch_millis(self, start_epoch_millis):
-        """
-        Sets the start_epoch_millis of this Message.
-        When this message will begin to be displayed, in epoch millis
-
-        :param start_epoch_millis: The start_epoch_millis of this Message.
-        :type: int
-        """
-        if start_epoch_millis is None:
-            raise ValueError("Invalid value for `start_epoch_millis`, must not be `None`")
-
-        self._start_epoch_millis = start_epoch_millis
 
     @property
     def display(self):

@@ -6,9 +6,11 @@ from .cloud_integration_api import CloudIntegrationApi
 from .dashboard_api import DashboardApi
 from .event_api import EventApi
 from .external_link_api import ExternalLinkApi
+from .integration_api import IntegrationApi
 from .maintenance_window_api import MaintenanceWindowApi
 from .message_api import MessageApi
 from .metric_api import MetricApi
+from .notificant_api import NotificantApi
 from .proxy_api import ProxyApi
 from .query_api import QueryApi
 from .saved_search_api import SavedSearchApi

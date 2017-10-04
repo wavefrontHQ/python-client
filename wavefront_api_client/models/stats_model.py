@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -34,45 +34,39 @@ class StatsModel(object):
         'keys': 'int',
         'points': 'int',
         'summaries': 'int',
-        'summarized_points': 'int',
-        'summarized_summaries': 'int',
         'queries': 'int',
         'buffer_keys': 'int',
         'compacted_keys': 'int',
         'skipped_compacted_keys': 'int',
         'compacted_points': 'int',
-        'cached_compacted_points': 'int',
+        'cached_compacted_keys': 'int',
         'latency': 'int',
         's3_keys': 'int',
         'cpu_ns': 'int',
         'metrics_used': 'int',
         'hosts_used': 'int',
-        'query_tasks': 'int',
-        'missing_s3_keys': 'int'
+        'query_tasks': 'int'
     }
 
     attribute_map = {
         'keys': 'keys',
         'points': 'points',
         'summaries': 'summaries',
-        'summarized_points': 'summarizedPoints',
-        'summarized_summaries': 'summarizedSummaries',
         'queries': 'queries',
-        'buffer_keys': 'bufferKeys',
-        'compacted_keys': 'compactedKeys',
-        'skipped_compacted_keys': 'skippedCompactedKeys',
-        'compacted_points': 'compactedPoints',
-        'cached_compacted_points': 'cachedCompactedPoints',
+        'buffer_keys': 'buffer_keys',
+        'compacted_keys': 'compacted_keys',
+        'skipped_compacted_keys': 'skipped_compacted_keys',
+        'compacted_points': 'compacted_points',
+        'cached_compacted_keys': 'cached_compacted_keys',
         'latency': 'latency',
-        's3_keys': 's3Keys',
-        'cpu_ns': 'cpuNs',
-        'metrics_used': 'metricsUsed',
-        'hosts_used': 'hostsUsed',
-        'query_tasks': 'queryTasks',
-        'missing_s3_keys': 'missingS3Keys'
+        's3_keys': 's3_keys',
+        'cpu_ns': 'cpu_ns',
+        'metrics_used': 'metrics_used',
+        'hosts_used': 'hosts_used',
+        'query_tasks': 'query_tasks'
     }
 
-    def __init__(self, keys=None, points=None, summaries=None, summarized_points=None, summarized_summaries=None, queries=None, buffer_keys=None, compacted_keys=None, skipped_compacted_keys=None, compacted_points=None, cached_compacted_points=None, latency=None, s3_keys=None, cpu_ns=None, metrics_used=None, hosts_used=None, query_tasks=None, missing_s3_keys=None):
+    def __init__(self, keys=None, points=None, summaries=None, queries=None, buffer_keys=None, compacted_keys=None, skipped_compacted_keys=None, compacted_points=None, cached_compacted_keys=None, latency=None, s3_keys=None, cpu_ns=None, metrics_used=None, hosts_used=None, query_tasks=None):
         """
         StatsModel - a model defined in Swagger
         """
@@ -80,21 +74,19 @@ class StatsModel(object):
         self._keys = None
         self._points = None
         self._summaries = None
-        self._summarized_points = None
-        self._summarized_summaries = None
         self._queries = None
         self._buffer_keys = None
         self._compacted_keys = None
         self._skipped_compacted_keys = None
         self._compacted_points = None
-        self._cached_compacted_points = None
+        self._cached_compacted_keys = None
         self._latency = None
         self._s3_keys = None
         self._cpu_ns = None
         self._metrics_used = None
         self._hosts_used = None
         self._query_tasks = None
-        self._missing_s3_keys = None
+        self.discriminator = None
 
         if keys is not None:
           self.keys = keys
@@ -102,10 +94,6 @@ class StatsModel(object):
           self.points = points
         if summaries is not None:
           self.summaries = summaries
-        if summarized_points is not None:
-          self.summarized_points = summarized_points
-        if summarized_summaries is not None:
-          self.summarized_summaries = summarized_summaries
         if queries is not None:
           self.queries = queries
         if buffer_keys is not None:
@@ -116,8 +104,8 @@ class StatsModel(object):
           self.skipped_compacted_keys = skipped_compacted_keys
         if compacted_points is not None:
           self.compacted_points = compacted_points
-        if cached_compacted_points is not None:
-          self.cached_compacted_points = cached_compacted_points
+        if cached_compacted_keys is not None:
+          self.cached_compacted_keys = cached_compacted_keys
         if latency is not None:
           self.latency = latency
         if s3_keys is not None:
@@ -130,8 +118,6 @@ class StatsModel(object):
           self.hosts_used = hosts_used
         if query_tasks is not None:
           self.query_tasks = query_tasks
-        if missing_s3_keys is not None:
-          self.missing_s3_keys = missing_s3_keys
 
     @property
     def keys(self):
@@ -195,48 +181,6 @@ class StatsModel(object):
         """
 
         self._summaries = summaries
-
-    @property
-    def summarized_points(self):
-        """
-        Gets the summarized_points of this StatsModel.
-
-        :return: The summarized_points of this StatsModel.
-        :rtype: int
-        """
-        return self._summarized_points
-
-    @summarized_points.setter
-    def summarized_points(self, summarized_points):
-        """
-        Sets the summarized_points of this StatsModel.
-
-        :param summarized_points: The summarized_points of this StatsModel.
-        :type: int
-        """
-
-        self._summarized_points = summarized_points
-
-    @property
-    def summarized_summaries(self):
-        """
-        Gets the summarized_summaries of this StatsModel.
-
-        :return: The summarized_summaries of this StatsModel.
-        :rtype: int
-        """
-        return self._summarized_summaries
-
-    @summarized_summaries.setter
-    def summarized_summaries(self, summarized_summaries):
-        """
-        Sets the summarized_summaries of this StatsModel.
-
-        :param summarized_summaries: The summarized_summaries of this StatsModel.
-        :type: int
-        """
-
-        self._summarized_summaries = summarized_summaries
 
     @property
     def queries(self):
@@ -344,25 +288,25 @@ class StatsModel(object):
         self._compacted_points = compacted_points
 
     @property
-    def cached_compacted_points(self):
+    def cached_compacted_keys(self):
         """
-        Gets the cached_compacted_points of this StatsModel.
+        Gets the cached_compacted_keys of this StatsModel.
 
-        :return: The cached_compacted_points of this StatsModel.
+        :return: The cached_compacted_keys of this StatsModel.
         :rtype: int
         """
-        return self._cached_compacted_points
+        return self._cached_compacted_keys
 
-    @cached_compacted_points.setter
-    def cached_compacted_points(self, cached_compacted_points):
+    @cached_compacted_keys.setter
+    def cached_compacted_keys(self, cached_compacted_keys):
         """
-        Sets the cached_compacted_points of this StatsModel.
+        Sets the cached_compacted_keys of this StatsModel.
 
-        :param cached_compacted_points: The cached_compacted_points of this StatsModel.
+        :param cached_compacted_keys: The cached_compacted_keys of this StatsModel.
         :type: int
         """
 
-        self._cached_compacted_points = cached_compacted_points
+        self._cached_compacted_keys = cached_compacted_keys
 
     @property
     def latency(self):
@@ -489,27 +433,6 @@ class StatsModel(object):
         """
 
         self._query_tasks = query_tasks
-
-    @property
-    def missing_s3_keys(self):
-        """
-        Gets the missing_s3_keys of this StatsModel.
-
-        :return: The missing_s3_keys of this StatsModel.
-        :rtype: int
-        """
-        return self._missing_s3_keys
-
-    @missing_s3_keys.setter
-    def missing_s3_keys(self, missing_s3_keys):
-        """
-        Sets the missing_s3_keys of this StatsModel.
-
-        :param missing_s3_keys: The missing_s3_keys of this StatsModel.
-        :type: int
-        """
-
-        self._missing_s3_keys = missing_s3_keys
 
     def to_dict(self):
         """

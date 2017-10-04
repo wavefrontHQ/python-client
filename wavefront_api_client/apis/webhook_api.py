@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -45,8 +45,8 @@ class WebhookApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Webhook body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
-        :return: ResponseContainerWebhook
+        :param Notificant body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -67,8 +67,8 @@ class WebhookApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Webhook body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
-        :return: ResponseContainerWebhook
+        :param Notificant body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -122,7 +122,7 @@ class WebhookApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ResponseContainerWebhook',
+                                        response_type='ResponseContainerNotificant',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -141,7 +141,7 @@ class WebhookApi(object):
 
         :param async bool
         :param str id: (required)
-        :return: ResponseContainerWebhook
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -163,7 +163,7 @@ class WebhookApi(object):
 
         :param async bool
         :param str id: (required)
-        :return: ResponseContainerWebhook
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -216,7 +216,7 @@ class WebhookApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ResponseContainerWebhook',
+                                        response_type='ResponseContainerNotificant',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -236,7 +236,7 @@ class WebhookApi(object):
         :param async bool
         :param int offset:
         :param int limit:
-        :return: ResponseContainerPagedWebhook
+        :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -259,7 +259,7 @@ class WebhookApi(object):
         :param async bool
         :param int offset:
         :param int limit:
-        :return: ResponseContainerPagedWebhook
+        :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -311,7 +311,7 @@ class WebhookApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ResponseContainerPagedWebhook',
+                                        response_type='ResponseContainerPagedNotificant',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -330,7 +330,7 @@ class WebhookApi(object):
 
         :param async bool
         :param str id: (required)
-        :return: ResponseContainerWebhook
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -352,7 +352,7 @@ class WebhookApi(object):
 
         :param async bool
         :param str id: (required)
-        :return: ResponseContainerWebhook
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -405,7 +405,7 @@ class WebhookApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ResponseContainerWebhook',
+                                        response_type='ResponseContainerNotificant',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -424,8 +424,8 @@ class WebhookApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Webhook body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
-        :return: ResponseContainerWebhook
+        :param Notificant body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -447,8 +447,8 @@ class WebhookApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Webhook body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
-        :return: ResponseContainerWebhook
+        :param Notificant body: Example Body:  <pre>{   \"description\": \"WebHook Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"WebHook Title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"recipient\": \"http://example.com\",   \"customHttpHeaders\": {},   \"contentType\": \"text/plain\" }</pre>
+        :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -507,7 +507,7 @@ class WebhookApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ResponseContainerWebhook',
+                                        response_type='ResponseContainerNotificant',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

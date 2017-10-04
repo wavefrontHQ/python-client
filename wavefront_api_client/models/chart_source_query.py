@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -31,44 +31,49 @@ class ChartSourceQuery(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'name': 'str',
+        'query': 'str',
+        'disabled': 'bool',
         'scatter_plot_source': 'str',
         'querybuilder_serialization': 'str',
         'querybuilder_enabled': 'bool',
         'secondary_axis': 'bool',
         'source_description': 'str',
-        'source_color': 'str',
-        'name': 'str',
-        'query': 'str',
-        'disabled': 'bool'
+        'source_color': 'str'
     }
 
     attribute_map = {
+        'name': 'name',
+        'query': 'query',
+        'disabled': 'disabled',
         'scatter_plot_source': 'scatterPlotSource',
         'querybuilder_serialization': 'querybuilderSerialization',
         'querybuilder_enabled': 'querybuilderEnabled',
         'secondary_axis': 'secondaryAxis',
         'source_description': 'sourceDescription',
-        'source_color': 'sourceColor',
-        'name': 'name',
-        'query': 'query',
-        'disabled': 'disabled'
+        'source_color': 'sourceColor'
     }
 
-    def __init__(self, scatter_plot_source=None, querybuilder_serialization=None, querybuilder_enabled=None, secondary_axis=None, source_description=None, source_color=None, name=None, query=None, disabled=None):
+    def __init__(self, name=None, query=None, disabled=None, scatter_plot_source=None, querybuilder_serialization=None, querybuilder_enabled=None, secondary_axis=None, source_description=None, source_color=None):
         """
         ChartSourceQuery - a model defined in Swagger
         """
 
+        self._name = None
+        self._query = None
+        self._disabled = None
         self._scatter_plot_source = None
         self._querybuilder_serialization = None
         self._querybuilder_enabled = None
         self._secondary_axis = None
         self._source_description = None
         self._source_color = None
-        self._name = None
-        self._query = None
-        self._disabled = None
+        self.discriminator = None
 
+        self.name = name
+        self.query = query
+        if disabled is not None:
+          self.disabled = disabled
         if scatter_plot_source is not None:
           self.scatter_plot_source = scatter_plot_source
         if querybuilder_serialization is not None:
@@ -81,10 +86,79 @@ class ChartSourceQuery(object):
           self.source_description = source_description
         if source_color is not None:
           self.source_color = source_color
-        self.name = name
-        self.query = query
-        if disabled is not None:
-          self.disabled = disabled
+
+    @property
+    def name(self):
+        """
+        Gets the name of this ChartSourceQuery.
+        Name of the source
+
+        :return: The name of this ChartSourceQuery.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this ChartSourceQuery.
+        Name of the source
+
+        :param name: The name of this ChartSourceQuery.
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+
+        self._name = name
+
+    @property
+    def query(self):
+        """
+        Gets the query of this ChartSourceQuery.
+        Query expression to plot on the chart
+
+        :return: The query of this ChartSourceQuery.
+        :rtype: str
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """
+        Sets the query of this ChartSourceQuery.
+        Query expression to plot on the chart
+
+        :param query: The query of this ChartSourceQuery.
+        :type: str
+        """
+        if query is None:
+            raise ValueError("Invalid value for `query`, must not be `None`")
+
+        self._query = query
+
+    @property
+    def disabled(self):
+        """
+        Gets the disabled of this ChartSourceQuery.
+        Whether the source is disabled
+
+        :return: The disabled of this ChartSourceQuery.
+        :rtype: bool
+        """
+        return self._disabled
+
+    @disabled.setter
+    def disabled(self, disabled):
+        """
+        Sets the disabled of this ChartSourceQuery.
+        Whether the source is disabled
+
+        :param disabled: The disabled of this ChartSourceQuery.
+        :type: bool
+        """
+
+        self._disabled = disabled
 
     @property
     def scatter_plot_source(self):
@@ -229,79 +303,6 @@ class ChartSourceQuery(object):
         """
 
         self._source_color = source_color
-
-    @property
-    def name(self):
-        """
-        Gets the name of this ChartSourceQuery.
-        Name of the source
-
-        :return: The name of this ChartSourceQuery.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this ChartSourceQuery.
-        Name of the source
-
-        :param name: The name of this ChartSourceQuery.
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-
-        self._name = name
-
-    @property
-    def query(self):
-        """
-        Gets the query of this ChartSourceQuery.
-        Query expression to plot on the chart
-
-        :return: The query of this ChartSourceQuery.
-        :rtype: str
-        """
-        return self._query
-
-    @query.setter
-    def query(self, query):
-        """
-        Sets the query of this ChartSourceQuery.
-        Query expression to plot on the chart
-
-        :param query: The query of this ChartSourceQuery.
-        :type: str
-        """
-        if query is None:
-            raise ValueError("Invalid value for `query`, must not be `None`")
-
-        self._query = query
-
-    @property
-    def disabled(self):
-        """
-        Gets the disabled of this ChartSourceQuery.
-        Whether the source is disabled
-
-        :return: The disabled of this ChartSourceQuery.
-        :rtype: bool
-        """
-        return self._disabled
-
-    @disabled.setter
-    def disabled(self, disabled):
-        """
-        Sets the disabled of this ChartSourceQuery.
-        Whether the source is disabled
-
-        :param disabled: The disabled of this ChartSourceQuery.
-        :type: bool
-        """
-
-        self._disabled = disabled
 
     def to_dict(self):
         """

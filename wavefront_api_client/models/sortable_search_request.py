@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -53,6 +53,7 @@ class SortableSearchRequest(object):
         self._offset = None
         self._query = None
         self._sort = None
+        self.discriminator = None
 
         if limit is not None:
           self.limit = limit
@@ -136,7 +137,6 @@ class SortableSearchRequest(object):
     def sort(self):
         """
         Gets the sort of this SortableSearchRequest.
-        How to sort the items in the response
 
         :return: The sort of this SortableSearchRequest.
         :rtype: Sorting
@@ -147,7 +147,6 @@ class SortableSearchRequest(object):
     def sort(self, sort):
         """
         Sets the sort of this SortableSearchRequest.
-        How to sort the items in the response
 
         :param sort: The sort of this SortableSearchRequest.
         :type: Sorting

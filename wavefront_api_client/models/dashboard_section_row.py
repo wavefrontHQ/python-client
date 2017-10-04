@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -31,26 +31,50 @@ class DashboardSectionRow(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'charts': 'list[Chart]',
-        'height_factor': 'int'
+        'height_factor': 'int',
+        'charts': 'list[Chart]'
     }
 
     attribute_map = {
-        'charts': 'charts',
-        'height_factor': 'heightFactor'
+        'height_factor': 'heightFactor',
+        'charts': 'charts'
     }
 
-    def __init__(self, charts=None, height_factor=None):
+    def __init__(self, height_factor=None, charts=None):
         """
         DashboardSectionRow - a model defined in Swagger
         """
 
-        self._charts = None
         self._height_factor = None
+        self._charts = None
+        self.discriminator = None
 
-        self.charts = charts
         if height_factor is not None:
           self.height_factor = height_factor
+        self.charts = charts
+
+    @property
+    def height_factor(self):
+        """
+        Gets the height_factor of this DashboardSectionRow.
+        Scalar for the height of this row. 100 is normal and default. 50 is half height
+
+        :return: The height_factor of this DashboardSectionRow.
+        :rtype: int
+        """
+        return self._height_factor
+
+    @height_factor.setter
+    def height_factor(self, height_factor):
+        """
+        Sets the height_factor of this DashboardSectionRow.
+        Scalar for the height of this row. 100 is normal and default. 50 is half height
+
+        :param height_factor: The height_factor of this DashboardSectionRow.
+        :type: int
+        """
+
+        self._height_factor = height_factor
 
     @property
     def charts(self):
@@ -76,29 +100,6 @@ class DashboardSectionRow(object):
             raise ValueError("Invalid value for `charts`, must not be `None`")
 
         self._charts = charts
-
-    @property
-    def height_factor(self):
-        """
-        Gets the height_factor of this DashboardSectionRow.
-        Scalar for the height of this row. 100 is normal and default. 50 is half height
-
-        :return: The height_factor of this DashboardSectionRow.
-        :rtype: int
-        """
-        return self._height_factor
-
-    @height_factor.setter
-    def height_factor(self, height_factor):
-        """
-        Sets the height_factor of this DashboardSectionRow.
-        Scalar for the height of this row. 100 is normal and default. 50 is half height
-
-        :param height_factor: The height_factor of this DashboardSectionRow.
-        :type: int
-        """
-
-        self._height_factor = height_factor
 
     def to_dict(self):
         """

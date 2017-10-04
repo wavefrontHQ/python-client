@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -33,52 +33,54 @@ class SavedSearch(object):
     swagger_types = {
         'id': 'str',
         'query': 'dict(str, str)',
-        'entity_type': 'str',
+        'creator_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'updater_id': 'str',
-        'creator_id': 'str',
+        'entity_type': 'str',
         'user_id': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'query': 'query',
-        'entity_type': 'entityType',
+        'creator_id': 'creatorId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
-        'creator_id': 'creatorId',
+        'entity_type': 'entityType',
         'user_id': 'userId'
     }
 
-    def __init__(self, id=None, query=None, entity_type=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, creator_id=None, user_id=None):
+    def __init__(self, id=None, query=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, entity_type=None, user_id=None):
         """
         SavedSearch - a model defined in Swagger
         """
 
         self._id = None
         self._query = None
-        self._entity_type = None
+        self._creator_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._updater_id = None
-        self._creator_id = None
+        self._entity_type = None
         self._user_id = None
+        self.discriminator = None
 
         if id is not None:
           self.id = id
         self.query = query
-        self.entity_type = entity_type
+        if creator_id is not None:
+          self.creator_id = creator_id
         if created_epoch_millis is not None:
           self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
           self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
           self.updater_id = updater_id
-        if creator_id is not None:
-          self.creator_id = creator_id
-        self.user_id = user_id
+        self.entity_type = entity_type
+        if user_id is not None:
+          self.user_id = user_id
 
     @property
     def id(self):
@@ -127,35 +129,25 @@ class SavedSearch(object):
         self._query = query
 
     @property
-    def entity_type(self):
+    def creator_id(self):
         """
-        Gets the entity_type of this SavedSearch.
-        The Wavefront entity type over which to search
+        Gets the creator_id of this SavedSearch.
 
-        :return: The entity_type of this SavedSearch.
+        :return: The creator_id of this SavedSearch.
         :rtype: str
         """
-        return self._entity_type
+        return self._creator_id
 
-    @entity_type.setter
-    def entity_type(self, entity_type):
+    @creator_id.setter
+    def creator_id(self, creator_id):
         """
-        Sets the entity_type of this SavedSearch.
-        The Wavefront entity type over which to search
+        Sets the creator_id of this SavedSearch.
 
-        :param entity_type: The entity_type of this SavedSearch.
+        :param creator_id: The creator_id of this SavedSearch.
         :type: str
         """
-        if entity_type is None:
-            raise ValueError("Invalid value for `entity_type`, must not be `None`")
-        allowed_values = ["DASHBOARD", "ALERT", "MAINTENANCE_WINDOW", "NOTIFICANT", "EVENT", "SOURCE", "EXTERNAL_LINK", "AGENT", "CLOUD_INTEGRATION"]
-        if entity_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `entity_type` ({0}), must be one of {1}"
-                .format(entity_type, allowed_values)
-            )
 
-        self._entity_type = entity_type
+        self._creator_id = creator_id
 
     @property
     def created_epoch_millis(self):
@@ -221,25 +213,35 @@ class SavedSearch(object):
         self._updater_id = updater_id
 
     @property
-    def creator_id(self):
+    def entity_type(self):
         """
-        Gets the creator_id of this SavedSearch.
+        Gets the entity_type of this SavedSearch.
+        The Wavefront entity type over which to search
 
-        :return: The creator_id of this SavedSearch.
+        :return: The entity_type of this SavedSearch.
         :rtype: str
         """
-        return self._creator_id
+        return self._entity_type
 
-    @creator_id.setter
-    def creator_id(self, creator_id):
+    @entity_type.setter
+    def entity_type(self, entity_type):
         """
-        Sets the creator_id of this SavedSearch.
+        Sets the entity_type of this SavedSearch.
+        The Wavefront entity type over which to search
 
-        :param creator_id: The creator_id of this SavedSearch.
+        :param entity_type: The entity_type of this SavedSearch.
         :type: str
         """
+        if entity_type is None:
+            raise ValueError("Invalid value for `entity_type`, must not be `None`")
+        allowed_values = ["DASHBOARD", "ALERT", "MAINTENANCE_WINDOW", "NOTIFICANT", "EVENT", "SOURCE", "EXTERNAL_LINK", "AGENT", "CLOUD_INTEGRATION", "APPLICATION"]
+        if entity_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `entity_type` ({0}), must be one of {1}"
+                .format(entity_type, allowed_values)
+            )
 
-        self._creator_id = creator_id
+        self._entity_type = entity_type
 
     @property
     def user_id(self):
@@ -261,8 +263,6 @@ class SavedSearch(object):
         :param user_id: The user_id of this SavedSearch.
         :type: str
         """
-        if user_id is None:
-            raise ValueError("Invalid value for `user_id`, must not be `None`")
 
         self._user_id = user_id
 

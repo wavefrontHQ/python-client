@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -31,12 +31,11 @@ class Proxy(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'version': 'str',
         'name': 'str',
         'id': 'str',
-        'version': 'str',
-        'in_trash': 'bool',
         'customer_id': 'str',
-        'ephemeral': 'bool',
+        'in_trash': 'bool',
         'last_check_in_time': 'int',
         'hostname': 'str',
         'last_known_error': 'str',
@@ -47,16 +46,16 @@ class Proxy(object):
         'bytes_per_minute_for_buffer': 'int',
         'local_queue_size': 'int',
         'ssh_agent': 'bool',
+        'ephemeral': 'bool',
         'deleted': 'bool'
     }
 
     attribute_map = {
+        'version': 'version',
         'name': 'name',
         'id': 'id',
-        'version': 'version',
-        'in_trash': 'inTrash',
         'customer_id': 'customerId',
-        'ephemeral': 'ephemeral',
+        'in_trash': 'inTrash',
         'last_check_in_time': 'lastCheckInTime',
         'hostname': 'hostname',
         'last_known_error': 'lastKnownError',
@@ -67,20 +66,20 @@ class Proxy(object):
         'bytes_per_minute_for_buffer': 'bytesPerMinuteForBuffer',
         'local_queue_size': 'localQueueSize',
         'ssh_agent': 'sshAgent',
+        'ephemeral': 'ephemeral',
         'deleted': 'deleted'
     }
 
-    def __init__(self, name=None, id=None, version=None, in_trash=None, customer_id=None, ephemeral=None, last_check_in_time=None, hostname=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, deleted=None):
+    def __init__(self, version=None, name=None, id=None, customer_id=None, in_trash=None, last_check_in_time=None, hostname=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, ephemeral=None, deleted=None):
         """
         Proxy - a model defined in Swagger
         """
 
+        self._version = None
         self._name = None
         self._id = None
-        self._version = None
-        self._in_trash = None
         self._customer_id = None
-        self._ephemeral = None
+        self._in_trash = None
         self._last_check_in_time = None
         self._hostname = None
         self._last_known_error = None
@@ -91,20 +90,19 @@ class Proxy(object):
         self._bytes_per_minute_for_buffer = None
         self._local_queue_size = None
         self._ssh_agent = None
+        self._ephemeral = None
         self._deleted = None
+        self.discriminator = None
 
-        if name is not None:
-          self.name = name
-        if id is not None:
-          self.id = id
         if version is not None:
           self.version = version
-        if in_trash is not None:
-          self.in_trash = in_trash
+        self.name = name
+        if id is not None:
+          self.id = id
         if customer_id is not None:
           self.customer_id = customer_id
-        if ephemeral is not None:
-          self.ephemeral = ephemeral
+        if in_trash is not None:
+          self.in_trash = in_trash
         if last_check_in_time is not None:
           self.last_check_in_time = last_check_in_time
         if hostname is not None:
@@ -125,8 +123,31 @@ class Proxy(object):
           self.local_queue_size = local_queue_size
         if ssh_agent is not None:
           self.ssh_agent = ssh_agent
+        if ephemeral is not None:
+          self.ephemeral = ephemeral
         if deleted is not None:
           self.deleted = deleted
+
+    @property
+    def version(self):
+        """
+        Gets the version of this Proxy.
+
+        :return: The version of this Proxy.
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """
+        Sets the version of this Proxy.
+
+        :param version: The version of this Proxy.
+        :type: str
+        """
+
+        self._version = version
 
     @property
     def name(self):
@@ -148,6 +169,8 @@ class Proxy(object):
         :param name: The name of this Proxy.
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
 
         self._name = name
 
@@ -173,48 +196,6 @@ class Proxy(object):
         self._id = id
 
     @property
-    def version(self):
-        """
-        Gets the version of this Proxy.
-
-        :return: The version of this Proxy.
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """
-        Sets the version of this Proxy.
-
-        :param version: The version of this Proxy.
-        :type: str
-        """
-
-        self._version = version
-
-    @property
-    def in_trash(self):
-        """
-        Gets the in_trash of this Proxy.
-
-        :return: The in_trash of this Proxy.
-        :rtype: bool
-        """
-        return self._in_trash
-
-    @in_trash.setter
-    def in_trash(self, in_trash):
-        """
-        Sets the in_trash of this Proxy.
-
-        :param in_trash: The in_trash of this Proxy.
-        :type: bool
-        """
-
-        self._in_trash = in_trash
-
-    @property
     def customer_id(self):
         """
         Gets the customer_id of this Proxy.
@@ -236,27 +217,25 @@ class Proxy(object):
         self._customer_id = customer_id
 
     @property
-    def ephemeral(self):
+    def in_trash(self):
         """
-        Gets the ephemeral of this Proxy.
-        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)
+        Gets the in_trash of this Proxy.
 
-        :return: The ephemeral of this Proxy.
+        :return: The in_trash of this Proxy.
         :rtype: bool
         """
-        return self._ephemeral
+        return self._in_trash
 
-    @ephemeral.setter
-    def ephemeral(self, ephemeral):
+    @in_trash.setter
+    def in_trash(self, in_trash):
         """
-        Sets the ephemeral of this Proxy.
-        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)
+        Sets the in_trash of this Proxy.
 
-        :param ephemeral: The ephemeral of this Proxy.
+        :param in_trash: The in_trash of this Proxy.
         :type: bool
         """
 
-        self._ephemeral = ephemeral
+        self._in_trash = in_trash
 
     @property
     def last_check_in_time(self):
@@ -485,6 +464,29 @@ class Proxy(object):
         """
 
         self._ssh_agent = ssh_agent
+
+    @property
+    def ephemeral(self):
+        """
+        Gets the ephemeral of this Proxy.
+        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)
+
+        :return: The ephemeral of this Proxy.
+        :rtype: bool
+        """
+        return self._ephemeral
+
+    @ephemeral.setter
+    def ephemeral(self, ephemeral):
+        """
+        Sets the ephemeral of this Proxy.
+        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)
+
+        :param ephemeral: The ephemeral of this Proxy.
+        :type: bool
+        """
+
+        self._ephemeral = ephemeral
 
     @property
     def deleted(self):

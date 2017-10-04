@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -34,17 +34,19 @@ class CloudWatchConfiguration(object):
         'metric_filter_regex': 'str',
         'base_credentials': 'AWSBaseCredentials',
         'instance_selection_tags': 'dict(str, str)',
-        'volume_selection_tags': 'dict(str, str)'
+        'volume_selection_tags': 'dict(str, str)',
+        'point_tag_filter_regex': 'str'
     }
 
     attribute_map = {
         'metric_filter_regex': 'metricFilterRegex',
         'base_credentials': 'baseCredentials',
         'instance_selection_tags': 'instanceSelectionTags',
-        'volume_selection_tags': 'volumeSelectionTags'
+        'volume_selection_tags': 'volumeSelectionTags',
+        'point_tag_filter_regex': 'pointTagFilterRegex'
     }
 
-    def __init__(self, metric_filter_regex=None, base_credentials=None, instance_selection_tags=None, volume_selection_tags=None):
+    def __init__(self, metric_filter_regex=None, base_credentials=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None):
         """
         CloudWatchConfiguration - a model defined in Swagger
         """
@@ -53,6 +55,8 @@ class CloudWatchConfiguration(object):
         self._base_credentials = None
         self._instance_selection_tags = None
         self._volume_selection_tags = None
+        self._point_tag_filter_regex = None
+        self.discriminator = None
 
         if metric_filter_regex is not None:
           self.metric_filter_regex = metric_filter_regex
@@ -62,6 +66,8 @@ class CloudWatchConfiguration(object):
           self.instance_selection_tags = instance_selection_tags
         if volume_selection_tags is not None:
           self.volume_selection_tags = volume_selection_tags
+        if point_tag_filter_regex is not None:
+          self.point_tag_filter_regex = point_tag_filter_regex
 
     @property
     def metric_filter_regex(self):
@@ -152,6 +158,29 @@ class CloudWatchConfiguration(object):
         """
 
         self._volume_selection_tags = volume_selection_tags
+
+    @property
+    def point_tag_filter_regex(self):
+        """
+        Gets the point_tag_filter_regex of this CloudWatchConfiguration.
+        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested
+
+        :return: The point_tag_filter_regex of this CloudWatchConfiguration.
+        :rtype: str
+        """
+        return self._point_tag_filter_regex
+
+    @point_tag_filter_regex.setter
+    def point_tag_filter_regex(self, point_tag_filter_regex):
+        """
+        Sets the point_tag_filter_regex of this CloudWatchConfiguration.
+        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested
+
+        :param point_tag_filter_regex: The point_tag_filter_regex of this CloudWatchConfiguration.
+        :type: str
+        """
+
+        self._point_tag_filter_regex = point_tag_filter_regex
 
     def to_dict(self):
         """

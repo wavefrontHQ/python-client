@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -45,7 +45,7 @@ class CloudIntegrationApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"serviceRefreshRateInMins\":0,     \"forceSave\":false   } }</pre>
+        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
@@ -67,7 +67,7 @@ class CloudIntegrationApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"serviceRefreshRateInMins\":0,     \"forceSave\":false   } }</pre>
+        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
@@ -210,6 +210,194 @@ class CloudIntegrationApi(object):
         auth_settings = ['api_key']
 
         return self.api_client.call_api('/api/v2/cloudintegration/{id}', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerCloudIntegration',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def disable_cloud_integration(self, id, **kwargs):
+        """
+        Disable a specific cloud integration
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.disable_cloud_integration(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :return: ResponseContainerCloudIntegration
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.disable_cloud_integration_with_http_info(id, **kwargs)
+        else:
+            (data) = self.disable_cloud_integration_with_http_info(id, **kwargs)
+            return data
+
+    def disable_cloud_integration_with_http_info(self, id, **kwargs):
+        """
+        Disable a specific cloud integration
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.disable_cloud_integration_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :return: ResponseContainerCloudIntegration
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method disable_cloud_integration" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `disable_cloud_integration`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/cloudintegration/{id}/disable', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerCloudIntegration',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def enable_cloud_integration(self, id, **kwargs):
+        """
+        Enable a specific cloud integration
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.enable_cloud_integration(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :return: ResponseContainerCloudIntegration
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.enable_cloud_integration_with_http_info(id, **kwargs)
+        else:
+            (data) = self.enable_cloud_integration_with_http_info(id, **kwargs)
+            return data
+
+    def enable_cloud_integration_with_http_info(self, id, **kwargs):
+        """
+        Enable a specific cloud integration
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.enable_cloud_integration_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :return: ResponseContainerCloudIntegration
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method enable_cloud_integration" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `enable_cloud_integration`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/cloudintegration/{id}/enable', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -518,7 +706,7 @@ class CloudIntegrationApi(object):
 
         :param async bool
         :param str id: (required)
-        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"serviceRefreshRateInMins\":0,     \"forceSave\":false   } }</pre>
+        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
@@ -541,7 +729,7 @@ class CloudIntegrationApi(object):
 
         :param async bool
         :param str id: (required)
-        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"serviceRefreshRateInMins\":0,     \"forceSave\":false   } }</pre>
+        :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.

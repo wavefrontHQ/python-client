@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -150,7 +150,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -172,7 +172,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1401,7 +1401,7 @@ class AlertApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1424,7 +1424,7 @@ class AlertApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.

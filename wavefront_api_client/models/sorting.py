@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -31,50 +31,26 @@ class Sorting(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'field': 'str',
-        'ascending': 'bool'
+        'ascending': 'bool',
+        'field': 'str'
     }
 
     attribute_map = {
-        'field': 'field',
-        'ascending': 'ascending'
+        'ascending': 'ascending',
+        'field': 'field'
     }
 
-    def __init__(self, field=None, ascending=None):
+    def __init__(self, ascending=None, field=None):
         """
         Sorting - a model defined in Swagger
         """
 
-        self._field = None
         self._ascending = None
+        self._field = None
+        self.discriminator = None
 
-        self.field = field
         self.ascending = ascending
-
-    @property
-    def field(self):
-        """
-        Gets the field of this Sorting.
-        The facet by which to sort
-
-        :return: The field of this Sorting.
-        :rtype: str
-        """
-        return self._field
-
-    @field.setter
-    def field(self, field):
-        """
-        Sets the field of this Sorting.
-        The facet by which to sort
-
-        :param field: The field of this Sorting.
-        :type: str
-        """
-        if field is None:
-            raise ValueError("Invalid value for `field`, must not be `None`")
-
-        self._field = field
+        self.field = field
 
     @property
     def ascending(self):
@@ -100,6 +76,31 @@ class Sorting(object):
             raise ValueError("Invalid value for `ascending`, must not be `None`")
 
         self._ascending = ascending
+
+    @property
+    def field(self):
+        """
+        Gets the field of this Sorting.
+        The facet by which to sort
+
+        :return: The field of this Sorting.
+        :rtype: str
+        """
+        return self._field
+
+    @field.setter
+    def field(self, field):
+        """
+        Sets the field of this Sorting.
+        The facet by which to sort
+
+        :param field: The field of this Sorting.
+        :type: str
+        """
+        if field is None:
+            raise ValueError("Invalid value for `field`, must not be `None`")
+
+        self._field = field
 
     def to_dict(self):
         """

@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -38,20 +38,20 @@ class Event(object):
         'id': 'str',
         'table': 'str',
         'tags': 'list[str]',
-        'is_ephemeral': 'bool',
+        'running_state': 'str',
         'created_at': 'int',
+        'hosts': 'list[str]',
+        'is_ephemeral': 'bool',
+        'creator_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'updater_id': 'str',
-        'creator_id': 'str',
         'updated_at': 'int',
-        'hosts': 'list[str]',
-        'is_user_event': 'bool',
         'summarized_events': 'int',
-        'running_state': 'str',
-        'can_delete': 'bool',
+        'is_user_event': 'bool',
         'can_close': 'bool',
-        'creator_type': 'list[str]'
+        'creator_type': 'list[str]',
+        'can_delete': 'bool'
     }
 
     attribute_map = {
@@ -62,23 +62,23 @@ class Event(object):
         'id': 'id',
         'table': 'table',
         'tags': 'tags',
-        'is_ephemeral': 'isEphemeral',
+        'running_state': 'runningState',
         'created_at': 'createdAt',
+        'hosts': 'hosts',
+        'is_ephemeral': 'isEphemeral',
+        'creator_id': 'creatorId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
-        'creator_id': 'creatorId',
         'updated_at': 'updatedAt',
-        'hosts': 'hosts',
-        'is_user_event': 'isUserEvent',
         'summarized_events': 'summarizedEvents',
-        'running_state': 'runningState',
-        'can_delete': 'canDelete',
+        'is_user_event': 'isUserEvent',
         'can_close': 'canClose',
-        'creator_type': 'creatorType'
+        'creator_type': 'creatorType',
+        'can_delete': 'canDelete'
     }
 
-    def __init__(self, start_time=None, end_time=None, name=None, annotations=None, id=None, table=None, tags=None, is_ephemeral=None, created_at=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, creator_id=None, updated_at=None, hosts=None, is_user_event=None, summarized_events=None, running_state=None, can_delete=None, can_close=None, creator_type=None):
+    def __init__(self, start_time=None, end_time=None, name=None, annotations=None, id=None, table=None, tags=None, running_state=None, created_at=None, hosts=None, is_ephemeral=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, updated_at=None, summarized_events=None, is_user_event=None, can_close=None, creator_type=None, can_delete=None):
         """
         Event - a model defined in Swagger
         """
@@ -90,20 +90,21 @@ class Event(object):
         self._id = None
         self._table = None
         self._tags = None
-        self._is_ephemeral = None
+        self._running_state = None
         self._created_at = None
+        self._hosts = None
+        self._is_ephemeral = None
+        self._creator_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._updater_id = None
-        self._creator_id = None
         self._updated_at = None
-        self._hosts = None
-        self._is_user_event = None
         self._summarized_events = None
-        self._running_state = None
-        self._can_delete = None
+        self._is_user_event = None
         self._can_close = None
         self._creator_type = None
+        self._can_delete = None
+        self.discriminator = None
 
         self.start_time = start_time
         self.end_time = end_time
@@ -115,32 +116,34 @@ class Event(object):
           self.table = table
         if tags is not None:
           self.tags = tags
-        if is_ephemeral is not None:
-          self.is_ephemeral = is_ephemeral
+        if running_state is not None:
+          self.running_state = running_state
         if created_at is not None:
           self.created_at = created_at
+        if hosts is not None:
+          self.hosts = hosts
+        if is_ephemeral is not None:
+          self.is_ephemeral = is_ephemeral
+        if creator_id is not None:
+          self.creator_id = creator_id
         if created_epoch_millis is not None:
           self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
           self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
           self.updater_id = updater_id
-        if creator_id is not None:
-          self.creator_id = creator_id
         if updated_at is not None:
           self.updated_at = updated_at
-        self.hosts = hosts
+        if summarized_events is not None:
+          self.summarized_events = summarized_events
         if is_user_event is not None:
           self.is_user_event = is_user_event
-        self.summarized_events = summarized_events
-        if running_state is not None:
-          self.running_state = running_state
-        if can_delete is not None:
-          self.can_delete = can_delete
         if can_close is not None:
           self.can_close = can_close
         if creator_type is not None:
           self.creator_type = creator_type
+        if can_delete is not None:
+          self.can_delete = can_delete
 
     @property
     def start_time(self):
@@ -310,27 +313,31 @@ class Event(object):
         self._tags = tags
 
     @property
-    def is_ephemeral(self):
+    def running_state(self):
         """
-        Gets the is_ephemeral of this Event.
-        Whether the event ends immediately after it begins
+        Gets the running_state of this Event.
 
-        :return: The is_ephemeral of this Event.
-        :rtype: bool
+        :return: The running_state of this Event.
+        :rtype: str
         """
-        return self._is_ephemeral
+        return self._running_state
 
-    @is_ephemeral.setter
-    def is_ephemeral(self, is_ephemeral):
+    @running_state.setter
+    def running_state(self, running_state):
         """
-        Sets the is_ephemeral of this Event.
-        Whether the event ends immediately after it begins
+        Sets the running_state of this Event.
 
-        :param is_ephemeral: The is_ephemeral of this Event.
-        :type: bool
+        :param running_state: The running_state of this Event.
+        :type: str
         """
+        allowed_values = ["ONGOING", "PENDING", "ENDED"]
+        if running_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `running_state` ({0}), must be one of {1}"
+                .format(running_state, allowed_values)
+            )
 
-        self._is_ephemeral = is_ephemeral
+        self._running_state = running_state
 
     @property
     def created_at(self):
@@ -352,6 +359,73 @@ class Event(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def hosts(self):
+        """
+        Gets the hosts of this Event.
+        A list of sources/hosts affected by the event
+
+        :return: The hosts of this Event.
+        :rtype: list[str]
+        """
+        return self._hosts
+
+    @hosts.setter
+    def hosts(self, hosts):
+        """
+        Sets the hosts of this Event.
+        A list of sources/hosts affected by the event
+
+        :param hosts: The hosts of this Event.
+        :type: list[str]
+        """
+
+        self._hosts = hosts
+
+    @property
+    def is_ephemeral(self):
+        """
+        Gets the is_ephemeral of this Event.
+        Whether the event is an artificial event generated by a literal expression or alert backtesting, i.e. not stored in the Wavefront backend
+
+        :return: The is_ephemeral of this Event.
+        :rtype: bool
+        """
+        return self._is_ephemeral
+
+    @is_ephemeral.setter
+    def is_ephemeral(self, is_ephemeral):
+        """
+        Sets the is_ephemeral of this Event.
+        Whether the event is an artificial event generated by a literal expression or alert backtesting, i.e. not stored in the Wavefront backend
+
+        :param is_ephemeral: The is_ephemeral of this Event.
+        :type: bool
+        """
+
+        self._is_ephemeral = is_ephemeral
+
+    @property
+    def creator_id(self):
+        """
+        Gets the creator_id of this Event.
+
+        :return: The creator_id of this Event.
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """
+        Sets the creator_id of this Event.
+
+        :param creator_id: The creator_id of this Event.
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def created_epoch_millis(self):
@@ -417,27 +491,6 @@ class Event(object):
         self._updater_id = updater_id
 
     @property
-    def creator_id(self):
-        """
-        Gets the creator_id of this Event.
-
-        :return: The creator_id of this Event.
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """
-        Sets the creator_id of this Event.
-
-        :param creator_id: The creator_id of this Event.
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
     def updated_at(self):
         """
         Gets the updated_at of this Event.
@@ -459,29 +512,27 @@ class Event(object):
         self._updated_at = updated_at
 
     @property
-    def hosts(self):
+    def summarized_events(self):
         """
-        Gets the hosts of this Event.
-        A list of sources/hosts affected by the event
+        Gets the summarized_events of this Event.
+        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one
 
-        :return: The hosts of this Event.
-        :rtype: list[str]
+        :return: The summarized_events of this Event.
+        :rtype: int
         """
-        return self._hosts
+        return self._summarized_events
 
-    @hosts.setter
-    def hosts(self, hosts):
+    @summarized_events.setter
+    def summarized_events(self, summarized_events):
         """
-        Sets the hosts of this Event.
-        A list of sources/hosts affected by the event
+        Sets the summarized_events of this Event.
+        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one
 
-        :param hosts: The hosts of this Event.
-        :type: list[str]
+        :param summarized_events: The summarized_events of this Event.
+        :type: int
         """
-        if hosts is None:
-            raise ValueError("Invalid value for `hosts`, must not be `None`")
 
-        self._hosts = hosts
+        self._summarized_events = summarized_events
 
     @property
     def is_user_event(self):
@@ -505,79 +556,6 @@ class Event(object):
         """
 
         self._is_user_event = is_user_event
-
-    @property
-    def summarized_events(self):
-        """
-        Gets the summarized_events of this Event.
-        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one
-
-        :return: The summarized_events of this Event.
-        :rtype: int
-        """
-        return self._summarized_events
-
-    @summarized_events.setter
-    def summarized_events(self, summarized_events):
-        """
-        Sets the summarized_events of this Event.
-        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one
-
-        :param summarized_events: The summarized_events of this Event.
-        :type: int
-        """
-        if summarized_events is None:
-            raise ValueError("Invalid value for `summarized_events`, must not be `None`")
-
-        self._summarized_events = summarized_events
-
-    @property
-    def running_state(self):
-        """
-        Gets the running_state of this Event.
-
-        :return: The running_state of this Event.
-        :rtype: str
-        """
-        return self._running_state
-
-    @running_state.setter
-    def running_state(self, running_state):
-        """
-        Sets the running_state of this Event.
-
-        :param running_state: The running_state of this Event.
-        :type: str
-        """
-        allowed_values = ["ONGOING", "PENDING", "ENDED"]
-        if running_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `running_state` ({0}), must be one of {1}"
-                .format(running_state, allowed_values)
-            )
-
-        self._running_state = running_state
-
-    @property
-    def can_delete(self):
-        """
-        Gets the can_delete of this Event.
-
-        :return: The can_delete of this Event.
-        :rtype: bool
-        """
-        return self._can_delete
-
-    @can_delete.setter
-    def can_delete(self, can_delete):
-        """
-        Sets the can_delete of this Event.
-
-        :param can_delete: The can_delete of this Event.
-        :type: bool
-        """
-
-        self._can_delete = can_delete
 
     @property
     def can_close(self):
@@ -627,6 +605,27 @@ class Event(object):
             )
 
         self._creator_type = creator_type
+
+    @property
+    def can_delete(self):
+        """
+        Gets the can_delete of this Event.
+
+        :return: The can_delete of this Event.
+        :rtype: bool
+        """
+        return self._can_delete
+
+    @can_delete.setter
+    def can_delete(self, can_delete):
+        """
+        Sets the can_delete of this Event.
+
+        :param can_delete: The can_delete of this Event.
+        :type: bool
+        """
+
+        self._can_delete = can_delete
 
     def to_dict(self):
         """

@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -2373,7 +2373,7 @@ class SearchApi(object):
 
     def search_notficant_for_facets(self, **kwargs):
         """
-        Lists the values of one or more facets over the customer's webhooks
+        Lists the values of one or more facets over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -2395,7 +2395,7 @@ class SearchApi(object):
 
     def search_notficant_for_facets_with_http_info(self, **kwargs):
         """
-        Lists the values of one or more facets over the customer's webhooks
+        Lists the values of one or more facets over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -2451,7 +2451,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api('/api/v2/search/webhook/facets', 'POST',
+        return self.api_client.call_api('/api/v2/search/notificant/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2468,7 +2468,7 @@ class SearchApi(object):
 
     def search_notificant_entities(self, **kwargs):
         """
-        Search over a customer's webhooks
+        Search over a customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -2477,7 +2477,7 @@ class SearchApi(object):
 
         :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedWebhook
+        :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2490,7 +2490,7 @@ class SearchApi(object):
 
     def search_notificant_entities_with_http_info(self, **kwargs):
         """
-        Search over a customer's webhooks
+        Search over a customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -2499,7 +2499,7 @@ class SearchApi(object):
 
         :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedWebhook
+        :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2546,14 +2546,14 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api('/api/v2/search/webhook', 'POST',
+        return self.api_client.call_api('/api/v2/search/notificant', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ResponseContainerPagedWebhook',
+                                        response_type='ResponseContainerPagedNotificant',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -2563,7 +2563,7 @@ class SearchApi(object):
 
     def search_notificant_for_facet(self, facet, **kwargs):
         """
-        Lists the values of a specific facet over the customer's webhooks
+        Lists the values of a specific facet over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -2586,7 +2586,7 @@ class SearchApi(object):
 
     def search_notificant_for_facet_with_http_info(self, facet, **kwargs):
         """
-        Lists the values of a specific facet over the customer's webhooks
+        Lists the values of a specific facet over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -2648,7 +2648,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api('/api/v2/search/webhook/{facet}', 'POST',
+        return self.api_client.call_api('/api/v2/search/notificant/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3817,6 +3817,298 @@ class SearchApi(object):
         auth_settings = ['api_key']
 
         return self.api_client.call_api('/api/v2/search/source/facets', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerFacetsResponseContainer',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_web_hook_entities(self, **kwargs):
+        """
+        Search over a customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_entities(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedNotificant
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_web_hook_entities_with_http_info(**kwargs)
+        else:
+            (data) = self.search_web_hook_entities_with_http_info(**kwargs)
+            return data
+
+    def search_web_hook_entities_with_http_info(self, **kwargs):
+        """
+        Search over a customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_entities_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedNotificant
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_web_hook_entities" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/search/webhook', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerPagedNotificant',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_web_hook_for_facet(self, facet, **kwargs):
+        """
+        Lists the values of a specific facet over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_for_facet(facet, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_web_hook_for_facet_with_http_info(facet, **kwargs)
+        else:
+            (data) = self.search_web_hook_for_facet_with_http_info(facet, **kwargs)
+            return data
+
+    def search_web_hook_for_facet_with_http_info(self, facet, **kwargs):
+        """
+        Lists the values of a specific facet over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['facet', 'body']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_web_hook_for_facet" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'facet' is set
+        if ('facet' not in params) or (params['facet'] is None):
+            raise ValueError("Missing the required parameter `facet` when calling `search_web_hook_for_facet`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'facet' in params:
+            path_params['facet'] = params['facet']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/search/webhook/{facet}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerFacetResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_webhook_for_facets(self, **kwargs):
+        """
+        Lists the values of one or more facets over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_webhook_for_facets(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_webhook_for_facets_with_http_info(**kwargs)
+        else:
+            (data) = self.search_webhook_for_facets_with_http_info(**kwargs)
+            return data
+
+    def search_webhook_for_facets_with_http_info(self, **kwargs):
+        """
+        Lists the values of one or more facets over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_webhook_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_webhook_for_facets" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/search/webhook/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
