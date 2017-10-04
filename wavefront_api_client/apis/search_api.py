@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class SearchApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def search_alert_deleted_entities(self, **kwargs):
         """
         Search over a customer's deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_deleted_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_deleted_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_alert_deleted_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_alert_deleted_entities_with_http_info(**kwargs)
@@ -71,15 +62,11 @@ class SearchApi(object):
         Search over a customer's deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_deleted_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_deleted_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedAlert
                  If the method is called asynchronously,
@@ -87,7 +74,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -105,10 +92,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/alert/deleted'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -129,7 +115,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/alert/deleted', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -138,7 +124,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -149,15 +135,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_deleted_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_deleted_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -165,7 +147,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_alert_deleted_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_alert_deleted_for_facet_with_http_info(facet, **kwargs)
@@ -176,15 +158,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_deleted_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_deleted_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -193,7 +171,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -214,12 +192,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/alert/deleted/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -240,7 +217,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/alert/deleted/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -249,7 +226,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -260,22 +237,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_deleted_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_deleted_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_alert_deleted_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_alert_deleted_for_facets_with_http_info(**kwargs)
@@ -286,15 +259,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_deleted_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_deleted_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -302,7 +271,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -320,10 +289,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/alert/deleted/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -344,7 +312,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/alert/deleted/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -353,7 +321,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -364,22 +332,18 @@ class SearchApi(object):
         Search over a customer's non-deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPaged
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_alert_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_alert_entities_with_http_info(**kwargs)
@@ -390,15 +354,11 @@ class SearchApi(object):
         Search over a customer's non-deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPaged
                  If the method is called asynchronously,
@@ -406,7 +366,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -424,10 +384,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/alert'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -448,7 +407,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/alert', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -457,7 +416,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPaged',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -468,15 +427,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -484,7 +439,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_alert_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_alert_for_facet_with_http_info(facet, **kwargs)
@@ -495,15 +450,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -512,7 +463,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -533,12 +484,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/alert/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -559,7 +509,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/alert/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -568,7 +518,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -579,22 +529,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_alert_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_alert_for_facets_with_http_info(**kwargs)
@@ -605,15 +551,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted alerts
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_alert_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_alert_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -621,7 +563,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -639,10 +581,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/alert/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -663,7 +604,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/alert/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -672,7 +613,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -683,22 +624,18 @@ class SearchApi(object):
         Search over a customer's deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_deleted_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_deleted_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_cloud_integration_deleted_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_cloud_integration_deleted_entities_with_http_info(**kwargs)
@@ -709,15 +646,11 @@ class SearchApi(object):
         Search over a customer's deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_deleted_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_deleted_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
@@ -725,7 +658,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -743,10 +676,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/cloudintegration/deleted'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -767,7 +699,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/cloudintegration/deleted', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -776,7 +708,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedCloudIntegration',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -787,15 +719,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_deleted_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_deleted_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -803,7 +731,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_cloud_integration_deleted_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_cloud_integration_deleted_for_facet_with_http_info(facet, **kwargs)
@@ -814,15 +742,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_deleted_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_deleted_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -831,7 +755,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -852,12 +776,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/cloudintegration/deleted/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -878,7 +801,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/cloudintegration/deleted/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -887,7 +810,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -898,22 +821,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_deleted_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_deleted_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_cloud_integration_deleted_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_cloud_integration_deleted_for_facets_with_http_info(**kwargs)
@@ -924,15 +843,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_deleted_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_deleted_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -940,7 +855,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -958,10 +873,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/cloudintegration/deleted/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -982,7 +896,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/cloudintegration/deleted/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -991,7 +905,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1002,22 +916,18 @@ class SearchApi(object):
         Search over a customer's non-deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_cloud_integration_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_cloud_integration_entities_with_http_info(**kwargs)
@@ -1028,15 +938,11 @@ class SearchApi(object):
         Search over a customer's non-deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
@@ -1044,7 +950,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1062,10 +968,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/cloudintegration'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1086,7 +991,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/cloudintegration', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1095,7 +1000,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedCloudIntegration',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1106,15 +1011,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1122,7 +1023,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_cloud_integration_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_cloud_integration_for_facet_with_http_info(facet, **kwargs)
@@ -1133,15 +1034,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1150,7 +1047,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1171,12 +1068,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/cloudintegration/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1197,7 +1093,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/cloudintegration/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1206,7 +1102,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1217,22 +1113,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_cloud_integration_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_cloud_integration_for_facets_with_http_info(**kwargs)
@@ -1243,15 +1135,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted cloud integrations
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_cloud_integration_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_cloud_integration_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -1259,7 +1147,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1277,10 +1165,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/cloudintegration/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1301,7 +1188,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/cloudintegration/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1310,7 +1197,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1321,22 +1208,18 @@ class SearchApi(object):
         Search over a customer's deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_deleted_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_deleted_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_dashboard_deleted_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_dashboard_deleted_entities_with_http_info(**kwargs)
@@ -1347,15 +1230,11 @@ class SearchApi(object):
         Search over a customer's deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_deleted_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_deleted_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
@@ -1363,7 +1242,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1381,10 +1260,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/dashboard/deleted'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1405,7 +1283,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/dashboard/deleted', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1414,7 +1292,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1425,15 +1303,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_deleted_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_deleted_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1441,7 +1315,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_dashboard_deleted_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_dashboard_deleted_for_facet_with_http_info(facet, **kwargs)
@@ -1452,15 +1326,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_deleted_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_deleted_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1469,7 +1339,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1490,12 +1360,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/dashboard/deleted/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1516,7 +1385,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/dashboard/deleted/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1525,7 +1394,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1536,22 +1405,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_deleted_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_deleted_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_dashboard_deleted_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_dashboard_deleted_for_facets_with_http_info(**kwargs)
@@ -1562,15 +1427,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_deleted_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_deleted_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -1578,7 +1439,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1596,10 +1457,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/dashboard/deleted/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1620,7 +1480,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/dashboard/deleted/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1629,7 +1489,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1640,22 +1500,18 @@ class SearchApi(object):
         Search over a customer's non-deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_dashboard_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_dashboard_entities_with_http_info(**kwargs)
@@ -1666,15 +1522,11 @@ class SearchApi(object):
         Search over a customer's non-deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
@@ -1682,7 +1534,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1700,10 +1552,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/dashboard'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1724,7 +1575,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/dashboard', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1733,7 +1584,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedDashboard',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1744,15 +1595,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1760,7 +1607,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_dashboard_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_dashboard_for_facet_with_http_info(facet, **kwargs)
@@ -1771,15 +1618,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1788,7 +1631,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1809,12 +1652,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/dashboard/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1835,7 +1677,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/dashboard/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1844,7 +1686,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1855,22 +1697,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_dashboard_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_dashboard_for_facets_with_http_info(**kwargs)
@@ -1881,15 +1719,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted dashboards
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_dashboard_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_dashboard_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -1897,7 +1731,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1915,10 +1749,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/dashboard/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1939,7 +1772,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/dashboard/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1948,7 +1781,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1959,22 +1792,18 @@ class SearchApi(object):
         Search over a customer's external links
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_external_link_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_external_link_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedExternalLink
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_external_link_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_external_link_entities_with_http_info(**kwargs)
@@ -1985,15 +1814,11 @@ class SearchApi(object):
         Search over a customer's external links
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_external_link_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_external_link_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedExternalLink
                  If the method is called asynchronously,
@@ -2001,7 +1826,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2019,10 +1844,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/extlink'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2043,7 +1867,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/extlink', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2052,7 +1876,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedExternalLink',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2063,15 +1887,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's external links
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_external_links_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_external_links_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2079,7 +1899,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_external_links_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_external_links_for_facet_with_http_info(facet, **kwargs)
@@ -2090,15 +1910,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's external links
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_external_links_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_external_links_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2107,7 +1923,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2128,12 +1944,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/extlink/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2154,7 +1969,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/extlink/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2163,7 +1978,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2174,22 +1989,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's external links
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_external_links_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_external_links_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_external_links_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_external_links_for_facets_with_http_info(**kwargs)
@@ -2200,15 +2011,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's external links
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_external_links_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_external_links_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -2216,7 +2023,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2234,10 +2041,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/extlink/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2258,7 +2064,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/extlink/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2267,7 +2073,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2278,22 +2084,18 @@ class SearchApi(object):
         Search over a customer's maintenance windows
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_maintenance_window_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_maintenance_window_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedMaintenanceWindow
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_maintenance_window_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_maintenance_window_entities_with_http_info(**kwargs)
@@ -2304,15 +2106,11 @@ class SearchApi(object):
         Search over a customer's maintenance windows
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_maintenance_window_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_maintenance_window_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedMaintenanceWindow
                  If the method is called asynchronously,
@@ -2320,7 +2118,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2338,10 +2136,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/maintenancewindow'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2362,7 +2159,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/maintenancewindow', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2371,7 +2168,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedMaintenanceWindow',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2382,15 +2179,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's maintenance windows
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_maintenance_window_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_maintenance_window_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2398,7 +2191,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_maintenance_window_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_maintenance_window_for_facet_with_http_info(facet, **kwargs)
@@ -2409,15 +2202,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's maintenance windows
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_maintenance_window_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_maintenance_window_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2426,7 +2215,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2447,12 +2236,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/maintenancewindow/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2473,7 +2261,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/maintenancewindow/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2482,7 +2270,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2493,22 +2281,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's maintenance windows
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_maintenance_window_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_maintenance_window_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_maintenance_window_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_maintenance_window_for_facets_with_http_info(**kwargs)
@@ -2519,15 +2303,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's maintenance windows
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_maintenance_window_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_maintenance_window_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -2535,7 +2315,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2553,10 +2333,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/maintenancewindow/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2577,7 +2356,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/maintenancewindow/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2586,7 +2365,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2594,25 +2373,21 @@ class SearchApi(object):
 
     def search_notficant_for_facets(self, **kwargs):
         """
-        Lists the values of one or more facets over the customer's webhooks
+        Lists the values of one or more facets over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_notficant_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_notficant_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_notficant_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_notficant_for_facets_with_http_info(**kwargs)
@@ -2620,18 +2395,14 @@ class SearchApi(object):
 
     def search_notficant_for_facets_with_http_info(self, **kwargs):
         """
-        Lists the values of one or more facets over the customer's webhooks
+        Lists the values of one or more facets over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_notficant_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_notficant_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -2639,7 +2410,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2657,10 +2428,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/webhook/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2681,7 +2451,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/notificant/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2690,7 +2460,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2698,25 +2468,21 @@ class SearchApi(object):
 
     def search_notificant_entities(self, **kwargs):
         """
-        Search over a customer's webhooks
+        Search over a customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_notificant_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_notificant_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedWebhook
+        :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_notificant_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_notificant_entities_with_http_info(**kwargs)
@@ -2724,26 +2490,22 @@ class SearchApi(object):
 
     def search_notificant_entities_with_http_info(self, **kwargs):
         """
-        Search over a customer's webhooks
+        Search over a customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_notificant_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_notificant_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedWebhook
+        :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2761,10 +2523,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/webhook'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2785,16 +2546,16 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/notificant', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ResponseContainerPagedWebhook',
+                                        response_type='ResponseContainerPagedNotificant',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2802,18 +2563,14 @@ class SearchApi(object):
 
     def search_notificant_for_facet(self, facet, **kwargs):
         """
-        Lists the values of a specific facet over the customer's webhooks
+        Lists the values of a specific facet over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_notificant_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_notificant_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2821,7 +2578,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_notificant_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_notificant_for_facet_with_http_info(facet, **kwargs)
@@ -2829,18 +2586,14 @@ class SearchApi(object):
 
     def search_notificant_for_facet_with_http_info(self, facet, **kwargs):
         """
-        Lists the values of a specific facet over the customer's webhooks
+        Lists the values of a specific facet over the customer's notificants
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_notificant_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_notificant_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2849,7 +2602,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2870,12 +2623,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/webhook/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2896,7 +2648,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/notificant/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2905,7 +2657,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2916,22 +2668,18 @@ class SearchApi(object):
         Search over a customer's deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_deleted_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_deleted_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_proxy_deleted_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_proxy_deleted_entities_with_http_info(**kwargs)
@@ -2942,15 +2690,11 @@ class SearchApi(object):
         Search over a customer's deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_deleted_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_deleted_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
@@ -2958,7 +2702,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2976,10 +2720,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/proxy/deleted'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3000,7 +2743,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/proxy/deleted', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3009,7 +2752,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedProxy',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3020,15 +2763,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_deleted_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_deleted_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3036,7 +2775,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_proxy_deleted_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_proxy_deleted_for_facet_with_http_info(facet, **kwargs)
@@ -3047,15 +2786,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_deleted_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_deleted_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3064,7 +2799,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3085,12 +2820,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/proxy/deleted/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3111,7 +2845,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/proxy/deleted/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3120,7 +2854,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3131,22 +2865,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_deleted_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_deleted_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_proxy_deleted_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_proxy_deleted_for_facets_with_http_info(**kwargs)
@@ -3157,15 +2887,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_deleted_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_deleted_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -3173,7 +2899,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3191,10 +2917,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/proxy/deleted/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3215,7 +2940,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/proxy/deleted/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3224,7 +2949,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3235,22 +2960,18 @@ class SearchApi(object):
         Search over a customer's non-deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_proxy_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_proxy_entities_with_http_info(**kwargs)
@@ -3261,15 +2982,11 @@ class SearchApi(object):
         Search over a customer's non-deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
@@ -3277,7 +2994,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3295,10 +3012,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/proxy'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3319,7 +3035,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/proxy', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3328,7 +3044,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedProxy',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3339,15 +3055,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3355,7 +3067,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_proxy_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_proxy_for_facet_with_http_info(facet, **kwargs)
@@ -3366,15 +3078,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's non-deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3383,7 +3091,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3404,12 +3112,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/proxy/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3430,7 +3137,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/proxy/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3439,7 +3146,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3450,22 +3157,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_proxy_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_proxy_for_facets_with_http_info(**kwargs)
@@ -3476,15 +3179,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's non-deleted proxies
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_proxy_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_proxy_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -3492,7 +3191,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3510,10 +3209,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/proxy/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3534,7 +3232,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/proxy/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3543,7 +3241,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3554,22 +3252,18 @@ class SearchApi(object):
         Search over a customer's events
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_report_event_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_report_event_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param EventSearchRequest body:
         :return: ResponseContainerPagedEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_report_event_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_report_event_entities_with_http_info(**kwargs)
@@ -3580,15 +3274,11 @@ class SearchApi(object):
         Search over a customer's events
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_report_event_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_report_event_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param EventSearchRequest body:
         :return: ResponseContainerPagedEvent
                  If the method is called asynchronously,
@@ -3596,7 +3286,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3614,10 +3304,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/event'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3638,7 +3327,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/event', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3647,7 +3336,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedEvent',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3658,15 +3347,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's events
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_report_event_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_report_event_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3674,7 +3359,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_report_event_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_report_event_for_facet_with_http_info(facet, **kwargs)
@@ -3685,15 +3370,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's events
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_report_event_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_report_event_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3702,7 +3383,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3723,12 +3404,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/event/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3749,7 +3429,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/event/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3758,7 +3438,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3769,22 +3449,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's events
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_report_event_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_report_event_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_report_event_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_report_event_for_facets_with_http_info(**kwargs)
@@ -3795,15 +3471,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's events
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_report_event_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_report_event_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -3811,7 +3483,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3829,10 +3501,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/event/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3853,7 +3524,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/event/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3862,7 +3533,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3873,22 +3544,18 @@ class SearchApi(object):
         Search over a customer's sources
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_tagged_source_entities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_tagged_source_entities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SourceSearchRequestContainer body:
         :return: ResponseContainerPagedSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_tagged_source_entities_with_http_info(**kwargs)
         else:
             (data) = self.search_tagged_source_entities_with_http_info(**kwargs)
@@ -3899,15 +3566,11 @@ class SearchApi(object):
         Search over a customer's sources
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_tagged_source_entities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_tagged_source_entities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SourceSearchRequestContainer body:
         :return: ResponseContainerPagedSource
                  If the method is called asynchronously,
@@ -3915,7 +3578,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3933,10 +3596,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/source'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3957,7 +3619,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/source', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -3966,7 +3628,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedSource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3977,15 +3639,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's sources
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_tagged_source_for_facet(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_tagged_source_for_facet(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3993,7 +3651,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_tagged_source_for_facet_with_http_info(facet, **kwargs)
         else:
             (data) = self.search_tagged_source_for_facet_with_http_info(facet, **kwargs)
@@ -4004,15 +3662,11 @@ class SearchApi(object):
         Lists the values of a specific facet over the customer's sources
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_tagged_source_for_facet_with_http_info(facet, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_tagged_source_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -4021,7 +3675,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4042,12 +3696,11 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/source/{facet}'.replace('{format}', 'json')
         path_params = {}
         if 'facet' in params:
             path_params['facet'] = params['facet']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -4068,7 +3721,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/source/{facet}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -4077,7 +3730,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -4088,22 +3741,18 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's sources
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_tagged_source_for_facets(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_tagged_source_for_facets(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_tagged_source_for_facets_with_http_info(**kwargs)
         else:
             (data) = self.search_tagged_source_for_facets_with_http_info(**kwargs)
@@ -4114,15 +3763,11 @@ class SearchApi(object):
         Lists the values of one or more facets over the customer's sources
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_tagged_source_for_facets_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_tagged_source_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -4130,7 +3775,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4148,10 +3793,9 @@ class SearchApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/search/source/facets'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -4172,7 +3816,7 @@ class SearchApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/search/source/facets', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -4181,7 +3825,299 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerFacetsResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_web_hook_entities(self, **kwargs):
+        """
+        Search over a customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_entities(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedNotificant
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_web_hook_entities_with_http_info(**kwargs)
+        else:
+            (data) = self.search_web_hook_entities_with_http_info(**kwargs)
+            return data
+
+    def search_web_hook_entities_with_http_info(self, **kwargs):
+        """
+        Search over a customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_entities_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedNotificant
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_web_hook_entities" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/search/webhook', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerPagedNotificant',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_web_hook_for_facet(self, facet, **kwargs):
+        """
+        Lists the values of a specific facet over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_for_facet(facet, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_web_hook_for_facet_with_http_info(facet, **kwargs)
+        else:
+            (data) = self.search_web_hook_for_facet_with_http_info(facet, **kwargs)
+            return data
+
+    def search_web_hook_for_facet_with_http_info(self, facet, **kwargs):
+        """
+        Lists the values of a specific facet over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_web_hook_for_facet_with_http_info(facet, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['facet', 'body']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_web_hook_for_facet" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'facet' is set
+        if ('facet' not in params) or (params['facet'] is None):
+            raise ValueError("Missing the required parameter `facet` when calling `search_web_hook_for_facet`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'facet' in params:
+            path_params['facet'] = params['facet']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/search/webhook/{facet}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerFacetResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_webhook_for_facets(self, **kwargs):
+        """
+        Lists the values of one or more facets over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_webhook_for_facets(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_webhook_for_facets_with_http_info(**kwargs)
+        else:
+            (data) = self.search_webhook_for_facets_with_http_info(**kwargs)
+            return data
+
+    def search_webhook_for_facets_with_http_info(self, **kwargs):
+        """
+        Lists the values of one or more facets over the customer's webhooks
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_webhook_for_facets_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_webhook_for_facets" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/search/webhook/facets', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainerFacetsResponseContainer',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

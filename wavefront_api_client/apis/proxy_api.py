@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class ProxyApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def delete_proxy(self, id, **kwargs):
         """
         Delete a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_proxy(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_proxy(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_proxy_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_proxy_with_http_info(id, **kwargs)
@@ -71,15 +62,11 @@ class ProxyApi(object):
         Delete a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_proxy_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_proxy_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
@@ -87,7 +74,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -108,12 +95,11 @@ class ProxyApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/proxy/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -128,7 +114,7 @@ class ProxyApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/proxy/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -137,7 +123,7 @@ class ProxyApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerProxy',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -148,15 +134,11 @@ class ProxyApi(object):
         Get all proxies for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_proxy(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_proxy(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedProxy
@@ -164,7 +146,7 @@ class ProxyApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_all_proxy_with_http_info(**kwargs)
         else:
             (data) = self.get_all_proxy_with_http_info(**kwargs)
@@ -175,15 +157,11 @@ class ProxyApi(object):
         Get all proxies for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_proxy_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_proxy_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedProxy
@@ -192,7 +170,7 @@ class ProxyApi(object):
         """
 
         all_params = ['offset', 'limit']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -210,14 +188,13 @@ class ProxyApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/proxy'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'offset' in params:
-            query_params['offset'] = params['offset']
+            query_params.append(('offset', params['offset']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
 
         header_params = {}
 
@@ -232,7 +209,7 @@ class ProxyApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/proxy', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -241,7 +218,7 @@ class ProxyApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedProxy',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -252,22 +229,18 @@ class ProxyApi(object):
         Get a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_proxy(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_proxy(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_proxy_with_http_info(id, **kwargs)
         else:
             (data) = self.get_proxy_with_http_info(id, **kwargs)
@@ -278,15 +251,11 @@ class ProxyApi(object):
         Get a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_proxy_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_proxy_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
@@ -294,7 +263,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -315,12 +284,11 @@ class ProxyApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/proxy/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -335,7 +303,7 @@ class ProxyApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/proxy/{id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -344,7 +312,7 @@ class ProxyApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerProxy',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -355,22 +323,18 @@ class ProxyApi(object):
         Undelete a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.undelete_proxy(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.undelete_proxy(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.undelete_proxy_with_http_info(id, **kwargs)
         else:
             (data) = self.undelete_proxy_with_http_info(id, **kwargs)
@@ -381,15 +345,11 @@ class ProxyApi(object):
         Undelete a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.undelete_proxy_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.undelete_proxy_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
@@ -397,7 +357,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -418,12 +378,11 @@ class ProxyApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/proxy/{id}/undelete'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -438,7 +397,7 @@ class ProxyApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/proxy/{id}/undelete', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -447,7 +406,7 @@ class ProxyApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerProxy',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -458,15 +417,11 @@ class ProxyApi(object):
         Update the name of a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_proxy(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_proxy(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Proxy body: Example Body:  <pre>{   \"name\": \"New Name for proxy\" }</pre>
         :return: ResponseContainerProxy
@@ -474,7 +429,7 @@ class ProxyApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_proxy_with_http_info(id, **kwargs)
         else:
             (data) = self.update_proxy_with_http_info(id, **kwargs)
@@ -485,15 +440,11 @@ class ProxyApi(object):
         Update the name of a specific proxy
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_proxy_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_proxy_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Proxy body: Example Body:  <pre>{   \"name\": \"New Name for proxy\" }</pre>
         :return: ResponseContainerProxy
@@ -502,7 +453,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -523,12 +474,11 @@ class ProxyApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/proxy/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -549,7 +499,7 @@ class ProxyApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/proxy/{id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -558,7 +508,7 @@ class ProxyApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerProxy',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class SourceApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_source_tag(self, id, tag_value, **kwargs):
         """
         Add a tag to a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_source_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_source_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -61,7 +52,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_source_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.add_source_tag_with_http_info(id, tag_value, **kwargs)
@@ -72,15 +63,11 @@ class SourceApi(object):
         Add a tag to a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_source_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_source_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -89,7 +76,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -113,14 +100,13 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -139,7 +125,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/source/{id}/tag/{tagValue}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -148,7 +134,7 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -159,22 +145,18 @@ class SourceApi(object):
         Create metadata (description or tags) for a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_source(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_source(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_source_with_http_info(**kwargs)
         else:
             (data) = self.create_source_with_http_info(**kwargs)
@@ -185,15 +167,11 @@ class SourceApi(object):
         Create metadata (description or tags) for a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_source_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_source_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
                  If the method is called asynchronously,
@@ -201,7 +179,7 @@ class SourceApi(object):
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -219,10 +197,9 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -239,7 +216,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/source', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -248,7 +225,7 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerSource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -259,22 +236,18 @@ class SourceApi(object):
         Delete metadata (description and tags) for a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_source(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_source(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_source_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_source_with_http_info(id, **kwargs)
@@ -285,15 +258,11 @@ class SourceApi(object):
         Delete metadata (description and tags) for a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_source_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_source_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
@@ -301,7 +270,7 @@ class SourceApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -322,12 +291,11 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -342,7 +310,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/source/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -351,7 +319,7 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerSource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -362,15 +330,11 @@ class SourceApi(object):
         Get all sources for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_source(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_source(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str cursor:
         :param int limit:
         :return: ResponseContainerPagedSource
@@ -378,7 +342,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_all_source_with_http_info(**kwargs)
         else:
             (data) = self.get_all_source_with_http_info(**kwargs)
@@ -389,15 +353,11 @@ class SourceApi(object):
         Get all sources for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_source_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_source_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str cursor:
         :param int limit:
         :return: ResponseContainerPagedSource
@@ -406,7 +366,7 @@ class SourceApi(object):
         """
 
         all_params = ['cursor', 'limit']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -424,14 +384,13 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'cursor' in params:
-            query_params['cursor'] = params['cursor']
+            query_params.append(('cursor', params['cursor']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
 
         header_params = {}
 
@@ -446,7 +405,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/source', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -455,7 +414,7 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedSource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -466,22 +425,18 @@ class SourceApi(object):
         Get a specific source for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_source(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_source(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_source_with_http_info(id, **kwargs)
         else:
             (data) = self.get_source_with_http_info(id, **kwargs)
@@ -492,15 +447,11 @@ class SourceApi(object):
         Get a specific source for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_source_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_source_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
@@ -508,7 +459,7 @@ class SourceApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -529,12 +480,11 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -549,7 +499,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/source/{id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -558,7 +508,7 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerSource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -569,22 +519,18 @@ class SourceApi(object):
         Get all tags associated with a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_source_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_source_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_source_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.get_source_tags_with_http_info(id, **kwargs)
@@ -595,15 +541,11 @@ class SourceApi(object):
         Get all tags associated with a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_source_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_source_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -611,7 +553,7 @@ class SourceApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -632,12 +574,11 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -652,7 +593,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/source/{id}/tag', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -661,7 +602,101 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerTagsResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def remove_description(self, id, **kwargs):
+        """
+        Remove description from a specific source
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_description(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :return: ResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.remove_description_with_http_info(id, **kwargs)
+        else:
+            (data) = self.remove_description_with_http_info(id, **kwargs)
+            return data
+
+    def remove_description_with_http_info(self, id, **kwargs):
+        """
+        Remove description from a specific source
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_description_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :return: ResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_description" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `remove_description`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/source/{id}/description', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainer',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -672,15 +707,11 @@ class SourceApi(object):
         Remove a tag from a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_source_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_source_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -688,7 +719,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_source_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.remove_source_tag_with_http_info(id, tag_value, **kwargs)
@@ -699,15 +730,11 @@ class SourceApi(object):
         Remove a tag from a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_source_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_source_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -716,7 +743,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -740,14 +767,13 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -766,7 +792,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/source/{id}/tag/{tagValue}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -775,7 +801,109 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def set_description(self, id, **kwargs):
+        """
+        Set description associated with a specific source
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_description(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :param str body:
+        :return: ResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.set_description_with_http_info(id, **kwargs)
+        else:
+            (data) = self.set_description_with_http_info(id, **kwargs)
+            return data
+
+    def set_description_with_http_info(self, id, **kwargs):
+        """
+        Set description associated with a specific source
+        
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_description_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: (required)
+        :param str body:
+        :return: ResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'body']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_description" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `set_description`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['api_key']
+
+        return self.api_client.call_api('/api/v2/source/{id}/description', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ResponseContainer',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -786,15 +914,11 @@ class SourceApi(object):
         Set all tags associated with a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_source_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_source_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -802,7 +926,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_source_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.set_source_tags_with_http_info(id, **kwargs)
@@ -813,15 +937,11 @@ class SourceApi(object):
         Set all tags associated with a specific source
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_source_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_source_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -830,7 +950,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -851,12 +971,11 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -877,7 +996,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/source/{id}/tag', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -886,7 +1005,7 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -894,18 +1013,14 @@ class SourceApi(object):
 
     def update_source(self, id, **kwargs):
         """
-        Update metadata (description or tags) for a specific source
-        
+        Update metadata (description or tags) for a specific source.
+        The \"hidden\" property is stored as a tag. To set the value, add \"hidden\": &lt;value&gt; to the list of tags.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_source(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_source(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
@@ -913,7 +1028,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_source_with_http_info(id, **kwargs)
         else:
             (data) = self.update_source_with_http_info(id, **kwargs)
@@ -921,18 +1036,14 @@ class SourceApi(object):
 
     def update_source_with_http_info(self, id, **kwargs):
         """
-        Update metadata (description or tags) for a specific source
-        
+        Update metadata (description or tags) for a specific source.
+        The \"hidden\" property is stored as a tag. To set the value, add \"hidden\": &lt;value&gt; to the list of tags.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_source_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_source_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
@@ -941,7 +1052,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -962,12 +1073,11 @@ class SourceApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/source/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -984,7 +1094,7 @@ class SourceApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/source/{id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -993,7 +1103,7 @@ class SourceApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerSource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class AlertApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_alert_tag(self, id, tag_value, **kwargs):
         """
         Add a tag to a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_alert_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_alert_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -61,7 +52,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_alert_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.add_alert_tag_with_http_info(id, tag_value, **kwargs)
@@ -72,15 +63,11 @@ class AlertApi(object):
         Add a tag to a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_alert_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_alert_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -89,7 +76,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -113,14 +100,13 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -139,7 +125,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/alert/{id}/tag/{tagValue}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -148,7 +134,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -159,22 +145,18 @@ class AlertApi(object):
         Create a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_alert(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_alert(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param async bool
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_alert_with_http_info(**kwargs)
         else:
             (data) = self.create_alert_with_http_info(**kwargs)
@@ -185,23 +167,19 @@ class AlertApi(object):
         Create a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_alert_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_alert_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param async bool
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -219,10 +197,9 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -243,7 +220,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/alert', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -252,7 +229,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -263,22 +240,18 @@ class AlertApi(object):
         Delete a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_alert(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_alert(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_alert_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_alert_with_http_info(id, **kwargs)
@@ -289,15 +262,11 @@ class AlertApi(object):
         Delete a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_alert_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_alert_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -305,7 +274,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -326,12 +295,11 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -346,7 +314,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/alert/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -355,7 +323,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -366,22 +334,18 @@ class AlertApi(object):
         Get a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_alert_with_http_info(id, **kwargs)
         else:
             (data) = self.get_alert_with_http_info(id, **kwargs)
@@ -392,15 +356,11 @@ class AlertApi(object):
         Get a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -408,7 +368,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -429,12 +389,11 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -449,7 +408,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/alert/{id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -458,7 +417,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -469,15 +428,11 @@ class AlertApi(object):
         Get the version history of a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert_history(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert_history(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -486,7 +441,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_alert_history_with_http_info(id, **kwargs)
         else:
             (data) = self.get_alert_history_with_http_info(id, **kwargs)
@@ -497,15 +452,11 @@ class AlertApi(object):
         Get the version history of a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert_history_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert_history_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -515,7 +466,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'offset', 'limit']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -536,16 +487,15 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/history'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'offset' in params:
-            query_params['offset'] = params['offset']
+            query_params.append(('offset', params['offset']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
 
         header_params = {}
 
@@ -560,7 +510,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/alert/{id}/history', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -569,7 +519,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerHistoryResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -580,22 +530,18 @@ class AlertApi(object):
         Get all tags associated with a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_alert_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.get_alert_tags_with_http_info(id, **kwargs)
@@ -606,15 +552,11 @@ class AlertApi(object):
         Get all tags associated with a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -622,7 +564,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -643,12 +585,11 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -663,7 +604,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/alert/{id}/tag', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -672,7 +613,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerTagsResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -683,15 +624,11 @@ class AlertApi(object):
         Get a specific historical version of a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert_version(id, version, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert_version(id, version, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerAlert
@@ -699,7 +636,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_alert_version_with_http_info(id, version, **kwargs)
         else:
             (data) = self.get_alert_version_with_http_info(id, version, **kwargs)
@@ -710,15 +647,11 @@ class AlertApi(object):
         Get a specific historical version of a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alert_version_with_http_info(id, version, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alert_version_with_http_info(id, version, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerAlert
@@ -727,7 +660,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'version']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -751,14 +684,13 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/history/{version}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'version' in params:
             path_params['version'] = params['version']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -773,7 +705,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/alert/{id}/history/{version}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -782,7 +714,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -793,21 +725,17 @@ class AlertApi(object):
         Count alerts of various statuses for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alerts_summary(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alerts_summary(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: ResponseContainerMapStringInteger
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_alerts_summary_with_http_info(**kwargs)
         else:
             (data) = self.get_alerts_summary_with_http_info(**kwargs)
@@ -818,22 +746,18 @@ class AlertApi(object):
         Count alerts of various statuses for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_alerts_summary_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_alerts_summary_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: ResponseContainerMapStringInteger
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -850,10 +774,9 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/summary'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -868,7 +791,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/alert/summary', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -877,7 +800,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerMapStringInteger',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -888,15 +811,11 @@ class AlertApi(object):
         Get all alerts for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_alert(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_alert(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedAlert
@@ -904,7 +823,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_all_alert_with_http_info(**kwargs)
         else:
             (data) = self.get_all_alert_with_http_info(**kwargs)
@@ -915,15 +834,11 @@ class AlertApi(object):
         Get all alerts for a customer
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_all_alert_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_all_alert_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedAlert
@@ -932,7 +847,7 @@ class AlertApi(object):
         """
 
         all_params = ['offset', 'limit']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -950,14 +865,13 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'offset' in params:
-            query_params['offset'] = params['offset']
+            query_params.append(('offset', params['offset']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
 
         header_params = {}
 
@@ -972,7 +886,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/alert', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -981,7 +895,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerPagedAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -992,15 +906,11 @@ class AlertApi(object):
         Remove a tag from a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_alert_tag(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_alert_tag(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -1008,7 +918,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_alert_tag_with_http_info(id, tag_value, **kwargs)
         else:
             (data) = self.remove_alert_tag_with_http_info(id, tag_value, **kwargs)
@@ -1019,15 +929,11 @@ class AlertApi(object):
         Remove a tag from a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_alert_tag_with_http_info(id, tag_value, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_alert_tag_with_http_info(id, tag_value, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -1036,7 +942,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'tag_value']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1060,14 +966,13 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/tag/{tagValue}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
         if 'tag_value' in params:
             path_params['tagValue'] = params['tag_value']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1082,7 +987,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/api/v2/alert/{id}/tag/{tagValue}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1091,7 +996,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1102,15 +1007,11 @@ class AlertApi(object):
         Set all tags associated with a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_alert_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_alert_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -1118,7 +1019,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_alert_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.set_alert_tags_with_http_info(id, **kwargs)
@@ -1129,15 +1030,11 @@ class AlertApi(object):
         Set all tags associated with a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_alert_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_alert_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -1146,7 +1043,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1167,12 +1064,11 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/tag'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1193,7 +1089,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/alert/{id}/tag', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1202,7 +1098,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainer',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1213,15 +1109,11 @@ class AlertApi(object):
         Snooze a specific alert for some number of seconds
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.snooze_alert(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.snooze_alert(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int seconds:
         :return: ResponseContainerAlert
@@ -1229,7 +1121,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.snooze_alert_with_http_info(id, **kwargs)
         else:
             (data) = self.snooze_alert_with_http_info(id, **kwargs)
@@ -1240,15 +1132,11 @@ class AlertApi(object):
         Snooze a specific alert for some number of seconds
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.snooze_alert_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.snooze_alert_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :param int seconds:
         :return: ResponseContainerAlert
@@ -1257,7 +1145,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'seconds']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1278,14 +1166,13 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/snooze'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'seconds' in params:
-            query_params['seconds'] = params['seconds']
+            query_params.append(('seconds', params['seconds']))
 
         header_params = {}
 
@@ -1300,7 +1187,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/alert/{id}/snooze', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1309,7 +1196,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1320,22 +1207,18 @@ class AlertApi(object):
         Undelete a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.undelete_alert(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.undelete_alert(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.undelete_alert_with_http_info(id, **kwargs)
         else:
             (data) = self.undelete_alert_with_http_info(id, **kwargs)
@@ -1346,15 +1229,11 @@ class AlertApi(object):
         Undelete a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.undelete_alert_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.undelete_alert_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -1362,7 +1241,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1383,12 +1262,11 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/undelete'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1403,7 +1281,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/alert/{id}/undelete', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1412,7 +1290,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1423,22 +1301,18 @@ class AlertApi(object):
         Unsnooze a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.unsnooze_alert(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.unsnooze_alert(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.unsnooze_alert_with_http_info(id, **kwargs)
         else:
             (data) = self.unsnooze_alert_with_http_info(id, **kwargs)
@@ -1449,15 +1323,11 @@ class AlertApi(object):
         Unsnooze a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.unsnooze_alert_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.unsnooze_alert_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -1465,7 +1335,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1486,12 +1356,11 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}/unsnooze'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1506,7 +1375,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/api/v2/alert/{id}/unsnooze', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1515,7 +1384,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1526,23 +1395,19 @@ class AlertApi(object):
         Update a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_alert(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_alert(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_alert_with_http_info(id, **kwargs)
         else:
             (data) = self.update_alert_with_http_info(id, **kwargs)
@@ -1553,24 +1418,20 @@ class AlertApi(object):
         Update a specific alert
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_alert_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_alert_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts() > 1\",   \"displayExpression\": \"ts()\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'body']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1591,12 +1452,11 @@ class AlertApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/alert/{id}'.replace('{format}', 'json')
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1617,7 +1477,7 @@ class AlertApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/api/v2/alert/{id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1626,7 +1486,7 @@ class AlertApi(object):
                                         files=local_var_files,
                                         response_type='ResponseContainerAlert',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

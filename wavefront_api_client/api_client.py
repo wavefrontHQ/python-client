@@ -2,7 +2,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -16,7 +16,7 @@ import re
 import json
 import mimetypes
 import tempfile
-import threading
+from multiprocessing.pool import ThreadPool
 
 from datetime import date, datetime
 
@@ -59,21 +59,23 @@ class ApiClient(object):
         'object': object,
     }
 
-    def __init__(self, host=None, header_name=None, header_value=None, cookie=None):
-        """
-        Constructor of the class.
-        """
-        self.rest_client = RESTClientObject()
+    def __init__(self, configuration=None, header_name=None, header_value=None, cookie=None):
+        if configuration is None:
+            configuration = Configuration()
+        self.configuration = configuration
+
+        self.pool = ThreadPool()
+        self.rest_client = RESTClientObject(configuration)
         self.default_headers = {}
         if header_name is not None:
             self.default_headers[header_name] = header_value
-        if host is None:
-            self.host = Configuration().host
-        else:
-            self.host = host
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/2.1/python'
+        self.user_agent = 'Swagger-Codegen/2.2.1/python'
+    
+    def __del__(self):
+        self.pool.close()
+        self.pool.join()
 
     @property
     def user_agent(self):
@@ -95,9 +97,11 @@ class ApiClient(object):
     def __call_api(self, resource_path, method,
                    path_params=None, query_params=None, header_params=None,
                    body=None, post_params=None, files=None,
-                   response_type=None, auth_settings=None, callback=None,
+                   response_type=None, auth_settings=None,
                    _return_http_data_only=None, collection_formats=None, _preload_content=True,
                    _request_timeout=None):
+
+        config = self.configuration
 
         # header parameters
         header_params = header_params or {}
@@ -115,8 +119,9 @@ class ApiClient(object):
             path_params = self.parameters_to_tuples(path_params,
                                                     collection_formats)
             for k, v in path_params:
+                # specified safe chars, encode everything
                 resource_path = resource_path.replace(
-                    '{%s}' % k, quote(str(v), safe=''))  # no safe chars, encode everything
+                    '{%s}' % k, quote(str(v), safe=config.safe_chars_for_path_param))
 
         # query parameters
         if query_params:
@@ -139,7 +144,7 @@ class ApiClient(object):
             body = self.sanitize_for_serialization(body)
 
         # request url
-        url = self.host + resource_path
+        url = self.configuration.host + resource_path
 
         # perform request and return response
         response_data = self.request(method, url,
@@ -159,12 +164,7 @@ class ApiClient(object):
             else:
                 return_data = None
 
-        if callback:
-            if _return_http_data_only:
-                callback(return_data)
-            else:
-                callback((return_data, response_data.status, response_data.getheaders()))
-        elif _return_http_data_only:
+        if _return_http_data_only:
             return (return_data)
         else:
             return (return_data, response_data.status, response_data.getheaders())
@@ -278,12 +278,12 @@ class ApiClient(object):
     def call_api(self, resource_path, method,
                  path_params=None, query_params=None, header_params=None,
                  body=None, post_params=None, files=None,
-                 response_type=None, auth_settings=None, callback=None,
+                 response_type=None, auth_settings=None, async=None,
                  _return_http_data_only=None, collection_formats=None, _preload_content=True,
                  _request_timeout=None):
         """
         Makes the HTTP request (synchronous) and return the deserialized data.
-        To make an async request, define a function for callback.
+        To make an async request, set the async parameter.
 
         :param resource_path: Path to method endpoint.
         :param method: Method to call.
@@ -298,9 +298,7 @@ class ApiClient(object):
         :param response: Response data type.
         :param files dict: key -> filename, value -> filepath,
             for `multipart/form-data`.
-        :param callback function: Callback function for asynchronous request.
-            If provide this parameter,
-            the request will be called asynchronously.
+        :param async bool: execute request asynchronously
         :param _return_http_data_only: response data without head status code and headers
         :param collection_formats: dict of collection formats for path, query,
             header, and post parameters.
@@ -309,28 +307,26 @@ class ApiClient(object):
         :param _request_timeout: timeout setting for this request. If one number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of (connection, read) timeouts.
         :return:
-            If provide parameter callback,
+            If async parameter is True,
             the request will be called asynchronously.
             The method will return the request thread.
-            If parameter callback is None,
+            If parameter async is False or missing,
             then the method will return the response directly.
         """
-        if callback is None:
+        if not async:
             return self.__call_api(resource_path, method,
                                    path_params, query_params, header_params,
                                    body, post_params, files,
-                                   response_type, auth_settings, callback,
+                                   response_type, auth_settings,
                                    _return_http_data_only, collection_formats, _preload_content, _request_timeout)
         else:
-            thread = threading.Thread(target=self.__call_api,
-                                      args=(resource_path, method,
-                                            path_params, query_params,
-                                            header_params, body,
-                                            post_params, files,
-                                            response_type, auth_settings,
-                                            callback, _return_http_data_only,
-                                            collection_formats, _preload_content, _request_timeout))
-        thread.start()
+            thread = self.pool.apply_async(self.__call_api, (resource_path, method,
+                                           path_params, query_params,
+                                           header_params, body,
+                                           post_params, files,
+                                           response_type, auth_settings,
+                                           _return_http_data_only,
+                                           collection_formats, _preload_content, _request_timeout))
         return thread
 
     def request(self, method, url, query_params=None, headers=None,
@@ -496,13 +492,11 @@ class ApiClient(object):
         :param querys: Query parameters tuple list to be updated.
         :param auth_settings: Authentication setting identifiers list.
         """
-        config = Configuration()
-
         if not auth_settings:
             return
 
         for auth in auth_settings:
-            auth_setting = config.auth_settings().get(auth)
+            auth_setting = self.configuration.auth_settings().get(auth)
             if auth_setting:
                 if not auth_setting['value']:
                     continue
@@ -523,9 +517,7 @@ class ApiClient(object):
         :param response:  RESTResponse.
         :return: file path.
         """
-        config = Configuration()
-
-        fd, path = tempfile.mkstemp(dir=config.temp_folder_path)
+        fd, path = tempfile.mkstemp(dir=self.configuration.temp_folder_path)
         os.close(fd)
         os.remove(path)
 
@@ -614,16 +606,23 @@ class ApiClient(object):
         :param klass: class literal.
         :return: model object.
         """
-        instance = klass()
 
-        if not instance.swagger_types:
+        if not klass.swagger_types and not hasattr(klass, 'get_real_child_model'):
             return data
 
-        for attr, attr_type in iteritems(instance.swagger_types):
-            if data is not None \
-               and instance.attribute_map[attr] in data \
-               and isinstance(data, (list, dict)):
-                value = data[instance.attribute_map[attr]]
-                setattr(instance, attr, self.__deserialize(value, attr_type))
+        kwargs = {}
+        if klass.swagger_types is not None:
+            for attr, attr_type in iteritems(klass.swagger_types):
+                if data is not None \
+                   and klass.attribute_map[attr] in data \
+                   and isinstance(data, (list, dict)):
+                    value = data[klass.attribute_map[attr]]
+                    kwargs[attr] = self.__deserialize(value, attr_type)
 
+        instance = klass(**kwargs)
+
+        if hasattr(instance, 'get_real_child_model'):
+            klass_name = instance.get_real_child_model(data)
+            if klass_name:
+                instance = self.__deserialize(data, klass_name)
         return instance
