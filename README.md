@@ -73,4 +73,4 @@ print sources
 
 ## Troubleshooting
 
-If you encounter a bug or need help, feel free to leave an [issue](https://github.com/wavefrontHQ/python-client/issues) on this GitHub repository, or contact us at [support@wavefront.com](support@wavefront.com).
+If you encounter a bug or need help, feel free to leave an [issue](https://github.com/wavefrontHQ/python-client/issues) on this GitHub repository.
