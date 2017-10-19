@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -36,15 +36,24 @@ from .facet_response import FacetResponse
 from .facet_search_request_container import FacetSearchRequestContainer
 from .facets_response_container import FacetsResponseContainer
 from .facets_search_request_container import FacetsSearchRequestContainer
+from .gcp_configuration import GCPConfiguration
 from .history_entry import HistoryEntry
 from .history_response import HistoryResponse
+from .integration import Integration
+from .integration_dashboard import IntegrationDashboard
+from .integration_manifest_group import IntegrationManifestGroup
+from .integration_metrics import IntegrationMetrics
+from .integration_status import IntegrationStatus
 from .iterator_entry_string_json_node import IteratorEntryStringJsonNode
 from .iterator_json_node import IteratorJsonNode
 from .iterator_string import IteratorString
+from .logical_type import LogicalType
 from .maintenance_window import MaintenanceWindow
 from .message import Message
 from .metric_details import MetricDetails
 from .metric_details_response import MetricDetailsResponse
+from .metric_status import MetricStatus
+from .notificant import Notificant
 from .number import Number
 from .paged import Paged
 from .paged_alert import PagedAlert
@@ -52,17 +61,18 @@ from .paged_cloud_integration import PagedCloudIntegration
 from .paged_dashboard import PagedDashboard
 from .paged_event import PagedEvent
 from .paged_external_link import PagedExternalLink
+from .paged_integration import PagedIntegration
 from .paged_maintenance_window import PagedMaintenanceWindow
 from .paged_message import PagedMessage
+from .paged_notificant import PagedNotificant
 from .paged_proxy import PagedProxy
 from .paged_saved_search import PagedSavedSearch
 from .paged_source import PagedSource
-from .paged_webhook import PagedWebhook
 from .point import Point
 from .proxy import Proxy
-from .query_key_container import QueryKeyContainer
+from .query_event import QueryEvent
 from .query_result import QueryResult
-from .report_event import ReportEvent
+from .raw_timeseries import RawTimeseries
 from .response_container import ResponseContainer
 from .response_container_alert import ResponseContainerAlert
 from .response_container_cloud_integration import ResponseContainerCloudIntegration
@@ -72,29 +82,33 @@ from .response_container_external_link import ResponseContainerExternalLink
 from .response_container_facet_response import ResponseContainerFacetResponse
 from .response_container_facets_response_container import ResponseContainerFacetsResponseContainer
 from .response_container_history_response import ResponseContainerHistoryResponse
+from .response_container_integration import ResponseContainerIntegration
+from .response_container_integration_status import ResponseContainerIntegrationStatus
+from .response_container_list_integration_manifest_group import ResponseContainerListIntegrationManifestGroup
 from .response_container_maintenance_window import ResponseContainerMaintenanceWindow
 from .response_container_map_string_integer import ResponseContainerMapStringInteger
+from .response_container_map_string_integration_status import ResponseContainerMapStringIntegrationStatus
 from .response_container_message import ResponseContainerMessage
+from .response_container_notificant import ResponseContainerNotificant
 from .response_container_paged import ResponseContainerPaged
 from .response_container_paged_alert import ResponseContainerPagedAlert
 from .response_container_paged_cloud_integration import ResponseContainerPagedCloudIntegration
 from .response_container_paged_dashboard import ResponseContainerPagedDashboard
 from .response_container_paged_event import ResponseContainerPagedEvent
 from .response_container_paged_external_link import ResponseContainerPagedExternalLink
+from .response_container_paged_integration import ResponseContainerPagedIntegration
 from .response_container_paged_maintenance_window import ResponseContainerPagedMaintenanceWindow
 from .response_container_paged_message import ResponseContainerPagedMessage
+from .response_container_paged_notificant import ResponseContainerPagedNotificant
 from .response_container_paged_proxy import ResponseContainerPagedProxy
 from .response_container_paged_saved_search import ResponseContainerPagedSavedSearch
 from .response_container_paged_source import ResponseContainerPagedSource
-from .response_container_paged_webhook import ResponseContainerPagedWebhook
 from .response_container_proxy import ResponseContainerProxy
 from .response_container_saved_search import ResponseContainerSavedSearch
 from .response_container_source import ResponseContainerSource
 from .response_container_tags_response import ResponseContainerTagsResponse
-from .response_container_webhook import ResponseContainerWebhook
 from .response_status import ResponseStatus
 from .saved_search import SavedSearch
-from .scoped_dto_converter import ScopedDTOConverter
 from .search_query import SearchQuery
 from .sortable_search_request import SortableSearchRequest
 from .sorting import Sorting
@@ -103,9 +117,8 @@ from .source_label_pair import SourceLabelPair
 from .source_search_request_container import SourceSearchRequestContainer
 from .stats_model import StatsModel
 from .tags_response import TagsResponse
+from .target_info import TargetInfo
 from .timeseries import Timeseries
-from .timeseries_stats_container import TimeseriesStatsContainer
 from .user_model import UserModel
 from .user_to_create import UserToCreate
 from .wf_tags import WFTags
-from .webhook import Webhook

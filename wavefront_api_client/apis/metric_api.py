@@ -3,7 +3,7 @@
 """
     Wavefront Public API
 
-    <p>Wavefront public APIs enable you to interact with Wavefront servers using standard web service API tools. You can use the APIs to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront UI you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
+    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>
 
     OpenAPI spec version: v2
     
@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class MetricApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def get_metric_details(self, m, **kwargs):
         """
         Get more details on a metric, including reporting sources and approximate last time reported
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_metric_details(m, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_metric_details(m, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str m: Metric name (required)
         :param str c: cursor value to continue if the number of results exceeds 1000
         :param list[str] h: glob pattern for sources to include in the query result
@@ -62,7 +53,7 @@ class MetricApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_metric_details_with_http_info(m, **kwargs)
         else:
             (data) = self.get_metric_details_with_http_info(m, **kwargs)
@@ -73,15 +64,11 @@ class MetricApi(object):
         Get more details on a metric, including reporting sources and approximate last time reported
         
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_metric_details_with_http_info(m, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_metric_details_with_http_info(m, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str m: Metric name (required)
         :param str c: cursor value to continue if the number of results exceeds 1000
         :param list[str] h: glob pattern for sources to include in the query result
@@ -91,7 +78,7 @@ class MetricApi(object):
         """
 
         all_params = ['m', 'c', 'h']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -112,16 +99,15 @@ class MetricApi(object):
 
         collection_formats = {}
 
-        resource_path = '/api/v2/chart/metric/detail'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'm' in params:
-            query_params['m'] = params['m']
+            query_params.append(('m', params['m']))
         if 'c' in params:
-            query_params['c'] = params['c']
+            query_params.append(('c', params['c']))
         if 'h' in params:
-            query_params['h'] = params['h']
+            query_params.append(('h', params['h']))
             collection_formats['h'] = 'multi'
 
         header_params = {}
@@ -137,7 +123,7 @@ class MetricApi(object):
         # Authentication setting
         auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/api/v2/chart/metric/detail', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -146,7 +132,7 @@ class MetricApi(object):
                                         files=local_var_files,
                                         response_type='MetricDetailsResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
