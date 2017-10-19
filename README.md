@@ -10,13 +10,15 @@ If you're looking for the V1 API, the API client can be found in the api-v1 bran
 
 ## Requirements
 
-- Python 2.7 and higher
-- OpenSSL 1.0 and higher
+- Python 2.7 or higher 
+- OpenSSL 1.0.1 or higher (TLSv1.2 support)
 
-**Note**: As of April 2017 Macs ship with OpenSSL version 0.9.8. You may need to upgrade to 1.0 if you have not already. To upgrade using Homebrew, run:
+**Note ("[Errno 54] Connection reset by peer" error)**:
+This is a known issue affecting Python 2.7 on most Macs. macOS ships with an outdated version of the OpenSSL library that only supports deprecated encryption protocols. As a result, Python 2.7 that ships with the system, doesn't support TLSv1.2. During SSL handshake it attempts to use TLSv1 encryption protocol, which is no longer considered secure, and Wavefront servers are terminating the connection, which results in a "Connection reset by peer" error.
+To work around this issue, the easiest way would be to install an updated version of Python 2.7 using Homebrew (https://brew.sh), which doesn't rely on the system-provided OpenSSL library, or switch to Python 3.
 
 ```
-brew upgrade openssl
+brew install python
 ```
 
 ## Setuptools
@@ -75,4 +77,4 @@ print sources
 
 ## Troubleshooting
 
-If you encounter a bug or need help, feel free to leave an [issue](https://github.com/wavefrontHQ/python-client/issues) on this GitHub repository, or contact us at [support@wavefront.com](support@wavefront.com).
+If you encounter a bug or need help, feel free to leave an [issue](https://github.com/wavefrontHQ/python-client/issues) on this GitHub repository.
