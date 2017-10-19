@@ -17,8 +17,19 @@ If you're looking for the V1 API, the API client can be found in the api-v1 bran
 This is a known issue affecting Python 2.7 on most Macs. macOS ships with an outdated version of the OpenSSL library that only supports deprecated encryption protocols. As a result, Python 2.7 that ships with the system, doesn't support TLSv1.2. During SSL handshake it attempts to use TLSv1 encryption protocol, which is no longer considered secure, and Wavefront servers are terminating the connection, which results in a "Connection reset by peer" error.
 To work around this issue, the easiest way would be to install an updated version of Python 2.7 using Homebrew (https://brew.sh), which doesn't rely on the system-provided OpenSSL library, or switch to Python 3.
 
+**Note:** v2.2.x libraries require a minor code modification to be compatible with v2.1.x and earlier versions due to breaking changes introduced by swagger-codegen.
+Before:
+
+```python
+client = wave_api.ApiClient(host=base_url, header_name='Authorization', header_value='Bearer ' + api_key)
 ```
-brew install python
+
+After:
+
+```python
+config = wave_api.Configuration()
+config.host = base_url
+client = wave_api.ApiClient(configuration=config, header_name='Authorization', header_value='Bearer ' + api_key)
 ```
 
 ## Setuptools
