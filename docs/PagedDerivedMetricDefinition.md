@@ -1,9 +1,9 @@
-# PagedRegisteredQuery
+# PagedDerivedMetricDefinition
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**list[RegisteredQuery]**](RegisteredQuery.md) | List of requested items | [optional] 
+**items** | [**list[DerivedMetricDefinition]**](DerivedMetricDefinition.md) | List of requested items | [optional] 
 **offset** | **int** |  | [optional] 
 **limit** | **int** |  | [optional] 
 **cursor** | **str** | The id at which the current (limited) search can be continued to obtain more matching items | [optional] 

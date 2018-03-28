@@ -32,36 +32,36 @@ class SourceLabelPair(object):
     """
     swagger_types = {
         'host': 'str',
-        'label': 'str',
         'tags': 'dict(str, str)',
+        'label': 'str',
         'firing': 'int',
         'observed': 'int'
     }
 
     attribute_map = {
         'host': 'host',
-        'label': 'label',
         'tags': 'tags',
+        'label': 'label',
         'firing': 'firing',
         'observed': 'observed'
     }
 
-    def __init__(self, host=None, label=None, tags=None, firing=None, observed=None):  # noqa: E501
+    def __init__(self, host=None, tags=None, label=None, firing=None, observed=None):  # noqa: E501
         """SourceLabelPair - a model defined in Swagger"""  # noqa: E501
 
         self._host = None
-        self._label = None
         self._tags = None
+        self._label = None
         self._firing = None
         self._observed = None
         self.discriminator = None
 
         if host is not None:
             self.host = host
-        if label is not None:
-            self.label = label
         if tags is not None:
             self.tags = tags
+        if label is not None:
+            self.label = label
         if firing is not None:
             self.firing = firing
         if observed is not None:
@@ -91,27 +91,6 @@ class SourceLabelPair(object):
         self._host = host
 
     @property
-    def label(self):
-        """Gets the label of this SourceLabelPair.  # noqa: E501
-
-
-        :return: The label of this SourceLabelPair.  # noqa: E501
-        :rtype: str
-        """
-        return self._label
-
-    @label.setter
-    def label(self, label):
-        """Sets the label of this SourceLabelPair.
-
-
-        :param label: The label of this SourceLabelPair.  # noqa: E501
-        :type: str
-        """
-
-        self._label = label
-
-    @property
     def tags(self):
         """Gets the tags of this SourceLabelPair.  # noqa: E501
 
@@ -131,6 +110,27 @@ class SourceLabelPair(object):
         """
 
         self._tags = tags
+
+    @property
+    def label(self):
+        """Gets the label of this SourceLabelPair.  # noqa: E501
+
+
+        :return: The label of this SourceLabelPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this SourceLabelPair.
+
+
+        :param label: The label of this SourceLabelPair.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
 
     @property
     def firing(self):

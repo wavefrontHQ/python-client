@@ -3257,7 +3257,7 @@ class SearchApi(object):
             collection_formats=collection_formats)
 
     def search_registered_query_deleted_entities(self, **kwargs):  # noqa: E501
-        """Search over a customer&#39;s deleted RegisteredQuery  # noqa: E501
+        """Search over a customer&#39;s deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3267,7 +3267,7 @@ class SearchApi(object):
 
         :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedRegisteredQuery
+        :return: ResponseContainerPagedDerivedMetricDefinition
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3279,7 +3279,7 @@ class SearchApi(object):
             return data
 
     def search_registered_query_deleted_entities_with_http_info(self, **kwargs):  # noqa: E501
-        """Search over a customer&#39;s deleted RegisteredQuery  # noqa: E501
+        """Search over a customer&#39;s deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3289,7 +3289,7 @@ class SearchApi(object):
 
         :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedRegisteredQuery
+        :return: ResponseContainerPagedDerivedMetricDefinition
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3336,14 +3336,14 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/registeredquery/deleted', 'POST',
+            '/api/v2/search/derivedmetricdefinition/deleted', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerPagedRegisteredQuery',  # noqa: E501
+            response_type='ResponseContainerPagedDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3352,7 +3352,7 @@ class SearchApi(object):
             collection_formats=collection_formats)
 
     def search_registered_query_deleted_for_facet(self, facet, **kwargs):  # noqa: E501
-        """Lists the values of a specific facet over the customer&#39;s deleted RegisteredQuery  # noqa: E501
+        """Lists the values of a specific facet over the customer&#39;s deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3375,7 +3375,7 @@ class SearchApi(object):
             return data
 
     def search_registered_query_deleted_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
-        """Lists the values of a specific facet over the customer&#39;s deleted RegisteredQuery  # noqa: E501
+        """Lists the values of a specific facet over the customer&#39;s deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3439,7 +3439,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/registeredquery/deleted/{facet}', 'POST',
+            '/api/v2/search/derivedmetricdefinition/deleted/{facet}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3455,7 +3455,7 @@ class SearchApi(object):
             collection_formats=collection_formats)
 
     def search_registered_query_deleted_for_facets(self, **kwargs):  # noqa: E501
-        """Lists the values of one or more facets over the customer&#39;s deleted RegisteredQuery  # noqa: E501
+        """Lists the values of one or more facets over the customer&#39;s deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3477,7 +3477,7 @@ class SearchApi(object):
             return data
 
     def search_registered_query_deleted_for_facets_with_http_info(self, **kwargs):  # noqa: E501
-        """Lists the values of one or more facets over the customer&#39;s deleted RegisteredQuery  # noqa: E501
+        """Lists the values of one or more facets over the customer&#39;s deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3534,7 +3534,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/registeredquery/deleted/facets', 'POST',
+            '/api/v2/search/derivedmetricdefinition/deleted/facets', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3550,7 +3550,7 @@ class SearchApi(object):
             collection_formats=collection_formats)
 
     def search_registered_query_entities(self, **kwargs):  # noqa: E501
-        """Search over a customer&#39;s non-deleted registered queries  # noqa: E501
+        """Search over a customer&#39;s non-deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3560,7 +3560,7 @@ class SearchApi(object):
 
         :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedRegisteredQueryWithStats
+        :return: ResponseContainerPagedDerivedMetricDefinitionWithStats
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3572,7 +3572,7 @@ class SearchApi(object):
             return data
 
     def search_registered_query_entities_with_http_info(self, **kwargs):  # noqa: E501
-        """Search over a customer&#39;s non-deleted registered queries  # noqa: E501
+        """Search over a customer&#39;s non-deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3582,7 +3582,7 @@ class SearchApi(object):
 
         :param async bool
         :param SortableSearchRequest body:
-        :return: ResponseContainerPagedRegisteredQueryWithStats
+        :return: ResponseContainerPagedDerivedMetricDefinitionWithStats
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3629,14 +3629,14 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/registeredquery', 'POST',
+            '/api/v2/search/derivedmetricdefinition', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerPagedRegisteredQueryWithStats',  # noqa: E501
+            response_type='ResponseContainerPagedDerivedMetricDefinitionWithStats',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3645,7 +3645,7 @@ class SearchApi(object):
             collection_formats=collection_formats)
 
     def search_registered_query_for_facet(self, facet, **kwargs):  # noqa: E501
-        """Lists the values of a specific facet over the customer&#39;s non-deleted RegisteredQuery  # noqa: E501
+        """Lists the values of a specific facet over the customer&#39;s non-deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3668,7 +3668,7 @@ class SearchApi(object):
             return data
 
     def search_registered_query_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
-        """Lists the values of a specific facet over the customer&#39;s non-deleted RegisteredQuery  # noqa: E501
+        """Lists the values of a specific facet over the customer&#39;s non-deleted derived metric definitions  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3732,7 +3732,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/registeredquery/{facet}', 'POST',
+            '/api/v2/search/derivedmetricdefinition/{facet}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3748,7 +3748,7 @@ class SearchApi(object):
             collection_formats=collection_formats)
 
     def search_registered_query_for_facets(self, **kwargs):  # noqa: E501
-        """Lists the values of one or more facets over the customer&#39;s non-deleted RegisteredQuery  # noqa: E501
+        """Lists the values of one or more facets over the customer&#39;s non-deleted derived metric definition  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3770,7 +3770,7 @@ class SearchApi(object):
             return data
 
     def search_registered_query_for_facets_with_http_info(self, **kwargs):  # noqa: E501
-        """Lists the values of one or more facets over the customer&#39;s non-deleted RegisteredQuery  # noqa: E501
+        """Lists the values of one or more facets over the customer&#39;s non-deleted derived metric definition  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3827,7 +3827,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/registeredquery/facets', 'POST',
+            '/api/v2/search/derivedmetricdefinition/facets', 'POST',
             path_params,
             query_params,
             header_params,

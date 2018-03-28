@@ -18,6 +18,7 @@ import six
 
 from wavefront_api_client.models.chart_settings import ChartSettings  # noqa: F401,E501
 from wavefront_api_client.models.chart_source_query import ChartSourceQuery  # noqa: F401,E501
+from wavefront_api_client.models.json_node import JsonNode  # noqa: F401,E501
 
 
 class Chart(object):
@@ -36,60 +37,65 @@ class Chart(object):
     swagger_types = {
         'name': 'str',
         'description': 'str',
-        'base': 'int',
         'sources': 'list[ChartSourceQuery]',
-        'units': 'str',
         'include_obsolete_metrics': 'bool',
-        'chart_settings': 'ChartSettings',
         'no_default_events': 'bool',
+        'base': 'int',
+        'units': 'str',
+        'chart_attributes': 'JsonNode',
         'interpolate_points': 'bool',
+        'chart_settings': 'ChartSettings',
         'summarization': 'str'
     }
 
     attribute_map = {
         'name': 'name',
         'description': 'description',
-        'base': 'base',
         'sources': 'sources',
-        'units': 'units',
         'include_obsolete_metrics': 'includeObsoleteMetrics',
-        'chart_settings': 'chartSettings',
         'no_default_events': 'noDefaultEvents',
+        'base': 'base',
+        'units': 'units',
+        'chart_attributes': 'chartAttributes',
         'interpolate_points': 'interpolatePoints',
+        'chart_settings': 'chartSettings',
         'summarization': 'summarization'
     }
 
-    def __init__(self, name=None, description=None, base=None, sources=None, units=None, include_obsolete_metrics=None, chart_settings=None, no_default_events=None, interpolate_points=None, summarization=None):  # noqa: E501
+    def __init__(self, name=None, description=None, sources=None, include_obsolete_metrics=None, no_default_events=None, base=None, units=None, chart_attributes=None, interpolate_points=None, chart_settings=None, summarization=None):  # noqa: E501
         """Chart - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._description = None
-        self._base = None
         self._sources = None
-        self._units = None
         self._include_obsolete_metrics = None
-        self._chart_settings = None
         self._no_default_events = None
+        self._base = None
+        self._units = None
+        self._chart_attributes = None
         self._interpolate_points = None
+        self._chart_settings = None
         self._summarization = None
         self.discriminator = None
 
         self.name = name
         if description is not None:
             self.description = description
-        if base is not None:
-            self.base = base
         self.sources = sources
-        if units is not None:
-            self.units = units
         if include_obsolete_metrics is not None:
             self.include_obsolete_metrics = include_obsolete_metrics
-        if chart_settings is not None:
-            self.chart_settings = chart_settings
         if no_default_events is not None:
             self.no_default_events = no_default_events
+        if base is not None:
+            self.base = base
+        if units is not None:
+            self.units = units
+        if chart_attributes is not None:
+            self.chart_attributes = chart_attributes
         if interpolate_points is not None:
             self.interpolate_points = interpolate_points
+        if chart_settings is not None:
+            self.chart_settings = chart_settings
         if summarization is not None:
             self.summarization = summarization
 
@@ -142,29 +148,6 @@ class Chart(object):
         self._description = description
 
     @property
-    def base(self):
-        """Gets the base of this Chart.  # noqa: E501
-
-        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
-
-        :return: The base of this Chart.  # noqa: E501
-        :rtype: int
-        """
-        return self._base
-
-    @base.setter
-    def base(self, base):
-        """Sets the base of this Chart.
-
-        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
-
-        :param base: The base of this Chart.  # noqa: E501
-        :type: int
-        """
-
-        self._base = base
-
-    @property
     def sources(self):
         """Gets the sources of this Chart.  # noqa: E501
 
@@ -190,29 +173,6 @@ class Chart(object):
         self._sources = sources
 
     @property
-    def units(self):
-        """Gets the units of this Chart.  # noqa: E501
-
-        String to label the units of the chart on the Y-axis  # noqa: E501
-
-        :return: The units of this Chart.  # noqa: E501
-        :rtype: str
-        """
-        return self._units
-
-    @units.setter
-    def units(self, units):
-        """Sets the units of this Chart.
-
-        String to label the units of the chart on the Y-axis  # noqa: E501
-
-        :param units: The units of this Chart.  # noqa: E501
-        :type: str
-        """
-
-        self._units = units
-
-    @property
     def include_obsolete_metrics(self):
         """Gets the include_obsolete_metrics of this Chart.  # noqa: E501
 
@@ -234,27 +194,6 @@ class Chart(object):
         """
 
         self._include_obsolete_metrics = include_obsolete_metrics
-
-    @property
-    def chart_settings(self):
-        """Gets the chart_settings of this Chart.  # noqa: E501
-
-
-        :return: The chart_settings of this Chart.  # noqa: E501
-        :rtype: ChartSettings
-        """
-        return self._chart_settings
-
-    @chart_settings.setter
-    def chart_settings(self, chart_settings):
-        """Sets the chart_settings of this Chart.
-
-
-        :param chart_settings: The chart_settings of this Chart.  # noqa: E501
-        :type: ChartSettings
-        """
-
-        self._chart_settings = chart_settings
 
     @property
     def no_default_events(self):
@@ -280,6 +219,75 @@ class Chart(object):
         self._no_default_events = no_default_events
 
     @property
+    def base(self):
+        """Gets the base of this Chart.  # noqa: E501
+
+        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
+
+        :return: The base of this Chart.  # noqa: E501
+        :rtype: int
+        """
+        return self._base
+
+    @base.setter
+    def base(self, base):
+        """Sets the base of this Chart.
+
+        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
+
+        :param base: The base of this Chart.  # noqa: E501
+        :type: int
+        """
+
+        self._base = base
+
+    @property
+    def units(self):
+        """Gets the units of this Chart.  # noqa: E501
+
+        String to label the units of the chart on the Y-axis  # noqa: E501
+
+        :return: The units of this Chart.  # noqa: E501
+        :rtype: str
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this Chart.
+
+        String to label the units of the chart on the Y-axis  # noqa: E501
+
+        :param units: The units of this Chart.  # noqa: E501
+        :type: str
+        """
+
+        self._units = units
+
+    @property
+    def chart_attributes(self):
+        """Gets the chart_attributes of this Chart.  # noqa: E501
+
+        Experimental field for chart attributes  # noqa: E501
+
+        :return: The chart_attributes of this Chart.  # noqa: E501
+        :rtype: JsonNode
+        """
+        return self._chart_attributes
+
+    @chart_attributes.setter
+    def chart_attributes(self, chart_attributes):
+        """Sets the chart_attributes of this Chart.
+
+        Experimental field for chart attributes  # noqa: E501
+
+        :param chart_attributes: The chart_attributes of this Chart.  # noqa: E501
+        :type: JsonNode
+        """
+
+        self._chart_attributes = chart_attributes
+
+    @property
     def interpolate_points(self):
         """Gets the interpolate_points of this Chart.  # noqa: E501
 
@@ -301,6 +309,27 @@ class Chart(object):
         """
 
         self._interpolate_points = interpolate_points
+
+    @property
+    def chart_settings(self):
+        """Gets the chart_settings of this Chart.  # noqa: E501
+
+
+        :return: The chart_settings of this Chart.  # noqa: E501
+        :rtype: ChartSettings
+        """
+        return self._chart_settings
+
+    @chart_settings.setter
+    def chart_settings(self, chart_settings):
+        """Sets the chart_settings of this Chart.
+
+
+        :param chart_settings: The chart_settings of this Chart.  # noqa: E501
+        :type: ChartSettings
+        """
+
+        self._chart_settings = chart_settings
 
     @property
     def summarization(self):

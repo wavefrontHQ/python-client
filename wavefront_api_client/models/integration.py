@@ -41,19 +41,19 @@ class Integration(object):
         'description': 'str',
         'status': 'IntegrationStatus',
         'creator_id': 'str',
+        'version': 'str',
+        'created_epoch_millis': 'int',
+        'updated_epoch_millis': 'int',
+        'metrics': 'IntegrationMetrics',
+        'base_url': 'str',
         'updater_id': 'str',
         'dashboards': 'list[IntegrationDashboard]',
         'alias_of': 'str',
         'icon': 'str',
         'alias_integrations': 'list[IntegrationAlias]',
         'deleted': 'bool',
-        'base_url': 'str',
-        'metrics': 'IntegrationMetrics',
-        'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
         'overview': 'str',
-        'setup': 'str',
-        'version': 'str'
+        'setup': 'str'
     }
 
     attribute_map = {
@@ -62,22 +62,22 @@ class Integration(object):
         'description': 'description',
         'status': 'status',
         'creator_id': 'creatorId',
+        'version': 'version',
+        'created_epoch_millis': 'createdEpochMillis',
+        'updated_epoch_millis': 'updatedEpochMillis',
+        'metrics': 'metrics',
+        'base_url': 'baseUrl',
         'updater_id': 'updaterId',
         'dashboards': 'dashboards',
         'alias_of': 'aliasOf',
         'icon': 'icon',
         'alias_integrations': 'aliasIntegrations',
         'deleted': 'deleted',
-        'base_url': 'baseUrl',
-        'metrics': 'metrics',
-        'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
         'overview': 'overview',
-        'setup': 'setup',
-        'version': 'version'
+        'setup': 'setup'
     }
 
-    def __init__(self, name=None, id=None, description=None, status=None, creator_id=None, updater_id=None, dashboards=None, alias_of=None, icon=None, alias_integrations=None, deleted=None, base_url=None, metrics=None, created_epoch_millis=None, updated_epoch_millis=None, overview=None, setup=None, version=None):  # noqa: E501
+    def __init__(self, name=None, id=None, description=None, status=None, creator_id=None, version=None, created_epoch_millis=None, updated_epoch_millis=None, metrics=None, base_url=None, updater_id=None, dashboards=None, alias_of=None, icon=None, alias_integrations=None, deleted=None, overview=None, setup=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
@@ -85,19 +85,19 @@ class Integration(object):
         self._description = None
         self._status = None
         self._creator_id = None
+        self._version = None
+        self._created_epoch_millis = None
+        self._updated_epoch_millis = None
+        self._metrics = None
+        self._base_url = None
         self._updater_id = None
         self._dashboards = None
         self._alias_of = None
         self._icon = None
         self._alias_integrations = None
         self._deleted = None
-        self._base_url = None
-        self._metrics = None
-        self._created_epoch_millis = None
-        self._updated_epoch_millis = None
         self._overview = None
         self._setup = None
-        self._version = None
         self.discriminator = None
 
         self.name = name
@@ -108,6 +108,15 @@ class Integration(object):
             self.status = status
         if creator_id is not None:
             self.creator_id = creator_id
+        self.version = version
+        if created_epoch_millis is not None:
+            self.created_epoch_millis = created_epoch_millis
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
+        if metrics is not None:
+            self.metrics = metrics
+        if base_url is not None:
+            self.base_url = base_url
         if updater_id is not None:
             self.updater_id = updater_id
         if dashboards is not None:
@@ -119,19 +128,10 @@ class Integration(object):
             self.alias_integrations = alias_integrations
         if deleted is not None:
             self.deleted = deleted
-        if base_url is not None:
-            self.base_url = base_url
-        if metrics is not None:
-            self.metrics = metrics
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
         if overview is not None:
             self.overview = overview
         if setup is not None:
             self.setup = setup
-        self.version = version
 
     @property
     def name(self):
@@ -245,6 +245,117 @@ class Integration(object):
         """
 
         self._creator_id = creator_id
+
+    @property
+    def version(self):
+        """Gets the version of this Integration.  # noqa: E501
+
+        Integration version string  # noqa: E501
+
+        :return: The version of this Integration.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this Integration.
+
+        Integration version string  # noqa: E501
+
+        :param version: The version of this Integration.  # noqa: E501
+        :type: str
+        """
+        if version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+
+        self._version = version
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this Integration.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this Integration.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this Integration.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this Integration.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this Integration.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this Integration.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this Integration.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this Integration.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def metrics(self):
+        """Gets the metrics of this Integration.  # noqa: E501
+
+
+        :return: The metrics of this Integration.  # noqa: E501
+        :rtype: IntegrationMetrics
+        """
+        return self._metrics
+
+    @metrics.setter
+    def metrics(self, metrics):
+        """Sets the metrics of this Integration.
+
+
+        :param metrics: The metrics of this Integration.  # noqa: E501
+        :type: IntegrationMetrics
+        """
+
+        self._metrics = metrics
+
+    @property
+    def base_url(self):
+        """Gets the base_url of this Integration.  # noqa: E501
+
+        Base URL for this integration's assets  # noqa: E501
+
+        :return: The base_url of this Integration.  # noqa: E501
+        :rtype: str
+        """
+        return self._base_url
+
+    @base_url.setter
+    def base_url(self, base_url):
+        """Sets the base_url of this Integration.
+
+        Base URL for this integration's assets  # noqa: E501
+
+        :param base_url: The base_url of this Integration.  # noqa: E501
+        :type: str
+        """
+
+        self._base_url = base_url
 
     @property
     def updater_id(self):
@@ -383,92 +494,6 @@ class Integration(object):
         self._deleted = deleted
 
     @property
-    def base_url(self):
-        """Gets the base_url of this Integration.  # noqa: E501
-
-        Base URL for this integration's assets  # noqa: E501
-
-        :return: The base_url of this Integration.  # noqa: E501
-        :rtype: str
-        """
-        return self._base_url
-
-    @base_url.setter
-    def base_url(self, base_url):
-        """Sets the base_url of this Integration.
-
-        Base URL for this integration's assets  # noqa: E501
-
-        :param base_url: The base_url of this Integration.  # noqa: E501
-        :type: str
-        """
-
-        self._base_url = base_url
-
-    @property
-    def metrics(self):
-        """Gets the metrics of this Integration.  # noqa: E501
-
-
-        :return: The metrics of this Integration.  # noqa: E501
-        :rtype: IntegrationMetrics
-        """
-        return self._metrics
-
-    @metrics.setter
-    def metrics(self, metrics):
-        """Sets the metrics of this Integration.
-
-
-        :param metrics: The metrics of this Integration.  # noqa: E501
-        :type: IntegrationMetrics
-        """
-
-        self._metrics = metrics
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this Integration.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this Integration.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_epoch_millis
-
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this Integration.
-
-
-        :param created_epoch_millis: The created_epoch_millis of this Integration.  # noqa: E501
-        :type: int
-        """
-
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this Integration.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this Integration.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this Integration.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this Integration.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
-
-    @property
     def overview(self):
         """Gets the overview of this Integration.  # noqa: E501
 
@@ -513,31 +538,6 @@ class Integration(object):
         """
 
         self._setup = setup
-
-    @property
-    def version(self):
-        """Gets the version of this Integration.  # noqa: E501
-
-        Integration version string  # noqa: E501
-
-        :return: The version of this Integration.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this Integration.
-
-        Integration version string  # noqa: E501
-
-        :param version: The version of this Integration.  # noqa: E501
-        :type: str
-        """
-        if version is None:
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
-
-        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

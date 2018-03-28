@@ -37,49 +37,49 @@ class QueryResult(object):
     swagger_types = {
         'name': 'str',
         'query': 'str',
-        'events': 'list[QueryEvent]',
-        'granularity': 'int',
         'stats': 'StatsModel',
-        'timeseries': 'list[Timeseries]',
-        'warnings': 'str'
+        'warnings': 'str',
+        'granularity': 'int',
+        'events': 'list[QueryEvent]',
+        'timeseries': 'list[Timeseries]'
     }
 
     attribute_map = {
         'name': 'name',
         'query': 'query',
-        'events': 'events',
-        'granularity': 'granularity',
         'stats': 'stats',
-        'timeseries': 'timeseries',
-        'warnings': 'warnings'
+        'warnings': 'warnings',
+        'granularity': 'granularity',
+        'events': 'events',
+        'timeseries': 'timeseries'
     }
 
-    def __init__(self, name=None, query=None, events=None, granularity=None, stats=None, timeseries=None, warnings=None):  # noqa: E501
+    def __init__(self, name=None, query=None, stats=None, warnings=None, granularity=None, events=None, timeseries=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._query = None
-        self._events = None
-        self._granularity = None
         self._stats = None
-        self._timeseries = None
         self._warnings = None
+        self._granularity = None
+        self._events = None
+        self._timeseries = None
         self.discriminator = None
 
         if name is not None:
             self.name = name
         if query is not None:
             self.query = query
-        if events is not None:
-            self.events = events
-        if granularity is not None:
-            self.granularity = granularity
         if stats is not None:
             self.stats = stats
-        if timeseries is not None:
-            self.timeseries = timeseries
         if warnings is not None:
             self.warnings = warnings
+        if granularity is not None:
+            self.granularity = granularity
+        if events is not None:
+            self.events = events
+        if timeseries is not None:
+            self.timeseries = timeseries
 
     @property
     def name(self):
@@ -128,25 +128,48 @@ class QueryResult(object):
         self._query = query
 
     @property
-    def events(self):
-        """Gets the events of this QueryResult.  # noqa: E501
+    def stats(self):
+        """Gets the stats of this QueryResult.  # noqa: E501
 
 
-        :return: The events of this QueryResult.  # noqa: E501
-        :rtype: list[QueryEvent]
+        :return: The stats of this QueryResult.  # noqa: E501
+        :rtype: StatsModel
         """
-        return self._events
+        return self._stats
 
-    @events.setter
-    def events(self, events):
-        """Sets the events of this QueryResult.
+    @stats.setter
+    def stats(self, stats):
+        """Sets the stats of this QueryResult.
 
 
-        :param events: The events of this QueryResult.  # noqa: E501
-        :type: list[QueryEvent]
+        :param stats: The stats of this QueryResult.  # noqa: E501
+        :type: StatsModel
         """
 
-        self._events = events
+        self._stats = stats
+
+    @property
+    def warnings(self):
+        """Gets the warnings of this QueryResult.  # noqa: E501
+
+        The warnings incurred by this query  # noqa: E501
+
+        :return: The warnings of this QueryResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._warnings
+
+    @warnings.setter
+    def warnings(self, warnings):
+        """Sets the warnings of this QueryResult.
+
+        The warnings incurred by this query  # noqa: E501
+
+        :param warnings: The warnings of this QueryResult.  # noqa: E501
+        :type: str
+        """
+
+        self._warnings = warnings
 
     @property
     def granularity(self):
@@ -172,25 +195,25 @@ class QueryResult(object):
         self._granularity = granularity
 
     @property
-    def stats(self):
-        """Gets the stats of this QueryResult.  # noqa: E501
+    def events(self):
+        """Gets the events of this QueryResult.  # noqa: E501
 
 
-        :return: The stats of this QueryResult.  # noqa: E501
-        :rtype: StatsModel
+        :return: The events of this QueryResult.  # noqa: E501
+        :rtype: list[QueryEvent]
         """
-        return self._stats
+        return self._events
 
-    @stats.setter
-    def stats(self, stats):
-        """Sets the stats of this QueryResult.
+    @events.setter
+    def events(self, events):
+        """Sets the events of this QueryResult.
 
 
-        :param stats: The stats of this QueryResult.  # noqa: E501
-        :type: StatsModel
+        :param events: The events of this QueryResult.  # noqa: E501
+        :type: list[QueryEvent]
         """
 
-        self._stats = stats
+        self._events = events
 
     @property
     def timeseries(self):
@@ -212,29 +235,6 @@ class QueryResult(object):
         """
 
         self._timeseries = timeseries
-
-    @property
-    def warnings(self):
-        """Gets the warnings of this QueryResult.  # noqa: E501
-
-        The warnings incurred by this query  # noqa: E501
-
-        :return: The warnings of this QueryResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._warnings
-
-    @warnings.setter
-    def warnings(self, warnings):
-        """Sets the warnings of this QueryResult.
-
-        The warnings incurred by this query  # noqa: E501
-
-        :param warnings: The warnings of this QueryResult.  # noqa: E501
-        :type: str
-        """
-
-        self._warnings = warnings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

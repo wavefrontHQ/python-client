@@ -44,17 +44,13 @@ class CloudIntegration(object):
         'name': 'str',
         'id': 'str',
         'service': 'str',
-        'in_trash': 'bool',
-        'last_error_event': 'Event',
         'creator_id': 'str',
-        'updater_id': 'str',
-        'deleted': 'bool',
-        'ec2': 'EC2Configuration',
         'additional_tags': 'dict(str, str)',
         'last_received_data_point_ms': 'int',
         'last_metric_count': 'int',
         'cloud_watch': 'CloudWatchConfiguration',
         'cloud_trail': 'CloudTrailConfiguration',
+        'ec2': 'EC2Configuration',
         'gcp': 'GCPConfiguration',
         'tesla': 'TeslaConfiguration',
         'azure': 'AzureConfiguration',
@@ -66,7 +62,11 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'int',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'service_refresh_rate_in_mins': 'int'
+        'service_refresh_rate_in_mins': 'int',
+        'updater_id': 'str',
+        'in_trash': 'bool',
+        'last_error_event': 'Event',
+        'deleted': 'bool'
     }
 
     attribute_map = {
@@ -74,17 +74,13 @@ class CloudIntegration(object):
         'name': 'name',
         'id': 'id',
         'service': 'service',
-        'in_trash': 'inTrash',
-        'last_error_event': 'lastErrorEvent',
         'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'deleted': 'deleted',
-        'ec2': 'ec2',
         'additional_tags': 'additionalTags',
         'last_received_data_point_ms': 'lastReceivedDataPointMs',
         'last_metric_count': 'lastMetricCount',
         'cloud_watch': 'cloudWatch',
         'cloud_trail': 'cloudTrail',
+        'ec2': 'ec2',
         'gcp': 'gcp',
         'tesla': 'tesla',
         'azure': 'azure',
@@ -96,27 +92,27 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'lastProcessingTimestamp',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins'
+        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
+        'updater_id': 'updaterId',
+        'in_trash': 'inTrash',
+        'last_error_event': 'lastErrorEvent',
+        'deleted': 'deleted'
     }
 
-    def __init__(self, force_save=None, name=None, id=None, service=None, in_trash=None, last_error_event=None, creator_id=None, updater_id=None, deleted=None, ec2=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, gcp=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None):  # noqa: E501
+    def __init__(self, force_save=None, name=None, id=None, service=None, creator_id=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None, updater_id=None, in_trash=None, last_error_event=None, deleted=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._force_save = None
         self._name = None
         self._id = None
         self._service = None
-        self._in_trash = None
-        self._last_error_event = None
         self._creator_id = None
-        self._updater_id = None
-        self._deleted = None
-        self._ec2 = None
         self._additional_tags = None
         self._last_received_data_point_ms = None
         self._last_metric_count = None
         self._cloud_watch = None
         self._cloud_trail = None
+        self._ec2 = None
         self._gcp = None
         self._tesla = None
         self._azure = None
@@ -129,6 +125,10 @@ class CloudIntegration(object):
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._service_refresh_rate_in_mins = None
+        self._updater_id = None
+        self._in_trash = None
+        self._last_error_event = None
+        self._deleted = None
         self.discriminator = None
 
         if force_save is not None:
@@ -137,18 +137,8 @@ class CloudIntegration(object):
         if id is not None:
             self.id = id
         self.service = service
-        if in_trash is not None:
-            self.in_trash = in_trash
-        if last_error_event is not None:
-            self.last_error_event = last_error_event
         if creator_id is not None:
             self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if deleted is not None:
-            self.deleted = deleted
-        if ec2 is not None:
-            self.ec2 = ec2
         if additional_tags is not None:
             self.additional_tags = additional_tags
         if last_received_data_point_ms is not None:
@@ -159,6 +149,8 @@ class CloudIntegration(object):
             self.cloud_watch = cloud_watch
         if cloud_trail is not None:
             self.cloud_trail = cloud_trail
+        if ec2 is not None:
+            self.ec2 = ec2
         if gcp is not None:
             self.gcp = gcp
         if tesla is not None:
@@ -183,6 +175,14 @@ class CloudIntegration(object):
             self.updated_epoch_millis = updated_epoch_millis
         if service_refresh_rate_in_mins is not None:
             self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
+        if updater_id is not None:
+            self.updater_id = updater_id
+        if in_trash is not None:
+            self.in_trash = in_trash
+        if last_error_event is not None:
+            self.last_error_event = last_error_event
+        if deleted is not None:
+            self.deleted = deleted
 
     @property
     def force_save(self):
@@ -283,48 +283,6 @@ class CloudIntegration(object):
         self._service = service
 
     @property
-    def in_trash(self):
-        """Gets the in_trash of this CloudIntegration.  # noqa: E501
-
-
-        :return: The in_trash of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._in_trash
-
-    @in_trash.setter
-    def in_trash(self, in_trash):
-        """Sets the in_trash of this CloudIntegration.
-
-
-        :param in_trash: The in_trash of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._in_trash = in_trash
-
-    @property
-    def last_error_event(self):
-        """Gets the last_error_event of this CloudIntegration.  # noqa: E501
-
-
-        :return: The last_error_event of this CloudIntegration.  # noqa: E501
-        :rtype: Event
-        """
-        return self._last_error_event
-
-    @last_error_event.setter
-    def last_error_event(self, last_error_event):
-        """Sets the last_error_event of this CloudIntegration.
-
-
-        :param last_error_event: The last_error_event of this CloudIntegration.  # noqa: E501
-        :type: Event
-        """
-
-        self._last_error_event = last_error_event
-
-    @property
     def creator_id(self):
         """Gets the creator_id of this CloudIntegration.  # noqa: E501
 
@@ -344,69 +302,6 @@ class CloudIntegration(object):
         """
 
         self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this CloudIntegration.  # noqa: E501
-
-
-        :return: The updater_id of this CloudIntegration.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this CloudIntegration.
-
-
-        :param updater_id: The updater_id of this CloudIntegration.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this CloudIntegration.  # noqa: E501
-
-
-        :return: The deleted of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this CloudIntegration.
-
-
-        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
-    @property
-    def ec2(self):
-        """Gets the ec2 of this CloudIntegration.  # noqa: E501
-
-
-        :return: The ec2 of this CloudIntegration.  # noqa: E501
-        :rtype: EC2Configuration
-        """
-        return self._ec2
-
-    @ec2.setter
-    def ec2(self, ec2):
-        """Sets the ec2 of this CloudIntegration.
-
-
-        :param ec2: The ec2 of this CloudIntegration.  # noqa: E501
-        :type: EC2Configuration
-        """
-
-        self._ec2 = ec2
 
     @property
     def additional_tags(self):
@@ -518,6 +413,27 @@ class CloudIntegration(object):
         """
 
         self._cloud_trail = cloud_trail
+
+    @property
+    def ec2(self):
+        """Gets the ec2 of this CloudIntegration.  # noqa: E501
+
+
+        :return: The ec2 of this CloudIntegration.  # noqa: E501
+        :rtype: EC2Configuration
+        """
+        return self._ec2
+
+    @ec2.setter
+    def ec2(self, ec2):
+        """Sets the ec2 of this CloudIntegration.
+
+
+        :param ec2: The ec2 of this CloudIntegration.  # noqa: E501
+        :type: EC2Configuration
+        """
+
+        self._ec2 = ec2
 
     @property
     def gcp(self):
@@ -782,6 +698,90 @@ class CloudIntegration(object):
         """
 
         self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this CloudIntegration.  # noqa: E501
+
+
+        :return: The updater_id of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this CloudIntegration.
+
+
+        :param updater_id: The updater_id of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
+
+    @property
+    def in_trash(self):
+        """Gets the in_trash of this CloudIntegration.  # noqa: E501
+
+
+        :return: The in_trash of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_trash
+
+    @in_trash.setter
+    def in_trash(self, in_trash):
+        """Sets the in_trash of this CloudIntegration.
+
+
+        :param in_trash: The in_trash of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_trash = in_trash
+
+    @property
+    def last_error_event(self):
+        """Gets the last_error_event of this CloudIntegration.  # noqa: E501
+
+
+        :return: The last_error_event of this CloudIntegration.  # noqa: E501
+        :rtype: Event
+        """
+        return self._last_error_event
+
+    @last_error_event.setter
+    def last_error_event(self, last_error_event):
+        """Sets the last_error_event of this CloudIntegration.
+
+
+        :param last_error_event: The last_error_event of this CloudIntegration.  # noqa: E501
+        :type: Event
+        """
+
+        self._last_error_event = last_error_event
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this CloudIntegration.  # noqa: E501
+
+
+        :return: The deleted of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this CloudIntegration.
+
+
+        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     def to_dict(self):
         """Returns the model properties as a dict"""

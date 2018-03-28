@@ -32,100 +32,100 @@ class MaintenanceWindow(object):
     """
     swagger_types = {
         'id': 'str',
+        'reason': 'str',
         'customer_id': 'str',
-        'sort_attr': 'int',
-        'running_state': 'str',
+        'event_name': 'str',
+        'creator_id': 'str',
+        'created_epoch_millis': 'int',
+        'updated_epoch_millis': 'int',
+        'relevant_host_names': 'list[str]',
+        'relevant_host_tags': 'list[str]',
+        'relevant_host_tags_anded': 'bool',
+        'host_tag_group_host_names_group_anded': 'bool',
+        'updater_id': 'str',
         'relevant_customer_tags': 'list[str]',
         'title': 'str',
         'start_time_in_seconds': 'int',
         'end_time_in_seconds': 'int',
-        'relevant_host_tags': 'list[str]',
-        'relevant_host_names': 'list[str]',
-        'event_name': 'str',
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'reason': 'str',
-        'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
-        'relevant_host_tags_anded': 'bool',
-        'host_tag_group_host_names_group_anded': 'bool'
+        'running_state': 'str',
+        'sort_attr': 'int'
     }
 
     attribute_map = {
         'id': 'id',
+        'reason': 'reason',
         'customer_id': 'customerId',
-        'sort_attr': 'sortAttr',
-        'running_state': 'runningState',
+        'event_name': 'eventName',
+        'creator_id': 'creatorId',
+        'created_epoch_millis': 'createdEpochMillis',
+        'updated_epoch_millis': 'updatedEpochMillis',
+        'relevant_host_names': 'relevantHostNames',
+        'relevant_host_tags': 'relevantHostTags',
+        'relevant_host_tags_anded': 'relevantHostTagsAnded',
+        'host_tag_group_host_names_group_anded': 'hostTagGroupHostNamesGroupAnded',
+        'updater_id': 'updaterId',
         'relevant_customer_tags': 'relevantCustomerTags',
         'title': 'title',
         'start_time_in_seconds': 'startTimeInSeconds',
         'end_time_in_seconds': 'endTimeInSeconds',
-        'relevant_host_tags': 'relevantHostTags',
-        'relevant_host_names': 'relevantHostNames',
-        'event_name': 'eventName',
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'reason': 'reason',
-        'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
-        'relevant_host_tags_anded': 'relevantHostTagsAnded',
-        'host_tag_group_host_names_group_anded': 'hostTagGroupHostNamesGroupAnded'
+        'running_state': 'runningState',
+        'sort_attr': 'sortAttr'
     }
 
-    def __init__(self, id=None, customer_id=None, sort_attr=None, running_state=None, relevant_customer_tags=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, relevant_host_tags=None, relevant_host_names=None, event_name=None, creator_id=None, updater_id=None, reason=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None):  # noqa: E501
+    def __init__(self, id=None, reason=None, customer_id=None, event_name=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_names=None, relevant_host_tags=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None, updater_id=None, relevant_customer_tags=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, running_state=None, sort_attr=None):  # noqa: E501
         """MaintenanceWindow - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
+        self._reason = None
         self._customer_id = None
-        self._sort_attr = None
-        self._running_state = None
+        self._event_name = None
+        self._creator_id = None
+        self._created_epoch_millis = None
+        self._updated_epoch_millis = None
+        self._relevant_host_names = None
+        self._relevant_host_tags = None
+        self._relevant_host_tags_anded = None
+        self._host_tag_group_host_names_group_anded = None
+        self._updater_id = None
         self._relevant_customer_tags = None
         self._title = None
         self._start_time_in_seconds = None
         self._end_time_in_seconds = None
-        self._relevant_host_tags = None
-        self._relevant_host_names = None
-        self._event_name = None
-        self._creator_id = None
-        self._updater_id = None
-        self._reason = None
-        self._created_epoch_millis = None
-        self._updated_epoch_millis = None
-        self._relevant_host_tags_anded = None
-        self._host_tag_group_host_names_group_anded = None
+        self._running_state = None
+        self._sort_attr = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
+        self.reason = reason
         if customer_id is not None:
             self.customer_id = customer_id
-        if sort_attr is not None:
-            self.sort_attr = sort_attr
-        if running_state is not None:
-            self.running_state = running_state
-        self.relevant_customer_tags = relevant_customer_tags
-        self.title = title
-        self.start_time_in_seconds = start_time_in_seconds
-        self.end_time_in_seconds = end_time_in_seconds
-        if relevant_host_tags is not None:
-            self.relevant_host_tags = relevant_host_tags
-        if relevant_host_names is not None:
-            self.relevant_host_names = relevant_host_names
         if event_name is not None:
             self.event_name = event_name
         if creator_id is not None:
             self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        self.reason = reason
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        if relevant_host_names is not None:
+            self.relevant_host_names = relevant_host_names
+        if relevant_host_tags is not None:
+            self.relevant_host_tags = relevant_host_tags
         if relevant_host_tags_anded is not None:
             self.relevant_host_tags_anded = relevant_host_tags_anded
         if host_tag_group_host_names_group_anded is not None:
             self.host_tag_group_host_names_group_anded = host_tag_group_host_names_group_anded
+        if updater_id is not None:
+            self.updater_id = updater_id
+        self.relevant_customer_tags = relevant_customer_tags
+        self.title = title
+        self.start_time_in_seconds = start_time_in_seconds
+        self.end_time_in_seconds = end_time_in_seconds
+        if running_state is not None:
+            self.running_state = running_state
+        if sort_attr is not None:
+            self.sort_attr = sort_attr
 
     @property
     def id(self):
@@ -149,6 +149,31 @@ class MaintenanceWindow(object):
         self._id = id
 
     @property
+    def reason(self):
+        """Gets the reason of this MaintenanceWindow.  # noqa: E501
+
+        The purpose of this maintenance window  # noqa: E501
+
+        :return: The reason of this MaintenanceWindow.  # noqa: E501
+        :rtype: str
+        """
+        return self._reason
+
+    @reason.setter
+    def reason(self, reason):
+        """Sets the reason of this MaintenanceWindow.
+
+        The purpose of this maintenance window  # noqa: E501
+
+        :param reason: The reason of this MaintenanceWindow.  # noqa: E501
+        :type: str
+        """
+        if reason is None:
+            raise ValueError("Invalid value for `reason`, must not be `None`")  # noqa: E501
+
+        self._reason = reason
+
+    @property
     def customer_id(self):
         """Gets the customer_id of this MaintenanceWindow.  # noqa: E501
 
@@ -170,54 +195,203 @@ class MaintenanceWindow(object):
         self._customer_id = customer_id
 
     @property
-    def sort_attr(self):
-        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
+    def event_name(self):
+        """Gets the event_name of this MaintenanceWindow.  # noqa: E501
 
-        Numeric value used in default sorting  # noqa: E501
+        The name of an event associated with the creation/update of this maintenance window  # noqa: E501
 
-        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :return: The event_name of this MaintenanceWindow.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_name
+
+    @event_name.setter
+    def event_name(self, event_name):
+        """Sets the event_name of this MaintenanceWindow.
+
+        The name of an event associated with the creation/update of this maintenance window  # noqa: E501
+
+        :param event_name: The event_name of this MaintenanceWindow.  # noqa: E501
+        :type: str
+        """
+
+        self._event_name = event_name
+
+    @property
+    def creator_id(self):
+        """Gets the creator_id of this MaintenanceWindow.  # noqa: E501
+
+
+        :return: The creator_id of this MaintenanceWindow.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this MaintenanceWindow.
+
+
+        :param creator_id: The creator_id of this MaintenanceWindow.  # noqa: E501
+        :type: str
+        """
+
+        self._creator_id = creator_id
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this MaintenanceWindow.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this MaintenanceWindow.  # noqa: E501
         :rtype: int
         """
-        return self._sort_attr
+        return self._created_epoch_millis
 
-    @sort_attr.setter
-    def sort_attr(self, sort_attr):
-        """Sets the sort_attr of this MaintenanceWindow.
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this MaintenanceWindow.
 
-        Numeric value used in default sorting  # noqa: E501
 
-        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :param created_epoch_millis: The created_epoch_millis of this MaintenanceWindow.  # noqa: E501
         :type: int
         """
 
-        self._sort_attr = sort_attr
+        self._created_epoch_millis = created_epoch_millis
 
     @property
-    def running_state(self):
-        """Gets the running_state of this MaintenanceWindow.  # noqa: E501
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this MaintenanceWindow.  # noqa: E501
 
 
-        :return: The running_state of this MaintenanceWindow.  # noqa: E501
+        :return: The updated_epoch_millis of this MaintenanceWindow.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this MaintenanceWindow.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this MaintenanceWindow.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def relevant_host_names(self):
+        """Gets the relevant_host_names of this MaintenanceWindow.  # noqa: E501
+
+        List of source/host names that will be put into maintenance because of this maintenance window  # noqa: E501
+
+        :return: The relevant_host_names of this MaintenanceWindow.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._relevant_host_names
+
+    @relevant_host_names.setter
+    def relevant_host_names(self, relevant_host_names):
+        """Sets the relevant_host_names of this MaintenanceWindow.
+
+        List of source/host names that will be put into maintenance because of this maintenance window  # noqa: E501
+
+        :param relevant_host_names: The relevant_host_names of this MaintenanceWindow.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._relevant_host_names = relevant_host_names
+
+    @property
+    def relevant_host_tags(self):
+        """Gets the relevant_host_tags of this MaintenanceWindow.  # noqa: E501
+
+        List of source/host tags whose matching sources/hosts will be put into maintenance because of this maintenance window  # noqa: E501
+
+        :return: The relevant_host_tags of this MaintenanceWindow.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._relevant_host_tags
+
+    @relevant_host_tags.setter
+    def relevant_host_tags(self, relevant_host_tags):
+        """Sets the relevant_host_tags of this MaintenanceWindow.
+
+        List of source/host tags whose matching sources/hosts will be put into maintenance because of this maintenance window  # noqa: E501
+
+        :param relevant_host_tags: The relevant_host_tags of this MaintenanceWindow.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._relevant_host_tags = relevant_host_tags
+
+    @property
+    def relevant_host_tags_anded(self):
+        """Gets the relevant_host_tags_anded of this MaintenanceWindow.  # noqa: E501
+
+        Whether to AND source/host tags listed in relevantHostTags. If true, a source/host must contain all tags in order for the maintenance window to apply.  If false, the tags are OR'ed, and a source/host must contain one of the tags. Default: false  # noqa: E501
+
+        :return: The relevant_host_tags_anded of this MaintenanceWindow.  # noqa: E501
+        :rtype: bool
+        """
+        return self._relevant_host_tags_anded
+
+    @relevant_host_tags_anded.setter
+    def relevant_host_tags_anded(self, relevant_host_tags_anded):
+        """Sets the relevant_host_tags_anded of this MaintenanceWindow.
+
+        Whether to AND source/host tags listed in relevantHostTags. If true, a source/host must contain all tags in order for the maintenance window to apply.  If false, the tags are OR'ed, and a source/host must contain one of the tags. Default: false  # noqa: E501
+
+        :param relevant_host_tags_anded: The relevant_host_tags_anded of this MaintenanceWindow.  # noqa: E501
+        :type: bool
+        """
+
+        self._relevant_host_tags_anded = relevant_host_tags_anded
+
+    @property
+    def host_tag_group_host_names_group_anded(self):
+        """Gets the host_tag_group_host_names_group_anded of this MaintenanceWindow.  # noqa: E501
+
+        If true, a source/host must be in 'relevantHostNames' and have tags matching the specification formed by 'relevantHostTags' and 'relevantHostTagsAnded' in order for this maintenance window to apply. If false, a source/host must either be in 'relevantHostNames' or match 'relevantHostTags' and 'relevantHostTagsAnded'. Default: false  # noqa: E501
+
+        :return: The host_tag_group_host_names_group_anded of this MaintenanceWindow.  # noqa: E501
+        :rtype: bool
+        """
+        return self._host_tag_group_host_names_group_anded
+
+    @host_tag_group_host_names_group_anded.setter
+    def host_tag_group_host_names_group_anded(self, host_tag_group_host_names_group_anded):
+        """Sets the host_tag_group_host_names_group_anded of this MaintenanceWindow.
+
+        If true, a source/host must be in 'relevantHostNames' and have tags matching the specification formed by 'relevantHostTags' and 'relevantHostTagsAnded' in order for this maintenance window to apply. If false, a source/host must either be in 'relevantHostNames' or match 'relevantHostTags' and 'relevantHostTagsAnded'. Default: false  # noqa: E501
+
+        :param host_tag_group_host_names_group_anded: The host_tag_group_host_names_group_anded of this MaintenanceWindow.  # noqa: E501
+        :type: bool
+        """
+
+        self._host_tag_group_host_names_group_anded = host_tag_group_host_names_group_anded
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this MaintenanceWindow.  # noqa: E501
+
+
+        :return: The updater_id of this MaintenanceWindow.  # noqa: E501
         :rtype: str
         """
-        return self._running_state
+        return self._updater_id
 
-    @running_state.setter
-    def running_state(self, running_state):
-        """Sets the running_state of this MaintenanceWindow.
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this MaintenanceWindow.
 
 
-        :param running_state: The running_state of this MaintenanceWindow.  # noqa: E501
+        :param updater_id: The updater_id of this MaintenanceWindow.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
-        if running_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
-                .format(running_state, allowed_values)
-            )
 
-        self._running_state = running_state
+        self._updater_id = updater_id
 
     @property
     def relevant_customer_tags(self):
@@ -320,228 +494,54 @@ class MaintenanceWindow(object):
         self._end_time_in_seconds = end_time_in_seconds
 
     @property
-    def relevant_host_tags(self):
-        """Gets the relevant_host_tags of this MaintenanceWindow.  # noqa: E501
+    def running_state(self):
+        """Gets the running_state of this MaintenanceWindow.  # noqa: E501
 
-        List of source/host tags whose matching sources/hosts will be put into maintenance because of this maintenance window  # noqa: E501
 
-        :return: The relevant_host_tags of this MaintenanceWindow.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._relevant_host_tags
-
-    @relevant_host_tags.setter
-    def relevant_host_tags(self, relevant_host_tags):
-        """Sets the relevant_host_tags of this MaintenanceWindow.
-
-        List of source/host tags whose matching sources/hosts will be put into maintenance because of this maintenance window  # noqa: E501
-
-        :param relevant_host_tags: The relevant_host_tags of this MaintenanceWindow.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._relevant_host_tags = relevant_host_tags
-
-    @property
-    def relevant_host_names(self):
-        """Gets the relevant_host_names of this MaintenanceWindow.  # noqa: E501
-
-        List of source/host names that will be put into maintenance because of this maintenance window  # noqa: E501
-
-        :return: The relevant_host_names of this MaintenanceWindow.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._relevant_host_names
-
-    @relevant_host_names.setter
-    def relevant_host_names(self, relevant_host_names):
-        """Sets the relevant_host_names of this MaintenanceWindow.
-
-        List of source/host names that will be put into maintenance because of this maintenance window  # noqa: E501
-
-        :param relevant_host_names: The relevant_host_names of this MaintenanceWindow.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._relevant_host_names = relevant_host_names
-
-    @property
-    def event_name(self):
-        """Gets the event_name of this MaintenanceWindow.  # noqa: E501
-
-        The name of an event associated with the creation/update of this maintenance window  # noqa: E501
-
-        :return: The event_name of this MaintenanceWindow.  # noqa: E501
+        :return: The running_state of this MaintenanceWindow.  # noqa: E501
         :rtype: str
         """
-        return self._event_name
+        return self._running_state
 
-    @event_name.setter
-    def event_name(self, event_name):
-        """Sets the event_name of this MaintenanceWindow.
+    @running_state.setter
+    def running_state(self, running_state):
+        """Sets the running_state of this MaintenanceWindow.
 
-        The name of an event associated with the creation/update of this maintenance window  # noqa: E501
 
-        :param event_name: The event_name of this MaintenanceWindow.  # noqa: E501
+        :param running_state: The running_state of this MaintenanceWindow.  # noqa: E501
         :type: str
         """
+        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
+        if running_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(running_state, allowed_values)
+            )
 
-        self._event_name = event_name
-
-    @property
-    def creator_id(self):
-        """Gets the creator_id of this MaintenanceWindow.  # noqa: E501
-
-
-        :return: The creator_id of this MaintenanceWindow.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this MaintenanceWindow.
-
-
-        :param creator_id: The creator_id of this MaintenanceWindow.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
+        self._running_state = running_state
 
     @property
-    def updater_id(self):
-        """Gets the updater_id of this MaintenanceWindow.  # noqa: E501
+    def sort_attr(self):
+        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
 
+        Numeric value used in default sorting  # noqa: E501
 
-        :return: The updater_id of this MaintenanceWindow.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this MaintenanceWindow.
-
-
-        :param updater_id: The updater_id of this MaintenanceWindow.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def reason(self):
-        """Gets the reason of this MaintenanceWindow.  # noqa: E501
-
-        The purpose of this maintenance window  # noqa: E501
-
-        :return: The reason of this MaintenanceWindow.  # noqa: E501
-        :rtype: str
-        """
-        return self._reason
-
-    @reason.setter
-    def reason(self, reason):
-        """Sets the reason of this MaintenanceWindow.
-
-        The purpose of this maintenance window  # noqa: E501
-
-        :param reason: The reason of this MaintenanceWindow.  # noqa: E501
-        :type: str
-        """
-        if reason is None:
-            raise ValueError("Invalid value for `reason`, must not be `None`")  # noqa: E501
-
-        self._reason = reason
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this MaintenanceWindow.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this MaintenanceWindow.  # noqa: E501
+        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
         :rtype: int
         """
-        return self._created_epoch_millis
+        return self._sort_attr
 
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this MaintenanceWindow.
+    @sort_attr.setter
+    def sort_attr(self, sort_attr):
+        """Sets the sort_attr of this MaintenanceWindow.
 
+        Numeric value used in default sorting  # noqa: E501
 
-        :param created_epoch_millis: The created_epoch_millis of this MaintenanceWindow.  # noqa: E501
+        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
         :type: int
         """
 
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this MaintenanceWindow.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this MaintenanceWindow.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this MaintenanceWindow.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this MaintenanceWindow.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
-
-    @property
-    def relevant_host_tags_anded(self):
-        """Gets the relevant_host_tags_anded of this MaintenanceWindow.  # noqa: E501
-
-        Whether to AND source/host tags listed in relevantHostTags. If true, a source/host must contain all tags in order for the maintenance window to apply.  If false, the tags are OR'ed, and a source/host must contain one of the tags. Default: false  # noqa: E501
-
-        :return: The relevant_host_tags_anded of this MaintenanceWindow.  # noqa: E501
-        :rtype: bool
-        """
-        return self._relevant_host_tags_anded
-
-    @relevant_host_tags_anded.setter
-    def relevant_host_tags_anded(self, relevant_host_tags_anded):
-        """Sets the relevant_host_tags_anded of this MaintenanceWindow.
-
-        Whether to AND source/host tags listed in relevantHostTags. If true, a source/host must contain all tags in order for the maintenance window to apply.  If false, the tags are OR'ed, and a source/host must contain one of the tags. Default: false  # noqa: E501
-
-        :param relevant_host_tags_anded: The relevant_host_tags_anded of this MaintenanceWindow.  # noqa: E501
-        :type: bool
-        """
-
-        self._relevant_host_tags_anded = relevant_host_tags_anded
-
-    @property
-    def host_tag_group_host_names_group_anded(self):
-        """Gets the host_tag_group_host_names_group_anded of this MaintenanceWindow.  # noqa: E501
-
-        If true, a source/host must be in 'relevantHostNames' and have tags matching the specification formed by 'relevantHostTags' and 'relevantHostTagsAnded' in order for this maintenance window to apply. If false, a source/host must either be in 'relevantHostNames' or match 'relevantHostTags' and 'relevantHostTagsAnded'. Default: false  # noqa: E501
-
-        :return: The host_tag_group_host_names_group_anded of this MaintenanceWindow.  # noqa: E501
-        :rtype: bool
-        """
-        return self._host_tag_group_host_names_group_anded
-
-    @host_tag_group_host_names_group_anded.setter
-    def host_tag_group_host_names_group_anded(self, host_tag_group_host_names_group_anded):
-        """Sets the host_tag_group_host_names_group_anded of this MaintenanceWindow.
-
-        If true, a source/host must be in 'relevantHostNames' and have tags matching the specification formed by 'relevantHostTags' and 'relevantHostTagsAnded' in order for this maintenance window to apply. If false, a source/host must either be in 'relevantHostNames' or match 'relevantHostTags' and 'relevantHostTagsAnded'. Default: false  # noqa: E501
-
-        :param host_tag_group_host_names_group_anded: The host_tag_group_host_names_group_anded of this MaintenanceWindow.  # noqa: E501
-        :type: bool
-        """
-
-        self._host_tag_group_host_names_group_anded = host_tag_group_host_names_group_anded
+        self._sort_attr = sort_attr
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,10 +34,12 @@ class ChartSettings(object):
         'type': 'str',
         'min': 'float',
         'max': 'float',
+        'expected_data_spacing': 'int',
         'plain_markdown_content': 'str',
+        'fixed_legend_enabled': 'bool',
+        'fixed_legend_use_raw_stats': 'bool',
         'line_type': 'str',
         'stack_type': 'str',
-        'expected_data_spacing': 'int',
         'windowing': 'str',
         'window_size': 'int',
         'show_hosts': 'bool',
@@ -58,15 +60,13 @@ class ChartSettings(object):
         'y0_unit_autoscaling': 'bool',
         'y1_unit_autoscaling': 'bool',
         'invert_dynamic_legend_hover_control': 'bool',
-        'fixed_legend_enabled': 'bool',
-        'fixed_legend_use_raw_stats': 'bool',
         'fixed_legend_position': 'str',
         'fixed_legend_display_stats': 'list[str]',
         'fixed_legend_filter_sort': 'str',
-        'xmax': 'float',
         'fixed_legend_filter_limit': 'int',
         'fixed_legend_filter_field': 'str',
         'fixed_legend_hide_label': 'bool',
+        'xmax': 'float',
         'xmin': 'float',
         'ymax': 'float',
         'ymin': 'float',
@@ -94,10 +94,12 @@ class ChartSettings(object):
         'type': 'type',
         'min': 'min',
         'max': 'max',
+        'expected_data_spacing': 'expectedDataSpacing',
         'plain_markdown_content': 'plainMarkdownContent',
+        'fixed_legend_enabled': 'fixedLegendEnabled',
+        'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
         'line_type': 'lineType',
         'stack_type': 'stackType',
-        'expected_data_spacing': 'expectedDataSpacing',
         'windowing': 'windowing',
         'window_size': 'windowSize',
         'show_hosts': 'showHosts',
@@ -118,15 +120,13 @@ class ChartSettings(object):
         'y0_unit_autoscaling': 'y0UnitAutoscaling',
         'y1_unit_autoscaling': 'y1UnitAutoscaling',
         'invert_dynamic_legend_hover_control': 'invertDynamicLegendHoverControl',
-        'fixed_legend_enabled': 'fixedLegendEnabled',
-        'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
         'fixed_legend_position': 'fixedLegendPosition',
         'fixed_legend_display_stats': 'fixedLegendDisplayStats',
         'fixed_legend_filter_sort': 'fixedLegendFilterSort',
-        'xmax': 'xmax',
         'fixed_legend_filter_limit': 'fixedLegendFilterLimit',
         'fixed_legend_filter_field': 'fixedLegendFilterField',
         'fixed_legend_hide_label': 'fixedLegendHideLabel',
+        'xmax': 'xmax',
         'xmin': 'xmin',
         'ymax': 'ymax',
         'ymin': 'ymin',
@@ -150,16 +150,18 @@ class ChartSettings(object):
         'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds'
     }
 
-    def __init__(self, type=None, min=None, max=None, plain_markdown_content=None, line_type=None, stack_type=None, expected_data_spacing=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, xmax=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmin=None, ymax=None, ymin=None, time_based_coloring=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None):  # noqa: E501
+    def __init__(self, type=None, min=None, max=None, expected_data_spacing=None, plain_markdown_content=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, line_type=None, stack_type=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmax=None, xmin=None, ymax=None, ymin=None, time_based_coloring=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
         self._min = None
         self._max = None
+        self._expected_data_spacing = None
         self._plain_markdown_content = None
+        self._fixed_legend_enabled = None
+        self._fixed_legend_use_raw_stats = None
         self._line_type = None
         self._stack_type = None
-        self._expected_data_spacing = None
         self._windowing = None
         self._window_size = None
         self._show_hosts = None
@@ -180,15 +182,13 @@ class ChartSettings(object):
         self._y0_unit_autoscaling = None
         self._y1_unit_autoscaling = None
         self._invert_dynamic_legend_hover_control = None
-        self._fixed_legend_enabled = None
-        self._fixed_legend_use_raw_stats = None
         self._fixed_legend_position = None
         self._fixed_legend_display_stats = None
         self._fixed_legend_filter_sort = None
-        self._xmax = None
         self._fixed_legend_filter_limit = None
         self._fixed_legend_filter_field = None
         self._fixed_legend_hide_label = None
+        self._xmax = None
         self._xmin = None
         self._ymax = None
         self._ymin = None
@@ -217,14 +217,18 @@ class ChartSettings(object):
             self.min = min
         if max is not None:
             self.max = max
+        if expected_data_spacing is not None:
+            self.expected_data_spacing = expected_data_spacing
         if plain_markdown_content is not None:
             self.plain_markdown_content = plain_markdown_content
+        if fixed_legend_enabled is not None:
+            self.fixed_legend_enabled = fixed_legend_enabled
+        if fixed_legend_use_raw_stats is not None:
+            self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
         if line_type is not None:
             self.line_type = line_type
         if stack_type is not None:
             self.stack_type = stack_type
-        if expected_data_spacing is not None:
-            self.expected_data_spacing = expected_data_spacing
         if windowing is not None:
             self.windowing = windowing
         if window_size is not None:
@@ -265,24 +269,20 @@ class ChartSettings(object):
             self.y1_unit_autoscaling = y1_unit_autoscaling
         if invert_dynamic_legend_hover_control is not None:
             self.invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
-        if fixed_legend_enabled is not None:
-            self.fixed_legend_enabled = fixed_legend_enabled
-        if fixed_legend_use_raw_stats is not None:
-            self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
         if fixed_legend_position is not None:
             self.fixed_legend_position = fixed_legend_position
         if fixed_legend_display_stats is not None:
             self.fixed_legend_display_stats = fixed_legend_display_stats
         if fixed_legend_filter_sort is not None:
             self.fixed_legend_filter_sort = fixed_legend_filter_sort
-        if xmax is not None:
-            self.xmax = xmax
         if fixed_legend_filter_limit is not None:
             self.fixed_legend_filter_limit = fixed_legend_filter_limit
         if fixed_legend_filter_field is not None:
             self.fixed_legend_filter_field = fixed_legend_filter_field
         if fixed_legend_hide_label is not None:
             self.fixed_legend_hide_label = fixed_legend_hide_label
+        if xmax is not None:
+            self.xmax = xmax
         if xmin is not None:
             self.xmin = xmin
         if ymax is not None:
@@ -404,6 +404,29 @@ class ChartSettings(object):
         self._max = max
 
     @property
+    def expected_data_spacing(self):
+        """Gets the expected_data_spacing of this ChartSettings.  # noqa: E501
+
+        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
+
+        :return: The expected_data_spacing of this ChartSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._expected_data_spacing
+
+    @expected_data_spacing.setter
+    def expected_data_spacing(self, expected_data_spacing):
+        """Sets the expected_data_spacing of this ChartSettings.
+
+        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
+
+        :param expected_data_spacing: The expected_data_spacing of this ChartSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._expected_data_spacing = expected_data_spacing
+
+    @property
     def plain_markdown_content(self):
         """Gets the plain_markdown_content of this ChartSettings.  # noqa: E501
 
@@ -425,6 +448,52 @@ class ChartSettings(object):
         """
 
         self._plain_markdown_content = plain_markdown_content
+
+    @property
+    def fixed_legend_enabled(self):
+        """Gets the fixed_legend_enabled of this ChartSettings.  # noqa: E501
+
+        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
+
+        :return: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fixed_legend_enabled
+
+    @fixed_legend_enabled.setter
+    def fixed_legend_enabled(self, fixed_legend_enabled):
+        """Sets the fixed_legend_enabled of this ChartSettings.
+
+        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
+
+        :param fixed_legend_enabled: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._fixed_legend_enabled = fixed_legend_enabled
+
+    @property
+    def fixed_legend_use_raw_stats(self):
+        """Gets the fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
+
+        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
+
+        :return: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fixed_legend_use_raw_stats
+
+    @fixed_legend_use_raw_stats.setter
+    def fixed_legend_use_raw_stats(self, fixed_legend_use_raw_stats):
+        """Sets the fixed_legend_use_raw_stats of this ChartSettings.
+
+        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
+
+        :param fixed_legend_use_raw_stats: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
 
     @property
     def line_type(self):
@@ -483,29 +552,6 @@ class ChartSettings(object):
             )
 
         self._stack_type = stack_type
-
-    @property
-    def expected_data_spacing(self):
-        """Gets the expected_data_spacing of this ChartSettings.  # noqa: E501
-
-        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
-
-        :return: The expected_data_spacing of this ChartSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._expected_data_spacing
-
-    @expected_data_spacing.setter
-    def expected_data_spacing(self, expected_data_spacing):
-        """Sets the expected_data_spacing of this ChartSettings.
-
-        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
-
-        :param expected_data_spacing: The expected_data_spacing of this ChartSettings.  # noqa: E501
-        :type: int
-        """
-
-        self._expected_data_spacing = expected_data_spacing
 
     @property
     def windowing(self):
@@ -980,52 +1026,6 @@ class ChartSettings(object):
         self._invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
 
     @property
-    def fixed_legend_enabled(self):
-        """Gets the fixed_legend_enabled of this ChartSettings.  # noqa: E501
-
-        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
-
-        :return: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._fixed_legend_enabled
-
-    @fixed_legend_enabled.setter
-    def fixed_legend_enabled(self, fixed_legend_enabled):
-        """Sets the fixed_legend_enabled of this ChartSettings.
-
-        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
-
-        :param fixed_legend_enabled: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._fixed_legend_enabled = fixed_legend_enabled
-
-    @property
-    def fixed_legend_use_raw_stats(self):
-        """Gets the fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
-
-        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
-
-        :return: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._fixed_legend_use_raw_stats
-
-    @fixed_legend_use_raw_stats.setter
-    def fixed_legend_use_raw_stats(self, fixed_legend_use_raw_stats):
-        """Sets the fixed_legend_use_raw_stats of this ChartSettings.
-
-        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
-
-        :param fixed_legend_use_raw_stats: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
-
-    @property
     def fixed_legend_position(self):
         """Gets the fixed_legend_position of this ChartSettings.  # noqa: E501
 
@@ -1107,29 +1107,6 @@ class ChartSettings(object):
         self._fixed_legend_filter_sort = fixed_legend_filter_sort
 
     @property
-    def xmax(self):
-        """Gets the xmax of this ChartSettings.  # noqa: E501
-
-        For x-y scatterplots, max value for X-axis.  Set null for auto  # noqa: E501
-
-        :return: The xmax of this ChartSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._xmax
-
-    @xmax.setter
-    def xmax(self, xmax):
-        """Sets the xmax of this ChartSettings.
-
-        For x-y scatterplots, max value for X-axis.  Set null for auto  # noqa: E501
-
-        :param xmax: The xmax of this ChartSettings.  # noqa: E501
-        :type: float
-        """
-
-        self._xmax = xmax
-
-    @property
     def fixed_legend_filter_limit(self):
         """Gets the fixed_legend_filter_limit of this ChartSettings.  # noqa: E501
 
@@ -1203,6 +1180,29 @@ class ChartSettings(object):
         """
 
         self._fixed_legend_hide_label = fixed_legend_hide_label
+
+    @property
+    def xmax(self):
+        """Gets the xmax of this ChartSettings.  # noqa: E501
+
+        For x-y scatterplots, max value for X-axis.  Set null for auto  # noqa: E501
+
+        :return: The xmax of this ChartSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._xmax
+
+    @xmax.setter
+    def xmax(self, xmax):
+        """Sets the xmax of this ChartSettings.
+
+        For x-y scatterplots, max value for X-axis.  Set null for auto  # noqa: E501
+
+        :param xmax: The xmax of this ChartSettings.  # noqa: E501
+        :type: float
+        """
+
+        self._xmax = xmax
 
     @property
     def xmin(self):

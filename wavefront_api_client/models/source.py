@@ -33,12 +33,12 @@ class Source(object):
     swagger_types = {
         'id': 'str',
         'hidden': 'bool',
-        'description': 'str',
         'tags': 'dict(str, bool)',
+        'description': 'str',
         'creator_id': 'str',
-        'updater_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
+        'updater_id': 'str',
         'marked_new_epoch_millis': 'int',
         'source_name': 'str'
     }
@@ -46,27 +46,27 @@ class Source(object):
     attribute_map = {
         'id': 'id',
         'hidden': 'hidden',
-        'description': 'description',
         'tags': 'tags',
+        'description': 'description',
         'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
+        'updater_id': 'updaterId',
         'marked_new_epoch_millis': 'markedNewEpochMillis',
         'source_name': 'sourceName'
     }
 
-    def __init__(self, id=None, hidden=None, description=None, tags=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, marked_new_epoch_millis=None, source_name=None):  # noqa: E501
+    def __init__(self, id=None, hidden=None, tags=None, description=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, marked_new_epoch_millis=None, source_name=None):  # noqa: E501
         """Source - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._hidden = None
-        self._description = None
         self._tags = None
+        self._description = None
         self._creator_id = None
-        self._updater_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
+        self._updater_id = None
         self._marked_new_epoch_millis = None
         self._source_name = None
         self.discriminator = None
@@ -74,18 +74,18 @@ class Source(object):
         self.id = id
         if hidden is not None:
             self.hidden = hidden
-        if description is not None:
-            self.description = description
         if tags is not None:
             self.tags = tags
+        if description is not None:
+            self.description = description
         if creator_id is not None:
             self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
         if marked_new_epoch_millis is not None:
             self.marked_new_epoch_millis = marked_new_epoch_millis
         self.source_name = source_name
@@ -139,29 +139,6 @@ class Source(object):
         self._hidden = hidden
 
     @property
-    def description(self):
-        """Gets the description of this Source.  # noqa: E501
-
-        Description of this source  # noqa: E501
-
-        :return: The description of this Source.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Source.
-
-        Description of this source  # noqa: E501
-
-        :param description: The description of this Source.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
-
-    @property
     def tags(self):
         """Gets the tags of this Source.  # noqa: E501
 
@@ -185,6 +162,29 @@ class Source(object):
         self._tags = tags
 
     @property
+    def description(self):
+        """Gets the description of this Source.  # noqa: E501
+
+        Description of this source  # noqa: E501
+
+        :return: The description of this Source.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Source.
+
+        Description of this source  # noqa: E501
+
+        :param description: The description of this Source.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
     def creator_id(self):
         """Gets the creator_id of this Source.  # noqa: E501
 
@@ -204,27 +204,6 @@ class Source(object):
         """
 
         self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this Source.  # noqa: E501
-
-
-        :return: The updater_id of this Source.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this Source.
-
-
-        :param updater_id: The updater_id of this Source.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
 
     @property
     def created_epoch_millis(self):
@@ -267,6 +246,27 @@ class Source(object):
         """
 
         self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this Source.  # noqa: E501
+
+
+        :return: The updater_id of this Source.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this Source.
+
+
+        :param updater_id: The updater_id of this Source.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
 
     @property
     def marked_new_epoch_millis(self):

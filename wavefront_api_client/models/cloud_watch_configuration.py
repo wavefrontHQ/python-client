@@ -34,35 +34,37 @@ class CloudWatchConfiguration(object):
     """
     swagger_types = {
         'base_credentials': 'AWSBaseCredentials',
+        'metric_filter_regex': 'str',
         'instance_selection_tags': 'dict(str, str)',
         'volume_selection_tags': 'dict(str, str)',
         'point_tag_filter_regex': 'str',
-        'namespaces': 'list[str]',
-        'metric_filter_regex': 'str'
+        'namespaces': 'list[str]'
     }
 
     attribute_map = {
         'base_credentials': 'baseCredentials',
+        'metric_filter_regex': 'metricFilterRegex',
         'instance_selection_tags': 'instanceSelectionTags',
         'volume_selection_tags': 'volumeSelectionTags',
         'point_tag_filter_regex': 'pointTagFilterRegex',
-        'namespaces': 'namespaces',
-        'metric_filter_regex': 'metricFilterRegex'
+        'namespaces': 'namespaces'
     }
 
-    def __init__(self, base_credentials=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None, namespaces=None, metric_filter_regex=None):  # noqa: E501
+    def __init__(self, base_credentials=None, metric_filter_regex=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None, namespaces=None):  # noqa: E501
         """CloudWatchConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._base_credentials = None
+        self._metric_filter_regex = None
         self._instance_selection_tags = None
         self._volume_selection_tags = None
         self._point_tag_filter_regex = None
         self._namespaces = None
-        self._metric_filter_regex = None
         self.discriminator = None
 
         if base_credentials is not None:
             self.base_credentials = base_credentials
+        if metric_filter_regex is not None:
+            self.metric_filter_regex = metric_filter_regex
         if instance_selection_tags is not None:
             self.instance_selection_tags = instance_selection_tags
         if volume_selection_tags is not None:
@@ -71,8 +73,6 @@ class CloudWatchConfiguration(object):
             self.point_tag_filter_regex = point_tag_filter_regex
         if namespaces is not None:
             self.namespaces = namespaces
-        if metric_filter_regex is not None:
-            self.metric_filter_regex = metric_filter_regex
 
     @property
     def base_credentials(self):
@@ -94,6 +94,29 @@ class CloudWatchConfiguration(object):
         """
 
         self._base_credentials = base_credentials
+
+    @property
+    def metric_filter_regex(self):
+        """Gets the metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+
+        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :return: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._metric_filter_regex
+
+    @metric_filter_regex.setter
+    def metric_filter_regex(self, metric_filter_regex):
+        """Sets the metric_filter_regex of this CloudWatchConfiguration.
+
+        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :param metric_filter_regex: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :type: str
+        """
+
+        self._metric_filter_regex = metric_filter_regex
 
     @property
     def instance_selection_tags(self):
@@ -186,29 +209,6 @@ class CloudWatchConfiguration(object):
         """
 
         self._namespaces = namespaces
-
-    @property
-    def metric_filter_regex(self):
-        """Gets the metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
-
-        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
-
-        :return: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._metric_filter_regex
-
-    @metric_filter_regex.setter
-    def metric_filter_regex(self, metric_filter_regex):
-        """Sets the metric_filter_regex of this CloudWatchConfiguration.
-
-        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
-
-        :param metric_filter_regex: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
-        :type: str
-        """
-
-        self._metric_filter_regex = metric_filter_regex
 
     def to_dict(self):
         """Returns the model properties as a dict"""

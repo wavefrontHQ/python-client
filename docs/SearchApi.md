@@ -37,12 +37,12 @@ Method | HTTP request | Description
 [**search_proxy_entities**](SearchApi.md#search_proxy_entities) | **POST** /api/v2/search/proxy | Search over a customer&#39;s non-deleted proxies
 [**search_proxy_for_facet**](SearchApi.md#search_proxy_for_facet) | **POST** /api/v2/search/proxy/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted proxies
 [**search_proxy_for_facets**](SearchApi.md#search_proxy_for_facets) | **POST** /api/v2/search/proxy/facets | Lists the values of one or more facets over the customer&#39;s non-deleted proxies
-[**search_registered_query_deleted_entities**](SearchApi.md#search_registered_query_deleted_entities) | **POST** /api/v2/search/registeredquery/deleted | Search over a customer&#39;s deleted RegisteredQuery
-[**search_registered_query_deleted_for_facet**](SearchApi.md#search_registered_query_deleted_for_facet) | **POST** /api/v2/search/registeredquery/deleted/{facet} | Lists the values of a specific facet over the customer&#39;s deleted RegisteredQuery
-[**search_registered_query_deleted_for_facets**](SearchApi.md#search_registered_query_deleted_for_facets) | **POST** /api/v2/search/registeredquery/deleted/facets | Lists the values of one or more facets over the customer&#39;s deleted RegisteredQuery
-[**search_registered_query_entities**](SearchApi.md#search_registered_query_entities) | **POST** /api/v2/search/registeredquery | Search over a customer&#39;s non-deleted registered queries
-[**search_registered_query_for_facet**](SearchApi.md#search_registered_query_for_facet) | **POST** /api/v2/search/registeredquery/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted RegisteredQuery
-[**search_registered_query_for_facets**](SearchApi.md#search_registered_query_for_facets) | **POST** /api/v2/search/registeredquery/facets | Lists the values of one or more facets over the customer&#39;s non-deleted RegisteredQuery
+[**search_registered_query_deleted_entities**](SearchApi.md#search_registered_query_deleted_entities) | **POST** /api/v2/search/derivedmetricdefinition/deleted | Search over a customer&#39;s deleted derived metric definitions
+[**search_registered_query_deleted_for_facet**](SearchApi.md#search_registered_query_deleted_for_facet) | **POST** /api/v2/search/derivedmetricdefinition/deleted/{facet} | Lists the values of a specific facet over the customer&#39;s deleted derived metric definitions
+[**search_registered_query_deleted_for_facets**](SearchApi.md#search_registered_query_deleted_for_facets) | **POST** /api/v2/search/derivedmetricdefinition/deleted/facets | Lists the values of one or more facets over the customer&#39;s deleted derived metric definitions
+[**search_registered_query_entities**](SearchApi.md#search_registered_query_entities) | **POST** /api/v2/search/derivedmetricdefinition | Search over a customer&#39;s non-deleted derived metric definitions
+[**search_registered_query_for_facet**](SearchApi.md#search_registered_query_for_facet) | **POST** /api/v2/search/derivedmetricdefinition/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted derived metric definitions
+[**search_registered_query_for_facets**](SearchApi.md#search_registered_query_for_facets) | **POST** /api/v2/search/derivedmetricdefinition/facets | Lists the values of one or more facets over the customer&#39;s non-deleted derived metric definition
 [**search_report_event_entities**](SearchApi.md#search_report_event_entities) | **POST** /api/v2/search/event | Search over a customer&#39;s events
 [**search_report_event_for_facet**](SearchApi.md#search_report_event_for_facet) | **POST** /api/v2/search/event/{facet} | Lists the values of a specific facet over the customer&#39;s events
 [**search_report_event_for_facets**](SearchApi.md#search_report_event_for_facets) | **POST** /api/v2/search/event/facets | Lists the values of one or more facets over the customer&#39;s events
@@ -1862,9 +1862,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_registered_query_deleted_entities**
-> ResponseContainerPagedRegisteredQuery search_registered_query_deleted_entities(body=body)
+> ResponseContainerPagedDerivedMetricDefinition search_registered_query_deleted_entities(body=body)
 
-Search over a customer's deleted RegisteredQuery
+Search over a customer's deleted derived metric definitions
 
 
 
@@ -1887,7 +1887,7 @@ api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(con
 body = wavefront_api_client.SortableSearchRequest() # SortableSearchRequest |  (optional)
 
 try:
-    # Search over a customer's deleted RegisteredQuery
+    # Search over a customer's deleted derived metric definitions
     api_response = api_instance.search_registered_query_deleted_entities(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -1902,7 +1902,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerPagedRegisteredQuery**](ResponseContainerPagedRegisteredQuery.md)
+[**ResponseContainerPagedDerivedMetricDefinition**](ResponseContainerPagedDerivedMetricDefinition.md)
 
 ### Authorization
 
@@ -1918,7 +1918,7 @@ Name | Type | Description  | Notes
 # **search_registered_query_deleted_for_facet**
 > ResponseContainerFacetResponse search_registered_query_deleted_for_facet(facet, body=body)
 
-Lists the values of a specific facet over the customer's deleted RegisteredQuery
+Lists the values of a specific facet over the customer's deleted derived metric definitions
 
 
 
@@ -1942,7 +1942,7 @@ facet = 'facet_example' # str |
 body = wavefront_api_client.FacetSearchRequestContainer() # FacetSearchRequestContainer |  (optional)
 
 try:
-    # Lists the values of a specific facet over the customer's deleted RegisteredQuery
+    # Lists the values of a specific facet over the customer's deleted derived metric definitions
     api_response = api_instance.search_registered_query_deleted_for_facet(facet, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -1974,7 +1974,7 @@ Name | Type | Description  | Notes
 # **search_registered_query_deleted_for_facets**
 > ResponseContainerFacetsResponseContainer search_registered_query_deleted_for_facets(body=body)
 
-Lists the values of one or more facets over the customer's deleted RegisteredQuery
+Lists the values of one or more facets over the customer's deleted derived metric definitions
 
 
 
@@ -1997,7 +1997,7 @@ api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(con
 body = wavefront_api_client.FacetsSearchRequestContainer() # FacetsSearchRequestContainer |  (optional)
 
 try:
-    # Lists the values of one or more facets over the customer's deleted RegisteredQuery
+    # Lists the values of one or more facets over the customer's deleted derived metric definitions
     api_response = api_instance.search_registered_query_deleted_for_facets(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -2026,9 +2026,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_registered_query_entities**
-> ResponseContainerPagedRegisteredQueryWithStats search_registered_query_entities(body=body)
+> ResponseContainerPagedDerivedMetricDefinitionWithStats search_registered_query_entities(body=body)
 
-Search over a customer's non-deleted registered queries
+Search over a customer's non-deleted derived metric definitions
 
 
 
@@ -2051,7 +2051,7 @@ api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(con
 body = wavefront_api_client.SortableSearchRequest() # SortableSearchRequest |  (optional)
 
 try:
-    # Search over a customer's non-deleted registered queries
+    # Search over a customer's non-deleted derived metric definitions
     api_response = api_instance.search_registered_query_entities(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -2066,7 +2066,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerPagedRegisteredQueryWithStats**](ResponseContainerPagedRegisteredQueryWithStats.md)
+[**ResponseContainerPagedDerivedMetricDefinitionWithStats**](ResponseContainerPagedDerivedMetricDefinitionWithStats.md)
 
 ### Authorization
 
@@ -2082,7 +2082,7 @@ Name | Type | Description  | Notes
 # **search_registered_query_for_facet**
 > ResponseContainerFacetResponse search_registered_query_for_facet(facet, body=body)
 
-Lists the values of a specific facet over the customer's non-deleted RegisteredQuery
+Lists the values of a specific facet over the customer's non-deleted derived metric definitions
 
 
 
@@ -2106,7 +2106,7 @@ facet = 'facet_example' # str |
 body = wavefront_api_client.FacetSearchRequestContainer() # FacetSearchRequestContainer |  (optional)
 
 try:
-    # Lists the values of a specific facet over the customer's non-deleted RegisteredQuery
+    # Lists the values of a specific facet over the customer's non-deleted derived metric definitions
     api_response = api_instance.search_registered_query_for_facet(facet, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -2138,7 +2138,7 @@ Name | Type | Description  | Notes
 # **search_registered_query_for_facets**
 > ResponseContainerFacetsResponseContainer search_registered_query_for_facets(body=body)
 
-Lists the values of one or more facets over the customer's non-deleted RegisteredQuery
+Lists the values of one or more facets over the customer's non-deleted derived metric definition
 
 
 
@@ -2161,7 +2161,7 @@ api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(con
 body = wavefront_api_client.FacetsSearchRequestContainer() # FacetsSearchRequestContainer |  (optional)
 
 try:
-    # Lists the values of one or more facets over the customer's non-deleted RegisteredQuery
+    # Lists the values of one or more facets over the customer's non-deleted derived metric definition
     api_response = api_instance.search_registered_query_for_facets(body=body)
     pprint(api_response)
 except ApiException as e:
