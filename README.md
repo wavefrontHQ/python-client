@@ -129,6 +129,18 @@ Class | Method | HTTP request | Description
 *DashboardApi* | [**set_dashboard_tags**](docs/DashboardApi.md#set_dashboard_tags) | **POST** /api/v2/dashboard/{id}/tag | Set all tags associated with a specific dashboard
 *DashboardApi* | [**undelete_dashboard**](docs/DashboardApi.md#undelete_dashboard) | **POST** /api/v2/dashboard/{id}/undelete | Undelete a specific dashboard
 *DashboardApi* | [**update_dashboard**](docs/DashboardApi.md#update_dashboard) | **PUT** /api/v2/dashboard/{id} | Update a specific dashboard
+*DerivedMetricDefinitionApi* | [**add_tag_to_derived_metric_definition**](docs/DerivedMetricDefinitionApi.md#add_tag_to_derived_metric_definition) | **PUT** /api/v2/derivedmetricdefinition/{id}/tag/{tagValue} | Add a tag to a specific Derived Metric Definition
+*DerivedMetricDefinitionApi* | [**create_derived_metric_definition**](docs/DerivedMetricDefinitionApi.md#create_derived_metric_definition) | **POST** /api/v2/derivedmetricdefinition | Create a specific derived metric definition
+*DerivedMetricDefinitionApi* | [**delete_derived_metric_definition**](docs/DerivedMetricDefinitionApi.md#delete_derived_metric_definition) | **DELETE** /api/v2/derivedmetricdefinition/{id} | Delete a specific derived metric definition
+*DerivedMetricDefinitionApi* | [**get_all_derived_metric_definitions**](docs/DerivedMetricDefinitionApi.md#get_all_derived_metric_definitions) | **GET** /api/v2/derivedmetricdefinition | Get all derived metric definitions for a customer
+*DerivedMetricDefinitionApi* | [**get_derived_metric_definition_by_version**](docs/DerivedMetricDefinitionApi.md#get_derived_metric_definition_by_version) | **GET** /api/v2/derivedmetricdefinition/{id}/history/{version} | Get a specific historical version of a specific derived metric definition
+*DerivedMetricDefinitionApi* | [**get_derived_metric_definition_history**](docs/DerivedMetricDefinitionApi.md#get_derived_metric_definition_history) | **GET** /api/v2/derivedmetricdefinition/{id}/history | Get the version history of a specific derived metric definition
+*DerivedMetricDefinitionApi* | [**get_derived_metric_definition_tags**](docs/DerivedMetricDefinitionApi.md#get_derived_metric_definition_tags) | **GET** /api/v2/derivedmetricdefinition/{id}/tag | Get all tags associated with a specific derived metric definition
+*DerivedMetricDefinitionApi* | [**get_registered_query**](docs/DerivedMetricDefinitionApi.md#get_registered_query) | **GET** /api/v2/derivedmetricdefinition/{id} | Get a specific registered query
+*DerivedMetricDefinitionApi* | [**remove_tag_from_derived_metric_definition**](docs/DerivedMetricDefinitionApi.md#remove_tag_from_derived_metric_definition) | **DELETE** /api/v2/derivedmetricdefinition/{id}/tag/{tagValue} | Remove a tag from a specific Derived Metric Definition
+*DerivedMetricDefinitionApi* | [**set_derived_metric_definition_tags**](docs/DerivedMetricDefinitionApi.md#set_derived_metric_definition_tags) | **POST** /api/v2/derivedmetricdefinition/{id}/tag | Set all tags associated with a specific derived metric definition
+*DerivedMetricDefinitionApi* | [**undelete_derived_metric_definition**](docs/DerivedMetricDefinitionApi.md#undelete_derived_metric_definition) | **POST** /api/v2/derivedmetricdefinition/{id}/undelete | Undelete a specific derived metric definition
+*DerivedMetricDefinitionApi* | [**update_derived_metric_definition**](docs/DerivedMetricDefinitionApi.md#update_derived_metric_definition) | **PUT** /api/v2/derivedmetricdefinition/{id} | Update a specific derived metric definition
 *EventApi* | [**add_event_tag**](docs/EventApi.md#add_event_tag) | **PUT** /api/v2/event/{id}/tag/{tagValue} | Add a tag to a specific event
 *EventApi* | [**close_event**](docs/EventApi.md#close_event) | **POST** /api/v2/event/{id}/close | Close a specific event
 *EventApi* | [**create_event**](docs/EventApi.md#create_event) | **POST** /api/v2/event | Create a specific event
@@ -172,18 +184,6 @@ Class | Method | HTTP request | Description
 *ProxyApi* | [**update_proxy**](docs/ProxyApi.md#update_proxy) | **PUT** /api/v2/proxy/{id} | Update the name of a specific proxy
 *QueryApi* | [**query_api**](docs/QueryApi.md#query_api) | **GET** /api/v2/chart/api | Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
 *QueryApi* | [**query_raw**](docs/QueryApi.md#query_raw) | **GET** /api/v2/chart/raw | Perform a raw data query against Wavefront servers that returns second granularity points grouped by tags
-*RegisteredQueryApi* | [**add_registered_query_tag**](docs/RegisteredQueryApi.md#add_registered_query_tag) | **PUT** /api/v2/registeredquery/{id}/tag/{tagValue} | Add a tag to a specific registered query
-*RegisteredQueryApi* | [**create_registered_query**](docs/RegisteredQueryApi.md#create_registered_query) | **POST** /api/v2/registeredquery | Create a specific registered query
-*RegisteredQueryApi* | [**delete_registered_query**](docs/RegisteredQueryApi.md#delete_registered_query) | **DELETE** /api/v2/registeredquery/{id} | Delete a specific registered query
-*RegisteredQueryApi* | [**get_all_registered_queries**](docs/RegisteredQueryApi.md#get_all_registered_queries) | **GET** /api/v2/registeredquery | Get all registered queries for a customer
-*RegisteredQueryApi* | [**get_registered_query**](docs/RegisteredQueryApi.md#get_registered_query) | **GET** /api/v2/registeredquery/{id} | Get a specific registered query
-*RegisteredQueryApi* | [**get_registered_query_history**](docs/RegisteredQueryApi.md#get_registered_query_history) | **GET** /api/v2/registeredquery/{id}/history | Get the version history of a specific registered query
-*RegisteredQueryApi* | [**get_registered_query_tags**](docs/RegisteredQueryApi.md#get_registered_query_tags) | **GET** /api/v2/registeredquery/{id}/tag | Get all tags associated with a specific registered query
-*RegisteredQueryApi* | [**get_registered_query_version**](docs/RegisteredQueryApi.md#get_registered_query_version) | **GET** /api/v2/registeredquery/{id}/history/{version} | Get a specific historical version of a specific registered query
-*RegisteredQueryApi* | [**remove_registered_query_tag**](docs/RegisteredQueryApi.md#remove_registered_query_tag) | **DELETE** /api/v2/registeredquery/{id}/tag/{tagValue} | Remove a tag from a specific registered query
-*RegisteredQueryApi* | [**set_registered_query_tags**](docs/RegisteredQueryApi.md#set_registered_query_tags) | **POST** /api/v2/registeredquery/{id}/tag | Set all tags associated with a specific registered query
-*RegisteredQueryApi* | [**undelete_registered_query**](docs/RegisteredQueryApi.md#undelete_registered_query) | **POST** /api/v2/registeredquery/{id}/undelete | Undelete a specific registered query
-*RegisteredQueryApi* | [**update_registered_query**](docs/RegisteredQueryApi.md#update_registered_query) | **PUT** /api/v2/registeredquery/{id} | Update a specific registered query
 *SavedSearchApi* | [**create_saved_search**](docs/SavedSearchApi.md#create_saved_search) | **POST** /api/v2/savedsearch | Create a saved search
 *SavedSearchApi* | [**delete_saved_search**](docs/SavedSearchApi.md#delete_saved_search) | **DELETE** /api/v2/savedsearch/{id} | Delete a specific saved search
 *SavedSearchApi* | [**get_all_entity_type_saved_searches**](docs/SavedSearchApi.md#get_all_entity_type_saved_searches) | **GET** /api/v2/savedsearch/type/{entitytype} | Get all saved searches for a specific entity type for a user
@@ -223,12 +223,12 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**search_proxy_entities**](docs/SearchApi.md#search_proxy_entities) | **POST** /api/v2/search/proxy | Search over a customer&#39;s non-deleted proxies
 *SearchApi* | [**search_proxy_for_facet**](docs/SearchApi.md#search_proxy_for_facet) | **POST** /api/v2/search/proxy/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted proxies
 *SearchApi* | [**search_proxy_for_facets**](docs/SearchApi.md#search_proxy_for_facets) | **POST** /api/v2/search/proxy/facets | Lists the values of one or more facets over the customer&#39;s non-deleted proxies
-*SearchApi* | [**search_registered_query_deleted_entities**](docs/SearchApi.md#search_registered_query_deleted_entities) | **POST** /api/v2/search/registeredquery/deleted | Search over a customer&#39;s deleted RegisteredQuery
-*SearchApi* | [**search_registered_query_deleted_for_facet**](docs/SearchApi.md#search_registered_query_deleted_for_facet) | **POST** /api/v2/search/registeredquery/deleted/{facet} | Lists the values of a specific facet over the customer&#39;s deleted RegisteredQuery
-*SearchApi* | [**search_registered_query_deleted_for_facets**](docs/SearchApi.md#search_registered_query_deleted_for_facets) | **POST** /api/v2/search/registeredquery/deleted/facets | Lists the values of one or more facets over the customer&#39;s deleted RegisteredQuery
-*SearchApi* | [**search_registered_query_entities**](docs/SearchApi.md#search_registered_query_entities) | **POST** /api/v2/search/registeredquery | Search over a customer&#39;s non-deleted registered queries
-*SearchApi* | [**search_registered_query_for_facet**](docs/SearchApi.md#search_registered_query_for_facet) | **POST** /api/v2/search/registeredquery/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted RegisteredQuery
-*SearchApi* | [**search_registered_query_for_facets**](docs/SearchApi.md#search_registered_query_for_facets) | **POST** /api/v2/search/registeredquery/facets | Lists the values of one or more facets over the customer&#39;s non-deleted RegisteredQuery
+*SearchApi* | [**search_registered_query_deleted_entities**](docs/SearchApi.md#search_registered_query_deleted_entities) | **POST** /api/v2/search/derivedmetricdefinition/deleted | Search over a customer&#39;s deleted derived metric definitions
+*SearchApi* | [**search_registered_query_deleted_for_facet**](docs/SearchApi.md#search_registered_query_deleted_for_facet) | **POST** /api/v2/search/derivedmetricdefinition/deleted/{facet} | Lists the values of a specific facet over the customer&#39;s deleted derived metric definitions
+*SearchApi* | [**search_registered_query_deleted_for_facets**](docs/SearchApi.md#search_registered_query_deleted_for_facets) | **POST** /api/v2/search/derivedmetricdefinition/deleted/facets | Lists the values of one or more facets over the customer&#39;s deleted derived metric definitions
+*SearchApi* | [**search_registered_query_entities**](docs/SearchApi.md#search_registered_query_entities) | **POST** /api/v2/search/derivedmetricdefinition | Search over a customer&#39;s non-deleted derived metric definitions
+*SearchApi* | [**search_registered_query_for_facet**](docs/SearchApi.md#search_registered_query_for_facet) | **POST** /api/v2/search/derivedmetricdefinition/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted derived metric definitions
+*SearchApi* | [**search_registered_query_for_facets**](docs/SearchApi.md#search_registered_query_for_facets) | **POST** /api/v2/search/derivedmetricdefinition/facets | Lists the values of one or more facets over the customer&#39;s non-deleted derived metric definition
 *SearchApi* | [**search_report_event_entities**](docs/SearchApi.md#search_report_event_entities) | **POST** /api/v2/search/event | Search over a customer&#39;s events
 *SearchApi* | [**search_report_event_for_facet**](docs/SearchApi.md#search_report_event_for_facet) | **POST** /api/v2/search/event/{facet} | Lists the values of a specific facet over the customer&#39;s events
 *SearchApi* | [**search_report_event_for_facets**](docs/SearchApi.md#search_report_event_for_facets) | **POST** /api/v2/search/event/facets | Lists the values of one or more facets over the customer&#39;s events
@@ -284,6 +284,7 @@ Class | Method | HTTP request | Description
  - [DashboardParameterValue](docs/DashboardParameterValue.md)
  - [DashboardSection](docs/DashboardSection.md)
  - [DashboardSectionRow](docs/DashboardSectionRow.md)
+ - [DerivedMetricDefinition](docs/DerivedMetricDefinition.md)
  - [EC2Configuration](docs/EC2Configuration.md)
  - [Event](docs/Event.md)
  - [EventSearchRequest](docs/EventSearchRequest.md)
@@ -302,6 +303,7 @@ Class | Method | HTTP request | Description
  - [IntegrationManifestGroup](docs/IntegrationManifestGroup.md)
  - [IntegrationMetrics](docs/IntegrationMetrics.md)
  - [IntegrationStatus](docs/IntegrationStatus.md)
+ - [JsonNode](docs/JsonNode.md)
  - [MaintenanceWindow](docs/MaintenanceWindow.md)
  - [Message](docs/Message.md)
  - [MetricDetails](docs/MetricDetails.md)
@@ -313,6 +315,8 @@ Class | Method | HTTP request | Description
  - [PagedCloudIntegration](docs/PagedCloudIntegration.md)
  - [PagedCustomerFacingUserObject](docs/PagedCustomerFacingUserObject.md)
  - [PagedDashboard](docs/PagedDashboard.md)
+ - [PagedDerivedMetricDefinition](docs/PagedDerivedMetricDefinition.md)
+ - [PagedDerivedMetricDefinitionWithStats](docs/PagedDerivedMetricDefinitionWithStats.md)
  - [PagedEvent](docs/PagedEvent.md)
  - [PagedExternalLink](docs/PagedExternalLink.md)
  - [PagedIntegration](docs/PagedIntegration.md)
@@ -320,8 +324,6 @@ Class | Method | HTTP request | Description
  - [PagedMessage](docs/PagedMessage.md)
  - [PagedNotificant](docs/PagedNotificant.md)
  - [PagedProxy](docs/PagedProxy.md)
- - [PagedRegisteredQuery](docs/PagedRegisteredQuery.md)
- - [PagedRegisteredQueryWithStats](docs/PagedRegisteredQueryWithStats.md)
  - [PagedSavedSearch](docs/PagedSavedSearch.md)
  - [PagedSource](docs/PagedSource.md)
  - [Point](docs/Point.md)
@@ -329,11 +331,11 @@ Class | Method | HTTP request | Description
  - [QueryEvent](docs/QueryEvent.md)
  - [QueryResult](docs/QueryResult.md)
  - [RawTimeseries](docs/RawTimeseries.md)
- - [RegisteredQuery](docs/RegisteredQuery.md)
  - [ResponseContainer](docs/ResponseContainer.md)
  - [ResponseContainerAlert](docs/ResponseContainerAlert.md)
  - [ResponseContainerCloudIntegration](docs/ResponseContainerCloudIntegration.md)
  - [ResponseContainerDashboard](docs/ResponseContainerDashboard.md)
+ - [ResponseContainerDerivedMetricDefinition](docs/ResponseContainerDerivedMetricDefinition.md)
  - [ResponseContainerEvent](docs/ResponseContainerEvent.md)
  - [ResponseContainerExternalLink](docs/ResponseContainerExternalLink.md)
  - [ResponseContainerFacetResponse](docs/ResponseContainerFacetResponse.md)
@@ -352,6 +354,8 @@ Class | Method | HTTP request | Description
  - [ResponseContainerPagedCloudIntegration](docs/ResponseContainerPagedCloudIntegration.md)
  - [ResponseContainerPagedCustomerFacingUserObject](docs/ResponseContainerPagedCustomerFacingUserObject.md)
  - [ResponseContainerPagedDashboard](docs/ResponseContainerPagedDashboard.md)
+ - [ResponseContainerPagedDerivedMetricDefinition](docs/ResponseContainerPagedDerivedMetricDefinition.md)
+ - [ResponseContainerPagedDerivedMetricDefinitionWithStats](docs/ResponseContainerPagedDerivedMetricDefinitionWithStats.md)
  - [ResponseContainerPagedEvent](docs/ResponseContainerPagedEvent.md)
  - [ResponseContainerPagedExternalLink](docs/ResponseContainerPagedExternalLink.md)
  - [ResponseContainerPagedIntegration](docs/ResponseContainerPagedIntegration.md)
@@ -359,12 +363,9 @@ Class | Method | HTTP request | Description
  - [ResponseContainerPagedMessage](docs/ResponseContainerPagedMessage.md)
  - [ResponseContainerPagedNotificant](docs/ResponseContainerPagedNotificant.md)
  - [ResponseContainerPagedProxy](docs/ResponseContainerPagedProxy.md)
- - [ResponseContainerPagedRegisteredQuery](docs/ResponseContainerPagedRegisteredQuery.md)
- - [ResponseContainerPagedRegisteredQueryWithStats](docs/ResponseContainerPagedRegisteredQueryWithStats.md)
  - [ResponseContainerPagedSavedSearch](docs/ResponseContainerPagedSavedSearch.md)
  - [ResponseContainerPagedSource](docs/ResponseContainerPagedSource.md)
  - [ResponseContainerProxy](docs/ResponseContainerProxy.md)
- - [ResponseContainerRegisteredQuery](docs/ResponseContainerRegisteredQuery.md)
  - [ResponseContainerSavedSearch](docs/ResponseContainerSavedSearch.md)
  - [ResponseContainerSource](docs/ResponseContainerSource.md)
  - [ResponseContainerTagsResponse](docs/ResponseContainerTagsResponse.md)

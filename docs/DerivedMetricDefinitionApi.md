@@ -1,27 +1,27 @@
-# wavefront_api_client.RegisteredQueryApi
+# wavefront_api_client.DerivedMetricDefinitionApi
 
 All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_registered_query_tag**](RegisteredQueryApi.md#add_registered_query_tag) | **PUT** /api/v2/registeredquery/{id}/tag/{tagValue} | Add a tag to a specific registered query
-[**create_registered_query**](RegisteredQueryApi.md#create_registered_query) | **POST** /api/v2/registeredquery | Create a specific registered query
-[**delete_registered_query**](RegisteredQueryApi.md#delete_registered_query) | **DELETE** /api/v2/registeredquery/{id} | Delete a specific registered query
-[**get_all_registered_queries**](RegisteredQueryApi.md#get_all_registered_queries) | **GET** /api/v2/registeredquery | Get all registered queries for a customer
-[**get_registered_query**](RegisteredQueryApi.md#get_registered_query) | **GET** /api/v2/registeredquery/{id} | Get a specific registered query
-[**get_registered_query_history**](RegisteredQueryApi.md#get_registered_query_history) | **GET** /api/v2/registeredquery/{id}/history | Get the version history of a specific registered query
-[**get_registered_query_tags**](RegisteredQueryApi.md#get_registered_query_tags) | **GET** /api/v2/registeredquery/{id}/tag | Get all tags associated with a specific registered query
-[**get_registered_query_version**](RegisteredQueryApi.md#get_registered_query_version) | **GET** /api/v2/registeredquery/{id}/history/{version} | Get a specific historical version of a specific registered query
-[**remove_registered_query_tag**](RegisteredQueryApi.md#remove_registered_query_tag) | **DELETE** /api/v2/registeredquery/{id}/tag/{tagValue} | Remove a tag from a specific registered query
-[**set_registered_query_tags**](RegisteredQueryApi.md#set_registered_query_tags) | **POST** /api/v2/registeredquery/{id}/tag | Set all tags associated with a specific registered query
-[**undelete_registered_query**](RegisteredQueryApi.md#undelete_registered_query) | **POST** /api/v2/registeredquery/{id}/undelete | Undelete a specific registered query
-[**update_registered_query**](RegisteredQueryApi.md#update_registered_query) | **PUT** /api/v2/registeredquery/{id} | Update a specific registered query
+[**add_tag_to_derived_metric_definition**](DerivedMetricDefinitionApi.md#add_tag_to_derived_metric_definition) | **PUT** /api/v2/derivedmetricdefinition/{id}/tag/{tagValue} | Add a tag to a specific Derived Metric Definition
+[**create_derived_metric_definition**](DerivedMetricDefinitionApi.md#create_derived_metric_definition) | **POST** /api/v2/derivedmetricdefinition | Create a specific derived metric definition
+[**delete_derived_metric_definition**](DerivedMetricDefinitionApi.md#delete_derived_metric_definition) | **DELETE** /api/v2/derivedmetricdefinition/{id} | Delete a specific derived metric definition
+[**get_all_derived_metric_definitions**](DerivedMetricDefinitionApi.md#get_all_derived_metric_definitions) | **GET** /api/v2/derivedmetricdefinition | Get all derived metric definitions for a customer
+[**get_derived_metric_definition_by_version**](DerivedMetricDefinitionApi.md#get_derived_metric_definition_by_version) | **GET** /api/v2/derivedmetricdefinition/{id}/history/{version} | Get a specific historical version of a specific derived metric definition
+[**get_derived_metric_definition_history**](DerivedMetricDefinitionApi.md#get_derived_metric_definition_history) | **GET** /api/v2/derivedmetricdefinition/{id}/history | Get the version history of a specific derived metric definition
+[**get_derived_metric_definition_tags**](DerivedMetricDefinitionApi.md#get_derived_metric_definition_tags) | **GET** /api/v2/derivedmetricdefinition/{id}/tag | Get all tags associated with a specific derived metric definition
+[**get_registered_query**](DerivedMetricDefinitionApi.md#get_registered_query) | **GET** /api/v2/derivedmetricdefinition/{id} | Get a specific registered query
+[**remove_tag_from_derived_metric_definition**](DerivedMetricDefinitionApi.md#remove_tag_from_derived_metric_definition) | **DELETE** /api/v2/derivedmetricdefinition/{id}/tag/{tagValue} | Remove a tag from a specific Derived Metric Definition
+[**set_derived_metric_definition_tags**](DerivedMetricDefinitionApi.md#set_derived_metric_definition_tags) | **POST** /api/v2/derivedmetricdefinition/{id}/tag | Set all tags associated with a specific derived metric definition
+[**undelete_derived_metric_definition**](DerivedMetricDefinitionApi.md#undelete_derived_metric_definition) | **POST** /api/v2/derivedmetricdefinition/{id}/undelete | Undelete a specific derived metric definition
+[**update_derived_metric_definition**](DerivedMetricDefinitionApi.md#update_derived_metric_definition) | **PUT** /api/v2/derivedmetricdefinition/{id} | Update a specific derived metric definition
 
 
-# **add_registered_query_tag**
-> ResponseContainer add_registered_query_tag(id, tag_value)
+# **add_tag_to_derived_metric_definition**
+> ResponseContainer add_tag_to_derived_metric_definition(id, tag_value)
 
-Add a tag to a specific registered query
+Add a tag to a specific Derived Metric Definition
 
 
 
@@ -40,16 +40,16 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
 tag_value = 'tag_value_example' # str | 
 
 try:
-    # Add a tag to a specific registered query
-    api_response = api_instance.add_registered_query_tag(id, tag_value)
+    # Add a tag to a specific Derived Metric Definition
+    api_response = api_instance.add_tag_to_derived_metric_definition(id, tag_value)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->add_registered_query_tag: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->add_tag_to_derived_metric_definition: %s\n" % e)
 ```
 
 ### Parameters
@@ -74,10 +74,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_registered_query**
-> ResponseContainerRegisteredQuery create_registered_query(body=body)
+# **create_derived_metric_definition**
+> ResponseContainerDerivedMetricDefinition create_derived_metric_definition(body=body)
 
-Create a specific registered query
+Create a specific derived metric definition
 
 
 
@@ -96,26 +96,26 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.RegisteredQuery() # RegisteredQuery | Example Body:  <pre>{   \"name\": \"Query Name\",   \"query\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre> (optional)
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.DerivedMetricDefinition() # DerivedMetricDefinition | Example Body:  <pre>{   \"name\": \"Query Name\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre> (optional)
 
 try:
-    # Create a specific registered query
-    api_response = api_instance.create_registered_query(body=body)
+    # Create a specific derived metric definition
+    api_response = api_instance.create_derived_metric_definition(body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->create_registered_query: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->create_derived_metric_definition: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RegisteredQuery**](RegisteredQuery.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Query Name\&quot;,   \&quot;query\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**DerivedMetricDefinition**](DerivedMetricDefinition.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Query Name\&quot;,   \&quot;query\&quot;: \&quot;aliasMetric(ts(~sample.cpu.loadavg.1m), \\\&quot;my.new.metric\\\&quot;)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
-[**ResponseContainerRegisteredQuery**](ResponseContainerRegisteredQuery.md)
+[**ResponseContainerDerivedMetricDefinition**](ResponseContainerDerivedMetricDefinition.md)
 
 ### Authorization
 
@@ -128,10 +128,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_registered_query**
-> ResponseContainerRegisteredQuery delete_registered_query(id)
+# **delete_derived_metric_definition**
+> ResponseContainerDerivedMetricDefinition delete_derived_metric_definition(id)
 
-Delete a specific registered query
+Delete a specific derived metric definition
 
 
 
@@ -150,15 +150,15 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:
-    # Delete a specific registered query
-    api_response = api_instance.delete_registered_query(id)
+    # Delete a specific derived metric definition
+    api_response = api_instance.delete_derived_metric_definition(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->delete_registered_query: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->delete_derived_metric_definition: %s\n" % e)
 ```
 
 ### Parameters
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerRegisteredQuery**](ResponseContainerRegisteredQuery.md)
+[**ResponseContainerDerivedMetricDefinition**](ResponseContainerDerivedMetricDefinition.md)
 
 ### Authorization
 
@@ -182,10 +182,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_all_registered_queries**
-> ResponseContainerPagedRegisteredQuery get_all_registered_queries(offset=offset, limit=limit)
+# **get_all_derived_metric_definitions**
+> ResponseContainerPagedDerivedMetricDefinition get_all_derived_metric_definitions(offset=offset, limit=limit)
 
-Get all registered queries for a customer
+Get all derived metric definitions for a customer
 
 
 
@@ -204,16 +204,16 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 offset = 0 # int |  (optional) (default to 0)
 limit = 100 # int |  (optional) (default to 100)
 
 try:
-    # Get all registered queries for a customer
-    api_response = api_instance.get_all_registered_queries(offset=offset, limit=limit)
+    # Get all derived metric definitions for a customer
+    api_response = api_instance.get_all_derived_metric_definitions(offset=offset, limit=limit)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->get_all_registered_queries: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->get_all_derived_metric_definitions: %s\n" % e)
 ```
 
 ### Parameters
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerPagedRegisteredQuery**](ResponseContainerPagedRegisteredQuery.md)
+[**ResponseContainerPagedDerivedMetricDefinition**](ResponseContainerPagedDerivedMetricDefinition.md)
 
 ### Authorization
 
@@ -238,10 +238,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_registered_query**
-> ResponseContainerRegisteredQuery get_registered_query(id)
+# **get_derived_metric_definition_by_version**
+> ResponseContainerDerivedMetricDefinition get_derived_metric_definition_by_version(id, version)
 
-Get a specific registered query
+Get a specific historical version of a specific derived metric definition
 
 
 
@@ -260,15 +260,16 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
+version = 789 # int | 
 
 try:
-    # Get a specific registered query
-    api_response = api_instance.get_registered_query(id)
+    # Get a specific historical version of a specific derived metric definition
+    api_response = api_instance.get_derived_metric_definition_by_version(id, version)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->get_registered_query: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->get_derived_metric_definition_by_version: %s\n" % e)
 ```
 
 ### Parameters
@@ -276,10 +277,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **version** | **int**|  | 
 
 ### Return type
 
-[**ResponseContainerRegisteredQuery**](ResponseContainerRegisteredQuery.md)
+[**ResponseContainerDerivedMetricDefinition**](ResponseContainerDerivedMetricDefinition.md)
 
 ### Authorization
 
@@ -292,10 +294,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_registered_query_history**
-> ResponseContainerHistoryResponse get_registered_query_history(id, offset=offset, limit=limit)
+# **get_derived_metric_definition_history**
+> ResponseContainerHistoryResponse get_derived_metric_definition_history(id, offset=offset, limit=limit)
 
-Get the version history of a specific registered query
+Get the version history of a specific derived metric definition
 
 
 
@@ -314,17 +316,17 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
 offset = 0 # int |  (optional) (default to 0)
 limit = 100 # int |  (optional) (default to 100)
 
 try:
-    # Get the version history of a specific registered query
-    api_response = api_instance.get_registered_query_history(id, offset=offset, limit=limit)
+    # Get the version history of a specific derived metric definition
+    api_response = api_instance.get_derived_metric_definition_history(id, offset=offset, limit=limit)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->get_registered_query_history: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->get_derived_metric_definition_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -350,10 +352,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_registered_query_tags**
-> ResponseContainerTagsResponse get_registered_query_tags(id)
+# **get_derived_metric_definition_tags**
+> ResponseContainerTagsResponse get_derived_metric_definition_tags(id)
 
-Get all tags associated with a specific registered query
+Get all tags associated with a specific derived metric definition
 
 
 
@@ -372,15 +374,15 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:
-    # Get all tags associated with a specific registered query
-    api_response = api_instance.get_registered_query_tags(id)
+    # Get all tags associated with a specific derived metric definition
+    api_response = api_instance.get_derived_metric_definition_tags(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->get_registered_query_tags: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->get_derived_metric_definition_tags: %s\n" % e)
 ```
 
 ### Parameters
@@ -404,10 +406,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_registered_query_version**
-> ResponseContainerRegisteredQuery get_registered_query_version(id, version)
+# **get_registered_query**
+> ResponseContainerDerivedMetricDefinition get_registered_query(id)
 
-Get a specific historical version of a specific registered query
+Get a specific registered query
 
 
 
@@ -426,16 +428,15 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-version = 789 # int | 
 
 try:
-    # Get a specific historical version of a specific registered query
-    api_response = api_instance.get_registered_query_version(id, version)
+    # Get a specific registered query
+    api_response = api_instance.get_registered_query(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->get_registered_query_version: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->get_registered_query: %s\n" % e)
 ```
 
 ### Parameters
@@ -443,11 +444,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **version** | **int**|  | 
 
 ### Return type
 
-[**ResponseContainerRegisteredQuery**](ResponseContainerRegisteredQuery.md)
+[**ResponseContainerDerivedMetricDefinition**](ResponseContainerDerivedMetricDefinition.md)
 
 ### Authorization
 
@@ -460,10 +460,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **remove_registered_query_tag**
-> ResponseContainer remove_registered_query_tag(id, tag_value)
+# **remove_tag_from_derived_metric_definition**
+> ResponseContainer remove_tag_from_derived_metric_definition(id, tag_value)
 
-Remove a tag from a specific registered query
+Remove a tag from a specific Derived Metric Definition
 
 
 
@@ -482,16 +482,16 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
 tag_value = 'tag_value_example' # str | 
 
 try:
-    # Remove a tag from a specific registered query
-    api_response = api_instance.remove_registered_query_tag(id, tag_value)
+    # Remove a tag from a specific Derived Metric Definition
+    api_response = api_instance.remove_tag_from_derived_metric_definition(id, tag_value)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->remove_registered_query_tag: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->remove_tag_from_derived_metric_definition: %s\n" % e)
 ```
 
 ### Parameters
@@ -516,10 +516,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **set_registered_query_tags**
-> ResponseContainer set_registered_query_tags(id, body=body)
+# **set_derived_metric_definition_tags**
+> ResponseContainer set_derived_metric_definition_tags(id, body=body)
 
-Set all tags associated with a specific registered query
+Set all tags associated with a specific derived metric definition
 
 
 
@@ -538,16 +538,16 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
 body = [wavefront_api_client.list[str]()] # list[str] |  (optional)
 
 try:
-    # Set all tags associated with a specific registered query
-    api_response = api_instance.set_registered_query_tags(id, body=body)
+    # Set all tags associated with a specific derived metric definition
+    api_response = api_instance.set_derived_metric_definition_tags(id, body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->set_registered_query_tags: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->set_derived_metric_definition_tags: %s\n" % e)
 ```
 
 ### Parameters
@@ -572,10 +572,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **undelete_registered_query**
-> ResponseContainerRegisteredQuery undelete_registered_query(id)
+# **undelete_derived_metric_definition**
+> ResponseContainerDerivedMetricDefinition undelete_derived_metric_definition(id)
 
-Undelete a specific registered query
+Undelete a specific derived metric definition
 
 
 
@@ -594,15 +594,15 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
 
 try:
-    # Undelete a specific registered query
-    api_response = api_instance.undelete_registered_query(id)
+    # Undelete a specific derived metric definition
+    api_response = api_instance.undelete_derived_metric_definition(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->undelete_registered_query: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->undelete_derived_metric_definition: %s\n" % e)
 ```
 
 ### Parameters
@@ -613,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerRegisteredQuery**](ResponseContainerRegisteredQuery.md)
+[**ResponseContainerDerivedMetricDefinition**](ResponseContainerDerivedMetricDefinition.md)
 
 ### Authorization
 
@@ -626,10 +626,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_registered_query**
-> ResponseContainerRegisteredQuery update_registered_query(id, body=body)
+# **update_derived_metric_definition**
+> ResponseContainerDerivedMetricDefinition update_derived_metric_definition(id, body=body)
 
-Update a specific registered query
+Update a specific derived metric definition
 
 
 
@@ -648,16 +648,16 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = wavefront_api_client.RegisteredQueryApi(wavefront_api_client.ApiClient(configuration))
+api_instance = wavefront_api_client.DerivedMetricDefinitionApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.RegisteredQuery() # RegisteredQuery | Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Query Name\",   \"createUserId\": \"user\",   \"query\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre> (optional)
+body = wavefront_api_client.DerivedMetricDefinition() # DerivedMetricDefinition | Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Query Name\",   \"createUserId\": \"user\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre> (optional)
 
 try:
-    # Update a specific registered query
-    api_response = api_instance.update_registered_query(id, body=body)
+    # Update a specific derived metric definition
+    api_response = api_instance.update_derived_metric_definition(id, body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RegisteredQueryApi->update_registered_query: %s\n" % e)
+    print("Exception when calling DerivedMetricDefinitionApi->update_derived_metric_definition: %s\n" % e)
 ```
 
 ### Parameters
@@ -665,11 +665,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**RegisteredQuery**](RegisteredQuery.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Query Name\&quot;,   \&quot;createUserId\&quot;: \&quot;user\&quot;,   \&quot;query\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**DerivedMetricDefinition**](DerivedMetricDefinition.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Query Name\&quot;,   \&quot;createUserId\&quot;: \&quot;user\&quot;,   \&quot;query\&quot;: \&quot;aliasMetric(ts(~sample.cpu.loadavg.1m), \\\&quot;my.new.metric\\\&quot;)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
-[**ResponseContainerRegisteredQuery**](ResponseContainerRegisteredQuery.md)
+[**ResponseContainerDerivedMetricDefinition**](ResponseContainerDerivedMetricDefinition.md)
 
 ### Authorization
 

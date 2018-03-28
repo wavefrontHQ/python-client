@@ -36,19 +36,19 @@ class Event(object):
         'id': 'str',
         'table': 'str',
         'tags': 'list[str]',
-        'running_state': 'str',
-        'created_at': 'int',
-        'start_time': 'int',
-        'end_time': 'int',
         'hosts': 'list[str]',
         'is_ephemeral': 'bool',
         'creator_id': 'str',
+        'created_epoch_millis': 'int',
+        'updated_epoch_millis': 'int',
         'is_user_event': 'bool',
         'summarized_events': 'int',
         'updater_id': 'str',
         'updated_at': 'int',
-        'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
+        'created_at': 'int',
+        'start_time': 'int',
+        'end_time': 'int',
+        'running_state': 'str',
         'can_delete': 'bool',
         'can_close': 'bool',
         'creator_type': 'list[str]'
@@ -60,25 +60,25 @@ class Event(object):
         'id': 'id',
         'table': 'table',
         'tags': 'tags',
-        'running_state': 'runningState',
-        'created_at': 'createdAt',
-        'start_time': 'startTime',
-        'end_time': 'endTime',
         'hosts': 'hosts',
         'is_ephemeral': 'isEphemeral',
         'creator_id': 'creatorId',
+        'created_epoch_millis': 'createdEpochMillis',
+        'updated_epoch_millis': 'updatedEpochMillis',
         'is_user_event': 'isUserEvent',
         'summarized_events': 'summarizedEvents',
         'updater_id': 'updaterId',
         'updated_at': 'updatedAt',
-        'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
+        'created_at': 'createdAt',
+        'start_time': 'startTime',
+        'end_time': 'endTime',
+        'running_state': 'runningState',
         'can_delete': 'canDelete',
         'can_close': 'canClose',
         'creator_type': 'creatorType'
     }
 
-    def __init__(self, name=None, annotations=None, id=None, table=None, tags=None, running_state=None, created_at=None, start_time=None, end_time=None, hosts=None, is_ephemeral=None, creator_id=None, is_user_event=None, summarized_events=None, updater_id=None, updated_at=None, created_epoch_millis=None, updated_epoch_millis=None, can_delete=None, can_close=None, creator_type=None):  # noqa: E501
+    def __init__(self, name=None, annotations=None, id=None, table=None, tags=None, hosts=None, is_ephemeral=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, is_user_event=None, summarized_events=None, updater_id=None, updated_at=None, created_at=None, start_time=None, end_time=None, running_state=None, can_delete=None, can_close=None, creator_type=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
@@ -86,19 +86,19 @@ class Event(object):
         self._id = None
         self._table = None
         self._tags = None
-        self._running_state = None
-        self._created_at = None
-        self._start_time = None
-        self._end_time = None
         self._hosts = None
         self._is_ephemeral = None
         self._creator_id = None
+        self._created_epoch_millis = None
+        self._updated_epoch_millis = None
         self._is_user_event = None
         self._summarized_events = None
         self._updater_id = None
         self._updated_at = None
-        self._created_epoch_millis = None
-        self._updated_epoch_millis = None
+        self._created_at = None
+        self._start_time = None
+        self._end_time = None
+        self._running_state = None
         self._can_delete = None
         self._can_close = None
         self._creator_type = None
@@ -112,18 +112,16 @@ class Event(object):
             self.table = table
         if tags is not None:
             self.tags = tags
-        if running_state is not None:
-            self.running_state = running_state
-        if created_at is not None:
-            self.created_at = created_at
-        self.start_time = start_time
-        self.end_time = end_time
         if hosts is not None:
             self.hosts = hosts
         if is_ephemeral is not None:
             self.is_ephemeral = is_ephemeral
         if creator_id is not None:
             self.creator_id = creator_id
+        if created_epoch_millis is not None:
+            self.created_epoch_millis = created_epoch_millis
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
         if is_user_event is not None:
             self.is_user_event = is_user_event
         if summarized_events is not None:
@@ -132,10 +130,12 @@ class Event(object):
             self.updater_id = updater_id
         if updated_at is not None:
             self.updated_at = updated_at
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
+        if created_at is not None:
+            self.created_at = created_at
+        self.start_time = start_time
+        self.end_time = end_time
+        if running_state is not None:
+            self.running_state = running_state
         if can_delete is not None:
             self.can_delete = can_delete
         if can_close is not None:
@@ -261,104 +261,6 @@ class Event(object):
         self._tags = tags
 
     @property
-    def running_state(self):
-        """Gets the running_state of this Event.  # noqa: E501
-
-
-        :return: The running_state of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._running_state
-
-    @running_state.setter
-    def running_state(self, running_state):
-        """Sets the running_state of this Event.
-
-
-        :param running_state: The running_state of this Event.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
-        if running_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
-                .format(running_state, allowed_values)
-            )
-
-        self._running_state = running_state
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this Event.  # noqa: E501
-
-
-        :return: The created_at of this Event.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this Event.
-
-
-        :param created_at: The created_at of this Event.  # noqa: E501
-        :type: int
-        """
-
-        self._created_at = created_at
-
-    @property
-    def start_time(self):
-        """Gets the start_time of this Event.  # noqa: E501
-
-        Start time of the event, in epoch millis.  If the JSON value is missing or set to 0, startTime will be set to the current time  # noqa: E501
-
-        :return: The start_time of this Event.  # noqa: E501
-        :rtype: int
-        """
-        return self._start_time
-
-    @start_time.setter
-    def start_time(self, start_time):
-        """Sets the start_time of this Event.
-
-        Start time of the event, in epoch millis.  If the JSON value is missing or set to 0, startTime will be set to the current time  # noqa: E501
-
-        :param start_time: The start_time of this Event.  # noqa: E501
-        :type: int
-        """
-        if start_time is None:
-            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
-
-        self._start_time = start_time
-
-    @property
-    def end_time(self):
-        """Gets the end_time of this Event.  # noqa: E501
-
-        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
-
-        :return: The end_time of this Event.  # noqa: E501
-        :rtype: int
-        """
-        return self._end_time
-
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this Event.
-
-        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
-
-        :param end_time: The end_time of this Event.  # noqa: E501
-        :type: int
-        """
-        if end_time is None:
-            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
-
-        self._end_time = end_time
-
-    @property
     def hosts(self):
         """Gets the hosts of this Event.  # noqa: E501
 
@@ -424,6 +326,48 @@ class Event(object):
         """
 
         self._creator_id = creator_id
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this Event.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this Event.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this Event.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this Event.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this Event.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this Event.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this Event.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this Event.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
 
     @property
     def is_user_event(self):
@@ -514,46 +458,102 @@ class Event(object):
         self._updated_at = updated_at
 
     @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this Event.  # noqa: E501
+    def created_at(self):
+        """Gets the created_at of this Event.  # noqa: E501
 
 
-        :return: The created_epoch_millis of this Event.  # noqa: E501
+        :return: The created_at of this Event.  # noqa: E501
         :rtype: int
         """
-        return self._created_epoch_millis
+        return self._created_at
 
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this Event.
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this Event.
 
 
-        :param created_epoch_millis: The created_epoch_millis of this Event.  # noqa: E501
+        :param created_at: The created_at of this Event.  # noqa: E501
         :type: int
         """
 
-        self._created_epoch_millis = created_epoch_millis
+        self._created_at = created_at
 
     @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this Event.  # noqa: E501
+    def start_time(self):
+        """Gets the start_time of this Event.  # noqa: E501
 
+        Start time of the event, in epoch millis.  If the JSON value is missing or set to 0, startTime will be set to the current time  # noqa: E501
 
-        :return: The updated_epoch_millis of this Event.  # noqa: E501
+        :return: The start_time of this Event.  # noqa: E501
         :rtype: int
         """
-        return self._updated_epoch_millis
+        return self._start_time
 
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this Event.
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this Event.
 
+        Start time of the event, in epoch millis.  If the JSON value is missing or set to 0, startTime will be set to the current time  # noqa: E501
 
-        :param updated_epoch_millis: The updated_epoch_millis of this Event.  # noqa: E501
+        :param start_time: The start_time of this Event.  # noqa: E501
         :type: int
         """
+        if start_time is None:
+            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
-        self._updated_epoch_millis = updated_epoch_millis
+        self._start_time = start_time
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this Event.  # noqa: E501
+
+        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+
+        :return: The end_time of this Event.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this Event.
+
+        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+
+        :param end_time: The end_time of this Event.  # noqa: E501
+        :type: int
+        """
+        if end_time is None:
+            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
+
+        self._end_time = end_time
+
+    @property
+    def running_state(self):
+        """Gets the running_state of this Event.  # noqa: E501
+
+
+        :return: The running_state of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._running_state
+
+    @running_state.setter
+    def running_state(self, running_state):
+        """Sets the running_state of this Event.
+
+
+        :param running_state: The running_state of this Event.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
+        if running_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(running_state, allowed_values)
+            )
+
+        self._running_state = running_state
 
     @property
     def can_delete(self):

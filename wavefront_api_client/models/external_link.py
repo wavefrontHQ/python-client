@@ -35,13 +35,13 @@ class ExternalLink(object):
         'id': 'str',
         'description': 'str',
         'creator_id': 'str',
-        'updater_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'template': 'str',
         'metric_filter_regex': 'str',
         'source_filter_regex': 'str',
-        'point_tag_filter_regexes': 'dict(str, str)'
+        'point_tag_filter_regexes': 'dict(str, str)',
+        'updater_id': 'str'
     }
 
     attribute_map = {
@@ -49,29 +49,29 @@ class ExternalLink(object):
         'id': 'id',
         'description': 'description',
         'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'template': 'template',
         'metric_filter_regex': 'metricFilterRegex',
         'source_filter_regex': 'sourceFilterRegex',
-        'point_tag_filter_regexes': 'pointTagFilterRegexes'
+        'point_tag_filter_regexes': 'pointTagFilterRegexes',
+        'updater_id': 'updaterId'
     }
 
-    def __init__(self, name=None, id=None, description=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, metric_filter_regex=None, source_filter_regex=None, point_tag_filter_regexes=None):  # noqa: E501
+    def __init__(self, name=None, id=None, description=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, metric_filter_regex=None, source_filter_regex=None, point_tag_filter_regexes=None, updater_id=None):  # noqa: E501
         """ExternalLink - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._id = None
         self._description = None
         self._creator_id = None
-        self._updater_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._template = None
         self._metric_filter_regex = None
         self._source_filter_regex = None
         self._point_tag_filter_regexes = None
+        self._updater_id = None
         self.discriminator = None
 
         self.name = name
@@ -80,8 +80,6 @@ class ExternalLink(object):
         self.description = description
         if creator_id is not None:
             self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
@@ -93,6 +91,8 @@ class ExternalLink(object):
             self.source_filter_regex = source_filter_regex
         if point_tag_filter_regexes is not None:
             self.point_tag_filter_regexes = point_tag_filter_regexes
+        if updater_id is not None:
+            self.updater_id = updater_id
 
     @property
     def name(self):
@@ -185,27 +185,6 @@ class ExternalLink(object):
         """
 
         self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this ExternalLink.  # noqa: E501
-
-
-        :return: The updater_id of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this ExternalLink.
-
-
-        :param updater_id: The updater_id of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
 
     @property
     def created_epoch_millis(self):
@@ -342,6 +321,27 @@ class ExternalLink(object):
         """
 
         self._point_tag_filter_regexes = point_tag_filter_regexes
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this ExternalLink.  # noqa: E501
+
+
+        :return: The updater_id of this ExternalLink.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this ExternalLink.
+
+
+        :param updater_id: The updater_id of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

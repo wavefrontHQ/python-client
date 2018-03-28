@@ -108,7 +108,7 @@ class AzureBaseCredentials(object):
     def client_secret(self):
         """Gets the client_secret of this AzureBaseCredentials.  # noqa: E501
 
-        Client Secret for an Azure service account within your project.  # noqa: E501
+        Client Secret for an Azure service account within your project. Use 'saved_secret' to retain the client secret when updating.  # noqa: E501
 
         :return: The client_secret of this AzureBaseCredentials.  # noqa: E501
         :rtype: str
@@ -119,7 +119,7 @@ class AzureBaseCredentials(object):
     def client_secret(self, client_secret):
         """Sets the client_secret of this AzureBaseCredentials.
 
-        Client Secret for an Azure service account within your project.  # noqa: E501
+        Client Secret for an Azure service account within your project. Use 'saved_secret' to retain the client secret when updating.  # noqa: E501
 
         :param client_secret: The client_secret of this AzureBaseCredentials.  # noqa: E501
         :type: str

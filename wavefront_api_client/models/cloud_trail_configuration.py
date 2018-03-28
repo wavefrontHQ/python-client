@@ -34,36 +34,36 @@ class CloudTrailConfiguration(object):
     """
     swagger_types = {
         'region': 'str',
+        'prefix': 'str',
         'base_credentials': 'AWSBaseCredentials',
         'bucket_name': 'str',
-        'prefix': 'str',
         'filter_rule': 'str'
     }
 
     attribute_map = {
         'region': 'region',
+        'prefix': 'prefix',
         'base_credentials': 'baseCredentials',
         'bucket_name': 'bucketName',
-        'prefix': 'prefix',
         'filter_rule': 'filterRule'
     }
 
-    def __init__(self, region=None, base_credentials=None, bucket_name=None, prefix=None, filter_rule=None):  # noqa: E501
+    def __init__(self, region=None, prefix=None, base_credentials=None, bucket_name=None, filter_rule=None):  # noqa: E501
         """CloudTrailConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._region = None
+        self._prefix = None
         self._base_credentials = None
         self._bucket_name = None
-        self._prefix = None
         self._filter_rule = None
         self.discriminator = None
 
         self.region = region
+        if prefix is not None:
+            self.prefix = prefix
         if base_credentials is not None:
             self.base_credentials = base_credentials
         self.bucket_name = bucket_name
-        if prefix is not None:
-            self.prefix = prefix
         if filter_rule is not None:
             self.filter_rule = filter_rule
 
@@ -91,6 +91,29 @@ class CloudTrailConfiguration(object):
             raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
 
         self._region = region
+
+    @property
+    def prefix(self):
+        """Gets the prefix of this CloudTrailConfiguration.  # noqa: E501
+
+        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
+
+        :return: The prefix of this CloudTrailConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix
+
+    @prefix.setter
+    def prefix(self, prefix):
+        """Sets the prefix of this CloudTrailConfiguration.
+
+        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
+
+        :param prefix: The prefix of this CloudTrailConfiguration.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix = prefix
 
     @property
     def base_credentials(self):
@@ -137,29 +160,6 @@ class CloudTrailConfiguration(object):
             raise ValueError("Invalid value for `bucket_name`, must not be `None`")  # noqa: E501
 
         self._bucket_name = bucket_name
-
-    @property
-    def prefix(self):
-        """Gets the prefix of this CloudTrailConfiguration.  # noqa: E501
-
-        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
-
-        :return: The prefix of this CloudTrailConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._prefix
-
-    @prefix.setter
-    def prefix(self, prefix):
-        """Sets the prefix of this CloudTrailConfiguration.
-
-        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
-
-        :param prefix: The prefix of this CloudTrailConfiguration.  # noqa: E501
-        :type: str
-        """
-
-        self._prefix = prefix
 
     @property
     def filter_rule(self):

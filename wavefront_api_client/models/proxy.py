@@ -36,68 +36,68 @@ class Proxy(object):
         'name': 'str',
         'id': 'str',
         'customer_id': 'str',
-        'in_trash': 'bool',
         'hostname': 'str',
+        'version': 'str',
+        'status': 'str',
+        'ephemeral': 'bool',
+        'in_trash': 'bool',
         'last_check_in_time': 'int',
         'last_error_event': 'Event',
         'ssh_agent': 'bool',
-        'ephemeral': 'bool',
-        'deleted': 'bool',
-        'status': 'str',
-        'last_known_error': 'str',
         'last_error_time': 'int',
         'time_drift': 'int',
         'bytes_left_for_buffer': 'int',
         'bytes_per_minute_for_buffer': 'int',
         'local_queue_size': 'int',
-        'status_cause': 'str',
-        'version': 'str'
+        'last_known_error': 'str',
+        'deleted': 'bool',
+        'status_cause': 'str'
     }
 
     attribute_map = {
         'name': 'name',
         'id': 'id',
         'customer_id': 'customerId',
-        'in_trash': 'inTrash',
         'hostname': 'hostname',
+        'version': 'version',
+        'status': 'status',
+        'ephemeral': 'ephemeral',
+        'in_trash': 'inTrash',
         'last_check_in_time': 'lastCheckInTime',
         'last_error_event': 'lastErrorEvent',
         'ssh_agent': 'sshAgent',
-        'ephemeral': 'ephemeral',
-        'deleted': 'deleted',
-        'status': 'status',
-        'last_known_error': 'lastKnownError',
         'last_error_time': 'lastErrorTime',
         'time_drift': 'timeDrift',
         'bytes_left_for_buffer': 'bytesLeftForBuffer',
         'bytes_per_minute_for_buffer': 'bytesPerMinuteForBuffer',
         'local_queue_size': 'localQueueSize',
-        'status_cause': 'statusCause',
-        'version': 'version'
+        'last_known_error': 'lastKnownError',
+        'deleted': 'deleted',
+        'status_cause': 'statusCause'
     }
 
-    def __init__(self, name=None, id=None, customer_id=None, in_trash=None, hostname=None, last_check_in_time=None, last_error_event=None, ssh_agent=None, ephemeral=None, deleted=None, status=None, last_known_error=None, last_error_time=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, status_cause=None, version=None):  # noqa: E501
+    def __init__(self, name=None, id=None, customer_id=None, hostname=None, version=None, status=None, ephemeral=None, in_trash=None, last_check_in_time=None, last_error_event=None, ssh_agent=None, last_error_time=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, last_known_error=None, deleted=None, status_cause=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._id = None
         self._customer_id = None
-        self._in_trash = None
         self._hostname = None
+        self._version = None
+        self._status = None
+        self._ephemeral = None
+        self._in_trash = None
         self._last_check_in_time = None
         self._last_error_event = None
         self._ssh_agent = None
-        self._ephemeral = None
-        self._deleted = None
-        self._status = None
-        self._last_known_error = None
         self._last_error_time = None
         self._time_drift = None
         self._bytes_left_for_buffer = None
         self._bytes_per_minute_for_buffer = None
         self._local_queue_size = None
+        self._last_known_error = None
+        self._deleted = None
         self._status_cause = None
-        self._version = None
         self.discriminator = None
 
         self.name = name
@@ -105,24 +105,22 @@ class Proxy(object):
             self.id = id
         if customer_id is not None:
             self.customer_id = customer_id
-        if in_trash is not None:
-            self.in_trash = in_trash
         if hostname is not None:
             self.hostname = hostname
+        if version is not None:
+            self.version = version
+        if status is not None:
+            self.status = status
+        if ephemeral is not None:
+            self.ephemeral = ephemeral
+        if in_trash is not None:
+            self.in_trash = in_trash
         if last_check_in_time is not None:
             self.last_check_in_time = last_check_in_time
         if last_error_event is not None:
             self.last_error_event = last_error_event
         if ssh_agent is not None:
             self.ssh_agent = ssh_agent
-        if ephemeral is not None:
-            self.ephemeral = ephemeral
-        if deleted is not None:
-            self.deleted = deleted
-        if status is not None:
-            self.status = status
-        if last_known_error is not None:
-            self.last_known_error = last_known_error
         if last_error_time is not None:
             self.last_error_time = last_error_time
         if time_drift is not None:
@@ -133,10 +131,12 @@ class Proxy(object):
             self.bytes_per_minute_for_buffer = bytes_per_minute_for_buffer
         if local_queue_size is not None:
             self.local_queue_size = local_queue_size
+        if last_known_error is not None:
+            self.last_known_error = last_known_error
+        if deleted is not None:
+            self.deleted = deleted
         if status_cause is not None:
             self.status_cause = status_cause
-        if version is not None:
-            self.version = version
 
     @property
     def name(self):
@@ -206,27 +206,6 @@ class Proxy(object):
         self._customer_id = customer_id
 
     @property
-    def in_trash(self):
-        """Gets the in_trash of this Proxy.  # noqa: E501
-
-
-        :return: The in_trash of this Proxy.  # noqa: E501
-        :rtype: bool
-        """
-        return self._in_trash
-
-    @in_trash.setter
-    def in_trash(self, in_trash):
-        """Sets the in_trash of this Proxy.
-
-
-        :param in_trash: The in_trash of this Proxy.  # noqa: E501
-        :type: bool
-        """
-
-        self._in_trash = in_trash
-
-    @property
     def hostname(self):
         """Gets the hostname of this Proxy.  # noqa: E501
 
@@ -248,6 +227,100 @@ class Proxy(object):
         """
 
         self._hostname = hostname
+
+    @property
+    def version(self):
+        """Gets the version of this Proxy.  # noqa: E501
+
+
+        :return: The version of this Proxy.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this Proxy.
+
+
+        :param version: The version of this Proxy.  # noqa: E501
+        :type: str
+        """
+
+        self._version = version
+
+    @property
+    def status(self):
+        """Gets the status of this Proxy.  # noqa: E501
+
+        the proxy's status  # noqa: E501
+
+        :return: The status of this Proxy.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this Proxy.
+
+        the proxy's status  # noqa: E501
+
+        :param status: The status of this Proxy.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["ACTIVE", "STOPPED_UNKNOWN", "STOPPED_BY_SERVER"]  # noqa: E501
+        if status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
+
+        self._status = status
+
+    @property
+    def ephemeral(self):
+        """Gets the ephemeral of this Proxy.  # noqa: E501
+
+        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)  # noqa: E501
+
+        :return: The ephemeral of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ephemeral
+
+    @ephemeral.setter
+    def ephemeral(self, ephemeral):
+        """Sets the ephemeral of this Proxy.
+
+        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)  # noqa: E501
+
+        :param ephemeral: The ephemeral of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._ephemeral = ephemeral
+
+    @property
+    def in_trash(self):
+        """Gets the in_trash of this Proxy.  # noqa: E501
+
+
+        :return: The in_trash of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_trash
+
+    @in_trash.setter
+    def in_trash(self, in_trash):
+        """Sets the in_trash of this Proxy.
+
+
+        :param in_trash: The in_trash of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_trash = in_trash
 
     @property
     def last_check_in_time(self):
@@ -315,102 +388,6 @@ class Proxy(object):
         """
 
         self._ssh_agent = ssh_agent
-
-    @property
-    def ephemeral(self):
-        """Gets the ephemeral of this Proxy.  # noqa: E501
-
-        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)  # noqa: E501
-
-        :return: The ephemeral of this Proxy.  # noqa: E501
-        :rtype: bool
-        """
-        return self._ephemeral
-
-    @ephemeral.setter
-    def ephemeral(self, ephemeral):
-        """Sets the ephemeral of this Proxy.
-
-        When true, this proxy is expected to be ephemeral (possibly hosted on a short-lived container) and will be deleted after a period of inactivity (not checking in)  # noqa: E501
-
-        :param ephemeral: The ephemeral of this Proxy.  # noqa: E501
-        :type: bool
-        """
-
-        self._ephemeral = ephemeral
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this Proxy.  # noqa: E501
-
-
-        :return: The deleted of this Proxy.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this Proxy.
-
-
-        :param deleted: The deleted of this Proxy.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
-    @property
-    def status(self):
-        """Gets the status of this Proxy.  # noqa: E501
-
-        the proxy's status  # noqa: E501
-
-        :return: The status of this Proxy.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this Proxy.
-
-        the proxy's status  # noqa: E501
-
-        :param status: The status of this Proxy.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["ACTIVE", "STOPPED_UNKNOWN", "STOPPED_BY_SERVER"]  # noqa: E501
-        if status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
-
-        self._status = status
-
-    @property
-    def last_known_error(self):
-        """Gets the last_known_error of this Proxy.  # noqa: E501
-
-        deprecated  # noqa: E501
-
-        :return: The last_known_error of this Proxy.  # noqa: E501
-        :rtype: str
-        """
-        return self._last_known_error
-
-    @last_known_error.setter
-    def last_known_error(self, last_known_error):
-        """Sets the last_known_error of this Proxy.
-
-        deprecated  # noqa: E501
-
-        :param last_known_error: The last_known_error of this Proxy.  # noqa: E501
-        :type: str
-        """
-
-        self._last_known_error = last_known_error
 
     @property
     def last_error_time(self):
@@ -528,6 +505,50 @@ class Proxy(object):
         self._local_queue_size = local_queue_size
 
     @property
+    def last_known_error(self):
+        """Gets the last_known_error of this Proxy.  # noqa: E501
+
+        deprecated  # noqa: E501
+
+        :return: The last_known_error of this Proxy.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_known_error
+
+    @last_known_error.setter
+    def last_known_error(self, last_known_error):
+        """Sets the last_known_error of this Proxy.
+
+        deprecated  # noqa: E501
+
+        :param last_known_error: The last_known_error of this Proxy.  # noqa: E501
+        :type: str
+        """
+
+        self._last_known_error = last_known_error
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this Proxy.  # noqa: E501
+
+
+        :return: The deleted of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this Proxy.
+
+
+        :param deleted: The deleted of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
+
+    @property
     def status_cause(self):
         """Gets the status_cause of this Proxy.  # noqa: E501
 
@@ -549,27 +570,6 @@ class Proxy(object):
         """
 
         self._status_cause = status_cause
-
-    @property
-    def version(self):
-        """Gets the version of this Proxy.  # noqa: E501
-
-
-        :return: The version of this Proxy.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this Proxy.
-
-
-        :param version: The version of this Proxy.  # noqa: E501
-        :type: str
-        """
-
-        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

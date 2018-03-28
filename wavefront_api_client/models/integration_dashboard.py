@@ -35,31 +35,31 @@ class IntegrationDashboard(object):
     swagger_types = {
         'name': 'str',
         'description': 'str',
-        'dashboard_obj': 'Dashboard',
-        'url': 'str'
+        'url': 'str',
+        'dashboard_obj': 'Dashboard'
     }
 
     attribute_map = {
         'name': 'name',
         'description': 'description',
-        'dashboard_obj': 'dashboardObj',
-        'url': 'url'
+        'url': 'url',
+        'dashboard_obj': 'dashboardObj'
     }
 
-    def __init__(self, name=None, description=None, dashboard_obj=None, url=None):  # noqa: E501
+    def __init__(self, name=None, description=None, url=None, dashboard_obj=None):  # noqa: E501
         """IntegrationDashboard - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._description = None
-        self._dashboard_obj = None
         self._url = None
+        self._dashboard_obj = None
         self.discriminator = None
 
         self.name = name
         self.description = description
+        self.url = url
         if dashboard_obj is not None:
             self.dashboard_obj = dashboard_obj
-        self.url = url
 
     @property
     def name(self):
@@ -112,27 +112,6 @@ class IntegrationDashboard(object):
         self._description = description
 
     @property
-    def dashboard_obj(self):
-        """Gets the dashboard_obj of this IntegrationDashboard.  # noqa: E501
-
-
-        :return: The dashboard_obj of this IntegrationDashboard.  # noqa: E501
-        :rtype: Dashboard
-        """
-        return self._dashboard_obj
-
-    @dashboard_obj.setter
-    def dashboard_obj(self, dashboard_obj):
-        """Sets the dashboard_obj of this IntegrationDashboard.
-
-
-        :param dashboard_obj: The dashboard_obj of this IntegrationDashboard.  # noqa: E501
-        :type: Dashboard
-        """
-
-        self._dashboard_obj = dashboard_obj
-
-    @property
     def url(self):
         """Gets the url of this IntegrationDashboard.  # noqa: E501
 
@@ -156,6 +135,27 @@ class IntegrationDashboard(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def dashboard_obj(self):
+        """Gets the dashboard_obj of this IntegrationDashboard.  # noqa: E501
+
+
+        :return: The dashboard_obj of this IntegrationDashboard.  # noqa: E501
+        :rtype: Dashboard
+        """
+        return self._dashboard_obj
+
+    @dashboard_obj.setter
+    def dashboard_obj(self, dashboard_obj):
+        """Sets the dashboard_obj of this IntegrationDashboard.
+
+
+        :param dashboard_obj: The dashboard_obj of this IntegrationDashboard.  # noqa: E501
+        :type: Dashboard
+        """
+
+        self._dashboard_obj = dashboard_obj
 
     def to_dict(self):
         """Returns the model properties as a dict"""

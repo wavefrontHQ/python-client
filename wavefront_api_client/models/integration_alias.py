@@ -34,26 +34,26 @@ class IntegrationAlias(object):
         'name': 'str',
         'id': 'str',
         'description': 'str',
-        'icon': 'str',
-        'base_url': 'str'
+        'base_url': 'str',
+        'icon': 'str'
     }
 
     attribute_map = {
         'name': 'name',
         'id': 'id',
         'description': 'description',
-        'icon': 'icon',
-        'base_url': 'baseUrl'
+        'base_url': 'baseUrl',
+        'icon': 'icon'
     }
 
-    def __init__(self, name=None, id=None, description=None, icon=None, base_url=None):  # noqa: E501
+    def __init__(self, name=None, id=None, description=None, base_url=None, icon=None):  # noqa: E501
         """IntegrationAlias - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._id = None
         self._description = None
-        self._icon = None
         self._base_url = None
+        self._icon = None
         self.discriminator = None
 
         if name is not None:
@@ -62,10 +62,10 @@ class IntegrationAlias(object):
             self.id = id
         if description is not None:
             self.description = description
-        if icon is not None:
-            self.icon = icon
         if base_url is not None:
             self.base_url = base_url
+        if icon is not None:
+            self.icon = icon
 
     @property
     def name(self):
@@ -137,29 +137,6 @@ class IntegrationAlias(object):
         self._description = description
 
     @property
-    def icon(self):
-        """Gets the icon of this IntegrationAlias.  # noqa: E501
-
-        Icon path of the alias Integration  # noqa: E501
-
-        :return: The icon of this IntegrationAlias.  # noqa: E501
-        :rtype: str
-        """
-        return self._icon
-
-    @icon.setter
-    def icon(self, icon):
-        """Sets the icon of this IntegrationAlias.
-
-        Icon path of the alias Integration  # noqa: E501
-
-        :param icon: The icon of this IntegrationAlias.  # noqa: E501
-        :type: str
-        """
-
-        self._icon = icon
-
-    @property
     def base_url(self):
         """Gets the base_url of this IntegrationAlias.  # noqa: E501
 
@@ -181,6 +158,29 @@ class IntegrationAlias(object):
         """
 
         self._base_url = base_url
+
+    @property
+    def icon(self):
+        """Gets the icon of this IntegrationAlias.  # noqa: E501
+
+        Icon path of the alias Integration  # noqa: E501
+
+        :return: The icon of this IntegrationAlias.  # noqa: E501
+        :rtype: str
+        """
+        return self._icon
+
+    @icon.setter
+    def icon(self, icon):
+        """Sets the icon of this IntegrationAlias.
+
+        Icon path of the alias Integration  # noqa: E501
+
+        :param icon: The icon of this IntegrationAlias.  # noqa: E501
+        :type: str
+        """
+
+        self._icon = icon
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,12 +37,12 @@ class Message(object):
         'content': 'str',
         'scope': 'str',
         'severity': 'str',
-        'title': 'str',
+        'source': 'str',
         'start_epoch_millis': 'int',
         'end_epoch_millis': 'int',
         'display': 'str',
-        'read': 'bool',
-        'source': 'str'
+        'title': 'str',
+        'read': 'bool'
     }
 
     attribute_map = {
@@ -52,15 +52,15 @@ class Message(object):
         'content': 'content',
         'scope': 'scope',
         'severity': 'severity',
-        'title': 'title',
+        'source': 'source',
         'start_epoch_millis': 'startEpochMillis',
         'end_epoch_millis': 'endEpochMillis',
         'display': 'display',
-        'read': 'read',
-        'source': 'source'
+        'title': 'title',
+        'read': 'read'
     }
 
-    def __init__(self, id=None, target=None, attributes=None, content=None, scope=None, severity=None, title=None, start_epoch_millis=None, end_epoch_millis=None, display=None, read=None, source=None):  # noqa: E501
+    def __init__(self, id=None, target=None, attributes=None, content=None, scope=None, severity=None, source=None, start_epoch_millis=None, end_epoch_millis=None, display=None, title=None, read=None):  # noqa: E501
         """Message - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -69,12 +69,12 @@ class Message(object):
         self._content = None
         self._scope = None
         self._severity = None
-        self._title = None
+        self._source = None
         self._start_epoch_millis = None
         self._end_epoch_millis = None
         self._display = None
+        self._title = None
         self._read = None
-        self._source = None
         self.discriminator = None
 
         if id is not None:
@@ -86,13 +86,13 @@ class Message(object):
         self.content = content
         self.scope = scope
         self.severity = severity
-        self.title = title
+        self.source = source
         self.start_epoch_millis = start_epoch_millis
         self.end_epoch_millis = end_epoch_millis
         self.display = display
+        self.title = title
         if read is not None:
             self.read = read
-        self.source = source
 
     @property
     def id(self):
@@ -249,29 +249,29 @@ class Message(object):
         self._severity = severity
 
     @property
-    def title(self):
-        """Gets the title of this Message.  # noqa: E501
+    def source(self):
+        """Gets the source of this Message.  # noqa: E501
 
-        Title of this message  # noqa: E501
+        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
 
-        :return: The title of this Message.  # noqa: E501
+        :return: The source of this Message.  # noqa: E501
         :rtype: str
         """
-        return self._title
+        return self._source
 
-    @title.setter
-    def title(self, title):
-        """Sets the title of this Message.
+    @source.setter
+    def source(self, source):
+        """Sets the source of this Message.
 
-        Title of this message  # noqa: E501
+        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
 
-        :param title: The title of this Message.  # noqa: E501
+        :param source: The source of this Message.  # noqa: E501
         :type: str
         """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+        if source is None:
+            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
-        self._title = title
+        self._source = source
 
     @property
     def start_epoch_millis(self):
@@ -355,6 +355,31 @@ class Message(object):
         self._display = display
 
     @property
+    def title(self):
+        """Gets the title of this Message.  # noqa: E501
+
+        Title of this message  # noqa: E501
+
+        :return: The title of this Message.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this Message.
+
+        Title of this message  # noqa: E501
+
+        :param title: The title of this Message.  # noqa: E501
+        :type: str
+        """
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+
+        self._title = title
+
+    @property
     def read(self):
         """Gets the read of this Message.  # noqa: E501
 
@@ -376,31 +401,6 @@ class Message(object):
         """
 
         self._read = read
-
-    @property
-    def source(self):
-        """Gets the source of this Message.  # noqa: E501
-
-        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
-
-        :return: The source of this Message.  # noqa: E501
-        :rtype: str
-        """
-        return self._source
-
-    @source.setter
-    def source(self, source):
-        """Sets the source of this Message.
-
-        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
-
-        :param source: The source of this Message.  # noqa: E501
-        :type: str
-        """
-        if source is None:
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
-
-        self._source = source
 
     def to_dict(self):
         """Returns the model properties as a dict"""

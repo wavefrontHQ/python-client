@@ -33,51 +33,51 @@ class SavedSearch(object):
     swagger_types = {
         'id': 'str',
         'query': 'dict(str, str)',
-        'user_id': 'str',
         'creator_id': 'str',
-        'updater_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
+        'updater_id': 'str',
+        'user_id': 'str',
         'entity_type': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'query': 'query',
-        'user_id': 'userId',
         'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
+        'updater_id': 'updaterId',
+        'user_id': 'userId',
         'entity_type': 'entityType'
     }
 
-    def __init__(self, id=None, query=None, user_id=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, entity_type=None):  # noqa: E501
+    def __init__(self, id=None, query=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, user_id=None, entity_type=None):  # noqa: E501
         """SavedSearch - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._query = None
-        self._user_id = None
         self._creator_id = None
-        self._updater_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
+        self._updater_id = None
+        self._user_id = None
         self._entity_type = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
         self.query = query
-        if user_id is not None:
-            self.user_id = user_id
         if creator_id is not None:
             self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
+        if user_id is not None:
+            self.user_id = user_id
         self.entity_type = entity_type
 
     @property
@@ -127,29 +127,6 @@ class SavedSearch(object):
         self._query = query
 
     @property
-    def user_id(self):
-        """Gets the user_id of this SavedSearch.  # noqa: E501
-
-        The user for whom this search is saved  # noqa: E501
-
-        :return: The user_id of this SavedSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_id
-
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this SavedSearch.
-
-        The user for whom this search is saved  # noqa: E501
-
-        :param user_id: The user_id of this SavedSearch.  # noqa: E501
-        :type: str
-        """
-
-        self._user_id = user_id
-
-    @property
     def creator_id(self):
         """Gets the creator_id of this SavedSearch.  # noqa: E501
 
@@ -169,27 +146,6 @@ class SavedSearch(object):
         """
 
         self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this SavedSearch.  # noqa: E501
-
-
-        :return: The updater_id of this SavedSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this SavedSearch.
-
-
-        :param updater_id: The updater_id of this SavedSearch.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
 
     @property
     def created_epoch_millis(self):
@@ -232,6 +188,50 @@ class SavedSearch(object):
         """
 
         self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this SavedSearch.  # noqa: E501
+
+
+        :return: The updater_id of this SavedSearch.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this SavedSearch.
+
+
+        :param updater_id: The updater_id of this SavedSearch.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this SavedSearch.  # noqa: E501
+
+        The user for whom this search is saved  # noqa: E501
+
+        :return: The user_id of this SavedSearch.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this SavedSearch.
+
+        The user for whom this search is saved  # noqa: E501
+
+        :param user_id: The user_id of this SavedSearch.  # noqa: E501
+        :type: str
+        """
+
+        self._user_id = user_id
 
     @property
     def entity_type(self):
