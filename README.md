@@ -48,7 +48,7 @@ pip install git+https://github.com/wavefronthq/python-client.git
 Or you can install from PyPi via pip:
 
 ```sh
-pip install wavefront_client
+pip install wavefront-api-client
 ```
 
 
