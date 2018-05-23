@@ -3,6 +3,15 @@ from pyformance.meters import Counter
 
 
 def delta_counter(registry, name):
+    """
+    Registers a DeltaCounter with the given registry and returns the instance.
+
+    The given name is prefixed with DeltaCounter.DELTA_PREFIX for registering.
+
+    :param registry: the metrics registry to register with
+    :param name: the delta counter name
+    :return: the registered DeltaCounter instance
+    """
     if not name:
         raise ValueError("invalid counter name")
 
@@ -22,7 +31,7 @@ def is_delta_counter(name, registry):
 
 def get_delta_name(prefix, name, value_key):
     """
-    returns the name of the delta metric point line.
+    returns the name of the delta metric name of the form: ∆prefix.name.value_key
     """
     return "%s%s.%s" % (DeltaCounter.DELTA_PREFIX + prefix, name[1:], value_key)
 
