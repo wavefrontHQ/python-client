@@ -30,6 +30,7 @@ wf_proxy_reporter = WavefrontProxyReporter(host=host, port=2878, registry=reg,
                                            tags={"key1":"val1", "key2":"val2"},
                                            prefix="python.proxy.",
                                            reporting_interval=10)
+wf_proxy_reporter.start()
 
 # report metrics directly to a Wavefront server every 10s
 wf_direct_reporter = WavefrontDirectReporter(server=server, token=token, registry=reg,
@@ -37,9 +38,7 @@ wf_direct_reporter = WavefrontDirectReporter(server=server, token=token, registr
                                              tags={"key1":"val1", "key2": "val2"},
                                              prefix="python.direct.",
                                              reporting_interval=10)
-# to report immediately
-wf_proxy_reporter.report_now()
-wf_direct_reporter.report_now()
+wf_direct_reporter.start()
 ```
 
 ### Delta Counter

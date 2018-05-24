@@ -74,17 +74,28 @@ class WavefrontProxyReporter(WavefrontReporter):
         timestamp = timestamp or int(round(self.clock.time()))
         metrics = self._collect_metrics(registry or self.registry, timestamp)
         if metrics:
-            try:
-                if not self.proxy_socket:
-                    self._connect()
-                for line in metrics:
-                    self.proxy_socket.send(line.encode('utf-8') + "\n")
-            except Exception as e:
-                print("error reporting to wavefront proxy:", e, file=sys.stderr)
+            self._report_points(metrics)
 
     def stop(self):
         super(WavefrontProxyReporter, self).stop()
-        self.proxy_socket.close()
+        if self.proxy_socket:
+            self.proxy_socket.close()
+
+    def _report_points(self, metrics, reconnect=True):
+        try:
+            if not self.proxy_socket:
+                self._connect()
+            for line in metrics:
+                self.proxy_socket.send(line.encode('utf-8') + "\n")
+            print("reporting successful")
+        except socket.error as e:
+            if reconnect:
+                self.proxy_socket = None
+                self._report_points(metrics, reconnect=False)
+            else:
+                print("error reporting to wavefront proxy:", e, file=sys.stderr)
+        except Exception as e:
+            print("error reporting to wavefront proxy:", e, file=sys.stderr)
 
     def _connect(self):
         self.proxy_socket = self.socket_factory(socket.AF_INET, socket.SOCK_STREAM)
