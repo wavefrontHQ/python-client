@@ -62,3 +62,8 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# IntelliJ
+.idea/*
+*.iml
+.DS_Store
