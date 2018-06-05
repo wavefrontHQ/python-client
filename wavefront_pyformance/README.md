@@ -6,8 +6,7 @@ This is a plugin for [pyformance](https://github.com/omergertel/pyformance) whic
 Python 2.7+ and Python 3.x are supported.
 
 ```
-pip install pyformance
-pip install requests
+pip install wavefront_pyformance
 ```
 
 ## Usage
@@ -20,7 +19,7 @@ You can create a `WavefrontProxyReporter` or `WavefrontDirectReporter`:
 
 ```Python
 from pyformance import MetricsRegistry
-from wavefront_reporter import WavefrontProxyReporter, WavefrontDirectReporter
+from wavefront_pyformance.wavefront_reporter import WavefrontProxyReporter, WavefrontDirectReporter
 
 reg = MetricsRegistry()
 
@@ -47,7 +46,7 @@ To create a Wavefront delta counter:
 
 ```Python
 from pyformance import MetricsRegistry
-import delta
+from wavefront_pyformance import delta
 
 reg = MetricsRegistry()
 d1 = delta.delta_counter(reg, "requests_delta")
