@@ -87,7 +87,6 @@ class WavefrontProxyReporter(WavefrontReporter):
                 self._connect()
             for line in metrics:
                 self.proxy_socket.send(line.encode('utf-8') + "\n")
-            print("reporting successful")
         except socket.error as e:
             if reconnect:
                 self.proxy_socket = None

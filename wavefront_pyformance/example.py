@@ -1,6 +1,6 @@
 from pyformance import MetricsRegistry
-from wavefront_reporter import WavefrontReporter, WavefrontProxyReporter, WavefrontDirectReporter
-import delta
+from wavefront_pyformance.wavefront_reporter import WavefrontReporter, WavefrontProxyReporter, WavefrontDirectReporter
+from wavefront_pyformance import delta
 import time
 import sys
 
