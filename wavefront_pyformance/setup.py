@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "wavefront_pyformance"
-VERSION = "0.9.1"
+VERSION = "0.9.2"
 # To install the library, run the following
 #
 # python setup.py install

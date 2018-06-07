@@ -4,7 +4,7 @@ import sys
 import socket
 import requests
 from pyformance.reporters.reporter import Reporter
-import delta
+from . import delta
 
 if sys.version_info[0] > 2:
     from urllib.parse import urlparse
