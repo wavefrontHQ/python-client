@@ -100,7 +100,7 @@ def wrapper(func):
                                                      registry=reg,
                                                      source=src,
                                                      tags=point_tags,
-                                                     prefix="wf.wf2.aws.lambda.")
+                                                     prefix="wf.aws.lambda.")
 
         if is_report_standard_metrics:
             call_lambda_with_standard_metrics(*args,
