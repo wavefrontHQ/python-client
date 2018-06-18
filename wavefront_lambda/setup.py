@@ -10,7 +10,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "wavefront_lambda"
-VERSION = "0.9.2"
+VERSION = "0.9.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -18,17 +18,17 @@ VERSION = "0.9.2"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["pyformance >= 0.4", "requests >= 2.18.4"]
+REQUIRES = ["wavefront-pyformance >= 0.9.2"]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="Wavefront Lambda Python Wrapper",
+    description="Wavefront Python Wrapper for AWS Lambda",
     author_email="",
     url="https://github.com/wavefrontHQ/python-client/tree/master/wavefront_lambda",
-    keywords=["Wavefront Pyformance", "Wavefront"],
+    keywords=["Wavefront Lambda", "Wavefront"],
     install_requires=REQUIRES,
-    packages=find_packages(exclude=["wavefront_lambda","*.tests"]),
+    packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     include_package_data=True,
     long_description="""\
     This is a Wavefront python wrapper for AWS Lambda python function handler to send metrics directly to wavefront.
