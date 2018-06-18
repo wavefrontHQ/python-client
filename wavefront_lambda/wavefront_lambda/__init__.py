@@ -19,7 +19,7 @@ def wrapper(func):
                                    metrics directly to wavefront.
 
     """
-    def call_lambda_with_standard_metrics(*args, wf_reporter=None, **kwargs):
+    def call_lambda_with_standard_metrics(wf_reporter, *args, **kwargs):
         # Set cold start counter
         global is_cold_start
         if is_cold_start:
@@ -47,7 +47,7 @@ def wrapper(func):
             aws_lambda_duration_gauge.set_value(time_taken.total_seconds() * 1000)
             wf_reporter.report_now(registry=reg)
 
-    def call_lambda_without_standard_metrics(*args, wf_reporter=None, **kwargs):
+    def call_lambda_without_standard_metrics(wf_reporter, *args, **kwargs):
         try:
             result = func(*args, **kwargs)
             return result
@@ -103,12 +103,12 @@ def wrapper(func):
                                                      prefix="wf.aws.lambda.")
 
         if is_report_standard_metrics:
-            call_lambda_with_standard_metrics(*args,
-                                              wf_reporter=wf_direct_reporter,
+            call_lambda_with_standard_metrics(wf_direct_reporter,
+                                              *args,
                                               **kwargs)
         else:
-            call_lambda_without_standard_metrics(*args,
-                                                 wf_reporter=wf_direct_reporter,
+            call_lambda_without_standard_metrics(wf_direct_reporter,
+                                                 *args,
                                                  **kwargs)
 
     return wavefront_wrapper
