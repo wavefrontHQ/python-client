@@ -66,39 +66,33 @@ def wrapper(func):
         # 1. Event - input of json format
         # 2. Context - The execution context object
         context = args[1]
+        # Expected formats for Lambda ARN are:
+        # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda
         invoked_function_arn = context.invoked_function_arn
-        invoked_function_version = context.function_version
-        # Expected formats are:
-        # 1. Invoking a specific lambda version:
-        #    - arn:aws:lambda:region:accountId:function:functionName:function_version
-        #    Ex: arn:aws:lambda:region:accountId:function:functionName:$LATEST
-        #        arn:aws:lambda:region:accountId:function:functionName:2
-        # 2. Invokeing a specific lambda via alias (which can point to any version):
-        #    - arn:aws:lambda:region:accountId:function:functionName:function_alias
         split_arn = invoked_function_arn.split(':')
         point_tags = {
-            'aws_lambda_arn': invoked_function_arn,
-            'aws_region': split_arn[3],
-            'aws_account_id': split_arn[4],
-            'aws_function_version': invoked_function_version
+            'LambdaArn': invoked_function_arn,
+            'Region': split_arn[3],
+            'accountId': split_arn[4],
+            'ExecutedVersion': context.function_version
         }
         if split_arn[5] == 'function':
-            point_tags['aws_function_name'] = split_arn[6]
-            if len(split_arn) == 8 and split_arn[7] != invoked_function_version:
-                point_tags['aws_function_alias'] = split_arn[7]
+            point_tags['FunctionName'] = split_arn[6]
+            point_tags['Resource'] = split_arn[6]
+            if len(split_arn) == 8 and split_arn[7] != context.function_version:
+                point_tags['Resource'] = point_tags['Resource'] + ":" + split_arn[7]
         elif split_arn[5] == 'event-source-mappings':
-            point_tags['event_source_mappings'] = split_arn[6]
+            point_tags['EventSourceMappings'] = split_arn[6]
 
         # Initialize registry for each lambda invocation
         global reg
         reg = MetricsRegistry()
 
         # Initialize the wavefront direct reporter
-        src = "awslambda." + point_tags['aws_function_name']
         wf_direct_reporter = WavefrontDirectReporter(server=server,
                                                      token=auth_token,
                                                      registry=reg,
-                                                     source=src,
+                                                     source=point_tags['FunctionName'],
                                                      tags=point_tags,
                                                      prefix="wf.aws.lambda.")
 
