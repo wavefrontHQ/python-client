@@ -20,8 +20,6 @@ IS_REPORT_STANDARD_METRICS = set to false to not report standard lambda metrics 
 
 Decorate your AWS Lambda handler function with @wavefront_lambda.wrapper.
 
-You can create a `WavefrontProxyReporter` or `WavefrontDirectReporter`:
-
 ```Python
 import wavefront_lambda
 
