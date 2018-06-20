@@ -13,9 +13,9 @@ def wrapper(func):
     Returns the Wavefront Lambda wrapper. The wrapper collects aws lambda's
     standard metrics and reports it directly to the set wavefront url. It
     requires the following Environmental variables to be set:
-    1.WAVEFRONT_URL : your corp wavefront url
-    2.WAVEFRONT_API_TOKEN : The users API authentication token
-    3.IS_REPORT_STANDARD_METRICS : set to false to not report standard lambda
+    1.WAVEFRONT_URL : https://<INSTANCE>.wavefront.com
+    2.WAVEFRONT_API_TOKEN : Wavefront API token with Direct Data Ingestion permission
+    3.IS_REPORT_STANDARD_METRICS : Set to False to not report standard lambda
                                    metrics directly to wavefront.
 
     """
@@ -23,9 +23,9 @@ def wrapper(func):
         # Set cold start counter
         global is_cold_start
         if is_cold_start:
-            aws_cold_starts_counter = delta.delta_counter(reg, "coldstart")
+            aws_cold_starts_counter = delta.delta_counter(reg, "coldstarts")
             aws_cold_starts_counter.inc()
-            aws_cold_starts_normal_counter = reg.counter("coldstart-normalcounter")
+            aws_cold_starts_normal_counter = reg.counter("coldstarts_raw")
             aws_cold_starts_normal_counter.inc()
             is_cold_start = False
         # Set invocations counter
@@ -57,8 +57,12 @@ def wrapper(func):
             wf_reporter.report_now(registry=reg)
 
     def wavefront_wrapper(*args, **kwargs):
-        auth_token = os.environ.get('WAVEFRONT_API_TOKEN')
         server = os.environ.get('WAVEFRONT_URL')
+        if not server:
+            raise ValueError("Environmental variable WAVEFRONT_URL is not set.")
+        auth_token = os.environ.get('WAVEFRONT_API_TOKEN')
+        if not auth_token:
+            raise ValueError("Environmental variable WAVEFRONT_API_TOKEN is not set.")
         is_report_standard_metrics = True
         if os.environ.get('IS_REPORT_STANDARD_METRICS') in ['False', 'false']:
             is_report_standard_metrics = False
@@ -94,7 +98,7 @@ def wrapper(func):
                                                      registry=reg,
                                                      source=point_tags['FunctionName'],
                                                      tags=point_tags,
-                                                     prefix="wf.aws.lambda.")
+                                                     prefix="aws.lambda.wf.")
 
         if is_report_standard_metrics:
             call_lambda_with_standard_metrics(wf_direct_reporter,
