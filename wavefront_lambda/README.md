@@ -28,3 +28,27 @@ def handler(event, context):
     # your code
 
 ```
+
+## Standard Lambda Metrics reported by Wavefront Lambda wrapper
+
+The Lambda wrapper sends the following standard lambda metrics to wavefront:
+
+| Metric Name                          |  Type               | Description                                                             |
+| ------------------------------------ |:-------------------:| ----------------------------------------------------------------------- |
+| aws.lambda.wf.invocations.count      | Delta Counter       | Count of number of lambda function invocations aggregated at the server |
+| aws.lambda.wf.errors.count           | Delta Counter       | Count of number of errors aggregated at the server                   |
+| aws.lambda.wf.coldstarts.count       | Delta Counter       | Count of number of cold starts aggregated at the server               |
+| aws.lambda.wf.coldstarts_raw.count   | Counter             | Count of number of cold starts                                        |
+| aws.lambda.wf.duration.value         | Gauge               | Execution time of the Lambda handler function in milliseconds.       |
+
+The Lambda wrapper adds the following point tags to all metrics sent to wavefront:
+
+| Point Tag             | Description                                                                   |
+|:---------------------:| ----------------------------------------------------------------------------- |
+| LambdaArn             | ARN(Amazon Resource Name) of the Lambda function.                             |
+| Region                | AWS Region of the Lambda function.                                            |
+| accountId             | AWS Account ID from which the Lambda function was invoked.                    |
+| ExecutedVersion       | The version of Lambda function.                                               |
+| FunctionName          | The name of Lambda function.                                                  |
+| Resource              | Execution time of the Lambda.                                                 |
+| EventSourceMappings   | AWS Function Name (In case of an event source mapping Lambda invocation only,)|
