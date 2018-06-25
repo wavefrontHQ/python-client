@@ -12,8 +12,8 @@ pip install wavefront_lambda
 ```
 
 ## Environmental variables
-WAVEFRONT_URL = https://<INSTANCE>.wavefront.com
-WAVEFRONT_API_TOKEN = Wavefront API token with Direct Data Ingestion permission.
+WAVEFRONT_URL = https://\<INSTANCE>.wavefront.com  
+WAVEFRONT_API_TOKEN = Wavefront API token with Direct Data Ingestion permission.  
 IS_REPORT_STANDARD_METRICS = Set to False to not report standard lambda metrics directly to wavefront.  
 
 ## Usage
