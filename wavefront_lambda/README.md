@@ -55,4 +55,4 @@ The Lambda wrapper adds the following point tags to all metrics sent to wavefron
 
 ## Custom Lambda Metrics
 
-The wavefront lambda wrapper reports custom business metrics via a pyformance plugin. Please refer to the [code sample](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/example.py) for details.
+The wavefront lambda wrapper reports custom business metrics via a metrics registry provided by the [pyformance plugin](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_pyformance). Please refer to the [code sample](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_lambda/example.py) for details.
