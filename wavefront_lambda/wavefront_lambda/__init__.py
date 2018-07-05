@@ -21,17 +21,20 @@ def wrapper(func):
     """
     def call_lambda_with_standard_metrics(wf_reporter, *args, **kwargs):
         METRIC_PREFIX = "aws.lambda.wf."
+        METRIC_EVENT_SUFFIX = "_event"
         # Set cold start counter
         global is_cold_start
         if is_cold_start:
             aws_cold_starts_counter = delta.delta_counter(reg, METRIC_PREFIX + "coldstarts")
             aws_cold_starts_counter.inc()
-            aws_cold_starts_normal_counter = reg.counter(METRIC_PREFIX + "coldstarts_raw")
-            aws_cold_starts_normal_counter.inc()
+            aws_cold_starts_event_counter = reg.counter(METRIC_PREFIX + "coldstart" + METRIC_EVENT_SUFFIX)
+            aws_cold_starts_event_counter.inc()
             is_cold_start = False
         # Set invocations counter
         aws_lambda_invocations_counter = delta.delta_counter(reg, METRIC_PREFIX + "invocations")
         aws_lambda_invocations_counter.inc()
+        aws_lambda_invocations_event_counter = reg.counter(METRIC_PREFIX + "invocation" + METRIC_EVENT_SUFFIX)
+        aws_lambda_invocations_event_counter.inc()
         time_start = datetime.now()
         try:
             result = func(*args, **kwargs)
@@ -40,6 +43,8 @@ def wrapper(func):
             # Set error counter
             aws_lambda_errors_counter = delta.delta_counter(reg, METRIC_PREFIX + "errors")
             aws_lambda_errors_counter.inc()
+            aws_lambda_errors_event_counter = reg.counter(METRIC_PREFIX + "error" + METRIC_EVENT_SUFFIX)
+            aws_lambda_errors_event_counter.inc()
             raise
         finally:
             time_taken = datetime.now() - time_start
