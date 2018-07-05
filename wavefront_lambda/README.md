@@ -14,7 +14,7 @@ pip install wavefront_lambda
 ## Environmental variables
 WAVEFRONT_URL = https://\<INSTANCE>.wavefront.com  
 WAVEFRONT_API_TOKEN = Wavefront API token with Direct Data Ingestion permission.  
-IS_REPORT_STANDARD_METRICS = Set to False to not report standard lambda metrics directly to wavefront.  
+IS_REPORT_STANDARD_METRICS = Set to False or false to not report standard lambda metrics directly to wavefront.  
 
 ## Usage
 
@@ -52,3 +52,7 @@ The Lambda wrapper adds the following point tags to all metrics sent to wavefron
 | FunctionName          | The name of Lambda function.                                                  |
 | Resource              | Execution time of the Lambda.                                                 |
 | EventSourceMappings   | AWS Function Name (In case of an event source mapping Lambda invocation only,)|
+
+## Custom Lambda Metrics
+
+The wavefront lambda wrapper reports custom business metrics via a pyformance plugin. Please refer to the [code sample](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/example.py) for details.
