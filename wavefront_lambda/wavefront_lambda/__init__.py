@@ -20,16 +20,17 @@ def wrapper(func):
 
     """
     def call_lambda_with_standard_metrics(wf_reporter, *args, **kwargs):
+        METRIC_PREFIX = "aws.lambda.wf."
         # Set cold start counter
         global is_cold_start
         if is_cold_start:
-            aws_cold_starts_counter = delta.delta_counter(reg, "aws.lambda.wf.coldstarts")
+            aws_cold_starts_counter = delta.delta_counter(reg, METRIC_PREFIX + "coldstarts")
             aws_cold_starts_counter.inc()
-            aws_cold_starts_normal_counter = reg.counter("aws.lambda.wf.coldstarts_raw")
+            aws_cold_starts_normal_counter = reg.counter(METRIC_PREFIX + "coldstarts_raw")
             aws_cold_starts_normal_counter.inc()
             is_cold_start = False
         # Set invocations counter
-        aws_lambda_invocations_counter = delta.delta_counter(reg, "aws.lambda.wf.invocations")
+        aws_lambda_invocations_counter = delta.delta_counter(reg, METRIC_PREFIX + "invocations")
         aws_lambda_invocations_counter.inc()
         time_start = datetime.now()
         try:
@@ -37,13 +38,13 @@ def wrapper(func):
             return result
         except:
             # Set error counter
-            aws_lambda_errors_counter = delta.delta_counter(reg, "aws.lambda.wf.errors")
+            aws_lambda_errors_counter = delta.delta_counter(reg, METRIC_PREFIX + "errors")
             aws_lambda_errors_counter.inc()
             raise
         finally:
             time_taken = datetime.now() - time_start
             # Set duration Gauge
-            aws_lambda_duration_gauge = reg.gauge("aws.lambda.wf.duration")
+            aws_lambda_duration_gauge = reg.gauge(METRIC_PREFIX + "duration")
             aws_lambda_duration_gauge.set_value(time_taken.total_seconds() * 1000)
             wf_reporter.report_now(registry=reg)
 
