@@ -36,9 +36,11 @@ The Lambda wrapper sends the following standard lambda metrics to wavefront:
 | Metric Name                       |  Type              | Description                                                             |
 | ----------------------------------|:------------------:| ----------------------------------------------------------------------- |
 | aws.lambda.wf.invocations.count   | Delta Counter      | Count of number of lambda function invocations aggregated at the server.|
+| aws.lambda.wf.invocation_event.count   |  Counter      | Count of number of lambda function invocations.|
 | aws.lambda.wf.errors.count        | Delta Counter      | Count of number of errors aggregated at the server.                     |
+| aws.lambda.wf.error_event.count        |  Counter      | Count of number of errors.                     |
 | aws.lambda.wf.coldstarts.count    | Delta Counter      | Count of number of cold starts aggregated at the server.                |
-| aws.lambda.wf.coldstarts_raw.count| Counter            | Count of number of cold starts.                                         |
+| aws.lambda.wf.coldstart_event.count| Counter           | Count of number of cold starts.                                         |
 | aws.lambda.wf.duration.value      | Gauge              | Execution time of the Lambda handler function in milliseconds.          |
 
 The Lambda wrapper adds the following point tags to all metrics sent to wavefront:
