@@ -52,3 +52,6 @@ reg = MetricsRegistry()
 d1 = delta.delta_counter(reg, "requests_delta")
 d1.inc(10)
 ```
+
+Note: Having the same metric name for any two types of metrics will result in only one time series at the server and thus cause collisions.
+In general, all metric names should be different. In case you have metrics that you want to track as both a Counter and Delta Counter, consider adding a relevant suffix to one of the metrics to differentiate one metric name from another.
