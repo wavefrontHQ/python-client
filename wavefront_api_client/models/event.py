@@ -523,10 +523,8 @@ class Event(object):
         :param end_time: The end_time of this Event.  # noqa: E501
         :type: int
         """
-        if end_time is None:
-            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
-
-        self._end_time = end_time
+        if end_time is not None:
+            self._end_time = end_time
 
     @property
     def running_state(self):
