@@ -11,7 +11,7 @@ reg = None
 def wrapper(func):
     """
     Returns the Wavefront Lambda wrapper. The wrapper collects aws lambda's
-    standard metrics and reports it directly to the set wavefront url. It
+    standard metrics and reports it directly to the specified wavefront url. It
     requires the following Environmental variables to be set:
     1.WAVEFRONT_URL : https://<INSTANCE>.wavefront.com
     2.WAVEFRONT_API_TOKEN : Wavefront API token with Direct Data Ingestion permission
@@ -22,12 +22,13 @@ def wrapper(func):
     def call_lambda_with_standard_metrics(wf_reporter, *args, **kwargs):
         METRIC_PREFIX = "aws.lambda.wf."
         METRIC_EVENT_SUFFIX = "_event"
-        # Set cold start counter
+        # Register cold start counter
+        aws_cold_starts_counter = delta.delta_counter(reg, METRIC_PREFIX + "coldstarts")
+        aws_cold_start_event_counter = reg.counter(METRIC_PREFIX + "coldstart" + METRIC_EVENT_SUFFIX)
         global is_cold_start
         if is_cold_start:
-            aws_cold_starts_counter = delta.delta_counter(reg, METRIC_PREFIX + "coldstarts")
+            # Set cold start counter.
             aws_cold_starts_counter.inc()
-            aws_cold_start_event_counter = reg.counter(METRIC_PREFIX + "coldstart" + METRIC_EVENT_SUFFIX)
             aws_cold_start_event_counter.inc()
             is_cold_start = False
         # Set invocations counter
@@ -35,21 +36,23 @@ def wrapper(func):
         aws_lambda_invocations_counter.inc()
         aws_lambda_invocation_event_counter = reg.counter(METRIC_PREFIX + "invocation" + METRIC_EVENT_SUFFIX)
         aws_lambda_invocation_event_counter.inc()
+        # Register duration gauge.
+        aws_lambda_duration_gauge = reg.gauge(METRIC_PREFIX + "duration")
+        # Register error counter.
+        aws_lambda_errors_counter = delta.delta_counter(reg, METRIC_PREFIX + "errors")
+        aws_lambda_error_event_counter = reg.counter(METRIC_PREFIX + "error" + METRIC_EVENT_SUFFIX)
         time_start = datetime.now()
         try:
             result = func(*args, **kwargs)
             return result
         except:
             # Set error counter
-            aws_lambda_errors_counter = delta.delta_counter(reg, METRIC_PREFIX + "errors")
             aws_lambda_errors_counter.inc()
-            aws_lambda_error_event_counter = reg.counter(METRIC_PREFIX + "error" + METRIC_EVENT_SUFFIX)
             aws_lambda_error_event_counter.inc()
             raise
         finally:
             time_taken = datetime.now() - time_start
-            # Set duration Gauge
-            aws_lambda_duration_gauge = reg.gauge(METRIC_PREFIX + "duration")
+            # Set duration gauge
             aws_lambda_duration_gauge.set_value(time_taken.total_seconds() * 1000)
             wf_reporter.report_now(registry=reg)
 
@@ -82,14 +85,14 @@ def wrapper(func):
         split_arn = invoked_function_arn.split(':')
         point_tags = {
             'LambdaArn': invoked_function_arn,
+            'FunctionName' : context.function_name,
+            'ExecutedVersion': context.function_version,
             'Region': split_arn[3],
-            'accountId': split_arn[4],
-            'ExecutedVersion': context.function_version
+            'accountId': split_arn[4]
         }
         if split_arn[5] == 'function':
-            point_tags['FunctionName'] = split_arn[6]
             point_tags['Resource'] = split_arn[6]
-            if len(split_arn) == 8 and split_arn[7] != context.function_version:
+            if len(split_arn) == 8 :
                 point_tags['Resource'] = point_tags['Resource'] + ":" + split_arn[7]
         elif split_arn[5] == 'event-source-mappings':
             point_tags['EventSourceMappings'] = split_arn[6]
