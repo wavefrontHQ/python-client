@@ -55,7 +55,7 @@ The Lambda wrapper adds the following point tags to all metrics sent to wavefron
 | accountId             | AWS Account ID from which the Lambda function was invoked.                    |
 | ExecutedVersion       | The version of Lambda function.                                               |
 | FunctionName          | The name of Lambda function.                                                  |
-| Resource              | Execution time of the Lambda.                                                 |
+| Resource              | The name and version/alias of Lambda function. (Ex: DemoLambdaFunc:aliasProd) |
 | EventSourceMappings   | AWS Function Name (In case of an event source mapping Lambda invocation only,)|
 
 ## Custom Lambda Metrics
