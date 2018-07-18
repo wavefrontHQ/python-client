@@ -53,7 +53,7 @@ The Lambda wrapper adds the following point tags to all metrics sent to wavefron
 | ExecutedVersion       | The version of Lambda function.                                               |
 | FunctionName          | The name of Lambda function.                                                  |
 | Resource              | The name and version/alias of Lambda function. (Ex: DemoLambdaFunc:aliasProd) |
-| EventSourceMappings   | AWS Event source mapping Id (Set in case of Lambda invocation by AWS Poll-Based Services)|
+| EventSourceMappings   | AWS Event source mapping Id. (Set in case of Lambda invocation by AWS Poll-Based Services)|
 
 ## Custom Lambda Metrics
 
