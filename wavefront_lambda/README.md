@@ -43,9 +43,6 @@ The Lambda wrapper sends the following standard lambda metrics to wavefront:
 | aws.lambda.wf.coldstart_event.count| Counter           | Count of number of cold starts.                                         |
 | aws.lambda.wf.duration.value      | Gauge              | Execution time of the Lambda handler function in milliseconds.          |
 
-Note: Having the same metric name for any two types of metrics will result in only one time series at the server and thus cause collisions.
-In general, all metric names should be different. In case you have metrics that you want to track as both a Counter and Delta Counter, consider adding a relevant suffix to one of the metrics to differentiate one metric name from another.
-
 The Lambda wrapper adds the following point tags to all metrics sent to wavefront:
 
 | Point Tag             | Description                                                                   |
@@ -56,9 +53,12 @@ The Lambda wrapper adds the following point tags to all metrics sent to wavefron
 | ExecutedVersion       | The version of Lambda function.                                               |
 | FunctionName          | The name of Lambda function.                                                  |
 | Resource              | The name and version/alias of Lambda function. (Ex: DemoLambdaFunc:aliasProd) |
-| EventSourceMappings   | AWS Function Name (In case of an event source mapping Lambda invocation only,)|
+| EventSourceMappings   | AWS Event source mapping Id. (Set in case of Lambda invocation by AWS Poll-Based Services)|
 
 ## Custom Lambda Metrics
 
 The wavefront lambda wrapper reports custom business metrics via a metrics registry provided by the [pyformance plugin](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_pyformance).  
 Please refer to the [code sample](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_lambda/example.py) which shows how you can send custom business metrics to wavefront from your lambda function.
+
+Note: Having the same metric name for any two types of metrics will result in only one time series at the server and thus cause collisions.
+In general, all metric names should be different. In case you have metrics that you want to track as both a Counter and Delta Counter, consider adding a relevant suffix to one of the metrics to differentiate one metric name from another.
