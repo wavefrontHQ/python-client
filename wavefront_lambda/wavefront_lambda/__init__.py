@@ -12,10 +12,10 @@ def wrapper(func):
     """
     Returns the Wavefront Lambda wrapper. The wrapper collects aws lambda's
     standard metrics and reports it directly to the specified wavefront url. It
-    requires the following Environmental variables to be set:
+    requires the following Environment variables to be set:
     1.WAVEFRONT_URL : https://<INSTANCE>.wavefront.com
     2.WAVEFRONT_API_TOKEN : Wavefront API token with Direct Data Ingestion permission
-    3.IS_REPORT_STANDARD_METRICS : Set to False to not report standard lambda
+    3.REPORT_STANDARD_METRICS : Set to False to not report standard lambda
                                    metrics directly to wavefront.
 
     """
@@ -68,12 +68,12 @@ def wrapper(func):
     def wavefront_wrapper(*args, **kwargs):
         server = os.environ.get('WAVEFRONT_URL')
         if not server:
-            raise ValueError("Environmental variable WAVEFRONT_URL is not set.")
+            raise ValueError("Environment variable WAVEFRONT_URL is not set.")
         auth_token = os.environ.get('WAVEFRONT_API_TOKEN')
         if not auth_token:
-            raise ValueError("Environmental variable WAVEFRONT_API_TOKEN is not set.")
+            raise ValueError("Environment variable WAVEFRONT_API_TOKEN is not set.")
         is_report_standard_metrics = True
-        if os.environ.get('IS_REPORT_STANDARD_METRICS') in ['False', 'false']:
+        if os.environ.get('REPORT_STANDARD_METRICS') in ['False', 'false']:
             is_report_standard_metrics = False
         # AWS lambda execution enviroment requires handler to consume two arguments
         # 1. Event - input of json format
