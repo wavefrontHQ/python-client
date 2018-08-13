@@ -245,7 +245,7 @@ class EventApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
@@ -267,7 +267,7 @@ class EventApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
@@ -939,7 +939,7 @@ class EventApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
@@ -962,7 +962,7 @@ class EventApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.

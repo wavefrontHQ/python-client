@@ -3336,7 +3336,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/deleted', 'POST',
+            '/api/v2/search/derivedmetric/deleted', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3439,7 +3439,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/deleted/{facet}', 'POST',
+            '/api/v2/search/derivedmetric/deleted/{facet}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3534,7 +3534,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/deleted/facets', 'POST',
+            '/api/v2/search/derivedmetric/deleted/facets', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3629,7 +3629,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition', 'POST',
+            '/api/v2/search/derivedmetric', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3732,7 +3732,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/{facet}', 'POST',
+            '/api/v2/search/derivedmetric/{facet}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3827,7 +3827,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/facets', 'POST',
+            '/api/v2/search/derivedmetric/facets', 'POST',
             path_params,
             query_params,
             header_params,

@@ -6,7 +6,7 @@ from __future__ import absolute_import
 from wavefront_api_client.api.alert_api import AlertApi
 from wavefront_api_client.api.cloud_integration_api import CloudIntegrationApi
 from wavefront_api_client.api.dashboard_api import DashboardApi
-from wavefront_api_client.api.derived_metric_definition_api import DerivedMetricDefinitionApi
+from wavefront_api_client.api.derived_metric_api import DerivedMetricApi
 from wavefront_api_client.api.event_api import EventApi
 from wavefront_api_client.api.external_link_api import ExternalLinkApi
 from wavefront_api_client.api.integration_api import IntegrationApi

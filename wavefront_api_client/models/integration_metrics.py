@@ -33,42 +33,67 @@ class IntegrationMetrics(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'display': 'list[str]',
-        'chart_objs': 'list[Chart]',
-        'charts': 'list[str]',
-        'required': 'list[str]',
         'prefixes': 'list[str]',
+        'display': 'list[str]',
+        'charts': 'list[str]',
+        'chart_objs': 'list[Chart]',
+        'required': 'list[str]',
         'pps_dimensions': 'list[str]'
     }
 
     attribute_map = {
-        'display': 'display',
-        'chart_objs': 'chartObjs',
-        'charts': 'charts',
-        'required': 'required',
         'prefixes': 'prefixes',
+        'display': 'display',
+        'charts': 'charts',
+        'chart_objs': 'chartObjs',
+        'required': 'required',
         'pps_dimensions': 'ppsDimensions'
     }
 
-    def __init__(self, display=None, chart_objs=None, charts=None, required=None, prefixes=None, pps_dimensions=None):  # noqa: E501
+    def __init__(self, prefixes=None, display=None, charts=None, chart_objs=None, required=None, pps_dimensions=None):  # noqa: E501
         """IntegrationMetrics - a model defined in Swagger"""  # noqa: E501
 
-        self._display = None
-        self._chart_objs = None
-        self._charts = None
-        self._required = None
         self._prefixes = None
+        self._display = None
+        self._charts = None
+        self._chart_objs = None
+        self._required = None
         self._pps_dimensions = None
         self.discriminator = None
 
+        self.prefixes = prefixes
         self.display = display
+        self.charts = charts
         if chart_objs is not None:
             self.chart_objs = chart_objs
-        self.charts = charts
         self.required = required
-        self.prefixes = prefixes
         if pps_dimensions is not None:
             self.pps_dimensions = pps_dimensions
+
+    @property
+    def prefixes(self):
+        """Gets the prefixes of this IntegrationMetrics.  # noqa: E501
+
+        Set of metric prefix namespaces belonging to this integration  # noqa: E501
+
+        :return: The prefixes of this IntegrationMetrics.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._prefixes
+
+    @prefixes.setter
+    def prefixes(self, prefixes):
+        """Sets the prefixes of this IntegrationMetrics.
+
+        Set of metric prefix namespaces belonging to this integration  # noqa: E501
+
+        :param prefixes: The prefixes of this IntegrationMetrics.  # noqa: E501
+        :type: list[str]
+        """
+        if prefixes is None:
+            raise ValueError("Invalid value for `prefixes`, must not be `None`")  # noqa: E501
+
+        self._prefixes = prefixes
 
     @property
     def display(self):
@@ -96,29 +121,6 @@ class IntegrationMetrics(object):
         self._display = display
 
     @property
-    def chart_objs(self):
-        """Gets the chart_objs of this IntegrationMetrics.  # noqa: E501
-
-        Chart JSONs materialized from the links in `charts`  # noqa: E501
-
-        :return: The chart_objs of this IntegrationMetrics.  # noqa: E501
-        :rtype: list[Chart]
-        """
-        return self._chart_objs
-
-    @chart_objs.setter
-    def chart_objs(self, chart_objs):
-        """Sets the chart_objs of this IntegrationMetrics.
-
-        Chart JSONs materialized from the links in `charts`  # noqa: E501
-
-        :param chart_objs: The chart_objs of this IntegrationMetrics.  # noqa: E501
-        :type: list[Chart]
-        """
-
-        self._chart_objs = chart_objs
-
-    @property
     def charts(self):
         """Gets the charts of this IntegrationMetrics.  # noqa: E501
 
@@ -144,6 +146,29 @@ class IntegrationMetrics(object):
         self._charts = charts
 
     @property
+    def chart_objs(self):
+        """Gets the chart_objs of this IntegrationMetrics.  # noqa: E501
+
+        Chart JSONs materialized from the links in `charts`  # noqa: E501
+
+        :return: The chart_objs of this IntegrationMetrics.  # noqa: E501
+        :rtype: list[Chart]
+        """
+        return self._chart_objs
+
+    @chart_objs.setter
+    def chart_objs(self, chart_objs):
+        """Sets the chart_objs of this IntegrationMetrics.
+
+        Chart JSONs materialized from the links in `charts`  # noqa: E501
+
+        :param chart_objs: The chart_objs of this IntegrationMetrics.  # noqa: E501
+        :type: list[Chart]
+        """
+
+        self._chart_objs = chart_objs
+
+    @property
     def required(self):
         """Gets the required of this IntegrationMetrics.  # noqa: E501
 
@@ -167,31 +192,6 @@ class IntegrationMetrics(object):
             raise ValueError("Invalid value for `required`, must not be `None`")  # noqa: E501
 
         self._required = required
-
-    @property
-    def prefixes(self):
-        """Gets the prefixes of this IntegrationMetrics.  # noqa: E501
-
-        Set of metric prefix namespaces belonging to this integration  # noqa: E501
-
-        :return: The prefixes of this IntegrationMetrics.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._prefixes
-
-    @prefixes.setter
-    def prefixes(self, prefixes):
-        """Sets the prefixes of this IntegrationMetrics.
-
-        Set of metric prefix namespaces belonging to this integration  # noqa: E501
-
-        :param prefixes: The prefixes of this IntegrationMetrics.  # noqa: E501
-        :type: list[str]
-        """
-        if prefixes is None:
-            raise ValueError("Invalid value for `prefixes`, must not be `None`")  # noqa: E501
-
-        self._prefixes = prefixes
 
     @property
     def pps_dimensions(self):

@@ -31,13 +31,13 @@ class ChartSettings(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'type': 'str',
         'min': 'float',
+        'type': 'str',
         'max': 'float',
         'expected_data_spacing': 'int',
-        'plain_markdown_content': 'str',
         'fixed_legend_enabled': 'bool',
         'fixed_legend_use_raw_stats': 'bool',
+        'plain_markdown_content': 'str',
         'line_type': 'str',
         'stack_type': 'str',
         'windowing': 'str',
@@ -91,13 +91,13 @@ class ChartSettings(object):
     }
 
     attribute_map = {
-        'type': 'type',
         'min': 'min',
+        'type': 'type',
         'max': 'max',
         'expected_data_spacing': 'expectedDataSpacing',
-        'plain_markdown_content': 'plainMarkdownContent',
         'fixed_legend_enabled': 'fixedLegendEnabled',
         'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
+        'plain_markdown_content': 'plainMarkdownContent',
         'line_type': 'lineType',
         'stack_type': 'stackType',
         'windowing': 'windowing',
@@ -150,16 +150,16 @@ class ChartSettings(object):
         'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds'
     }
 
-    def __init__(self, type=None, min=None, max=None, expected_data_spacing=None, plain_markdown_content=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, line_type=None, stack_type=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmax=None, xmin=None, ymax=None, ymin=None, time_based_coloring=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None):  # noqa: E501
+    def __init__(self, min=None, type=None, max=None, expected_data_spacing=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, plain_markdown_content=None, line_type=None, stack_type=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmax=None, xmin=None, ymax=None, ymin=None, time_based_coloring=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
 
-        self._type = None
         self._min = None
+        self._type = None
         self._max = None
         self._expected_data_spacing = None
-        self._plain_markdown_content = None
         self._fixed_legend_enabled = None
         self._fixed_legend_use_raw_stats = None
+        self._plain_markdown_content = None
         self._line_type = None
         self._stack_type = None
         self._windowing = None
@@ -212,19 +212,19 @@ class ChartSettings(object):
         self._sparkline_value_text_map_thresholds = None
         self.discriminator = None
 
-        self.type = type
         if min is not None:
             self.min = min
+        self.type = type
         if max is not None:
             self.max = max
         if expected_data_spacing is not None:
             self.expected_data_spacing = expected_data_spacing
-        if plain_markdown_content is not None:
-            self.plain_markdown_content = plain_markdown_content
         if fixed_legend_enabled is not None:
             self.fixed_legend_enabled = fixed_legend_enabled
         if fixed_legend_use_raw_stats is not None:
             self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
+        if plain_markdown_content is not None:
+            self.plain_markdown_content = plain_markdown_content
         if line_type is not None:
             self.line_type = line_type
         if stack_type is not None:
@@ -327,6 +327,29 @@ class ChartSettings(object):
             self.sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
 
     @property
+    def min(self):
+        """Gets the min of this ChartSettings.  # noqa: E501
+
+        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
+
+        :return: The min of this ChartSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._min
+
+    @min.setter
+    def min(self, min):
+        """Sets the min of this ChartSettings.
+
+        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
+
+        :param min: The min of this ChartSettings.  # noqa: E501
+        :type: float
+        """
+
+        self._min = min
+
+    @property
     def type(self):
         """Gets the type of this ChartSettings.  # noqa: E501
 
@@ -356,29 +379,6 @@ class ChartSettings(object):
             )
 
         self._type = type
-
-    @property
-    def min(self):
-        """Gets the min of this ChartSettings.  # noqa: E501
-
-        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
-
-        :return: The min of this ChartSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._min
-
-    @min.setter
-    def min(self, min):
-        """Sets the min of this ChartSettings.
-
-        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
-
-        :param min: The min of this ChartSettings.  # noqa: E501
-        :type: float
-        """
-
-        self._min = min
 
     @property
     def max(self):
@@ -427,29 +427,6 @@ class ChartSettings(object):
         self._expected_data_spacing = expected_data_spacing
 
     @property
-    def plain_markdown_content(self):
-        """Gets the plain_markdown_content of this ChartSettings.  # noqa: E501
-
-        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
-
-        :return: The plain_markdown_content of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._plain_markdown_content
-
-    @plain_markdown_content.setter
-    def plain_markdown_content(self, plain_markdown_content):
-        """Sets the plain_markdown_content of this ChartSettings.
-
-        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
-
-        :param plain_markdown_content: The plain_markdown_content of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._plain_markdown_content = plain_markdown_content
-
-    @property
     def fixed_legend_enabled(self):
         """Gets the fixed_legend_enabled of this ChartSettings.  # noqa: E501
 
@@ -494,6 +471,29 @@ class ChartSettings(object):
         """
 
         self._fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
+
+    @property
+    def plain_markdown_content(self):
+        """Gets the plain_markdown_content of this ChartSettings.  # noqa: E501
+
+        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
+
+        :return: The plain_markdown_content of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._plain_markdown_content
+
+    @plain_markdown_content.setter
+    def plain_markdown_content(self, plain_markdown_content):
+        """Sets the plain_markdown_content of this ChartSettings.
+
+        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
+
+        :param plain_markdown_content: The plain_markdown_content of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._plain_markdown_content = plain_markdown_content
 
     @property
     def line_type(self):

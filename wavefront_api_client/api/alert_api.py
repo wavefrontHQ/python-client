@@ -150,7 +150,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -172,7 +172,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1414,7 +1414,7 @@ class AlertApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1437,7 +1437,7 @@ class AlertApi(object):
 
         :param async bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.

@@ -33,57 +33,36 @@ class AzureConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'base_credentials': 'AzureBaseCredentials',
         'metric_filter_regex': 'str',
+        'base_credentials': 'AzureBaseCredentials',
         'category_filter': 'list[str]',
         'resource_group_filter': 'list[str]'
     }
 
     attribute_map = {
-        'base_credentials': 'baseCredentials',
         'metric_filter_regex': 'metricFilterRegex',
+        'base_credentials': 'baseCredentials',
         'category_filter': 'categoryFilter',
         'resource_group_filter': 'resourceGroupFilter'
     }
 
-    def __init__(self, base_credentials=None, metric_filter_regex=None, category_filter=None, resource_group_filter=None):  # noqa: E501
+    def __init__(self, metric_filter_regex=None, base_credentials=None, category_filter=None, resource_group_filter=None):  # noqa: E501
         """AzureConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._base_credentials = None
         self._metric_filter_regex = None
+        self._base_credentials = None
         self._category_filter = None
         self._resource_group_filter = None
         self.discriminator = None
 
-        if base_credentials is not None:
-            self.base_credentials = base_credentials
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
+        if base_credentials is not None:
+            self.base_credentials = base_credentials
         if category_filter is not None:
             self.category_filter = category_filter
         if resource_group_filter is not None:
             self.resource_group_filter = resource_group_filter
-
-    @property
-    def base_credentials(self):
-        """Gets the base_credentials of this AzureConfiguration.  # noqa: E501
-
-
-        :return: The base_credentials of this AzureConfiguration.  # noqa: E501
-        :rtype: AzureBaseCredentials
-        """
-        return self._base_credentials
-
-    @base_credentials.setter
-    def base_credentials(self, base_credentials):
-        """Sets the base_credentials of this AzureConfiguration.
-
-
-        :param base_credentials: The base_credentials of this AzureConfiguration.  # noqa: E501
-        :type: AzureBaseCredentials
-        """
-
-        self._base_credentials = base_credentials
 
     @property
     def metric_filter_regex(self):
@@ -107,6 +86,27 @@ class AzureConfiguration(object):
         """
 
         self._metric_filter_regex = metric_filter_regex
+
+    @property
+    def base_credentials(self):
+        """Gets the base_credentials of this AzureConfiguration.  # noqa: E501
+
+
+        :return: The base_credentials of this AzureConfiguration.  # noqa: E501
+        :rtype: AzureBaseCredentials
+        """
+        return self._base_credentials
+
+    @base_credentials.setter
+    def base_credentials(self, base_credentials):
+        """Sets the base_credentials of this AzureConfiguration.
+
+
+        :param base_credentials: The base_credentials of this AzureConfiguration.  # noqa: E501
+        :type: AzureBaseCredentials
+        """
+
+        self._base_credentials = base_credentials
 
     @property
     def category_filter(self):

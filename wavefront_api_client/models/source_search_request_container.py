@@ -91,6 +91,7 @@ class SourceSearchRequestContainer(object):
     def limit(self):
         """Gets the limit of this SourceSearchRequestContainer.  # noqa: E501
 
+        The number of results to return.  Default: 100  # noqa: E501
 
         :return: The limit of this SourceSearchRequestContainer.  # noqa: E501
         :rtype: int
@@ -101,6 +102,7 @@ class SourceSearchRequestContainer(object):
     def limit(self, limit):
         """Sets the limit of this SourceSearchRequestContainer.
 
+        The number of results to return.  Default: 100  # noqa: E501
 
         :param limit: The limit of this SourceSearchRequestContainer.  # noqa: E501
         :type: int

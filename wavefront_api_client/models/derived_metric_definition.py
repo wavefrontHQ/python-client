@@ -33,103 +33,106 @@ class DerivedMetricDefinition(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'created': 'int',
+        'minutes': 'int',
         'name': 'str',
         'id': 'str',
         'query': 'str',
         'tags': 'WFTags',
         'status': 'list[str]',
+        'updated': 'int',
+        'process_rate_minutes': 'int',
+        'last_processed_millis': 'int',
+        'update_user_id': 'str',
         'include_obsolete_metrics': 'bool',
-        'creator_id': 'str',
-        'additional_information': 'str',
-        'minutes': 'int',
+        'last_query_time': 'int',
+        'in_trash': 'bool',
         'query_failing': 'bool',
+        'create_user_id': 'str',
+        'additional_information': 'str',
+        'creator_id': 'str',
+        'updater_id': 'str',
         'last_failed_time': 'int',
         'last_error_message': 'str',
         'metrics_used': 'list[str]',
         'hosts_used': 'list[str]',
-        'last_processed_millis': 'int',
-        'process_rate_minutes': 'int',
         'points_scanned_at_last_query': 'int',
         'query_qb_enabled': 'bool',
         'query_qb_serialization': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'updater_id': 'str',
-        'created': 'int',
-        'updated': 'int',
-        'update_user_id': 'str',
-        'last_query_time': 'int',
-        'in_trash': 'bool',
-        'create_user_id': 'str',
         'deleted': 'bool'
     }
 
     attribute_map = {
+        'created': 'created',
+        'minutes': 'minutes',
         'name': 'name',
         'id': 'id',
         'query': 'query',
         'tags': 'tags',
         'status': 'status',
+        'updated': 'updated',
+        'process_rate_minutes': 'processRateMinutes',
+        'last_processed_millis': 'lastProcessedMillis',
+        'update_user_id': 'updateUserId',
         'include_obsolete_metrics': 'includeObsoleteMetrics',
-        'creator_id': 'creatorId',
-        'additional_information': 'additionalInformation',
-        'minutes': 'minutes',
+        'last_query_time': 'lastQueryTime',
+        'in_trash': 'inTrash',
         'query_failing': 'queryFailing',
+        'create_user_id': 'createUserId',
+        'additional_information': 'additionalInformation',
+        'creator_id': 'creatorId',
+        'updater_id': 'updaterId',
         'last_failed_time': 'lastFailedTime',
         'last_error_message': 'lastErrorMessage',
         'metrics_used': 'metricsUsed',
         'hosts_used': 'hostsUsed',
-        'last_processed_millis': 'lastProcessedMillis',
-        'process_rate_minutes': 'processRateMinutes',
         'points_scanned_at_last_query': 'pointsScannedAtLastQuery',
         'query_qb_enabled': 'queryQBEnabled',
         'query_qb_serialization': 'queryQBSerialization',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'updater_id': 'updaterId',
-        'created': 'created',
-        'updated': 'updated',
-        'update_user_id': 'updateUserId',
-        'last_query_time': 'lastQueryTime',
-        'in_trash': 'inTrash',
-        'create_user_id': 'createUserId',
         'deleted': 'deleted'
     }
 
-    def __init__(self, name=None, id=None, query=None, tags=None, status=None, include_obsolete_metrics=None, creator_id=None, additional_information=None, minutes=None, query_failing=None, last_failed_time=None, last_error_message=None, metrics_used=None, hosts_used=None, last_processed_millis=None, process_rate_minutes=None, points_scanned_at_last_query=None, query_qb_enabled=None, query_qb_serialization=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, created=None, updated=None, update_user_id=None, last_query_time=None, in_trash=None, create_user_id=None, deleted=None):  # noqa: E501
+    def __init__(self, created=None, minutes=None, name=None, id=None, query=None, tags=None, status=None, updated=None, process_rate_minutes=None, last_processed_millis=None, update_user_id=None, include_obsolete_metrics=None, last_query_time=None, in_trash=None, query_failing=None, create_user_id=None, additional_information=None, creator_id=None, updater_id=None, last_failed_time=None, last_error_message=None, metrics_used=None, hosts_used=None, points_scanned_at_last_query=None, query_qb_enabled=None, query_qb_serialization=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None):  # noqa: E501
         """DerivedMetricDefinition - a model defined in Swagger"""  # noqa: E501
 
+        self._created = None
+        self._minutes = None
         self._name = None
         self._id = None
         self._query = None
         self._tags = None
         self._status = None
+        self._updated = None
+        self._process_rate_minutes = None
+        self._last_processed_millis = None
+        self._update_user_id = None
         self._include_obsolete_metrics = None
-        self._creator_id = None
-        self._additional_information = None
-        self._minutes = None
+        self._last_query_time = None
+        self._in_trash = None
         self._query_failing = None
+        self._create_user_id = None
+        self._additional_information = None
+        self._creator_id = None
+        self._updater_id = None
         self._last_failed_time = None
         self._last_error_message = None
         self._metrics_used = None
         self._hosts_used = None
-        self._last_processed_millis = None
-        self._process_rate_minutes = None
         self._points_scanned_at_last_query = None
         self._query_qb_enabled = None
         self._query_qb_serialization = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
-        self._updater_id = None
-        self._created = None
-        self._updated = None
-        self._update_user_id = None
-        self._last_query_time = None
-        self._in_trash = None
-        self._create_user_id = None
         self._deleted = None
         self.discriminator = None
 
+        if created is not None:
+            self.created = created
+        self.minutes = minutes
         self.name = name
         if id is not None:
             self.id = id
@@ -138,15 +141,30 @@ class DerivedMetricDefinition(object):
             self.tags = tags
         if status is not None:
             self.status = status
+        if updated is not None:
+            self.updated = updated
+        if process_rate_minutes is not None:
+            self.process_rate_minutes = process_rate_minutes
+        if last_processed_millis is not None:
+            self.last_processed_millis = last_processed_millis
+        if update_user_id is not None:
+            self.update_user_id = update_user_id
         if include_obsolete_metrics is not None:
             self.include_obsolete_metrics = include_obsolete_metrics
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if additional_information is not None:
-            self.additional_information = additional_information
-        self.minutes = minutes
+        if last_query_time is not None:
+            self.last_query_time = last_query_time
+        if in_trash is not None:
+            self.in_trash = in_trash
         if query_failing is not None:
             self.query_failing = query_failing
+        if create_user_id is not None:
+            self.create_user_id = create_user_id
+        if additional_information is not None:
+            self.additional_information = additional_information
+        if creator_id is not None:
+            self.creator_id = creator_id
+        if updater_id is not None:
+            self.updater_id = updater_id
         if last_failed_time is not None:
             self.last_failed_time = last_failed_time
         if last_error_message is not None:
@@ -155,10 +173,6 @@ class DerivedMetricDefinition(object):
             self.metrics_used = metrics_used
         if hosts_used is not None:
             self.hosts_used = hosts_used
-        if last_processed_millis is not None:
-            self.last_processed_millis = last_processed_millis
-        if process_rate_minutes is not None:
-            self.process_rate_minutes = process_rate_minutes
         if points_scanned_at_last_query is not None:
             self.points_scanned_at_last_query = points_scanned_at_last_query
         if query_qb_enabled is not None:
@@ -169,22 +183,56 @@ class DerivedMetricDefinition(object):
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if created is not None:
-            self.created = created
-        if updated is not None:
-            self.updated = updated
-        if update_user_id is not None:
-            self.update_user_id = update_user_id
-        if last_query_time is not None:
-            self.last_query_time = last_query_time
-        if in_trash is not None:
-            self.in_trash = in_trash
-        if create_user_id is not None:
-            self.create_user_id = create_user_id
         if deleted is not None:
             self.deleted = deleted
+
+    @property
+    def created(self):
+        """Gets the created of this DerivedMetricDefinition.  # noqa: E501
+
+        When this derived metric was created, in epoch millis  # noqa: E501
+
+        :return: The created of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: int
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this DerivedMetricDefinition.
+
+        When this derived metric was created, in epoch millis  # noqa: E501
+
+        :param created: The created of this DerivedMetricDefinition.  # noqa: E501
+        :type: int
+        """
+
+        self._created = created
+
+    @property
+    def minutes(self):
+        """Gets the minutes of this DerivedMetricDefinition.  # noqa: E501
+
+        How frequently the query generating the derived metric is run  # noqa: E501
+
+        :return: The minutes of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: int
+        """
+        return self._minutes
+
+    @minutes.setter
+    def minutes(self, minutes):
+        """Sets the minutes of this DerivedMetricDefinition.
+
+        How frequently the query generating the derived metric is run  # noqa: E501
+
+        :param minutes: The minutes of this DerivedMetricDefinition.  # noqa: E501
+        :type: int
+        """
+        if minutes is None:
+            raise ValueError("Invalid value for `minutes`, must not be `None`")  # noqa: E501
+
+        self._minutes = minutes
 
     @property
     def name(self):
@@ -300,6 +348,98 @@ class DerivedMetricDefinition(object):
         self._status = status
 
     @property
+    def updated(self):
+        """Gets the updated of this DerivedMetricDefinition.  # noqa: E501
+
+        When the derived metric definition was last updated, in epoch millis  # noqa: E501
+
+        :return: The updated of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated
+
+    @updated.setter
+    def updated(self, updated):
+        """Sets the updated of this DerivedMetricDefinition.
+
+        When the derived metric definition was last updated, in epoch millis  # noqa: E501
+
+        :param updated: The updated of this DerivedMetricDefinition.  # noqa: E501
+        :type: int
+        """
+
+        self._updated = updated
+
+    @property
+    def process_rate_minutes(self):
+        """Gets the process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
+
+        The interval between executing the query, in minutes.  Defaults to 1 minute  # noqa: E501
+
+        :return: The process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: int
+        """
+        return self._process_rate_minutes
+
+    @process_rate_minutes.setter
+    def process_rate_minutes(self, process_rate_minutes):
+        """Sets the process_rate_minutes of this DerivedMetricDefinition.
+
+        The interval between executing the query, in minutes.  Defaults to 1 minute  # noqa: E501
+
+        :param process_rate_minutes: The process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
+        :type: int
+        """
+
+        self._process_rate_minutes = process_rate_minutes
+
+    @property
+    def last_processed_millis(self):
+        """Gets the last_processed_millis of this DerivedMetricDefinition.  # noqa: E501
+
+        The last time when the derived metric query was run, in epoch millis  # noqa: E501
+
+        :return: The last_processed_millis of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_processed_millis
+
+    @last_processed_millis.setter
+    def last_processed_millis(self, last_processed_millis):
+        """Sets the last_processed_millis of this DerivedMetricDefinition.
+
+        The last time when the derived metric query was run, in epoch millis  # noqa: E501
+
+        :param last_processed_millis: The last_processed_millis of this DerivedMetricDefinition.  # noqa: E501
+        :type: int
+        """
+
+        self._last_processed_millis = last_processed_millis
+
+    @property
+    def update_user_id(self):
+        """Gets the update_user_id of this DerivedMetricDefinition.  # noqa: E501
+
+        The user that last updated this derived metric definition  # noqa: E501
+
+        :return: The update_user_id of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_user_id
+
+    @update_user_id.setter
+    def update_user_id(self, update_user_id):
+        """Sets the update_user_id of this DerivedMetricDefinition.
+
+        The user that last updated this derived metric definition  # noqa: E501
+
+        :param update_user_id: The update_user_id of this DerivedMetricDefinition.  # noqa: E501
+        :type: str
+        """
+
+        self._update_user_id = update_user_id
+
+    @property
     def include_obsolete_metrics(self):
         """Gets the include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
 
@@ -323,25 +463,92 @@ class DerivedMetricDefinition(object):
         self._include_obsolete_metrics = include_obsolete_metrics
 
     @property
-    def creator_id(self):
-        """Gets the creator_id of this DerivedMetricDefinition.  # noqa: E501
+    def last_query_time(self):
+        """Gets the last_query_time of this DerivedMetricDefinition.  # noqa: E501
+
+        Time for the query execute, averaged on hourly basis  # noqa: E501
+
+        :return: The last_query_time of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_query_time
+
+    @last_query_time.setter
+    def last_query_time(self, last_query_time):
+        """Sets the last_query_time of this DerivedMetricDefinition.
+
+        Time for the query execute, averaged on hourly basis  # noqa: E501
+
+        :param last_query_time: The last_query_time of this DerivedMetricDefinition.  # noqa: E501
+        :type: int
+        """
+
+        self._last_query_time = last_query_time
+
+    @property
+    def in_trash(self):
+        """Gets the in_trash of this DerivedMetricDefinition.  # noqa: E501
 
 
-        :return: The creator_id of this DerivedMetricDefinition.  # noqa: E501
+        :return: The in_trash of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_trash
+
+    @in_trash.setter
+    def in_trash(self, in_trash):
+        """Sets the in_trash of this DerivedMetricDefinition.
+
+
+        :param in_trash: The in_trash of this DerivedMetricDefinition.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_trash = in_trash
+
+    @property
+    def query_failing(self):
+        """Gets the query_failing of this DerivedMetricDefinition.  # noqa: E501
+
+        Whether there was an exception when the query last ran  # noqa: E501
+
+        :return: The query_failing of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._query_failing
+
+    @query_failing.setter
+    def query_failing(self, query_failing):
+        """Sets the query_failing of this DerivedMetricDefinition.
+
+        Whether there was an exception when the query last ran  # noqa: E501
+
+        :param query_failing: The query_failing of this DerivedMetricDefinition.  # noqa: E501
+        :type: bool
+        """
+
+        self._query_failing = query_failing
+
+    @property
+    def create_user_id(self):
+        """Gets the create_user_id of this DerivedMetricDefinition.  # noqa: E501
+
+
+        :return: The create_user_id of this DerivedMetricDefinition.  # noqa: E501
         :rtype: str
         """
-        return self._creator_id
+        return self._create_user_id
 
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this DerivedMetricDefinition.
+    @create_user_id.setter
+    def create_user_id(self, create_user_id):
+        """Sets the create_user_id of this DerivedMetricDefinition.
 
 
-        :param creator_id: The creator_id of this DerivedMetricDefinition.  # noqa: E501
+        :param create_user_id: The create_user_id of this DerivedMetricDefinition.  # noqa: E501
         :type: str
         """
 
-        self._creator_id = creator_id
+        self._create_user_id = create_user_id
 
     @property
     def additional_information(self):
@@ -367,52 +574,46 @@ class DerivedMetricDefinition(object):
         self._additional_information = additional_information
 
     @property
-    def minutes(self):
-        """Gets the minutes of this DerivedMetricDefinition.  # noqa: E501
+    def creator_id(self):
+        """Gets the creator_id of this DerivedMetricDefinition.  # noqa: E501
 
-        How frequently the query generating the derived metric is run  # noqa: E501
 
-        :return: The minutes of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: int
+        :return: The creator_id of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: str
         """
-        return self._minutes
+        return self._creator_id
 
-    @minutes.setter
-    def minutes(self, minutes):
-        """Sets the minutes of this DerivedMetricDefinition.
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this DerivedMetricDefinition.
 
-        How frequently the query generating the derived metric is run  # noqa: E501
 
-        :param minutes: The minutes of this DerivedMetricDefinition.  # noqa: E501
-        :type: int
+        :param creator_id: The creator_id of this DerivedMetricDefinition.  # noqa: E501
+        :type: str
         """
-        if minutes is None:
-            raise ValueError("Invalid value for `minutes`, must not be `None`")  # noqa: E501
 
-        self._minutes = minutes
+        self._creator_id = creator_id
 
     @property
-    def query_failing(self):
-        """Gets the query_failing of this DerivedMetricDefinition.  # noqa: E501
+    def updater_id(self):
+        """Gets the updater_id of this DerivedMetricDefinition.  # noqa: E501
 
-        Whether there was an exception when the query last ran  # noqa: E501
 
-        :return: The query_failing of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: bool
+        :return: The updater_id of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: str
         """
-        return self._query_failing
+        return self._updater_id
 
-    @query_failing.setter
-    def query_failing(self, query_failing):
-        """Sets the query_failing of this DerivedMetricDefinition.
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this DerivedMetricDefinition.
 
-        Whether there was an exception when the query last ran  # noqa: E501
 
-        :param query_failing: The query_failing of this DerivedMetricDefinition.  # noqa: E501
-        :type: bool
+        :param updater_id: The updater_id of this DerivedMetricDefinition.  # noqa: E501
+        :type: str
         """
 
-        self._query_failing = query_failing
+        self._updater_id = updater_id
 
     @property
     def last_failed_time(self):
@@ -505,52 +706,6 @@ class DerivedMetricDefinition(object):
         """
 
         self._hosts_used = hosts_used
-
-    @property
-    def last_processed_millis(self):
-        """Gets the last_processed_millis of this DerivedMetricDefinition.  # noqa: E501
-
-        The last time when the derived metric query was run, in epoch millis  # noqa: E501
-
-        :return: The last_processed_millis of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_processed_millis
-
-    @last_processed_millis.setter
-    def last_processed_millis(self, last_processed_millis):
-        """Sets the last_processed_millis of this DerivedMetricDefinition.
-
-        The last time when the derived metric query was run, in epoch millis  # noqa: E501
-
-        :param last_processed_millis: The last_processed_millis of this DerivedMetricDefinition.  # noqa: E501
-        :type: int
-        """
-
-        self._last_processed_millis = last_processed_millis
-
-    @property
-    def process_rate_minutes(self):
-        """Gets the process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
-
-        The interval between executing the query, in minutes.  Defaults to 1 minute  # noqa: E501
-
-        :return: The process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: int
-        """
-        return self._process_rate_minutes
-
-    @process_rate_minutes.setter
-    def process_rate_minutes(self, process_rate_minutes):
-        """Sets the process_rate_minutes of this DerivedMetricDefinition.
-
-        The interval between executing the query, in minutes.  Defaults to 1 minute  # noqa: E501
-
-        :param process_rate_minutes: The process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
-        :type: int
-        """
-
-        self._process_rate_minutes = process_rate_minutes
 
     @property
     def points_scanned_at_last_query(self):
@@ -662,161 +817,6 @@ class DerivedMetricDefinition(object):
         """
 
         self._updated_epoch_millis = updated_epoch_millis
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this DerivedMetricDefinition.  # noqa: E501
-
-
-        :return: The updater_id of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this DerivedMetricDefinition.
-
-
-        :param updater_id: The updater_id of this DerivedMetricDefinition.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def created(self):
-        """Gets the created of this DerivedMetricDefinition.  # noqa: E501
-
-        When this derived metric was created, in epoch millis  # noqa: E501
-
-        :return: The created of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: int
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this DerivedMetricDefinition.
-
-        When this derived metric was created, in epoch millis  # noqa: E501
-
-        :param created: The created of this DerivedMetricDefinition.  # noqa: E501
-        :type: int
-        """
-
-        self._created = created
-
-    @property
-    def updated(self):
-        """Gets the updated of this DerivedMetricDefinition.  # noqa: E501
-
-        When the derived metric definition was last updated, in epoch millis  # noqa: E501
-
-        :return: The updated of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated
-
-    @updated.setter
-    def updated(self, updated):
-        """Sets the updated of this DerivedMetricDefinition.
-
-        When the derived metric definition was last updated, in epoch millis  # noqa: E501
-
-        :param updated: The updated of this DerivedMetricDefinition.  # noqa: E501
-        :type: int
-        """
-
-        self._updated = updated
-
-    @property
-    def update_user_id(self):
-        """Gets the update_user_id of this DerivedMetricDefinition.  # noqa: E501
-
-        The user that last updated this derived metric definition  # noqa: E501
-
-        :return: The update_user_id of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: str
-        """
-        return self._update_user_id
-
-    @update_user_id.setter
-    def update_user_id(self, update_user_id):
-        """Sets the update_user_id of this DerivedMetricDefinition.
-
-        The user that last updated this derived metric definition  # noqa: E501
-
-        :param update_user_id: The update_user_id of this DerivedMetricDefinition.  # noqa: E501
-        :type: str
-        """
-
-        self._update_user_id = update_user_id
-
-    @property
-    def last_query_time(self):
-        """Gets the last_query_time of this DerivedMetricDefinition.  # noqa: E501
-
-        Time for the query execute, averaged on hourly basis  # noqa: E501
-
-        :return: The last_query_time of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_query_time
-
-    @last_query_time.setter
-    def last_query_time(self, last_query_time):
-        """Sets the last_query_time of this DerivedMetricDefinition.
-
-        Time for the query execute, averaged on hourly basis  # noqa: E501
-
-        :param last_query_time: The last_query_time of this DerivedMetricDefinition.  # noqa: E501
-        :type: int
-        """
-
-        self._last_query_time = last_query_time
-
-    @property
-    def in_trash(self):
-        """Gets the in_trash of this DerivedMetricDefinition.  # noqa: E501
-
-
-        :return: The in_trash of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: bool
-        """
-        return self._in_trash
-
-    @in_trash.setter
-    def in_trash(self, in_trash):
-        """Sets the in_trash of this DerivedMetricDefinition.
-
-
-        :param in_trash: The in_trash of this DerivedMetricDefinition.  # noqa: E501
-        :type: bool
-        """
-
-        self._in_trash = in_trash
-
-    @property
-    def create_user_id(self):
-        """Gets the create_user_id of this DerivedMetricDefinition.  # noqa: E501
-
-
-        :return: The create_user_id of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: str
-        """
-        return self._create_user_id
-
-    @create_user_id.setter
-    def create_user_id(self, create_user_id):
-        """Sets the create_user_id of this DerivedMetricDefinition.
-
-
-        :param create_user_id: The create_user_id of this DerivedMetricDefinition.  # noqa: E501
-        :type: str
-        """
-
-        self._create_user_id = create_user_id
 
     @property
     def deleted(self):

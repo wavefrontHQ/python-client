@@ -33,67 +33,46 @@ class CloudWatchConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'base_credentials': 'AWSBaseCredentials',
         'metric_filter_regex': 'str',
+        'namespaces': 'list[str]',
+        'base_credentials': 'AWSBaseCredentials',
         'instance_selection_tags': 'dict(str, str)',
         'volume_selection_tags': 'dict(str, str)',
-        'point_tag_filter_regex': 'str',
-        'namespaces': 'list[str]'
+        'point_tag_filter_regex': 'str'
     }
 
     attribute_map = {
-        'base_credentials': 'baseCredentials',
         'metric_filter_regex': 'metricFilterRegex',
+        'namespaces': 'namespaces',
+        'base_credentials': 'baseCredentials',
         'instance_selection_tags': 'instanceSelectionTags',
         'volume_selection_tags': 'volumeSelectionTags',
-        'point_tag_filter_regex': 'pointTagFilterRegex',
-        'namespaces': 'namespaces'
+        'point_tag_filter_regex': 'pointTagFilterRegex'
     }
 
-    def __init__(self, base_credentials=None, metric_filter_regex=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None, namespaces=None):  # noqa: E501
+    def __init__(self, metric_filter_regex=None, namespaces=None, base_credentials=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None):  # noqa: E501
         """CloudWatchConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._base_credentials = None
         self._metric_filter_regex = None
+        self._namespaces = None
+        self._base_credentials = None
         self._instance_selection_tags = None
         self._volume_selection_tags = None
         self._point_tag_filter_regex = None
-        self._namespaces = None
         self.discriminator = None
 
-        if base_credentials is not None:
-            self.base_credentials = base_credentials
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
+        if namespaces is not None:
+            self.namespaces = namespaces
+        if base_credentials is not None:
+            self.base_credentials = base_credentials
         if instance_selection_tags is not None:
             self.instance_selection_tags = instance_selection_tags
         if volume_selection_tags is not None:
             self.volume_selection_tags = volume_selection_tags
         if point_tag_filter_regex is not None:
             self.point_tag_filter_regex = point_tag_filter_regex
-        if namespaces is not None:
-            self.namespaces = namespaces
-
-    @property
-    def base_credentials(self):
-        """Gets the base_credentials of this CloudWatchConfiguration.  # noqa: E501
-
-
-        :return: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
-        :rtype: AWSBaseCredentials
-        """
-        return self._base_credentials
-
-    @base_credentials.setter
-    def base_credentials(self, base_credentials):
-        """Sets the base_credentials of this CloudWatchConfiguration.
-
-
-        :param base_credentials: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
-        :type: AWSBaseCredentials
-        """
-
-        self._base_credentials = base_credentials
 
     @property
     def metric_filter_regex(self):
@@ -117,6 +96,50 @@ class CloudWatchConfiguration(object):
         """
 
         self._metric_filter_regex = metric_filter_regex
+
+    @property
+    def namespaces(self):
+        """Gets the namespaces of this CloudWatchConfiguration.  # noqa: E501
+
+        A list of namespace that limit what we query from CloudWatch.  # noqa: E501
+
+        :return: The namespaces of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._namespaces
+
+    @namespaces.setter
+    def namespaces(self, namespaces):
+        """Sets the namespaces of this CloudWatchConfiguration.
+
+        A list of namespace that limit what we query from CloudWatch.  # noqa: E501
+
+        :param namespaces: The namespaces of this CloudWatchConfiguration.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._namespaces = namespaces
+
+    @property
+    def base_credentials(self):
+        """Gets the base_credentials of this CloudWatchConfiguration.  # noqa: E501
+
+
+        :return: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: AWSBaseCredentials
+        """
+        return self._base_credentials
+
+    @base_credentials.setter
+    def base_credentials(self, base_credentials):
+        """Sets the base_credentials of this CloudWatchConfiguration.
+
+
+        :param base_credentials: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
+        :type: AWSBaseCredentials
+        """
+
+        self._base_credentials = base_credentials
 
     @property
     def instance_selection_tags(self):
@@ -186,29 +209,6 @@ class CloudWatchConfiguration(object):
         """
 
         self._point_tag_filter_regex = point_tag_filter_regex
-
-    @property
-    def namespaces(self):
-        """Gets the namespaces of this CloudWatchConfiguration.  # noqa: E501
-
-        A list of namespace that limit what we query from CloudWatch.  # noqa: E501
-
-        :return: The namespaces of this CloudWatchConfiguration.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._namespaces
-
-    @namespaces.setter
-    def namespaces(self, namespaces):
-        """Sets the namespaces of this CloudWatchConfiguration.
-
-        A list of namespace that limit what we query from CloudWatch.  # noqa: E501
-
-        :param namespaces: The namespaces of this CloudWatchConfiguration.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._namespaces = namespaces
 
     def to_dict(self):
         """Returns the model properties as a dict"""

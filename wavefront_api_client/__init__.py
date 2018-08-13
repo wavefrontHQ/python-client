@@ -19,7 +19,7 @@ from __future__ import absolute_import
 from wavefront_api_client.api.alert_api import AlertApi
 from wavefront_api_client.api.cloud_integration_api import CloudIntegrationApi
 from wavefront_api_client.api.dashboard_api import DashboardApi
-from wavefront_api_client.api.derived_metric_definition_api import DerivedMetricDefinitionApi
+from wavefront_api_client.api.derived_metric_api import DerivedMetricApi
 from wavefront_api_client.api.event_api import EventApi
 from wavefront_api_client.api.external_link_api import ExternalLinkApi
 from wavefront_api_client.api.integration_api import IntegrationApi
@@ -66,6 +66,7 @@ from wavefront_api_client.models.facet_response import FacetResponse
 from wavefront_api_client.models.facet_search_request_container import FacetSearchRequestContainer
 from wavefront_api_client.models.facets_response_container import FacetsResponseContainer
 from wavefront_api_client.models.facets_search_request_container import FacetsSearchRequestContainer
+from wavefront_api_client.models.gcp_billing_configuration import GCPBillingConfiguration
 from wavefront_api_client.models.gcp_configuration import GCPConfiguration
 from wavefront_api_client.models.history_entry import HistoryEntry
 from wavefront_api_client.models.history_response import HistoryResponse
@@ -75,13 +76,18 @@ from wavefront_api_client.models.integration_dashboard import IntegrationDashboa
 from wavefront_api_client.models.integration_manifest_group import IntegrationManifestGroup
 from wavefront_api_client.models.integration_metrics import IntegrationMetrics
 from wavefront_api_client.models.integration_status import IntegrationStatus
+from wavefront_api_client.models.iterator_entry_string_json_node import IteratorEntryStringJsonNode
+from wavefront_api_client.models.iterator_json_node import IteratorJsonNode
+from wavefront_api_client.models.iterator_string import IteratorString
 from wavefront_api_client.models.json_node import JsonNode
+from wavefront_api_client.models.logical_type import LogicalType
 from wavefront_api_client.models.maintenance_window import MaintenanceWindow
 from wavefront_api_client.models.message import Message
 from wavefront_api_client.models.metric_details import MetricDetails
 from wavefront_api_client.models.metric_details_response import MetricDetailsResponse
 from wavefront_api_client.models.metric_status import MetricStatus
 from wavefront_api_client.models.notificant import Notificant
+from wavefront_api_client.models.number import Number
 from wavefront_api_client.models.paged_alert import PagedAlert
 from wavefront_api_client.models.paged_alert_with_stats import PagedAlertWithStats
 from wavefront_api_client.models.paged_cloud_integration import PagedCloudIntegration

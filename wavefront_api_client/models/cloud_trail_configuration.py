@@ -33,39 +33,62 @@ class CloudTrailConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'region': 'str',
         'prefix': 'str',
-        'base_credentials': 'AWSBaseCredentials',
+        'region': 'str',
         'bucket_name': 'str',
+        'base_credentials': 'AWSBaseCredentials',
         'filter_rule': 'str'
     }
 
     attribute_map = {
-        'region': 'region',
         'prefix': 'prefix',
-        'base_credentials': 'baseCredentials',
+        'region': 'region',
         'bucket_name': 'bucketName',
+        'base_credentials': 'baseCredentials',
         'filter_rule': 'filterRule'
     }
 
-    def __init__(self, region=None, prefix=None, base_credentials=None, bucket_name=None, filter_rule=None):  # noqa: E501
+    def __init__(self, prefix=None, region=None, bucket_name=None, base_credentials=None, filter_rule=None):  # noqa: E501
         """CloudTrailConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._region = None
         self._prefix = None
-        self._base_credentials = None
+        self._region = None
         self._bucket_name = None
+        self._base_credentials = None
         self._filter_rule = None
         self.discriminator = None
 
-        self.region = region
         if prefix is not None:
             self.prefix = prefix
+        self.region = region
+        self.bucket_name = bucket_name
         if base_credentials is not None:
             self.base_credentials = base_credentials
-        self.bucket_name = bucket_name
         if filter_rule is not None:
             self.filter_rule = filter_rule
+
+    @property
+    def prefix(self):
+        """Gets the prefix of this CloudTrailConfiguration.  # noqa: E501
+
+        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
+
+        :return: The prefix of this CloudTrailConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix
+
+    @prefix.setter
+    def prefix(self, prefix):
+        """Sets the prefix of this CloudTrailConfiguration.
+
+        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
+
+        :param prefix: The prefix of this CloudTrailConfiguration.  # noqa: E501
+        :type: str
+        """
+
+        self._prefix = prefix
 
     @property
     def region(self):
@@ -93,50 +116,6 @@ class CloudTrailConfiguration(object):
         self._region = region
 
     @property
-    def prefix(self):
-        """Gets the prefix of this CloudTrailConfiguration.  # noqa: E501
-
-        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
-
-        :return: The prefix of this CloudTrailConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._prefix
-
-    @prefix.setter
-    def prefix(self, prefix):
-        """Sets the prefix of this CloudTrailConfiguration.
-
-        The common prefix, if any, appended to all CloudTrail log files  # noqa: E501
-
-        :param prefix: The prefix of this CloudTrailConfiguration.  # noqa: E501
-        :type: str
-        """
-
-        self._prefix = prefix
-
-    @property
-    def base_credentials(self):
-        """Gets the base_credentials of this CloudTrailConfiguration.  # noqa: E501
-
-
-        :return: The base_credentials of this CloudTrailConfiguration.  # noqa: E501
-        :rtype: AWSBaseCredentials
-        """
-        return self._base_credentials
-
-    @base_credentials.setter
-    def base_credentials(self, base_credentials):
-        """Sets the base_credentials of this CloudTrailConfiguration.
-
-
-        :param base_credentials: The base_credentials of this CloudTrailConfiguration.  # noqa: E501
-        :type: AWSBaseCredentials
-        """
-
-        self._base_credentials = base_credentials
-
-    @property
     def bucket_name(self):
         """Gets the bucket_name of this CloudTrailConfiguration.  # noqa: E501
 
@@ -160,6 +139,27 @@ class CloudTrailConfiguration(object):
             raise ValueError("Invalid value for `bucket_name`, must not be `None`")  # noqa: E501
 
         self._bucket_name = bucket_name
+
+    @property
+    def base_credentials(self):
+        """Gets the base_credentials of this CloudTrailConfiguration.  # noqa: E501
+
+
+        :return: The base_credentials of this CloudTrailConfiguration.  # noqa: E501
+        :rtype: AWSBaseCredentials
+        """
+        return self._base_credentials
+
+    @base_credentials.setter
+    def base_credentials(self, base_credentials):
+        """Sets the base_credentials of this CloudTrailConfiguration.
+
+
+        :param base_credentials: The base_credentials of this CloudTrailConfiguration.  # noqa: E501
+        :type: AWSBaseCredentials
+        """
+
+        self._base_credentials = base_credentials
 
     @property
     def filter_rule(self):

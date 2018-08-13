@@ -35,16 +35,15 @@ class Dashboard(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'hidden': 'bool',
         'name': 'str',
         'id': 'str',
         'parameters': 'dict(str, str)',
+        'description': 'str',
         'tags': 'WFTags',
         'customer': 'str',
-        'description': 'str',
         'url': 'str',
         'creator_id': 'str',
-        'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
         'updater_id': 'str',
         'event_filter_type': 'str',
         'sections': 'list[DashboardSection]',
@@ -62,25 +61,25 @@ class Dashboard(object):
         'views_last_day': 'int',
         'views_last_week': 'int',
         'views_last_month': 'int',
-        'hidden': 'bool',
+        'created_epoch_millis': 'int',
+        'updated_epoch_millis': 'int',
         'deleted': 'bool',
         'system_owned': 'bool',
         'num_charts': 'int',
-        'num_favorites': 'int',
-        'favorite': 'bool'
+        'favorite': 'bool',
+        'num_favorites': 'int'
     }
 
     attribute_map = {
+        'hidden': 'hidden',
         'name': 'name',
         'id': 'id',
         'parameters': 'parameters',
+        'description': 'description',
         'tags': 'tags',
         'customer': 'customer',
-        'description': 'description',
         'url': 'url',
         'creator_id': 'creatorId',
-        'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
         'event_filter_type': 'eventFilterType',
         'sections': 'sections',
@@ -98,27 +97,27 @@ class Dashboard(object):
         'views_last_day': 'viewsLastDay',
         'views_last_week': 'viewsLastWeek',
         'views_last_month': 'viewsLastMonth',
-        'hidden': 'hidden',
+        'created_epoch_millis': 'createdEpochMillis',
+        'updated_epoch_millis': 'updatedEpochMillis',
         'deleted': 'deleted',
         'system_owned': 'systemOwned',
         'num_charts': 'numCharts',
-        'num_favorites': 'numFavorites',
-        'favorite': 'favorite'
+        'favorite': 'favorite',
+        'num_favorites': 'numFavorites'
     }
 
-    def __init__(self, name=None, id=None, parameters=None, tags=None, customer=None, description=None, url=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, event_filter_type=None, sections=None, parameter_details=None, display_description=None, display_section_table_of_contents=None, display_query_parameters=None, chart_title_scalar=None, event_query=None, default_time_window=None, default_start_time=None, default_end_time=None, chart_title_color=None, chart_title_bg_color=None, views_last_day=None, views_last_week=None, views_last_month=None, hidden=None, deleted=None, system_owned=None, num_charts=None, num_favorites=None, favorite=None):  # noqa: E501
+    def __init__(self, hidden=None, name=None, id=None, parameters=None, description=None, tags=None, customer=None, url=None, creator_id=None, updater_id=None, event_filter_type=None, sections=None, parameter_details=None, display_description=None, display_section_table_of_contents=None, display_query_parameters=None, chart_title_scalar=None, event_query=None, default_time_window=None, default_start_time=None, default_end_time=None, chart_title_color=None, chart_title_bg_color=None, views_last_day=None, views_last_week=None, views_last_month=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None, system_owned=None, num_charts=None, favorite=None, num_favorites=None):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
 
+        self._hidden = None
         self._name = None
         self._id = None
         self._parameters = None
+        self._description = None
         self._tags = None
         self._customer = None
-        self._description = None
         self._url = None
         self._creator_id = None
-        self._created_epoch_millis = None
-        self._updated_epoch_millis = None
         self._updater_id = None
         self._event_filter_type = None
         self._sections = None
@@ -136,31 +135,30 @@ class Dashboard(object):
         self._views_last_day = None
         self._views_last_week = None
         self._views_last_month = None
-        self._hidden = None
+        self._created_epoch_millis = None
+        self._updated_epoch_millis = None
         self._deleted = None
         self._system_owned = None
         self._num_charts = None
-        self._num_favorites = None
         self._favorite = None
+        self._num_favorites = None
         self.discriminator = None
 
+        if hidden is not None:
+            self.hidden = hidden
         self.name = name
         self.id = id
         if parameters is not None:
             self.parameters = parameters
+        if description is not None:
+            self.description = description
         if tags is not None:
             self.tags = tags
         if customer is not None:
             self.customer = customer
-        if description is not None:
-            self.description = description
         self.url = url
         if creator_id is not None:
             self.creator_id = creator_id
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
             self.updater_id = updater_id
         if event_filter_type is not None:
@@ -194,18 +192,41 @@ class Dashboard(object):
             self.views_last_week = views_last_week
         if views_last_month is not None:
             self.views_last_month = views_last_month
-        if hidden is not None:
-            self.hidden = hidden
+        if created_epoch_millis is not None:
+            self.created_epoch_millis = created_epoch_millis
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
         if deleted is not None:
             self.deleted = deleted
         if system_owned is not None:
             self.system_owned = system_owned
         if num_charts is not None:
             self.num_charts = num_charts
-        if num_favorites is not None:
-            self.num_favorites = num_favorites
         if favorite is not None:
             self.favorite = favorite
+        if num_favorites is not None:
+            self.num_favorites = num_favorites
+
+    @property
+    def hidden(self):
+        """Gets the hidden of this Dashboard.  # noqa: E501
+
+
+        :return: The hidden of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hidden
+
+    @hidden.setter
+    def hidden(self, hidden):
+        """Sets the hidden of this Dashboard.
+
+
+        :param hidden: The hidden of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._hidden = hidden
 
     @property
     def name(self):
@@ -281,6 +302,29 @@ class Dashboard(object):
         self._parameters = parameters
 
     @property
+    def description(self):
+        """Gets the description of this Dashboard.  # noqa: E501
+
+        Human-readable description of the dashboard  # noqa: E501
+
+        :return: The description of this Dashboard.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Dashboard.
+
+        Human-readable description of the dashboard  # noqa: E501
+
+        :param description: The description of this Dashboard.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
     def tags(self):
         """Gets the tags of this Dashboard.  # noqa: E501
 
@@ -323,29 +367,6 @@ class Dashboard(object):
         """
 
         self._customer = customer
-
-    @property
-    def description(self):
-        """Gets the description of this Dashboard.  # noqa: E501
-
-        Human-readable description of the dashboard  # noqa: E501
-
-        :return: The description of this Dashboard.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Dashboard.
-
-        Human-readable description of the dashboard  # noqa: E501
-
-        :param description: The description of this Dashboard.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
 
     @property
     def url(self):
@@ -392,48 +413,6 @@ class Dashboard(object):
         """
 
         self._creator_id = creator_id
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this Dashboard.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this Dashboard.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_epoch_millis
-
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this Dashboard.
-
-
-        :param created_epoch_millis: The created_epoch_millis of this Dashboard.  # noqa: E501
-        :type: int
-        """
-
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this Dashboard.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this Dashboard.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this Dashboard.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this Dashboard.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
 
     @property
     def updater_id(self):
@@ -827,25 +806,46 @@ class Dashboard(object):
         self._views_last_month = views_last_month
 
     @property
-    def hidden(self):
-        """Gets the hidden of this Dashboard.  # noqa: E501
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this Dashboard.  # noqa: E501
 
 
-        :return: The hidden of this Dashboard.  # noqa: E501
-        :rtype: bool
+        :return: The created_epoch_millis of this Dashboard.  # noqa: E501
+        :rtype: int
         """
-        return self._hidden
+        return self._created_epoch_millis
 
-    @hidden.setter
-    def hidden(self, hidden):
-        """Sets the hidden of this Dashboard.
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this Dashboard.
 
 
-        :param hidden: The hidden of this Dashboard.  # noqa: E501
-        :type: bool
+        :param created_epoch_millis: The created_epoch_millis of this Dashboard.  # noqa: E501
+        :type: int
         """
 
-        self._hidden = hidden
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this Dashboard.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this Dashboard.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this Dashboard.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this Dashboard.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
 
     @property
     def deleted(self):
@@ -913,27 +913,6 @@ class Dashboard(object):
         self._num_charts = num_charts
 
     @property
-    def num_favorites(self):
-        """Gets the num_favorites of this Dashboard.  # noqa: E501
-
-
-        :return: The num_favorites of this Dashboard.  # noqa: E501
-        :rtype: int
-        """
-        return self._num_favorites
-
-    @num_favorites.setter
-    def num_favorites(self, num_favorites):
-        """Sets the num_favorites of this Dashboard.
-
-
-        :param num_favorites: The num_favorites of this Dashboard.  # noqa: E501
-        :type: int
-        """
-
-        self._num_favorites = num_favorites
-
-    @property
     def favorite(self):
         """Gets the favorite of this Dashboard.  # noqa: E501
 
@@ -953,6 +932,27 @@ class Dashboard(object):
         """
 
         self._favorite = favorite
+
+    @property
+    def num_favorites(self):
+        """Gets the num_favorites of this Dashboard.  # noqa: E501
+
+
+        :return: The num_favorites of this Dashboard.  # noqa: E501
+        :rtype: int
+        """
+        return self._num_favorites
+
+    @num_favorites.setter
+    def num_favorites(self, num_favorites):
+        """Sets the num_favorites of this Dashboard.
+
+
+        :param num_favorites: The num_favorites of this Dashboard.  # noqa: E501
+        :type: int
+        """
+
+        self._num_favorites = num_favorites
 
     def to_dict(self):
         """Returns the model properties as a dict"""

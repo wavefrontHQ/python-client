@@ -100,7 +100,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.Alert() # Alert | Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre> (optional)
+body = wavefront_api_client.Alert() # Alert | Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> (optional)
 
 try:
     # Create a specific alert
@@ -114,7 +114,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Alert**](Alert.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;user@example.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**Alert**](Alert.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;success@simulator.amazonses.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -813,7 +813,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.Alert() # Alert | Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre> (optional)
+body = wavefront_api_client.Alert() # Alert | Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> (optional)
 
 try:
     # Update a specific alert
@@ -828,7 +828,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**Alert**](Alert.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;user@example.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**Alert**](Alert.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;success@simulator.amazonses.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
