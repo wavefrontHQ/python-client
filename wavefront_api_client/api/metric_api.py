@@ -38,11 +38,11 @@ class MetricApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_metric_details(m, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_metric_details(m, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str m: Metric name (required)
         :param int l: limit
         :param str c: cursor value to continue if the number of results exceeds 1000
@@ -52,7 +52,7 @@ class MetricApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_metric_details_with_http_info(m, **kwargs)  # noqa: E501
         else:
             (data) = self.get_metric_details_with_http_info(m, **kwargs)  # noqa: E501
@@ -63,11 +63,11 @@ class MetricApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_metric_details_with_http_info(m, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_metric_details_with_http_info(m, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str m: Metric name (required)
         :param int l: limit
         :param str c: cursor value to continue if the number of results exceeds 1000
@@ -78,7 +78,7 @@ class MetricApi(object):
         """
 
         all_params = ['m', 'l', 'c', 'h']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +135,7 @@ class MetricApi(object):
             files=local_var_files,
             response_type='MetricDetailsResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

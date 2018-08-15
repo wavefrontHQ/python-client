@@ -31,10 +31,10 @@ class CustomerFacingUserObject(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str',
-        'customer': 'str',
         'identifier': 'str',
+        'id': 'str',
         'groups': 'list[str]',
+        'customer': 'str',
         'last_successful_login': 'int',
         '_self': 'bool',
         'escaped_identifier': 'str',
@@ -42,34 +42,34 @@ class CustomerFacingUserObject(object):
     }
 
     attribute_map = {
-        'id': 'id',
-        'customer': 'customer',
         'identifier': 'identifier',
+        'id': 'id',
         'groups': 'groups',
+        'customer': 'customer',
         'last_successful_login': 'lastSuccessfulLogin',
         '_self': 'self',
         'escaped_identifier': 'escapedIdentifier',
         'gravatar_url': 'gravatarUrl'
     }
 
-    def __init__(self, id=None, customer=None, identifier=None, groups=None, last_successful_login=None, _self=None, escaped_identifier=None, gravatar_url=None):  # noqa: E501
+    def __init__(self, identifier=None, id=None, groups=None, customer=None, last_successful_login=None, _self=None, escaped_identifier=None, gravatar_url=None):  # noqa: E501
         """CustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
-        self._id = None
-        self._customer = None
         self._identifier = None
+        self._id = None
         self._groups = None
+        self._customer = None
         self._last_successful_login = None
         self.__self = None
         self._escaped_identifier = None
         self._gravatar_url = None
         self.discriminator = None
 
-        self.id = id
-        self.customer = customer
         self.identifier = identifier
+        self.id = id
         if groups is not None:
             self.groups = groups
+        self.customer = customer
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
         self._self = _self
@@ -77,56 +77,6 @@ class CustomerFacingUserObject(object):
             self.escaped_identifier = escaped_identifier
         if gravatar_url is not None:
             self.gravatar_url = gravatar_url
-
-    @property
-    def id(self):
-        """Gets the id of this CustomerFacingUserObject.  # noqa: E501
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :return: The id of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CustomerFacingUserObject.
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :param id: The id of this CustomerFacingUserObject.  # noqa: E501
-        :type: str
-        """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
-
-    @property
-    def customer(self):
-        """Gets the customer of this CustomerFacingUserObject.  # noqa: E501
-
-        The id of the customer to which the user belongs  # noqa: E501
-
-        :return: The customer of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: str
-        """
-        return self._customer
-
-    @customer.setter
-    def customer(self, customer):
-        """Sets the customer of this CustomerFacingUserObject.
-
-        The id of the customer to which the user belongs  # noqa: E501
-
-        :param customer: The customer of this CustomerFacingUserObject.  # noqa: E501
-        :type: str
-        """
-        if customer is None:
-            raise ValueError("Invalid value for `customer`, must not be `None`")  # noqa: E501
-
-        self._customer = customer
 
     @property
     def identifier(self):
@@ -154,6 +104,31 @@ class CustomerFacingUserObject(object):
         self._identifier = identifier
 
     @property
+    def id(self):
+        """Gets the id of this CustomerFacingUserObject.  # noqa: E501
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :return: The id of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CustomerFacingUserObject.
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :param id: The id of this CustomerFacingUserObject.  # noqa: E501
+        :type: str
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
     def groups(self):
         """Gets the groups of this CustomerFacingUserObject.  # noqa: E501
 
@@ -175,6 +150,31 @@ class CustomerFacingUserObject(object):
         """
 
         self._groups = groups
+
+    @property
+    def customer(self):
+        """Gets the customer of this CustomerFacingUserObject.  # noqa: E501
+
+        The id of the customer to which the user belongs  # noqa: E501
+
+        :return: The customer of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer
+
+    @customer.setter
+    def customer(self, customer):
+        """Sets the customer of this CustomerFacingUserObject.
+
+        The id of the customer to which the user belongs  # noqa: E501
+
+        :param customer: The customer of this CustomerFacingUserObject.  # noqa: E501
+        :type: str
+        """
+        if customer is None:
+            raise ValueError("Invalid value for `customer`, must not be `None`")  # noqa: E501
+
+        self._customer = customer
 
     @property
     def last_successful_login(self):

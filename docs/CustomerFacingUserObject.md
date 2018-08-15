@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique identifier of this user, which should be their valid email address | 
-**customer** | **str** | The id of the customer to which the user belongs | 
 **identifier** | **str** | The unique identifier of this user, which should be their valid email address | 
+**id** | **str** | The unique identifier of this user, which should be their valid email address | 
 **groups** | **list[str]** | List of permission groups this user has been granted access to | [optional] 
+**customer** | **str** | The id of the customer to which the user belongs | 
 **last_successful_login** | **int** | The last time the user logged in, in epoch milliseconds | [optional] 
 **_self** | **bool** | Whether this user is the one calling the API | 
 **escaped_identifier** | **str** | URL Escaped Identifier | [optional] 

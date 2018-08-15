@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** | Chart Type.  &#39;line&#39; refers to the Line Plot, &#39;scatter&#39; to the Point Plot, &#39;stacked-area&#39; to the Stacked Area plot, &#39;table&#39; to the Tabular View, &#39;scatterploy-xy&#39; to Scatter Plot, &#39;markdown-widget&#39; to the Markdown display, and &#39;sparkline&#39; to the Single Stat view | 
 **min** | **float** | Min value of Y-axis.  Set to null or leave blank for auto | [optional] 
+**type** | **str** | Chart Type.  &#39;line&#39; refers to the Line Plot, &#39;scatter&#39; to the Point Plot, &#39;stacked-area&#39; to the Stacked Area plot, &#39;table&#39; to the Tabular View, &#39;scatterploy-xy&#39; to Scatter Plot, &#39;markdown-widget&#39; to the Markdown display, and &#39;sparkline&#39; to the Single Stat view | 
 **max** | **float** | Max value of Y-axis.  Set to null or leave blank for auto | [optional] 
 **expected_data_spacing** | **int** | Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s | [optional] 
-**plain_markdown_content** | **str** | The Markdown content for a Markdown display, in plain text.  Use this field instead of &#x60;markdownContent&#x60;. | [optional] 
 **fixed_legend_enabled** | **bool** | Whether to enable a fixed tabular legend adjacent to the chart | [optional] 
 **fixed_legend_use_raw_stats** | **bool** | If true, the legend uses non-summarized stats instead of summarized | [optional] 
+**plain_markdown_content** | **str** | The Markdown content for a Markdown display, in plain text.  Use this field instead of &#x60;markdownContent&#x60;. | [optional] 
 **line_type** | **str** | Plot interpolation type.  linear is default | [optional] 
 **stack_type** | **str** | Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y&#x3D;0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream | [optional] 
 **windowing** | **str** | For the tabular view, whether to use the full time window for the query or the last X minutes | [optional] 

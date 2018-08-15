@@ -38,11 +38,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_event_tag(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_event_tag(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -50,7 +50,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.add_event_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.add_event_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_event_tag_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_event_tag_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -74,7 +74,7 @@ class EventApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,18 +145,18 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.close_event(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.close_event(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.close_event_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.close_event_with_http_info(id, **kwargs)  # noqa: E501
@@ -167,11 +167,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.close_event_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.close_event_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
@@ -179,7 +179,7 @@ class EventApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -229,7 +229,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainerEvent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -240,18 +240,18 @@ class EventApi(object):
 
         The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_event(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_event(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param async_req bool
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_event_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.create_event_with_http_info(**kwargs)  # noqa: E501
@@ -262,19 +262,19 @@ class EventApi(object):
 
         The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_event_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_event_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param async_req bool
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainerEvent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_event(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_event(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_event_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_event_with_http_info(id, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_event_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_event_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class EventApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -419,7 +419,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainerEvent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -430,11 +430,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_events_with_time_range(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_events_with_time_range(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int earliest_start_time_epoch_millis:
         :param int latest_start_time_epoch_millis:
         :param str cursor:
@@ -444,7 +444,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_all_events_with_time_range_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_all_events_with_time_range_with_http_info(**kwargs)  # noqa: E501
@@ -455,11 +455,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_events_with_time_range_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_events_with_time_range_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int earliest_start_time_epoch_millis:
         :param int latest_start_time_epoch_millis:
         :param str cursor:
@@ -470,7 +470,7 @@ class EventApi(object):
         """
 
         all_params = ['earliest_start_time_epoch_millis', 'latest_start_time_epoch_millis', 'cursor', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedEvent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,18 +533,18 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_event_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_event_with_http_info(id, **kwargs)  # noqa: E501
@@ -555,11 +555,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
@@ -567,7 +567,7 @@ class EventApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -617,7 +617,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainerEvent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -628,18 +628,18 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_event_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_event_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -650,11 +650,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_event_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -662,7 +662,7 @@ class EventApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -712,7 +712,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainerTagsResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -723,11 +723,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_event_tag(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_event_tag(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -735,7 +735,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.remove_event_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.remove_event_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -746,11 +746,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_event_tag_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_event_tag_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -759,7 +759,7 @@ class EventApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -819,7 +819,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -830,11 +830,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_event_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_event_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -842,7 +842,7 @@ class EventApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.set_event_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.set_event_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -853,11 +853,11 @@ class EventApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_event_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_event_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -866,7 +866,7 @@ class EventApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -922,7 +922,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -933,19 +933,19 @@ class EventApi(object):
 
         The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_event(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_event(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_event_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_event_with_http_info(id, **kwargs)  # noqa: E501
@@ -956,20 +956,20 @@ class EventApi(object):
 
         The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_event_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_event_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
-        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
+        :param Event body: Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre>
         :return: ResponseContainerEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1025,7 +1025,7 @@ class EventApi(object):
             files=local_var_files,
             response_type='ResponseContainerEvent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

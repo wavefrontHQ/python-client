@@ -149,7 +149,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.EventApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.Event() # Event | Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre> (optional)
+body = wavefront_api_client.Event() # Event | Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre> (optional)
 
 try:
     # Create a specific event
@@ -163,7 +163,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Event**](Event.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Event API Example\&quot;,   \&quot;annotations\&quot;: {     \&quot;severity\&quot;: \&quot;info\&quot;,     \&quot;type\&quot;: \&quot;event type\&quot;,     \&quot;details\&quot;: \&quot;description\&quot;   },   \&quot;startTime\&quot;: 1490000000000,   \&quot;endTime\&quot;: 1490000000001 }&lt;/pre&gt; | [optional] 
+ **body** | [**Event**](Event.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Event API Example\&quot;,   \&quot;annotations\&quot;: {     \&quot;severity\&quot;: \&quot;info\&quot;,     \&quot;type\&quot;: \&quot;event type\&quot;,     \&quot;details\&quot;: \&quot;description\&quot;   },   \&quot;tags\&quot; : [     \&quot;eventTag1\&quot;   ],   \&quot;startTime\&quot;: 1490000000000,   \&quot;endTime\&quot;: 1490000000001 }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -538,7 +538,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.EventApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.Event() # Event | Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre> (optional)
+body = wavefront_api_client.Event() # Event | Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre> (optional)
 
 try:
     # Update a specific event
@@ -553,7 +553,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**Event**](Event.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Event API Example\&quot;,   \&quot;annotations\&quot;: {     \&quot;severity\&quot;: \&quot;info\&quot;,     \&quot;type\&quot;: \&quot;event type\&quot;,     \&quot;details\&quot;: \&quot;description\&quot;   },   \&quot;startTime\&quot;: 1490000000000,   \&quot;endTime\&quot;: 1490000000001 }&lt;/pre&gt; | [optional] 
+ **body** | [**Event**](Event.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Event API Example\&quot;,   \&quot;annotations\&quot;: {     \&quot;severity\&quot;: \&quot;info\&quot;,     \&quot;type\&quot;: \&quot;event type\&quot;,     \&quot;details\&quot;: \&quot;description\&quot;   },   \&quot;tags\&quot; : [     \&quot;eventTag1\&quot;   ],   \&quot;startTime\&quot;: 1490000000000,   \&quot;endTime\&quot;: 1490000000001 }&lt;/pre&gt; | [optional] 
 
 ### Return type
 

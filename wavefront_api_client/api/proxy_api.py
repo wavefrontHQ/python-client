@@ -38,18 +38,18 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_proxy(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_proxy(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_proxy_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_proxy_with_http_info(id, **kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_proxy_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_proxy_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -122,7 +122,7 @@ class ProxyApi(object):
             files=local_var_files,
             response_type='ResponseContainerProxy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -133,11 +133,11 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_proxy(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_proxy(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedProxy
@@ -145,7 +145,7 @@ class ProxyApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_all_proxy_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_all_proxy_with_http_info(**kwargs)  # noqa: E501
@@ -156,11 +156,11 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_proxy_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_proxy_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedProxy
@@ -169,7 +169,7 @@ class ProxyApi(object):
         """
 
         all_params = ['offset', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -217,7 +217,7 @@ class ProxyApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedProxy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -228,18 +228,18 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_proxy(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_proxy(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_proxy_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_proxy_with_http_info(id, **kwargs)  # noqa: E501
@@ -250,11 +250,11 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_proxy_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_proxy_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
@@ -262,7 +262,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -312,7 +312,7 @@ class ProxyApi(object):
             files=local_var_files,
             response_type='ResponseContainerProxy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -323,18 +323,18 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_proxy(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_proxy(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.undelete_proxy_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.undelete_proxy_with_http_info(id, **kwargs)  # noqa: E501
@@ -345,11 +345,11 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_proxy_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_proxy_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
@@ -357,7 +357,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -407,7 +407,7 @@ class ProxyApi(object):
             files=local_var_files,
             response_type='ResponseContainerProxy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -418,11 +418,11 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_proxy(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_proxy(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param Proxy body: Example Body:  <pre>{   \"name\": \"New Name for proxy\" }</pre>
         :return: ResponseContainerProxy
@@ -430,7 +430,7 @@ class ProxyApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_proxy_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_proxy_with_http_info(id, **kwargs)  # noqa: E501
@@ -441,11 +441,11 @@ class ProxyApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_proxy_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_proxy_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param Proxy body: Example Body:  <pre>{   \"name\": \"New Name for proxy\" }</pre>
         :return: ResponseContainerProxy
@@ -454,7 +454,7 @@ class ProxyApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -510,7 +510,7 @@ class ProxyApi(object):
             files=local_var_files,
             response_type='ResponseContainerProxy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

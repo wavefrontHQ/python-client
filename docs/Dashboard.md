@@ -3,16 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**hidden** | **bool** |  | [optional] 
 **name** | **str** | Name of the dashboard | 
 **id** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **parameters** | **dict(str, str)** | Deprecated.  An obsolete representation of dashboard parameters | [optional] 
+**description** | **str** | Human-readable description of the dashboard | [optional] 
 **tags** | [**WFTags**](WFTags.md) |  | [optional] 
 **customer** | **str** | id of the customer to which this dashboard belongs | [optional] 
-**description** | **str** | Human-readable description of the dashboard | [optional] 
 **url** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **creator_id** | **str** |  | [optional] 
-**created_epoch_millis** | **int** |  | [optional] 
-**updated_epoch_millis** | **int** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
 **event_filter_type** | **str** | How charts belonging to this dashboard should display events.  BYCHART is default if unspecified | [optional] 
 **sections** | [**list[DashboardSection]**](DashboardSection.md) | Dashboard chart sections | 
@@ -30,12 +29,13 @@ Name | Type | Description | Notes
 **views_last_day** | **int** |  | [optional] 
 **views_last_week** | **int** |  | [optional] 
 **views_last_month** | **int** |  | [optional] 
-**hidden** | **bool** |  | [optional] 
+**created_epoch_millis** | **int** |  | [optional] 
+**updated_epoch_millis** | **int** |  | [optional] 
 **deleted** | **bool** |  | [optional] 
 **system_owned** | **bool** | Whether this dashboard is system-owned and not writeable | [optional] 
 **num_charts** | **int** |  | [optional] 
-**num_favorites** | **int** |  | [optional] 
 **favorite** | **bool** |  | [optional] 
+**num_favorites** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -38,18 +38,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_deleted_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_deleted_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_alert_deleted_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_alert_deleted_entities_with_http_info(**kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_deleted_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_deleted_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedAlert
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -122,7 +122,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -133,11 +133,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_deleted_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_deleted_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -145,7 +145,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_alert_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_alert_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -156,11 +156,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_deleted_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_deleted_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -169,7 +169,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_deleted_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_deleted_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_alert_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_alert_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_deleted_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_deleted_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -320,7 +320,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -331,18 +331,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedAlertWithStats
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_alert_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_alert_entities_with_http_info(**kwargs)  # noqa: E501
@@ -353,11 +353,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedAlertWithStats
                  If the method is called asynchronously,
@@ -365,7 +365,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -415,7 +415,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedAlertWithStats',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -426,11 +426,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -438,7 +438,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_alert_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_alert_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -449,11 +449,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -462,7 +462,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -518,7 +518,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -529,18 +529,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_alert_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_alert_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -551,11 +551,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_alert_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -563,7 +563,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -613,7 +613,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -624,18 +624,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_deleted_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_deleted_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_cloud_integration_deleted_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_cloud_integration_deleted_entities_with_http_info(**kwargs)  # noqa: E501
@@ -646,11 +646,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_deleted_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_deleted_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
@@ -658,7 +658,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -708,7 +708,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -719,11 +719,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_deleted_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_deleted_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -731,7 +731,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_cloud_integration_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_cloud_integration_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -742,11 +742,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_deleted_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_deleted_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -755,7 +755,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -811,7 +811,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -822,18 +822,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_deleted_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_deleted_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_cloud_integration_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_cloud_integration_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -844,11 +844,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_deleted_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_deleted_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -856,7 +856,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -906,7 +906,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -917,18 +917,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_cloud_integration_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_cloud_integration_entities_with_http_info(**kwargs)  # noqa: E501
@@ -939,11 +939,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCloudIntegration
                  If the method is called asynchronously,
@@ -951,7 +951,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1001,7 +1001,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1012,11 +1012,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1024,7 +1024,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_cloud_integration_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_cloud_integration_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -1035,11 +1035,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1048,7 +1048,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1104,7 +1104,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1115,18 +1115,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_cloud_integration_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_cloud_integration_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -1137,11 +1137,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_cloud_integration_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_cloud_integration_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -1149,7 +1149,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1199,7 +1199,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1210,18 +1210,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_deleted_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_deleted_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_dashboard_deleted_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_dashboard_deleted_entities_with_http_info(**kwargs)  # noqa: E501
@@ -1232,11 +1232,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_deleted_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_deleted_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
@@ -1244,7 +1244,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1294,7 +1294,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedDashboard',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1305,11 +1305,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_deleted_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_deleted_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1317,7 +1317,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_dashboard_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_dashboard_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -1328,11 +1328,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_deleted_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_deleted_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1341,7 +1341,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1397,7 +1397,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1408,18 +1408,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_deleted_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_deleted_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_dashboard_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_dashboard_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -1430,11 +1430,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_deleted_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_deleted_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -1442,7 +1442,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1492,7 +1492,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1503,18 +1503,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_dashboard_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_dashboard_entities_with_http_info(**kwargs)  # noqa: E501
@@ -1525,11 +1525,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDashboard
                  If the method is called asynchronously,
@@ -1537,7 +1537,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1587,7 +1587,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedDashboard',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1598,11 +1598,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1610,7 +1610,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_dashboard_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_dashboard_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -1621,11 +1621,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1634,7 +1634,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1690,7 +1690,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1701,18 +1701,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_dashboard_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_dashboard_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -1723,11 +1723,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_dashboard_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_dashboard_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -1735,7 +1735,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1785,7 +1785,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1796,18 +1796,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_external_link_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_external_link_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedExternalLink
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_external_link_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_external_link_entities_with_http_info(**kwargs)  # noqa: E501
@@ -1818,11 +1818,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_external_link_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_external_link_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedExternalLink
                  If the method is called asynchronously,
@@ -1830,7 +1830,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1880,7 +1880,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedExternalLink',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1891,11 +1891,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_external_links_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_external_links_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1903,7 +1903,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_external_links_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_external_links_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -1914,11 +1914,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_external_links_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_external_links_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -1927,7 +1927,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1983,7 +1983,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1994,18 +1994,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_external_links_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_external_links_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_external_links_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_external_links_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -2016,11 +2016,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_external_links_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_external_links_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -2028,7 +2028,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2078,7 +2078,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2089,18 +2089,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_maintenance_window_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_maintenance_window_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedMaintenanceWindow
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_maintenance_window_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_maintenance_window_entities_with_http_info(**kwargs)  # noqa: E501
@@ -2111,11 +2111,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_maintenance_window_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_maintenance_window_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedMaintenanceWindow
                  If the method is called asynchronously,
@@ -2123,7 +2123,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2173,7 +2173,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedMaintenanceWindow',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2184,11 +2184,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_maintenance_window_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_maintenance_window_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2196,7 +2196,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_maintenance_window_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_maintenance_window_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -2207,11 +2207,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_maintenance_window_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_maintenance_window_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2220,7 +2220,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2276,7 +2276,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2287,18 +2287,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_maintenance_window_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_maintenance_window_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_maintenance_window_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_maintenance_window_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -2309,11 +2309,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_maintenance_window_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_maintenance_window_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -2321,7 +2321,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2371,7 +2371,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2382,18 +2382,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_notficant_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_notficant_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_notficant_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_notficant_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -2404,11 +2404,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_notficant_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_notficant_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -2416,7 +2416,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2466,7 +2466,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2477,18 +2477,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_notificant_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_notificant_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_notificant_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_notificant_entities_with_http_info(**kwargs)  # noqa: E501
@@ -2499,11 +2499,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_notificant_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_notificant_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
@@ -2511,7 +2511,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2561,7 +2561,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2572,11 +2572,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_notificant_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_notificant_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2584,7 +2584,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_notificant_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_notificant_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -2595,11 +2595,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_notificant_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_notificant_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2608,7 +2608,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2664,7 +2664,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2675,18 +2675,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_deleted_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_deleted_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_proxy_deleted_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_proxy_deleted_entities_with_http_info(**kwargs)  # noqa: E501
@@ -2697,11 +2697,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_deleted_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_deleted_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
@@ -2709,7 +2709,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2759,7 +2759,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedProxy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2770,11 +2770,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_deleted_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_deleted_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2782,7 +2782,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_proxy_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_proxy_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -2793,11 +2793,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_deleted_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_deleted_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -2806,7 +2806,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2862,7 +2862,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2873,18 +2873,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_deleted_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_deleted_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_proxy_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_proxy_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -2895,11 +2895,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_deleted_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_deleted_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -2907,7 +2907,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2957,7 +2957,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -2968,18 +2968,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_proxy_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_proxy_entities_with_http_info(**kwargs)  # noqa: E501
@@ -2990,11 +2990,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedProxy
                  If the method is called asynchronously,
@@ -3002,7 +3002,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3052,7 +3052,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedProxy',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3063,11 +3063,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3075,7 +3075,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_proxy_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_proxy_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -3086,11 +3086,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3099,7 +3099,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3155,7 +3155,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3166,18 +3166,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_proxy_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_proxy_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -3188,11 +3188,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_proxy_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_proxy_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -3200,7 +3200,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3250,7 +3250,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3261,18 +3261,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_deleted_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_deleted_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDerivedMetricDefinition
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_registered_query_deleted_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_registered_query_deleted_entities_with_http_info(**kwargs)  # noqa: E501
@@ -3283,11 +3283,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_deleted_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_deleted_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDerivedMetricDefinition
                  If the method is called asynchronously,
@@ -3295,7 +3295,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3336,7 +3336,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/deleted', 'POST',
+            '/api/v2/search/derivedmetric/deleted', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3345,7 +3345,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3356,11 +3356,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_deleted_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_deleted_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3368,7 +3368,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_registered_query_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_registered_query_deleted_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -3379,11 +3379,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_deleted_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_deleted_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3392,7 +3392,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3439,7 +3439,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/deleted/{facet}', 'POST',
+            '/api/v2/search/derivedmetric/deleted/{facet}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3448,7 +3448,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3459,18 +3459,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_deleted_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_deleted_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_registered_query_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_registered_query_deleted_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -3481,11 +3481,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_deleted_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_deleted_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -3493,7 +3493,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3534,7 +3534,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/deleted/facets', 'POST',
+            '/api/v2/search/derivedmetric/deleted/facets', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3543,7 +3543,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3554,18 +3554,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDerivedMetricDefinitionWithStats
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_registered_query_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_registered_query_entities_with_http_info(**kwargs)  # noqa: E501
@@ -3576,11 +3576,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedDerivedMetricDefinitionWithStats
                  If the method is called asynchronously,
@@ -3588,7 +3588,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3629,7 +3629,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition', 'POST',
+            '/api/v2/search/derivedmetric', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3638,7 +3638,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedDerivedMetricDefinitionWithStats',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3649,11 +3649,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3661,7 +3661,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_registered_query_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_registered_query_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -3672,11 +3672,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3685,7 +3685,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3732,7 +3732,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/{facet}', 'POST',
+            '/api/v2/search/derivedmetric/{facet}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3741,7 +3741,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3752,18 +3752,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_registered_query_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_registered_query_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -3774,11 +3774,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_registered_query_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_registered_query_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -3786,7 +3786,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3827,7 +3827,7 @@ class SearchApi(object):
         auth_settings = ['api_key']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/search/derivedmetricdefinition/facets', 'POST',
+            '/api/v2/search/derivedmetric/facets', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3836,7 +3836,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3847,18 +3847,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_report_event_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_report_event_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param EventSearchRequest body:
         :return: ResponseContainerPagedEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_report_event_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_report_event_entities_with_http_info(**kwargs)  # noqa: E501
@@ -3869,11 +3869,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_report_event_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_report_event_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param EventSearchRequest body:
         :return: ResponseContainerPagedEvent
                  If the method is called asynchronously,
@@ -3881,7 +3881,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3931,7 +3931,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedEvent',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -3942,11 +3942,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_report_event_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_report_event_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3954,7 +3954,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_report_event_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_report_event_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -3965,11 +3965,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_report_event_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_report_event_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -3978,7 +3978,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4034,7 +4034,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4045,18 +4045,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_report_event_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_report_event_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_report_event_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_report_event_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -4067,11 +4067,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_report_event_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_report_event_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -4079,7 +4079,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4129,7 +4129,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4140,18 +4140,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_tagged_source_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_tagged_source_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SourceSearchRequestContainer body:
         :return: ResponseContainerPagedSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_tagged_source_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_tagged_source_entities_with_http_info(**kwargs)  # noqa: E501
@@ -4162,11 +4162,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_tagged_source_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_tagged_source_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SourceSearchRequestContainer body:
         :return: ResponseContainerPagedSource
                  If the method is called asynchronously,
@@ -4174,7 +4174,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4224,7 +4224,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedSource',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4235,11 +4235,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_tagged_source_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_tagged_source_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -4247,7 +4247,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_tagged_source_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_tagged_source_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -4258,11 +4258,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_tagged_source_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_tagged_source_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -4271,7 +4271,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4327,7 +4327,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4338,18 +4338,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_tagged_source_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_tagged_source_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_tagged_source_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_tagged_source_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -4360,11 +4360,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_tagged_source_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_tagged_source_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -4372,7 +4372,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4422,7 +4422,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4433,18 +4433,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_user_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_user_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCustomerFacingUserObject
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_user_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_user_entities_with_http_info(**kwargs)  # noqa: E501
@@ -4455,11 +4455,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_user_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_user_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedCustomerFacingUserObject
                  If the method is called asynchronously,
@@ -4467,7 +4467,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4517,7 +4517,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedCustomerFacingUserObject',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4528,11 +4528,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_user_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_user_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -4540,7 +4540,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_user_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_user_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -4551,11 +4551,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_user_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_user_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -4564,7 +4564,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4620,7 +4620,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4631,18 +4631,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_user_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_user_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_user_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_user_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -4653,11 +4653,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_user_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_user_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -4665,7 +4665,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4715,7 +4715,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4726,18 +4726,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_web_hook_entities(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_web_hook_entities(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_web_hook_entities_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_web_hook_entities_with_http_info(**kwargs)  # noqa: E501
@@ -4748,11 +4748,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_web_hook_entities_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_web_hook_entities_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param SortableSearchRequest body:
         :return: ResponseContainerPagedNotificant
                  If the method is called asynchronously,
@@ -4760,7 +4760,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4810,7 +4810,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4821,11 +4821,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_web_hook_for_facet(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_web_hook_for_facet(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -4833,7 +4833,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_web_hook_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
         else:
             (data) = self.search_web_hook_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
@@ -4844,11 +4844,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_web_hook_for_facet_with_http_info(facet, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_web_hook_for_facet_with_http_info(facet, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str facet: (required)
         :param FacetSearchRequestContainer body:
         :return: ResponseContainerFacetResponse
@@ -4857,7 +4857,7 @@ class SearchApi(object):
         """
 
         all_params = ['facet', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -4913,7 +4913,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -4924,18 +4924,18 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_webhook_for_facets(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_webhook_for_facets(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_webhook_for_facets_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_webhook_for_facets_with_http_info(**kwargs)  # noqa: E501
@@ -4946,11 +4946,11 @@ class SearchApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_webhook_for_facets_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_webhook_for_facets_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param FacetsSearchRequestContainer body:
         :return: ResponseContainerFacetsResponseContainer
                  If the method is called asynchronously,
@@ -4958,7 +4958,7 @@ class SearchApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -5008,7 +5008,7 @@ class SearchApi(object):
             files=local_var_files,
             response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

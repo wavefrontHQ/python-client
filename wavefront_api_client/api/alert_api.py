@@ -38,11 +38,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_alert_tag(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_alert_tag(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -50,7 +50,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.add_alert_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.add_alert_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_alert_tag_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_alert_tag_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -74,7 +74,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,18 +145,18 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_alert(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_alert(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param async_req bool
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_alert_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.create_alert_with_http_info(**kwargs)  # noqa: E501
@@ -167,19 +167,19 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_alert_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_alert_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
-        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param async_req bool
+        :param Alert body: Example Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -229,7 +229,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -240,18 +240,18 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_alert(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_alert(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_alert_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_alert_with_http_info(id, **kwargs)  # noqa: E501
@@ -262,11 +262,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_alert_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_alert_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -274,7 +274,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,18 +335,18 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_alert_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_alert_with_http_info(id, **kwargs)  # noqa: E501
@@ -357,11 +357,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -369,7 +369,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -419,7 +419,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -430,11 +430,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert_history(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert_history(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -443,7 +443,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_alert_history_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_alert_history_with_http_info(id, **kwargs)  # noqa: E501
@@ -454,11 +454,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert_history_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert_history_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -468,7 +468,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'offset', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerHistoryResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,18 +533,18 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_alert_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_alert_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -555,11 +555,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -567,7 +567,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -617,7 +617,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerTagsResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -628,11 +628,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert_version(id, version, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert_version(id, version, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerAlert
@@ -640,7 +640,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_alert_version_with_http_info(id, version, **kwargs)  # noqa: E501
         else:
             (data) = self.get_alert_version_with_http_info(id, version, **kwargs)  # noqa: E501
@@ -651,11 +651,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alert_version_with_http_info(id, version, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alert_version_with_http_info(id, version, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerAlert
@@ -664,7 +664,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'version']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -720,7 +720,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -731,17 +731,17 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alerts_summary(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alerts_summary(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ResponseContainerMapStringInteger
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_alerts_summary_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_alerts_summary_with_http_info(**kwargs)  # noqa: E501
@@ -752,18 +752,18 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_alerts_summary_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_alerts_summary_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :return: ResponseContainerMapStringInteger
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -807,7 +807,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerMapStringInteger',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -818,11 +818,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_alert(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_alert(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedAlert
@@ -830,7 +830,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_all_alert_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_all_alert_with_http_info(**kwargs)  # noqa: E501
@@ -841,11 +841,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_alert_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_alert_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedAlert
@@ -854,7 +854,7 @@ class AlertApi(object):
         """
 
         all_params = ['offset', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -902,7 +902,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -913,11 +913,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_alert_tag(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_alert_tag(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -925,7 +925,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.remove_alert_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.remove_alert_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -936,11 +936,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_alert_tag_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_alert_tag_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -949,7 +949,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1005,7 +1005,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1016,11 +1016,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_alert_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_alert_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -1028,7 +1028,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.set_alert_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.set_alert_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -1039,11 +1039,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_alert_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_alert_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -1052,7 +1052,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1108,7 +1108,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1119,11 +1119,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.snooze_alert(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.snooze_alert(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int seconds:
         :return: ResponseContainerAlert
@@ -1131,7 +1131,7 @@ class AlertApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.snooze_alert_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.snooze_alert_with_http_info(id, **kwargs)  # noqa: E501
@@ -1142,11 +1142,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.snooze_alert_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.snooze_alert_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int seconds:
         :return: ResponseContainerAlert
@@ -1155,7 +1155,7 @@ class AlertApi(object):
         """
 
         all_params = ['id', 'seconds']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1207,7 +1207,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1218,18 +1218,18 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_alert(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_alert(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.undelete_alert_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.undelete_alert_with_http_info(id, **kwargs)  # noqa: E501
@@ -1240,11 +1240,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_alert_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_alert_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -1252,7 +1252,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1302,7 +1302,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1313,18 +1313,18 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.unsnooze_alert(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unsnooze_alert(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.unsnooze_alert_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.unsnooze_alert_with_http_info(id, **kwargs)  # noqa: E501
@@ -1335,11 +1335,11 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.unsnooze_alert_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unsnooze_alert_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
@@ -1347,7 +1347,7 @@ class AlertApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1397,7 +1397,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1408,19 +1408,19 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_alert(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_alert(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_alert_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_alert_with_http_info(id, **kwargs)  # noqa: E501
@@ -1431,20 +1431,20 @@ class AlertApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_alert_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_alert_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"user@example.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\" }</pre>
+        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1500,7 +1500,7 @@ class AlertApi(object):
             files=local_var_files,
             response_type='ResponseContainerAlert',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -33,58 +33,58 @@ class IntegrationManifestGroup(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'subtitle': 'str',
+        'title': 'str',
         'integrations': 'list[str]',
         'integration_objs': 'list[Integration]',
-        'title': 'str'
+        'subtitle': 'str'
     }
 
     attribute_map = {
-        'subtitle': 'subtitle',
+        'title': 'title',
         'integrations': 'integrations',
         'integration_objs': 'integrationObjs',
-        'title': 'title'
+        'subtitle': 'subtitle'
     }
 
-    def __init__(self, subtitle=None, integrations=None, integration_objs=None, title=None):  # noqa: E501
+    def __init__(self, title=None, integrations=None, integration_objs=None, subtitle=None):  # noqa: E501
         """IntegrationManifestGroup - a model defined in Swagger"""  # noqa: E501
 
-        self._subtitle = None
+        self._title = None
         self._integrations = None
         self._integration_objs = None
-        self._title = None
+        self._subtitle = None
         self.discriminator = None
 
-        self.subtitle = subtitle
+        self.title = title
         self.integrations = integrations
         if integration_objs is not None:
             self.integration_objs = integration_objs
-        self.title = title
+        self.subtitle = subtitle
 
     @property
-    def subtitle(self):
-        """Gets the subtitle of this IntegrationManifestGroup.  # noqa: E501
+    def title(self):
+        """Gets the title of this IntegrationManifestGroup.  # noqa: E501
 
-        Subtitle of this integration group  # noqa: E501
+        Title of this integration group  # noqa: E501
 
-        :return: The subtitle of this IntegrationManifestGroup.  # noqa: E501
+        :return: The title of this IntegrationManifestGroup.  # noqa: E501
         :rtype: str
         """
-        return self._subtitle
+        return self._title
 
-    @subtitle.setter
-    def subtitle(self, subtitle):
-        """Sets the subtitle of this IntegrationManifestGroup.
+    @title.setter
+    def title(self, title):
+        """Sets the title of this IntegrationManifestGroup.
 
-        Subtitle of this integration group  # noqa: E501
+        Title of this integration group  # noqa: E501
 
-        :param subtitle: The subtitle of this IntegrationManifestGroup.  # noqa: E501
+        :param title: The title of this IntegrationManifestGroup.  # noqa: E501
         :type: str
         """
-        if subtitle is None:
-            raise ValueError("Invalid value for `subtitle`, must not be `None`")  # noqa: E501
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
-        self._subtitle = subtitle
+        self._title = title
 
     @property
     def integrations(self):
@@ -135,29 +135,29 @@ class IntegrationManifestGroup(object):
         self._integration_objs = integration_objs
 
     @property
-    def title(self):
-        """Gets the title of this IntegrationManifestGroup.  # noqa: E501
+    def subtitle(self):
+        """Gets the subtitle of this IntegrationManifestGroup.  # noqa: E501
 
-        Title of this integration group  # noqa: E501
+        Subtitle of this integration group  # noqa: E501
 
-        :return: The title of this IntegrationManifestGroup.  # noqa: E501
+        :return: The subtitle of this IntegrationManifestGroup.  # noqa: E501
         :rtype: str
         """
-        return self._title
+        return self._subtitle
 
-    @title.setter
-    def title(self, title):
-        """Sets the title of this IntegrationManifestGroup.
+    @subtitle.setter
+    def subtitle(self, subtitle):
+        """Sets the subtitle of this IntegrationManifestGroup.
 
-        Title of this integration group  # noqa: E501
+        Subtitle of this integration group  # noqa: E501
 
-        :param title: The title of this IntegrationManifestGroup.  # noqa: E501
+        :param subtitle: The subtitle of this IntegrationManifestGroup.  # noqa: E501
         :type: str
         """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+        if subtitle is None:
+            raise ValueError("Invalid value for `subtitle`, must not be `None`")  # noqa: E501
 
-        self._title = title
+        self._subtitle = subtitle
 
     def to_dict(self):
         """Returns the model properties as a dict"""

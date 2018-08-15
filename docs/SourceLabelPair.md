@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**label** | **str** |  | [optional] 
 **host** | **str** | Source (or host).  \&quot;Source\&quot; and \&quot;host\&quot; are synonyms in current versions of wavefront, but the host terminology is deprecated | [optional] 
 **tags** | **dict(str, str)** |  | [optional] 
-**label** | **str** |  | [optional] 
 **firing** | **int** |  | [optional] 
 **observed** | **int** |  | [optional] 
 

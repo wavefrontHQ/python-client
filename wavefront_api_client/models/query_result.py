@@ -35,51 +35,74 @@ class QueryResult(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'warnings': 'str',
         'name': 'str',
         'query': 'str',
         'stats': 'StatsModel',
-        'warnings': 'str',
-        'granularity': 'int',
         'events': 'list[QueryEvent]',
-        'timeseries': 'list[Timeseries]'
+        'timeseries': 'list[Timeseries]',
+        'granularity': 'int'
     }
 
     attribute_map = {
+        'warnings': 'warnings',
         'name': 'name',
         'query': 'query',
         'stats': 'stats',
-        'warnings': 'warnings',
-        'granularity': 'granularity',
         'events': 'events',
-        'timeseries': 'timeseries'
+        'timeseries': 'timeseries',
+        'granularity': 'granularity'
     }
 
-    def __init__(self, name=None, query=None, stats=None, warnings=None, granularity=None, events=None, timeseries=None):  # noqa: E501
+    def __init__(self, warnings=None, name=None, query=None, stats=None, events=None, timeseries=None, granularity=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
+        self._warnings = None
         self._name = None
         self._query = None
         self._stats = None
-        self._warnings = None
-        self._granularity = None
         self._events = None
         self._timeseries = None
+        self._granularity = None
         self.discriminator = None
 
+        if warnings is not None:
+            self.warnings = warnings
         if name is not None:
             self.name = name
         if query is not None:
             self.query = query
         if stats is not None:
             self.stats = stats
-        if warnings is not None:
-            self.warnings = warnings
-        if granularity is not None:
-            self.granularity = granularity
         if events is not None:
             self.events = events
         if timeseries is not None:
             self.timeseries = timeseries
+        if granularity is not None:
+            self.granularity = granularity
+
+    @property
+    def warnings(self):
+        """Gets the warnings of this QueryResult.  # noqa: E501
+
+        The warnings incurred by this query  # noqa: E501
+
+        :return: The warnings of this QueryResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._warnings
+
+    @warnings.setter
+    def warnings(self, warnings):
+        """Sets the warnings of this QueryResult.
+
+        The warnings incurred by this query  # noqa: E501
+
+        :param warnings: The warnings of this QueryResult.  # noqa: E501
+        :type: str
+        """
+
+        self._warnings = warnings
 
     @property
     def name(self):
@@ -149,52 +172,6 @@ class QueryResult(object):
         self._stats = stats
 
     @property
-    def warnings(self):
-        """Gets the warnings of this QueryResult.  # noqa: E501
-
-        The warnings incurred by this query  # noqa: E501
-
-        :return: The warnings of this QueryResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._warnings
-
-    @warnings.setter
-    def warnings(self, warnings):
-        """Sets the warnings of this QueryResult.
-
-        The warnings incurred by this query  # noqa: E501
-
-        :param warnings: The warnings of this QueryResult.  # noqa: E501
-        :type: str
-        """
-
-        self._warnings = warnings
-
-    @property
-    def granularity(self):
-        """Gets the granularity of this QueryResult.  # noqa: E501
-
-        The granularity of the returned results, in seconds  # noqa: E501
-
-        :return: The granularity of this QueryResult.  # noqa: E501
-        :rtype: int
-        """
-        return self._granularity
-
-    @granularity.setter
-    def granularity(self, granularity):
-        """Sets the granularity of this QueryResult.
-
-        The granularity of the returned results, in seconds  # noqa: E501
-
-        :param granularity: The granularity of this QueryResult.  # noqa: E501
-        :type: int
-        """
-
-        self._granularity = granularity
-
-    @property
     def events(self):
         """Gets the events of this QueryResult.  # noqa: E501
 
@@ -235,6 +212,29 @@ class QueryResult(object):
         """
 
         self._timeseries = timeseries
+
+    @property
+    def granularity(self):
+        """Gets the granularity of this QueryResult.  # noqa: E501
+
+        The granularity of the returned results, in seconds  # noqa: E501
+
+        :return: The granularity of this QueryResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._granularity
+
+    @granularity.setter
+    def granularity(self, granularity):
+        """Sets the granularity of this QueryResult.
+
+        The granularity of the returned results, in seconds  # noqa: E501
+
+        :param granularity: The granularity of this QueryResult.  # noqa: E501
+        :type: int
+        """
+
+        self._granularity = granularity
 
     def to_dict(self):
         """Returns the model properties as a dict"""

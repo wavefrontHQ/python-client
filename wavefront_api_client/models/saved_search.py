@@ -33,52 +33,52 @@ class SavedSearch(object):
     swagger_types = {
         'id': 'str',
         'query': 'dict(str, str)',
+        'entity_type': 'str',
         'creator_id': 'str',
+        'updater_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'updater_id': 'str',
-        'user_id': 'str',
-        'entity_type': 'str'
+        'user_id': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'query': 'query',
+        'entity_type': 'entityType',
         'creator_id': 'creatorId',
+        'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'updater_id': 'updaterId',
-        'user_id': 'userId',
-        'entity_type': 'entityType'
+        'user_id': 'userId'
     }
 
-    def __init__(self, id=None, query=None, creator_id=None, created_epoch_millis=None, updated_epoch_millis=None, updater_id=None, user_id=None, entity_type=None):  # noqa: E501
+    def __init__(self, id=None, query=None, entity_type=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, user_id=None):  # noqa: E501
         """SavedSearch - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._query = None
+        self._entity_type = None
         self._creator_id = None
+        self._updater_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
-        self._updater_id = None
         self._user_id = None
-        self._entity_type = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
         self.query = query
+        self.entity_type = entity_type
         if creator_id is not None:
             self.creator_id = creator_id
+        if updater_id is not None:
+            self.updater_id = updater_id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
-        if updater_id is not None:
-            self.updater_id = updater_id
         if user_id is not None:
             self.user_id = user_id
-        self.entity_type = entity_type
 
     @property
     def id(self):
@@ -127,6 +127,37 @@ class SavedSearch(object):
         self._query = query
 
     @property
+    def entity_type(self):
+        """Gets the entity_type of this SavedSearch.  # noqa: E501
+
+        The Wavefront entity type over which to search  # noqa: E501
+
+        :return: The entity_type of this SavedSearch.  # noqa: E501
+        :rtype: str
+        """
+        return self._entity_type
+
+    @entity_type.setter
+    def entity_type(self, entity_type):
+        """Sets the entity_type of this SavedSearch.
+
+        The Wavefront entity type over which to search  # noqa: E501
+
+        :param entity_type: The entity_type of this SavedSearch.  # noqa: E501
+        :type: str
+        """
+        if entity_type is None:
+            raise ValueError("Invalid value for `entity_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["DASHBOARD", "ALERT", "MAINTENANCE_WINDOW", "NOTIFICANT", "EVENT", "SOURCE", "EXTERNAL_LINK", "AGENT", "CLOUD_INTEGRATION", "APPLICATION", "REGISTERED_QUERY"]  # noqa: E501
+        if entity_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `entity_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(entity_type, allowed_values)
+            )
+
+        self._entity_type = entity_type
+
+    @property
     def creator_id(self):
         """Gets the creator_id of this SavedSearch.  # noqa: E501
 
@@ -146,6 +177,27 @@ class SavedSearch(object):
         """
 
         self._creator_id = creator_id
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this SavedSearch.  # noqa: E501
+
+
+        :return: The updater_id of this SavedSearch.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this SavedSearch.
+
+
+        :param updater_id: The updater_id of this SavedSearch.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
 
     @property
     def created_epoch_millis(self):
@@ -190,27 +242,6 @@ class SavedSearch(object):
         self._updated_epoch_millis = updated_epoch_millis
 
     @property
-    def updater_id(self):
-        """Gets the updater_id of this SavedSearch.  # noqa: E501
-
-
-        :return: The updater_id of this SavedSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this SavedSearch.
-
-
-        :param updater_id: The updater_id of this SavedSearch.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
     def user_id(self):
         """Gets the user_id of this SavedSearch.  # noqa: E501
 
@@ -232,37 +263,6 @@ class SavedSearch(object):
         """
 
         self._user_id = user_id
-
-    @property
-    def entity_type(self):
-        """Gets the entity_type of this SavedSearch.  # noqa: E501
-
-        The Wavefront entity type over which to search  # noqa: E501
-
-        :return: The entity_type of this SavedSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._entity_type
-
-    @entity_type.setter
-    def entity_type(self, entity_type):
-        """Sets the entity_type of this SavedSearch.
-
-        The Wavefront entity type over which to search  # noqa: E501
-
-        :param entity_type: The entity_type of this SavedSearch.  # noqa: E501
-        :type: str
-        """
-        if entity_type is None:
-            raise ValueError("Invalid value for `entity_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["DASHBOARD", "ALERT", "MAINTENANCE_WINDOW", "NOTIFICANT", "EVENT", "SOURCE", "EXTERNAL_LINK", "AGENT", "CLOUD_INTEGRATION", "APPLICATION", "REGISTERED_QUERY"]  # noqa: E501
-        if entity_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `entity_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(entity_type, allowed_values)
-            )
-
-        self._entity_type = entity_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

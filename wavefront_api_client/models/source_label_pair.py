@@ -31,41 +31,62 @@ class SourceLabelPair(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'label': 'str',
         'host': 'str',
         'tags': 'dict(str, str)',
-        'label': 'str',
         'firing': 'int',
         'observed': 'int'
     }
 
     attribute_map = {
+        'label': 'label',
         'host': 'host',
         'tags': 'tags',
-        'label': 'label',
         'firing': 'firing',
         'observed': 'observed'
     }
 
-    def __init__(self, host=None, tags=None, label=None, firing=None, observed=None):  # noqa: E501
+    def __init__(self, label=None, host=None, tags=None, firing=None, observed=None):  # noqa: E501
         """SourceLabelPair - a model defined in Swagger"""  # noqa: E501
 
+        self._label = None
         self._host = None
         self._tags = None
-        self._label = None
         self._firing = None
         self._observed = None
         self.discriminator = None
 
+        if label is not None:
+            self.label = label
         if host is not None:
             self.host = host
         if tags is not None:
             self.tags = tags
-        if label is not None:
-            self.label = label
         if firing is not None:
             self.firing = firing
         if observed is not None:
             self.observed = observed
+
+    @property
+    def label(self):
+        """Gets the label of this SourceLabelPair.  # noqa: E501
+
+
+        :return: The label of this SourceLabelPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this SourceLabelPair.
+
+
+        :param label: The label of this SourceLabelPair.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
 
     @property
     def host(self):
@@ -110,27 +131,6 @@ class SourceLabelPair(object):
         """
 
         self._tags = tags
-
-    @property
-    def label(self):
-        """Gets the label of this SourceLabelPair.  # noqa: E501
-
-
-        :return: The label of this SourceLabelPair.  # noqa: E501
-        :rtype: str
-        """
-        return self._label
-
-    @label.setter
-    def label(self, label):
-        """Sets the label of this SourceLabelPair.
-
-
-        :param label: The label of this SourceLabelPair.  # noqa: E501
-        :type: str
-        """
-
-        self._label = label
 
     @property
     def firing(self):
