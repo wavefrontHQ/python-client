@@ -32,7 +32,7 @@ setup(
     url="https://github.com/wavefrontHQ/python-client",
     keywords=["Swagger", "Wavefront Public API"],
     install_requires=REQUIRES,
-    packages=find_packages(exclude=["wavefront_lambda","wavefront_pyformance","*.tests"]),
+    packages=find_packages(),
     include_package_data=True,
     long_description="""\
     &lt;p&gt;The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.&lt;/p&gt;&lt;p&gt;When you make API calls outside the Wavefront API documentation you must add the header \&quot;Authorization: Bearer &amp;lt;&amp;lt;API-TOKEN&amp;gt;&amp;gt;\&quot; to your HTTP requests.&lt;/p&gt;&lt;p&gt;For legacy versions of the Wavefront API, see the &lt;a href&#x3D;\&quot;/api-docs/ui/deprecated\&quot;&gt;legacy API documentation&lt;/a&gt;.&lt;/p&gt;  # noqa: E501
