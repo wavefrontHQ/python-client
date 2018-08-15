@@ -38,11 +38,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_tag_to_derived_metric_definition(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_tag_to_derived_metric_definition(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -50,7 +50,7 @@ class DerivedMetricDefinitionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.add_tag_to_derived_metric_definition_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.add_tag_to_derived_metric_definition_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_tag_to_derived_metric_definition_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_tag_to_derived_metric_definition_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -74,7 +74,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,18 +145,18 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_derived_metric_definition(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_derived_metric_definition(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DerivedMetricDefinition body: Example Body:  <pre>{   \"name\": \"Query Name\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_derived_metric_definition_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.create_derived_metric_definition_with_http_info(**kwargs)  # noqa: E501
@@ -167,11 +167,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_derived_metric_definition_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_derived_metric_definition_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DerivedMetricDefinition body: Example Body:  <pre>{   \"name\": \"Query Name\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
@@ -179,7 +179,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -229,7 +229,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -240,18 +240,18 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_derived_metric_definition(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_derived_metric_definition(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_derived_metric_definition_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_derived_metric_definition_with_http_info(id, **kwargs)  # noqa: E501
@@ -262,11 +262,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_derived_metric_definition_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_derived_metric_definition_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
@@ -274,7 +274,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -324,7 +324,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -335,11 +335,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_derived_metric_definitions(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_derived_metric_definitions(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedDerivedMetricDefinition
@@ -347,7 +347,7 @@ class DerivedMetricDefinitionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_all_derived_metric_definitions_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_all_derived_metric_definitions_with_http_info(**kwargs)  # noqa: E501
@@ -358,11 +358,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_derived_metric_definitions_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_derived_metric_definitions_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedDerivedMetricDefinition
@@ -371,7 +371,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['offset', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -419,7 +419,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -430,11 +430,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_derived_metric_definition_by_version(id, version, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_derived_metric_definition_by_version(id, version, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerDerivedMetricDefinition
@@ -442,7 +442,7 @@ class DerivedMetricDefinitionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_derived_metric_definition_by_version_with_http_info(id, version, **kwargs)  # noqa: E501
         else:
             (data) = self.get_derived_metric_definition_by_version_with_http_info(id, version, **kwargs)  # noqa: E501
@@ -453,11 +453,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_derived_metric_definition_by_version_with_http_info(id, version, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_derived_metric_definition_by_version_with_http_info(id, version, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int version: (required)
         :return: ResponseContainerDerivedMetricDefinition
@@ -466,7 +466,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id', 'version']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -522,7 +522,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -533,11 +533,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_derived_metric_definition_history(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_derived_metric_definition_history(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -546,7 +546,7 @@ class DerivedMetricDefinitionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_derived_metric_definition_history_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_derived_metric_definition_history_with_http_info(id, **kwargs)  # noqa: E501
@@ -557,11 +557,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_derived_metric_definition_history_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_derived_metric_definition_history_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param int offset:
         :param int limit:
@@ -571,7 +571,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id', 'offset', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -625,7 +625,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerHistoryResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -636,18 +636,18 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_derived_metric_definition_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_derived_metric_definition_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_derived_metric_definition_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_derived_metric_definition_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -658,11 +658,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_derived_metric_definition_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_derived_metric_definition_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -670,7 +670,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -720,7 +720,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerTagsResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -731,18 +731,18 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_registered_query(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_registered_query(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_registered_query_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_registered_query_with_http_info(id, **kwargs)  # noqa: E501
@@ -753,11 +753,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_registered_query_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_registered_query_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
@@ -765,7 +765,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -815,7 +815,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -826,11 +826,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_tag_from_derived_metric_definition(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_tag_from_derived_metric_definition(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -838,7 +838,7 @@ class DerivedMetricDefinitionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.remove_tag_from_derived_metric_definition_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.remove_tag_from_derived_metric_definition_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -849,11 +849,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_tag_from_derived_metric_definition_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_tag_from_derived_metric_definition_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -862,7 +862,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -918,7 +918,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -929,11 +929,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_derived_metric_definition_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_derived_metric_definition_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -941,7 +941,7 @@ class DerivedMetricDefinitionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.set_derived_metric_definition_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.set_derived_metric_definition_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -952,11 +952,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_derived_metric_definition_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_derived_metric_definition_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -965,7 +965,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1021,7 +1021,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1032,18 +1032,18 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_derived_metric_definition(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_derived_metric_definition(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.undelete_derived_metric_definition_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.undelete_derived_metric_definition_with_http_info(id, **kwargs)  # noqa: E501
@@ -1054,11 +1054,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_derived_metric_definition_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_derived_metric_definition_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerDerivedMetricDefinition
                  If the method is called asynchronously,
@@ -1066,7 +1066,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1116,7 +1116,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1127,11 +1127,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_derived_metric_definition(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_derived_metric_definition(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param DerivedMetricDefinition body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Query Name\",   \"createUserId\": \"user\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerDerivedMetricDefinition
@@ -1139,7 +1139,7 @@ class DerivedMetricDefinitionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_derived_metric_definition_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_derived_metric_definition_with_http_info(id, **kwargs)  # noqa: E501
@@ -1150,11 +1150,11 @@ class DerivedMetricDefinitionApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_derived_metric_definition_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_derived_metric_definition_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param DerivedMetricDefinition body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Query Name\",   \"createUserId\": \"user\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\" }</pre>
         :return: ResponseContainerDerivedMetricDefinition
@@ -1163,7 +1163,7 @@ class DerivedMetricDefinitionApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1219,7 +1219,7 @@ class DerivedMetricDefinitionApi(object):
             files=local_var_files,
             response_type='ResponseContainerDerivedMetricDefinition',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -38,11 +38,11 @@ class QueryApi(object):
 
         Long time spans and small granularities can take a long time to calculate  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.query_api(q, s, g, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_api(q, s, g, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str q: the query expression to execute (required)
         :param str s: the start time of the query window in epoch milliseconds (required)
         :param str g: the granularity of the points returned (required)
@@ -61,7 +61,7 @@ class QueryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.query_api_with_http_info(q, s, g, **kwargs)  # noqa: E501
         else:
             (data) = self.query_api_with_http_info(q, s, g, **kwargs)  # noqa: E501
@@ -72,11 +72,11 @@ class QueryApi(object):
 
         Long time spans and small granularities can take a long time to calculate  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.query_api_with_http_info(q, s, g, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_api_with_http_info(q, s, g, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str q: the query expression to execute (required)
         :param str s: the start time of the query window in epoch milliseconds (required)
         :param str g: the granularity of the points returned (required)
@@ -96,7 +96,7 @@ class QueryApi(object):
         """
 
         all_params = ['q', 's', 'g', 'n', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'include_obsolete_metrics', 'sorted']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -178,7 +178,7 @@ class QueryApi(object):
             files=local_var_files,
             response_type='QueryResult',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -189,11 +189,11 @@ class QueryApi(object):
 
         An API to check if ingested points are as expected.  Points ingested within a single second are averaged when returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.query_raw(metric, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_raw(metric, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str metric: metric to query ingested points for (cannot contain wildcards) (required)
         :param str host: host to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
         :param str source: source to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
@@ -204,7 +204,7 @@ class QueryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.query_raw_with_http_info(metric, **kwargs)  # noqa: E501
         else:
             (data) = self.query_raw_with_http_info(metric, **kwargs)  # noqa: E501
@@ -215,11 +215,11 @@ class QueryApi(object):
 
         An API to check if ingested points are as expected.  Points ingested within a single second are averaged when returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.query_raw_with_http_info(metric, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_raw_with_http_info(metric, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str metric: metric to query ingested points for (cannot contain wildcards) (required)
         :param str host: host to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
         :param str source: source to query ingested points for (cannot contain wildcards). host or source is equivalent, only one should be used.
@@ -231,7 +231,7 @@ class QueryApi(object):
         """
 
         all_params = ['metric', 'host', 'source', 'start_time', 'end_time']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -289,7 +289,7 @@ class QueryApi(object):
             files=local_var_files,
             response_type='list[RawTimeseries]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

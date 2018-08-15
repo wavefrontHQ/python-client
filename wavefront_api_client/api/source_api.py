@@ -38,11 +38,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_source_tag(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_source_tag(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -50,7 +50,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.add_source_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.add_source_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_source_tag_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_source_tag_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -74,7 +74,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,18 +145,18 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_source(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_source(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_source_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.create_source_with_http_info(**kwargs)  # noqa: E501
@@ -167,11 +167,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_source_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_source_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
                  If the method is called asynchronously,
@@ -179,7 +179,7 @@ class SourceApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainerSource',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -236,18 +236,18 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_source(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_source(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_source_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_source_with_http_info(id, **kwargs)  # noqa: E501
@@ -258,11 +258,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_source_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_source_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class SourceApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -320,7 +320,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainerSource',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -331,11 +331,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_source(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_source(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cursor:
         :param int limit:
         :return: ResponseContainerPagedSource
@@ -343,7 +343,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_all_source_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_all_source_with_http_info(**kwargs)  # noqa: E501
@@ -354,11 +354,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_source_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_source_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str cursor:
         :param int limit:
         :return: ResponseContainerPagedSource
@@ -367,7 +367,7 @@ class SourceApi(object):
         """
 
         all_params = ['cursor', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -415,7 +415,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedSource',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -426,18 +426,18 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_source(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_source(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_source_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_source_with_http_info(id, **kwargs)  # noqa: E501
@@ -448,11 +448,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_source_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_source_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerSource
                  If the method is called asynchronously,
@@ -460,7 +460,7 @@ class SourceApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -510,7 +510,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainerSource',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -521,18 +521,18 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_source_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_source_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_source_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_source_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -543,11 +543,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_source_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_source_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerTagsResponse
                  If the method is called asynchronously,
@@ -555,7 +555,7 @@ class SourceApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -605,7 +605,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainerTagsResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -616,18 +616,18 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_description(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_description(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.remove_description_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.remove_description_with_http_info(id, **kwargs)  # noqa: E501
@@ -638,11 +638,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_description_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_description_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainer
                  If the method is called asynchronously,
@@ -650,7 +650,7 @@ class SourceApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -700,7 +700,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -711,11 +711,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_source_tag(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_source_tag(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -723,7 +723,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.remove_source_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
         else:
             (data) = self.remove_source_tag_with_http_info(id, tag_value, **kwargs)  # noqa: E501
@@ -734,11 +734,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.remove_source_tag_with_http_info(id, tag_value, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_source_tag_with_http_info(id, tag_value, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str tag_value: (required)
         :return: ResponseContainer
@@ -747,7 +747,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'tag_value']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -807,7 +807,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -818,11 +818,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_description(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_description(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str body:
         :return: ResponseContainer
@@ -830,7 +830,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.set_description_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.set_description_with_http_info(id, **kwargs)  # noqa: E501
@@ -841,11 +841,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_description_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_description_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param str body:
         :return: ResponseContainer
@@ -854,7 +854,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -910,7 +910,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -921,11 +921,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_source_tags(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_source_tags(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -933,7 +933,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.set_source_tags_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.set_source_tags_with_http_info(id, **kwargs)  # noqa: E501
@@ -944,11 +944,11 @@ class SourceApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.set_source_tags_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_source_tags_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param list[str] body:
         :return: ResponseContainer
@@ -957,7 +957,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1013,7 +1013,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainer',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1024,11 +1024,11 @@ class SourceApi(object):
 
         The \"hidden\" property is stored as a tag. To set the value, add \"hidden\": &lt;value&gt; to the list of tags.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_source(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_source(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
@@ -1036,7 +1036,7 @@ class SourceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_source_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_source_with_http_info(id, **kwargs)  # noqa: E501
@@ -1047,11 +1047,11 @@ class SourceApi(object):
 
         The \"hidden\" property is stored as a tag. To set the value, add \"hidden\": &lt;value&gt; to the list of tags.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_source_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_source_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param Source body: Example Body:  <pre>{     \"sourceName\": \"source.name\",     \"tags\": {\"sourceTag1\": true},     \"description\": \"Source Description\" }</pre>
         :return: ResponseContainerSource
@@ -1060,7 +1060,7 @@ class SourceApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1112,7 +1112,7 @@ class SourceApi(object):
             files=local_var_files,
             response_type='ResponseContainerSource',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

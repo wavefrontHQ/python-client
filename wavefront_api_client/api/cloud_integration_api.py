@@ -38,18 +38,18 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_integration(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_integration(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_cloud_integration_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.create_cloud_integration_with_http_info(**kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_cloud_integration_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_cloud_integration_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -122,7 +122,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -133,18 +133,18 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_integration(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_integration(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
@@ -155,11 +155,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_cloud_integration_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_cloud_integration_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
@@ -167,7 +167,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -217,7 +217,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -228,18 +228,18 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.disable_cloud_integration(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.disable_cloud_integration(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.disable_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.disable_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
@@ -250,11 +250,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.disable_cloud_integration_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.disable_cloud_integration_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
@@ -262,7 +262,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -312,7 +312,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -323,18 +323,18 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.enable_cloud_integration(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.enable_cloud_integration(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.enable_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.enable_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
@@ -345,11 +345,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.enable_cloud_integration_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.enable_cloud_integration_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
@@ -357,7 +357,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -407,7 +407,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -418,11 +418,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_cloud_integration(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_cloud_integration(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedCloudIntegration
@@ -430,7 +430,7 @@ class CloudIntegrationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_all_cloud_integration_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_all_cloud_integration_with_http_info(**kwargs)  # noqa: E501
@@ -441,11 +441,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_cloud_integration_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_cloud_integration_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedCloudIntegration
@@ -454,7 +454,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['offset', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -502,7 +502,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -513,18 +513,18 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_integration(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_integration(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
@@ -535,11 +535,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_cloud_integration_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_cloud_integration_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
@@ -547,7 +547,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -597,7 +597,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -608,18 +608,18 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_cloud_integration(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_cloud_integration(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.undelete_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.undelete_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
@@ -630,11 +630,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.undelete_cloud_integration_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.undelete_cloud_integration_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerCloudIntegration
                  If the method is called asynchronously,
@@ -642,7 +642,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -692,7 +692,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -703,11 +703,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_integration(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_integration(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
@@ -715,7 +715,7 @@ class CloudIntegrationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_cloud_integration_with_http_info(id, **kwargs)  # noqa: E501
@@ -726,11 +726,11 @@ class CloudIntegrationApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_cloud_integration_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_cloud_integration_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param CloudIntegration body: Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre>
         :return: ResponseContainerCloudIntegration
@@ -739,7 +739,7 @@ class CloudIntegrationApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -795,7 +795,7 @@ class CloudIntegrationApi(object):
             files=local_var_files,
             response_type='ResponseContainerCloudIntegration',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

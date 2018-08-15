@@ -38,18 +38,18 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_notificant(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_notificant(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Notificant body: Example Body:  <pre>{   \"description\": \"Notificant Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"Email title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"method\": \"EMAIL\",   \"recipient\": \"value@example.com\",   \"emailSubject\": \"Email subject cannot contain new line\" }</pre>
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.create_notificant_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.create_notificant_with_http_info(**kwargs)  # noqa: E501
@@ -60,11 +60,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.create_notificant_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_notificant_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param Notificant body: Example Body:  <pre>{   \"description\": \"Notificant Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"Email title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"method\": \"EMAIL\",   \"recipient\": \"value@example.com\",   \"emailSubject\": \"Email subject cannot contain new line\" }</pre>
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class NotificantApi(object):
         """
 
         all_params = ['body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -122,7 +122,7 @@ class NotificantApi(object):
             files=local_var_files,
             response_type='ResponseContainerNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -133,18 +133,18 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_notificant(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_notificant(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.delete_notificant_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_notificant_with_http_info(id, **kwargs)  # noqa: E501
@@ -155,11 +155,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.delete_notificant_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_notificant_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
@@ -167,7 +167,7 @@ class NotificantApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -217,7 +217,7 @@ class NotificantApi(object):
             files=local_var_files,
             response_type='ResponseContainerNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -228,11 +228,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_notificants(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_notificants(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedNotificant
@@ -240,7 +240,7 @@ class NotificantApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_all_notificants_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.get_all_notificants_with_http_info(**kwargs)  # noqa: E501
@@ -251,11 +251,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_all_notificants_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_notificants_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int offset:
         :param int limit:
         :return: ResponseContainerPagedNotificant
@@ -264,7 +264,7 @@ class NotificantApi(object):
         """
 
         all_params = ['offset', 'limit']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -312,7 +312,7 @@ class NotificantApi(object):
             files=local_var_files,
             response_type='ResponseContainerPagedNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -323,18 +323,18 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_notificant(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_notificant(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.get_notificant_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_notificant_with_http_info(id, **kwargs)  # noqa: E501
@@ -345,11 +345,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_notificant_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_notificant_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
@@ -357,7 +357,7 @@ class NotificantApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -407,7 +407,7 @@ class NotificantApi(object):
             files=local_var_files,
             response_type='ResponseContainerNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -418,18 +418,18 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.test_notificant(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.test_notificant(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.test_notificant_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.test_notificant_with_http_info(id, **kwargs)  # noqa: E501
@@ -440,11 +440,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.test_notificant_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.test_notificant_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
@@ -452,7 +452,7 @@ class NotificantApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -502,7 +502,7 @@ class NotificantApi(object):
             files=local_var_files,
             response_type='ResponseContainerNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -513,11 +513,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_notificant(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_notificant(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param Notificant body: Example Body:  <pre>{   \"description\": \"Notificant Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"Email title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"method\": \"EMAIL\",   \"recipient\": \"value@example.com\",   \"emailSubject\": \"Email subject cannot contain new line\" }</pre>
         :return: ResponseContainerNotificant
@@ -525,7 +525,7 @@ class NotificantApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.update_notificant_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.update_notificant_with_http_info(id, **kwargs)  # noqa: E501
@@ -536,11 +536,11 @@ class NotificantApi(object):
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_notificant_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_notificant_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: (required)
         :param Notificant body: Example Body:  <pre>{   \"description\": \"Notificant Description\",   \"template\": \"POST Body -- Mustache syntax\",   \"title\": \"Email title\",   \"triggers\": [     \"ALERT_OPENED\"   ],   \"method\": \"EMAIL\",   \"recipient\": \"value@example.com\",   \"emailSubject\": \"Email subject cannot contain new line\" }</pre>
         :return: ResponseContainerNotificant
@@ -549,7 +549,7 @@ class NotificantApi(object):
         """
 
         all_params = ['id', 'body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -605,7 +605,7 @@ class NotificantApi(object):
             files=local_var_files,
             response_type='ResponseContainerNotificant',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
