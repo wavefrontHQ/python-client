@@ -28,7 +28,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="Wavefront Public API",
-    author_email="",
+    author_email="support@wavefront.com",
     url="https://github.com/wavefrontHQ/python-client",
     keywords=["Swagger", "Wavefront Public API"],
     install_requires=REQUIRES,
