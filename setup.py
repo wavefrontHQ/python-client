@@ -25,7 +25,7 @@ VERSION = "2.3.2"
 REQUIRES = ["certifi>=2017.4.17",
             "python-dateutil>=2.1",
             "six>=1.10",
-            "urllib3>=1.15"]
+            "urllib3>=1.21.1"]
 
 setup(
     name=NAME,
