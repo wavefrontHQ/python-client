@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **creator_id** | **str** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
 **last_error_event** | [**Event**](Event.md) |  | [optional] 
+**service_refresh_rate_in_mins** | **int** | Service refresh rate in minutes. | [optional] 
 **additional_tags** | **dict(str, str)** | A list of point tag key-values to add to every point ingested using this integration | [optional] 
 **last_received_data_point_ms** | **int** | Time that this integration last received a data point, in epoch millis | [optional] 
 **last_metric_count** | **int** | Number of metrics / events ingested by this integration the last time it ran | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **ec2** | [**EC2Configuration**](EC2Configuration.md) |  | [optional] 
 **gcp** | [**GCPConfiguration**](GCPConfiguration.md) |  | [optional] 
 **gcp_billing** | [**GCPBillingConfiguration**](GCPBillingConfiguration.md) |  | [optional] 
+**new_relic** | [**NewRelicConfiguration**](NewRelicConfiguration.md) |  | [optional] 
 **tesla** | [**TeslaConfiguration**](TeslaConfiguration.md) |  | [optional] 
 **azure** | [**AzureConfiguration**](AzureConfiguration.md) |  | [optional] 
 **azure_activity_log** | [**AzureActivityLogConfiguration**](AzureActivityLogConfiguration.md) |  | [optional] 
@@ -29,7 +31,6 @@ Name | Type | Description | Notes
 **last_processing_timestamp** | **int** | Time, in epoch millis, that this integration was last processed | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
-**service_refresh_rate_in_mins** | **int** | Service refresh rate in minutes. | [optional] 
 **deleted** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

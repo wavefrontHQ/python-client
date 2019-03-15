@@ -1,0 +1,25 @@
+dist: xenial
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7"
+install: "pip install -r test-requirements.txt"
+script: nosetests
+deploy:
+- provider: pypi
+  user: wavefront-cs
+  server: https://test.pypi.org/legacy/
+  password:
+    secure: dWIjYPu1efm3WOHOTZr4Ci2VsdlXq0mMjAujo/WH+7SpymM7QDx9WpYgGzeq/ISsHH5+Tn6fLeovGtVzIGyH2QWTBU8G+bkzKvWD4BEutGqXFZ+cBHf6TYGQ1OIlZQ0VhkGb4mPczSkQN4Q9mqBHJBwFrtACTuTaUvZqmhyxQpFrrnT8wGeBqJ0LA9SK/Vt4992TUMLPCmrqW3bkiLTu81oMVhJb/CIPG+hMMcjdn6loTRsvbpWWCoNvcYueUeYKgEoPirkOAa5xc87rE6Ld9HZSdHKpsvuTICFe9tDqkegAK4pI5pnQvN504WM66Q9iK1jEWTeKm8KBc9wDxi77S/o+y1l98D9ulzpu1SNoy5X+seIe1UTN5L2L8kGUjAU9BLs32h64+KiR8w5LJrcXmqaod3JoPjr9a/e/02hpz1NaLoVIcpqfq9oTgz0BYlmO/2RCoQi6V3q4nSn6DDxgDuHYr3uJz0AYaMc1TEGqHeUkGuJNxuP+m1C9Ite1crZfDRsKviie/CDToM3Lr2dOPk4R90N6tzlP31BV7WaCJfyIAFwW1osrPScZ32cFdvzQBRhHN49kliSF6FOAQiiegB74lOgvkMy4rLtXLSJcUea/3iD9oCpsa+1FJjtKAX0b70F2G1tF2GZ4wH5shT9m9/9zUAFAck056XPIs80ZRkE=
+  on:
+    python: 3.7
+- provider: pypi
+  user: wavefront-cs
+  password:
+    secure: dWIjYPu1efm3WOHOTZr4Ci2VsdlXq0mMjAujo/WH+7SpymM7QDx9WpYgGzeq/ISsHH5+Tn6fLeovGtVzIGyH2QWTBU8G+bkzKvWD4BEutGqXFZ+cBHf6TYGQ1OIlZQ0VhkGb4mPczSkQN4Q9mqBHJBwFrtACTuTaUvZqmhyxQpFrrnT8wGeBqJ0LA9SK/Vt4992TUMLPCmrqW3bkiLTu81oMVhJb/CIPG+hMMcjdn6loTRsvbpWWCoNvcYueUeYKgEoPirkOAa5xc87rE6Ld9HZSdHKpsvuTICFe9tDqkegAK4pI5pnQvN504WM66Q9iK1jEWTeKm8KBc9wDxi77S/o+y1l98D9ulzpu1SNoy5X+seIe1UTN5L2L8kGUjAU9BLs32h64+KiR8w5LJrcXmqaod3JoPjr9a/e/02hpz1NaLoVIcpqfq9oTgz0BYlmO/2RCoQi6V3q4nSn6DDxgDuHYr3uJz0AYaMc1TEGqHeUkGuJNxuP+m1C9Ite1crZfDRsKviie/CDToM3Lr2dOPk4R90N6tzlP31BV7WaCJfyIAFwW1osrPScZ32cFdvzQBRhHN49kliSF6FOAQiiegB74lOgvkMy4rLtXLSJcUea/3iD9oCpsa+1FJjtKAX0b70F2G1tF2GZ4wH5shT9m9/9zUAFAck056XPIs80ZRkE=
+  on:
+    python: 3.7
+    tags: true

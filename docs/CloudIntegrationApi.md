@@ -1,6 +1,6 @@
 # wavefront_api_client.CloudIntegrationApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

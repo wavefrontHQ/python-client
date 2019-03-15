@@ -3,13 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**min** | **float** | Min value of Y-axis.  Set to null or leave blank for auto | [optional] 
 **type** | **str** | Chart Type.  &#39;line&#39; refers to the Line Plot, &#39;scatter&#39; to the Point Plot, &#39;stacked-area&#39; to the Stacked Area plot, &#39;table&#39; to the Tabular View, &#39;scatterploy-xy&#39; to Scatter Plot, &#39;markdown-widget&#39; to the Markdown display, and &#39;sparkline&#39; to the Single Stat view | 
+**min** | **float** | Min value of Y-axis.  Set to null or leave blank for auto | [optional] 
 **max** | **float** | Max value of Y-axis.  Set to null or leave blank for auto | [optional] 
-**expected_data_spacing** | **int** | Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s | [optional] 
-**fixed_legend_enabled** | **bool** | Whether to enable a fixed tabular legend adjacent to the chart | [optional] 
-**fixed_legend_use_raw_stats** | **bool** | If true, the legend uses non-summarized stats instead of summarized | [optional] 
-**plain_markdown_content** | **str** | The Markdown content for a Markdown display, in plain text.  Use this field instead of &#x60;markdownContent&#x60;. | [optional] 
 **line_type** | **str** | Plot interpolation type.  linear is default | [optional] 
 **stack_type** | **str** | Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y&#x3D;0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream | [optional] 
 **windowing** | **str** | For the tabular view, whether to use the full time window for the query or the last X minutes | [optional] 
@@ -32,6 +28,8 @@ Name | Type | Description | Notes
 **y0_unit_autoscaling** | **bool** | Default: false. Whether to automatically adjust magnitude labels and units for the left Y-axis to favor smaller magnitudes and larger units | [optional] 
 **y1_unit_autoscaling** | **bool** | Default: false. Whether to automatically adjust magnitude labels and units for the right Y-axis to favor smaller magnitudes and larger units | [optional] 
 **invert_dynamic_legend_hover_control** | **bool** | Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed) | [optional] 
+**fixed_legend_enabled** | **bool** | Whether to enable a fixed tabular legend adjacent to the chart | [optional] 
+**fixed_legend_use_raw_stats** | **bool** | If true, the legend uses non-summarized stats instead of summarized | [optional] 
 **fixed_legend_position** | **str** | Where the fixed legend should be displayed with respect to the chart | [optional] 
 **fixed_legend_display_stats** | **list[str]** | For a chart with a fixed legend, a list of statistics to display in the legend | [optional] 
 **fixed_legend_filter_sort** | **str** | Whether to display \&quot;Top\&quot;- or \&quot;Bottom\&quot;-ranked series in the fixed legend | [optional] 
@@ -60,6 +58,8 @@ Name | Type | Description | Notes
 **sparkline_decimal_precision** | **int** | For the single stat view, the decimal precision of the displayed number | [optional] 
 **sparkline_value_text_map_text** | **list[str]** | For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds | [optional] 
 **sparkline_value_text_map_thresholds** | **list[float]** | For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText | [optional] 
+**expected_data_spacing** | **int** | Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s | [optional] 
+**plain_markdown_content** | **str** | The Markdown content for a Markdown display, in plain text.  Use this field instead of &#x60;markdownContent&#x60;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
