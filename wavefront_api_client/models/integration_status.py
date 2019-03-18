@@ -33,32 +33,64 @@ class IntegrationStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alert_statuses': 'dict(str, str)',
         'content_status': 'str',
         'install_status': 'str',
-        'metric_statuses': 'dict(str, MetricStatus)',
-        'alert_statuses': 'dict(str, str)'
+        'metric_statuses': 'dict(str, MetricStatus)'
     }
 
     attribute_map = {
+        'alert_statuses': 'alertStatuses',
         'content_status': 'contentStatus',
         'install_status': 'installStatus',
-        'metric_statuses': 'metricStatuses',
-        'alert_statuses': 'alertStatuses'
+        'metric_statuses': 'metricStatuses'
     }
 
-    def __init__(self, content_status=None, install_status=None, metric_statuses=None, alert_statuses=None):  # noqa: E501
+    def __init__(self, alert_statuses=None, content_status=None, install_status=None, metric_statuses=None):  # noqa: E501
         """IntegrationStatus - a model defined in Swagger"""  # noqa: E501
 
+        self._alert_statuses = None
         self._content_status = None
         self._install_status = None
         self._metric_statuses = None
-        self._alert_statuses = None
         self.discriminator = None
 
+        self.alert_statuses = alert_statuses
         self.content_status = content_status
         self.install_status = install_status
         self.metric_statuses = metric_statuses
-        self.alert_statuses = alert_statuses
+
+    @property
+    def alert_statuses(self):
+        """Gets the alert_statuses of this IntegrationStatus.  # noqa: E501
+
+        A Map from the ids of the alerts contained in this integration to their install status.  The install status can take on one of three values, `VISIBLE`, `HIDDEN`, and `NOT_LOADED`  # noqa: E501
+
+        :return: The alert_statuses of this IntegrationStatus.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._alert_statuses
+
+    @alert_statuses.setter
+    def alert_statuses(self, alert_statuses):
+        """Sets the alert_statuses of this IntegrationStatus.
+
+        A Map from the ids of the alerts contained in this integration to their install status.  The install status can take on one of three values, `VISIBLE`, `HIDDEN`, and `NOT_LOADED`  # noqa: E501
+
+        :param alert_statuses: The alert_statuses of this IntegrationStatus.  # noqa: E501
+        :type: dict(str, str)
+        """
+        if alert_statuses is None:
+            raise ValueError("Invalid value for `alert_statuses`, must not be `None`")  # noqa: E501
+        allowed_values = ["VISIBLE", "HIDDEN", "NOT_LOADED"]  # noqa: E501
+        if not set(alert_statuses.keys()).issubset(set(allowed_values)):
+            raise ValueError(
+                "Invalid keys in `alert_statuses` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(alert_statuses.keys()) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._alert_statuses = alert_statuses
 
     @property
     def content_status(self):
@@ -146,38 +178,6 @@ class IntegrationStatus(object):
             raise ValueError("Invalid value for `metric_statuses`, must not be `None`")  # noqa: E501
 
         self._metric_statuses = metric_statuses
-
-    @property
-    def alert_statuses(self):
-        """Gets the alert_statuses of this IntegrationStatus.  # noqa: E501
-
-        A Map from the ids of the alerts contained in this integration to their install status.  The install status can take on one of three values, `VISIBLE`, `HIDDEN`, and `NOT_LOADED`  # noqa: E501
-
-        :return: The alert_statuses of this IntegrationStatus.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._alert_statuses
-
-    @alert_statuses.setter
-    def alert_statuses(self, alert_statuses):
-        """Sets the alert_statuses of this IntegrationStatus.
-
-        A Map from the ids of the alerts contained in this integration to their install status.  The install status can take on one of three values, `VISIBLE`, `HIDDEN`, and `NOT_LOADED`  # noqa: E501
-
-        :param alert_statuses: The alert_statuses of this IntegrationStatus.  # noqa: E501
-        :type: dict(str, str)
-        """
-        if alert_statuses is None:
-            raise ValueError("Invalid value for `alert_statuses`, must not be `None`")  # noqa: E501
-        allowed_values = ["VISIBLE", "HIDDEN", "NOT_LOADED"]  # noqa: E501
-        if not set(alert_statuses.keys()).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid keys in `alert_statuses` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(alert_statuses.keys()) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
-
-        self._alert_statuses = alert_statuses
 
     def to_dict(self):
         """Returns the model properties as a dict"""

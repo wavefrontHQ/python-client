@@ -42,316 +42,159 @@ class CloudIntegration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'force_save': 'bool',
-        'service': 'str',
-        'in_trash': 'bool',
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'id': 'str',
-        'last_error_event': 'Event',
         'additional_tags': 'dict(str, str)',
-        'last_received_data_point_ms': 'int',
-        'last_metric_count': 'int',
-        'cloud_watch': 'CloudWatchConfiguration',
-        'cloud_trail': 'CloudTrailConfiguration',
-        'ec2': 'EC2Configuration',
-        'gcp': 'GCPConfiguration',
-        'gcp_billing': 'GCPBillingConfiguration',
-        'new_relic': 'NewRelicConfiguration',
-        'tesla': 'TeslaConfiguration',
         'azure': 'AzureConfiguration',
         'azure_activity_log': 'AzureActivityLogConfiguration',
-        'last_error': 'str',
-        'last_error_ms': 'int',
-        'disabled': 'bool',
-        'last_processor_id': 'str',
-        'last_processing_timestamp': 'int',
+        'cloud_trail': 'CloudTrailConfiguration',
+        'cloud_watch': 'CloudWatchConfiguration',
         'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
-        'service_refresh_rate_in_mins': 'int',
+        'creator_id': 'str',
         'deleted': 'bool',
-        'name': 'str'
+        'disabled': 'bool',
+        'ec2': 'EC2Configuration',
+        'force_save': 'bool',
+        'gcp': 'GCPConfiguration',
+        'gcp_billing': 'GCPBillingConfiguration',
+        'id': 'str',
+        'in_trash': 'bool',
+        'last_error': 'str',
+        'last_error_event': 'Event',
+        'last_error_ms': 'int',
+        'last_metric_count': 'int',
+        'last_processing_timestamp': 'int',
+        'last_processor_id': 'str',
+        'last_received_data_point_ms': 'int',
+        'name': 'str',
+        'new_relic': 'NewRelicConfiguration',
+        'service': 'str',
+        'service_refresh_rate_in_mins': 'int',
+        'tesla': 'TeslaConfiguration',
+        'updated_epoch_millis': 'int',
+        'updater_id': 'str'
     }
 
     attribute_map = {
-        'force_save': 'forceSave',
-        'service': 'service',
-        'in_trash': 'inTrash',
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'id': 'id',
-        'last_error_event': 'lastErrorEvent',
         'additional_tags': 'additionalTags',
-        'last_received_data_point_ms': 'lastReceivedDataPointMs',
-        'last_metric_count': 'lastMetricCount',
-        'cloud_watch': 'cloudWatch',
-        'cloud_trail': 'cloudTrail',
-        'ec2': 'ec2',
-        'gcp': 'gcp',
-        'gcp_billing': 'gcpBilling',
-        'new_relic': 'newRelic',
-        'tesla': 'tesla',
         'azure': 'azure',
         'azure_activity_log': 'azureActivityLog',
-        'last_error': 'lastError',
-        'last_error_ms': 'lastErrorMs',
-        'disabled': 'disabled',
-        'last_processor_id': 'lastProcessorId',
-        'last_processing_timestamp': 'lastProcessingTimestamp',
+        'cloud_trail': 'cloudTrail',
+        'cloud_watch': 'cloudWatch',
         'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
-        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
+        'creator_id': 'creatorId',
         'deleted': 'deleted',
-        'name': 'name'
+        'disabled': 'disabled',
+        'ec2': 'ec2',
+        'force_save': 'forceSave',
+        'gcp': 'gcp',
+        'gcp_billing': 'gcpBilling',
+        'id': 'id',
+        'in_trash': 'inTrash',
+        'last_error': 'lastError',
+        'last_error_event': 'lastErrorEvent',
+        'last_error_ms': 'lastErrorMs',
+        'last_metric_count': 'lastMetricCount',
+        'last_processing_timestamp': 'lastProcessingTimestamp',
+        'last_processor_id': 'lastProcessorId',
+        'last_received_data_point_ms': 'lastReceivedDataPointMs',
+        'name': 'name',
+        'new_relic': 'newRelic',
+        'service': 'service',
+        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
+        'tesla': 'tesla',
+        'updated_epoch_millis': 'updatedEpochMillis',
+        'updater_id': 'updaterId'
     }
 
-    def __init__(self, force_save=None, service=None, in_trash=None, creator_id=None, updater_id=None, id=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None, deleted=None, name=None):  # noqa: E501
+    def __init__(self, additional_tags=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, service=None, service_refresh_rate_in_mins=None, tesla=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
-        self._force_save = None
-        self._service = None
-        self._in_trash = None
-        self._creator_id = None
-        self._updater_id = None
-        self._id = None
-        self._last_error_event = None
         self._additional_tags = None
-        self._last_received_data_point_ms = None
-        self._last_metric_count = None
-        self._cloud_watch = None
-        self._cloud_trail = None
-        self._ec2 = None
-        self._gcp = None
-        self._gcp_billing = None
-        self._new_relic = None
-        self._tesla = None
         self._azure = None
         self._azure_activity_log = None
-        self._last_error = None
-        self._last_error_ms = None
-        self._disabled = None
-        self._last_processor_id = None
-        self._last_processing_timestamp = None
+        self._cloud_trail = None
+        self._cloud_watch = None
         self._created_epoch_millis = None
-        self._updated_epoch_millis = None
-        self._service_refresh_rate_in_mins = None
+        self._creator_id = None
         self._deleted = None
+        self._disabled = None
+        self._ec2 = None
+        self._force_save = None
+        self._gcp = None
+        self._gcp_billing = None
+        self._id = None
+        self._in_trash = None
+        self._last_error = None
+        self._last_error_event = None
+        self._last_error_ms = None
+        self._last_metric_count = None
+        self._last_processing_timestamp = None
+        self._last_processor_id = None
+        self._last_received_data_point_ms = None
         self._name = None
+        self._new_relic = None
+        self._service = None
+        self._service_refresh_rate_in_mins = None
+        self._tesla = None
+        self._updated_epoch_millis = None
+        self._updater_id = None
         self.discriminator = None
 
-        if force_save is not None:
-            self.force_save = force_save
-        self.service = service
-        if in_trash is not None:
-            self.in_trash = in_trash
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if id is not None:
-            self.id = id
-        if last_error_event is not None:
-            self.last_error_event = last_error_event
         if additional_tags is not None:
             self.additional_tags = additional_tags
-        if last_received_data_point_ms is not None:
-            self.last_received_data_point_ms = last_received_data_point_ms
-        if last_metric_count is not None:
-            self.last_metric_count = last_metric_count
-        if cloud_watch is not None:
-            self.cloud_watch = cloud_watch
-        if cloud_trail is not None:
-            self.cloud_trail = cloud_trail
-        if ec2 is not None:
-            self.ec2 = ec2
-        if gcp is not None:
-            self.gcp = gcp
-        if gcp_billing is not None:
-            self.gcp_billing = gcp_billing
-        if new_relic is not None:
-            self.new_relic = new_relic
-        if tesla is not None:
-            self.tesla = tesla
         if azure is not None:
             self.azure = azure
         if azure_activity_log is not None:
             self.azure_activity_log = azure_activity_log
-        if last_error is not None:
-            self.last_error = last_error
-        if last_error_ms is not None:
-            self.last_error_ms = last_error_ms
-        if disabled is not None:
-            self.disabled = disabled
-        if last_processor_id is not None:
-            self.last_processor_id = last_processor_id
-        if last_processing_timestamp is not None:
-            self.last_processing_timestamp = last_processing_timestamp
+        if cloud_trail is not None:
+            self.cloud_trail = cloud_trail
+        if cloud_watch is not None:
+            self.cloud_watch = cloud_watch
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
-        if service_refresh_rate_in_mins is not None:
-            self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
+        if creator_id is not None:
+            self.creator_id = creator_id
         if deleted is not None:
             self.deleted = deleted
+        if disabled is not None:
+            self.disabled = disabled
+        if ec2 is not None:
+            self.ec2 = ec2
+        if force_save is not None:
+            self.force_save = force_save
+        if gcp is not None:
+            self.gcp = gcp
+        if gcp_billing is not None:
+            self.gcp_billing = gcp_billing
+        if id is not None:
+            self.id = id
+        if in_trash is not None:
+            self.in_trash = in_trash
+        if last_error is not None:
+            self.last_error = last_error
+        if last_error_event is not None:
+            self.last_error_event = last_error_event
+        if last_error_ms is not None:
+            self.last_error_ms = last_error_ms
+        if last_metric_count is not None:
+            self.last_metric_count = last_metric_count
+        if last_processing_timestamp is not None:
+            self.last_processing_timestamp = last_processing_timestamp
+        if last_processor_id is not None:
+            self.last_processor_id = last_processor_id
+        if last_received_data_point_ms is not None:
+            self.last_received_data_point_ms = last_received_data_point_ms
         self.name = name
-
-    @property
-    def force_save(self):
-        """Gets the force_save of this CloudIntegration.  # noqa: E501
-
-
-        :return: The force_save of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._force_save
-
-    @force_save.setter
-    def force_save(self, force_save):
-        """Sets the force_save of this CloudIntegration.
-
-
-        :param force_save: The force_save of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._force_save = force_save
-
-    @property
-    def service(self):
-        """Gets the service of this CloudIntegration.  # noqa: E501
-
-        A value denoting which cloud service this integration integrates with  # noqa: E501
-
-        :return: The service of this CloudIntegration.  # noqa: E501
-        :rtype: str
-        """
-        return self._service
-
-    @service.setter
-    def service(self, service):
-        """Sets the service of this CloudIntegration.
-
-        A value denoting which cloud service this integration integrates with  # noqa: E501
-
-        :param service: The service of this CloudIntegration.  # noqa: E501
-        :type: str
-        """
-        if service is None:
-            raise ValueError("Invalid value for `service`, must not be `None`")  # noqa: E501
-        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG"]  # noqa: E501
-        if service not in allowed_values:
-            raise ValueError(
-                "Invalid value for `service` ({0}), must be one of {1}"  # noqa: E501
-                .format(service, allowed_values)
-            )
-
-        self._service = service
-
-    @property
-    def in_trash(self):
-        """Gets the in_trash of this CloudIntegration.  # noqa: E501
-
-
-        :return: The in_trash of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._in_trash
-
-    @in_trash.setter
-    def in_trash(self, in_trash):
-        """Sets the in_trash of this CloudIntegration.
-
-
-        :param in_trash: The in_trash of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._in_trash = in_trash
-
-    @property
-    def creator_id(self):
-        """Gets the creator_id of this CloudIntegration.  # noqa: E501
-
-
-        :return: The creator_id of this CloudIntegration.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this CloudIntegration.
-
-
-        :param creator_id: The creator_id of this CloudIntegration.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this CloudIntegration.  # noqa: E501
-
-
-        :return: The updater_id of this CloudIntegration.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this CloudIntegration.
-
-
-        :param updater_id: The updater_id of this CloudIntegration.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def id(self):
-        """Gets the id of this CloudIntegration.  # noqa: E501
-
-
-        :return: The id of this CloudIntegration.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CloudIntegration.
-
-
-        :param id: The id of this CloudIntegration.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def last_error_event(self):
-        """Gets the last_error_event of this CloudIntegration.  # noqa: E501
-
-
-        :return: The last_error_event of this CloudIntegration.  # noqa: E501
-        :rtype: Event
-        """
-        return self._last_error_event
-
-    @last_error_event.setter
-    def last_error_event(self, last_error_event):
-        """Sets the last_error_event of this CloudIntegration.
-
-
-        :param last_error_event: The last_error_event of this CloudIntegration.  # noqa: E501
-        :type: Event
-        """
-
-        self._last_error_event = last_error_event
+        if new_relic is not None:
+            self.new_relic = new_relic
+        self.service = service
+        if service_refresh_rate_in_mins is not None:
+            self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
+        if tesla is not None:
+            self.tesla = tesla
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
 
     @property
     def additional_tags(self):
@@ -375,199 +218,6 @@ class CloudIntegration(object):
         """
 
         self._additional_tags = additional_tags
-
-    @property
-    def last_received_data_point_ms(self):
-        """Gets the last_received_data_point_ms of this CloudIntegration.  # noqa: E501
-
-        Time that this integration last received a data point, in epoch millis  # noqa: E501
-
-        :return: The last_received_data_point_ms of this CloudIntegration.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_received_data_point_ms
-
-    @last_received_data_point_ms.setter
-    def last_received_data_point_ms(self, last_received_data_point_ms):
-        """Sets the last_received_data_point_ms of this CloudIntegration.
-
-        Time that this integration last received a data point, in epoch millis  # noqa: E501
-
-        :param last_received_data_point_ms: The last_received_data_point_ms of this CloudIntegration.  # noqa: E501
-        :type: int
-        """
-
-        self._last_received_data_point_ms = last_received_data_point_ms
-
-    @property
-    def last_metric_count(self):
-        """Gets the last_metric_count of this CloudIntegration.  # noqa: E501
-
-        Number of metrics / events ingested by this integration the last time it ran  # noqa: E501
-
-        :return: The last_metric_count of this CloudIntegration.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_metric_count
-
-    @last_metric_count.setter
-    def last_metric_count(self, last_metric_count):
-        """Sets the last_metric_count of this CloudIntegration.
-
-        Number of metrics / events ingested by this integration the last time it ran  # noqa: E501
-
-        :param last_metric_count: The last_metric_count of this CloudIntegration.  # noqa: E501
-        :type: int
-        """
-
-        self._last_metric_count = last_metric_count
-
-    @property
-    def cloud_watch(self):
-        """Gets the cloud_watch of this CloudIntegration.  # noqa: E501
-
-
-        :return: The cloud_watch of this CloudIntegration.  # noqa: E501
-        :rtype: CloudWatchConfiguration
-        """
-        return self._cloud_watch
-
-    @cloud_watch.setter
-    def cloud_watch(self, cloud_watch):
-        """Sets the cloud_watch of this CloudIntegration.
-
-
-        :param cloud_watch: The cloud_watch of this CloudIntegration.  # noqa: E501
-        :type: CloudWatchConfiguration
-        """
-
-        self._cloud_watch = cloud_watch
-
-    @property
-    def cloud_trail(self):
-        """Gets the cloud_trail of this CloudIntegration.  # noqa: E501
-
-
-        :return: The cloud_trail of this CloudIntegration.  # noqa: E501
-        :rtype: CloudTrailConfiguration
-        """
-        return self._cloud_trail
-
-    @cloud_trail.setter
-    def cloud_trail(self, cloud_trail):
-        """Sets the cloud_trail of this CloudIntegration.
-
-
-        :param cloud_trail: The cloud_trail of this CloudIntegration.  # noqa: E501
-        :type: CloudTrailConfiguration
-        """
-
-        self._cloud_trail = cloud_trail
-
-    @property
-    def ec2(self):
-        """Gets the ec2 of this CloudIntegration.  # noqa: E501
-
-
-        :return: The ec2 of this CloudIntegration.  # noqa: E501
-        :rtype: EC2Configuration
-        """
-        return self._ec2
-
-    @ec2.setter
-    def ec2(self, ec2):
-        """Sets the ec2 of this CloudIntegration.
-
-
-        :param ec2: The ec2 of this CloudIntegration.  # noqa: E501
-        :type: EC2Configuration
-        """
-
-        self._ec2 = ec2
-
-    @property
-    def gcp(self):
-        """Gets the gcp of this CloudIntegration.  # noqa: E501
-
-
-        :return: The gcp of this CloudIntegration.  # noqa: E501
-        :rtype: GCPConfiguration
-        """
-        return self._gcp
-
-    @gcp.setter
-    def gcp(self, gcp):
-        """Sets the gcp of this CloudIntegration.
-
-
-        :param gcp: The gcp of this CloudIntegration.  # noqa: E501
-        :type: GCPConfiguration
-        """
-
-        self._gcp = gcp
-
-    @property
-    def gcp_billing(self):
-        """Gets the gcp_billing of this CloudIntegration.  # noqa: E501
-
-
-        :return: The gcp_billing of this CloudIntegration.  # noqa: E501
-        :rtype: GCPBillingConfiguration
-        """
-        return self._gcp_billing
-
-    @gcp_billing.setter
-    def gcp_billing(self, gcp_billing):
-        """Sets the gcp_billing of this CloudIntegration.
-
-
-        :param gcp_billing: The gcp_billing of this CloudIntegration.  # noqa: E501
-        :type: GCPBillingConfiguration
-        """
-
-        self._gcp_billing = gcp_billing
-
-    @property
-    def new_relic(self):
-        """Gets the new_relic of this CloudIntegration.  # noqa: E501
-
-
-        :return: The new_relic of this CloudIntegration.  # noqa: E501
-        :rtype: NewRelicConfiguration
-        """
-        return self._new_relic
-
-    @new_relic.setter
-    def new_relic(self, new_relic):
-        """Sets the new_relic of this CloudIntegration.
-
-
-        :param new_relic: The new_relic of this CloudIntegration.  # noqa: E501
-        :type: NewRelicConfiguration
-        """
-
-        self._new_relic = new_relic
-
-    @property
-    def tesla(self):
-        """Gets the tesla of this CloudIntegration.  # noqa: E501
-
-
-        :return: The tesla of this CloudIntegration.  # noqa: E501
-        :rtype: TeslaConfiguration
-        """
-        return self._tesla
-
-    @tesla.setter
-    def tesla(self, tesla):
-        """Sets the tesla of this CloudIntegration.
-
-
-        :param tesla: The tesla of this CloudIntegration.  # noqa: E501
-        :type: TeslaConfiguration
-        """
-
-        self._tesla = tesla
 
     @property
     def azure(self):
@@ -612,50 +262,109 @@ class CloudIntegration(object):
         self._azure_activity_log = azure_activity_log
 
     @property
-    def last_error(self):
-        """Gets the last_error of this CloudIntegration.  # noqa: E501
+    def cloud_trail(self):
+        """Gets the cloud_trail of this CloudIntegration.  # noqa: E501
 
-        Digest of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
 
-        :return: The last_error of this CloudIntegration.  # noqa: E501
-        :rtype: str
+        :return: The cloud_trail of this CloudIntegration.  # noqa: E501
+        :rtype: CloudTrailConfiguration
         """
-        return self._last_error
+        return self._cloud_trail
 
-    @last_error.setter
-    def last_error(self, last_error):
-        """Sets the last_error of this CloudIntegration.
+    @cloud_trail.setter
+    def cloud_trail(self, cloud_trail):
+        """Sets the cloud_trail of this CloudIntegration.
 
-        Digest of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
 
-        :param last_error: The last_error of this CloudIntegration.  # noqa: E501
-        :type: str
+        :param cloud_trail: The cloud_trail of this CloudIntegration.  # noqa: E501
+        :type: CloudTrailConfiguration
         """
 
-        self._last_error = last_error
+        self._cloud_trail = cloud_trail
 
     @property
-    def last_error_ms(self):
-        """Gets the last_error_ms of this CloudIntegration.  # noqa: E501
+    def cloud_watch(self):
+        """Gets the cloud_watch of this CloudIntegration.  # noqa: E501
 
-        Time, in epoch millis, of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
 
-        :return: The last_error_ms of this CloudIntegration.  # noqa: E501
+        :return: The cloud_watch of this CloudIntegration.  # noqa: E501
+        :rtype: CloudWatchConfiguration
+        """
+        return self._cloud_watch
+
+    @cloud_watch.setter
+    def cloud_watch(self, cloud_watch):
+        """Sets the cloud_watch of this CloudIntegration.
+
+
+        :param cloud_watch: The cloud_watch of this CloudIntegration.  # noqa: E501
+        :type: CloudWatchConfiguration
+        """
+
+        self._cloud_watch = cloud_watch
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this CloudIntegration.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this CloudIntegration.  # noqa: E501
         :rtype: int
         """
-        return self._last_error_ms
+        return self._created_epoch_millis
 
-    @last_error_ms.setter
-    def last_error_ms(self, last_error_ms):
-        """Sets the last_error_ms of this CloudIntegration.
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this CloudIntegration.
 
-        Time, in epoch millis, of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
 
-        :param last_error_ms: The last_error_ms of this CloudIntegration.  # noqa: E501
+        :param created_epoch_millis: The created_epoch_millis of this CloudIntegration.  # noqa: E501
         :type: int
         """
 
-        self._last_error_ms = last_error_ms
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def creator_id(self):
+        """Gets the creator_id of this CloudIntegration.  # noqa: E501
+
+
+        :return: The creator_id of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this CloudIntegration.
+
+
+        :param creator_id: The creator_id of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._creator_id = creator_id
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this CloudIntegration.  # noqa: E501
+
+
+        :return: The deleted of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this CloudIntegration.
+
+
+        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     @property
     def disabled(self):
@@ -681,27 +390,220 @@ class CloudIntegration(object):
         self._disabled = disabled
 
     @property
-    def last_processor_id(self):
-        """Gets the last_processor_id of this CloudIntegration.  # noqa: E501
+    def ec2(self):
+        """Gets the ec2 of this CloudIntegration.  # noqa: E501
 
-        Opaque id of the last Wavefront integrations service to act on this integration  # noqa: E501
 
-        :return: The last_processor_id of this CloudIntegration.  # noqa: E501
+        :return: The ec2 of this CloudIntegration.  # noqa: E501
+        :rtype: EC2Configuration
+        """
+        return self._ec2
+
+    @ec2.setter
+    def ec2(self, ec2):
+        """Sets the ec2 of this CloudIntegration.
+
+
+        :param ec2: The ec2 of this CloudIntegration.  # noqa: E501
+        :type: EC2Configuration
+        """
+
+        self._ec2 = ec2
+
+    @property
+    def force_save(self):
+        """Gets the force_save of this CloudIntegration.  # noqa: E501
+
+
+        :return: The force_save of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_save
+
+    @force_save.setter
+    def force_save(self, force_save):
+        """Sets the force_save of this CloudIntegration.
+
+
+        :param force_save: The force_save of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._force_save = force_save
+
+    @property
+    def gcp(self):
+        """Gets the gcp of this CloudIntegration.  # noqa: E501
+
+
+        :return: The gcp of this CloudIntegration.  # noqa: E501
+        :rtype: GCPConfiguration
+        """
+        return self._gcp
+
+    @gcp.setter
+    def gcp(self, gcp):
+        """Sets the gcp of this CloudIntegration.
+
+
+        :param gcp: The gcp of this CloudIntegration.  # noqa: E501
+        :type: GCPConfiguration
+        """
+
+        self._gcp = gcp
+
+    @property
+    def gcp_billing(self):
+        """Gets the gcp_billing of this CloudIntegration.  # noqa: E501
+
+
+        :return: The gcp_billing of this CloudIntegration.  # noqa: E501
+        :rtype: GCPBillingConfiguration
+        """
+        return self._gcp_billing
+
+    @gcp_billing.setter
+    def gcp_billing(self, gcp_billing):
+        """Sets the gcp_billing of this CloudIntegration.
+
+
+        :param gcp_billing: The gcp_billing of this CloudIntegration.  # noqa: E501
+        :type: GCPBillingConfiguration
+        """
+
+        self._gcp_billing = gcp_billing
+
+    @property
+    def id(self):
+        """Gets the id of this CloudIntegration.  # noqa: E501
+
+
+        :return: The id of this CloudIntegration.  # noqa: E501
         :rtype: str
         """
-        return self._last_processor_id
+        return self._id
 
-    @last_processor_id.setter
-    def last_processor_id(self, last_processor_id):
-        """Sets the last_processor_id of this CloudIntegration.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CloudIntegration.
 
-        Opaque id of the last Wavefront integrations service to act on this integration  # noqa: E501
 
-        :param last_processor_id: The last_processor_id of this CloudIntegration.  # noqa: E501
+        :param id: The id of this CloudIntegration.  # noqa: E501
         :type: str
         """
 
-        self._last_processor_id = last_processor_id
+        self._id = id
+
+    @property
+    def in_trash(self):
+        """Gets the in_trash of this CloudIntegration.  # noqa: E501
+
+
+        :return: The in_trash of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_trash
+
+    @in_trash.setter
+    def in_trash(self, in_trash):
+        """Sets the in_trash of this CloudIntegration.
+
+
+        :param in_trash: The in_trash of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_trash = in_trash
+
+    @property
+    def last_error(self):
+        """Gets the last_error of this CloudIntegration.  # noqa: E501
+
+        Digest of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
+
+        :return: The last_error of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_error
+
+    @last_error.setter
+    def last_error(self, last_error):
+        """Sets the last_error of this CloudIntegration.
+
+        Digest of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
+
+        :param last_error: The last_error of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._last_error = last_error
+
+    @property
+    def last_error_event(self):
+        """Gets the last_error_event of this CloudIntegration.  # noqa: E501
+
+
+        :return: The last_error_event of this CloudIntegration.  # noqa: E501
+        :rtype: Event
+        """
+        return self._last_error_event
+
+    @last_error_event.setter
+    def last_error_event(self, last_error_event):
+        """Sets the last_error_event of this CloudIntegration.
+
+
+        :param last_error_event: The last_error_event of this CloudIntegration.  # noqa: E501
+        :type: Event
+        """
+
+        self._last_error_event = last_error_event
+
+    @property
+    def last_error_ms(self):
+        """Gets the last_error_ms of this CloudIntegration.  # noqa: E501
+
+        Time, in epoch millis, of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
+
+        :return: The last_error_ms of this CloudIntegration.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_error_ms
+
+    @last_error_ms.setter
+    def last_error_ms(self, last_error_ms):
+        """Sets the last_error_ms of this CloudIntegration.
+
+        Time, in epoch millis, of the last error encountered by Wavefront servers when fetching data using this integration  # noqa: E501
+
+        :param last_error_ms: The last_error_ms of this CloudIntegration.  # noqa: E501
+        :type: int
+        """
+
+        self._last_error_ms = last_error_ms
+
+    @property
+    def last_metric_count(self):
+        """Gets the last_metric_count of this CloudIntegration.  # noqa: E501
+
+        Number of metrics / events ingested by this integration the last time it ran  # noqa: E501
+
+        :return: The last_metric_count of this CloudIntegration.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_metric_count
+
+    @last_metric_count.setter
+    def last_metric_count(self, last_metric_count):
+        """Sets the last_metric_count of this CloudIntegration.
+
+        Number of metrics / events ingested by this integration the last time it ran  # noqa: E501
+
+        :param last_metric_count: The last_metric_count of this CloudIntegration.  # noqa: E501
+        :type: int
+        """
+
+        self._last_metric_count = last_metric_count
 
     @property
     def last_processing_timestamp(self):
@@ -727,90 +629,50 @@ class CloudIntegration(object):
         self._last_processing_timestamp = last_processing_timestamp
 
     @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this CloudIntegration.  # noqa: E501
+    def last_processor_id(self):
+        """Gets the last_processor_id of this CloudIntegration.  # noqa: E501
 
+        Opaque id of the last Wavefront integrations service to act on this integration  # noqa: E501
 
-        :return: The created_epoch_millis of this CloudIntegration.  # noqa: E501
+        :return: The last_processor_id of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_processor_id
+
+    @last_processor_id.setter
+    def last_processor_id(self, last_processor_id):
+        """Sets the last_processor_id of this CloudIntegration.
+
+        Opaque id of the last Wavefront integrations service to act on this integration  # noqa: E501
+
+        :param last_processor_id: The last_processor_id of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._last_processor_id = last_processor_id
+
+    @property
+    def last_received_data_point_ms(self):
+        """Gets the last_received_data_point_ms of this CloudIntegration.  # noqa: E501
+
+        Time that this integration last received a data point, in epoch millis  # noqa: E501
+
+        :return: The last_received_data_point_ms of this CloudIntegration.  # noqa: E501
         :rtype: int
         """
-        return self._created_epoch_millis
+        return self._last_received_data_point_ms
 
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this CloudIntegration.
+    @last_received_data_point_ms.setter
+    def last_received_data_point_ms(self, last_received_data_point_ms):
+        """Sets the last_received_data_point_ms of this CloudIntegration.
 
+        Time that this integration last received a data point, in epoch millis  # noqa: E501
 
-        :param created_epoch_millis: The created_epoch_millis of this CloudIntegration.  # noqa: E501
+        :param last_received_data_point_ms: The last_received_data_point_ms of this CloudIntegration.  # noqa: E501
         :type: int
         """
 
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this CloudIntegration.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this CloudIntegration.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this CloudIntegration.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this CloudIntegration.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
-
-    @property
-    def service_refresh_rate_in_mins(self):
-        """Gets the service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
-
-        Service refresh rate in minutes.  # noqa: E501
-
-        :return: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
-        :rtype: int
-        """
-        return self._service_refresh_rate_in_mins
-
-    @service_refresh_rate_in_mins.setter
-    def service_refresh_rate_in_mins(self, service_refresh_rate_in_mins):
-        """Sets the service_refresh_rate_in_mins of this CloudIntegration.
-
-        Service refresh rate in minutes.  # noqa: E501
-
-        :param service_refresh_rate_in_mins: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
-        :type: int
-        """
-
-        self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this CloudIntegration.  # noqa: E501
-
-
-        :return: The deleted of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this CloudIntegration.
-
-
-        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
+        self._last_received_data_point_ms = last_received_data_point_ms
 
     @property
     def name(self):
@@ -836,6 +698,144 @@ class CloudIntegration(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def new_relic(self):
+        """Gets the new_relic of this CloudIntegration.  # noqa: E501
+
+
+        :return: The new_relic of this CloudIntegration.  # noqa: E501
+        :rtype: NewRelicConfiguration
+        """
+        return self._new_relic
+
+    @new_relic.setter
+    def new_relic(self, new_relic):
+        """Sets the new_relic of this CloudIntegration.
+
+
+        :param new_relic: The new_relic of this CloudIntegration.  # noqa: E501
+        :type: NewRelicConfiguration
+        """
+
+        self._new_relic = new_relic
+
+    @property
+    def service(self):
+        """Gets the service of this CloudIntegration.  # noqa: E501
+
+        A value denoting which cloud service this integration integrates with  # noqa: E501
+
+        :return: The service of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._service
+
+    @service.setter
+    def service(self, service):
+        """Sets the service of this CloudIntegration.
+
+        A value denoting which cloud service this integration integrates with  # noqa: E501
+
+        :param service: The service of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+        if service is None:
+            raise ValueError("Invalid value for `service`, must not be `None`")  # noqa: E501
+        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG"]  # noqa: E501
+        if service not in allowed_values:
+            raise ValueError(
+                "Invalid value for `service` ({0}), must be one of {1}"  # noqa: E501
+                .format(service, allowed_values)
+            )
+
+        self._service = service
+
+    @property
+    def service_refresh_rate_in_mins(self):
+        """Gets the service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
+
+        Service refresh rate in minutes.  # noqa: E501
+
+        :return: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
+        :rtype: int
+        """
+        return self._service_refresh_rate_in_mins
+
+    @service_refresh_rate_in_mins.setter
+    def service_refresh_rate_in_mins(self, service_refresh_rate_in_mins):
+        """Sets the service_refresh_rate_in_mins of this CloudIntegration.
+
+        Service refresh rate in minutes.  # noqa: E501
+
+        :param service_refresh_rate_in_mins: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
+        :type: int
+        """
+
+        self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
+
+    @property
+    def tesla(self):
+        """Gets the tesla of this CloudIntegration.  # noqa: E501
+
+
+        :return: The tesla of this CloudIntegration.  # noqa: E501
+        :rtype: TeslaConfiguration
+        """
+        return self._tesla
+
+    @tesla.setter
+    def tesla(self, tesla):
+        """Sets the tesla of this CloudIntegration.
+
+
+        :param tesla: The tesla of this CloudIntegration.  # noqa: E501
+        :type: TeslaConfiguration
+        """
+
+        self._tesla = tesla
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this CloudIntegration.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this CloudIntegration.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this CloudIntegration.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this CloudIntegration.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this CloudIntegration.  # noqa: E501
+
+
+        :return: The updater_id of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this CloudIntegration.
+
+
+        :param updater_id: The updater_id of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

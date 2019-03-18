@@ -31,76 +31,118 @@ class DashboardParameterValue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_all': 'bool',
+        'default_value': 'str',
         'description': 'str',
+        'dynamic_field_type': 'str',
+        'hide_from_view': 'bool',
         'label': 'str',
         'multivalue': 'bool',
-        'hide_from_view': 'bool',
-        'allow_all': 'bool',
-        'dynamic_field_type': 'str',
-        'tag_key': 'str',
+        'parameter_type': 'str',
         'query_value': 'str',
         'reverse_dyn_sort': 'bool',
-        'parameter_type': 'str',
-        'default_value': 'str',
+        'tag_key': 'str',
         'values_to_readable_strings': 'dict(str, str)'
     }
 
     attribute_map = {
+        'allow_all': 'allowAll',
+        'default_value': 'defaultValue',
         'description': 'description',
+        'dynamic_field_type': 'dynamicFieldType',
+        'hide_from_view': 'hideFromView',
         'label': 'label',
         'multivalue': 'multivalue',
-        'hide_from_view': 'hideFromView',
-        'allow_all': 'allowAll',
-        'dynamic_field_type': 'dynamicFieldType',
-        'tag_key': 'tagKey',
+        'parameter_type': 'parameterType',
         'query_value': 'queryValue',
         'reverse_dyn_sort': 'reverseDynSort',
-        'parameter_type': 'parameterType',
-        'default_value': 'defaultValue',
+        'tag_key': 'tagKey',
         'values_to_readable_strings': 'valuesToReadableStrings'
     }
 
-    def __init__(self, description=None, label=None, multivalue=None, hide_from_view=None, allow_all=None, dynamic_field_type=None, tag_key=None, query_value=None, reverse_dyn_sort=None, parameter_type=None, default_value=None, values_to_readable_strings=None):  # noqa: E501
+    def __init__(self, allow_all=None, default_value=None, description=None, dynamic_field_type=None, hide_from_view=None, label=None, multivalue=None, parameter_type=None, query_value=None, reverse_dyn_sort=None, tag_key=None, values_to_readable_strings=None):  # noqa: E501
         """DashboardParameterValue - a model defined in Swagger"""  # noqa: E501
 
+        self._allow_all = None
+        self._default_value = None
         self._description = None
+        self._dynamic_field_type = None
+        self._hide_from_view = None
         self._label = None
         self._multivalue = None
-        self._hide_from_view = None
-        self._allow_all = None
-        self._dynamic_field_type = None
-        self._tag_key = None
+        self._parameter_type = None
         self._query_value = None
         self._reverse_dyn_sort = None
-        self._parameter_type = None
-        self._default_value = None
+        self._tag_key = None
         self._values_to_readable_strings = None
         self.discriminator = None
 
+        if allow_all is not None:
+            self.allow_all = allow_all
+        if default_value is not None:
+            self.default_value = default_value
         if description is not None:
             self.description = description
+        if dynamic_field_type is not None:
+            self.dynamic_field_type = dynamic_field_type
+        if hide_from_view is not None:
+            self.hide_from_view = hide_from_view
         if label is not None:
             self.label = label
         if multivalue is not None:
             self.multivalue = multivalue
-        if hide_from_view is not None:
-            self.hide_from_view = hide_from_view
-        if allow_all is not None:
-            self.allow_all = allow_all
-        if dynamic_field_type is not None:
-            self.dynamic_field_type = dynamic_field_type
-        if tag_key is not None:
-            self.tag_key = tag_key
+        if parameter_type is not None:
+            self.parameter_type = parameter_type
         if query_value is not None:
             self.query_value = query_value
         if reverse_dyn_sort is not None:
             self.reverse_dyn_sort = reverse_dyn_sort
-        if parameter_type is not None:
-            self.parameter_type = parameter_type
-        if default_value is not None:
-            self.default_value = default_value
+        if tag_key is not None:
+            self.tag_key = tag_key
         if values_to_readable_strings is not None:
             self.values_to_readable_strings = values_to_readable_strings
+
+    @property
+    def allow_all(self):
+        """Gets the allow_all of this DashboardParameterValue.  # noqa: E501
+
+
+        :return: The allow_all of this DashboardParameterValue.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_all
+
+    @allow_all.setter
+    def allow_all(self, allow_all):
+        """Sets the allow_all of this DashboardParameterValue.
+
+
+        :param allow_all: The allow_all of this DashboardParameterValue.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_all = allow_all
+
+    @property
+    def default_value(self):
+        """Gets the default_value of this DashboardParameterValue.  # noqa: E501
+
+
+        :return: The default_value of this DashboardParameterValue.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_value
+
+    @default_value.setter
+    def default_value(self, default_value):
+        """Sets the default_value of this DashboardParameterValue.
+
+
+        :param default_value: The default_value of this DashboardParameterValue.  # noqa: E501
+        :type: str
+        """
+
+        self._default_value = default_value
 
     @property
     def description(self):
@@ -122,6 +164,54 @@ class DashboardParameterValue(object):
         """
 
         self._description = description
+
+    @property
+    def dynamic_field_type(self):
+        """Gets the dynamic_field_type of this DashboardParameterValue.  # noqa: E501
+
+
+        :return: The dynamic_field_type of this DashboardParameterValue.  # noqa: E501
+        :rtype: str
+        """
+        return self._dynamic_field_type
+
+    @dynamic_field_type.setter
+    def dynamic_field_type(self, dynamic_field_type):
+        """Sets the dynamic_field_type of this DashboardParameterValue.
+
+
+        :param dynamic_field_type: The dynamic_field_type of this DashboardParameterValue.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["SOURCE", "SOURCE_TAG", "METRIC_NAME", "TAG_KEY", "MATCHING_SOURCE_TAG"]  # noqa: E501
+        if dynamic_field_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `dynamic_field_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(dynamic_field_type, allowed_values)
+            )
+
+        self._dynamic_field_type = dynamic_field_type
+
+    @property
+    def hide_from_view(self):
+        """Gets the hide_from_view of this DashboardParameterValue.  # noqa: E501
+
+
+        :return: The hide_from_view of this DashboardParameterValue.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_from_view
+
+    @hide_from_view.setter
+    def hide_from_view(self, hide_from_view):
+        """Sets the hide_from_view of this DashboardParameterValue.
+
+
+        :param hide_from_view: The hide_from_view of this DashboardParameterValue.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_from_view = hide_from_view
 
     @property
     def label(self):
@@ -166,94 +256,31 @@ class DashboardParameterValue(object):
         self._multivalue = multivalue
 
     @property
-    def hide_from_view(self):
-        """Gets the hide_from_view of this DashboardParameterValue.  # noqa: E501
+    def parameter_type(self):
+        """Gets the parameter_type of this DashboardParameterValue.  # noqa: E501
 
 
-        :return: The hide_from_view of this DashboardParameterValue.  # noqa: E501
-        :rtype: bool
-        """
-        return self._hide_from_view
-
-    @hide_from_view.setter
-    def hide_from_view(self, hide_from_view):
-        """Sets the hide_from_view of this DashboardParameterValue.
-
-
-        :param hide_from_view: The hide_from_view of this DashboardParameterValue.  # noqa: E501
-        :type: bool
-        """
-
-        self._hide_from_view = hide_from_view
-
-    @property
-    def allow_all(self):
-        """Gets the allow_all of this DashboardParameterValue.  # noqa: E501
-
-
-        :return: The allow_all of this DashboardParameterValue.  # noqa: E501
-        :rtype: bool
-        """
-        return self._allow_all
-
-    @allow_all.setter
-    def allow_all(self, allow_all):
-        """Sets the allow_all of this DashboardParameterValue.
-
-
-        :param allow_all: The allow_all of this DashboardParameterValue.  # noqa: E501
-        :type: bool
-        """
-
-        self._allow_all = allow_all
-
-    @property
-    def dynamic_field_type(self):
-        """Gets the dynamic_field_type of this DashboardParameterValue.  # noqa: E501
-
-
-        :return: The dynamic_field_type of this DashboardParameterValue.  # noqa: E501
+        :return: The parameter_type of this DashboardParameterValue.  # noqa: E501
         :rtype: str
         """
-        return self._dynamic_field_type
+        return self._parameter_type
 
-    @dynamic_field_type.setter
-    def dynamic_field_type(self, dynamic_field_type):
-        """Sets the dynamic_field_type of this DashboardParameterValue.
+    @parameter_type.setter
+    def parameter_type(self, parameter_type):
+        """Sets the parameter_type of this DashboardParameterValue.
 
 
-        :param dynamic_field_type: The dynamic_field_type of this DashboardParameterValue.  # noqa: E501
+        :param parameter_type: The parameter_type of this DashboardParameterValue.  # noqa: E501
         :type: str
         """
-        allowed_values = ["SOURCE", "SOURCE_TAG", "METRIC_NAME", "TAG_KEY", "MATCHING_SOURCE_TAG"]  # noqa: E501
-        if dynamic_field_type not in allowed_values:
+        allowed_values = ["SIMPLE", "LIST", "DYNAMIC"]  # noqa: E501
+        if parameter_type not in allowed_values:
             raise ValueError(
-                "Invalid value for `dynamic_field_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(dynamic_field_type, allowed_values)
+                "Invalid value for `parameter_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(parameter_type, allowed_values)
             )
 
-        self._dynamic_field_type = dynamic_field_type
-
-    @property
-    def tag_key(self):
-        """Gets the tag_key of this DashboardParameterValue.  # noqa: E501
-
-
-        :return: The tag_key of this DashboardParameterValue.  # noqa: E501
-        :rtype: str
-        """
-        return self._tag_key
-
-    @tag_key.setter
-    def tag_key(self, tag_key):
-        """Sets the tag_key of this DashboardParameterValue.
-
-
-        :param tag_key: The tag_key of this DashboardParameterValue.  # noqa: E501
-        :type: str
-        """
-
-        self._tag_key = tag_key
+        self._parameter_type = parameter_type
 
     @property
     def query_value(self):
@@ -300,52 +327,25 @@ class DashboardParameterValue(object):
         self._reverse_dyn_sort = reverse_dyn_sort
 
     @property
-    def parameter_type(self):
-        """Gets the parameter_type of this DashboardParameterValue.  # noqa: E501
+    def tag_key(self):
+        """Gets the tag_key of this DashboardParameterValue.  # noqa: E501
 
 
-        :return: The parameter_type of this DashboardParameterValue.  # noqa: E501
+        :return: The tag_key of this DashboardParameterValue.  # noqa: E501
         :rtype: str
         """
-        return self._parameter_type
+        return self._tag_key
 
-    @parameter_type.setter
-    def parameter_type(self, parameter_type):
-        """Sets the parameter_type of this DashboardParameterValue.
-
-
-        :param parameter_type: The parameter_type of this DashboardParameterValue.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["SIMPLE", "LIST", "DYNAMIC"]  # noqa: E501
-        if parameter_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `parameter_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(parameter_type, allowed_values)
-            )
-
-        self._parameter_type = parameter_type
-
-    @property
-    def default_value(self):
-        """Gets the default_value of this DashboardParameterValue.  # noqa: E501
+    @tag_key.setter
+    def tag_key(self, tag_key):
+        """Sets the tag_key of this DashboardParameterValue.
 
 
-        :return: The default_value of this DashboardParameterValue.  # noqa: E501
-        :rtype: str
-        """
-        return self._default_value
-
-    @default_value.setter
-    def default_value(self, default_value):
-        """Sets the default_value of this DashboardParameterValue.
-
-
-        :param default_value: The default_value of this DashboardParameterValue.  # noqa: E501
+        :param tag_key: The tag_key of this DashboardParameterValue.  # noqa: E501
         :type: str
         """
 
-        self._default_value = default_value
+        self._tag_key = tag_key
 
     @property
     def values_to_readable_strings(self):

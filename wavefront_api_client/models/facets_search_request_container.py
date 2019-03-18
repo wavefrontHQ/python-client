@@ -33,111 +33,40 @@ class FacetsSearchRequestContainer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'query': 'list[SearchQuery]',
-        'limit': 'int',
-        'facets': 'list[str]',
         'facet_query': 'str',
-        'facet_query_matching_method': 'str'
+        'facet_query_matching_method': 'str',
+        'facets': 'list[str]',
+        'limit': 'int',
+        'query': 'list[SearchQuery]'
     }
 
     attribute_map = {
-        'query': 'query',
-        'limit': 'limit',
-        'facets': 'facets',
         'facet_query': 'facetQuery',
-        'facet_query_matching_method': 'facetQueryMatchingMethod'
+        'facet_query_matching_method': 'facetQueryMatchingMethod',
+        'facets': 'facets',
+        'limit': 'limit',
+        'query': 'query'
     }
 
-    def __init__(self, query=None, limit=None, facets=None, facet_query=None, facet_query_matching_method=None):  # noqa: E501
+    def __init__(self, facet_query=None, facet_query_matching_method=None, facets=None, limit=None, query=None):  # noqa: E501
         """FacetsSearchRequestContainer - a model defined in Swagger"""  # noqa: E501
 
-        self._query = None
-        self._limit = None
-        self._facets = None
         self._facet_query = None
         self._facet_query_matching_method = None
+        self._facets = None
+        self._limit = None
+        self._query = None
         self.discriminator = None
 
-        if query is not None:
-            self.query = query
-        if limit is not None:
-            self.limit = limit
-        self.facets = facets
         if facet_query is not None:
             self.facet_query = facet_query
         if facet_query_matching_method is not None:
             self.facet_query_matching_method = facet_query_matching_method
-
-    @property
-    def query(self):
-        """Gets the query of this FacetsSearchRequestContainer.  # noqa: E501
-
-        A list of queries by which to limit the search results.  Entities that match ALL queries in this list constitute a set of 'entity search results'.  All facets listed in the 'facets' search parameter of all entities within 'entity search results' are scanned to produce the search results (of facet values).  # noqa: E501
-
-        :return: The query of this FacetsSearchRequestContainer.  # noqa: E501
-        :rtype: list[SearchQuery]
-        """
-        return self._query
-
-    @query.setter
-    def query(self, query):
-        """Sets the query of this FacetsSearchRequestContainer.
-
-        A list of queries by which to limit the search results.  Entities that match ALL queries in this list constitute a set of 'entity search results'.  All facets listed in the 'facets' search parameter of all entities within 'entity search results' are scanned to produce the search results (of facet values).  # noqa: E501
-
-        :param query: The query of this FacetsSearchRequestContainer.  # noqa: E501
-        :type: list[SearchQuery]
-        """
-
-        self._query = query
-
-    @property
-    def limit(self):
-        """Gets the limit of this FacetsSearchRequestContainer.  # noqa: E501
-
-        The number of results to return.  Default 100  # noqa: E501
-
-        :return: The limit of this FacetsSearchRequestContainer.  # noqa: E501
-        :rtype: int
-        """
-        return self._limit
-
-    @limit.setter
-    def limit(self, limit):
-        """Sets the limit of this FacetsSearchRequestContainer.
-
-        The number of results to return.  Default 100  # noqa: E501
-
-        :param limit: The limit of this FacetsSearchRequestContainer.  # noqa: E501
-        :type: int
-        """
-
-        self._limit = limit
-
-    @property
-    def facets(self):
-        """Gets the facets of this FacetsSearchRequestContainer.  # noqa: E501
-
-        A list of facets (property keys) to return values from found in entities matching 'query'.  Examples are 'tags', 'creatorId', etc  # noqa: E501
-
-        :return: The facets of this FacetsSearchRequestContainer.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._facets
-
-    @facets.setter
-    def facets(self, facets):
-        """Sets the facets of this FacetsSearchRequestContainer.
-
-        A list of facets (property keys) to return values from found in entities matching 'query'.  Examples are 'tags', 'creatorId', etc  # noqa: E501
-
-        :param facets: The facets of this FacetsSearchRequestContainer.  # noqa: E501
-        :type: list[str]
-        """
-        if facets is None:
-            raise ValueError("Invalid value for `facets`, must not be `None`")  # noqa: E501
-
-        self._facets = facets
+        self.facets = facets
+        if limit is not None:
+            self.limit = limit
+        if query is not None:
+            self.query = query
 
     @property
     def facet_query(self):
@@ -190,6 +119,77 @@ class FacetsSearchRequestContainer(object):
             )
 
         self._facet_query_matching_method = facet_query_matching_method
+
+    @property
+    def facets(self):
+        """Gets the facets of this FacetsSearchRequestContainer.  # noqa: E501
+
+        A list of facets (property keys) to return values from found in entities matching 'query'.  Examples are 'tags', 'creatorId', etc  # noqa: E501
+
+        :return: The facets of this FacetsSearchRequestContainer.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._facets
+
+    @facets.setter
+    def facets(self, facets):
+        """Sets the facets of this FacetsSearchRequestContainer.
+
+        A list of facets (property keys) to return values from found in entities matching 'query'.  Examples are 'tags', 'creatorId', etc  # noqa: E501
+
+        :param facets: The facets of this FacetsSearchRequestContainer.  # noqa: E501
+        :type: list[str]
+        """
+        if facets is None:
+            raise ValueError("Invalid value for `facets`, must not be `None`")  # noqa: E501
+
+        self._facets = facets
+
+    @property
+    def limit(self):
+        """Gets the limit of this FacetsSearchRequestContainer.  # noqa: E501
+
+        The number of results to return.  Default 100  # noqa: E501
+
+        :return: The limit of this FacetsSearchRequestContainer.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit
+
+    @limit.setter
+    def limit(self, limit):
+        """Sets the limit of this FacetsSearchRequestContainer.
+
+        The number of results to return.  Default 100  # noqa: E501
+
+        :param limit: The limit of this FacetsSearchRequestContainer.  # noqa: E501
+        :type: int
+        """
+
+        self._limit = limit
+
+    @property
+    def query(self):
+        """Gets the query of this FacetsSearchRequestContainer.  # noqa: E501
+
+        A list of queries by which to limit the search results.  Entities that match ALL queries in this list constitute a set of 'entity search results'.  All facets listed in the 'facets' search parameter of all entities within 'entity search results' are scanned to produce the search results (of facet values).  # noqa: E501
+
+        :return: The query of this FacetsSearchRequestContainer.  # noqa: E501
+        :rtype: list[SearchQuery]
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """Sets the query of this FacetsSearchRequestContainer.
+
+        A list of queries by which to limit the search results.  Entities that match ALL queries in this list constitute a set of 'entity search results'.  All facets listed in the 'facets' search parameter of all entities within 'entity search results' are scanned to produce the search results (of facet values).  # noqa: E501
+
+        :param query: The query of this FacetsSearchRequestContainer.  # noqa: E501
+        :type: list[SearchQuery]
+        """
+
+        self._query = query
 
     def to_dict(self):
         """Returns the model properties as a dict"""

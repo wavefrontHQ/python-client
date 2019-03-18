@@ -31,36 +31,99 @@ class MetricStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status': 'str',
         'ever': 'bool',
+        'now': 'bool',
         'recent_except_now': 'bool',
-        'now': 'bool'
+        'status': 'str'
     }
 
     attribute_map = {
-        'status': 'status',
         'ever': 'ever',
+        'now': 'now',
         'recent_except_now': 'recentExceptNow',
-        'now': 'now'
+        'status': 'status'
     }
 
-    def __init__(self, status=None, ever=None, recent_except_now=None, now=None):  # noqa: E501
+    def __init__(self, ever=None, now=None, recent_except_now=None, status=None):  # noqa: E501
         """MetricStatus - a model defined in Swagger"""  # noqa: E501
 
-        self._status = None
         self._ever = None
-        self._recent_except_now = None
         self._now = None
+        self._recent_except_now = None
+        self._status = None
         self.discriminator = None
 
-        if status is not None:
-            self.status = status
         if ever is not None:
             self.ever = ever
-        if recent_except_now is not None:
-            self.recent_except_now = recent_except_now
         if now is not None:
             self.now = now
+        if recent_except_now is not None:
+            self.recent_except_now = recent_except_now
+        if status is not None:
+            self.status = status
+
+    @property
+    def ever(self):
+        """Gets the ever of this MetricStatus.  # noqa: E501
+
+
+        :return: The ever of this MetricStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ever
+
+    @ever.setter
+    def ever(self, ever):
+        """Sets the ever of this MetricStatus.
+
+
+        :param ever: The ever of this MetricStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._ever = ever
+
+    @property
+    def now(self):
+        """Gets the now of this MetricStatus.  # noqa: E501
+
+
+        :return: The now of this MetricStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._now
+
+    @now.setter
+    def now(self, now):
+        """Sets the now of this MetricStatus.
+
+
+        :param now: The now of this MetricStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._now = now
+
+    @property
+    def recent_except_now(self):
+        """Gets the recent_except_now of this MetricStatus.  # noqa: E501
+
+
+        :return: The recent_except_now of this MetricStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._recent_except_now
+
+    @recent_except_now.setter
+    def recent_except_now(self, recent_except_now):
+        """Sets the recent_except_now of this MetricStatus.
+
+
+        :param recent_except_now: The recent_except_now of this MetricStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._recent_except_now = recent_except_now
 
     @property
     def status(self):
@@ -88,69 +151,6 @@ class MetricStatus(object):
             )
 
         self._status = status
-
-    @property
-    def ever(self):
-        """Gets the ever of this MetricStatus.  # noqa: E501
-
-
-        :return: The ever of this MetricStatus.  # noqa: E501
-        :rtype: bool
-        """
-        return self._ever
-
-    @ever.setter
-    def ever(self, ever):
-        """Sets the ever of this MetricStatus.
-
-
-        :param ever: The ever of this MetricStatus.  # noqa: E501
-        :type: bool
-        """
-
-        self._ever = ever
-
-    @property
-    def recent_except_now(self):
-        """Gets the recent_except_now of this MetricStatus.  # noqa: E501
-
-
-        :return: The recent_except_now of this MetricStatus.  # noqa: E501
-        :rtype: bool
-        """
-        return self._recent_except_now
-
-    @recent_except_now.setter
-    def recent_except_now(self, recent_except_now):
-        """Sets the recent_except_now of this MetricStatus.
-
-
-        :param recent_except_now: The recent_except_now of this MetricStatus.  # noqa: E501
-        :type: bool
-        """
-
-        self._recent_except_now = recent_except_now
-
-    @property
-    def now(self):
-        """Gets the now of this MetricStatus.  # noqa: E501
-
-
-        :return: The now of this MetricStatus.  # noqa: E501
-        :rtype: bool
-        """
-        return self._now
-
-    @now.setter
-    def now(self, now):
-        """Sets the now of this MetricStatus.
-
-
-        :param now: The now of this MetricStatus.  # noqa: E501
-        :type: bool
-        """
-
-        self._now = now
 
     def to_dict(self):
         """Returns the model properties as a dict"""

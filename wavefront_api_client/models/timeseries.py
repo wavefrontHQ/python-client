@@ -31,59 +31,59 @@ class Timeseries(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'label': 'str',
+        'data': 'list[list[float]]',
         'host': 'str',
-        'tags': 'dict(str, str)',
-        'data': 'list[list[float]]'
+        'label': 'str',
+        'tags': 'dict(str, str)'
     }
 
     attribute_map = {
-        'label': 'label',
+        'data': 'data',
         'host': 'host',
-        'tags': 'tags',
-        'data': 'data'
+        'label': 'label',
+        'tags': 'tags'
     }
 
-    def __init__(self, label=None, host=None, tags=None, data=None):  # noqa: E501
+    def __init__(self, data=None, host=None, label=None, tags=None):  # noqa: E501
         """Timeseries - a model defined in Swagger"""  # noqa: E501
 
-        self._label = None
-        self._host = None
-        self._tags = None
         self._data = None
+        self._host = None
+        self._label = None
+        self._tags = None
         self.discriminator = None
 
-        if label is not None:
-            self.label = label
-        if host is not None:
-            self.host = host
-        if tags is not None:
-            self.tags = tags
         if data is not None:
             self.data = data
+        if host is not None:
+            self.host = host
+        if label is not None:
+            self.label = label
+        if tags is not None:
+            self.tags = tags
 
     @property
-    def label(self):
-        """Gets the label of this Timeseries.  # noqa: E501
+    def data(self):
+        """Gets the data of this Timeseries.  # noqa: E501
 
-        Label of this timeseries  # noqa: E501
+        Data returned by this time series.  This is returned as a list of points, where each point is represented as a two-element list with 1st element being the timestamp in epoch SECONDS and the 2nd element being the numeric value of the series at the timestamp  # noqa: E501
 
-        :return: The label of this Timeseries.  # noqa: E501
-        :rtype: str
+        :return: The data of this Timeseries.  # noqa: E501
+        :rtype: list[list[float]]
         """
-        return self._label
+        return self._data
 
-    @label.setter
-    def label(self, label):
-        """Sets the label of this Timeseries.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this Timeseries.
 
-        Label of this timeseries  # noqa: E501
+        Data returned by this time series.  This is returned as a list of points, where each point is represented as a two-element list with 1st element being the timestamp in epoch SECONDS and the 2nd element being the numeric value of the series at the timestamp  # noqa: E501
 
-        :param label: The label of this Timeseries.  # noqa: E501
-        :type: str
+        :param data: The data of this Timeseries.  # noqa: E501
+        :type: list[list[float]]
         """
 
-        self._label = label
+        self._data = data
 
     @property
     def host(self):
@@ -109,6 +109,29 @@ class Timeseries(object):
         self._host = host
 
     @property
+    def label(self):
+        """Gets the label of this Timeseries.  # noqa: E501
+
+        Label of this timeseries  # noqa: E501
+
+        :return: The label of this Timeseries.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this Timeseries.
+
+        Label of this timeseries  # noqa: E501
+
+        :param label: The label of this Timeseries.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
+
+    @property
     def tags(self):
         """Gets the tags of this Timeseries.  # noqa: E501
 
@@ -130,29 +153,6 @@ class Timeseries(object):
         """
 
         self._tags = tags
-
-    @property
-    def data(self):
-        """Gets the data of this Timeseries.  # noqa: E501
-
-        Data returned by this time series.  This is returned as a list of points, where each point is represented as a two-element list with 1st element being the timestamp in epoch SECONDS and the 2nd element being the numeric value of the series at the timestamp  # noqa: E501
-
-        :return: The data of this Timeseries.  # noqa: E501
-        :rtype: list[list[float]]
-        """
-        return self._data
-
-    @data.setter
-    def data(self, data):
-        """Sets the data of this Timeseries.
-
-        Data returned by this time series.  This is returned as a list of points, where each point is represented as a two-element list with 1st element being the timestamp in epoch SECONDS and the 2nd element being the numeric value of the series at the timestamp  # noqa: E501
-
-        :param data: The data of this Timeseries.  # noqa: E501
-        :type: list[list[float]]
-        """
-
-        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

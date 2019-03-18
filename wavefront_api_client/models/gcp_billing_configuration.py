@@ -31,53 +31,28 @@ class GCPBillingConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'project_id': 'str',
         'gcp_api_key': 'str',
-        'gcp_json_key': 'str'
+        'gcp_json_key': 'str',
+        'project_id': 'str'
     }
 
     attribute_map = {
-        'project_id': 'projectId',
         'gcp_api_key': 'gcpApiKey',
-        'gcp_json_key': 'gcpJsonKey'
+        'gcp_json_key': 'gcpJsonKey',
+        'project_id': 'projectId'
     }
 
-    def __init__(self, project_id=None, gcp_api_key=None, gcp_json_key=None):  # noqa: E501
+    def __init__(self, gcp_api_key=None, gcp_json_key=None, project_id=None):  # noqa: E501
         """GCPBillingConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._project_id = None
         self._gcp_api_key = None
         self._gcp_json_key = None
+        self._project_id = None
         self.discriminator = None
 
-        self.project_id = project_id
         self.gcp_api_key = gcp_api_key
         self.gcp_json_key = gcp_json_key
-
-    @property
-    def project_id(self):
-        """Gets the project_id of this GCPBillingConfiguration.  # noqa: E501
-
-        The Google Cloud Platform (GCP) project id.  # noqa: E501
-
-        :return: The project_id of this GCPBillingConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_id
-
-    @project_id.setter
-    def project_id(self, project_id):
-        """Sets the project_id of this GCPBillingConfiguration.
-
-        The Google Cloud Platform (GCP) project id.  # noqa: E501
-
-        :param project_id: The project_id of this GCPBillingConfiguration.  # noqa: E501
-        :type: str
-        """
-        if project_id is None:
-            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
-
-        self._project_id = project_id
+        self.project_id = project_id
 
     @property
     def gcp_api_key(self):
@@ -128,6 +103,31 @@ class GCPBillingConfiguration(object):
             raise ValueError("Invalid value for `gcp_json_key`, must not be `None`")  # noqa: E501
 
         self._gcp_json_key = gcp_json_key
+
+    @property
+    def project_id(self):
+        """Gets the project_id of this GCPBillingConfiguration.  # noqa: E501
+
+        The Google Cloud Platform (GCP) project id.  # noqa: E501
+
+        :return: The project_id of this GCPBillingConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_id
+
+    @project_id.setter
+    def project_id(self, project_id):
+        """Sets the project_id of this GCPBillingConfiguration.
+
+        The Google Cloud Platform (GCP) project id.  # noqa: E501
+
+        :param project_id: The project_id of this GCPBillingConfiguration.  # noqa: E501
+        :type: str
+        """
+        if project_id is None:
+            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
+
+        self._project_id = project_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

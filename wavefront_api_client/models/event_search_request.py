@@ -37,26 +37,26 @@ class EventSearchRequest(object):
         'cursor': 'str',
         'limit': 'int',
         'query': 'list[SearchQuery]',
-        'time_range': 'EventTimeRange',
-        'sort_time_ascending': 'bool'
+        'sort_time_ascending': 'bool',
+        'time_range': 'EventTimeRange'
     }
 
     attribute_map = {
         'cursor': 'cursor',
         'limit': 'limit',
         'query': 'query',
-        'time_range': 'timeRange',
-        'sort_time_ascending': 'sortTimeAscending'
+        'sort_time_ascending': 'sortTimeAscending',
+        'time_range': 'timeRange'
     }
 
-    def __init__(self, cursor=None, limit=None, query=None, time_range=None, sort_time_ascending=None):  # noqa: E501
+    def __init__(self, cursor=None, limit=None, query=None, sort_time_ascending=None, time_range=None):  # noqa: E501
         """EventSearchRequest - a model defined in Swagger"""  # noqa: E501
 
         self._cursor = None
         self._limit = None
         self._query = None
-        self._time_range = None
         self._sort_time_ascending = None
+        self._time_range = None
         self.discriminator = None
 
         if cursor is not None:
@@ -65,10 +65,10 @@ class EventSearchRequest(object):
             self.limit = limit
         if query is not None:
             self.query = query
-        if time_range is not None:
-            self.time_range = time_range
         if sort_time_ascending is not None:
             self.sort_time_ascending = sort_time_ascending
+        if time_range is not None:
+            self.time_range = time_range
 
     @property
     def cursor(self):
@@ -140,27 +140,6 @@ class EventSearchRequest(object):
         self._query = query
 
     @property
-    def time_range(self):
-        """Gets the time_range of this EventSearchRequest.  # noqa: E501
-
-
-        :return: The time_range of this EventSearchRequest.  # noqa: E501
-        :rtype: EventTimeRange
-        """
-        return self._time_range
-
-    @time_range.setter
-    def time_range(self, time_range):
-        """Sets the time_range of this EventSearchRequest.
-
-
-        :param time_range: The time_range of this EventSearchRequest.  # noqa: E501
-        :type: EventTimeRange
-        """
-
-        self._time_range = time_range
-
-    @property
     def sort_time_ascending(self):
         """Gets the sort_time_ascending of this EventSearchRequest.  # noqa: E501
 
@@ -182,6 +161,27 @@ class EventSearchRequest(object):
         """
 
         self._sort_time_ascending = sort_time_ascending
+
+    @property
+    def time_range(self):
+        """Gets the time_range of this EventSearchRequest.  # noqa: E501
+
+
+        :return: The time_range of this EventSearchRequest.  # noqa: E501
+        :rtype: EventTimeRange
+        """
+        return self._time_range
+
+    @time_range.setter
+    def time_range(self, time_range):
+        """Sets the time_range of this EventSearchRequest.
+
+
+        :param time_range: The time_range of this EventSearchRequest.  # noqa: E501
+        :type: EventTimeRange
+        """
+
+        self._time_range = time_range
 
     def to_dict(self):
         """Returns the model properties as a dict"""

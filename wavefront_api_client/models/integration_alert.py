@@ -33,33 +33,54 @@ class IntegrationAlert(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'url': 'str',
         'alert_obj': 'Alert',
-        'name': 'str'
+        'description': 'str',
+        'name': 'str',
+        'url': 'str'
     }
 
     attribute_map = {
-        'description': 'description',
-        'url': 'url',
         'alert_obj': 'alertObj',
-        'name': 'name'
+        'description': 'description',
+        'name': 'name',
+        'url': 'url'
     }
 
-    def __init__(self, description=None, url=None, alert_obj=None, name=None):  # noqa: E501
+    def __init__(self, alert_obj=None, description=None, name=None, url=None):  # noqa: E501
         """IntegrationAlert - a model defined in Swagger"""  # noqa: E501
 
-        self._description = None
-        self._url = None
         self._alert_obj = None
+        self._description = None
         self._name = None
+        self._url = None
         self.discriminator = None
 
-        self.description = description
-        self.url = url
         if alert_obj is not None:
             self.alert_obj = alert_obj
+        self.description = description
         self.name = name
+        self.url = url
+
+    @property
+    def alert_obj(self):
+        """Gets the alert_obj of this IntegrationAlert.  # noqa: E501
+
+
+        :return: The alert_obj of this IntegrationAlert.  # noqa: E501
+        :rtype: Alert
+        """
+        return self._alert_obj
+
+    @alert_obj.setter
+    def alert_obj(self, alert_obj):
+        """Sets the alert_obj of this IntegrationAlert.
+
+
+        :param alert_obj: The alert_obj of this IntegrationAlert.  # noqa: E501
+        :type: Alert
+        """
+
+        self._alert_obj = alert_obj
 
     @property
     def description(self):
@@ -87,52 +108,6 @@ class IntegrationAlert(object):
         self._description = description
 
     @property
-    def url(self):
-        """Gets the url of this IntegrationAlert.  # noqa: E501
-
-        URL path to the JSON definition of this alert  # noqa: E501
-
-        :return: The url of this IntegrationAlert.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this IntegrationAlert.
-
-        URL path to the JSON definition of this alert  # noqa: E501
-
-        :param url: The url of this IntegrationAlert.  # noqa: E501
-        :type: str
-        """
-        if url is None:
-            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
-
-        self._url = url
-
-    @property
-    def alert_obj(self):
-        """Gets the alert_obj of this IntegrationAlert.  # noqa: E501
-
-
-        :return: The alert_obj of this IntegrationAlert.  # noqa: E501
-        :rtype: Alert
-        """
-        return self._alert_obj
-
-    @alert_obj.setter
-    def alert_obj(self, alert_obj):
-        """Sets the alert_obj of this IntegrationAlert.
-
-
-        :param alert_obj: The alert_obj of this IntegrationAlert.  # noqa: E501
-        :type: Alert
-        """
-
-        self._alert_obj = alert_obj
-
-    @property
     def name(self):
         """Gets the name of this IntegrationAlert.  # noqa: E501
 
@@ -156,6 +131,31 @@ class IntegrationAlert(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def url(self):
+        """Gets the url of this IntegrationAlert.  # noqa: E501
+
+        URL path to the JSON definition of this alert  # noqa: E501
+
+        :return: The url of this IntegrationAlert.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this IntegrationAlert.
+
+        URL path to the JSON definition of this alert  # noqa: E501
+
+        :param url: The url of this IntegrationAlert.  # noqa: E501
+        :type: str
+        """
+        if url is None:
+            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
+
+        self._url = url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

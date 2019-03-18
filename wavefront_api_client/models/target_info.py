@@ -31,31 +31,54 @@ class TargetInfo(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'method': 'str',
         'id': 'str',
+        'method': 'str',
         'name': 'str'
     }
 
     attribute_map = {
-        'method': 'method',
         'id': 'id',
+        'method': 'method',
         'name': 'name'
     }
 
-    def __init__(self, method=None, id=None, name=None):  # noqa: E501
+    def __init__(self, id=None, method=None, name=None):  # noqa: E501
         """TargetInfo - a model defined in Swagger"""  # noqa: E501
 
-        self._method = None
         self._id = None
+        self._method = None
         self._name = None
         self.discriminator = None
 
-        if method is not None:
-            self.method = method
         if id is not None:
             self.id = id
+        if method is not None:
+            self.method = method
         if name is not None:
             self.name = name
+
+    @property
+    def id(self):
+        """Gets the id of this TargetInfo.  # noqa: E501
+
+        ID of the alert target  # noqa: E501
+
+        :return: The id of this TargetInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this TargetInfo.
+
+        ID of the alert target  # noqa: E501
+
+        :param id: The id of this TargetInfo.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def method(self):
@@ -85,29 +108,6 @@ class TargetInfo(object):
             )
 
         self._method = method
-
-    @property
-    def id(self):
-        """Gets the id of this TargetInfo.  # noqa: E501
-
-        ID of the alert target  # noqa: E501
-
-        :return: The id of this TargetInfo.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this TargetInfo.
-
-        ID of the alert target  # noqa: E501
-
-        :param id: The id of this TargetInfo.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def name(self):

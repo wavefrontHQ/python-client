@@ -31,228 +31,59 @@ class ChartSourceQuery(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'scatter_plot_source': 'str',
-        'querybuilder_serialization': 'str',
-        'querybuilder_enabled': 'bool',
-        'secondary_axis': 'bool',
-        'source_description': 'str',
-        'source_color': 'str',
-        'query': 'str',
         'disabled': 'bool',
-        'name': 'str'
+        'name': 'str',
+        'query': 'str',
+        'querybuilder_enabled': 'bool',
+        'querybuilder_serialization': 'str',
+        'scatter_plot_source': 'str',
+        'secondary_axis': 'bool',
+        'source_color': 'str',
+        'source_description': 'str'
     }
 
     attribute_map = {
-        'scatter_plot_source': 'scatterPlotSource',
-        'querybuilder_serialization': 'querybuilderSerialization',
-        'querybuilder_enabled': 'querybuilderEnabled',
-        'secondary_axis': 'secondaryAxis',
-        'source_description': 'sourceDescription',
-        'source_color': 'sourceColor',
-        'query': 'query',
         'disabled': 'disabled',
-        'name': 'name'
+        'name': 'name',
+        'query': 'query',
+        'querybuilder_enabled': 'querybuilderEnabled',
+        'querybuilder_serialization': 'querybuilderSerialization',
+        'scatter_plot_source': 'scatterPlotSource',
+        'secondary_axis': 'secondaryAxis',
+        'source_color': 'sourceColor',
+        'source_description': 'sourceDescription'
     }
 
-    def __init__(self, scatter_plot_source=None, querybuilder_serialization=None, querybuilder_enabled=None, secondary_axis=None, source_description=None, source_color=None, query=None, disabled=None, name=None):  # noqa: E501
+    def __init__(self, disabled=None, name=None, query=None, querybuilder_enabled=None, querybuilder_serialization=None, scatter_plot_source=None, secondary_axis=None, source_color=None, source_description=None):  # noqa: E501
         """ChartSourceQuery - a model defined in Swagger"""  # noqa: E501
 
-        self._scatter_plot_source = None
-        self._querybuilder_serialization = None
-        self._querybuilder_enabled = None
-        self._secondary_axis = None
-        self._source_description = None
-        self._source_color = None
-        self._query = None
         self._disabled = None
         self._name = None
+        self._query = None
+        self._querybuilder_enabled = None
+        self._querybuilder_serialization = None
+        self._scatter_plot_source = None
+        self._secondary_axis = None
+        self._source_color = None
+        self._source_description = None
         self.discriminator = None
 
-        if scatter_plot_source is not None:
-            self.scatter_plot_source = scatter_plot_source
-        if querybuilder_serialization is not None:
-            self.querybuilder_serialization = querybuilder_serialization
-        if querybuilder_enabled is not None:
-            self.querybuilder_enabled = querybuilder_enabled
-        if secondary_axis is not None:
-            self.secondary_axis = secondary_axis
-        if source_description is not None:
-            self.source_description = source_description
-        if source_color is not None:
-            self.source_color = source_color
-        self.query = query
         if disabled is not None:
             self.disabled = disabled
         self.name = name
-
-    @property
-    def scatter_plot_source(self):
-        """Gets the scatter_plot_source of this ChartSourceQuery.  # noqa: E501
-
-        For scatter plots, does this query source the X-axis or the Y-axis  # noqa: E501
-
-        :return: The scatter_plot_source of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._scatter_plot_source
-
-    @scatter_plot_source.setter
-    def scatter_plot_source(self, scatter_plot_source):
-        """Sets the scatter_plot_source of this ChartSourceQuery.
-
-        For scatter plots, does this query source the X-axis or the Y-axis  # noqa: E501
-
-        :param scatter_plot_source: The scatter_plot_source of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["X", "Y"]  # noqa: E501
-        if scatter_plot_source not in allowed_values:
-            raise ValueError(
-                "Invalid value for `scatter_plot_source` ({0}), must be one of {1}"  # noqa: E501
-                .format(scatter_plot_source, allowed_values)
-            )
-
-        self._scatter_plot_source = scatter_plot_source
-
-    @property
-    def querybuilder_serialization(self):
-        """Gets the querybuilder_serialization of this ChartSourceQuery.  # noqa: E501
-
-        Opaque representation of the querybuilder  # noqa: E501
-
-        :return: The querybuilder_serialization of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._querybuilder_serialization
-
-    @querybuilder_serialization.setter
-    def querybuilder_serialization(self, querybuilder_serialization):
-        """Sets the querybuilder_serialization of this ChartSourceQuery.
-
-        Opaque representation of the querybuilder  # noqa: E501
-
-        :param querybuilder_serialization: The querybuilder_serialization of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-
-        self._querybuilder_serialization = querybuilder_serialization
-
-    @property
-    def querybuilder_enabled(self):
-        """Gets the querybuilder_enabled of this ChartSourceQuery.  # noqa: E501
-
-        Whether or not this source line should have the query builder enabled  # noqa: E501
-
-        :return: The querybuilder_enabled of this ChartSourceQuery.  # noqa: E501
-        :rtype: bool
-        """
-        return self._querybuilder_enabled
-
-    @querybuilder_enabled.setter
-    def querybuilder_enabled(self, querybuilder_enabled):
-        """Sets the querybuilder_enabled of this ChartSourceQuery.
-
-        Whether or not this source line should have the query builder enabled  # noqa: E501
-
-        :param querybuilder_enabled: The querybuilder_enabled of this ChartSourceQuery.  # noqa: E501
-        :type: bool
-        """
-
-        self._querybuilder_enabled = querybuilder_enabled
-
-    @property
-    def secondary_axis(self):
-        """Gets the secondary_axis of this ChartSourceQuery.  # noqa: E501
-
-        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
-
-        :return: The secondary_axis of this ChartSourceQuery.  # noqa: E501
-        :rtype: bool
-        """
-        return self._secondary_axis
-
-    @secondary_axis.setter
-    def secondary_axis(self, secondary_axis):
-        """Sets the secondary_axis of this ChartSourceQuery.
-
-        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
-
-        :param secondary_axis: The secondary_axis of this ChartSourceQuery.  # noqa: E501
-        :type: bool
-        """
-
-        self._secondary_axis = secondary_axis
-
-    @property
-    def source_description(self):
-        """Gets the source_description of this ChartSourceQuery.  # noqa: E501
-
-        A description for the purpose of this source  # noqa: E501
-
-        :return: The source_description of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_description
-
-    @source_description.setter
-    def source_description(self, source_description):
-        """Sets the source_description of this ChartSourceQuery.
-
-        A description for the purpose of this source  # noqa: E501
-
-        :param source_description: The source_description of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-
-        self._source_description = source_description
-
-    @property
-    def source_color(self):
-        """Gets the source_color of this ChartSourceQuery.  # noqa: E501
-
-        The color used to draw all results from this source (auto if unset)  # noqa: E501
-
-        :return: The source_color of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_color
-
-    @source_color.setter
-    def source_color(self, source_color):
-        """Sets the source_color of this ChartSourceQuery.
-
-        The color used to draw all results from this source (auto if unset)  # noqa: E501
-
-        :param source_color: The source_color of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-
-        self._source_color = source_color
-
-    @property
-    def query(self):
-        """Gets the query of this ChartSourceQuery.  # noqa: E501
-
-        Query expression to plot on the chart  # noqa: E501
-
-        :return: The query of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._query
-
-    @query.setter
-    def query(self, query):
-        """Sets the query of this ChartSourceQuery.
-
-        Query expression to plot on the chart  # noqa: E501
-
-        :param query: The query of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-        if query is None:
-            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
-
-        self._query = query
+        self.query = query
+        if querybuilder_enabled is not None:
+            self.querybuilder_enabled = querybuilder_enabled
+        if querybuilder_serialization is not None:
+            self.querybuilder_serialization = querybuilder_serialization
+        if scatter_plot_source is not None:
+            self.scatter_plot_source = scatter_plot_source
+        if secondary_axis is not None:
+            self.secondary_axis = secondary_axis
+        if source_color is not None:
+            self.source_color = source_color
+        if source_description is not None:
+            self.source_description = source_description
 
     @property
     def disabled(self):
@@ -301,6 +132,175 @@ class ChartSourceQuery(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def query(self):
+        """Gets the query of this ChartSourceQuery.  # noqa: E501
+
+        Query expression to plot on the chart  # noqa: E501
+
+        :return: The query of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """Sets the query of this ChartSourceQuery.
+
+        Query expression to plot on the chart  # noqa: E501
+
+        :param query: The query of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+        if query is None:
+            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
+
+        self._query = query
+
+    @property
+    def querybuilder_enabled(self):
+        """Gets the querybuilder_enabled of this ChartSourceQuery.  # noqa: E501
+
+        Whether or not this source line should have the query builder enabled  # noqa: E501
+
+        :return: The querybuilder_enabled of this ChartSourceQuery.  # noqa: E501
+        :rtype: bool
+        """
+        return self._querybuilder_enabled
+
+    @querybuilder_enabled.setter
+    def querybuilder_enabled(self, querybuilder_enabled):
+        """Sets the querybuilder_enabled of this ChartSourceQuery.
+
+        Whether or not this source line should have the query builder enabled  # noqa: E501
+
+        :param querybuilder_enabled: The querybuilder_enabled of this ChartSourceQuery.  # noqa: E501
+        :type: bool
+        """
+
+        self._querybuilder_enabled = querybuilder_enabled
+
+    @property
+    def querybuilder_serialization(self):
+        """Gets the querybuilder_serialization of this ChartSourceQuery.  # noqa: E501
+
+        Opaque representation of the querybuilder  # noqa: E501
+
+        :return: The querybuilder_serialization of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._querybuilder_serialization
+
+    @querybuilder_serialization.setter
+    def querybuilder_serialization(self, querybuilder_serialization):
+        """Sets the querybuilder_serialization of this ChartSourceQuery.
+
+        Opaque representation of the querybuilder  # noqa: E501
+
+        :param querybuilder_serialization: The querybuilder_serialization of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._querybuilder_serialization = querybuilder_serialization
+
+    @property
+    def scatter_plot_source(self):
+        """Gets the scatter_plot_source of this ChartSourceQuery.  # noqa: E501
+
+        For scatter plots, does this query source the X-axis or the Y-axis  # noqa: E501
+
+        :return: The scatter_plot_source of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._scatter_plot_source
+
+    @scatter_plot_source.setter
+    def scatter_plot_source(self, scatter_plot_source):
+        """Sets the scatter_plot_source of this ChartSourceQuery.
+
+        For scatter plots, does this query source the X-axis or the Y-axis  # noqa: E501
+
+        :param scatter_plot_source: The scatter_plot_source of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["X", "Y"]  # noqa: E501
+        if scatter_plot_source not in allowed_values:
+            raise ValueError(
+                "Invalid value for `scatter_plot_source` ({0}), must be one of {1}"  # noqa: E501
+                .format(scatter_plot_source, allowed_values)
+            )
+
+        self._scatter_plot_source = scatter_plot_source
+
+    @property
+    def secondary_axis(self):
+        """Gets the secondary_axis of this ChartSourceQuery.  # noqa: E501
+
+        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
+
+        :return: The secondary_axis of this ChartSourceQuery.  # noqa: E501
+        :rtype: bool
+        """
+        return self._secondary_axis
+
+    @secondary_axis.setter
+    def secondary_axis(self, secondary_axis):
+        """Sets the secondary_axis of this ChartSourceQuery.
+
+        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
+
+        :param secondary_axis: The secondary_axis of this ChartSourceQuery.  # noqa: E501
+        :type: bool
+        """
+
+        self._secondary_axis = secondary_axis
+
+    @property
+    def source_color(self):
+        """Gets the source_color of this ChartSourceQuery.  # noqa: E501
+
+        The color used to draw all results from this source (auto if unset)  # noqa: E501
+
+        :return: The source_color of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_color
+
+    @source_color.setter
+    def source_color(self, source_color):
+        """Sets the source_color of this ChartSourceQuery.
+
+        The color used to draw all results from this source (auto if unset)  # noqa: E501
+
+        :param source_color: The source_color of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._source_color = source_color
+
+    @property
+    def source_description(self):
+        """Gets the source_description of this ChartSourceQuery.  # noqa: E501
+
+        A description for the purpose of this source  # noqa: E501
+
+        :return: The source_description of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_description
+
+    @source_description.setter
+    def source_description(self, source_description):
+        """Sets the source_description of this ChartSourceQuery.
+
+        A description for the purpose of this source  # noqa: E501
+
+        :param source_description: The source_description of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._source_description = source_description
 
     def to_dict(self):
         """Returns the model properties as a dict"""

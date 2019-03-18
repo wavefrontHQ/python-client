@@ -34,27 +34,27 @@ class ACL(object):
     """
     swagger_types = {
         'entity_id': 'str',
-        'view_acl': 'list[AccessControlElement]',
-        'modify_acl': 'list[AccessControlElement]'
+        'modify_acl': 'list[AccessControlElement]',
+        'view_acl': 'list[AccessControlElement]'
     }
 
     attribute_map = {
         'entity_id': 'entityId',
-        'view_acl': 'viewAcl',
-        'modify_acl': 'modifyAcl'
+        'modify_acl': 'modifyAcl',
+        'view_acl': 'viewAcl'
     }
 
-    def __init__(self, entity_id=None, view_acl=None, modify_acl=None):  # noqa: E501
+    def __init__(self, entity_id=None, modify_acl=None, view_acl=None):  # noqa: E501
         """ACL - a model defined in Swagger"""  # noqa: E501
 
         self._entity_id = None
-        self._view_acl = None
         self._modify_acl = None
+        self._view_acl = None
         self.discriminator = None
 
         self.entity_id = entity_id
-        self.view_acl = view_acl
         self.modify_acl = modify_acl
+        self.view_acl = view_acl
 
     @property
     def entity_id(self):
@@ -82,31 +82,6 @@ class ACL(object):
         self._entity_id = entity_id
 
     @property
-    def view_acl(self):
-        """Gets the view_acl of this ACL.  # noqa: E501
-
-        List of users and user group ids that have view permission  # noqa: E501
-
-        :return: The view_acl of this ACL.  # noqa: E501
-        :rtype: list[AccessControlElement]
-        """
-        return self._view_acl
-
-    @view_acl.setter
-    def view_acl(self, view_acl):
-        """Sets the view_acl of this ACL.
-
-        List of users and user group ids that have view permission  # noqa: E501
-
-        :param view_acl: The view_acl of this ACL.  # noqa: E501
-        :type: list[AccessControlElement]
-        """
-        if view_acl is None:
-            raise ValueError("Invalid value for `view_acl`, must not be `None`")  # noqa: E501
-
-        self._view_acl = view_acl
-
-    @property
     def modify_acl(self):
         """Gets the modify_acl of this ACL.  # noqa: E501
 
@@ -130,6 +105,31 @@ class ACL(object):
             raise ValueError("Invalid value for `modify_acl`, must not be `None`")  # noqa: E501
 
         self._modify_acl = modify_acl
+
+    @property
+    def view_acl(self):
+        """Gets the view_acl of this ACL.  # noqa: E501
+
+        List of users and user group ids that have view permission  # noqa: E501
+
+        :return: The view_acl of this ACL.  # noqa: E501
+        :rtype: list[AccessControlElement]
+        """
+        return self._view_acl
+
+    @view_acl.setter
+    def view_acl(self, view_acl):
+        """Sets the view_acl of this ACL.
+
+        List of users and user group ids that have view permission  # noqa: E501
+
+        :param view_acl: The view_acl of this ACL.  # noqa: E501
+        :type: list[AccessControlElement]
+        """
+        if view_acl is None:
+            raise ValueError("Invalid value for `view_acl`, must not be `None`")  # noqa: E501
+
+        self._view_acl = view_acl
 
     def to_dict(self):
         """Returns the model properties as a dict"""

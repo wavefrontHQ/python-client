@@ -31,90 +31,205 @@ class Notificant(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'method': 'str',
         'content_type': 'str',
-        'customer_id': 'str',
-        'title': 'str',
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'id': 'str',
         'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
-        'template': 'str',
-        'triggers': 'list[str]',
-        'recipient': 'str',
+        'creator_id': 'str',
         'custom_http_headers': 'dict(str, str)',
+        'customer_id': 'str',
+        'description': 'str',
         'email_subject': 'str',
-        'is_html_content': 'bool'
+        'id': 'str',
+        'is_html_content': 'bool',
+        'method': 'str',
+        'recipient': 'str',
+        'template': 'str',
+        'title': 'str',
+        'triggers': 'list[str]',
+        'updated_epoch_millis': 'int',
+        'updater_id': 'str'
     }
 
     attribute_map = {
-        'description': 'description',
-        'method': 'method',
         'content_type': 'contentType',
-        'customer_id': 'customerId',
-        'title': 'title',
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
-        'template': 'template',
-        'triggers': 'triggers',
-        'recipient': 'recipient',
+        'creator_id': 'creatorId',
         'custom_http_headers': 'customHttpHeaders',
+        'customer_id': 'customerId',
+        'description': 'description',
         'email_subject': 'emailSubject',
-        'is_html_content': 'isHtmlContent'
+        'id': 'id',
+        'is_html_content': 'isHtmlContent',
+        'method': 'method',
+        'recipient': 'recipient',
+        'template': 'template',
+        'title': 'title',
+        'triggers': 'triggers',
+        'updated_epoch_millis': 'updatedEpochMillis',
+        'updater_id': 'updaterId'
     }
 
-    def __init__(self, description=None, method=None, content_type=None, customer_id=None, title=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, triggers=None, recipient=None, custom_http_headers=None, email_subject=None, is_html_content=None):  # noqa: E501
+    def __init__(self, content_type=None, created_epoch_millis=None, creator_id=None, custom_http_headers=None, customer_id=None, description=None, email_subject=None, id=None, is_html_content=None, method=None, recipient=None, template=None, title=None, triggers=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Notificant - a model defined in Swagger"""  # noqa: E501
 
-        self._description = None
-        self._method = None
         self._content_type = None
-        self._customer_id = None
-        self._title = None
-        self._creator_id = None
-        self._updater_id = None
-        self._id = None
         self._created_epoch_millis = None
-        self._updated_epoch_millis = None
-        self._template = None
-        self._triggers = None
-        self._recipient = None
+        self._creator_id = None
         self._custom_http_headers = None
+        self._customer_id = None
+        self._description = None
         self._email_subject = None
+        self._id = None
         self._is_html_content = None
+        self._method = None
+        self._recipient = None
+        self._template = None
+        self._title = None
+        self._triggers = None
+        self._updated_epoch_millis = None
+        self._updater_id = None
         self.discriminator = None
 
-        self.description = description
-        self.method = method
         if content_type is not None:
             self.content_type = content_type
-        if customer_id is not None:
-            self.customer_id = customer_id
-        self.title = title
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if id is not None:
-            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
-        self.template = template
-        self.triggers = triggers
-        self.recipient = recipient
+        if creator_id is not None:
+            self.creator_id = creator_id
         if custom_http_headers is not None:
             self.custom_http_headers = custom_http_headers
+        if customer_id is not None:
+            self.customer_id = customer_id
+        self.description = description
         if email_subject is not None:
             self.email_subject = email_subject
+        if id is not None:
+            self.id = id
         if is_html_content is not None:
             self.is_html_content = is_html_content
+        self.method = method
+        self.recipient = recipient
+        self.template = template
+        self.title = title
+        self.triggers = triggers
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
+
+    @property
+    def content_type(self):
+        """Gets the content_type of this Notificant.  # noqa: E501
+
+        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+
+        :return: The content_type of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_type
+
+    @content_type.setter
+    def content_type(self, content_type):
+        """Sets the content_type of this Notificant.
+
+        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+
+        :param content_type: The content_type of this Notificant.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["application/json", "text/html", "text/plain", "application/x-www-form-urlencoded", ""]  # noqa: E501
+        if content_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(content_type, allowed_values)
+            )
+
+        self._content_type = content_type
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this Notificant.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this Notificant.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this Notificant.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this Notificant.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def creator_id(self):
+        """Gets the creator_id of this Notificant.  # noqa: E501
+
+
+        :return: The creator_id of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this Notificant.
+
+
+        :param creator_id: The creator_id of this Notificant.  # noqa: E501
+        :type: str
+        """
+
+        self._creator_id = creator_id
+
+    @property
+    def custom_http_headers(self):
+        """Gets the custom_http_headers of this Notificant.  # noqa: E501
+
+        A string->string map specifying the custom HTTP header key / value pairs that will be sent in the requests of this web hook  # noqa: E501
+
+        :return: The custom_http_headers of this Notificant.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._custom_http_headers
+
+    @custom_http_headers.setter
+    def custom_http_headers(self, custom_http_headers):
+        """Sets the custom_http_headers of this Notificant.
+
+        A string->string map specifying the custom HTTP header key / value pairs that will be sent in the requests of this web hook  # noqa: E501
+
+        :param custom_http_headers: The custom_http_headers of this Notificant.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._custom_http_headers = custom_http_headers
+
+    @property
+    def customer_id(self):
+        """Gets the customer_id of this Notificant.  # noqa: E501
+
+
+        :return: The customer_id of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_id
+
+    @customer_id.setter
+    def customer_id(self, customer_id):
+        """Sets the customer_id of this Notificant.
+
+
+        :param customer_id: The customer_id of this Notificant.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_id = customer_id
 
     @property
     def description(self):
@@ -140,6 +255,73 @@ class Notificant(object):
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def email_subject(self):
+        """Gets the email_subject of this Notificant.  # noqa: E501
+
+        The subject title of an email notification target  # noqa: E501
+
+        :return: The email_subject of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._email_subject
+
+    @email_subject.setter
+    def email_subject(self, email_subject):
+        """Sets the email_subject of this Notificant.
+
+        The subject title of an email notification target  # noqa: E501
+
+        :param email_subject: The email_subject of this Notificant.  # noqa: E501
+        :type: str
+        """
+
+        self._email_subject = email_subject
+
+    @property
+    def id(self):
+        """Gets the id of this Notificant.  # noqa: E501
+
+
+        :return: The id of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Notificant.
+
+
+        :param id: The id of this Notificant.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def is_html_content(self):
+        """Gets the is_html_content of this Notificant.  # noqa: E501
+
+        Determine whether the email alert target content is sent as html or text.  # noqa: E501
+
+        :return: The is_html_content of this Notificant.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_html_content
+
+    @is_html_content.setter
+    def is_html_content(self, is_html_content):
+        """Sets the is_html_content of this Notificant.
+
+        Determine whether the email alert target content is sent as html or text.  # noqa: E501
+
+        :param is_html_content: The is_html_content of this Notificant.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_html_content = is_html_content
 
     @property
     def method(self):
@@ -173,184 +355,29 @@ class Notificant(object):
         self._method = method
 
     @property
-    def content_type(self):
-        """Gets the content_type of this Notificant.  # noqa: E501
+    def recipient(self):
+        """Gets the recipient of this Notificant.  # noqa: E501
 
-        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+        The end point for the notification target.EMAIL: email address.  PAGERDUTY: PagerDuty routing Key.  WEBHOOK: URL end point  # noqa: E501
 
-        :return: The content_type of this Notificant.  # noqa: E501
+        :return: The recipient of this Notificant.  # noqa: E501
         :rtype: str
         """
-        return self._content_type
+        return self._recipient
 
-    @content_type.setter
-    def content_type(self, content_type):
-        """Sets the content_type of this Notificant.
+    @recipient.setter
+    def recipient(self, recipient):
+        """Sets the recipient of this Notificant.
 
-        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+        The end point for the notification target.EMAIL: email address.  PAGERDUTY: PagerDuty routing Key.  WEBHOOK: URL end point  # noqa: E501
 
-        :param content_type: The content_type of this Notificant.  # noqa: E501
+        :param recipient: The recipient of this Notificant.  # noqa: E501
         :type: str
         """
-        allowed_values = ["application/json", "text/html", "text/plain", "application/x-www-form-urlencoded", ""]  # noqa: E501
-        if content_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(content_type, allowed_values)
-            )
+        if recipient is None:
+            raise ValueError("Invalid value for `recipient`, must not be `None`")  # noqa: E501
 
-        self._content_type = content_type
-
-    @property
-    def customer_id(self):
-        """Gets the customer_id of this Notificant.  # noqa: E501
-
-
-        :return: The customer_id of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._customer_id
-
-    @customer_id.setter
-    def customer_id(self, customer_id):
-        """Sets the customer_id of this Notificant.
-
-
-        :param customer_id: The customer_id of this Notificant.  # noqa: E501
-        :type: str
-        """
-
-        self._customer_id = customer_id
-
-    @property
-    def title(self):
-        """Gets the title of this Notificant.  # noqa: E501
-
-        Title  # noqa: E501
-
-        :return: The title of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._title
-
-    @title.setter
-    def title(self, title):
-        """Sets the title of this Notificant.
-
-        Title  # noqa: E501
-
-        :param title: The title of this Notificant.  # noqa: E501
-        :type: str
-        """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
-
-        self._title = title
-
-    @property
-    def creator_id(self):
-        """Gets the creator_id of this Notificant.  # noqa: E501
-
-
-        :return: The creator_id of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this Notificant.
-
-
-        :param creator_id: The creator_id of this Notificant.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this Notificant.  # noqa: E501
-
-
-        :return: The updater_id of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this Notificant.
-
-
-        :param updater_id: The updater_id of this Notificant.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def id(self):
-        """Gets the id of this Notificant.  # noqa: E501
-
-
-        :return: The id of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Notificant.
-
-
-        :param id: The id of this Notificant.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this Notificant.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this Notificant.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_epoch_millis
-
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this Notificant.
-
-
-        :param created_epoch_millis: The created_epoch_millis of this Notificant.  # noqa: E501
-        :type: int
-        """
-
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this Notificant.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this Notificant.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this Notificant.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this Notificant.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
+        self._recipient = recipient
 
     @property
     def template(self):
@@ -376,6 +403,31 @@ class Notificant(object):
             raise ValueError("Invalid value for `template`, must not be `None`")  # noqa: E501
 
         self._template = template
+
+    @property
+    def title(self):
+        """Gets the title of this Notificant.  # noqa: E501
+
+        Title  # noqa: E501
+
+        :return: The title of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this Notificant.
+
+        Title  # noqa: E501
+
+        :param title: The title of this Notificant.  # noqa: E501
+        :type: str
+        """
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+
+        self._title = title
 
     @property
     def triggers(self):
@@ -410,98 +462,46 @@ class Notificant(object):
         self._triggers = triggers
 
     @property
-    def recipient(self):
-        """Gets the recipient of this Notificant.  # noqa: E501
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this Notificant.  # noqa: E501
 
-        The end point for the notification target.EMAIL: email address.  PAGERDUTY: PagerDuty routing Key.  WEBHOOK: URL end point  # noqa: E501
 
-        :return: The recipient of this Notificant.  # noqa: E501
-        :rtype: str
+        :return: The updated_epoch_millis of this Notificant.  # noqa: E501
+        :rtype: int
         """
-        return self._recipient
+        return self._updated_epoch_millis
 
-    @recipient.setter
-    def recipient(self, recipient):
-        """Sets the recipient of this Notificant.
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this Notificant.
 
-        The end point for the notification target.EMAIL: email address.  PAGERDUTY: PagerDuty routing Key.  WEBHOOK: URL end point  # noqa: E501
 
-        :param recipient: The recipient of this Notificant.  # noqa: E501
-        :type: str
+        :param updated_epoch_millis: The updated_epoch_millis of this Notificant.  # noqa: E501
+        :type: int
         """
-        if recipient is None:
-            raise ValueError("Invalid value for `recipient`, must not be `None`")  # noqa: E501
 
-        self._recipient = recipient
+        self._updated_epoch_millis = updated_epoch_millis
 
     @property
-    def custom_http_headers(self):
-        """Gets the custom_http_headers of this Notificant.  # noqa: E501
+    def updater_id(self):
+        """Gets the updater_id of this Notificant.  # noqa: E501
 
-        A string->string map specifying the custom HTTP header key / value pairs that will be sent in the requests of this web hook  # noqa: E501
 
-        :return: The custom_http_headers of this Notificant.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._custom_http_headers
-
-    @custom_http_headers.setter
-    def custom_http_headers(self, custom_http_headers):
-        """Sets the custom_http_headers of this Notificant.
-
-        A string->string map specifying the custom HTTP header key / value pairs that will be sent in the requests of this web hook  # noqa: E501
-
-        :param custom_http_headers: The custom_http_headers of this Notificant.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._custom_http_headers = custom_http_headers
-
-    @property
-    def email_subject(self):
-        """Gets the email_subject of this Notificant.  # noqa: E501
-
-        The subject title of an email notification target  # noqa: E501
-
-        :return: The email_subject of this Notificant.  # noqa: E501
+        :return: The updater_id of this Notificant.  # noqa: E501
         :rtype: str
         """
-        return self._email_subject
+        return self._updater_id
 
-    @email_subject.setter
-    def email_subject(self, email_subject):
-        """Sets the email_subject of this Notificant.
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this Notificant.
 
-        The subject title of an email notification target  # noqa: E501
 
-        :param email_subject: The email_subject of this Notificant.  # noqa: E501
+        :param updater_id: The updater_id of this Notificant.  # noqa: E501
         :type: str
         """
 
-        self._email_subject = email_subject
-
-    @property
-    def is_html_content(self):
-        """Gets the is_html_content of this Notificant.  # noqa: E501
-
-        Determine whether the email alert target content is sent as html or text.  # noqa: E501
-
-        :return: The is_html_content of this Notificant.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_html_content
-
-    @is_html_content.setter
-    def is_html_content(self, is_html_content):
-        """Sets the is_html_content of this Notificant.
-
-        Determine whether the email alert target content is sent as html or text.  # noqa: E501
-
-        :param is_html_content: The is_html_content of this Notificant.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_html_content = is_html_content
+        self._updater_id = updater_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

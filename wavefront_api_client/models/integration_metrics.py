@@ -33,42 +33,138 @@ class IntegrationMetrics(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'prefixes': 'list[str]',
-        'required': 'list[str]',
+        'chart_objs': 'list[Chart]',
         'charts': 'list[str]',
-        'pps_dimensions': 'list[str]',
         'display': 'list[str]',
-        'chart_objs': 'list[Chart]'
+        'pps_dimensions': 'list[str]',
+        'prefixes': 'list[str]',
+        'required': 'list[str]'
     }
 
     attribute_map = {
-        'prefixes': 'prefixes',
-        'required': 'required',
+        'chart_objs': 'chartObjs',
         'charts': 'charts',
-        'pps_dimensions': 'ppsDimensions',
         'display': 'display',
-        'chart_objs': 'chartObjs'
+        'pps_dimensions': 'ppsDimensions',
+        'prefixes': 'prefixes',
+        'required': 'required'
     }
 
-    def __init__(self, prefixes=None, required=None, charts=None, pps_dimensions=None, display=None, chart_objs=None):  # noqa: E501
+    def __init__(self, chart_objs=None, charts=None, display=None, pps_dimensions=None, prefixes=None, required=None):  # noqa: E501
         """IntegrationMetrics - a model defined in Swagger"""  # noqa: E501
 
+        self._chart_objs = None
+        self._charts = None
+        self._display = None
+        self._pps_dimensions = None
         self._prefixes = None
         self._required = None
-        self._charts = None
-        self._pps_dimensions = None
-        self._display = None
-        self._chart_objs = None
         self.discriminator = None
 
-        self.prefixes = prefixes
-        self.required = required
-        self.charts = charts
-        if pps_dimensions is not None:
-            self.pps_dimensions = pps_dimensions
-        self.display = display
         if chart_objs is not None:
             self.chart_objs = chart_objs
+        self.charts = charts
+        self.display = display
+        if pps_dimensions is not None:
+            self.pps_dimensions = pps_dimensions
+        self.prefixes = prefixes
+        self.required = required
+
+    @property
+    def chart_objs(self):
+        """Gets the chart_objs of this IntegrationMetrics.  # noqa: E501
+
+        Chart JSONs materialized from the links in `charts`  # noqa: E501
+
+        :return: The chart_objs of this IntegrationMetrics.  # noqa: E501
+        :rtype: list[Chart]
+        """
+        return self._chart_objs
+
+    @chart_objs.setter
+    def chart_objs(self, chart_objs):
+        """Sets the chart_objs of this IntegrationMetrics.
+
+        Chart JSONs materialized from the links in `charts`  # noqa: E501
+
+        :param chart_objs: The chart_objs of this IntegrationMetrics.  # noqa: E501
+        :type: list[Chart]
+        """
+
+        self._chart_objs = chart_objs
+
+    @property
+    def charts(self):
+        """Gets the charts of this IntegrationMetrics.  # noqa: E501
+
+        URLs for JSON definitions of charts that display info about this integration's metrics  # noqa: E501
+
+        :return: The charts of this IntegrationMetrics.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._charts
+
+    @charts.setter
+    def charts(self, charts):
+        """Sets the charts of this IntegrationMetrics.
+
+        URLs for JSON definitions of charts that display info about this integration's metrics  # noqa: E501
+
+        :param charts: The charts of this IntegrationMetrics.  # noqa: E501
+        :type: list[str]
+        """
+        if charts is None:
+            raise ValueError("Invalid value for `charts`, must not be `None`")  # noqa: E501
+
+        self._charts = charts
+
+    @property
+    def display(self):
+        """Gets the display of this IntegrationMetrics.  # noqa: E501
+
+        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
+
+        :return: The display of this IntegrationMetrics.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._display
+
+    @display.setter
+    def display(self, display):
+        """Sets the display of this IntegrationMetrics.
+
+        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
+
+        :param display: The display of this IntegrationMetrics.  # noqa: E501
+        :type: list[str]
+        """
+        if display is None:
+            raise ValueError("Invalid value for `display`, must not be `None`")  # noqa: E501
+
+        self._display = display
+
+    @property
+    def pps_dimensions(self):
+        """Gets the pps_dimensions of this IntegrationMetrics.  # noqa: E501
+
+        For reported points belonging to this integration, these point tags are escalated to the internal point-rate counters so that reporting can be broken out by these dimensions  # noqa: E501
+
+        :return: The pps_dimensions of this IntegrationMetrics.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._pps_dimensions
+
+    @pps_dimensions.setter
+    def pps_dimensions(self, pps_dimensions):
+        """Sets the pps_dimensions of this IntegrationMetrics.
+
+        For reported points belonging to this integration, these point tags are escalated to the internal point-rate counters so that reporting can be broken out by these dimensions  # noqa: E501
+
+        :param pps_dimensions: The pps_dimensions of this IntegrationMetrics.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._pps_dimensions = pps_dimensions
 
     @property
     def prefixes(self):
@@ -119,102 +215,6 @@ class IntegrationMetrics(object):
             raise ValueError("Invalid value for `required`, must not be `None`")  # noqa: E501
 
         self._required = required
-
-    @property
-    def charts(self):
-        """Gets the charts of this IntegrationMetrics.  # noqa: E501
-
-        URLs for JSON definitions of charts that display info about this integration's metrics  # noqa: E501
-
-        :return: The charts of this IntegrationMetrics.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._charts
-
-    @charts.setter
-    def charts(self, charts):
-        """Sets the charts of this IntegrationMetrics.
-
-        URLs for JSON definitions of charts that display info about this integration's metrics  # noqa: E501
-
-        :param charts: The charts of this IntegrationMetrics.  # noqa: E501
-        :type: list[str]
-        """
-        if charts is None:
-            raise ValueError("Invalid value for `charts`, must not be `None`")  # noqa: E501
-
-        self._charts = charts
-
-    @property
-    def pps_dimensions(self):
-        """Gets the pps_dimensions of this IntegrationMetrics.  # noqa: E501
-
-        For reported points belonging to this integration, these point tags are escalated to the internal point-rate counters so that reporting can be broken out by these dimensions  # noqa: E501
-
-        :return: The pps_dimensions of this IntegrationMetrics.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._pps_dimensions
-
-    @pps_dimensions.setter
-    def pps_dimensions(self, pps_dimensions):
-        """Sets the pps_dimensions of this IntegrationMetrics.
-
-        For reported points belonging to this integration, these point tags are escalated to the internal point-rate counters so that reporting can be broken out by these dimensions  # noqa: E501
-
-        :param pps_dimensions: The pps_dimensions of this IntegrationMetrics.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._pps_dimensions = pps_dimensions
-
-    @property
-    def display(self):
-        """Gets the display of this IntegrationMetrics.  # noqa: E501
-
-        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
-
-        :return: The display of this IntegrationMetrics.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._display
-
-    @display.setter
-    def display(self, display):
-        """Sets the display of this IntegrationMetrics.
-
-        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
-
-        :param display: The display of this IntegrationMetrics.  # noqa: E501
-        :type: list[str]
-        """
-        if display is None:
-            raise ValueError("Invalid value for `display`, must not be `None`")  # noqa: E501
-
-        self._display = display
-
-    @property
-    def chart_objs(self):
-        """Gets the chart_objs of this IntegrationMetrics.  # noqa: E501
-
-        Chart JSONs materialized from the links in `charts`  # noqa: E501
-
-        :return: The chart_objs of this IntegrationMetrics.  # noqa: E501
-        :rtype: list[Chart]
-        """
-        return self._chart_objs
-
-    @chart_objs.setter
-    def chart_objs(self, chart_objs):
-        """Sets the chart_objs of this IntegrationMetrics.
-
-        Chart JSONs materialized from the links in `charts`  # noqa: E501
-
-        :param chart_objs: The chart_objs of this IntegrationMetrics.  # noqa: E501
-        :type: list[Chart]
-        """
-
-        self._chart_objs = chart_objs
 
     def to_dict(self):
         """Returns the model properties as a dict"""

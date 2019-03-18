@@ -35,34 +35,34 @@ class AzureConfiguration(object):
     swagger_types = {
         'base_credentials': 'AzureBaseCredentials',
         'category_filter': 'list[str]',
-        'resource_group_filter': 'list[str]',
-        'metric_filter_regex': 'str'
+        'metric_filter_regex': 'str',
+        'resource_group_filter': 'list[str]'
     }
 
     attribute_map = {
         'base_credentials': 'baseCredentials',
         'category_filter': 'categoryFilter',
-        'resource_group_filter': 'resourceGroupFilter',
-        'metric_filter_regex': 'metricFilterRegex'
+        'metric_filter_regex': 'metricFilterRegex',
+        'resource_group_filter': 'resourceGroupFilter'
     }
 
-    def __init__(self, base_credentials=None, category_filter=None, resource_group_filter=None, metric_filter_regex=None):  # noqa: E501
+    def __init__(self, base_credentials=None, category_filter=None, metric_filter_regex=None, resource_group_filter=None):  # noqa: E501
         """AzureConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._base_credentials = None
         self._category_filter = None
-        self._resource_group_filter = None
         self._metric_filter_regex = None
+        self._resource_group_filter = None
         self.discriminator = None
 
         if base_credentials is not None:
             self.base_credentials = base_credentials
         if category_filter is not None:
             self.category_filter = category_filter
-        if resource_group_filter is not None:
-            self.resource_group_filter = resource_group_filter
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
+        if resource_group_filter is not None:
+            self.resource_group_filter = resource_group_filter
 
     @property
     def base_credentials(self):
@@ -109,29 +109,6 @@ class AzureConfiguration(object):
         self._category_filter = category_filter
 
     @property
-    def resource_group_filter(self):
-        """Gets the resource_group_filter of this AzureConfiguration.  # noqa: E501
-
-        A list of Azure resource groups from which to pull metrics.  # noqa: E501
-
-        :return: The resource_group_filter of this AzureConfiguration.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._resource_group_filter
-
-    @resource_group_filter.setter
-    def resource_group_filter(self, resource_group_filter):
-        """Sets the resource_group_filter of this AzureConfiguration.
-
-        A list of Azure resource groups from which to pull metrics.  # noqa: E501
-
-        :param resource_group_filter: The resource_group_filter of this AzureConfiguration.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._resource_group_filter = resource_group_filter
-
-    @property
     def metric_filter_regex(self):
         """Gets the metric_filter_regex of this AzureConfiguration.  # noqa: E501
 
@@ -153,6 +130,29 @@ class AzureConfiguration(object):
         """
 
         self._metric_filter_regex = metric_filter_regex
+
+    @property
+    def resource_group_filter(self):
+        """Gets the resource_group_filter of this AzureConfiguration.  # noqa: E501
+
+        A list of Azure resource groups from which to pull metrics.  # noqa: E501
+
+        :return: The resource_group_filter of this AzureConfiguration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._resource_group_filter
+
+    @resource_group_filter.setter
+    def resource_group_filter(self, resource_group_filter):
+        """Sets the resource_group_filter of this AzureConfiguration.
+
+        A list of Azure resource groups from which to pull metrics.  # noqa: E501
+
+        :param resource_group_filter: The resource_group_filter of this AzureConfiguration.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._resource_group_filter = resource_group_filter
 
     def to_dict(self):
         """Returns the model properties as a dict"""

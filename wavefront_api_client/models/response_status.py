@@ -31,29 +31,77 @@ class ResponseStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'result': 'str',
+        'code': 'int',
         'message': 'str',
-        'code': 'int'
+        'result': 'str'
     }
 
     attribute_map = {
-        'result': 'result',
+        'code': 'code',
         'message': 'message',
-        'code': 'code'
+        'result': 'result'
     }
 
-    def __init__(self, result=None, message=None, code=None):  # noqa: E501
+    def __init__(self, code=None, message=None, result=None):  # noqa: E501
         """ResponseStatus - a model defined in Swagger"""  # noqa: E501
 
-        self._result = None
-        self._message = None
         self._code = None
+        self._message = None
+        self._result = None
         self.discriminator = None
 
-        self.result = result
+        self.code = code
         if message is not None:
             self.message = message
-        self.code = code
+        self.result = result
+
+    @property
+    def code(self):
+        """Gets the code of this ResponseStatus.  # noqa: E501
+
+        HTTP Response code corresponding to this response  # noqa: E501
+
+        :return: The code of this ResponseStatus.  # noqa: E501
+        :rtype: int
+        """
+        return self._code
+
+    @code.setter
+    def code(self, code):
+        """Sets the code of this ResponseStatus.
+
+        HTTP Response code corresponding to this response  # noqa: E501
+
+        :param code: The code of this ResponseStatus.  # noqa: E501
+        :type: int
+        """
+        if code is None:
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
+
+        self._code = code
+
+    @property
+    def message(self):
+        """Gets the message of this ResponseStatus.  # noqa: E501
+
+        Descriptive message of the status of this response  # noqa: E501
+
+        :return: The message of this ResponseStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this ResponseStatus.
+
+        Descriptive message of the status of this response  # noqa: E501
+
+        :param message: The message of this ResponseStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
 
     @property
     def result(self):
@@ -83,54 +131,6 @@ class ResponseStatus(object):
             )
 
         self._result = result
-
-    @property
-    def message(self):
-        """Gets the message of this ResponseStatus.  # noqa: E501
-
-        Descriptive message of the status of this response  # noqa: E501
-
-        :return: The message of this ResponseStatus.  # noqa: E501
-        :rtype: str
-        """
-        return self._message
-
-    @message.setter
-    def message(self, message):
-        """Sets the message of this ResponseStatus.
-
-        Descriptive message of the status of this response  # noqa: E501
-
-        :param message: The message of this ResponseStatus.  # noqa: E501
-        :type: str
-        """
-
-        self._message = message
-
-    @property
-    def code(self):
-        """Gets the code of this ResponseStatus.  # noqa: E501
-
-        HTTP Response code corresponding to this response  # noqa: E501
-
-        :return: The code of this ResponseStatus.  # noqa: E501
-        :rtype: int
-        """
-        return self._code
-
-    @code.setter
-    def code(self, code):
-        """Sets the code of this ResponseStatus.
-
-        HTTP Response code corresponding to this response  # noqa: E501
-
-        :param code: The code of this ResponseStatus.  # noqa: E501
-        :type: int
-        """
-        if code is None:
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
-
-        self._code = code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

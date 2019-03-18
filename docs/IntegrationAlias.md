@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**base_url** | **str** | Base URL of this alias Integration | [optional] 
 **description** | **str** | Description of the alias Integration | [optional] 
 **icon** | **str** | Icon path of the alias Integration | [optional] 
-**base_url** | **str** | Base URL of this alias Integration | [optional] 
 **id** | **str** | ID of the alias Integration | [optional] 
 **name** | **str** | Name of the alias Integration | [optional] 
 

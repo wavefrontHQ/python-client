@@ -33,48 +33,25 @@ class RawTimeseries(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'tags': 'dict(str, str)',
-        'points': 'list[Point]'
+        'points': 'list[Point]',
+        'tags': 'dict(str, str)'
     }
 
     attribute_map = {
-        'tags': 'tags',
-        'points': 'points'
+        'points': 'points',
+        'tags': 'tags'
     }
 
-    def __init__(self, tags=None, points=None):  # noqa: E501
+    def __init__(self, points=None, tags=None):  # noqa: E501
         """RawTimeseries - a model defined in Swagger"""  # noqa: E501
 
-        self._tags = None
         self._points = None
+        self._tags = None
         self.discriminator = None
 
+        self.points = points
         if tags is not None:
             self.tags = tags
-        self.points = points
-
-    @property
-    def tags(self):
-        """Gets the tags of this RawTimeseries.  # noqa: E501
-
-        Associated tags of the time series  # noqa: E501
-
-        :return: The tags of this RawTimeseries.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this RawTimeseries.
-
-        Associated tags of the time series  # noqa: E501
-
-        :param tags: The tags of this RawTimeseries.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._tags = tags
 
     @property
     def points(self):
@@ -98,6 +75,29 @@ class RawTimeseries(object):
             raise ValueError("Invalid value for `points`, must not be `None`")  # noqa: E501
 
         self._points = points
+
+    @property
+    def tags(self):
+        """Gets the tags of this RawTimeseries.  # noqa: E501
+
+        Associated tags of the time series  # noqa: E501
+
+        :return: The tags of this RawTimeseries.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RawTimeseries.
+
+        Associated tags of the time series  # noqa: E501
+
+        :param tags: The tags of this RawTimeseries.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

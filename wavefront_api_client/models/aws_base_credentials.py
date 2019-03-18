@@ -31,49 +31,24 @@ class AWSBaseCredentials(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'role_arn': 'str',
-        'external_id': 'str'
+        'external_id': 'str',
+        'role_arn': 'str'
     }
 
     attribute_map = {
-        'role_arn': 'roleArn',
-        'external_id': 'externalId'
+        'external_id': 'externalId',
+        'role_arn': 'roleArn'
     }
 
-    def __init__(self, role_arn=None, external_id=None):  # noqa: E501
+    def __init__(self, external_id=None, role_arn=None):  # noqa: E501
         """AWSBaseCredentials - a model defined in Swagger"""  # noqa: E501
 
-        self._role_arn = None
         self._external_id = None
+        self._role_arn = None
         self.discriminator = None
 
-        self.role_arn = role_arn
         self.external_id = external_id
-
-    @property
-    def role_arn(self):
-        """Gets the role_arn of this AWSBaseCredentials.  # noqa: E501
-
-        The Role ARN that the customer has created in AWS IAM to allow access to Wavefront  # noqa: E501
-
-        :return: The role_arn of this AWSBaseCredentials.  # noqa: E501
-        :rtype: str
-        """
-        return self._role_arn
-
-    @role_arn.setter
-    def role_arn(self, role_arn):
-        """Sets the role_arn of this AWSBaseCredentials.
-
-        The Role ARN that the customer has created in AWS IAM to allow access to Wavefront  # noqa: E501
-
-        :param role_arn: The role_arn of this AWSBaseCredentials.  # noqa: E501
-        :type: str
-        """
-        if role_arn is None:
-            raise ValueError("Invalid value for `role_arn`, must not be `None`")  # noqa: E501
-
-        self._role_arn = role_arn
+        self.role_arn = role_arn
 
     @property
     def external_id(self):
@@ -99,6 +74,31 @@ class AWSBaseCredentials(object):
             raise ValueError("Invalid value for `external_id`, must not be `None`")  # noqa: E501
 
         self._external_id = external_id
+
+    @property
+    def role_arn(self):
+        """Gets the role_arn of this AWSBaseCredentials.  # noqa: E501
+
+        The Role ARN that the customer has created in AWS IAM to allow access to Wavefront  # noqa: E501
+
+        :return: The role_arn of this AWSBaseCredentials.  # noqa: E501
+        :rtype: str
+        """
+        return self._role_arn
+
+    @role_arn.setter
+    def role_arn(self, role_arn):
+        """Sets the role_arn of this AWSBaseCredentials.
+
+        The Role ARN that the customer has created in AWS IAM to allow access to Wavefront  # noqa: E501
+
+        :param role_arn: The role_arn of this AWSBaseCredentials.  # noqa: E501
+        :type: str
+        """
+        if role_arn is None:
+            raise ValueError("Invalid value for `role_arn`, must not be `None`")  # noqa: E501
+
+        self._role_arn = role_arn
 
     def to_dict(self):
         """Returns the model properties as a dict"""

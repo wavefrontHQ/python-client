@@ -31,815 +31,640 @@ class ChartSettings(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'min': 'float',
-        'type': 'str',
-        'max': 'float',
-        'time_based_coloring': 'bool',
-        'sparkline_display_value_type': 'str',
-        'sparkline_display_color': 'str',
-        'sparkline_display_vertical_position': 'str',
-        'sparkline_display_horizontal_position': 'str',
-        'sparkline_display_font_size': 'str',
-        'sparkline_display_prefix': 'str',
-        'sparkline_display_postfix': 'str',
-        'sparkline_size': 'str',
-        'sparkline_line_color': 'str',
-        'sparkline_fill_color': 'str',
-        'sparkline_value_color_map_colors': 'list[str]',
-        'sparkline_value_color_map_values_v2': 'list[float]',
-        'sparkline_value_color_map_values': 'list[int]',
-        'sparkline_value_color_map_apply_to': 'str',
-        'sparkline_decimal_precision': 'int',
-        'sparkline_value_text_map_text': 'list[str]',
-        'sparkline_value_text_map_thresholds': 'list[float]',
+        'auto_column_tags': 'bool',
+        'column_tags': 'str',
+        'custom_tags': 'list[str]',
+        'expected_data_spacing': 'int',
+        'fixed_legend_display_stats': 'list[str]',
+        'fixed_legend_enabled': 'bool',
+        'fixed_legend_filter_field': 'str',
+        'fixed_legend_filter_limit': 'int',
+        'fixed_legend_filter_sort': 'str',
+        'fixed_legend_hide_label': 'bool',
+        'fixed_legend_position': 'str',
+        'fixed_legend_use_raw_stats': 'bool',
+        'group_by_source': 'bool',
+        'invert_dynamic_legend_hover_control': 'bool',
         'line_type': 'str',
-        'stack_type': 'str',
-        'windowing': 'str',
-        'window_size': 'int',
+        'max': 'float',
+        'min': 'float',
+        'num_tags': 'int',
+        'plain_markdown_content': 'str',
         'show_hosts': 'bool',
         'show_labels': 'bool',
         'show_raw_values': 'bool',
-        'auto_column_tags': 'bool',
-        'column_tags': 'str',
-        'tag_mode': 'str',
-        'num_tags': 'int',
-        'custom_tags': 'list[str]',
-        'group_by_source': 'bool',
         'sort_values_descending': 'bool',
-        'y1_max': 'float',
-        'y1_min': 'float',
-        'y1_units': 'str',
-        'y0_scale_si_by1024': 'bool',
-        'y1_scale_si_by1024': 'bool',
-        'y0_unit_autoscaling': 'bool',
-        'y1_unit_autoscaling': 'bool',
-        'invert_dynamic_legend_hover_control': 'bool',
-        'fixed_legend_enabled': 'bool',
-        'fixed_legend_use_raw_stats': 'bool',
-        'fixed_legend_position': 'str',
-        'fixed_legend_display_stats': 'list[str]',
-        'fixed_legend_filter_sort': 'str',
-        'fixed_legend_filter_limit': 'int',
-        'fixed_legend_filter_field': 'str',
-        'fixed_legend_hide_label': 'bool',
+        'sparkline_decimal_precision': 'int',
+        'sparkline_display_color': 'str',
+        'sparkline_display_font_size': 'str',
+        'sparkline_display_horizontal_position': 'str',
+        'sparkline_display_postfix': 'str',
+        'sparkline_display_prefix': 'str',
+        'sparkline_display_value_type': 'str',
+        'sparkline_display_vertical_position': 'str',
+        'sparkline_fill_color': 'str',
+        'sparkline_line_color': 'str',
+        'sparkline_size': 'str',
+        'sparkline_value_color_map_apply_to': 'str',
+        'sparkline_value_color_map_colors': 'list[str]',
+        'sparkline_value_color_map_values': 'list[int]',
+        'sparkline_value_color_map_values_v2': 'list[float]',
+        'sparkline_value_text_map_text': 'list[str]',
+        'sparkline_value_text_map_thresholds': 'list[float]',
+        'stack_type': 'str',
+        'tag_mode': 'str',
+        'time_based_coloring': 'bool',
+        'type': 'str',
+        'window_size': 'int',
+        'windowing': 'str',
         'xmax': 'float',
         'xmin': 'float',
+        'y0_scale_si_by1024': 'bool',
+        'y0_unit_autoscaling': 'bool',
+        'y1_max': 'float',
+        'y1_min': 'float',
+        'y1_scale_si_by1024': 'bool',
+        'y1_unit_autoscaling': 'bool',
+        'y1_units': 'str',
         'ymax': 'float',
-        'ymin': 'float',
-        'expected_data_spacing': 'int',
-        'plain_markdown_content': 'str'
+        'ymin': 'float'
     }
 
     attribute_map = {
-        'min': 'min',
-        'type': 'type',
-        'max': 'max',
-        'time_based_coloring': 'timeBasedColoring',
-        'sparkline_display_value_type': 'sparklineDisplayValueType',
-        'sparkline_display_color': 'sparklineDisplayColor',
-        'sparkline_display_vertical_position': 'sparklineDisplayVerticalPosition',
-        'sparkline_display_horizontal_position': 'sparklineDisplayHorizontalPosition',
-        'sparkline_display_font_size': 'sparklineDisplayFontSize',
-        'sparkline_display_prefix': 'sparklineDisplayPrefix',
-        'sparkline_display_postfix': 'sparklineDisplayPostfix',
-        'sparkline_size': 'sparklineSize',
-        'sparkline_line_color': 'sparklineLineColor',
-        'sparkline_fill_color': 'sparklineFillColor',
-        'sparkline_value_color_map_colors': 'sparklineValueColorMapColors',
-        'sparkline_value_color_map_values_v2': 'sparklineValueColorMapValuesV2',
-        'sparkline_value_color_map_values': 'sparklineValueColorMapValues',
-        'sparkline_value_color_map_apply_to': 'sparklineValueColorMapApplyTo',
-        'sparkline_decimal_precision': 'sparklineDecimalPrecision',
-        'sparkline_value_text_map_text': 'sparklineValueTextMapText',
-        'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds',
+        'auto_column_tags': 'autoColumnTags',
+        'column_tags': 'columnTags',
+        'custom_tags': 'customTags',
+        'expected_data_spacing': 'expectedDataSpacing',
+        'fixed_legend_display_stats': 'fixedLegendDisplayStats',
+        'fixed_legend_enabled': 'fixedLegendEnabled',
+        'fixed_legend_filter_field': 'fixedLegendFilterField',
+        'fixed_legend_filter_limit': 'fixedLegendFilterLimit',
+        'fixed_legend_filter_sort': 'fixedLegendFilterSort',
+        'fixed_legend_hide_label': 'fixedLegendHideLabel',
+        'fixed_legend_position': 'fixedLegendPosition',
+        'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
+        'group_by_source': 'groupBySource',
+        'invert_dynamic_legend_hover_control': 'invertDynamicLegendHoverControl',
         'line_type': 'lineType',
-        'stack_type': 'stackType',
-        'windowing': 'windowing',
-        'window_size': 'windowSize',
+        'max': 'max',
+        'min': 'min',
+        'num_tags': 'numTags',
+        'plain_markdown_content': 'plainMarkdownContent',
         'show_hosts': 'showHosts',
         'show_labels': 'showLabels',
         'show_raw_values': 'showRawValues',
-        'auto_column_tags': 'autoColumnTags',
-        'column_tags': 'columnTags',
-        'tag_mode': 'tagMode',
-        'num_tags': 'numTags',
-        'custom_tags': 'customTags',
-        'group_by_source': 'groupBySource',
         'sort_values_descending': 'sortValuesDescending',
-        'y1_max': 'y1Max',
-        'y1_min': 'y1Min',
-        'y1_units': 'y1Units',
-        'y0_scale_si_by1024': 'y0ScaleSIBy1024',
-        'y1_scale_si_by1024': 'y1ScaleSIBy1024',
-        'y0_unit_autoscaling': 'y0UnitAutoscaling',
-        'y1_unit_autoscaling': 'y1UnitAutoscaling',
-        'invert_dynamic_legend_hover_control': 'invertDynamicLegendHoverControl',
-        'fixed_legend_enabled': 'fixedLegendEnabled',
-        'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
-        'fixed_legend_position': 'fixedLegendPosition',
-        'fixed_legend_display_stats': 'fixedLegendDisplayStats',
-        'fixed_legend_filter_sort': 'fixedLegendFilterSort',
-        'fixed_legend_filter_limit': 'fixedLegendFilterLimit',
-        'fixed_legend_filter_field': 'fixedLegendFilterField',
-        'fixed_legend_hide_label': 'fixedLegendHideLabel',
+        'sparkline_decimal_precision': 'sparklineDecimalPrecision',
+        'sparkline_display_color': 'sparklineDisplayColor',
+        'sparkline_display_font_size': 'sparklineDisplayFontSize',
+        'sparkline_display_horizontal_position': 'sparklineDisplayHorizontalPosition',
+        'sparkline_display_postfix': 'sparklineDisplayPostfix',
+        'sparkline_display_prefix': 'sparklineDisplayPrefix',
+        'sparkline_display_value_type': 'sparklineDisplayValueType',
+        'sparkline_display_vertical_position': 'sparklineDisplayVerticalPosition',
+        'sparkline_fill_color': 'sparklineFillColor',
+        'sparkline_line_color': 'sparklineLineColor',
+        'sparkline_size': 'sparklineSize',
+        'sparkline_value_color_map_apply_to': 'sparklineValueColorMapApplyTo',
+        'sparkline_value_color_map_colors': 'sparklineValueColorMapColors',
+        'sparkline_value_color_map_values': 'sparklineValueColorMapValues',
+        'sparkline_value_color_map_values_v2': 'sparklineValueColorMapValuesV2',
+        'sparkline_value_text_map_text': 'sparklineValueTextMapText',
+        'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds',
+        'stack_type': 'stackType',
+        'tag_mode': 'tagMode',
+        'time_based_coloring': 'timeBasedColoring',
+        'type': 'type',
+        'window_size': 'windowSize',
+        'windowing': 'windowing',
         'xmax': 'xmax',
         'xmin': 'xmin',
+        'y0_scale_si_by1024': 'y0ScaleSIBy1024',
+        'y0_unit_autoscaling': 'y0UnitAutoscaling',
+        'y1_max': 'y1Max',
+        'y1_min': 'y1Min',
+        'y1_scale_si_by1024': 'y1ScaleSIBy1024',
+        'y1_unit_autoscaling': 'y1UnitAutoscaling',
+        'y1_units': 'y1Units',
         'ymax': 'ymax',
-        'ymin': 'ymin',
-        'expected_data_spacing': 'expectedDataSpacing',
-        'plain_markdown_content': 'plainMarkdownContent'
+        'ymin': 'ymin'
     }
 
-    def __init__(self, min=None, type=None, max=None, time_based_coloring=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, line_type=None, stack_type=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmax=None, xmin=None, ymax=None, ymin=None, expected_data_spacing=None, plain_markdown_content=None):  # noqa: E501
+    def __init__(self, auto_column_tags=None, column_tags=None, custom_tags=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
 
-        self._min = None
-        self._type = None
-        self._max = None
-        self._time_based_coloring = None
-        self._sparkline_display_value_type = None
-        self._sparkline_display_color = None
-        self._sparkline_display_vertical_position = None
-        self._sparkline_display_horizontal_position = None
-        self._sparkline_display_font_size = None
-        self._sparkline_display_prefix = None
-        self._sparkline_display_postfix = None
-        self._sparkline_size = None
-        self._sparkline_line_color = None
-        self._sparkline_fill_color = None
-        self._sparkline_value_color_map_colors = None
-        self._sparkline_value_color_map_values_v2 = None
-        self._sparkline_value_color_map_values = None
-        self._sparkline_value_color_map_apply_to = None
-        self._sparkline_decimal_precision = None
-        self._sparkline_value_text_map_text = None
-        self._sparkline_value_text_map_thresholds = None
+        self._auto_column_tags = None
+        self._column_tags = None
+        self._custom_tags = None
+        self._expected_data_spacing = None
+        self._fixed_legend_display_stats = None
+        self._fixed_legend_enabled = None
+        self._fixed_legend_filter_field = None
+        self._fixed_legend_filter_limit = None
+        self._fixed_legend_filter_sort = None
+        self._fixed_legend_hide_label = None
+        self._fixed_legend_position = None
+        self._fixed_legend_use_raw_stats = None
+        self._group_by_source = None
+        self._invert_dynamic_legend_hover_control = None
         self._line_type = None
-        self._stack_type = None
-        self._windowing = None
-        self._window_size = None
+        self._max = None
+        self._min = None
+        self._num_tags = None
+        self._plain_markdown_content = None
         self._show_hosts = None
         self._show_labels = None
         self._show_raw_values = None
-        self._auto_column_tags = None
-        self._column_tags = None
-        self._tag_mode = None
-        self._num_tags = None
-        self._custom_tags = None
-        self._group_by_source = None
         self._sort_values_descending = None
-        self._y1_max = None
-        self._y1_min = None
-        self._y1_units = None
-        self._y0_scale_si_by1024 = None
-        self._y1_scale_si_by1024 = None
-        self._y0_unit_autoscaling = None
-        self._y1_unit_autoscaling = None
-        self._invert_dynamic_legend_hover_control = None
-        self._fixed_legend_enabled = None
-        self._fixed_legend_use_raw_stats = None
-        self._fixed_legend_position = None
-        self._fixed_legend_display_stats = None
-        self._fixed_legend_filter_sort = None
-        self._fixed_legend_filter_limit = None
-        self._fixed_legend_filter_field = None
-        self._fixed_legend_hide_label = None
+        self._sparkline_decimal_precision = None
+        self._sparkline_display_color = None
+        self._sparkline_display_font_size = None
+        self._sparkline_display_horizontal_position = None
+        self._sparkline_display_postfix = None
+        self._sparkline_display_prefix = None
+        self._sparkline_display_value_type = None
+        self._sparkline_display_vertical_position = None
+        self._sparkline_fill_color = None
+        self._sparkline_line_color = None
+        self._sparkline_size = None
+        self._sparkline_value_color_map_apply_to = None
+        self._sparkline_value_color_map_colors = None
+        self._sparkline_value_color_map_values = None
+        self._sparkline_value_color_map_values_v2 = None
+        self._sparkline_value_text_map_text = None
+        self._sparkline_value_text_map_thresholds = None
+        self._stack_type = None
+        self._tag_mode = None
+        self._time_based_coloring = None
+        self._type = None
+        self._window_size = None
+        self._windowing = None
         self._xmax = None
         self._xmin = None
+        self._y0_scale_si_by1024 = None
+        self._y0_unit_autoscaling = None
+        self._y1_max = None
+        self._y1_min = None
+        self._y1_scale_si_by1024 = None
+        self._y1_unit_autoscaling = None
+        self._y1_units = None
         self._ymax = None
         self._ymin = None
-        self._expected_data_spacing = None
-        self._plain_markdown_content = None
         self.discriminator = None
 
-        if min is not None:
-            self.min = min
-        self.type = type
-        if max is not None:
-            self.max = max
-        if time_based_coloring is not None:
-            self.time_based_coloring = time_based_coloring
-        if sparkline_display_value_type is not None:
-            self.sparkline_display_value_type = sparkline_display_value_type
-        if sparkline_display_color is not None:
-            self.sparkline_display_color = sparkline_display_color
-        if sparkline_display_vertical_position is not None:
-            self.sparkline_display_vertical_position = sparkline_display_vertical_position
-        if sparkline_display_horizontal_position is not None:
-            self.sparkline_display_horizontal_position = sparkline_display_horizontal_position
-        if sparkline_display_font_size is not None:
-            self.sparkline_display_font_size = sparkline_display_font_size
-        if sparkline_display_prefix is not None:
-            self.sparkline_display_prefix = sparkline_display_prefix
-        if sparkline_display_postfix is not None:
-            self.sparkline_display_postfix = sparkline_display_postfix
-        if sparkline_size is not None:
-            self.sparkline_size = sparkline_size
-        if sparkline_line_color is not None:
-            self.sparkline_line_color = sparkline_line_color
-        if sparkline_fill_color is not None:
-            self.sparkline_fill_color = sparkline_fill_color
-        if sparkline_value_color_map_colors is not None:
-            self.sparkline_value_color_map_colors = sparkline_value_color_map_colors
-        if sparkline_value_color_map_values_v2 is not None:
-            self.sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
-        if sparkline_value_color_map_values is not None:
-            self.sparkline_value_color_map_values = sparkline_value_color_map_values
-        if sparkline_value_color_map_apply_to is not None:
-            self.sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
-        if sparkline_decimal_precision is not None:
-            self.sparkline_decimal_precision = sparkline_decimal_precision
-        if sparkline_value_text_map_text is not None:
-            self.sparkline_value_text_map_text = sparkline_value_text_map_text
-        if sparkline_value_text_map_thresholds is not None:
-            self.sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
+        if auto_column_tags is not None:
+            self.auto_column_tags = auto_column_tags
+        if column_tags is not None:
+            self.column_tags = column_tags
+        if custom_tags is not None:
+            self.custom_tags = custom_tags
+        if expected_data_spacing is not None:
+            self.expected_data_spacing = expected_data_spacing
+        if fixed_legend_display_stats is not None:
+            self.fixed_legend_display_stats = fixed_legend_display_stats
+        if fixed_legend_enabled is not None:
+            self.fixed_legend_enabled = fixed_legend_enabled
+        if fixed_legend_filter_field is not None:
+            self.fixed_legend_filter_field = fixed_legend_filter_field
+        if fixed_legend_filter_limit is not None:
+            self.fixed_legend_filter_limit = fixed_legend_filter_limit
+        if fixed_legend_filter_sort is not None:
+            self.fixed_legend_filter_sort = fixed_legend_filter_sort
+        if fixed_legend_hide_label is not None:
+            self.fixed_legend_hide_label = fixed_legend_hide_label
+        if fixed_legend_position is not None:
+            self.fixed_legend_position = fixed_legend_position
+        if fixed_legend_use_raw_stats is not None:
+            self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
+        if group_by_source is not None:
+            self.group_by_source = group_by_source
+        if invert_dynamic_legend_hover_control is not None:
+            self.invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
         if line_type is not None:
             self.line_type = line_type
-        if stack_type is not None:
-            self.stack_type = stack_type
-        if windowing is not None:
-            self.windowing = windowing
-        if window_size is not None:
-            self.window_size = window_size
+        if max is not None:
+            self.max = max
+        if min is not None:
+            self.min = min
+        if num_tags is not None:
+            self.num_tags = num_tags
+        if plain_markdown_content is not None:
+            self.plain_markdown_content = plain_markdown_content
         if show_hosts is not None:
             self.show_hosts = show_hosts
         if show_labels is not None:
             self.show_labels = show_labels
         if show_raw_values is not None:
             self.show_raw_values = show_raw_values
-        if auto_column_tags is not None:
-            self.auto_column_tags = auto_column_tags
-        if column_tags is not None:
-            self.column_tags = column_tags
-        if tag_mode is not None:
-            self.tag_mode = tag_mode
-        if num_tags is not None:
-            self.num_tags = num_tags
-        if custom_tags is not None:
-            self.custom_tags = custom_tags
-        if group_by_source is not None:
-            self.group_by_source = group_by_source
         if sort_values_descending is not None:
             self.sort_values_descending = sort_values_descending
-        if y1_max is not None:
-            self.y1_max = y1_max
-        if y1_min is not None:
-            self.y1_min = y1_min
-        if y1_units is not None:
-            self.y1_units = y1_units
-        if y0_scale_si_by1024 is not None:
-            self.y0_scale_si_by1024 = y0_scale_si_by1024
-        if y1_scale_si_by1024 is not None:
-            self.y1_scale_si_by1024 = y1_scale_si_by1024
-        if y0_unit_autoscaling is not None:
-            self.y0_unit_autoscaling = y0_unit_autoscaling
-        if y1_unit_autoscaling is not None:
-            self.y1_unit_autoscaling = y1_unit_autoscaling
-        if invert_dynamic_legend_hover_control is not None:
-            self.invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
-        if fixed_legend_enabled is not None:
-            self.fixed_legend_enabled = fixed_legend_enabled
-        if fixed_legend_use_raw_stats is not None:
-            self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
-        if fixed_legend_position is not None:
-            self.fixed_legend_position = fixed_legend_position
-        if fixed_legend_display_stats is not None:
-            self.fixed_legend_display_stats = fixed_legend_display_stats
-        if fixed_legend_filter_sort is not None:
-            self.fixed_legend_filter_sort = fixed_legend_filter_sort
-        if fixed_legend_filter_limit is not None:
-            self.fixed_legend_filter_limit = fixed_legend_filter_limit
-        if fixed_legend_filter_field is not None:
-            self.fixed_legend_filter_field = fixed_legend_filter_field
-        if fixed_legend_hide_label is not None:
-            self.fixed_legend_hide_label = fixed_legend_hide_label
+        if sparkline_decimal_precision is not None:
+            self.sparkline_decimal_precision = sparkline_decimal_precision
+        if sparkline_display_color is not None:
+            self.sparkline_display_color = sparkline_display_color
+        if sparkline_display_font_size is not None:
+            self.sparkline_display_font_size = sparkline_display_font_size
+        if sparkline_display_horizontal_position is not None:
+            self.sparkline_display_horizontal_position = sparkline_display_horizontal_position
+        if sparkline_display_postfix is not None:
+            self.sparkline_display_postfix = sparkline_display_postfix
+        if sparkline_display_prefix is not None:
+            self.sparkline_display_prefix = sparkline_display_prefix
+        if sparkline_display_value_type is not None:
+            self.sparkline_display_value_type = sparkline_display_value_type
+        if sparkline_display_vertical_position is not None:
+            self.sparkline_display_vertical_position = sparkline_display_vertical_position
+        if sparkline_fill_color is not None:
+            self.sparkline_fill_color = sparkline_fill_color
+        if sparkline_line_color is not None:
+            self.sparkline_line_color = sparkline_line_color
+        if sparkline_size is not None:
+            self.sparkline_size = sparkline_size
+        if sparkline_value_color_map_apply_to is not None:
+            self.sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
+        if sparkline_value_color_map_colors is not None:
+            self.sparkline_value_color_map_colors = sparkline_value_color_map_colors
+        if sparkline_value_color_map_values is not None:
+            self.sparkline_value_color_map_values = sparkline_value_color_map_values
+        if sparkline_value_color_map_values_v2 is not None:
+            self.sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
+        if sparkline_value_text_map_text is not None:
+            self.sparkline_value_text_map_text = sparkline_value_text_map_text
+        if sparkline_value_text_map_thresholds is not None:
+            self.sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
+        if stack_type is not None:
+            self.stack_type = stack_type
+        if tag_mode is not None:
+            self.tag_mode = tag_mode
+        if time_based_coloring is not None:
+            self.time_based_coloring = time_based_coloring
+        self.type = type
+        if window_size is not None:
+            self.window_size = window_size
+        if windowing is not None:
+            self.windowing = windowing
         if xmax is not None:
             self.xmax = xmax
         if xmin is not None:
             self.xmin = xmin
+        if y0_scale_si_by1024 is not None:
+            self.y0_scale_si_by1024 = y0_scale_si_by1024
+        if y0_unit_autoscaling is not None:
+            self.y0_unit_autoscaling = y0_unit_autoscaling
+        if y1_max is not None:
+            self.y1_max = y1_max
+        if y1_min is not None:
+            self.y1_min = y1_min
+        if y1_scale_si_by1024 is not None:
+            self.y1_scale_si_by1024 = y1_scale_si_by1024
+        if y1_unit_autoscaling is not None:
+            self.y1_unit_autoscaling = y1_unit_autoscaling
+        if y1_units is not None:
+            self.y1_units = y1_units
         if ymax is not None:
             self.ymax = ymax
         if ymin is not None:
             self.ymin = ymin
-        if expected_data_spacing is not None:
-            self.expected_data_spacing = expected_data_spacing
-        if plain_markdown_content is not None:
-            self.plain_markdown_content = plain_markdown_content
 
     @property
-    def min(self):
-        """Gets the min of this ChartSettings.  # noqa: E501
+    def auto_column_tags(self):
+        """Gets the auto_column_tags of this ChartSettings.  # noqa: E501
 
-        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
+        deprecated  # noqa: E501
 
-        :return: The min of this ChartSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._min
-
-    @min.setter
-    def min(self, min):
-        """Sets the min of this ChartSettings.
-
-        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
-
-        :param min: The min of this ChartSettings.  # noqa: E501
-        :type: float
-        """
-
-        self._min = min
-
-    @property
-    def type(self):
-        """Gets the type of this ChartSettings.  # noqa: E501
-
-        Chart Type.  'line' refers to the Line Plot, 'scatter' to the Point Plot, 'stacked-area' to the Stacked Area plot, 'table' to the Tabular View, 'scatterploy-xy' to Scatter Plot, 'markdown-widget' to the Markdown display, and 'sparkline' to the Single Stat view  # noqa: E501
-
-        :return: The type of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this ChartSettings.
-
-        Chart Type.  'line' refers to the Line Plot, 'scatter' to the Point Plot, 'stacked-area' to the Stacked Area plot, 'table' to the Tabular View, 'scatterploy-xy' to Scatter Plot, 'markdown-widget' to the Markdown display, and 'sparkline' to the Single Stat view  # noqa: E501
-
-        :param type: The type of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["line", "scatterplot", "stacked-area", "table", "scatterplot-xy", "markdown-widget", "sparkline"]  # noqa: E501
-        if type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
-
-        self._type = type
-
-    @property
-    def max(self):
-        """Gets the max of this ChartSettings.  # noqa: E501
-
-        Max value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
-
-        :return: The max of this ChartSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._max
-
-    @max.setter
-    def max(self, max):
-        """Sets the max of this ChartSettings.
-
-        Max value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
-
-        :param max: The max of this ChartSettings.  # noqa: E501
-        :type: float
-        """
-
-        self._max = max
-
-    @property
-    def time_based_coloring(self):
-        """Gets the time_based_coloring of this ChartSettings.  # noqa: E501
-
-        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
-
-        :return: The time_based_coloring of this ChartSettings.  # noqa: E501
+        :return: The auto_column_tags of this ChartSettings.  # noqa: E501
         :rtype: bool
         """
-        return self._time_based_coloring
+        return self._auto_column_tags
 
-    @time_based_coloring.setter
-    def time_based_coloring(self, time_based_coloring):
-        """Sets the time_based_coloring of this ChartSettings.
+    @auto_column_tags.setter
+    def auto_column_tags(self, auto_column_tags):
+        """Sets the auto_column_tags of this ChartSettings.
 
-        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
+        deprecated  # noqa: E501
 
-        :param time_based_coloring: The time_based_coloring of this ChartSettings.  # noqa: E501
+        :param auto_column_tags: The auto_column_tags of this ChartSettings.  # noqa: E501
         :type: bool
         """
 
-        self._time_based_coloring = time_based_coloring
+        self._auto_column_tags = auto_column_tags
 
     @property
-    def sparkline_display_value_type(self):
-        """Gets the sparkline_display_value_type of this ChartSettings.  # noqa: E501
-
-        For the single stat view, whether to display the name of the query or the value of query  # noqa: E501
-
-        :return: The sparkline_display_value_type of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_value_type
-
-    @sparkline_display_value_type.setter
-    def sparkline_display_value_type(self, sparkline_display_value_type):
-        """Sets the sparkline_display_value_type of this ChartSettings.
-
-        For the single stat view, whether to display the name of the query or the value of query  # noqa: E501
-
-        :param sparkline_display_value_type: The sparkline_display_value_type of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["VALUE", "LABEL"]  # noqa: E501
-        if sparkline_display_value_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sparkline_display_value_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(sparkline_display_value_type, allowed_values)
-            )
-
-        self._sparkline_display_value_type = sparkline_display_value_type
-
-    @property
-    def sparkline_display_color(self):
-        """Gets the sparkline_display_color of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_display_color of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_color
-
-    @sparkline_display_color.setter
-    def sparkline_display_color(self, sparkline_display_color):
-        """Sets the sparkline_display_color of this ChartSettings.
-
-        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :param sparkline_display_color: The sparkline_display_color of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_color = sparkline_display_color
-
-    @property
-    def sparkline_display_vertical_position(self):
-        """Gets the sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+    def column_tags(self):
+        """Gets the column_tags of this ChartSettings.  # noqa: E501
 
         deprecated  # noqa: E501
 
-        :return: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+        :return: The column_tags of this ChartSettings.  # noqa: E501
         :rtype: str
         """
-        return self._sparkline_display_vertical_position
+        return self._column_tags
 
-    @sparkline_display_vertical_position.setter
-    def sparkline_display_vertical_position(self, sparkline_display_vertical_position):
-        """Sets the sparkline_display_vertical_position of this ChartSettings.
+    @column_tags.setter
+    def column_tags(self, column_tags):
+        """Sets the column_tags of this ChartSettings.
 
         deprecated  # noqa: E501
 
-        :param sparkline_display_vertical_position: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+        :param column_tags: The column_tags of this ChartSettings.  # noqa: E501
         :type: str
         """
 
-        self._sparkline_display_vertical_position = sparkline_display_vertical_position
+        self._column_tags = column_tags
 
     @property
-    def sparkline_display_horizontal_position(self):
-        """Gets the sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
+    def custom_tags(self):
+        """Gets the custom_tags of this ChartSettings.  # noqa: E501
 
-        For the single stat view, the horizontal position of the displayed text  # noqa: E501
+        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode  # noqa: E501
 
-        :return: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_horizontal_position
-
-    @sparkline_display_horizontal_position.setter
-    def sparkline_display_horizontal_position(self, sparkline_display_horizontal_position):
-        """Sets the sparkline_display_horizontal_position of this ChartSettings.
-
-        For the single stat view, the horizontal position of the displayed text  # noqa: E501
-
-        :param sparkline_display_horizontal_position: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["MIDDLE", "LEFT", "RIGHT"]  # noqa: E501
-        if sparkline_display_horizontal_position not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sparkline_display_horizontal_position` ({0}), must be one of {1}"  # noqa: E501
-                .format(sparkline_display_horizontal_position, allowed_values)
-            )
-
-        self._sparkline_display_horizontal_position = sparkline_display_horizontal_position
-
-    @property
-    def sparkline_display_font_size(self):
-        """Gets the sparkline_display_font_size of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
-
-        :return: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_font_size
-
-    @sparkline_display_font_size.setter
-    def sparkline_display_font_size(self, sparkline_display_font_size):
-        """Sets the sparkline_display_font_size of this ChartSettings.
-
-        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
-
-        :param sparkline_display_font_size: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_font_size = sparkline_display_font_size
-
-    @property
-    def sparkline_display_prefix(self):
-        """Gets the sparkline_display_prefix of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a string to add before the displayed text  # noqa: E501
-
-        :return: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_prefix
-
-    @sparkline_display_prefix.setter
-    def sparkline_display_prefix(self, sparkline_display_prefix):
-        """Sets the sparkline_display_prefix of this ChartSettings.
-
-        For the single stat view, a string to add before the displayed text  # noqa: E501
-
-        :param sparkline_display_prefix: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_prefix = sparkline_display_prefix
-
-    @property
-    def sparkline_display_postfix(self):
-        """Gets the sparkline_display_postfix of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a string to append to the displayed text  # noqa: E501
-
-        :return: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_postfix
-
-    @sparkline_display_postfix.setter
-    def sparkline_display_postfix(self, sparkline_display_postfix):
-        """Sets the sparkline_display_postfix of this ChartSettings.
-
-        For the single stat view, a string to append to the displayed text  # noqa: E501
-
-        :param sparkline_display_postfix: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_postfix = sparkline_display_postfix
-
-    @property
-    def sparkline_size(self):
-        """Gets the sparkline_size of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
-
-        :return: The sparkline_size of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_size
-
-    @sparkline_size.setter
-    def sparkline_size(self, sparkline_size):
-        """Sets the sparkline_size of this ChartSettings.
-
-        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
-
-        :param sparkline_size: The sparkline_size of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["BACKGROUND", "BOTTOM", "NONE"]  # noqa: E501
-        if sparkline_size not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sparkline_size` ({0}), must be one of {1}"  # noqa: E501
-                .format(sparkline_size, allowed_values)
-            )
-
-        self._sparkline_size = sparkline_size
-
-    @property
-    def sparkline_line_color(self):
-        """Gets the sparkline_line_color of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_line_color of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_line_color
-
-    @sparkline_line_color.setter
-    def sparkline_line_color(self, sparkline_line_color):
-        """Sets the sparkline_line_color of this ChartSettings.
-
-        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :param sparkline_line_color: The sparkline_line_color of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_line_color = sparkline_line_color
-
-    @property
-    def sparkline_fill_color(self):
-        """Gets the sparkline_fill_color of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_fill_color of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_fill_color
-
-    @sparkline_fill_color.setter
-    def sparkline_fill_color(self, sparkline_fill_color):
-        """Sets the sparkline_fill_color of this ChartSettings.
-
-        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :param sparkline_fill_color: The sparkline_fill_color of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_fill_color = sparkline_fill_color
-
-    @property
-    def sparkline_value_color_map_colors(self):
-        """Gets the sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+        :return: The custom_tags of this ChartSettings.  # noqa: E501
         :rtype: list[str]
         """
-        return self._sparkline_value_color_map_colors
+        return self._custom_tags
 
-    @sparkline_value_color_map_colors.setter
-    def sparkline_value_color_map_colors(self, sparkline_value_color_map_colors):
-        """Sets the sparkline_value_color_map_colors of this ChartSettings.
+    @custom_tags.setter
+    def custom_tags(self, custom_tags):
+        """Sets the custom_tags of this ChartSettings.
 
-        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode  # noqa: E501
 
-        :param sparkline_value_color_map_colors: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+        :param custom_tags: The custom_tags of this ChartSettings.  # noqa: E501
         :type: list[str]
         """
 
-        self._sparkline_value_color_map_colors = sparkline_value_color_map_colors
+        self._custom_tags = custom_tags
 
     @property
-    def sparkline_value_color_map_values_v2(self):
-        """Gets the sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
+    def expected_data_spacing(self):
+        """Gets the expected_data_spacing of this ChartSettings.  # noqa: E501
 
-        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
+        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
 
-        :return: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
-        :rtype: list[float]
-        """
-        return self._sparkline_value_color_map_values_v2
-
-    @sparkline_value_color_map_values_v2.setter
-    def sparkline_value_color_map_values_v2(self, sparkline_value_color_map_values_v2):
-        """Sets the sparkline_value_color_map_values_v2 of this ChartSettings.
-
-        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
-
-        :param sparkline_value_color_map_values_v2: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
-        :type: list[float]
-        """
-
-        self._sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
-
-    @property
-    def sparkline_value_color_map_values(self):
-        """Gets the sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
-
-        deprecated  # noqa: E501
-
-        :return: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._sparkline_value_color_map_values
-
-    @sparkline_value_color_map_values.setter
-    def sparkline_value_color_map_values(self, sparkline_value_color_map_values):
-        """Sets the sparkline_value_color_map_values of this ChartSettings.
-
-        deprecated  # noqa: E501
-
-        :param sparkline_value_color_map_values: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._sparkline_value_color_map_values = sparkline_value_color_map_values
-
-    @property
-    def sparkline_value_color_map_apply_to(self):
-        """Gets the sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
-
-        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
-
-        :return: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_value_color_map_apply_to
-
-    @sparkline_value_color_map_apply_to.setter
-    def sparkline_value_color_map_apply_to(self, sparkline_value_color_map_apply_to):
-        """Sets the sparkline_value_color_map_apply_to of this ChartSettings.
-
-        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
-
-        :param sparkline_value_color_map_apply_to: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["TEXT", "BACKGROUND"]  # noqa: E501
-        if sparkline_value_color_map_apply_to not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sparkline_value_color_map_apply_to` ({0}), must be one of {1}"  # noqa: E501
-                .format(sparkline_value_color_map_apply_to, allowed_values)
-            )
-
-        self._sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
-
-    @property
-    def sparkline_decimal_precision(self):
-        """Gets the sparkline_decimal_precision of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the decimal precision of the displayed number  # noqa: E501
-
-        :return: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
+        :return: The expected_data_spacing of this ChartSettings.  # noqa: E501
         :rtype: int
         """
-        return self._sparkline_decimal_precision
+        return self._expected_data_spacing
 
-    @sparkline_decimal_precision.setter
-    def sparkline_decimal_precision(self, sparkline_decimal_precision):
-        """Sets the sparkline_decimal_precision of this ChartSettings.
+    @expected_data_spacing.setter
+    def expected_data_spacing(self, expected_data_spacing):
+        """Sets the expected_data_spacing of this ChartSettings.
 
-        For the single stat view, the decimal precision of the displayed number  # noqa: E501
+        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
 
-        :param sparkline_decimal_precision: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
+        :param expected_data_spacing: The expected_data_spacing of this ChartSettings.  # noqa: E501
         :type: int
         """
 
-        self._sparkline_decimal_precision = sparkline_decimal_precision
+        self._expected_data_spacing = expected_data_spacing
 
     @property
-    def sparkline_value_text_map_text(self):
-        """Gets the sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+    def fixed_legend_display_stats(self):
+        """Gets the fixed_legend_display_stats of this ChartSettings.  # noqa: E501
 
-        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
+        For a chart with a fixed legend, a list of statistics to display in the legend  # noqa: E501
 
-        :return: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+        :return: The fixed_legend_display_stats of this ChartSettings.  # noqa: E501
         :rtype: list[str]
         """
-        return self._sparkline_value_text_map_text
+        return self._fixed_legend_display_stats
 
-    @sparkline_value_text_map_text.setter
-    def sparkline_value_text_map_text(self, sparkline_value_text_map_text):
-        """Sets the sparkline_value_text_map_text of this ChartSettings.
+    @fixed_legend_display_stats.setter
+    def fixed_legend_display_stats(self, fixed_legend_display_stats):
+        """Sets the fixed_legend_display_stats of this ChartSettings.
 
-        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
+        For a chart with a fixed legend, a list of statistics to display in the legend  # noqa: E501
 
-        :param sparkline_value_text_map_text: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+        :param fixed_legend_display_stats: The fixed_legend_display_stats of this ChartSettings.  # noqa: E501
         :type: list[str]
         """
 
-        self._sparkline_value_text_map_text = sparkline_value_text_map_text
+        self._fixed_legend_display_stats = fixed_legend_display_stats
 
     @property
-    def sparkline_value_text_map_thresholds(self):
-        """Gets the sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
+    def fixed_legend_enabled(self):
+        """Gets the fixed_legend_enabled of this ChartSettings.  # noqa: E501
 
-        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
+        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
 
-        :return: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
-        :rtype: list[float]
+        :return: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
+        :rtype: bool
         """
-        return self._sparkline_value_text_map_thresholds
+        return self._fixed_legend_enabled
 
-    @sparkline_value_text_map_thresholds.setter
-    def sparkline_value_text_map_thresholds(self, sparkline_value_text_map_thresholds):
-        """Sets the sparkline_value_text_map_thresholds of this ChartSettings.
+    @fixed_legend_enabled.setter
+    def fixed_legend_enabled(self, fixed_legend_enabled):
+        """Sets the fixed_legend_enabled of this ChartSettings.
 
-        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
+        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
 
-        :param sparkline_value_text_map_thresholds: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
-        :type: list[float]
+        :param fixed_legend_enabled: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
+        :type: bool
         """
 
-        self._sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
+        self._fixed_legend_enabled = fixed_legend_enabled
+
+    @property
+    def fixed_legend_filter_field(self):
+        """Gets the fixed_legend_filter_field of this ChartSettings.  # noqa: E501
+
+        Statistic to use for determining whether a series is displayed on the fixed legend  # noqa: E501
+
+        :return: The fixed_legend_filter_field of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._fixed_legend_filter_field
+
+    @fixed_legend_filter_field.setter
+    def fixed_legend_filter_field(self, fixed_legend_filter_field):
+        """Sets the fixed_legend_filter_field of this ChartSettings.
+
+        Statistic to use for determining whether a series is displayed on the fixed legend  # noqa: E501
+
+        :param fixed_legend_filter_field: The fixed_legend_filter_field of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["CURRENT", "MEAN", "MEDIAN", "SUM", "MIN", "MAX", "COUNT"]  # noqa: E501
+        if fixed_legend_filter_field not in allowed_values:
+            raise ValueError(
+                "Invalid value for `fixed_legend_filter_field` ({0}), must be one of {1}"  # noqa: E501
+                .format(fixed_legend_filter_field, allowed_values)
+            )
+
+        self._fixed_legend_filter_field = fixed_legend_filter_field
+
+    @property
+    def fixed_legend_filter_limit(self):
+        """Gets the fixed_legend_filter_limit of this ChartSettings.  # noqa: E501
+
+        Number of series to include in the fixed legend  # noqa: E501
+
+        :return: The fixed_legend_filter_limit of this ChartSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._fixed_legend_filter_limit
+
+    @fixed_legend_filter_limit.setter
+    def fixed_legend_filter_limit(self, fixed_legend_filter_limit):
+        """Sets the fixed_legend_filter_limit of this ChartSettings.
+
+        Number of series to include in the fixed legend  # noqa: E501
+
+        :param fixed_legend_filter_limit: The fixed_legend_filter_limit of this ChartSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._fixed_legend_filter_limit = fixed_legend_filter_limit
+
+    @property
+    def fixed_legend_filter_sort(self):
+        """Gets the fixed_legend_filter_sort of this ChartSettings.  # noqa: E501
+
+        Whether to display \"Top\"- or \"Bottom\"-ranked series in the fixed legend  # noqa: E501
+
+        :return: The fixed_legend_filter_sort of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._fixed_legend_filter_sort
+
+    @fixed_legend_filter_sort.setter
+    def fixed_legend_filter_sort(self, fixed_legend_filter_sort):
+        """Sets the fixed_legend_filter_sort of this ChartSettings.
+
+        Whether to display \"Top\"- or \"Bottom\"-ranked series in the fixed legend  # noqa: E501
+
+        :param fixed_legend_filter_sort: The fixed_legend_filter_sort of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["TOP", "BOTTOM"]  # noqa: E501
+        if fixed_legend_filter_sort not in allowed_values:
+            raise ValueError(
+                "Invalid value for `fixed_legend_filter_sort` ({0}), must be one of {1}"  # noqa: E501
+                .format(fixed_legend_filter_sort, allowed_values)
+            )
+
+        self._fixed_legend_filter_sort = fixed_legend_filter_sort
+
+    @property
+    def fixed_legend_hide_label(self):
+        """Gets the fixed_legend_hide_label of this ChartSettings.  # noqa: E501
+
+        deprecated  # noqa: E501
+
+        :return: The fixed_legend_hide_label of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fixed_legend_hide_label
+
+    @fixed_legend_hide_label.setter
+    def fixed_legend_hide_label(self, fixed_legend_hide_label):
+        """Sets the fixed_legend_hide_label of this ChartSettings.
+
+        deprecated  # noqa: E501
+
+        :param fixed_legend_hide_label: The fixed_legend_hide_label of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._fixed_legend_hide_label = fixed_legend_hide_label
+
+    @property
+    def fixed_legend_position(self):
+        """Gets the fixed_legend_position of this ChartSettings.  # noqa: E501
+
+        Where the fixed legend should be displayed with respect to the chart  # noqa: E501
+
+        :return: The fixed_legend_position of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._fixed_legend_position
+
+    @fixed_legend_position.setter
+    def fixed_legend_position(self, fixed_legend_position):
+        """Sets the fixed_legend_position of this ChartSettings.
+
+        Where the fixed legend should be displayed with respect to the chart  # noqa: E501
+
+        :param fixed_legend_position: The fixed_legend_position of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["RIGHT", "TOP", "LEFT", "BOTTOM"]  # noqa: E501
+        if fixed_legend_position not in allowed_values:
+            raise ValueError(
+                "Invalid value for `fixed_legend_position` ({0}), must be one of {1}"  # noqa: E501
+                .format(fixed_legend_position, allowed_values)
+            )
+
+        self._fixed_legend_position = fixed_legend_position
+
+    @property
+    def fixed_legend_use_raw_stats(self):
+        """Gets the fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
+
+        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
+
+        :return: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fixed_legend_use_raw_stats
+
+    @fixed_legend_use_raw_stats.setter
+    def fixed_legend_use_raw_stats(self, fixed_legend_use_raw_stats):
+        """Sets the fixed_legend_use_raw_stats of this ChartSettings.
+
+        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
+
+        :param fixed_legend_use_raw_stats: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
+
+    @property
+    def group_by_source(self):
+        """Gets the group_by_source of this ChartSettings.  # noqa: E501
+
+        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row  # noqa: E501
+
+        :return: The group_by_source of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._group_by_source
+
+    @group_by_source.setter
+    def group_by_source(self, group_by_source):
+        """Sets the group_by_source of this ChartSettings.
+
+        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row  # noqa: E501
+
+        :param group_by_source: The group_by_source of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._group_by_source = group_by_source
+
+    @property
+    def invert_dynamic_legend_hover_control(self):
+        """Gets the invert_dynamic_legend_hover_control of this ChartSettings.  # noqa: E501
+
+        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)  # noqa: E501
+
+        :return: The invert_dynamic_legend_hover_control of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._invert_dynamic_legend_hover_control
+
+    @invert_dynamic_legend_hover_control.setter
+    def invert_dynamic_legend_hover_control(self, invert_dynamic_legend_hover_control):
+        """Sets the invert_dynamic_legend_hover_control of this ChartSettings.
+
+        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)  # noqa: E501
+
+        :param invert_dynamic_legend_hover_control: The invert_dynamic_legend_hover_control of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
 
     @property
     def line_type(self):
@@ -871,85 +696,96 @@ class ChartSettings(object):
         self._line_type = line_type
 
     @property
-    def stack_type(self):
-        """Gets the stack_type of this ChartSettings.  # noqa: E501
+    def max(self):
+        """Gets the max of this ChartSettings.  # noqa: E501
 
-        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream  # noqa: E501
+        Max value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
 
-        :return: The stack_type of this ChartSettings.  # noqa: E501
-        :rtype: str
+        :return: The max of this ChartSettings.  # noqa: E501
+        :rtype: float
         """
-        return self._stack_type
+        return self._max
 
-    @stack_type.setter
-    def stack_type(self, stack_type):
-        """Sets the stack_type of this ChartSettings.
+    @max.setter
+    def max(self, max):
+        """Sets the max of this ChartSettings.
 
-        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream  # noqa: E501
+        Max value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
 
-        :param stack_type: The stack_type of this ChartSettings.  # noqa: E501
-        :type: str
+        :param max: The max of this ChartSettings.  # noqa: E501
+        :type: float
         """
-        allowed_values = ["zero", "expand", "wiggle", "silhouette"]  # noqa: E501
-        if stack_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `stack_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(stack_type, allowed_values)
-            )
 
-        self._stack_type = stack_type
+        self._max = max
 
     @property
-    def windowing(self):
-        """Gets the windowing of this ChartSettings.  # noqa: E501
+    def min(self):
+        """Gets the min of this ChartSettings.  # noqa: E501
 
-        For the tabular view, whether to use the full time window for the query or the last X minutes  # noqa: E501
+        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
 
-        :return: The windowing of this ChartSettings.  # noqa: E501
-        :rtype: str
+        :return: The min of this ChartSettings.  # noqa: E501
+        :rtype: float
         """
-        return self._windowing
+        return self._min
 
-    @windowing.setter
-    def windowing(self, windowing):
-        """Sets the windowing of this ChartSettings.
+    @min.setter
+    def min(self, min):
+        """Sets the min of this ChartSettings.
 
-        For the tabular view, whether to use the full time window for the query or the last X minutes  # noqa: E501
+        Min value of Y-axis.  Set to null or leave blank for auto  # noqa: E501
 
-        :param windowing: The windowing of this ChartSettings.  # noqa: E501
-        :type: str
+        :param min: The min of this ChartSettings.  # noqa: E501
+        :type: float
         """
-        allowed_values = ["full", "last"]  # noqa: E501
-        if windowing not in allowed_values:
-            raise ValueError(
-                "Invalid value for `windowing` ({0}), must be one of {1}"  # noqa: E501
-                .format(windowing, allowed_values)
-            )
 
-        self._windowing = windowing
+        self._min = min
 
     @property
-    def window_size(self):
-        """Gets the window_size of this ChartSettings.  # noqa: E501
+    def num_tags(self):
+        """Gets the num_tags of this ChartSettings.  # noqa: E501
 
-        Width, in minutes, of the time window to use for \"last\" windowing  # noqa: E501
+        For the tabular view, how many point tags to display  # noqa: E501
 
-        :return: The window_size of this ChartSettings.  # noqa: E501
+        :return: The num_tags of this ChartSettings.  # noqa: E501
         :rtype: int
         """
-        return self._window_size
+        return self._num_tags
 
-    @window_size.setter
-    def window_size(self, window_size):
-        """Sets the window_size of this ChartSettings.
+    @num_tags.setter
+    def num_tags(self, num_tags):
+        """Sets the num_tags of this ChartSettings.
 
-        Width, in minutes, of the time window to use for \"last\" windowing  # noqa: E501
+        For the tabular view, how many point tags to display  # noqa: E501
 
-        :param window_size: The window_size of this ChartSettings.  # noqa: E501
+        :param num_tags: The num_tags of this ChartSettings.  # noqa: E501
         :type: int
         """
 
-        self._window_size = window_size
+        self._num_tags = num_tags
+
+    @property
+    def plain_markdown_content(self):
+        """Gets the plain_markdown_content of this ChartSettings.  # noqa: E501
+
+        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
+
+        :return: The plain_markdown_content of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._plain_markdown_content
+
+    @plain_markdown_content.setter
+    def plain_markdown_content(self, plain_markdown_content):
+        """Sets the plain_markdown_content of this ChartSettings.
+
+        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
+
+        :param plain_markdown_content: The plain_markdown_content of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._plain_markdown_content = plain_markdown_content
 
     @property
     def show_hosts(self):
@@ -1021,50 +857,471 @@ class ChartSettings(object):
         self._show_raw_values = show_raw_values
 
     @property
-    def auto_column_tags(self):
-        """Gets the auto_column_tags of this ChartSettings.  # noqa: E501
+    def sort_values_descending(self):
+        """Gets the sort_values_descending of this ChartSettings.  # noqa: E501
 
-        deprecated  # noqa: E501
+        For the tabular view, whether to display display values in descending order.  Default: false  # noqa: E501
 
-        :return: The auto_column_tags of this ChartSettings.  # noqa: E501
+        :return: The sort_values_descending of this ChartSettings.  # noqa: E501
         :rtype: bool
         """
-        return self._auto_column_tags
+        return self._sort_values_descending
 
-    @auto_column_tags.setter
-    def auto_column_tags(self, auto_column_tags):
-        """Sets the auto_column_tags of this ChartSettings.
+    @sort_values_descending.setter
+    def sort_values_descending(self, sort_values_descending):
+        """Sets the sort_values_descending of this ChartSettings.
 
-        deprecated  # noqa: E501
+        For the tabular view, whether to display display values in descending order.  Default: false  # noqa: E501
 
-        :param auto_column_tags: The auto_column_tags of this ChartSettings.  # noqa: E501
+        :param sort_values_descending: The sort_values_descending of this ChartSettings.  # noqa: E501
         :type: bool
         """
 
-        self._auto_column_tags = auto_column_tags
+        self._sort_values_descending = sort_values_descending
 
     @property
-    def column_tags(self):
-        """Gets the column_tags of this ChartSettings.  # noqa: E501
+    def sparkline_decimal_precision(self):
+        """Gets the sparkline_decimal_precision of this ChartSettings.  # noqa: E501
 
-        deprecated  # noqa: E501
+        For the single stat view, the decimal precision of the displayed number  # noqa: E501
 
-        :return: The column_tags of this ChartSettings.  # noqa: E501
+        :return: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._sparkline_decimal_precision
+
+    @sparkline_decimal_precision.setter
+    def sparkline_decimal_precision(self, sparkline_decimal_precision):
+        """Sets the sparkline_decimal_precision of this ChartSettings.
+
+        For the single stat view, the decimal precision of the displayed number  # noqa: E501
+
+        :param sparkline_decimal_precision: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._sparkline_decimal_precision = sparkline_decimal_precision
+
+    @property
+    def sparkline_display_color(self):
+        """Gets the sparkline_display_color of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_display_color of this ChartSettings.  # noqa: E501
         :rtype: str
         """
-        return self._column_tags
+        return self._sparkline_display_color
 
-    @column_tags.setter
-    def column_tags(self, column_tags):
-        """Sets the column_tags of this ChartSettings.
+    @sparkline_display_color.setter
+    def sparkline_display_color(self, sparkline_display_color):
+        """Sets the sparkline_display_color of this ChartSettings.
 
-        deprecated  # noqa: E501
+        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
 
-        :param column_tags: The column_tags of this ChartSettings.  # noqa: E501
+        :param sparkline_display_color: The sparkline_display_color of this ChartSettings.  # noqa: E501
         :type: str
         """
 
-        self._column_tags = column_tags
+        self._sparkline_display_color = sparkline_display_color
+
+    @property
+    def sparkline_display_font_size(self):
+        """Gets the sparkline_display_font_size of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
+
+        :return: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_font_size
+
+    @sparkline_display_font_size.setter
+    def sparkline_display_font_size(self, sparkline_display_font_size):
+        """Sets the sparkline_display_font_size of this ChartSettings.
+
+        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
+
+        :param sparkline_display_font_size: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_font_size = sparkline_display_font_size
+
+    @property
+    def sparkline_display_horizontal_position(self):
+        """Gets the sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the horizontal position of the displayed text  # noqa: E501
+
+        :return: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_horizontal_position
+
+    @sparkline_display_horizontal_position.setter
+    def sparkline_display_horizontal_position(self, sparkline_display_horizontal_position):
+        """Sets the sparkline_display_horizontal_position of this ChartSettings.
+
+        For the single stat view, the horizontal position of the displayed text  # noqa: E501
+
+        :param sparkline_display_horizontal_position: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["MIDDLE", "LEFT", "RIGHT"]  # noqa: E501
+        if sparkline_display_horizontal_position not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sparkline_display_horizontal_position` ({0}), must be one of {1}"  # noqa: E501
+                .format(sparkline_display_horizontal_position, allowed_values)
+            )
+
+        self._sparkline_display_horizontal_position = sparkline_display_horizontal_position
+
+    @property
+    def sparkline_display_postfix(self):
+        """Gets the sparkline_display_postfix of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a string to append to the displayed text  # noqa: E501
+
+        :return: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_postfix
+
+    @sparkline_display_postfix.setter
+    def sparkline_display_postfix(self, sparkline_display_postfix):
+        """Sets the sparkline_display_postfix of this ChartSettings.
+
+        For the single stat view, a string to append to the displayed text  # noqa: E501
+
+        :param sparkline_display_postfix: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_postfix = sparkline_display_postfix
+
+    @property
+    def sparkline_display_prefix(self):
+        """Gets the sparkline_display_prefix of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a string to add before the displayed text  # noqa: E501
+
+        :return: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_prefix
+
+    @sparkline_display_prefix.setter
+    def sparkline_display_prefix(self, sparkline_display_prefix):
+        """Sets the sparkline_display_prefix of this ChartSettings.
+
+        For the single stat view, a string to add before the displayed text  # noqa: E501
+
+        :param sparkline_display_prefix: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_prefix = sparkline_display_prefix
+
+    @property
+    def sparkline_display_value_type(self):
+        """Gets the sparkline_display_value_type of this ChartSettings.  # noqa: E501
+
+        For the single stat view, whether to display the name of the query or the value of query  # noqa: E501
+
+        :return: The sparkline_display_value_type of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_value_type
+
+    @sparkline_display_value_type.setter
+    def sparkline_display_value_type(self, sparkline_display_value_type):
+        """Sets the sparkline_display_value_type of this ChartSettings.
+
+        For the single stat view, whether to display the name of the query or the value of query  # noqa: E501
+
+        :param sparkline_display_value_type: The sparkline_display_value_type of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["VALUE", "LABEL"]  # noqa: E501
+        if sparkline_display_value_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sparkline_display_value_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(sparkline_display_value_type, allowed_values)
+            )
+
+        self._sparkline_display_value_type = sparkline_display_value_type
+
+    @property
+    def sparkline_display_vertical_position(self):
+        """Gets the sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+
+        deprecated  # noqa: E501
+
+        :return: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_vertical_position
+
+    @sparkline_display_vertical_position.setter
+    def sparkline_display_vertical_position(self, sparkline_display_vertical_position):
+        """Sets the sparkline_display_vertical_position of this ChartSettings.
+
+        deprecated  # noqa: E501
+
+        :param sparkline_display_vertical_position: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_vertical_position = sparkline_display_vertical_position
+
+    @property
+    def sparkline_fill_color(self):
+        """Gets the sparkline_fill_color of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_fill_color of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_fill_color
+
+    @sparkline_fill_color.setter
+    def sparkline_fill_color(self, sparkline_fill_color):
+        """Sets the sparkline_fill_color of this ChartSettings.
+
+        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :param sparkline_fill_color: The sparkline_fill_color of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_fill_color = sparkline_fill_color
+
+    @property
+    def sparkline_line_color(self):
+        """Gets the sparkline_line_color of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_line_color of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_line_color
+
+    @sparkline_line_color.setter
+    def sparkline_line_color(self, sparkline_line_color):
+        """Sets the sparkline_line_color of this ChartSettings.
+
+        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :param sparkline_line_color: The sparkline_line_color of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_line_color = sparkline_line_color
+
+    @property
+    def sparkline_size(self):
+        """Gets the sparkline_size of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
+
+        :return: The sparkline_size of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_size
+
+    @sparkline_size.setter
+    def sparkline_size(self, sparkline_size):
+        """Sets the sparkline_size of this ChartSettings.
+
+        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
+
+        :param sparkline_size: The sparkline_size of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["BACKGROUND", "BOTTOM", "NONE"]  # noqa: E501
+        if sparkline_size not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sparkline_size` ({0}), must be one of {1}"  # noqa: E501
+                .format(sparkline_size, allowed_values)
+            )
+
+        self._sparkline_size = sparkline_size
+
+    @property
+    def sparkline_value_color_map_apply_to(self):
+        """Gets the sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
+
+        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
+
+        :return: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_value_color_map_apply_to
+
+    @sparkline_value_color_map_apply_to.setter
+    def sparkline_value_color_map_apply_to(self, sparkline_value_color_map_apply_to):
+        """Sets the sparkline_value_color_map_apply_to of this ChartSettings.
+
+        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
+
+        :param sparkline_value_color_map_apply_to: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["TEXT", "BACKGROUND"]  # noqa: E501
+        if sparkline_value_color_map_apply_to not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sparkline_value_color_map_apply_to` ({0}), must be one of {1}"  # noqa: E501
+                .format(sparkline_value_color_map_apply_to, allowed_values)
+            )
+
+        self._sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
+
+    @property
+    def sparkline_value_color_map_colors(self):
+        """Gets the sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sparkline_value_color_map_colors
+
+    @sparkline_value_color_map_colors.setter
+    def sparkline_value_color_map_colors(self, sparkline_value_color_map_colors):
+        """Sets the sparkline_value_color_map_colors of this ChartSettings.
+
+        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :param sparkline_value_color_map_colors: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sparkline_value_color_map_colors = sparkline_value_color_map_colors
+
+    @property
+    def sparkline_value_color_map_values(self):
+        """Gets the sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
+
+        deprecated  # noqa: E501
+
+        :return: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._sparkline_value_color_map_values
+
+    @sparkline_value_color_map_values.setter
+    def sparkline_value_color_map_values(self, sparkline_value_color_map_values):
+        """Sets the sparkline_value_color_map_values of this ChartSettings.
+
+        deprecated  # noqa: E501
+
+        :param sparkline_value_color_map_values: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._sparkline_value_color_map_values = sparkline_value_color_map_values
+
+    @property
+    def sparkline_value_color_map_values_v2(self):
+        """Gets the sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
+
+        :return: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
+        :rtype: list[float]
+        """
+        return self._sparkline_value_color_map_values_v2
+
+    @sparkline_value_color_map_values_v2.setter
+    def sparkline_value_color_map_values_v2(self, sparkline_value_color_map_values_v2):
+        """Sets the sparkline_value_color_map_values_v2 of this ChartSettings.
+
+        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
+
+        :param sparkline_value_color_map_values_v2: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
+        :type: list[float]
+        """
+
+        self._sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
+
+    @property
+    def sparkline_value_text_map_text(self):
+        """Gets the sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
+
+        :return: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sparkline_value_text_map_text
+
+    @sparkline_value_text_map_text.setter
+    def sparkline_value_text_map_text(self, sparkline_value_text_map_text):
+        """Sets the sparkline_value_text_map_text of this ChartSettings.
+
+        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
+
+        :param sparkline_value_text_map_text: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sparkline_value_text_map_text = sparkline_value_text_map_text
+
+    @property
+    def sparkline_value_text_map_thresholds(self):
+        """Gets the sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
+
+        :return: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
+        :rtype: list[float]
+        """
+        return self._sparkline_value_text_map_thresholds
+
+    @sparkline_value_text_map_thresholds.setter
+    def sparkline_value_text_map_thresholds(self, sparkline_value_text_map_thresholds):
+        """Sets the sparkline_value_text_map_thresholds of this ChartSettings.
+
+        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
+
+        :param sparkline_value_text_map_thresholds: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
+        :type: list[float]
+        """
+
+        self._sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
+
+    @property
+    def stack_type(self):
+        """Gets the stack_type of this ChartSettings.  # noqa: E501
+
+        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream  # noqa: E501
+
+        :return: The stack_type of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._stack_type
+
+    @stack_type.setter
+    def stack_type(self, stack_type):
+        """Sets the stack_type of this ChartSettings.
+
+        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream  # noqa: E501
+
+        :param stack_type: The stack_type of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["zero", "expand", "wiggle", "silhouette"]  # noqa: E501
+        if stack_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `stack_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(stack_type, allowed_values)
+            )
+
+        self._stack_type = stack_type
 
     @property
     def tag_mode(self):
@@ -1096,482 +1353,110 @@ class ChartSettings(object):
         self._tag_mode = tag_mode
 
     @property
-    def num_tags(self):
-        """Gets the num_tags of this ChartSettings.  # noqa: E501
+    def time_based_coloring(self):
+        """Gets the time_based_coloring of this ChartSettings.  # noqa: E501
 
-        For the tabular view, how many point tags to display  # noqa: E501
+        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
 
-        :return: The num_tags of this ChartSettings.  # noqa: E501
+        :return: The time_based_coloring of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._time_based_coloring
+
+    @time_based_coloring.setter
+    def time_based_coloring(self, time_based_coloring):
+        """Sets the time_based_coloring of this ChartSettings.
+
+        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
+
+        :param time_based_coloring: The time_based_coloring of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._time_based_coloring = time_based_coloring
+
+    @property
+    def type(self):
+        """Gets the type of this ChartSettings.  # noqa: E501
+
+        Chart Type.  'line' refers to the Line Plot, 'scatter' to the Point Plot, 'stacked-area' to the Stacked Area plot, 'table' to the Tabular View, 'scatterploy-xy' to Scatter Plot, 'markdown-widget' to the Markdown display, and 'sparkline' to the Single Stat view  # noqa: E501
+
+        :return: The type of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ChartSettings.
+
+        Chart Type.  'line' refers to the Line Plot, 'scatter' to the Point Plot, 'stacked-area' to the Stacked Area plot, 'table' to the Tabular View, 'scatterploy-xy' to Scatter Plot, 'markdown-widget' to the Markdown display, and 'sparkline' to the Single Stat view  # noqa: E501
+
+        :param type: The type of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        if type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["line", "scatterplot", "stacked-area", "table", "scatterplot-xy", "markdown-widget", "sparkline"]  # noqa: E501
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
+
+    @property
+    def window_size(self):
+        """Gets the window_size of this ChartSettings.  # noqa: E501
+
+        Width, in minutes, of the time window to use for \"last\" windowing  # noqa: E501
+
+        :return: The window_size of this ChartSettings.  # noqa: E501
         :rtype: int
         """
-        return self._num_tags
+        return self._window_size
 
-    @num_tags.setter
-    def num_tags(self, num_tags):
-        """Sets the num_tags of this ChartSettings.
+    @window_size.setter
+    def window_size(self, window_size):
+        """Sets the window_size of this ChartSettings.
 
-        For the tabular view, how many point tags to display  # noqa: E501
+        Width, in minutes, of the time window to use for \"last\" windowing  # noqa: E501
 
-        :param num_tags: The num_tags of this ChartSettings.  # noqa: E501
+        :param window_size: The window_size of this ChartSettings.  # noqa: E501
         :type: int
         """
 
-        self._num_tags = num_tags
+        self._window_size = window_size
 
     @property
-    def custom_tags(self):
-        """Gets the custom_tags of this ChartSettings.  # noqa: E501
+    def windowing(self):
+        """Gets the windowing of this ChartSettings.  # noqa: E501
 
-        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode  # noqa: E501
+        For the tabular view, whether to use the full time window for the query or the last X minutes  # noqa: E501
 
-        :return: The custom_tags of this ChartSettings.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._custom_tags
-
-    @custom_tags.setter
-    def custom_tags(self, custom_tags):
-        """Sets the custom_tags of this ChartSettings.
-
-        For the tabular view, a list of point tags to display when using the \"custom\" tag display mode  # noqa: E501
-
-        :param custom_tags: The custom_tags of this ChartSettings.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._custom_tags = custom_tags
-
-    @property
-    def group_by_source(self):
-        """Gets the group_by_source of this ChartSettings.  # noqa: E501
-
-        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row  # noqa: E501
-
-        :return: The group_by_source of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._group_by_source
-
-    @group_by_source.setter
-    def group_by_source(self, group_by_source):
-        """Sets the group_by_source of this ChartSettings.
-
-        For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row  # noqa: E501
-
-        :param group_by_source: The group_by_source of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._group_by_source = group_by_source
-
-    @property
-    def sort_values_descending(self):
-        """Gets the sort_values_descending of this ChartSettings.  # noqa: E501
-
-        For the tabular view, whether to display display values in descending order.  Default: false  # noqa: E501
-
-        :return: The sort_values_descending of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._sort_values_descending
-
-    @sort_values_descending.setter
-    def sort_values_descending(self, sort_values_descending):
-        """Sets the sort_values_descending of this ChartSettings.
-
-        For the tabular view, whether to display display values in descending order.  Default: false  # noqa: E501
-
-        :param sort_values_descending: The sort_values_descending of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._sort_values_descending = sort_values_descending
-
-    @property
-    def y1_max(self):
-        """Gets the y1_max of this ChartSettings.  # noqa: E501
-
-        For plots with multiple Y-axes, max value for right-side Y-axis.  Set null for auto  # noqa: E501
-
-        :return: The y1_max of this ChartSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._y1_max
-
-    @y1_max.setter
-    def y1_max(self, y1_max):
-        """Sets the y1_max of this ChartSettings.
-
-        For plots with multiple Y-axes, max value for right-side Y-axis.  Set null for auto  # noqa: E501
-
-        :param y1_max: The y1_max of this ChartSettings.  # noqa: E501
-        :type: float
-        """
-
-        self._y1_max = y1_max
-
-    @property
-    def y1_min(self):
-        """Gets the y1_min of this ChartSettings.  # noqa: E501
-
-        For plots with multiple Y-axes, min value for right-side Y-axis.  Set null for auto  # noqa: E501
-
-        :return: The y1_min of this ChartSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._y1_min
-
-    @y1_min.setter
-    def y1_min(self, y1_min):
-        """Sets the y1_min of this ChartSettings.
-
-        For plots with multiple Y-axes, min value for right-side Y-axis.  Set null for auto  # noqa: E501
-
-        :param y1_min: The y1_min of this ChartSettings.  # noqa: E501
-        :type: float
-        """
-
-        self._y1_min = y1_min
-
-    @property
-    def y1_units(self):
-        """Gets the y1_units of this ChartSettings.  # noqa: E501
-
-        For plots with multiple Y-axes, units for right-side Y-axis  # noqa: E501
-
-        :return: The y1_units of this ChartSettings.  # noqa: E501
+        :return: The windowing of this ChartSettings.  # noqa: E501
         :rtype: str
         """
-        return self._y1_units
+        return self._windowing
 
-    @y1_units.setter
-    def y1_units(self, y1_units):
-        """Sets the y1_units of this ChartSettings.
+    @windowing.setter
+    def windowing(self, windowing):
+        """Sets the windowing of this ChartSettings.
 
-        For plots with multiple Y-axes, units for right-side Y-axis  # noqa: E501
+        For the tabular view, whether to use the full time window for the query or the last X minutes  # noqa: E501
 
-        :param y1_units: The y1_units of this ChartSettings.  # noqa: E501
+        :param windowing: The windowing of this ChartSettings.  # noqa: E501
         :type: str
         """
-
-        self._y1_units = y1_units
-
-    @property
-    def y0_scale_si_by1024(self):
-        """Gets the y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
-
-        Default: false. Whether to scale numerical magnitude labels for left Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
-
-        :return: The y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._y0_scale_si_by1024
-
-    @y0_scale_si_by1024.setter
-    def y0_scale_si_by1024(self, y0_scale_si_by1024):
-        """Sets the y0_scale_si_by1024 of this ChartSettings.
-
-        Default: false. Whether to scale numerical magnitude labels for left Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
-
-        :param y0_scale_si_by1024: The y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._y0_scale_si_by1024 = y0_scale_si_by1024
-
-    @property
-    def y1_scale_si_by1024(self):
-        """Gets the y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
-
-        Default: false. Whether to scale numerical magnitude labels for right Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
-
-        :return: The y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._y1_scale_si_by1024
-
-    @y1_scale_si_by1024.setter
-    def y1_scale_si_by1024(self, y1_scale_si_by1024):
-        """Sets the y1_scale_si_by1024 of this ChartSettings.
-
-        Default: false. Whether to scale numerical magnitude labels for right Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
-
-        :param y1_scale_si_by1024: The y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._y1_scale_si_by1024 = y1_scale_si_by1024
-
-    @property
-    def y0_unit_autoscaling(self):
-        """Gets the y0_unit_autoscaling of this ChartSettings.  # noqa: E501
-
-        Default: false. Whether to automatically adjust magnitude labels and units for the left Y-axis to favor smaller magnitudes and larger units  # noqa: E501
-
-        :return: The y0_unit_autoscaling of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._y0_unit_autoscaling
-
-    @y0_unit_autoscaling.setter
-    def y0_unit_autoscaling(self, y0_unit_autoscaling):
-        """Sets the y0_unit_autoscaling of this ChartSettings.
-
-        Default: false. Whether to automatically adjust magnitude labels and units for the left Y-axis to favor smaller magnitudes and larger units  # noqa: E501
-
-        :param y0_unit_autoscaling: The y0_unit_autoscaling of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._y0_unit_autoscaling = y0_unit_autoscaling
-
-    @property
-    def y1_unit_autoscaling(self):
-        """Gets the y1_unit_autoscaling of this ChartSettings.  # noqa: E501
-
-        Default: false. Whether to automatically adjust magnitude labels and units for the right Y-axis to favor smaller magnitudes and larger units  # noqa: E501
-
-        :return: The y1_unit_autoscaling of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._y1_unit_autoscaling
-
-    @y1_unit_autoscaling.setter
-    def y1_unit_autoscaling(self, y1_unit_autoscaling):
-        """Sets the y1_unit_autoscaling of this ChartSettings.
-
-        Default: false. Whether to automatically adjust magnitude labels and units for the right Y-axis to favor smaller magnitudes and larger units  # noqa: E501
-
-        :param y1_unit_autoscaling: The y1_unit_autoscaling of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._y1_unit_autoscaling = y1_unit_autoscaling
-
-    @property
-    def invert_dynamic_legend_hover_control(self):
-        """Gets the invert_dynamic_legend_hover_control of this ChartSettings.  # noqa: E501
-
-        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)  # noqa: E501
-
-        :return: The invert_dynamic_legend_hover_control of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._invert_dynamic_legend_hover_control
-
-    @invert_dynamic_legend_hover_control.setter
-    def invert_dynamic_legend_hover_control(self, invert_dynamic_legend_hover_control):
-        """Sets the invert_dynamic_legend_hover_control of this ChartSettings.
-
-        Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed)  # noqa: E501
-
-        :param invert_dynamic_legend_hover_control: The invert_dynamic_legend_hover_control of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._invert_dynamic_legend_hover_control = invert_dynamic_legend_hover_control
-
-    @property
-    def fixed_legend_enabled(self):
-        """Gets the fixed_legend_enabled of this ChartSettings.  # noqa: E501
-
-        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
-
-        :return: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._fixed_legend_enabled
-
-    @fixed_legend_enabled.setter
-    def fixed_legend_enabled(self, fixed_legend_enabled):
-        """Sets the fixed_legend_enabled of this ChartSettings.
-
-        Whether to enable a fixed tabular legend adjacent to the chart  # noqa: E501
-
-        :param fixed_legend_enabled: The fixed_legend_enabled of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._fixed_legend_enabled = fixed_legend_enabled
-
-    @property
-    def fixed_legend_use_raw_stats(self):
-        """Gets the fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
-
-        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
-
-        :return: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._fixed_legend_use_raw_stats
-
-    @fixed_legend_use_raw_stats.setter
-    def fixed_legend_use_raw_stats(self, fixed_legend_use_raw_stats):
-        """Sets the fixed_legend_use_raw_stats of this ChartSettings.
-
-        If true, the legend uses non-summarized stats instead of summarized  # noqa: E501
-
-        :param fixed_legend_use_raw_stats: The fixed_legend_use_raw_stats of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
-
-    @property
-    def fixed_legend_position(self):
-        """Gets the fixed_legend_position of this ChartSettings.  # noqa: E501
-
-        Where the fixed legend should be displayed with respect to the chart  # noqa: E501
-
-        :return: The fixed_legend_position of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._fixed_legend_position
-
-    @fixed_legend_position.setter
-    def fixed_legend_position(self, fixed_legend_position):
-        """Sets the fixed_legend_position of this ChartSettings.
-
-        Where the fixed legend should be displayed with respect to the chart  # noqa: E501
-
-        :param fixed_legend_position: The fixed_legend_position of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["RIGHT", "TOP", "LEFT", "BOTTOM"]  # noqa: E501
-        if fixed_legend_position not in allowed_values:
+        allowed_values = ["full", "last"]  # noqa: E501
+        if windowing not in allowed_values:
             raise ValueError(
-                "Invalid value for `fixed_legend_position` ({0}), must be one of {1}"  # noqa: E501
-                .format(fixed_legend_position, allowed_values)
+                "Invalid value for `windowing` ({0}), must be one of {1}"  # noqa: E501
+                .format(windowing, allowed_values)
             )
 
-        self._fixed_legend_position = fixed_legend_position
-
-    @property
-    def fixed_legend_display_stats(self):
-        """Gets the fixed_legend_display_stats of this ChartSettings.  # noqa: E501
-
-        For a chart with a fixed legend, a list of statistics to display in the legend  # noqa: E501
-
-        :return: The fixed_legend_display_stats of this ChartSettings.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._fixed_legend_display_stats
-
-    @fixed_legend_display_stats.setter
-    def fixed_legend_display_stats(self, fixed_legend_display_stats):
-        """Sets the fixed_legend_display_stats of this ChartSettings.
-
-        For a chart with a fixed legend, a list of statistics to display in the legend  # noqa: E501
-
-        :param fixed_legend_display_stats: The fixed_legend_display_stats of this ChartSettings.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._fixed_legend_display_stats = fixed_legend_display_stats
-
-    @property
-    def fixed_legend_filter_sort(self):
-        """Gets the fixed_legend_filter_sort of this ChartSettings.  # noqa: E501
-
-        Whether to display \"Top\"- or \"Bottom\"-ranked series in the fixed legend  # noqa: E501
-
-        :return: The fixed_legend_filter_sort of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._fixed_legend_filter_sort
-
-    @fixed_legend_filter_sort.setter
-    def fixed_legend_filter_sort(self, fixed_legend_filter_sort):
-        """Sets the fixed_legend_filter_sort of this ChartSettings.
-
-        Whether to display \"Top\"- or \"Bottom\"-ranked series in the fixed legend  # noqa: E501
-
-        :param fixed_legend_filter_sort: The fixed_legend_filter_sort of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["TOP", "BOTTOM"]  # noqa: E501
-        if fixed_legend_filter_sort not in allowed_values:
-            raise ValueError(
-                "Invalid value for `fixed_legend_filter_sort` ({0}), must be one of {1}"  # noqa: E501
-                .format(fixed_legend_filter_sort, allowed_values)
-            )
-
-        self._fixed_legend_filter_sort = fixed_legend_filter_sort
-
-    @property
-    def fixed_legend_filter_limit(self):
-        """Gets the fixed_legend_filter_limit of this ChartSettings.  # noqa: E501
-
-        Number of series to include in the fixed legend  # noqa: E501
-
-        :return: The fixed_legend_filter_limit of this ChartSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._fixed_legend_filter_limit
-
-    @fixed_legend_filter_limit.setter
-    def fixed_legend_filter_limit(self, fixed_legend_filter_limit):
-        """Sets the fixed_legend_filter_limit of this ChartSettings.
-
-        Number of series to include in the fixed legend  # noqa: E501
-
-        :param fixed_legend_filter_limit: The fixed_legend_filter_limit of this ChartSettings.  # noqa: E501
-        :type: int
-        """
-
-        self._fixed_legend_filter_limit = fixed_legend_filter_limit
-
-    @property
-    def fixed_legend_filter_field(self):
-        """Gets the fixed_legend_filter_field of this ChartSettings.  # noqa: E501
-
-        Statistic to use for determining whether a series is displayed on the fixed legend  # noqa: E501
-
-        :return: The fixed_legend_filter_field of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._fixed_legend_filter_field
-
-    @fixed_legend_filter_field.setter
-    def fixed_legend_filter_field(self, fixed_legend_filter_field):
-        """Sets the fixed_legend_filter_field of this ChartSettings.
-
-        Statistic to use for determining whether a series is displayed on the fixed legend  # noqa: E501
-
-        :param fixed_legend_filter_field: The fixed_legend_filter_field of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["CURRENT", "MEAN", "MEDIAN", "SUM", "MIN", "MAX", "COUNT"]  # noqa: E501
-        if fixed_legend_filter_field not in allowed_values:
-            raise ValueError(
-                "Invalid value for `fixed_legend_filter_field` ({0}), must be one of {1}"  # noqa: E501
-                .format(fixed_legend_filter_field, allowed_values)
-            )
-
-        self._fixed_legend_filter_field = fixed_legend_filter_field
-
-    @property
-    def fixed_legend_hide_label(self):
-        """Gets the fixed_legend_hide_label of this ChartSettings.  # noqa: E501
-
-        deprecated  # noqa: E501
-
-        :return: The fixed_legend_hide_label of this ChartSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._fixed_legend_hide_label
-
-    @fixed_legend_hide_label.setter
-    def fixed_legend_hide_label(self, fixed_legend_hide_label):
-        """Sets the fixed_legend_hide_label of this ChartSettings.
-
-        deprecated  # noqa: E501
-
-        :param fixed_legend_hide_label: The fixed_legend_hide_label of this ChartSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._fixed_legend_hide_label = fixed_legend_hide_label
+        self._windowing = windowing
 
     @property
     def xmax(self):
@@ -1620,6 +1505,167 @@ class ChartSettings(object):
         self._xmin = xmin
 
     @property
+    def y0_scale_si_by1024(self):
+        """Gets the y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
+
+        Default: false. Whether to scale numerical magnitude labels for left Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
+
+        :return: The y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._y0_scale_si_by1024
+
+    @y0_scale_si_by1024.setter
+    def y0_scale_si_by1024(self, y0_scale_si_by1024):
+        """Sets the y0_scale_si_by1024 of this ChartSettings.
+
+        Default: false. Whether to scale numerical magnitude labels for left Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
+
+        :param y0_scale_si_by1024: The y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._y0_scale_si_by1024 = y0_scale_si_by1024
+
+    @property
+    def y0_unit_autoscaling(self):
+        """Gets the y0_unit_autoscaling of this ChartSettings.  # noqa: E501
+
+        Default: false. Whether to automatically adjust magnitude labels and units for the left Y-axis to favor smaller magnitudes and larger units  # noqa: E501
+
+        :return: The y0_unit_autoscaling of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._y0_unit_autoscaling
+
+    @y0_unit_autoscaling.setter
+    def y0_unit_autoscaling(self, y0_unit_autoscaling):
+        """Sets the y0_unit_autoscaling of this ChartSettings.
+
+        Default: false. Whether to automatically adjust magnitude labels and units for the left Y-axis to favor smaller magnitudes and larger units  # noqa: E501
+
+        :param y0_unit_autoscaling: The y0_unit_autoscaling of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._y0_unit_autoscaling = y0_unit_autoscaling
+
+    @property
+    def y1_max(self):
+        """Gets the y1_max of this ChartSettings.  # noqa: E501
+
+        For plots with multiple Y-axes, max value for right-side Y-axis.  Set null for auto  # noqa: E501
+
+        :return: The y1_max of this ChartSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._y1_max
+
+    @y1_max.setter
+    def y1_max(self, y1_max):
+        """Sets the y1_max of this ChartSettings.
+
+        For plots with multiple Y-axes, max value for right-side Y-axis.  Set null for auto  # noqa: E501
+
+        :param y1_max: The y1_max of this ChartSettings.  # noqa: E501
+        :type: float
+        """
+
+        self._y1_max = y1_max
+
+    @property
+    def y1_min(self):
+        """Gets the y1_min of this ChartSettings.  # noqa: E501
+
+        For plots with multiple Y-axes, min value for right-side Y-axis.  Set null for auto  # noqa: E501
+
+        :return: The y1_min of this ChartSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._y1_min
+
+    @y1_min.setter
+    def y1_min(self, y1_min):
+        """Sets the y1_min of this ChartSettings.
+
+        For plots with multiple Y-axes, min value for right-side Y-axis.  Set null for auto  # noqa: E501
+
+        :param y1_min: The y1_min of this ChartSettings.  # noqa: E501
+        :type: float
+        """
+
+        self._y1_min = y1_min
+
+    @property
+    def y1_scale_si_by1024(self):
+        """Gets the y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
+
+        Default: false. Whether to scale numerical magnitude labels for right Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
+
+        :return: The y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._y1_scale_si_by1024
+
+    @y1_scale_si_by1024.setter
+    def y1_scale_si_by1024(self, y1_scale_si_by1024):
+        """Sets the y1_scale_si_by1024 of this ChartSettings.
+
+        Default: false. Whether to scale numerical magnitude labels for right Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
+
+        :param y1_scale_si_by1024: The y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._y1_scale_si_by1024 = y1_scale_si_by1024
+
+    @property
+    def y1_unit_autoscaling(self):
+        """Gets the y1_unit_autoscaling of this ChartSettings.  # noqa: E501
+
+        Default: false. Whether to automatically adjust magnitude labels and units for the right Y-axis to favor smaller magnitudes and larger units  # noqa: E501
+
+        :return: The y1_unit_autoscaling of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._y1_unit_autoscaling
+
+    @y1_unit_autoscaling.setter
+    def y1_unit_autoscaling(self, y1_unit_autoscaling):
+        """Sets the y1_unit_autoscaling of this ChartSettings.
+
+        Default: false. Whether to automatically adjust magnitude labels and units for the right Y-axis to favor smaller magnitudes and larger units  # noqa: E501
+
+        :param y1_unit_autoscaling: The y1_unit_autoscaling of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._y1_unit_autoscaling = y1_unit_autoscaling
+
+    @property
+    def y1_units(self):
+        """Gets the y1_units of this ChartSettings.  # noqa: E501
+
+        For plots with multiple Y-axes, units for right-side Y-axis  # noqa: E501
+
+        :return: The y1_units of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._y1_units
+
+    @y1_units.setter
+    def y1_units(self, y1_units):
+        """Sets the y1_units of this ChartSettings.
+
+        For plots with multiple Y-axes, units for right-side Y-axis  # noqa: E501
+
+        :param y1_units: The y1_units of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._y1_units = y1_units
+
+    @property
     def ymax(self):
         """Gets the ymax of this ChartSettings.  # noqa: E501
 
@@ -1664,52 +1710,6 @@ class ChartSettings(object):
         """
 
         self._ymin = ymin
-
-    @property
-    def expected_data_spacing(self):
-        """Gets the expected_data_spacing of this ChartSettings.  # noqa: E501
-
-        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
-
-        :return: The expected_data_spacing of this ChartSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._expected_data_spacing
-
-    @expected_data_spacing.setter
-    def expected_data_spacing(self, expected_data_spacing):
-        """Sets the expected_data_spacing of this ChartSettings.
-
-        Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s  # noqa: E501
-
-        :param expected_data_spacing: The expected_data_spacing of this ChartSettings.  # noqa: E501
-        :type: int
-        """
-
-        self._expected_data_spacing = expected_data_spacing
-
-    @property
-    def plain_markdown_content(self):
-        """Gets the plain_markdown_content of this ChartSettings.  # noqa: E501
-
-        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
-
-        :return: The plain_markdown_content of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._plain_markdown_content
-
-    @plain_markdown_content.setter
-    def plain_markdown_content(self, plain_markdown_content):
-        """Sets the plain_markdown_content of this ChartSettings.
-
-        The Markdown content for a Markdown display, in plain text.  Use this field instead of `markdownContent`.  # noqa: E501
-
-        :param plain_markdown_content: The plain_markdown_content of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._plain_markdown_content = plain_markdown_content
 
     def to_dict(self):
         """Returns the model properties as a dict"""

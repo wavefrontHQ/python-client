@@ -31,68 +31,110 @@ class ExternalLink(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'id': 'str',
         'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
-        'template': 'str',
+        'creator_id': 'str',
+        'description': 'str',
+        'id': 'str',
         'metric_filter_regex': 'str',
-        'source_filter_regex': 'str',
+        'name': 'str',
         'point_tag_filter_regexes': 'dict(str, str)',
-        'name': 'str'
+        'source_filter_regex': 'str',
+        'template': 'str',
+        'updated_epoch_millis': 'int',
+        'updater_id': 'str'
     }
 
     attribute_map = {
-        'description': 'description',
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
-        'template': 'template',
+        'creator_id': 'creatorId',
+        'description': 'description',
+        'id': 'id',
         'metric_filter_regex': 'metricFilterRegex',
-        'source_filter_regex': 'sourceFilterRegex',
+        'name': 'name',
         'point_tag_filter_regexes': 'pointTagFilterRegexes',
-        'name': 'name'
+        'source_filter_regex': 'sourceFilterRegex',
+        'template': 'template',
+        'updated_epoch_millis': 'updatedEpochMillis',
+        'updater_id': 'updaterId'
     }
 
-    def __init__(self, description=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, metric_filter_regex=None, source_filter_regex=None, point_tag_filter_regexes=None, name=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, description=None, id=None, metric_filter_regex=None, name=None, point_tag_filter_regexes=None, source_filter_regex=None, template=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """ExternalLink - a model defined in Swagger"""  # noqa: E501
 
-        self._description = None
-        self._creator_id = None
-        self._updater_id = None
-        self._id = None
         self._created_epoch_millis = None
-        self._updated_epoch_millis = None
-        self._template = None
+        self._creator_id = None
+        self._description = None
+        self._id = None
         self._metric_filter_regex = None
-        self._source_filter_regex = None
-        self._point_tag_filter_regexes = None
         self._name = None
+        self._point_tag_filter_regexes = None
+        self._source_filter_regex = None
+        self._template = None
+        self._updated_epoch_millis = None
+        self._updater_id = None
         self.discriminator = None
 
-        self.description = description
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if id is not None:
-            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
-        self.template = template
+        if creator_id is not None:
+            self.creator_id = creator_id
+        self.description = description
+        if id is not None:
+            self.id = id
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
-        if source_filter_regex is not None:
-            self.source_filter_regex = source_filter_regex
+        self.name = name
         if point_tag_filter_regexes is not None:
             self.point_tag_filter_regexes = point_tag_filter_regexes
-        self.name = name
+        if source_filter_regex is not None:
+            self.source_filter_regex = source_filter_regex
+        self.template = template
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this ExternalLink.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this ExternalLink.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this ExternalLink.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this ExternalLink.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def creator_id(self):
+        """Gets the creator_id of this ExternalLink.  # noqa: E501
+
+
+        :return: The creator_id of this ExternalLink.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this ExternalLink.
+
+
+        :param creator_id: The creator_id of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def description(self):
@@ -120,48 +162,6 @@ class ExternalLink(object):
         self._description = description
 
     @property
-    def creator_id(self):
-        """Gets the creator_id of this ExternalLink.  # noqa: E501
-
-
-        :return: The creator_id of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this ExternalLink.
-
-
-        :param creator_id: The creator_id of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this ExternalLink.  # noqa: E501
-
-
-        :return: The updater_id of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this ExternalLink.
-
-
-        :param updater_id: The updater_id of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
     def id(self):
         """Gets the id of this ExternalLink.  # noqa: E501
 
@@ -183,46 +183,98 @@ class ExternalLink(object):
         self._id = id
 
     @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this ExternalLink.  # noqa: E501
+    def metric_filter_regex(self):
+        """Gets the metric_filter_regex of this ExternalLink.  # noqa: E501
 
+        Controls whether a link displayed in the context menu of a highlighted series.  If present, the metric name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
 
-        :return: The created_epoch_millis of this ExternalLink.  # noqa: E501
-        :rtype: int
+        :return: The metric_filter_regex of this ExternalLink.  # noqa: E501
+        :rtype: str
         """
-        return self._created_epoch_millis
+        return self._metric_filter_regex
 
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this ExternalLink.
+    @metric_filter_regex.setter
+    def metric_filter_regex(self, metric_filter_regex):
+        """Sets the metric_filter_regex of this ExternalLink.
 
+        Controls whether a link displayed in the context menu of a highlighted series.  If present, the metric name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
 
-        :param created_epoch_millis: The created_epoch_millis of this ExternalLink.  # noqa: E501
-        :type: int
+        :param metric_filter_regex: The metric_filter_regex of this ExternalLink.  # noqa: E501
+        :type: str
         """
 
-        self._created_epoch_millis = created_epoch_millis
+        self._metric_filter_regex = metric_filter_regex
 
     @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this ExternalLink.  # noqa: E501
+    def name(self):
+        """Gets the name of this ExternalLink.  # noqa: E501
 
+        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
 
-        :return: The updated_epoch_millis of this ExternalLink.  # noqa: E501
-        :rtype: int
+        :return: The name of this ExternalLink.  # noqa: E501
+        :rtype: str
         """
-        return self._updated_epoch_millis
+        return self._name
 
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this ExternalLink.
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ExternalLink.
 
+        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
 
-        :param updated_epoch_millis: The updated_epoch_millis of this ExternalLink.  # noqa: E501
-        :type: int
+        :param name: The name of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
+
+    @property
+    def point_tag_filter_regexes(self):
+        """Gets the point_tag_filter_regexes of this ExternalLink.  # noqa: E501
+
+        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
+
+        :return: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._point_tag_filter_regexes
+
+    @point_tag_filter_regexes.setter
+    def point_tag_filter_regexes(self, point_tag_filter_regexes):
+        """Sets the point_tag_filter_regexes of this ExternalLink.
+
+        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
+
+        :param point_tag_filter_regexes: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
+        :type: dict(str, str)
         """
 
-        self._updated_epoch_millis = updated_epoch_millis
+        self._point_tag_filter_regexes = point_tag_filter_regexes
+
+    @property
+    def source_filter_regex(self):
+        """Gets the source_filter_regex of this ExternalLink.  # noqa: E501
+
+        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
+
+        :return: The source_filter_regex of this ExternalLink.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_filter_regex
+
+    @source_filter_regex.setter
+    def source_filter_regex(self, source_filter_regex):
+        """Sets the source_filter_regex of this ExternalLink.
+
+        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
+
+        :param source_filter_regex: The source_filter_regex of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+
+        self._source_filter_regex = source_filter_regex
 
     @property
     def template(self):
@@ -250,98 +302,46 @@ class ExternalLink(object):
         self._template = template
 
     @property
-    def metric_filter_regex(self):
-        """Gets the metric_filter_regex of this ExternalLink.  # noqa: E501
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this ExternalLink.  # noqa: E501
 
-        Controls whether a link displayed in the context menu of a highlighted series.  If present, the metric name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
 
-        :return: The metric_filter_regex of this ExternalLink.  # noqa: E501
+        :return: The updated_epoch_millis of this ExternalLink.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this ExternalLink.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this ExternalLink.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this ExternalLink.  # noqa: E501
+
+
+        :return: The updater_id of this ExternalLink.  # noqa: E501
         :rtype: str
         """
-        return self._metric_filter_regex
+        return self._updater_id
 
-    @metric_filter_regex.setter
-    def metric_filter_regex(self, metric_filter_regex):
-        """Sets the metric_filter_regex of this ExternalLink.
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this ExternalLink.
 
-        Controls whether a link displayed in the context menu of a highlighted series.  If present, the metric name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
 
-        :param metric_filter_regex: The metric_filter_regex of this ExternalLink.  # noqa: E501
+        :param updater_id: The updater_id of this ExternalLink.  # noqa: E501
         :type: str
         """
 
-        self._metric_filter_regex = metric_filter_regex
-
-    @property
-    def source_filter_regex(self):
-        """Gets the source_filter_regex of this ExternalLink.  # noqa: E501
-
-        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
-
-        :return: The source_filter_regex of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_filter_regex
-
-    @source_filter_regex.setter
-    def source_filter_regex(self, source_filter_regex):
-        """Sets the source_filter_regex of this ExternalLink.
-
-        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
-
-        :param source_filter_regex: The source_filter_regex of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-
-        self._source_filter_regex = source_filter_regex
-
-    @property
-    def point_tag_filter_regexes(self):
-        """Gets the point_tag_filter_regexes of this ExternalLink.  # noqa: E501
-
-        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
-
-        :return: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._point_tag_filter_regexes
-
-    @point_tag_filter_regexes.setter
-    def point_tag_filter_regexes(self, point_tag_filter_regexes):
-        """Sets the point_tag_filter_regexes of this ExternalLink.
-
-        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
-
-        :param point_tag_filter_regexes: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._point_tag_filter_regexes = point_tag_filter_regexes
-
-    @property
-    def name(self):
-        """Gets the name of this ExternalLink.  # noqa: E501
-
-        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
-
-        :return: The name of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this ExternalLink.
-
-        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
-
-        :param name: The name of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
+        self._updater_id = updater_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -31,83 +31,41 @@ class UserRequestDTO(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'identifier': 'str',
-        'sso_id': 'str',
         'customer': 'str',
         'groups': 'list[str]',
+        'identifier': 'str',
+        'sso_id': 'str',
         'user_groups': 'list[str]'
     }
 
     attribute_map = {
-        'identifier': 'identifier',
-        'sso_id': 'ssoId',
         'customer': 'customer',
         'groups': 'groups',
+        'identifier': 'identifier',
+        'sso_id': 'ssoId',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, identifier=None, sso_id=None, customer=None, groups=None, user_groups=None):  # noqa: E501
+    def __init__(self, customer=None, groups=None, identifier=None, sso_id=None, user_groups=None):  # noqa: E501
         """UserRequestDTO - a model defined in Swagger"""  # noqa: E501
 
-        self._identifier = None
-        self._sso_id = None
         self._customer = None
         self._groups = None
+        self._identifier = None
+        self._sso_id = None
         self._user_groups = None
         self.discriminator = None
 
-        if identifier is not None:
-            self.identifier = identifier
-        if sso_id is not None:
-            self.sso_id = sso_id
         if customer is not None:
             self.customer = customer
         if groups is not None:
             self.groups = groups
+        if identifier is not None:
+            self.identifier = identifier
+        if sso_id is not None:
+            self.sso_id = sso_id
         if user_groups is not None:
             self.user_groups = user_groups
-
-    @property
-    def identifier(self):
-        """Gets the identifier of this UserRequestDTO.  # noqa: E501
-
-
-        :return: The identifier of this UserRequestDTO.  # noqa: E501
-        :rtype: str
-        """
-        return self._identifier
-
-    @identifier.setter
-    def identifier(self, identifier):
-        """Sets the identifier of this UserRequestDTO.
-
-
-        :param identifier: The identifier of this UserRequestDTO.  # noqa: E501
-        :type: str
-        """
-
-        self._identifier = identifier
-
-    @property
-    def sso_id(self):
-        """Gets the sso_id of this UserRequestDTO.  # noqa: E501
-
-
-        :return: The sso_id of this UserRequestDTO.  # noqa: E501
-        :rtype: str
-        """
-        return self._sso_id
-
-    @sso_id.setter
-    def sso_id(self, sso_id):
-        """Sets the sso_id of this UserRequestDTO.
-
-
-        :param sso_id: The sso_id of this UserRequestDTO.  # noqa: E501
-        :type: str
-        """
-
-        self._sso_id = sso_id
 
     @property
     def customer(self):
@@ -150,6 +108,48 @@ class UserRequestDTO(object):
         """
 
         self._groups = groups
+
+    @property
+    def identifier(self):
+        """Gets the identifier of this UserRequestDTO.  # noqa: E501
+
+
+        :return: The identifier of this UserRequestDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """Sets the identifier of this UserRequestDTO.
+
+
+        :param identifier: The identifier of this UserRequestDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._identifier = identifier
+
+    @property
+    def sso_id(self):
+        """Gets the sso_id of this UserRequestDTO.  # noqa: E501
+
+
+        :return: The sso_id of this UserRequestDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._sso_id
+
+    @sso_id.setter
+    def sso_id(self, sso_id):
+        """Sets the sso_id of this UserRequestDTO.
+
+
+        :param sso_id: The sso_id of this UserRequestDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._sso_id = sso_id
 
     @property
     def user_groups(self):

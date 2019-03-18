@@ -33,189 +33,156 @@ class CustomerPreferences(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_user_groups': 'list[UserGroup]',
-        'show_querybuilder_by_default': 'bool',
-        'hide_ts_when_querybuilder_shown': 'bool',
-        'show_onboarding': 'bool',
-        'customer_id': 'str',
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'id': 'str',
-        'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
-        'invite_permissions': 'list[str]',
         'blacklisted_emails': 'dict(str, int)',
-        'hidden_metric_prefixes': 'dict(str, int)',
-        'landing_dashboard_slug': 'str',
+        'created_epoch_millis': 'int',
+        'creator_id': 'str',
+        'customer_id': 'str',
+        'default_user_groups': 'list[UserGroup]',
+        'deleted': 'bool',
         'grant_modify_access_to_everyone': 'bool',
-        'deleted': 'bool'
+        'hidden_metric_prefixes': 'dict(str, int)',
+        'hide_ts_when_querybuilder_shown': 'bool',
+        'id': 'str',
+        'invite_permissions': 'list[str]',
+        'landing_dashboard_slug': 'str',
+        'show_onboarding': 'bool',
+        'show_querybuilder_by_default': 'bool',
+        'updated_epoch_millis': 'int',
+        'updater_id': 'str'
     }
 
     attribute_map = {
-        'default_user_groups': 'defaultUserGroups',
-        'show_querybuilder_by_default': 'showQuerybuilderByDefault',
-        'hide_ts_when_querybuilder_shown': 'hideTSWhenQuerybuilderShown',
-        'show_onboarding': 'showOnboarding',
-        'customer_id': 'customerId',
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'id': 'id',
-        'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
-        'invite_permissions': 'invitePermissions',
         'blacklisted_emails': 'blacklistedEmails',
-        'hidden_metric_prefixes': 'hiddenMetricPrefixes',
-        'landing_dashboard_slug': 'landingDashboardSlug',
+        'created_epoch_millis': 'createdEpochMillis',
+        'creator_id': 'creatorId',
+        'customer_id': 'customerId',
+        'default_user_groups': 'defaultUserGroups',
+        'deleted': 'deleted',
         'grant_modify_access_to_everyone': 'grantModifyAccessToEveryone',
-        'deleted': 'deleted'
+        'hidden_metric_prefixes': 'hiddenMetricPrefixes',
+        'hide_ts_when_querybuilder_shown': 'hideTSWhenQuerybuilderShown',
+        'id': 'id',
+        'invite_permissions': 'invitePermissions',
+        'landing_dashboard_slug': 'landingDashboardSlug',
+        'show_onboarding': 'showOnboarding',
+        'show_querybuilder_by_default': 'showQuerybuilderByDefault',
+        'updated_epoch_millis': 'updatedEpochMillis',
+        'updater_id': 'updaterId'
     }
 
-    def __init__(self, default_user_groups=None, show_querybuilder_by_default=None, hide_ts_when_querybuilder_shown=None, show_onboarding=None, customer_id=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, invite_permissions=None, blacklisted_emails=None, hidden_metric_prefixes=None, landing_dashboard_slug=None, grant_modify_access_to_everyone=None, deleted=None):  # noqa: E501
+    def __init__(self, blacklisted_emails=None, created_epoch_millis=None, creator_id=None, customer_id=None, default_user_groups=None, deleted=None, grant_modify_access_to_everyone=None, hidden_metric_prefixes=None, hide_ts_when_querybuilder_shown=None, id=None, invite_permissions=None, landing_dashboard_slug=None, show_onboarding=None, show_querybuilder_by_default=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """CustomerPreferences - a model defined in Swagger"""  # noqa: E501
 
-        self._default_user_groups = None
-        self._show_querybuilder_by_default = None
-        self._hide_ts_when_querybuilder_shown = None
-        self._show_onboarding = None
-        self._customer_id = None
-        self._creator_id = None
-        self._updater_id = None
-        self._id = None
-        self._created_epoch_millis = None
-        self._updated_epoch_millis = None
-        self._invite_permissions = None
         self._blacklisted_emails = None
-        self._hidden_metric_prefixes = None
-        self._landing_dashboard_slug = None
-        self._grant_modify_access_to_everyone = None
+        self._created_epoch_millis = None
+        self._creator_id = None
+        self._customer_id = None
+        self._default_user_groups = None
         self._deleted = None
+        self._grant_modify_access_to_everyone = None
+        self._hidden_metric_prefixes = None
+        self._hide_ts_when_querybuilder_shown = None
+        self._id = None
+        self._invite_permissions = None
+        self._landing_dashboard_slug = None
+        self._show_onboarding = None
+        self._show_querybuilder_by_default = None
+        self._updated_epoch_millis = None
+        self._updater_id = None
         self.discriminator = None
 
-        if default_user_groups is not None:
-            self.default_user_groups = default_user_groups
-        self.show_querybuilder_by_default = show_querybuilder_by_default
-        self.hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
-        self.show_onboarding = show_onboarding
-        self.customer_id = customer_id
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if id is not None:
-            self.id = id
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
-        if invite_permissions is not None:
-            self.invite_permissions = invite_permissions
         if blacklisted_emails is not None:
             self.blacklisted_emails = blacklisted_emails
-        if hidden_metric_prefixes is not None:
-            self.hidden_metric_prefixes = hidden_metric_prefixes
-        if landing_dashboard_slug is not None:
-            self.landing_dashboard_slug = landing_dashboard_slug
-        self.grant_modify_access_to_everyone = grant_modify_access_to_everyone
+        if created_epoch_millis is not None:
+            self.created_epoch_millis = created_epoch_millis
+        if creator_id is not None:
+            self.creator_id = creator_id
+        self.customer_id = customer_id
+        if default_user_groups is not None:
+            self.default_user_groups = default_user_groups
         if deleted is not None:
             self.deleted = deleted
+        self.grant_modify_access_to_everyone = grant_modify_access_to_everyone
+        if hidden_metric_prefixes is not None:
+            self.hidden_metric_prefixes = hidden_metric_prefixes
+        self.hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
+        if id is not None:
+            self.id = id
+        if invite_permissions is not None:
+            self.invite_permissions = invite_permissions
+        if landing_dashboard_slug is not None:
+            self.landing_dashboard_slug = landing_dashboard_slug
+        self.show_onboarding = show_onboarding
+        self.show_querybuilder_by_default = show_querybuilder_by_default
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
 
     @property
-    def default_user_groups(self):
-        """Gets the default_user_groups of this CustomerPreferences.  # noqa: E501
+    def blacklisted_emails(self):
+        """Gets the blacklisted_emails of this CustomerPreferences.  # noqa: E501
 
-        List of default user groups of the customer  # noqa: E501
+        List of blacklisted emails of the customer  # noqa: E501
 
-        :return: The default_user_groups of this CustomerPreferences.  # noqa: E501
-        :rtype: list[UserGroup]
+        :return: The blacklisted_emails of this CustomerPreferences.  # noqa: E501
+        :rtype: dict(str, int)
         """
-        return self._default_user_groups
+        return self._blacklisted_emails
 
-    @default_user_groups.setter
-    def default_user_groups(self, default_user_groups):
-        """Sets the default_user_groups of this CustomerPreferences.
+    @blacklisted_emails.setter
+    def blacklisted_emails(self, blacklisted_emails):
+        """Sets the blacklisted_emails of this CustomerPreferences.
 
-        List of default user groups of the customer  # noqa: E501
+        List of blacklisted emails of the customer  # noqa: E501
 
-        :param default_user_groups: The default_user_groups of this CustomerPreferences.  # noqa: E501
-        :type: list[UserGroup]
+        :param blacklisted_emails: The blacklisted_emails of this CustomerPreferences.  # noqa: E501
+        :type: dict(str, int)
         """
 
-        self._default_user_groups = default_user_groups
+        self._blacklisted_emails = blacklisted_emails
 
     @property
-    def show_querybuilder_by_default(self):
-        """Gets the show_querybuilder_by_default of this CustomerPreferences.  # noqa: E501
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this CustomerPreferences.  # noqa: E501
 
-        Whether the Querybuilder is shown by default  # noqa: E501
 
-        :return: The show_querybuilder_by_default of this CustomerPreferences.  # noqa: E501
-        :rtype: bool
+        :return: The created_epoch_millis of this CustomerPreferences.  # noqa: E501
+        :rtype: int
         """
-        return self._show_querybuilder_by_default
+        return self._created_epoch_millis
 
-    @show_querybuilder_by_default.setter
-    def show_querybuilder_by_default(self, show_querybuilder_by_default):
-        """Sets the show_querybuilder_by_default of this CustomerPreferences.
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this CustomerPreferences.
 
-        Whether the Querybuilder is shown by default  # noqa: E501
 
-        :param show_querybuilder_by_default: The show_querybuilder_by_default of this CustomerPreferences.  # noqa: E501
-        :type: bool
+        :param created_epoch_millis: The created_epoch_millis of this CustomerPreferences.  # noqa: E501
+        :type: int
         """
-        if show_querybuilder_by_default is None:
-            raise ValueError("Invalid value for `show_querybuilder_by_default`, must not be `None`")  # noqa: E501
 
-        self._show_querybuilder_by_default = show_querybuilder_by_default
+        self._created_epoch_millis = created_epoch_millis
 
     @property
-    def hide_ts_when_querybuilder_shown(self):
-        """Gets the hide_ts_when_querybuilder_shown of this CustomerPreferences.  # noqa: E501
+    def creator_id(self):
+        """Gets the creator_id of this CustomerPreferences.  # noqa: E501
 
-        Whether to hide TS source input when Querybuilder is shown  # noqa: E501
 
-        :return: The hide_ts_when_querybuilder_shown of this CustomerPreferences.  # noqa: E501
-        :rtype: bool
+        :return: The creator_id of this CustomerPreferences.  # noqa: E501
+        :rtype: str
         """
-        return self._hide_ts_when_querybuilder_shown
+        return self._creator_id
 
-    @hide_ts_when_querybuilder_shown.setter
-    def hide_ts_when_querybuilder_shown(self, hide_ts_when_querybuilder_shown):
-        """Sets the hide_ts_when_querybuilder_shown of this CustomerPreferences.
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this CustomerPreferences.
 
-        Whether to hide TS source input when Querybuilder is shown  # noqa: E501
 
-        :param hide_ts_when_querybuilder_shown: The hide_ts_when_querybuilder_shown of this CustomerPreferences.  # noqa: E501
-        :type: bool
+        :param creator_id: The creator_id of this CustomerPreferences.  # noqa: E501
+        :type: str
         """
-        if hide_ts_when_querybuilder_shown is None:
-            raise ValueError("Invalid value for `hide_ts_when_querybuilder_shown`, must not be `None`")  # noqa: E501
 
-        self._hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
-
-    @property
-    def show_onboarding(self):
-        """Gets the show_onboarding of this CustomerPreferences.  # noqa: E501
-
-        Whether to show onboarding for any new user without an override  # noqa: E501
-
-        :return: The show_onboarding of this CustomerPreferences.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_onboarding
-
-    @show_onboarding.setter
-    def show_onboarding(self, show_onboarding):
-        """Sets the show_onboarding of this CustomerPreferences.
-
-        Whether to show onboarding for any new user without an override  # noqa: E501
-
-        :param show_onboarding: The show_onboarding of this CustomerPreferences.  # noqa: E501
-        :type: bool
-        """
-        if show_onboarding is None:
-            raise ValueError("Invalid value for `show_onboarding`, must not be `None`")  # noqa: E501
-
-        self._show_onboarding = show_onboarding
+        self._creator_id = creator_id
 
     @property
     def customer_id(self):
@@ -243,201 +210,48 @@ class CustomerPreferences(object):
         self._customer_id = customer_id
 
     @property
-    def creator_id(self):
-        """Gets the creator_id of this CustomerPreferences.  # noqa: E501
+    def default_user_groups(self):
+        """Gets the default_user_groups of this CustomerPreferences.  # noqa: E501
 
+        List of default user groups of the customer  # noqa: E501
 
-        :return: The creator_id of this CustomerPreferences.  # noqa: E501
-        :rtype: str
+        :return: The default_user_groups of this CustomerPreferences.  # noqa: E501
+        :rtype: list[UserGroup]
         """
-        return self._creator_id
+        return self._default_user_groups
 
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this CustomerPreferences.
+    @default_user_groups.setter
+    def default_user_groups(self, default_user_groups):
+        """Sets the default_user_groups of this CustomerPreferences.
 
+        List of default user groups of the customer  # noqa: E501
 
-        :param creator_id: The creator_id of this CustomerPreferences.  # noqa: E501
-        :type: str
+        :param default_user_groups: The default_user_groups of this CustomerPreferences.  # noqa: E501
+        :type: list[UserGroup]
         """
 
-        self._creator_id = creator_id
+        self._default_user_groups = default_user_groups
 
     @property
-    def updater_id(self):
-        """Gets the updater_id of this CustomerPreferences.  # noqa: E501
+    def deleted(self):
+        """Gets the deleted of this CustomerPreferences.  # noqa: E501
 
 
-        :return: The updater_id of this CustomerPreferences.  # noqa: E501
-        :rtype: str
+        :return: The deleted of this CustomerPreferences.  # noqa: E501
+        :rtype: bool
         """
-        return self._updater_id
+        return self._deleted
 
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this CustomerPreferences.
-
-
-        :param updater_id: The updater_id of this CustomerPreferences.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def id(self):
-        """Gets the id of this CustomerPreferences.  # noqa: E501
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this CustomerPreferences.
 
 
-        :return: The id of this CustomerPreferences.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CustomerPreferences.
-
-
-        :param id: The id of this CustomerPreferences.  # noqa: E501
-        :type: str
+        :param deleted: The deleted of this CustomerPreferences.  # noqa: E501
+        :type: bool
         """
 
-        self._id = id
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this CustomerPreferences.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this CustomerPreferences.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_epoch_millis
-
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this CustomerPreferences.
-
-
-        :param created_epoch_millis: The created_epoch_millis of this CustomerPreferences.  # noqa: E501
-        :type: int
-        """
-
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this CustomerPreferences.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this CustomerPreferences.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this CustomerPreferences.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this CustomerPreferences.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
-
-    @property
-    def invite_permissions(self):
-        """Gets the invite_permissions of this CustomerPreferences.  # noqa: E501
-
-        List of permissions that are assigned to newly invited users  # noqa: E501
-
-        :return: The invite_permissions of this CustomerPreferences.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._invite_permissions
-
-    @invite_permissions.setter
-    def invite_permissions(self, invite_permissions):
-        """Sets the invite_permissions of this CustomerPreferences.
-
-        List of permissions that are assigned to newly invited users  # noqa: E501
-
-        :param invite_permissions: The invite_permissions of this CustomerPreferences.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._invite_permissions = invite_permissions
-
-    @property
-    def blacklisted_emails(self):
-        """Gets the blacklisted_emails of this CustomerPreferences.  # noqa: E501
-
-        List of blacklisted emails of the customer  # noqa: E501
-
-        :return: The blacklisted_emails of this CustomerPreferences.  # noqa: E501
-        :rtype: dict(str, int)
-        """
-        return self._blacklisted_emails
-
-    @blacklisted_emails.setter
-    def blacklisted_emails(self, blacklisted_emails):
-        """Sets the blacklisted_emails of this CustomerPreferences.
-
-        List of blacklisted emails of the customer  # noqa: E501
-
-        :param blacklisted_emails: The blacklisted_emails of this CustomerPreferences.  # noqa: E501
-        :type: dict(str, int)
-        """
-
-        self._blacklisted_emails = blacklisted_emails
-
-    @property
-    def hidden_metric_prefixes(self):
-        """Gets the hidden_metric_prefixes of this CustomerPreferences.  # noqa: E501
-
-        Metric prefixes which should be hidden from user  # noqa: E501
-
-        :return: The hidden_metric_prefixes of this CustomerPreferences.  # noqa: E501
-        :rtype: dict(str, int)
-        """
-        return self._hidden_metric_prefixes
-
-    @hidden_metric_prefixes.setter
-    def hidden_metric_prefixes(self, hidden_metric_prefixes):
-        """Sets the hidden_metric_prefixes of this CustomerPreferences.
-
-        Metric prefixes which should be hidden from user  # noqa: E501
-
-        :param hidden_metric_prefixes: The hidden_metric_prefixes of this CustomerPreferences.  # noqa: E501
-        :type: dict(str, int)
-        """
-
-        self._hidden_metric_prefixes = hidden_metric_prefixes
-
-    @property
-    def landing_dashboard_slug(self):
-        """Gets the landing_dashboard_slug of this CustomerPreferences.  # noqa: E501
-
-        Dashboard where user will be redirected from landing page  # noqa: E501
-
-        :return: The landing_dashboard_slug of this CustomerPreferences.  # noqa: E501
-        :rtype: str
-        """
-        return self._landing_dashboard_slug
-
-    @landing_dashboard_slug.setter
-    def landing_dashboard_slug(self, landing_dashboard_slug):
-        """Sets the landing_dashboard_slug of this CustomerPreferences.
-
-        Dashboard where user will be redirected from landing page  # noqa: E501
-
-        :param landing_dashboard_slug: The landing_dashboard_slug of this CustomerPreferences.  # noqa: E501
-        :type: str
-        """
-
-        self._landing_dashboard_slug = landing_dashboard_slug
+        self._deleted = deleted
 
     @property
     def grant_modify_access_to_everyone(self):
@@ -465,25 +279,211 @@ class CustomerPreferences(object):
         self._grant_modify_access_to_everyone = grant_modify_access_to_everyone
 
     @property
-    def deleted(self):
-        """Gets the deleted of this CustomerPreferences.  # noqa: E501
+    def hidden_metric_prefixes(self):
+        """Gets the hidden_metric_prefixes of this CustomerPreferences.  # noqa: E501
 
+        Metric prefixes which should be hidden from user  # noqa: E501
 
-        :return: The deleted of this CustomerPreferences.  # noqa: E501
+        :return: The hidden_metric_prefixes of this CustomerPreferences.  # noqa: E501
+        :rtype: dict(str, int)
+        """
+        return self._hidden_metric_prefixes
+
+    @hidden_metric_prefixes.setter
+    def hidden_metric_prefixes(self, hidden_metric_prefixes):
+        """Sets the hidden_metric_prefixes of this CustomerPreferences.
+
+        Metric prefixes which should be hidden from user  # noqa: E501
+
+        :param hidden_metric_prefixes: The hidden_metric_prefixes of this CustomerPreferences.  # noqa: E501
+        :type: dict(str, int)
+        """
+
+        self._hidden_metric_prefixes = hidden_metric_prefixes
+
+    @property
+    def hide_ts_when_querybuilder_shown(self):
+        """Gets the hide_ts_when_querybuilder_shown of this CustomerPreferences.  # noqa: E501
+
+        Whether to hide TS source input when Querybuilder is shown  # noqa: E501
+
+        :return: The hide_ts_when_querybuilder_shown of this CustomerPreferences.  # noqa: E501
         :rtype: bool
         """
-        return self._deleted
+        return self._hide_ts_when_querybuilder_shown
 
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this CustomerPreferences.
+    @hide_ts_when_querybuilder_shown.setter
+    def hide_ts_when_querybuilder_shown(self, hide_ts_when_querybuilder_shown):
+        """Sets the hide_ts_when_querybuilder_shown of this CustomerPreferences.
 
+        Whether to hide TS source input when Querybuilder is shown  # noqa: E501
 
-        :param deleted: The deleted of this CustomerPreferences.  # noqa: E501
+        :param hide_ts_when_querybuilder_shown: The hide_ts_when_querybuilder_shown of this CustomerPreferences.  # noqa: E501
         :type: bool
         """
+        if hide_ts_when_querybuilder_shown is None:
+            raise ValueError("Invalid value for `hide_ts_when_querybuilder_shown`, must not be `None`")  # noqa: E501
 
-        self._deleted = deleted
+        self._hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
+
+    @property
+    def id(self):
+        """Gets the id of this CustomerPreferences.  # noqa: E501
+
+
+        :return: The id of this CustomerPreferences.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CustomerPreferences.
+
+
+        :param id: The id of this CustomerPreferences.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def invite_permissions(self):
+        """Gets the invite_permissions of this CustomerPreferences.  # noqa: E501
+
+        List of permissions that are assigned to newly invited users  # noqa: E501
+
+        :return: The invite_permissions of this CustomerPreferences.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._invite_permissions
+
+    @invite_permissions.setter
+    def invite_permissions(self, invite_permissions):
+        """Sets the invite_permissions of this CustomerPreferences.
+
+        List of permissions that are assigned to newly invited users  # noqa: E501
+
+        :param invite_permissions: The invite_permissions of this CustomerPreferences.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._invite_permissions = invite_permissions
+
+    @property
+    def landing_dashboard_slug(self):
+        """Gets the landing_dashboard_slug of this CustomerPreferences.  # noqa: E501
+
+        Dashboard where user will be redirected from landing page  # noqa: E501
+
+        :return: The landing_dashboard_slug of this CustomerPreferences.  # noqa: E501
+        :rtype: str
+        """
+        return self._landing_dashboard_slug
+
+    @landing_dashboard_slug.setter
+    def landing_dashboard_slug(self, landing_dashboard_slug):
+        """Sets the landing_dashboard_slug of this CustomerPreferences.
+
+        Dashboard where user will be redirected from landing page  # noqa: E501
+
+        :param landing_dashboard_slug: The landing_dashboard_slug of this CustomerPreferences.  # noqa: E501
+        :type: str
+        """
+
+        self._landing_dashboard_slug = landing_dashboard_slug
+
+    @property
+    def show_onboarding(self):
+        """Gets the show_onboarding of this CustomerPreferences.  # noqa: E501
+
+        Whether to show onboarding for any new user without an override  # noqa: E501
+
+        :return: The show_onboarding of this CustomerPreferences.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_onboarding
+
+    @show_onboarding.setter
+    def show_onboarding(self, show_onboarding):
+        """Sets the show_onboarding of this CustomerPreferences.
+
+        Whether to show onboarding for any new user without an override  # noqa: E501
+
+        :param show_onboarding: The show_onboarding of this CustomerPreferences.  # noqa: E501
+        :type: bool
+        """
+        if show_onboarding is None:
+            raise ValueError("Invalid value for `show_onboarding`, must not be `None`")  # noqa: E501
+
+        self._show_onboarding = show_onboarding
+
+    @property
+    def show_querybuilder_by_default(self):
+        """Gets the show_querybuilder_by_default of this CustomerPreferences.  # noqa: E501
+
+        Whether the Querybuilder is shown by default  # noqa: E501
+
+        :return: The show_querybuilder_by_default of this CustomerPreferences.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_querybuilder_by_default
+
+    @show_querybuilder_by_default.setter
+    def show_querybuilder_by_default(self, show_querybuilder_by_default):
+        """Sets the show_querybuilder_by_default of this CustomerPreferences.
+
+        Whether the Querybuilder is shown by default  # noqa: E501
+
+        :param show_querybuilder_by_default: The show_querybuilder_by_default of this CustomerPreferences.  # noqa: E501
+        :type: bool
+        """
+        if show_querybuilder_by_default is None:
+            raise ValueError("Invalid value for `show_querybuilder_by_default`, must not be `None`")  # noqa: E501
+
+        self._show_querybuilder_by_default = show_querybuilder_by_default
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this CustomerPreferences.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this CustomerPreferences.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this CustomerPreferences.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this CustomerPreferences.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this CustomerPreferences.  # noqa: E501
+
+
+        :return: The updater_id of this CustomerPreferences.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this CustomerPreferences.
+
+
+        :param updater_id: The updater_id of this CustomerPreferences.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

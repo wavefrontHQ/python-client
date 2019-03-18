@@ -31,54 +31,96 @@ class SavedSearch(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'entity_type': 'str',
-        'query': 'dict(str, str)',
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'id': 'str',
         'created_epoch_millis': 'int',
+        'creator_id': 'str',
+        'entity_type': 'str',
+        'id': 'str',
+        'query': 'dict(str, str)',
         'updated_epoch_millis': 'int',
+        'updater_id': 'str',
         'user_id': 'str'
     }
 
     attribute_map = {
-        'entity_type': 'entityType',
-        'query': 'query',
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
+        'creator_id': 'creatorId',
+        'entity_type': 'entityType',
+        'id': 'id',
+        'query': 'query',
         'updated_epoch_millis': 'updatedEpochMillis',
+        'updater_id': 'updaterId',
         'user_id': 'userId'
     }
 
-    def __init__(self, entity_type=None, query=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, user_id=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, entity_type=None, id=None, query=None, updated_epoch_millis=None, updater_id=None, user_id=None):  # noqa: E501
         """SavedSearch - a model defined in Swagger"""  # noqa: E501
 
-        self._entity_type = None
-        self._query = None
-        self._creator_id = None
-        self._updater_id = None
-        self._id = None
         self._created_epoch_millis = None
+        self._creator_id = None
+        self._entity_type = None
+        self._id = None
+        self._query = None
         self._updated_epoch_millis = None
+        self._updater_id = None
         self._user_id = None
         self.discriminator = None
 
-        self.entity_type = entity_type
-        self.query = query
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if id is not None:
-            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
+        if creator_id is not None:
+            self.creator_id = creator_id
+        self.entity_type = entity_type
+        if id is not None:
+            self.id = id
+        self.query = query
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
         if user_id is not None:
             self.user_id = user_id
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this SavedSearch.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this SavedSearch.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this SavedSearch.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this SavedSearch.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def creator_id(self):
+        """Gets the creator_id of this SavedSearch.  # noqa: E501
+
+
+        :return: The creator_id of this SavedSearch.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this SavedSearch.
+
+
+        :param creator_id: The creator_id of this SavedSearch.  # noqa: E501
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def entity_type(self):
@@ -112,6 +154,27 @@ class SavedSearch(object):
         self._entity_type = entity_type
 
     @property
+    def id(self):
+        """Gets the id of this SavedSearch.  # noqa: E501
+
+
+        :return: The id of this SavedSearch.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this SavedSearch.
+
+
+        :param id: The id of this SavedSearch.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
     def query(self):
         """Gets the query of this SavedSearch.  # noqa: E501
 
@@ -137,25 +200,25 @@ class SavedSearch(object):
         self._query = query
 
     @property
-    def creator_id(self):
-        """Gets the creator_id of this SavedSearch.  # noqa: E501
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this SavedSearch.  # noqa: E501
 
 
-        :return: The creator_id of this SavedSearch.  # noqa: E501
-        :rtype: str
+        :return: The updated_epoch_millis of this SavedSearch.  # noqa: E501
+        :rtype: int
         """
-        return self._creator_id
+        return self._updated_epoch_millis
 
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this SavedSearch.
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this SavedSearch.
 
 
-        :param creator_id: The creator_id of this SavedSearch.  # noqa: E501
-        :type: str
+        :param updated_epoch_millis: The updated_epoch_millis of this SavedSearch.  # noqa: E501
+        :type: int
         """
 
-        self._creator_id = creator_id
+        self._updated_epoch_millis = updated_epoch_millis
 
     @property
     def updater_id(self):
@@ -177,69 +240,6 @@ class SavedSearch(object):
         """
 
         self._updater_id = updater_id
-
-    @property
-    def id(self):
-        """Gets the id of this SavedSearch.  # noqa: E501
-
-
-        :return: The id of this SavedSearch.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this SavedSearch.
-
-
-        :param id: The id of this SavedSearch.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this SavedSearch.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this SavedSearch.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_epoch_millis
-
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this SavedSearch.
-
-
-        :param created_epoch_millis: The created_epoch_millis of this SavedSearch.  # noqa: E501
-        :type: int
-        """
-
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this SavedSearch.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this SavedSearch.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this SavedSearch.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this SavedSearch.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
 
     @property
     def user_id(self):

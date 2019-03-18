@@ -31,153 +31,57 @@ class CustomerFacingUserObject(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'user_groups': 'list[str]',
-        'identifier': 'str',
-        '_self': 'bool',
-        'groups': 'list[str]',
         'customer': 'str',
-        'id': 'str',
-        'last_successful_login': 'int',
+        'escaped_identifier': 'str',
         'gravatar_url': 'str',
-        'escaped_identifier': 'str'
+        'groups': 'list[str]',
+        'id': 'str',
+        'identifier': 'str',
+        'last_successful_login': 'int',
+        '_self': 'bool',
+        'user_groups': 'list[str]'
     }
 
     attribute_map = {
-        'user_groups': 'userGroups',
-        'identifier': 'identifier',
-        '_self': 'self',
-        'groups': 'groups',
         'customer': 'customer',
-        'id': 'id',
-        'last_successful_login': 'lastSuccessfulLogin',
+        'escaped_identifier': 'escapedIdentifier',
         'gravatar_url': 'gravatarUrl',
-        'escaped_identifier': 'escapedIdentifier'
+        'groups': 'groups',
+        'id': 'id',
+        'identifier': 'identifier',
+        'last_successful_login': 'lastSuccessfulLogin',
+        '_self': 'self',
+        'user_groups': 'userGroups'
     }
 
-    def __init__(self, user_groups=None, identifier=None, _self=None, groups=None, customer=None, id=None, last_successful_login=None, gravatar_url=None, escaped_identifier=None):  # noqa: E501
+    def __init__(self, customer=None, escaped_identifier=None, gravatar_url=None, groups=None, id=None, identifier=None, last_successful_login=None, _self=None, user_groups=None):  # noqa: E501
         """CustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
-        self._user_groups = None
-        self._identifier = None
-        self.__self = None
-        self._groups = None
         self._customer = None
-        self._id = None
-        self._last_successful_login = None
-        self._gravatar_url = None
         self._escaped_identifier = None
+        self._gravatar_url = None
+        self._groups = None
+        self._id = None
+        self._identifier = None
+        self._last_successful_login = None
+        self.__self = None
+        self._user_groups = None
         self.discriminator = None
 
-        if user_groups is not None:
-            self.user_groups = user_groups
-        self.identifier = identifier
-        self._self = _self
-        if groups is not None:
-            self.groups = groups
         self.customer = customer
-        self.id = id
-        if last_successful_login is not None:
-            self.last_successful_login = last_successful_login
-        if gravatar_url is not None:
-            self.gravatar_url = gravatar_url
         if escaped_identifier is not None:
             self.escaped_identifier = escaped_identifier
-
-    @property
-    def user_groups(self):
-        """Gets the user_groups of this CustomerFacingUserObject.  # noqa: E501
-
-        List of user group identifiers this user belongs to  # noqa: E501
-
-        :return: The user_groups of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._user_groups
-
-    @user_groups.setter
-    def user_groups(self, user_groups):
-        """Sets the user_groups of this CustomerFacingUserObject.
-
-        List of user group identifiers this user belongs to  # noqa: E501
-
-        :param user_groups: The user_groups of this CustomerFacingUserObject.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._user_groups = user_groups
-
-    @property
-    def identifier(self):
-        """Gets the identifier of this CustomerFacingUserObject.  # noqa: E501
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :return: The identifier of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: str
-        """
-        return self._identifier
-
-    @identifier.setter
-    def identifier(self, identifier):
-        """Sets the identifier of this CustomerFacingUserObject.
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :param identifier: The identifier of this CustomerFacingUserObject.  # noqa: E501
-        :type: str
-        """
-        if identifier is None:
-            raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
-
-        self._identifier = identifier
-
-    @property
-    def _self(self):
-        """Gets the _self of this CustomerFacingUserObject.  # noqa: E501
-
-        Whether this user is the one calling the API  # noqa: E501
-
-        :return: The _self of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: bool
-        """
-        return self.__self
-
-    @_self.setter
-    def _self(self, _self):
-        """Sets the _self of this CustomerFacingUserObject.
-
-        Whether this user is the one calling the API  # noqa: E501
-
-        :param _self: The _self of this CustomerFacingUserObject.  # noqa: E501
-        :type: bool
-        """
-        if _self is None:
-            raise ValueError("Invalid value for `_self`, must not be `None`")  # noqa: E501
-
-        self.__self = _self
-
-    @property
-    def groups(self):
-        """Gets the groups of this CustomerFacingUserObject.  # noqa: E501
-
-        List of permission groups this user has been granted access to  # noqa: E501
-
-        :return: The groups of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._groups
-
-    @groups.setter
-    def groups(self, groups):
-        """Sets the groups of this CustomerFacingUserObject.
-
-        List of permission groups this user has been granted access to  # noqa: E501
-
-        :param groups: The groups of this CustomerFacingUserObject.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._groups = groups
+        if gravatar_url is not None:
+            self.gravatar_url = gravatar_url
+        if groups is not None:
+            self.groups = groups
+        self.id = id
+        self.identifier = identifier
+        if last_successful_login is not None:
+            self.last_successful_login = last_successful_login
+        self._self = _self
+        if user_groups is not None:
+            self.user_groups = user_groups
 
     @property
     def customer(self):
@@ -205,52 +109,27 @@ class CustomerFacingUserObject(object):
         self._customer = customer
 
     @property
-    def id(self):
-        """Gets the id of this CustomerFacingUserObject.  # noqa: E501
+    def escaped_identifier(self):
+        """Gets the escaped_identifier of this CustomerFacingUserObject.  # noqa: E501
 
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
+        URL Escaped Identifier  # noqa: E501
 
-        :return: The id of this CustomerFacingUserObject.  # noqa: E501
+        :return: The escaped_identifier of this CustomerFacingUserObject.  # noqa: E501
         :rtype: str
         """
-        return self._id
+        return self._escaped_identifier
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CustomerFacingUserObject.
+    @escaped_identifier.setter
+    def escaped_identifier(self, escaped_identifier):
+        """Sets the escaped_identifier of this CustomerFacingUserObject.
 
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
+        URL Escaped Identifier  # noqa: E501
 
-        :param id: The id of this CustomerFacingUserObject.  # noqa: E501
+        :param escaped_identifier: The escaped_identifier of this CustomerFacingUserObject.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
-        self._id = id
-
-    @property
-    def last_successful_login(self):
-        """Gets the last_successful_login of this CustomerFacingUserObject.  # noqa: E501
-
-        The last time the user logged in, in epoch milliseconds  # noqa: E501
-
-        :return: The last_successful_login of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_successful_login
-
-    @last_successful_login.setter
-    def last_successful_login(self, last_successful_login):
-        """Sets the last_successful_login of this CustomerFacingUserObject.
-
-        The last time the user logged in, in epoch milliseconds  # noqa: E501
-
-        :param last_successful_login: The last_successful_login of this CustomerFacingUserObject.  # noqa: E501
-        :type: int
-        """
-
-        self._last_successful_login = last_successful_login
+        self._escaped_identifier = escaped_identifier
 
     @property
     def gravatar_url(self):
@@ -276,27 +155,148 @@ class CustomerFacingUserObject(object):
         self._gravatar_url = gravatar_url
 
     @property
-    def escaped_identifier(self):
-        """Gets the escaped_identifier of this CustomerFacingUserObject.  # noqa: E501
+    def groups(self):
+        """Gets the groups of this CustomerFacingUserObject.  # noqa: E501
 
-        URL Escaped Identifier  # noqa: E501
+        List of permission groups this user has been granted access to  # noqa: E501
 
-        :return: The escaped_identifier of this CustomerFacingUserObject.  # noqa: E501
+        :return: The groups of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._groups
+
+    @groups.setter
+    def groups(self, groups):
+        """Sets the groups of this CustomerFacingUserObject.
+
+        List of permission groups this user has been granted access to  # noqa: E501
+
+        :param groups: The groups of this CustomerFacingUserObject.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._groups = groups
+
+    @property
+    def id(self):
+        """Gets the id of this CustomerFacingUserObject.  # noqa: E501
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :return: The id of this CustomerFacingUserObject.  # noqa: E501
         :rtype: str
         """
-        return self._escaped_identifier
+        return self._id
 
-    @escaped_identifier.setter
-    def escaped_identifier(self, escaped_identifier):
-        """Sets the escaped_identifier of this CustomerFacingUserObject.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CustomerFacingUserObject.
 
-        URL Escaped Identifier  # noqa: E501
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
 
-        :param escaped_identifier: The escaped_identifier of this CustomerFacingUserObject.  # noqa: E501
+        :param id: The id of this CustomerFacingUserObject.  # noqa: E501
         :type: str
         """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
-        self._escaped_identifier = escaped_identifier
+        self._id = id
+
+    @property
+    def identifier(self):
+        """Gets the identifier of this CustomerFacingUserObject.  # noqa: E501
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :return: The identifier of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: str
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """Sets the identifier of this CustomerFacingUserObject.
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :param identifier: The identifier of this CustomerFacingUserObject.  # noqa: E501
+        :type: str
+        """
+        if identifier is None:
+            raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
+
+        self._identifier = identifier
+
+    @property
+    def last_successful_login(self):
+        """Gets the last_successful_login of this CustomerFacingUserObject.  # noqa: E501
+
+        The last time the user logged in, in epoch milliseconds  # noqa: E501
+
+        :return: The last_successful_login of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_successful_login
+
+    @last_successful_login.setter
+    def last_successful_login(self, last_successful_login):
+        """Sets the last_successful_login of this CustomerFacingUserObject.
+
+        The last time the user logged in, in epoch milliseconds  # noqa: E501
+
+        :param last_successful_login: The last_successful_login of this CustomerFacingUserObject.  # noqa: E501
+        :type: int
+        """
+
+        self._last_successful_login = last_successful_login
+
+    @property
+    def _self(self):
+        """Gets the _self of this CustomerFacingUserObject.  # noqa: E501
+
+        Whether this user is the one calling the API  # noqa: E501
+
+        :return: The _self of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: bool
+        """
+        return self.__self
+
+    @_self.setter
+    def _self(self, _self):
+        """Sets the _self of this CustomerFacingUserObject.
+
+        Whether this user is the one calling the API  # noqa: E501
+
+        :param _self: The _self of this CustomerFacingUserObject.  # noqa: E501
+        :type: bool
+        """
+        if _self is None:
+            raise ValueError("Invalid value for `_self`, must not be `None`")  # noqa: E501
+
+        self.__self = _self
+
+    @property
+    def user_groups(self):
+        """Gets the user_groups of this CustomerFacingUserObject.  # noqa: E501
+
+        List of user group identifiers this user belongs to  # noqa: E501
+
+        :return: The user_groups of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_groups
+
+    @user_groups.setter
+    def user_groups(self, user_groups):
+        """Sets the user_groups of this CustomerFacingUserObject.
+
+        List of user group identifiers this user belongs to  # noqa: E501
+
+        :param user_groups: The user_groups of this CustomerFacingUserObject.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_groups = user_groups
 
     def to_dict(self):
         """Returns the model properties as a dict"""

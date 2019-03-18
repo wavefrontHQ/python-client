@@ -31,46 +31,67 @@ class HistoryEntry(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'change_description': 'list[str]',
         'id': 'str',
         'in_trash': 'bool',
-        'version': 'int',
-        'update_user': 'str',
         'update_time': 'int',
-        'change_description': 'list[str]'
+        'update_user': 'str',
+        'version': 'int'
     }
 
     attribute_map = {
+        'change_description': 'changeDescription',
         'id': 'id',
         'in_trash': 'inTrash',
-        'version': 'version',
-        'update_user': 'updateUser',
         'update_time': 'updateTime',
-        'change_description': 'changeDescription'
+        'update_user': 'updateUser',
+        'version': 'version'
     }
 
-    def __init__(self, id=None, in_trash=None, version=None, update_user=None, update_time=None, change_description=None):  # noqa: E501
+    def __init__(self, change_description=None, id=None, in_trash=None, update_time=None, update_user=None, version=None):  # noqa: E501
         """HistoryEntry - a model defined in Swagger"""  # noqa: E501
 
+        self._change_description = None
         self._id = None
         self._in_trash = None
-        self._version = None
-        self._update_user = None
         self._update_time = None
-        self._change_description = None
+        self._update_user = None
+        self._version = None
         self.discriminator = None
 
+        if change_description is not None:
+            self.change_description = change_description
         if id is not None:
             self.id = id
         if in_trash is not None:
             self.in_trash = in_trash
-        if version is not None:
-            self.version = version
-        if update_user is not None:
-            self.update_user = update_user
         if update_time is not None:
             self.update_time = update_time
-        if change_description is not None:
-            self.change_description = change_description
+        if update_user is not None:
+            self.update_user = update_user
+        if version is not None:
+            self.version = version
+
+    @property
+    def change_description(self):
+        """Gets the change_description of this HistoryEntry.  # noqa: E501
+
+
+        :return: The change_description of this HistoryEntry.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._change_description
+
+    @change_description.setter
+    def change_description(self, change_description):
+        """Sets the change_description of this HistoryEntry.
+
+
+        :param change_description: The change_description of this HistoryEntry.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._change_description = change_description
 
     @property
     def id(self):
@@ -115,25 +136,25 @@ class HistoryEntry(object):
         self._in_trash = in_trash
 
     @property
-    def version(self):
-        """Gets the version of this HistoryEntry.  # noqa: E501
+    def update_time(self):
+        """Gets the update_time of this HistoryEntry.  # noqa: E501
 
 
-        :return: The version of this HistoryEntry.  # noqa: E501
+        :return: The update_time of this HistoryEntry.  # noqa: E501
         :rtype: int
         """
-        return self._version
+        return self._update_time
 
-    @version.setter
-    def version(self, version):
-        """Sets the version of this HistoryEntry.
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this HistoryEntry.
 
 
-        :param version: The version of this HistoryEntry.  # noqa: E501
+        :param update_time: The update_time of this HistoryEntry.  # noqa: E501
         :type: int
         """
 
-        self._version = version
+        self._update_time = update_time
 
     @property
     def update_user(self):
@@ -157,46 +178,25 @@ class HistoryEntry(object):
         self._update_user = update_user
 
     @property
-    def update_time(self):
-        """Gets the update_time of this HistoryEntry.  # noqa: E501
+    def version(self):
+        """Gets the version of this HistoryEntry.  # noqa: E501
 
 
-        :return: The update_time of this HistoryEntry.  # noqa: E501
+        :return: The version of this HistoryEntry.  # noqa: E501
         :rtype: int
         """
-        return self._update_time
+        return self._version
 
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this HistoryEntry.
+    @version.setter
+    def version(self, version):
+        """Sets the version of this HistoryEntry.
 
 
-        :param update_time: The update_time of this HistoryEntry.  # noqa: E501
+        :param version: The version of this HistoryEntry.  # noqa: E501
         :type: int
         """
 
-        self._update_time = update_time
-
-    @property
-    def change_description(self):
-        """Gets the change_description of this HistoryEntry.  # noqa: E501
-
-
-        :return: The change_description of this HistoryEntry.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._change_description
-
-    @change_description.setter
-    def change_description(self, change_description):
-        """Sets the change_description of this HistoryEntry.
-
-
-        :param change_description: The change_description of this HistoryEntry.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._change_description = change_description
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

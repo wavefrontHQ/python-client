@@ -31,109 +31,46 @@ class AvroBackedStandardizedDTO(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'id': 'str',
         'created_epoch_millis': 'int',
+        'creator_id': 'str',
+        'deleted': 'bool',
+        'id': 'str',
         'updated_epoch_millis': 'int',
-        'deleted': 'bool'
+        'updater_id': 'str'
     }
 
     attribute_map = {
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
+        'creator_id': 'creatorId',
+        'deleted': 'deleted',
+        'id': 'id',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'deleted': 'deleted'
+        'updater_id': 'updaterId'
     }
 
-    def __init__(self, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, deleted=None, id=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """AvroBackedStandardizedDTO - a model defined in Swagger"""  # noqa: E501
 
-        self._creator_id = None
-        self._updater_id = None
-        self._id = None
         self._created_epoch_millis = None
-        self._updated_epoch_millis = None
+        self._creator_id = None
         self._deleted = None
+        self._id = None
+        self._updated_epoch_millis = None
+        self._updater_id = None
         self.discriminator = None
 
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        if id is not None:
-            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
+        if creator_id is not None:
+            self.creator_id = creator_id
         if deleted is not None:
             self.deleted = deleted
-
-    @property
-    def creator_id(self):
-        """Gets the creator_id of this AvroBackedStandardizedDTO.  # noqa: E501
-
-
-        :return: The creator_id of this AvroBackedStandardizedDTO.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this AvroBackedStandardizedDTO.
-
-
-        :param creator_id: The creator_id of this AvroBackedStandardizedDTO.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this AvroBackedStandardizedDTO.  # noqa: E501
-
-
-        :return: The updater_id of this AvroBackedStandardizedDTO.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this AvroBackedStandardizedDTO.
-
-
-        :param updater_id: The updater_id of this AvroBackedStandardizedDTO.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def id(self):
-        """Gets the id of this AvroBackedStandardizedDTO.  # noqa: E501
-
-
-        :return: The id of this AvroBackedStandardizedDTO.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this AvroBackedStandardizedDTO.
-
-
-        :param id: The id of this AvroBackedStandardizedDTO.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
+        if id is not None:
+            self.id = id
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
 
     @property
     def created_epoch_millis(self):
@@ -157,25 +94,25 @@ class AvroBackedStandardizedDTO(object):
         self._created_epoch_millis = created_epoch_millis
 
     @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this AvroBackedStandardizedDTO.  # noqa: E501
+    def creator_id(self):
+        """Gets the creator_id of this AvroBackedStandardizedDTO.  # noqa: E501
 
 
-        :return: The updated_epoch_millis of this AvroBackedStandardizedDTO.  # noqa: E501
-        :rtype: int
+        :return: The creator_id of this AvroBackedStandardizedDTO.  # noqa: E501
+        :rtype: str
         """
-        return self._updated_epoch_millis
+        return self._creator_id
 
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this AvroBackedStandardizedDTO.
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this AvroBackedStandardizedDTO.
 
 
-        :param updated_epoch_millis: The updated_epoch_millis of this AvroBackedStandardizedDTO.  # noqa: E501
-        :type: int
+        :param creator_id: The creator_id of this AvroBackedStandardizedDTO.  # noqa: E501
+        :type: str
         """
 
-        self._updated_epoch_millis = updated_epoch_millis
+        self._creator_id = creator_id
 
     @property
     def deleted(self):
@@ -197,6 +134,69 @@ class AvroBackedStandardizedDTO(object):
         """
 
         self._deleted = deleted
+
+    @property
+    def id(self):
+        """Gets the id of this AvroBackedStandardizedDTO.  # noqa: E501
+
+
+        :return: The id of this AvroBackedStandardizedDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this AvroBackedStandardizedDTO.
+
+
+        :param id: The id of this AvroBackedStandardizedDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this AvroBackedStandardizedDTO.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this AvroBackedStandardizedDTO.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this AvroBackedStandardizedDTO.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this AvroBackedStandardizedDTO.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def updater_id(self):
+        """Gets the updater_id of this AvroBackedStandardizedDTO.  # noqa: E501
+
+
+        :return: The updater_id of this AvroBackedStandardizedDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._updater_id
+
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this AvroBackedStandardizedDTO.
+
+
+        :param updater_id: The updater_id of this AvroBackedStandardizedDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._updater_id = updater_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

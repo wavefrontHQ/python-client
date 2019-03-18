@@ -31,82 +31,82 @@ class UserSettings(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'preferred_time_zone': 'str',
-        'chart_title_scalar': 'int',
-        'show_querybuilder_by_default': 'bool',
-        'hide_ts_when_querybuilder_shown': 'bool',
         'always_hide_querybuilder': 'bool',
-        'use24_hour_time': 'bool',
-        'use_dark_theme': 'bool',
+        'chart_title_scalar': 'int',
+        'hide_ts_when_querybuilder_shown': 'bool',
         'landing_dashboard_slug': 'str',
-        'show_onboarding': 'bool'
+        'preferred_time_zone': 'str',
+        'show_onboarding': 'bool',
+        'show_querybuilder_by_default': 'bool',
+        'use24_hour_time': 'bool',
+        'use_dark_theme': 'bool'
     }
 
     attribute_map = {
-        'preferred_time_zone': 'preferredTimeZone',
-        'chart_title_scalar': 'chartTitleScalar',
-        'show_querybuilder_by_default': 'showQuerybuilderByDefault',
-        'hide_ts_when_querybuilder_shown': 'hideTSWhenQuerybuilderShown',
         'always_hide_querybuilder': 'alwaysHideQuerybuilder',
-        'use24_hour_time': 'use24HourTime',
-        'use_dark_theme': 'useDarkTheme',
+        'chart_title_scalar': 'chartTitleScalar',
+        'hide_ts_when_querybuilder_shown': 'hideTSWhenQuerybuilderShown',
         'landing_dashboard_slug': 'landingDashboardSlug',
-        'show_onboarding': 'showOnboarding'
+        'preferred_time_zone': 'preferredTimeZone',
+        'show_onboarding': 'showOnboarding',
+        'show_querybuilder_by_default': 'showQuerybuilderByDefault',
+        'use24_hour_time': 'use24HourTime',
+        'use_dark_theme': 'useDarkTheme'
     }
 
-    def __init__(self, preferred_time_zone=None, chart_title_scalar=None, show_querybuilder_by_default=None, hide_ts_when_querybuilder_shown=None, always_hide_querybuilder=None, use24_hour_time=None, use_dark_theme=None, landing_dashboard_slug=None, show_onboarding=None):  # noqa: E501
+    def __init__(self, always_hide_querybuilder=None, chart_title_scalar=None, hide_ts_when_querybuilder_shown=None, landing_dashboard_slug=None, preferred_time_zone=None, show_onboarding=None, show_querybuilder_by_default=None, use24_hour_time=None, use_dark_theme=None):  # noqa: E501
         """UserSettings - a model defined in Swagger"""  # noqa: E501
 
-        self._preferred_time_zone = None
-        self._chart_title_scalar = None
-        self._show_querybuilder_by_default = None
-        self._hide_ts_when_querybuilder_shown = None
         self._always_hide_querybuilder = None
+        self._chart_title_scalar = None
+        self._hide_ts_when_querybuilder_shown = None
+        self._landing_dashboard_slug = None
+        self._preferred_time_zone = None
+        self._show_onboarding = None
+        self._show_querybuilder_by_default = None
         self._use24_hour_time = None
         self._use_dark_theme = None
-        self._landing_dashboard_slug = None
-        self._show_onboarding = None
         self.discriminator = None
 
-        if preferred_time_zone is not None:
-            self.preferred_time_zone = preferred_time_zone
-        if chart_title_scalar is not None:
-            self.chart_title_scalar = chart_title_scalar
-        if show_querybuilder_by_default is not None:
-            self.show_querybuilder_by_default = show_querybuilder_by_default
-        if hide_ts_when_querybuilder_shown is not None:
-            self.hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
         if always_hide_querybuilder is not None:
             self.always_hide_querybuilder = always_hide_querybuilder
+        if chart_title_scalar is not None:
+            self.chart_title_scalar = chart_title_scalar
+        if hide_ts_when_querybuilder_shown is not None:
+            self.hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
+        if landing_dashboard_slug is not None:
+            self.landing_dashboard_slug = landing_dashboard_slug
+        if preferred_time_zone is not None:
+            self.preferred_time_zone = preferred_time_zone
+        if show_onboarding is not None:
+            self.show_onboarding = show_onboarding
+        if show_querybuilder_by_default is not None:
+            self.show_querybuilder_by_default = show_querybuilder_by_default
         if use24_hour_time is not None:
             self.use24_hour_time = use24_hour_time
         if use_dark_theme is not None:
             self.use_dark_theme = use_dark_theme
-        if landing_dashboard_slug is not None:
-            self.landing_dashboard_slug = landing_dashboard_slug
-        if show_onboarding is not None:
-            self.show_onboarding = show_onboarding
 
     @property
-    def preferred_time_zone(self):
-        """Gets the preferred_time_zone of this UserSettings.  # noqa: E501
+    def always_hide_querybuilder(self):
+        """Gets the always_hide_querybuilder of this UserSettings.  # noqa: E501
 
 
-        :return: The preferred_time_zone of this UserSettings.  # noqa: E501
-        :rtype: str
+        :return: The always_hide_querybuilder of this UserSettings.  # noqa: E501
+        :rtype: bool
         """
-        return self._preferred_time_zone
+        return self._always_hide_querybuilder
 
-    @preferred_time_zone.setter
-    def preferred_time_zone(self, preferred_time_zone):
-        """Sets the preferred_time_zone of this UserSettings.
+    @always_hide_querybuilder.setter
+    def always_hide_querybuilder(self, always_hide_querybuilder):
+        """Sets the always_hide_querybuilder of this UserSettings.
 
 
-        :param preferred_time_zone: The preferred_time_zone of this UserSettings.  # noqa: E501
-        :type: str
+        :param always_hide_querybuilder: The always_hide_querybuilder of this UserSettings.  # noqa: E501
+        :type: bool
         """
 
-        self._preferred_time_zone = preferred_time_zone
+        self._always_hide_querybuilder = always_hide_querybuilder
 
     @property
     def chart_title_scalar(self):
@@ -130,27 +130,6 @@ class UserSettings(object):
         self._chart_title_scalar = chart_title_scalar
 
     @property
-    def show_querybuilder_by_default(self):
-        """Gets the show_querybuilder_by_default of this UserSettings.  # noqa: E501
-
-
-        :return: The show_querybuilder_by_default of this UserSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_querybuilder_by_default
-
-    @show_querybuilder_by_default.setter
-    def show_querybuilder_by_default(self, show_querybuilder_by_default):
-        """Sets the show_querybuilder_by_default of this UserSettings.
-
-
-        :param show_querybuilder_by_default: The show_querybuilder_by_default of this UserSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._show_querybuilder_by_default = show_querybuilder_by_default
-
-    @property
     def hide_ts_when_querybuilder_shown(self):
         """Gets the hide_ts_when_querybuilder_shown of this UserSettings.  # noqa: E501
 
@@ -172,25 +151,88 @@ class UserSettings(object):
         self._hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
 
     @property
-    def always_hide_querybuilder(self):
-        """Gets the always_hide_querybuilder of this UserSettings.  # noqa: E501
+    def landing_dashboard_slug(self):
+        """Gets the landing_dashboard_slug of this UserSettings.  # noqa: E501
 
 
-        :return: The always_hide_querybuilder of this UserSettings.  # noqa: E501
+        :return: The landing_dashboard_slug of this UserSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._landing_dashboard_slug
+
+    @landing_dashboard_slug.setter
+    def landing_dashboard_slug(self, landing_dashboard_slug):
+        """Sets the landing_dashboard_slug of this UserSettings.
+
+
+        :param landing_dashboard_slug: The landing_dashboard_slug of this UserSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._landing_dashboard_slug = landing_dashboard_slug
+
+    @property
+    def preferred_time_zone(self):
+        """Gets the preferred_time_zone of this UserSettings.  # noqa: E501
+
+
+        :return: The preferred_time_zone of this UserSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._preferred_time_zone
+
+    @preferred_time_zone.setter
+    def preferred_time_zone(self, preferred_time_zone):
+        """Sets the preferred_time_zone of this UserSettings.
+
+
+        :param preferred_time_zone: The preferred_time_zone of this UserSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._preferred_time_zone = preferred_time_zone
+
+    @property
+    def show_onboarding(self):
+        """Gets the show_onboarding of this UserSettings.  # noqa: E501
+
+
+        :return: The show_onboarding of this UserSettings.  # noqa: E501
         :rtype: bool
         """
-        return self._always_hide_querybuilder
+        return self._show_onboarding
 
-    @always_hide_querybuilder.setter
-    def always_hide_querybuilder(self, always_hide_querybuilder):
-        """Sets the always_hide_querybuilder of this UserSettings.
+    @show_onboarding.setter
+    def show_onboarding(self, show_onboarding):
+        """Sets the show_onboarding of this UserSettings.
 
 
-        :param always_hide_querybuilder: The always_hide_querybuilder of this UserSettings.  # noqa: E501
+        :param show_onboarding: The show_onboarding of this UserSettings.  # noqa: E501
         :type: bool
         """
 
-        self._always_hide_querybuilder = always_hide_querybuilder
+        self._show_onboarding = show_onboarding
+
+    @property
+    def show_querybuilder_by_default(self):
+        """Gets the show_querybuilder_by_default of this UserSettings.  # noqa: E501
+
+
+        :return: The show_querybuilder_by_default of this UserSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_querybuilder_by_default
+
+    @show_querybuilder_by_default.setter
+    def show_querybuilder_by_default(self, show_querybuilder_by_default):
+        """Sets the show_querybuilder_by_default of this UserSettings.
+
+
+        :param show_querybuilder_by_default: The show_querybuilder_by_default of this UserSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_querybuilder_by_default = show_querybuilder_by_default
 
     @property
     def use24_hour_time(self):
@@ -233,48 +275,6 @@ class UserSettings(object):
         """
 
         self._use_dark_theme = use_dark_theme
-
-    @property
-    def landing_dashboard_slug(self):
-        """Gets the landing_dashboard_slug of this UserSettings.  # noqa: E501
-
-
-        :return: The landing_dashboard_slug of this UserSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._landing_dashboard_slug
-
-    @landing_dashboard_slug.setter
-    def landing_dashboard_slug(self, landing_dashboard_slug):
-        """Sets the landing_dashboard_slug of this UserSettings.
-
-
-        :param landing_dashboard_slug: The landing_dashboard_slug of this UserSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._landing_dashboard_slug = landing_dashboard_slug
-
-    @property
-    def show_onboarding(self):
-        """Gets the show_onboarding of this UserSettings.  # noqa: E501
-
-
-        :return: The show_onboarding of this UserSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_onboarding
-
-    @show_onboarding.setter
-    def show_onboarding(self, show_onboarding):
-        """Sets the show_onboarding of this UserSettings.
-
-
-        :param show_onboarding: The show_onboarding of this UserSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._show_onboarding = show_onboarding
 
     def to_dict(self):
         """Returns the model properties as a dict"""

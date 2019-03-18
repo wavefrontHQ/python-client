@@ -31,57 +31,57 @@ class BusinessActionGroupBasicDTO(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_name': 'str',
-        'display_name': 'str',
         'description': 'str',
+        'display_name': 'str',
+        'group_name': 'str',
         'required_default': 'bool'
     }
 
     attribute_map = {
-        'group_name': 'groupName',
-        'display_name': 'displayName',
         'description': 'description',
+        'display_name': 'displayName',
+        'group_name': 'groupName',
         'required_default': 'requiredDefault'
     }
 
-    def __init__(self, group_name=None, display_name=None, description=None, required_default=None):  # noqa: E501
+    def __init__(self, description=None, display_name=None, group_name=None, required_default=None):  # noqa: E501
         """BusinessActionGroupBasicDTO - a model defined in Swagger"""  # noqa: E501
 
-        self._group_name = None
-        self._display_name = None
         self._description = None
+        self._display_name = None
+        self._group_name = None
         self._required_default = None
         self.discriminator = None
 
-        if group_name is not None:
-            self.group_name = group_name
-        if display_name is not None:
-            self.display_name = display_name
         if description is not None:
             self.description = description
+        if display_name is not None:
+            self.display_name = display_name
+        if group_name is not None:
+            self.group_name = group_name
         if required_default is not None:
             self.required_default = required_default
 
     @property
-    def group_name(self):
-        """Gets the group_name of this BusinessActionGroupBasicDTO.  # noqa: E501
+    def description(self):
+        """Gets the description of this BusinessActionGroupBasicDTO.  # noqa: E501
 
 
-        :return: The group_name of this BusinessActionGroupBasicDTO.  # noqa: E501
+        :return: The description of this BusinessActionGroupBasicDTO.  # noqa: E501
         :rtype: str
         """
-        return self._group_name
+        return self._description
 
-    @group_name.setter
-    def group_name(self, group_name):
-        """Sets the group_name of this BusinessActionGroupBasicDTO.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this BusinessActionGroupBasicDTO.
 
 
-        :param group_name: The group_name of this BusinessActionGroupBasicDTO.  # noqa: E501
+        :param description: The description of this BusinessActionGroupBasicDTO.  # noqa: E501
         :type: str
         """
 
-        self._group_name = group_name
+        self._description = description
 
     @property
     def display_name(self):
@@ -105,25 +105,25 @@ class BusinessActionGroupBasicDTO(object):
         self._display_name = display_name
 
     @property
-    def description(self):
-        """Gets the description of this BusinessActionGroupBasicDTO.  # noqa: E501
+    def group_name(self):
+        """Gets the group_name of this BusinessActionGroupBasicDTO.  # noqa: E501
 
 
-        :return: The description of this BusinessActionGroupBasicDTO.  # noqa: E501
+        :return: The group_name of this BusinessActionGroupBasicDTO.  # noqa: E501
         :rtype: str
         """
-        return self._description
+        return self._group_name
 
-    @description.setter
-    def description(self, description):
-        """Sets the description of this BusinessActionGroupBasicDTO.
+    @group_name.setter
+    def group_name(self, group_name):
+        """Sets the group_name of this BusinessActionGroupBasicDTO.
 
 
-        :param description: The description of this BusinessActionGroupBasicDTO.  # noqa: E501
+        :param group_name: The group_name of this BusinessActionGroupBasicDTO.  # noqa: E501
         :type: str
         """
 
-        self._description = description
+        self._group_name = group_name
 
     @property
     def required_default(self):

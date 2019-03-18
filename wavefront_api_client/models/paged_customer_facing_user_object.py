@@ -34,116 +34,51 @@ class PagedCustomerFacingUserObject(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'items': 'list[CustomerFacingUserObject]',
-        'offset': 'int',
-        'limit': 'int',
         'cursor': 'str',
-        'total_items': 'int',
+        'items': 'list[CustomerFacingUserObject]',
+        'limit': 'int',
         'more_items': 'bool',
-        'sort': 'Sorting'
+        'offset': 'int',
+        'sort': 'Sorting',
+        'total_items': 'int'
     }
 
     attribute_map = {
-        'items': 'items',
-        'offset': 'offset',
-        'limit': 'limit',
         'cursor': 'cursor',
-        'total_items': 'totalItems',
+        'items': 'items',
+        'limit': 'limit',
         'more_items': 'moreItems',
-        'sort': 'sort'
+        'offset': 'offset',
+        'sort': 'sort',
+        'total_items': 'totalItems'
     }
 
-    def __init__(self, items=None, offset=None, limit=None, cursor=None, total_items=None, more_items=None, sort=None):  # noqa: E501
+    def __init__(self, cursor=None, items=None, limit=None, more_items=None, offset=None, sort=None, total_items=None):  # noqa: E501
         """PagedCustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
-        self._items = None
-        self._offset = None
-        self._limit = None
         self._cursor = None
-        self._total_items = None
+        self._items = None
+        self._limit = None
         self._more_items = None
+        self._offset = None
         self._sort = None
+        self._total_items = None
         self.discriminator = None
 
-        if items is not None:
-            self.items = items
-        if offset is not None:
-            self.offset = offset
-        if limit is not None:
-            self.limit = limit
         if cursor is not None:
             self.cursor = cursor
-        if total_items is not None:
-            self.total_items = total_items
+        if items is not None:
+            self.items = items
+        if limit is not None:
+            self.limit = limit
         if more_items is not None:
             self.more_items = more_items
+        if offset is not None:
+            self.offset = offset
         if sort is not None:
             self.sort = sort
-
-    @property
-    def items(self):
-        """Gets the items of this PagedCustomerFacingUserObject.  # noqa: E501
-
-        List of requested items  # noqa: E501
-
-        :return: The items of this PagedCustomerFacingUserObject.  # noqa: E501
-        :rtype: list[CustomerFacingUserObject]
-        """
-        return self._items
-
-    @items.setter
-    def items(self, items):
-        """Sets the items of this PagedCustomerFacingUserObject.
-
-        List of requested items  # noqa: E501
-
-        :param items: The items of this PagedCustomerFacingUserObject.  # noqa: E501
-        :type: list[CustomerFacingUserObject]
-        """
-
-        self._items = items
-
-    @property
-    def offset(self):
-        """Gets the offset of this PagedCustomerFacingUserObject.  # noqa: E501
-
-
-        :return: The offset of this PagedCustomerFacingUserObject.  # noqa: E501
-        :rtype: int
-        """
-        return self._offset
-
-    @offset.setter
-    def offset(self, offset):
-        """Sets the offset of this PagedCustomerFacingUserObject.
-
-
-        :param offset: The offset of this PagedCustomerFacingUserObject.  # noqa: E501
-        :type: int
-        """
-
-        self._offset = offset
-
-    @property
-    def limit(self):
-        """Gets the limit of this PagedCustomerFacingUserObject.  # noqa: E501
-
-
-        :return: The limit of this PagedCustomerFacingUserObject.  # noqa: E501
-        :rtype: int
-        """
-        return self._limit
-
-    @limit.setter
-    def limit(self, limit):
-        """Sets the limit of this PagedCustomerFacingUserObject.
-
-
-        :param limit: The limit of this PagedCustomerFacingUserObject.  # noqa: E501
-        :type: int
-        """
-
-        self._limit = limit
+        if total_items is not None:
+            self.total_items = total_items
 
     @property
     def cursor(self):
@@ -169,27 +104,48 @@ class PagedCustomerFacingUserObject(object):
         self._cursor = cursor
 
     @property
-    def total_items(self):
-        """Gets the total_items of this PagedCustomerFacingUserObject.  # noqa: E501
+    def items(self):
+        """Gets the items of this PagedCustomerFacingUserObject.  # noqa: E501
 
-        An estimate (lower-bound) of the total number of items available for return.  May not be a tight estimate for facet queries  # noqa: E501
+        List of requested items  # noqa: E501
 
-        :return: The total_items of this PagedCustomerFacingUserObject.  # noqa: E501
+        :return: The items of this PagedCustomerFacingUserObject.  # noqa: E501
+        :rtype: list[CustomerFacingUserObject]
+        """
+        return self._items
+
+    @items.setter
+    def items(self, items):
+        """Sets the items of this PagedCustomerFacingUserObject.
+
+        List of requested items  # noqa: E501
+
+        :param items: The items of this PagedCustomerFacingUserObject.  # noqa: E501
+        :type: list[CustomerFacingUserObject]
+        """
+
+        self._items = items
+
+    @property
+    def limit(self):
+        """Gets the limit of this PagedCustomerFacingUserObject.  # noqa: E501
+
+
+        :return: The limit of this PagedCustomerFacingUserObject.  # noqa: E501
         :rtype: int
         """
-        return self._total_items
+        return self._limit
 
-    @total_items.setter
-    def total_items(self, total_items):
-        """Sets the total_items of this PagedCustomerFacingUserObject.
+    @limit.setter
+    def limit(self, limit):
+        """Sets the limit of this PagedCustomerFacingUserObject.
 
-        An estimate (lower-bound) of the total number of items available for return.  May not be a tight estimate for facet queries  # noqa: E501
 
-        :param total_items: The total_items of this PagedCustomerFacingUserObject.  # noqa: E501
+        :param limit: The limit of this PagedCustomerFacingUserObject.  # noqa: E501
         :type: int
         """
 
-        self._total_items = total_items
+        self._limit = limit
 
     @property
     def more_items(self):
@@ -215,6 +171,27 @@ class PagedCustomerFacingUserObject(object):
         self._more_items = more_items
 
     @property
+    def offset(self):
+        """Gets the offset of this PagedCustomerFacingUserObject.  # noqa: E501
+
+
+        :return: The offset of this PagedCustomerFacingUserObject.  # noqa: E501
+        :rtype: int
+        """
+        return self._offset
+
+    @offset.setter
+    def offset(self, offset):
+        """Sets the offset of this PagedCustomerFacingUserObject.
+
+
+        :param offset: The offset of this PagedCustomerFacingUserObject.  # noqa: E501
+        :type: int
+        """
+
+        self._offset = offset
+
+    @property
     def sort(self):
         """Gets the sort of this PagedCustomerFacingUserObject.  # noqa: E501
 
@@ -234,6 +211,29 @@ class PagedCustomerFacingUserObject(object):
         """
 
         self._sort = sort
+
+    @property
+    def total_items(self):
+        """Gets the total_items of this PagedCustomerFacingUserObject.  # noqa: E501
+
+        An estimate (lower-bound) of the total number of items available for return.  May not be a tight estimate for facet queries  # noqa: E501
+
+        :return: The total_items of this PagedCustomerFacingUserObject.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_items
+
+    @total_items.setter
+    def total_items(self, total_items):
+        """Sets the total_items of this PagedCustomerFacingUserObject.
+
+        An estimate (lower-bound) of the total number of items available for return.  May not be a tight estimate for facet queries  # noqa: E501
+
+        :param total_items: The total_items of this PagedCustomerFacingUserObject.  # noqa: E501
+        :type: int
+        """
+
+        self._total_items = total_items
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -31,64 +31,106 @@ class Source(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'created_epoch_millis': 'int',
+        'creator_id': 'str',
         'description': 'str',
         'hidden': 'bool',
+        'id': 'str',
+        'marked_new_epoch_millis': 'int',
         'source_name': 'str',
         'tags': 'dict(str, bool)',
-        'creator_id': 'str',
-        'updater_id': 'str',
-        'id': 'str',
-        'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'marked_new_epoch_millis': 'int'
+        'updater_id': 'str'
     }
 
     attribute_map = {
+        'created_epoch_millis': 'createdEpochMillis',
+        'creator_id': 'creatorId',
         'description': 'description',
         'hidden': 'hidden',
+        'id': 'id',
+        'marked_new_epoch_millis': 'markedNewEpochMillis',
         'source_name': 'sourceName',
         'tags': 'tags',
-        'creator_id': 'creatorId',
-        'updater_id': 'updaterId',
-        'id': 'id',
-        'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'marked_new_epoch_millis': 'markedNewEpochMillis'
+        'updater_id': 'updaterId'
     }
 
-    def __init__(self, description=None, hidden=None, source_name=None, tags=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, marked_new_epoch_millis=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, description=None, hidden=None, id=None, marked_new_epoch_millis=None, source_name=None, tags=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Source - a model defined in Swagger"""  # noqa: E501
 
+        self._created_epoch_millis = None
+        self._creator_id = None
         self._description = None
         self._hidden = None
+        self._id = None
+        self._marked_new_epoch_millis = None
         self._source_name = None
         self._tags = None
-        self._creator_id = None
-        self._updater_id = None
-        self._id = None
-        self._created_epoch_millis = None
         self._updated_epoch_millis = None
-        self._marked_new_epoch_millis = None
+        self._updater_id = None
         self.discriminator = None
 
+        if created_epoch_millis is not None:
+            self.created_epoch_millis = created_epoch_millis
+        if creator_id is not None:
+            self.creator_id = creator_id
         if description is not None:
             self.description = description
         if hidden is not None:
             self.hidden = hidden
+        self.id = id
+        if marked_new_epoch_millis is not None:
+            self.marked_new_epoch_millis = marked_new_epoch_millis
         self.source_name = source_name
         if tags is not None:
             self.tags = tags
-        if creator_id is not None:
-            self.creator_id = creator_id
-        if updater_id is not None:
-            self.updater_id = updater_id
-        self.id = id
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
-        if marked_new_epoch_millis is not None:
-            self.marked_new_epoch_millis = marked_new_epoch_millis
+        if updater_id is not None:
+            self.updater_id = updater_id
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this Source.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this Source.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this Source.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this Source.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def creator_id(self):
+        """Gets the creator_id of this Source.  # noqa: E501
+
+
+        :return: The creator_id of this Source.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this Source.
+
+
+        :param creator_id: The creator_id of this Source.  # noqa: E501
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def description(self):
@@ -135,6 +177,54 @@ class Source(object):
         """
 
         self._hidden = hidden
+
+    @property
+    def id(self):
+        """Gets the id of this Source.  # noqa: E501
+
+        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
+
+        :return: The id of this Source.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Source.
+
+        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
+
+        :param id: The id of this Source.  # noqa: E501
+        :type: str
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
+    def marked_new_epoch_millis(self):
+        """Gets the marked_new_epoch_millis of this Source.  # noqa: E501
+
+        Epoch Millis when this source was marked as ~status.new  # noqa: E501
+
+        :return: The marked_new_epoch_millis of this Source.  # noqa: E501
+        :rtype: int
+        """
+        return self._marked_new_epoch_millis
+
+    @marked_new_epoch_millis.setter
+    def marked_new_epoch_millis(self, marked_new_epoch_millis):
+        """Sets the marked_new_epoch_millis of this Source.
+
+        Epoch Millis when this source was marked as ~status.new  # noqa: E501
+
+        :param marked_new_epoch_millis: The marked_new_epoch_millis of this Source.  # noqa: E501
+        :type: int
+        """
+
+        self._marked_new_epoch_millis = marked_new_epoch_millis
 
     @property
     def source_name(self):
@@ -185,94 +275,6 @@ class Source(object):
         self._tags = tags
 
     @property
-    def creator_id(self):
-        """Gets the creator_id of this Source.  # noqa: E501
-
-
-        :return: The creator_id of this Source.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this Source.
-
-
-        :param creator_id: The creator_id of this Source.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
-    def updater_id(self):
-        """Gets the updater_id of this Source.  # noqa: E501
-
-
-        :return: The updater_id of this Source.  # noqa: E501
-        :rtype: str
-        """
-        return self._updater_id
-
-    @updater_id.setter
-    def updater_id(self, updater_id):
-        """Sets the updater_id of this Source.
-
-
-        :param updater_id: The updater_id of this Source.  # noqa: E501
-        :type: str
-        """
-
-        self._updater_id = updater_id
-
-    @property
-    def id(self):
-        """Gets the id of this Source.  # noqa: E501
-
-        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
-
-        :return: The id of this Source.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Source.
-
-        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
-
-        :param id: The id of this Source.  # noqa: E501
-        :type: str
-        """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this Source.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this Source.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_epoch_millis
-
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this Source.
-
-
-        :param created_epoch_millis: The created_epoch_millis of this Source.  # noqa: E501
-        :type: int
-        """
-
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
     def updated_epoch_millis(self):
         """Gets the updated_epoch_millis of this Source.  # noqa: E501
 
@@ -294,27 +296,25 @@ class Source(object):
         self._updated_epoch_millis = updated_epoch_millis
 
     @property
-    def marked_new_epoch_millis(self):
-        """Gets the marked_new_epoch_millis of this Source.  # noqa: E501
+    def updater_id(self):
+        """Gets the updater_id of this Source.  # noqa: E501
 
-        Epoch Millis when this source was marked as ~status.new  # noqa: E501
 
-        :return: The marked_new_epoch_millis of this Source.  # noqa: E501
-        :rtype: int
+        :return: The updater_id of this Source.  # noqa: E501
+        :rtype: str
         """
-        return self._marked_new_epoch_millis
+        return self._updater_id
 
-    @marked_new_epoch_millis.setter
-    def marked_new_epoch_millis(self, marked_new_epoch_millis):
-        """Sets the marked_new_epoch_millis of this Source.
+    @updater_id.setter
+    def updater_id(self, updater_id):
+        """Sets the updater_id of this Source.
 
-        Epoch Millis when this source was marked as ~status.new  # noqa: E501
 
-        :param marked_new_epoch_millis: The marked_new_epoch_millis of this Source.  # noqa: E501
-        :type: int
+        :param updater_id: The updater_id of this Source.  # noqa: E501
+        :type: str
         """
 
-        self._marked_new_epoch_millis = marked_new_epoch_millis
+        self._updater_id = updater_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

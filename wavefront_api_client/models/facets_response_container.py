@@ -31,49 +31,26 @@ class FacetsResponseContainer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'limit': 'int',
-        'facets': 'dict(str, list[str])'
+        'facets': 'dict(str, list[str])',
+        'limit': 'int'
     }
 
     attribute_map = {
-        'limit': 'limit',
-        'facets': 'facets'
+        'facets': 'facets',
+        'limit': 'limit'
     }
 
-    def __init__(self, limit=None, facets=None):  # noqa: E501
+    def __init__(self, facets=None, limit=None):  # noqa: E501
         """FacetsResponseContainer - a model defined in Swagger"""  # noqa: E501
 
-        self._limit = None
         self._facets = None
+        self._limit = None
         self.discriminator = None
 
-        if limit is not None:
-            self.limit = limit
         if facets is not None:
             self.facets = facets
-
-    @property
-    def limit(self):
-        """Gets the limit of this FacetsResponseContainer.  # noqa: E501
-
-        The requested limit  # noqa: E501
-
-        :return: The limit of this FacetsResponseContainer.  # noqa: E501
-        :rtype: int
-        """
-        return self._limit
-
-    @limit.setter
-    def limit(self, limit):
-        """Sets the limit of this FacetsResponseContainer.
-
-        The requested limit  # noqa: E501
-
-        :param limit: The limit of this FacetsResponseContainer.  # noqa: E501
-        :type: int
-        """
-
-        self._limit = limit
+        if limit is not None:
+            self.limit = limit
 
     @property
     def facets(self):
@@ -97,6 +74,29 @@ class FacetsResponseContainer(object):
         """
 
         self._facets = facets
+
+    @property
+    def limit(self):
+        """Gets the limit of this FacetsResponseContainer.  # noqa: E501
+
+        The requested limit  # noqa: E501
+
+        :return: The limit of this FacetsResponseContainer.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit
+
+    @limit.setter
+    def limit(self, limit):
+        """Sets the limit of this FacetsResponseContainer.
+
+        The requested limit  # noqa: E501
+
+        :param limit: The limit of this FacetsResponseContainer.  # noqa: E501
+        :type: int
+        """
+
+        self._limit = limit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -32,28 +32,28 @@ class Sorting(object):
     """
     swagger_types = {
         'ascending': 'bool',
-        'field': 'str',
-        'default': 'bool'
+        'default': 'bool',
+        'field': 'str'
     }
 
     attribute_map = {
         'ascending': 'ascending',
-        'field': 'field',
-        'default': 'default'
+        'default': 'default',
+        'field': 'field'
     }
 
-    def __init__(self, ascending=None, field=None, default=None):  # noqa: E501
+    def __init__(self, ascending=None, default=None, field=None):  # noqa: E501
         """Sorting - a model defined in Swagger"""  # noqa: E501
 
         self._ascending = None
-        self._field = None
         self._default = None
+        self._field = None
         self.discriminator = None
 
         self.ascending = ascending
-        self.field = field
         if default is not None:
             self.default = default
+        self.field = field
 
     @property
     def ascending(self):
@@ -81,6 +81,29 @@ class Sorting(object):
         self._ascending = ascending
 
     @property
+    def default(self):
+        """Gets the default of this Sorting.  # noqa: E501
+
+        Whether this sort requests the default ranking order.  Ascending/descending does not matter if this attribute is true.  # noqa: E501
+
+        :return: The default of this Sorting.  # noqa: E501
+        :rtype: bool
+        """
+        return self._default
+
+    @default.setter
+    def default(self, default):
+        """Sets the default of this Sorting.
+
+        Whether this sort requests the default ranking order.  Ascending/descending does not matter if this attribute is true.  # noqa: E501
+
+        :param default: The default of this Sorting.  # noqa: E501
+        :type: bool
+        """
+
+        self._default = default
+
+    @property
     def field(self):
         """Gets the field of this Sorting.  # noqa: E501
 
@@ -104,29 +127,6 @@ class Sorting(object):
             raise ValueError("Invalid value for `field`, must not be `None`")  # noqa: E501
 
         self._field = field
-
-    @property
-    def default(self):
-        """Gets the default of this Sorting.  # noqa: E501
-
-        Whether this sort requests the default ranking order.  Ascending/descending does not matter if this attribute is true.  # noqa: E501
-
-        :return: The default of this Sorting.  # noqa: E501
-        :rtype: bool
-        """
-        return self._default
-
-    @default.setter
-    def default(self, default):
-        """Sets the default of this Sorting.
-
-        Whether this sort requests the default ranking order.  Ascending/descending does not matter if this attribute is true.  # noqa: E501
-
-        :param default: The default of this Sorting.  # noqa: E501
-        :type: bool
-        """
-
-        self._default = default
 
     def to_dict(self):
         """Returns the model properties as a dict"""

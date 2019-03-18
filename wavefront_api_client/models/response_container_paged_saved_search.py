@@ -34,25 +34,46 @@ class ResponseContainerPagedSavedSearch(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status': 'ResponseStatus',
-        'response': 'PagedSavedSearch'
+        'response': 'PagedSavedSearch',
+        'status': 'ResponseStatus'
     }
 
     attribute_map = {
-        'status': 'status',
-        'response': 'response'
+        'response': 'response',
+        'status': 'status'
     }
 
-    def __init__(self, status=None, response=None):  # noqa: E501
+    def __init__(self, response=None, status=None):  # noqa: E501
         """ResponseContainerPagedSavedSearch - a model defined in Swagger"""  # noqa: E501
 
-        self._status = None
         self._response = None
+        self._status = None
         self.discriminator = None
 
-        self.status = status
         if response is not None:
             self.response = response
+        self.status = status
+
+    @property
+    def response(self):
+        """Gets the response of this ResponseContainerPagedSavedSearch.  # noqa: E501
+
+
+        :return: The response of this ResponseContainerPagedSavedSearch.  # noqa: E501
+        :rtype: PagedSavedSearch
+        """
+        return self._response
+
+    @response.setter
+    def response(self, response):
+        """Sets the response of this ResponseContainerPagedSavedSearch.
+
+
+        :param response: The response of this ResponseContainerPagedSavedSearch.  # noqa: E501
+        :type: PagedSavedSearch
+        """
+
+        self._response = response
 
     @property
     def status(self):
@@ -76,27 +97,6 @@ class ResponseContainerPagedSavedSearch(object):
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
-
-    @property
-    def response(self):
-        """Gets the response of this ResponseContainerPagedSavedSearch.  # noqa: E501
-
-
-        :return: The response of this ResponseContainerPagedSavedSearch.  # noqa: E501
-        :rtype: PagedSavedSearch
-        """
-        return self._response
-
-    @response.setter
-    def response(self, response):
-        """Sets the response of this ResponseContainerPagedSavedSearch.
-
-
-        :param response: The response of this ResponseContainerPagedSavedSearch.  # noqa: E501
-        :type: PagedSavedSearch
-        """
-
-        self._response = response
 
     def to_dict(self):
         """Returns the model properties as a dict"""

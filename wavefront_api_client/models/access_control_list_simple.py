@@ -31,47 +31,26 @@ class AccessControlListSimple(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'can_view': 'list[str]',
-        'can_modify': 'list[str]'
+        'can_modify': 'list[str]',
+        'can_view': 'list[str]'
     }
 
     attribute_map = {
-        'can_view': 'canView',
-        'can_modify': 'canModify'
+        'can_modify': 'canModify',
+        'can_view': 'canView'
     }
 
-    def __init__(self, can_view=None, can_modify=None):  # noqa: E501
+    def __init__(self, can_modify=None, can_view=None):  # noqa: E501
         """AccessControlListSimple - a model defined in Swagger"""  # noqa: E501
 
-        self._can_view = None
         self._can_modify = None
+        self._can_view = None
         self.discriminator = None
 
-        if can_view is not None:
-            self.can_view = can_view
         if can_modify is not None:
             self.can_modify = can_modify
-
-    @property
-    def can_view(self):
-        """Gets the can_view of this AccessControlListSimple.  # noqa: E501
-
-
-        :return: The can_view of this AccessControlListSimple.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._can_view
-
-    @can_view.setter
-    def can_view(self, can_view):
-        """Sets the can_view of this AccessControlListSimple.
-
-
-        :param can_view: The can_view of this AccessControlListSimple.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._can_view = can_view
+        if can_view is not None:
+            self.can_view = can_view
 
     @property
     def can_modify(self):
@@ -93,6 +72,27 @@ class AccessControlListSimple(object):
         """
 
         self._can_modify = can_modify
+
+    @property
+    def can_view(self):
+        """Gets the can_view of this AccessControlListSimple.  # noqa: E501
+
+
+        :return: The can_view of this AccessControlListSimple.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._can_view
+
+    @can_view.setter
+    def can_view(self, can_view):
+        """Sets the can_view of this AccessControlListSimple.
+
+
+        :param can_view: The can_view of this AccessControlListSimple.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._can_view = can_view
 
     def to_dict(self):
         """Returns the model properties as a dict"""

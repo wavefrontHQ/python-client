@@ -33,67 +33,42 @@ class UserModel(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'identifier': 'str',
         'customer': 'str',
-        'sso_id': 'str',
-        'last_successful_login': 'int',
         'groups': 'list[str]',
+        'identifier': 'str',
+        'last_successful_login': 'int',
+        'sso_id': 'str',
         'user_groups': 'list[UserGroup]'
     }
 
     attribute_map = {
-        'identifier': 'identifier',
         'customer': 'customer',
-        'sso_id': 'ssoId',
-        'last_successful_login': 'lastSuccessfulLogin',
         'groups': 'groups',
+        'identifier': 'identifier',
+        'last_successful_login': 'lastSuccessfulLogin',
+        'sso_id': 'ssoId',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, identifier=None, customer=None, sso_id=None, last_successful_login=None, groups=None, user_groups=None):  # noqa: E501
+    def __init__(self, customer=None, groups=None, identifier=None, last_successful_login=None, sso_id=None, user_groups=None):  # noqa: E501
         """UserModel - a model defined in Swagger"""  # noqa: E501
 
-        self._identifier = None
         self._customer = None
-        self._sso_id = None
-        self._last_successful_login = None
         self._groups = None
+        self._identifier = None
+        self._last_successful_login = None
+        self._sso_id = None
         self._user_groups = None
         self.discriminator = None
 
-        self.identifier = identifier
         self.customer = customer
-        if sso_id is not None:
-            self.sso_id = sso_id
+        self.groups = groups
+        self.identifier = identifier
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
-        self.groups = groups
+        if sso_id is not None:
+            self.sso_id = sso_id
         self.user_groups = user_groups
-
-    @property
-    def identifier(self):
-        """Gets the identifier of this UserModel.  # noqa: E501
-
-        The unique identifier of this user, which must be their valid email address  # noqa: E501
-
-        :return: The identifier of this UserModel.  # noqa: E501
-        :rtype: str
-        """
-        return self._identifier
-
-    @identifier.setter
-    def identifier(self, identifier):
-        """Sets the identifier of this UserModel.
-
-        The unique identifier of this user, which must be their valid email address  # noqa: E501
-
-        :param identifier: The identifier of this UserModel.  # noqa: E501
-        :type: str
-        """
-        if identifier is None:
-            raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
-
-        self._identifier = identifier
 
     @property
     def customer(self):
@@ -121,48 +96,6 @@ class UserModel(object):
         self._customer = customer
 
     @property
-    def sso_id(self):
-        """Gets the sso_id of this UserModel.  # noqa: E501
-
-
-        :return: The sso_id of this UserModel.  # noqa: E501
-        :rtype: str
-        """
-        return self._sso_id
-
-    @sso_id.setter
-    def sso_id(self, sso_id):
-        """Sets the sso_id of this UserModel.
-
-
-        :param sso_id: The sso_id of this UserModel.  # noqa: E501
-        :type: str
-        """
-
-        self._sso_id = sso_id
-
-    @property
-    def last_successful_login(self):
-        """Gets the last_successful_login of this UserModel.  # noqa: E501
-
-
-        :return: The last_successful_login of this UserModel.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_successful_login
-
-    @last_successful_login.setter
-    def last_successful_login(self, last_successful_login):
-        """Sets the last_successful_login of this UserModel.
-
-
-        :param last_successful_login: The last_successful_login of this UserModel.  # noqa: E501
-        :type: int
-        """
-
-        self._last_successful_login = last_successful_login
-
-    @property
     def groups(self):
         """Gets the groups of this UserModel.  # noqa: E501
 
@@ -186,6 +119,73 @@ class UserModel(object):
             raise ValueError("Invalid value for `groups`, must not be `None`")  # noqa: E501
 
         self._groups = groups
+
+    @property
+    def identifier(self):
+        """Gets the identifier of this UserModel.  # noqa: E501
+
+        The unique identifier of this user, which must be their valid email address  # noqa: E501
+
+        :return: The identifier of this UserModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """Sets the identifier of this UserModel.
+
+        The unique identifier of this user, which must be their valid email address  # noqa: E501
+
+        :param identifier: The identifier of this UserModel.  # noqa: E501
+        :type: str
+        """
+        if identifier is None:
+            raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
+
+        self._identifier = identifier
+
+    @property
+    def last_successful_login(self):
+        """Gets the last_successful_login of this UserModel.  # noqa: E501
+
+
+        :return: The last_successful_login of this UserModel.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_successful_login
+
+    @last_successful_login.setter
+    def last_successful_login(self, last_successful_login):
+        """Sets the last_successful_login of this UserModel.
+
+
+        :param last_successful_login: The last_successful_login of this UserModel.  # noqa: E501
+        :type: int
+        """
+
+        self._last_successful_login = last_successful_login
+
+    @property
+    def sso_id(self):
+        """Gets the sso_id of this UserModel.  # noqa: E501
+
+
+        :return: The sso_id of this UserModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._sso_id
+
+    @sso_id.setter
+    def sso_id(self, sso_id):
+        """Sets the sso_id of this UserModel.
+
+
+        :param sso_id: The sso_id of this UserModel.  # noqa: E501
+        :type: str
+        """
+
+        self._sso_id = sso_id
 
     @property
     def user_groups(self):

@@ -33,49 +33,24 @@ class DashboardSection(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'rows': 'list[DashboardSectionRow]',
-        'name': 'str'
+        'name': 'str',
+        'rows': 'list[DashboardSectionRow]'
     }
 
     attribute_map = {
-        'rows': 'rows',
-        'name': 'name'
+        'name': 'name',
+        'rows': 'rows'
     }
 
-    def __init__(self, rows=None, name=None):  # noqa: E501
+    def __init__(self, name=None, rows=None):  # noqa: E501
         """DashboardSection - a model defined in Swagger"""  # noqa: E501
 
-        self._rows = None
         self._name = None
+        self._rows = None
         self.discriminator = None
 
-        self.rows = rows
         self.name = name
-
-    @property
-    def rows(self):
-        """Gets the rows of this DashboardSection.  # noqa: E501
-
-        Rows of this section  # noqa: E501
-
-        :return: The rows of this DashboardSection.  # noqa: E501
-        :rtype: list[DashboardSectionRow]
-        """
-        return self._rows
-
-    @rows.setter
-    def rows(self, rows):
-        """Sets the rows of this DashboardSection.
-
-        Rows of this section  # noqa: E501
-
-        :param rows: The rows of this DashboardSection.  # noqa: E501
-        :type: list[DashboardSectionRow]
-        """
-        if rows is None:
-            raise ValueError("Invalid value for `rows`, must not be `None`")  # noqa: E501
-
-        self._rows = rows
+        self.rows = rows
 
     @property
     def name(self):
@@ -101,6 +76,31 @@ class DashboardSection(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def rows(self):
+        """Gets the rows of this DashboardSection.  # noqa: E501
+
+        Rows of this section  # noqa: E501
+
+        :return: The rows of this DashboardSection.  # noqa: E501
+        :rtype: list[DashboardSectionRow]
+        """
+        return self._rows
+
+    @rows.setter
+    def rows(self, rows):
+        """Sets the rows of this DashboardSection.
+
+        Rows of this section  # noqa: E501
+
+        :param rows: The rows of this DashboardSection.  # noqa: E501
+        :type: list[DashboardSectionRow]
+        """
+        if rows is None:
+            raise ValueError("Invalid value for `rows`, must not be `None`")  # noqa: E501
+
+        self._rows = rows
 
     def to_dict(self):
         """Returns the model properties as a dict"""

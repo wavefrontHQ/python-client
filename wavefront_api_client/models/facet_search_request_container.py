@@ -33,41 +33,93 @@ class FacetSearchRequestContainer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'facet_query': 'str',
+        'facet_query_matching_method': 'str',
         'limit': 'int',
         'offset': 'int',
-        'query': 'list[SearchQuery]',
-        'facet_query': 'str',
-        'facet_query_matching_method': 'str'
+        'query': 'list[SearchQuery]'
     }
 
     attribute_map = {
+        'facet_query': 'facetQuery',
+        'facet_query_matching_method': 'facetQueryMatchingMethod',
         'limit': 'limit',
         'offset': 'offset',
-        'query': 'query',
-        'facet_query': 'facetQuery',
-        'facet_query_matching_method': 'facetQueryMatchingMethod'
+        'query': 'query'
     }
 
-    def __init__(self, limit=None, offset=None, query=None, facet_query=None, facet_query_matching_method=None):  # noqa: E501
+    def __init__(self, facet_query=None, facet_query_matching_method=None, limit=None, offset=None, query=None):  # noqa: E501
         """FacetSearchRequestContainer - a model defined in Swagger"""  # noqa: E501
 
+        self._facet_query = None
+        self._facet_query_matching_method = None
         self._limit = None
         self._offset = None
         self._query = None
-        self._facet_query = None
-        self._facet_query_matching_method = None
         self.discriminator = None
 
+        if facet_query is not None:
+            self.facet_query = facet_query
+        if facet_query_matching_method is not None:
+            self.facet_query_matching_method = facet_query_matching_method
         if limit is not None:
             self.limit = limit
         if offset is not None:
             self.offset = offset
         if query is not None:
             self.query = query
-        if facet_query is not None:
-            self.facet_query = facet_query
-        if facet_query_matching_method is not None:
-            self.facet_query_matching_method = facet_query_matching_method
+
+    @property
+    def facet_query(self):
+        """Gets the facet_query of this FacetSearchRequestContainer.  # noqa: E501
+
+        A string against which facet results are compared.  If the facet result CONTAINs, STARTSWITH, or is an EXACT match for this value, as specified by facetQueryMatchingMethod, then it is returned.  # noqa: E501
+
+        :return: The facet_query of this FacetSearchRequestContainer.  # noqa: E501
+        :rtype: str
+        """
+        return self._facet_query
+
+    @facet_query.setter
+    def facet_query(self, facet_query):
+        """Sets the facet_query of this FacetSearchRequestContainer.
+
+        A string against which facet results are compared.  If the facet result CONTAINs, STARTSWITH, or is an EXACT match for this value, as specified by facetQueryMatchingMethod, then it is returned.  # noqa: E501
+
+        :param facet_query: The facet_query of this FacetSearchRequestContainer.  # noqa: E501
+        :type: str
+        """
+
+        self._facet_query = facet_query
+
+    @property
+    def facet_query_matching_method(self):
+        """Gets the facet_query_matching_method of this FacetSearchRequestContainer.  # noqa: E501
+
+        The matching method used to filter when 'facetQuery' is used. Defaults to CONTAINS.  # noqa: E501
+
+        :return: The facet_query_matching_method of this FacetSearchRequestContainer.  # noqa: E501
+        :rtype: str
+        """
+        return self._facet_query_matching_method
+
+    @facet_query_matching_method.setter
+    def facet_query_matching_method(self, facet_query_matching_method):
+        """Sets the facet_query_matching_method of this FacetSearchRequestContainer.
+
+        The matching method used to filter when 'facetQuery' is used. Defaults to CONTAINS.  # noqa: E501
+
+        :param facet_query_matching_method: The facet_query_matching_method of this FacetSearchRequestContainer.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["CONTAINS", "STARTSWITH", "EXACT", "TAGPATH"]  # noqa: E501
+        if facet_query_matching_method not in allowed_values:
+            raise ValueError(
+                "Invalid value for `facet_query_matching_method` ({0}), must be one of {1}"  # noqa: E501
+                .format(facet_query_matching_method, allowed_values)
+            )
+
+        self._facet_query_matching_method = facet_query_matching_method
 
     @property
     def limit(self):
@@ -137,58 +189,6 @@ class FacetSearchRequestContainer(object):
         """
 
         self._query = query
-
-    @property
-    def facet_query(self):
-        """Gets the facet_query of this FacetSearchRequestContainer.  # noqa: E501
-
-        A string against which facet results are compared.  If the facet result CONTAINs, STARTSWITH, or is an EXACT match for this value, as specified by facetQueryMatchingMethod, then it is returned.  # noqa: E501
-
-        :return: The facet_query of this FacetSearchRequestContainer.  # noqa: E501
-        :rtype: str
-        """
-        return self._facet_query
-
-    @facet_query.setter
-    def facet_query(self, facet_query):
-        """Sets the facet_query of this FacetSearchRequestContainer.
-
-        A string against which facet results are compared.  If the facet result CONTAINs, STARTSWITH, or is an EXACT match for this value, as specified by facetQueryMatchingMethod, then it is returned.  # noqa: E501
-
-        :param facet_query: The facet_query of this FacetSearchRequestContainer.  # noqa: E501
-        :type: str
-        """
-
-        self._facet_query = facet_query
-
-    @property
-    def facet_query_matching_method(self):
-        """Gets the facet_query_matching_method of this FacetSearchRequestContainer.  # noqa: E501
-
-        The matching method used to filter when 'facetQuery' is used. Defaults to CONTAINS.  # noqa: E501
-
-        :return: The facet_query_matching_method of this FacetSearchRequestContainer.  # noqa: E501
-        :rtype: str
-        """
-        return self._facet_query_matching_method
-
-    @facet_query_matching_method.setter
-    def facet_query_matching_method(self, facet_query_matching_method):
-        """Sets the facet_query_matching_method of this FacetSearchRequestContainer.
-
-        The matching method used to filter when 'facetQuery' is used. Defaults to CONTAINS.  # noqa: E501
-
-        :param facet_query_matching_method: The facet_query_matching_method of this FacetSearchRequestContainer.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["CONTAINS", "STARTSWITH", "EXACT", "TAGPATH"]  # noqa: E501
-        if facet_query_matching_method not in allowed_values:
-            raise ValueError(
-                "Invalid value for `facet_query_matching_method` ({0}), must be one of {1}"  # noqa: E501
-                .format(facet_query_matching_method, allowed_values)
-            )
-
-        self._facet_query_matching_method = facet_query_matching_method
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,35 +33,60 @@ class NewRelicConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'api_key': 'str',
         'app_filter_regex': 'str',
         'host_filter_regex': 'str',
-        'new_relic_metric_filters': 'list[NewRelicMetricFilters]',
-        'api_key': 'str'
+        'new_relic_metric_filters': 'list[NewRelicMetricFilters]'
     }
 
     attribute_map = {
+        'api_key': 'apiKey',
         'app_filter_regex': 'appFilterRegex',
         'host_filter_regex': 'hostFilterRegex',
-        'new_relic_metric_filters': 'newRelicMetricFilters',
-        'api_key': 'apiKey'
+        'new_relic_metric_filters': 'newRelicMetricFilters'
     }
 
-    def __init__(self, app_filter_regex=None, host_filter_regex=None, new_relic_metric_filters=None, api_key=None):  # noqa: E501
+    def __init__(self, api_key=None, app_filter_regex=None, host_filter_regex=None, new_relic_metric_filters=None):  # noqa: E501
         """NewRelicConfiguration - a model defined in Swagger"""  # noqa: E501
 
+        self._api_key = None
         self._app_filter_regex = None
         self._host_filter_regex = None
         self._new_relic_metric_filters = None
-        self._api_key = None
         self.discriminator = None
 
+        self.api_key = api_key
         if app_filter_regex is not None:
             self.app_filter_regex = app_filter_regex
         if host_filter_regex is not None:
             self.host_filter_regex = host_filter_regex
         if new_relic_metric_filters is not None:
             self.new_relic_metric_filters = new_relic_metric_filters
-        self.api_key = api_key
+
+    @property
+    def api_key(self):
+        """Gets the api_key of this NewRelicConfiguration.  # noqa: E501
+
+        New Relic REST API Key.  # noqa: E501
+
+        :return: The api_key of this NewRelicConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._api_key
+
+    @api_key.setter
+    def api_key(self, api_key):
+        """Sets the api_key of this NewRelicConfiguration.
+
+        New Relic REST API Key.  # noqa: E501
+
+        :param api_key: The api_key of this NewRelicConfiguration.  # noqa: E501
+        :type: str
+        """
+        if api_key is None:
+            raise ValueError("Invalid value for `api_key`, must not be `None`")  # noqa: E501
+
+        self._api_key = api_key
 
     @property
     def app_filter_regex(self):
@@ -131,31 +156,6 @@ class NewRelicConfiguration(object):
         """
 
         self._new_relic_metric_filters = new_relic_metric_filters
-
-    @property
-    def api_key(self):
-        """Gets the api_key of this NewRelicConfiguration.  # noqa: E501
-
-        New Relic REST API Key.  # noqa: E501
-
-        :return: The api_key of this NewRelicConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._api_key
-
-    @api_key.setter
-    def api_key(self, api_key):
-        """Sets the api_key of this NewRelicConfiguration.
-
-        New Relic REST API Key.  # noqa: E501
-
-        :param api_key: The api_key of this NewRelicConfiguration.  # noqa: E501
-        :type: str
-        """
-        if api_key is None:
-            raise ValueError("Invalid value for `api_key`, must not be `None`")  # noqa: E501
-
-        self._api_key = api_key
 
     def to_dict(self):
         """Returns the model properties as a dict"""

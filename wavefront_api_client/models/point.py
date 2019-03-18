@@ -31,47 +31,24 @@ class Point(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'value': 'float',
-        'timestamp': 'int'
+        'timestamp': 'int',
+        'value': 'float'
     }
 
     attribute_map = {
-        'value': 'value',
-        'timestamp': 'timestamp'
+        'timestamp': 'timestamp',
+        'value': 'value'
     }
 
-    def __init__(self, value=None, timestamp=None):  # noqa: E501
+    def __init__(self, timestamp=None, value=None):  # noqa: E501
         """Point - a model defined in Swagger"""  # noqa: E501
 
-        self._value = None
         self._timestamp = None
+        self._value = None
         self.discriminator = None
 
-        self.value = value
         self.timestamp = timestamp
-
-    @property
-    def value(self):
-        """Gets the value of this Point.  # noqa: E501
-
-
-        :return: The value of this Point.  # noqa: E501
-        :rtype: float
-        """
-        return self._value
-
-    @value.setter
-    def value(self, value):
-        """Sets the value of this Point.
-
-
-        :param value: The value of this Point.  # noqa: E501
-        :type: float
-        """
-        if value is None:
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
-
-        self._value = value
+        self.value = value
 
     @property
     def timestamp(self):
@@ -97,6 +74,29 @@ class Point(object):
             raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
         self._timestamp = timestamp
+
+    @property
+    def value(self):
+        """Gets the value of this Point.  # noqa: E501
+
+
+        :return: The value of this Point.  # noqa: E501
+        :rtype: float
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        """Sets the value of this Point.
+
+
+        :param value: The value of this Point.  # noqa: E501
+        :type: float
+        """
+        if value is None:
+            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
+
+        self._value = value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

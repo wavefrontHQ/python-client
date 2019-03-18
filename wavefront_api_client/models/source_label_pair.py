@@ -31,46 +31,90 @@ class SourceLabelPair(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'label': 'str',
-        'severity': 'str',
-        'host': 'str',
-        'tags': 'dict(str, str)',
         'firing': 'int',
-        'observed': 'int'
+        'host': 'str',
+        'label': 'str',
+        'observed': 'int',
+        'severity': 'str',
+        'tags': 'dict(str, str)'
     }
 
     attribute_map = {
-        'label': 'label',
-        'severity': 'severity',
-        'host': 'host',
-        'tags': 'tags',
         'firing': 'firing',
-        'observed': 'observed'
+        'host': 'host',
+        'label': 'label',
+        'observed': 'observed',
+        'severity': 'severity',
+        'tags': 'tags'
     }
 
-    def __init__(self, label=None, severity=None, host=None, tags=None, firing=None, observed=None):  # noqa: E501
+    def __init__(self, firing=None, host=None, label=None, observed=None, severity=None, tags=None):  # noqa: E501
         """SourceLabelPair - a model defined in Swagger"""  # noqa: E501
 
-        self._label = None
-        self._severity = None
-        self._host = None
-        self._tags = None
         self._firing = None
+        self._host = None
+        self._label = None
         self._observed = None
+        self._severity = None
+        self._tags = None
         self.discriminator = None
 
-        if label is not None:
-            self.label = label
-        if severity is not None:
-            self.severity = severity
-        if host is not None:
-            self.host = host
-        if tags is not None:
-            self.tags = tags
         if firing is not None:
             self.firing = firing
+        if host is not None:
+            self.host = host
+        if label is not None:
+            self.label = label
         if observed is not None:
             self.observed = observed
+        if severity is not None:
+            self.severity = severity
+        if tags is not None:
+            self.tags = tags
+
+    @property
+    def firing(self):
+        """Gets the firing of this SourceLabelPair.  # noqa: E501
+
+
+        :return: The firing of this SourceLabelPair.  # noqa: E501
+        :rtype: int
+        """
+        return self._firing
+
+    @firing.setter
+    def firing(self, firing):
+        """Sets the firing of this SourceLabelPair.
+
+
+        :param firing: The firing of this SourceLabelPair.  # noqa: E501
+        :type: int
+        """
+
+        self._firing = firing
+
+    @property
+    def host(self):
+        """Gets the host of this SourceLabelPair.  # noqa: E501
+
+        Source (or host).  \"Source\" and \"host\" are synonyms in current versions of wavefront, but the host terminology is deprecated  # noqa: E501
+
+        :return: The host of this SourceLabelPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """Sets the host of this SourceLabelPair.
+
+        Source (or host).  \"Source\" and \"host\" are synonyms in current versions of wavefront, but the host terminology is deprecated  # noqa: E501
+
+        :param host: The host of this SourceLabelPair.  # noqa: E501
+        :type: str
+        """
+
+        self._host = host
 
     @property
     def label(self):
@@ -92,6 +136,27 @@ class SourceLabelPair(object):
         """
 
         self._label = label
+
+    @property
+    def observed(self):
+        """Gets the observed of this SourceLabelPair.  # noqa: E501
+
+
+        :return: The observed of this SourceLabelPair.  # noqa: E501
+        :rtype: int
+        """
+        return self._observed
+
+    @observed.setter
+    def observed(self, observed):
+        """Sets the observed of this SourceLabelPair.
+
+
+        :param observed: The observed of this SourceLabelPair.  # noqa: E501
+        :type: int
+        """
+
+        self._observed = observed
 
     @property
     def severity(self):
@@ -121,29 +186,6 @@ class SourceLabelPair(object):
         self._severity = severity
 
     @property
-    def host(self):
-        """Gets the host of this SourceLabelPair.  # noqa: E501
-
-        Source (or host).  \"Source\" and \"host\" are synonyms in current versions of wavefront, but the host terminology is deprecated  # noqa: E501
-
-        :return: The host of this SourceLabelPair.  # noqa: E501
-        :rtype: str
-        """
-        return self._host
-
-    @host.setter
-    def host(self, host):
-        """Sets the host of this SourceLabelPair.
-
-        Source (or host).  \"Source\" and \"host\" are synonyms in current versions of wavefront, but the host terminology is deprecated  # noqa: E501
-
-        :param host: The host of this SourceLabelPair.  # noqa: E501
-        :type: str
-        """
-
-        self._host = host
-
-    @property
     def tags(self):
         """Gets the tags of this SourceLabelPair.  # noqa: E501
 
@@ -163,48 +205,6 @@ class SourceLabelPair(object):
         """
 
         self._tags = tags
-
-    @property
-    def firing(self):
-        """Gets the firing of this SourceLabelPair.  # noqa: E501
-
-
-        :return: The firing of this SourceLabelPair.  # noqa: E501
-        :rtype: int
-        """
-        return self._firing
-
-    @firing.setter
-    def firing(self, firing):
-        """Sets the firing of this SourceLabelPair.
-
-
-        :param firing: The firing of this SourceLabelPair.  # noqa: E501
-        :type: int
-        """
-
-        self._firing = firing
-
-    @property
-    def observed(self):
-        """Gets the observed of this SourceLabelPair.  # noqa: E501
-
-
-        :return: The observed of this SourceLabelPair.  # noqa: E501
-        :rtype: int
-        """
-        return self._observed
-
-    @observed.setter
-    def observed(self, observed):
-        """Sets the observed of this SourceLabelPair.
-
-
-        :param observed: The observed of this SourceLabelPair.  # noqa: E501
-        :type: int
-        """
-
-        self._observed = observed
 
     def to_dict(self):
         """Returns the model properties as a dict"""
