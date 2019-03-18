@@ -31,45 +31,43 @@ class ChartSourceQuery(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'query': 'str',
         'scatter_plot_source': 'str',
         'querybuilder_serialization': 'str',
         'querybuilder_enabled': 'bool',
         'secondary_axis': 'bool',
         'source_description': 'str',
         'source_color': 'str',
-        'disabled': 'bool'
+        'query': 'str',
+        'disabled': 'bool',
+        'name': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
-        'query': 'query',
         'scatter_plot_source': 'scatterPlotSource',
         'querybuilder_serialization': 'querybuilderSerialization',
         'querybuilder_enabled': 'querybuilderEnabled',
         'secondary_axis': 'secondaryAxis',
         'source_description': 'sourceDescription',
         'source_color': 'sourceColor',
-        'disabled': 'disabled'
+        'query': 'query',
+        'disabled': 'disabled',
+        'name': 'name'
     }
 
-    def __init__(self, name=None, query=None, scatter_plot_source=None, querybuilder_serialization=None, querybuilder_enabled=None, secondary_axis=None, source_description=None, source_color=None, disabled=None):  # noqa: E501
+    def __init__(self, scatter_plot_source=None, querybuilder_serialization=None, querybuilder_enabled=None, secondary_axis=None, source_description=None, source_color=None, query=None, disabled=None, name=None):  # noqa: E501
         """ChartSourceQuery - a model defined in Swagger"""  # noqa: E501
 
-        self._name = None
-        self._query = None
         self._scatter_plot_source = None
         self._querybuilder_serialization = None
         self._querybuilder_enabled = None
         self._secondary_axis = None
         self._source_description = None
         self._source_color = None
+        self._query = None
         self._disabled = None
+        self._name = None
         self.discriminator = None
 
-        self.name = name
-        self.query = query
         if scatter_plot_source is not None:
             self.scatter_plot_source = scatter_plot_source
         if querybuilder_serialization is not None:
@@ -82,58 +80,10 @@ class ChartSourceQuery(object):
             self.source_description = source_description
         if source_color is not None:
             self.source_color = source_color
+        self.query = query
         if disabled is not None:
             self.disabled = disabled
-
-    @property
-    def name(self):
-        """Gets the name of this ChartSourceQuery.  # noqa: E501
-
-        Name of the source  # noqa: E501
-
-        :return: The name of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this ChartSourceQuery.
-
-        Name of the source  # noqa: E501
-
-        :param name: The name of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def query(self):
-        """Gets the query of this ChartSourceQuery.  # noqa: E501
-
-        Query expression to plot on the chart  # noqa: E501
-
-        :return: The query of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._query
-
-    @query.setter
-    def query(self, query):
-        """Sets the query of this ChartSourceQuery.
-
-        Query expression to plot on the chart  # noqa: E501
-
-        :param query: The query of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-        if query is None:
-            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
-
-        self._query = query
+        self.name = name
 
     @property
     def scatter_plot_source(self):
@@ -280,6 +230,31 @@ class ChartSourceQuery(object):
         self._source_color = source_color
 
     @property
+    def query(self):
+        """Gets the query of this ChartSourceQuery.  # noqa: E501
+
+        Query expression to plot on the chart  # noqa: E501
+
+        :return: The query of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """Sets the query of this ChartSourceQuery.
+
+        Query expression to plot on the chart  # noqa: E501
+
+        :param query: The query of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+        if query is None:
+            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
+
+        self._query = query
+
+    @property
     def disabled(self):
         """Gets the disabled of this ChartSourceQuery.  # noqa: E501
 
@@ -301,6 +276,31 @@ class ChartSourceQuery(object):
         """
 
         self._disabled = disabled
+
+    @property
+    def name(self):
+        """Gets the name of this ChartSourceQuery.  # noqa: E501
+
+        Name of the source  # noqa: E501
+
+        :return: The name of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ChartSourceQuery.
+
+        Name of the source  # noqa: E501
+
+        :param name: The name of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

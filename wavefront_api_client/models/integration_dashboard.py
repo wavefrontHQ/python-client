@@ -34,32 +34,32 @@ class IntegrationDashboard(object):
     """
     swagger_types = {
         'description': 'str',
-        'name': 'str',
         'url': 'str',
-        'dashboard_obj': 'Dashboard'
+        'dashboard_obj': 'Dashboard',
+        'name': 'str'
     }
 
     attribute_map = {
         'description': 'description',
-        'name': 'name',
         'url': 'url',
-        'dashboard_obj': 'dashboardObj'
+        'dashboard_obj': 'dashboardObj',
+        'name': 'name'
     }
 
-    def __init__(self, description=None, name=None, url=None, dashboard_obj=None):  # noqa: E501
+    def __init__(self, description=None, url=None, dashboard_obj=None, name=None):  # noqa: E501
         """IntegrationDashboard - a model defined in Swagger"""  # noqa: E501
 
         self._description = None
-        self._name = None
         self._url = None
         self._dashboard_obj = None
+        self._name = None
         self.discriminator = None
 
         self.description = description
-        self.name = name
         self.url = url
         if dashboard_obj is not None:
             self.dashboard_obj = dashboard_obj
+        self.name = name
 
     @property
     def description(self):
@@ -85,31 +85,6 @@ class IntegrationDashboard(object):
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
-
-    @property
-    def name(self):
-        """Gets the name of this IntegrationDashboard.  # noqa: E501
-
-        Dashboard name  # noqa: E501
-
-        :return: The name of this IntegrationDashboard.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this IntegrationDashboard.
-
-        Dashboard name  # noqa: E501
-
-        :param name: The name of this IntegrationDashboard.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
 
     @property
     def url(self):
@@ -156,6 +131,31 @@ class IntegrationDashboard(object):
         """
 
         self._dashboard_obj = dashboard_obj
+
+    @property
+    def name(self):
+        """Gets the name of this IntegrationDashboard.  # noqa: E501
+
+        Dashboard name  # noqa: E501
+
+        :return: The name of this IntegrationDashboard.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this IntegrationDashboard.
+
+        Dashboard name  # noqa: E501
+
+        :param name: The name of this IntegrationDashboard.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

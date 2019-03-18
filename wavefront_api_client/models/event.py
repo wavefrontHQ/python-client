@@ -31,96 +31,99 @@ class Event(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'end_time': 'int',
         'start_time': 'int',
         'table': 'str',
-        'end_time': 'int',
-        'name': 'str',
-        'annotations': 'dict(str, str)',
-        'id': 'str',
+        'can_delete': 'bool',
+        'can_close': 'bool',
+        'creator_type': 'list[str]',
         'tags': 'list[str]',
+        'annotations': 'dict(str, str)',
         'created_at': 'int',
         'is_user_event': 'bool',
-        'updated_at': 'int',
+        'summarized_events': 'int',
         'hosts': 'list[str]',
         'is_ephemeral': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
-        'summarized_events': 'int',
+        'updated_at': 'int',
+        'id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'can_delete': 'bool',
-        'can_close': 'bool',
-        'creator_type': 'list[str]',
-        'running_state': 'str'
+        'running_state': 'str',
+        'name': 'str'
     }
 
     attribute_map = {
+        'end_time': 'endTime',
         'start_time': 'startTime',
         'table': 'table',
-        'end_time': 'endTime',
-        'name': 'name',
-        'annotations': 'annotations',
-        'id': 'id',
+        'can_delete': 'canDelete',
+        'can_close': 'canClose',
+        'creator_type': 'creatorType',
         'tags': 'tags',
+        'annotations': 'annotations',
         'created_at': 'createdAt',
         'is_user_event': 'isUserEvent',
-        'updated_at': 'updatedAt',
+        'summarized_events': 'summarizedEvents',
         'hosts': 'hosts',
         'is_ephemeral': 'isEphemeral',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
-        'summarized_events': 'summarizedEvents',
+        'updated_at': 'updatedAt',
+        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'can_delete': 'canDelete',
-        'can_close': 'canClose',
-        'creator_type': 'creatorType',
-        'running_state': 'runningState'
+        'running_state': 'runningState',
+        'name': 'name'
     }
 
-    def __init__(self, start_time=None, table=None, end_time=None, name=None, annotations=None, id=None, tags=None, created_at=None, is_user_event=None, updated_at=None, hosts=None, is_ephemeral=None, creator_id=None, updater_id=None, summarized_events=None, created_epoch_millis=None, updated_epoch_millis=None, can_delete=None, can_close=None, creator_type=None, running_state=None):  # noqa: E501
+    def __init__(self, end_time=None, start_time=None, table=None, can_delete=None, can_close=None, creator_type=None, tags=None, annotations=None, created_at=None, is_user_event=None, summarized_events=None, hosts=None, is_ephemeral=None, creator_id=None, updater_id=None, updated_at=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, running_state=None, name=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
+        self._end_time = None
         self._start_time = None
         self._table = None
-        self._end_time = None
-        self._name = None
-        self._annotations = None
-        self._id = None
+        self._can_delete = None
+        self._can_close = None
+        self._creator_type = None
         self._tags = None
+        self._annotations = None
         self._created_at = None
         self._is_user_event = None
-        self._updated_at = None
+        self._summarized_events = None
         self._hosts = None
         self._is_ephemeral = None
         self._creator_id = None
         self._updater_id = None
-        self._summarized_events = None
+        self._updated_at = None
+        self._id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
-        self._can_delete = None
-        self._can_close = None
-        self._creator_type = None
         self._running_state = None
+        self._name = None
         self.discriminator = None
 
+        if end_time is not None:
+            self.end_time = end_time
         self.start_time = start_time
         if table is not None:
             self.table = table
-        if end_time is not None:
-            self.end_time = end_time
-        self.name = name
-        self.annotations = annotations
-        if id is not None:
-            self.id = id
+        if can_delete is not None:
+            self.can_delete = can_delete
+        if can_close is not None:
+            self.can_close = can_close
+        if creator_type is not None:
+            self.creator_type = creator_type
         if tags is not None:
             self.tags = tags
+        self.annotations = annotations
         if created_at is not None:
             self.created_at = created_at
         if is_user_event is not None:
             self.is_user_event = is_user_event
-        if updated_at is not None:
-            self.updated_at = updated_at
+        if summarized_events is not None:
+            self.summarized_events = summarized_events
         if hosts is not None:
             self.hosts = hosts
         if is_ephemeral is not None:
@@ -129,20 +132,40 @@ class Event(object):
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
-        if summarized_events is not None:
-            self.summarized_events = summarized_events
+        if updated_at is not None:
+            self.updated_at = updated_at
+        if id is not None:
+            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
-        if can_delete is not None:
-            self.can_delete = can_delete
-        if can_close is not None:
-            self.can_close = can_close
-        if creator_type is not None:
-            self.creator_type = creator_type
         if running_state is not None:
             self.running_state = running_state
+        self.name = name
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this Event.  # noqa: E501
+
+        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+
+        :return: The end_time of this Event.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this Event.
+
+        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+
+        :param end_time: The end_time of this Event.  # noqa: E501
+        :type: int
+        """
+
+        self._end_time = end_time
 
     @property
     def start_time(self):
@@ -193,52 +216,97 @@ class Event(object):
         self._table = table
 
     @property
-    def end_time(self):
-        """Gets the end_time of this Event.  # noqa: E501
+    def can_delete(self):
+        """Gets the can_delete of this Event.  # noqa: E501
 
-        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
 
-        :return: The end_time of this Event.  # noqa: E501
-        :rtype: int
+        :return: The can_delete of this Event.  # noqa: E501
+        :rtype: bool
         """
-        return self._end_time
+        return self._can_delete
 
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this Event.
+    @can_delete.setter
+    def can_delete(self, can_delete):
+        """Sets the can_delete of this Event.
 
-        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
 
-        :param end_time: The end_time of this Event.  # noqa: E501
-        :type: int
+        :param can_delete: The can_delete of this Event.  # noqa: E501
+        :type: bool
         """
 
-        self._end_time = end_time
+        self._can_delete = can_delete
 
     @property
-    def name(self):
-        """Gets the name of this Event.  # noqa: E501
+    def can_close(self):
+        """Gets the can_close of this Event.  # noqa: E501
 
-        The name of the event.  If 'annotations.prettyName' is present, 'name' will be equivalent to that value  # noqa: E501
 
-        :return: The name of this Event.  # noqa: E501
-        :rtype: str
+        :return: The can_close of this Event.  # noqa: E501
+        :rtype: bool
         """
-        return self._name
+        return self._can_close
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this Event.
+    @can_close.setter
+    def can_close(self, can_close):
+        """Sets the can_close of this Event.
 
-        The name of the event.  If 'annotations.prettyName' is present, 'name' will be equivalent to that value  # noqa: E501
 
-        :param name: The name of this Event.  # noqa: E501
-        :type: str
+        :param can_close: The can_close of this Event.  # noqa: E501
+        :type: bool
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
-        self._name = name
+        self._can_close = can_close
+
+    @property
+    def creator_type(self):
+        """Gets the creator_type of this Event.  # noqa: E501
+
+
+        :return: The creator_type of this Event.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._creator_type
+
+    @creator_type.setter
+    def creator_type(self, creator_type):
+        """Sets the creator_type of this Event.
+
+
+        :param creator_type: The creator_type of this Event.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["USER", "ALERT", "SYSTEM"]  # noqa: E501
+        if not set(creator_type).issubset(set(allowed_values)):
+            raise ValueError(
+                "Invalid values for `creator_type` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(creator_type) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._creator_type = creator_type
+
+    @property
+    def tags(self):
+        """Gets the tags of this Event.  # noqa: E501
+
+        A list of event tags  # noqa: E501
+
+        :return: The tags of this Event.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this Event.
+
+        A list of event tags  # noqa: E501
+
+        :param tags: The tags of this Event.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     @property
     def annotations(self):
@@ -264,50 +332,6 @@ class Event(object):
             raise ValueError("Invalid value for `annotations`, must not be `None`")  # noqa: E501
 
         self._annotations = annotations
-
-    @property
-    def id(self):
-        """Gets the id of this Event.  # noqa: E501
-
-
-        :return: The id of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Event.
-
-
-        :param id: The id of this Event.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def tags(self):
-        """Gets the tags of this Event.  # noqa: E501
-
-        A list of event tags  # noqa: E501
-
-        :return: The tags of this Event.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this Event.
-
-        A list of event tags  # noqa: E501
-
-        :param tags: The tags of this Event.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._tags = tags
 
     @property
     def created_at(self):
@@ -354,25 +378,27 @@ class Event(object):
         self._is_user_event = is_user_event
 
     @property
-    def updated_at(self):
-        """Gets the updated_at of this Event.  # noqa: E501
+    def summarized_events(self):
+        """Gets the summarized_events of this Event.  # noqa: E501
 
+        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
 
-        :return: The updated_at of this Event.  # noqa: E501
+        :return: The summarized_events of this Event.  # noqa: E501
         :rtype: int
         """
-        return self._updated_at
+        return self._summarized_events
 
-    @updated_at.setter
-    def updated_at(self, updated_at):
-        """Sets the updated_at of this Event.
+    @summarized_events.setter
+    def summarized_events(self, summarized_events):
+        """Sets the summarized_events of this Event.
 
+        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
 
-        :param updated_at: The updated_at of this Event.  # noqa: E501
+        :param summarized_events: The summarized_events of this Event.  # noqa: E501
         :type: int
         """
 
-        self._updated_at = updated_at
+        self._summarized_events = summarized_events
 
     @property
     def hosts(self):
@@ -463,27 +489,46 @@ class Event(object):
         self._updater_id = updater_id
 
     @property
-    def summarized_events(self):
-        """Gets the summarized_events of this Event.  # noqa: E501
+    def updated_at(self):
+        """Gets the updated_at of this Event.  # noqa: E501
 
-        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
 
-        :return: The summarized_events of this Event.  # noqa: E501
+        :return: The updated_at of this Event.  # noqa: E501
         :rtype: int
         """
-        return self._summarized_events
+        return self._updated_at
 
-    @summarized_events.setter
-    def summarized_events(self, summarized_events):
-        """Sets the summarized_events of this Event.
+    @updated_at.setter
+    def updated_at(self, updated_at):
+        """Sets the updated_at of this Event.
 
-        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
 
-        :param summarized_events: The summarized_events of this Event.  # noqa: E501
+        :param updated_at: The updated_at of this Event.  # noqa: E501
         :type: int
         """
 
-        self._summarized_events = summarized_events
+        self._updated_at = updated_at
+
+    @property
+    def id(self):
+        """Gets the id of this Event.  # noqa: E501
+
+
+        :return: The id of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Event.
+
+
+        :param id: The id of this Event.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def created_epoch_millis(self):
@@ -528,76 +573,6 @@ class Event(object):
         self._updated_epoch_millis = updated_epoch_millis
 
     @property
-    def can_delete(self):
-        """Gets the can_delete of this Event.  # noqa: E501
-
-
-        :return: The can_delete of this Event.  # noqa: E501
-        :rtype: bool
-        """
-        return self._can_delete
-
-    @can_delete.setter
-    def can_delete(self, can_delete):
-        """Sets the can_delete of this Event.
-
-
-        :param can_delete: The can_delete of this Event.  # noqa: E501
-        :type: bool
-        """
-
-        self._can_delete = can_delete
-
-    @property
-    def can_close(self):
-        """Gets the can_close of this Event.  # noqa: E501
-
-
-        :return: The can_close of this Event.  # noqa: E501
-        :rtype: bool
-        """
-        return self._can_close
-
-    @can_close.setter
-    def can_close(self, can_close):
-        """Sets the can_close of this Event.
-
-
-        :param can_close: The can_close of this Event.  # noqa: E501
-        :type: bool
-        """
-
-        self._can_close = can_close
-
-    @property
-    def creator_type(self):
-        """Gets the creator_type of this Event.  # noqa: E501
-
-
-        :return: The creator_type of this Event.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._creator_type
-
-    @creator_type.setter
-    def creator_type(self, creator_type):
-        """Sets the creator_type of this Event.
-
-
-        :param creator_type: The creator_type of this Event.  # noqa: E501
-        :type: list[str]
-        """
-        allowed_values = ["USER", "ALERT", "SYSTEM"]  # noqa: E501
-        if not set(creator_type).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `creator_type` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(creator_type) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
-
-        self._creator_type = creator_type
-
-    @property
     def running_state(self):
         """Gets the running_state of this Event.  # noqa: E501
 
@@ -623,6 +598,31 @@ class Event(object):
             )
 
         self._running_state = running_state
+
+    @property
+    def name(self):
+        """Gets the name of this Event.  # noqa: E501
+
+        The name of the event.  If 'annotations.prettyName' is present, 'name' will be equivalent to that value  # noqa: E501
+
+        :return: The name of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this Event.
+
+        The name of the event.  If 'annotations.prettyName' is present, 'name' will be equivalent to that value  # noqa: E501
+
+        :param name: The name of this Event.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

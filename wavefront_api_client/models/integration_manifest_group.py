@@ -33,58 +33,33 @@ class IntegrationManifestGroup(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'title': 'str',
         'integrations': 'list[str]',
         'integration_objs': 'list[Integration]',
+        'title': 'str',
         'subtitle': 'str'
     }
 
     attribute_map = {
-        'title': 'title',
         'integrations': 'integrations',
         'integration_objs': 'integrationObjs',
+        'title': 'title',
         'subtitle': 'subtitle'
     }
 
-    def __init__(self, title=None, integrations=None, integration_objs=None, subtitle=None):  # noqa: E501
+    def __init__(self, integrations=None, integration_objs=None, title=None, subtitle=None):  # noqa: E501
         """IntegrationManifestGroup - a model defined in Swagger"""  # noqa: E501
 
-        self._title = None
         self._integrations = None
         self._integration_objs = None
+        self._title = None
         self._subtitle = None
         self.discriminator = None
 
-        self.title = title
         self.integrations = integrations
         if integration_objs is not None:
             self.integration_objs = integration_objs
+        self.title = title
         self.subtitle = subtitle
-
-    @property
-    def title(self):
-        """Gets the title of this IntegrationManifestGroup.  # noqa: E501
-
-        Title of this integration group  # noqa: E501
-
-        :return: The title of this IntegrationManifestGroup.  # noqa: E501
-        :rtype: str
-        """
-        return self._title
-
-    @title.setter
-    def title(self, title):
-        """Sets the title of this IntegrationManifestGroup.
-
-        Title of this integration group  # noqa: E501
-
-        :param title: The title of this IntegrationManifestGroup.  # noqa: E501
-        :type: str
-        """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
-
-        self._title = title
 
     @property
     def integrations(self):
@@ -133,6 +108,31 @@ class IntegrationManifestGroup(object):
         """
 
         self._integration_objs = integration_objs
+
+    @property
+    def title(self):
+        """Gets the title of this IntegrationManifestGroup.  # noqa: E501
+
+        Title of this integration group  # noqa: E501
+
+        :return: The title of this IntegrationManifestGroup.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this IntegrationManifestGroup.
+
+        Title of this integration group  # noqa: E501
+
+        :param title: The title of this IntegrationManifestGroup.  # noqa: E501
+        :type: str
+        """
+        if title is None:
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+
+        self._title = title
 
     @property
     def subtitle(self):

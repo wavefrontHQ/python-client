@@ -31,64 +31,59 @@ class GCPConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'categories_to_fetch': 'list[str]',
+        'project_id': 'str',
         'metric_filter_regex': 'str',
         'gcp_json_key': 'str',
-        'project_id': 'str'
+        'categories_to_fetch': 'list[str]'
     }
 
     attribute_map = {
-        'categories_to_fetch': 'categoriesToFetch',
+        'project_id': 'projectId',
         'metric_filter_regex': 'metricFilterRegex',
         'gcp_json_key': 'gcpJsonKey',
-        'project_id': 'projectId'
+        'categories_to_fetch': 'categoriesToFetch'
     }
 
-    def __init__(self, categories_to_fetch=None, metric_filter_regex=None, gcp_json_key=None, project_id=None):  # noqa: E501
+    def __init__(self, project_id=None, metric_filter_regex=None, gcp_json_key=None, categories_to_fetch=None):  # noqa: E501
         """GCPConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._categories_to_fetch = None
+        self._project_id = None
         self._metric_filter_regex = None
         self._gcp_json_key = None
-        self._project_id = None
+        self._categories_to_fetch = None
         self.discriminator = None
 
-        if categories_to_fetch is not None:
-            self.categories_to_fetch = categories_to_fetch
+        self.project_id = project_id
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
         self.gcp_json_key = gcp_json_key
-        self.project_id = project_id
+        if categories_to_fetch is not None:
+            self.categories_to_fetch = categories_to_fetch
 
     @property
-    def categories_to_fetch(self):
-        """Gets the categories_to_fetch of this GCPConfiguration.  # noqa: E501
+    def project_id(self):
+        """Gets the project_id of this GCPConfiguration.  # noqa: E501
 
-        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, LOGGING, ML, PUBSUB, ROUTER, SPANNER, STORAGE, VPN  # noqa: E501
+        The Google Cloud Platform (GCP) project id.  # noqa: E501
 
-        :return: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
-        :rtype: list[str]
+        :return: The project_id of this GCPConfiguration.  # noqa: E501
+        :rtype: str
         """
-        return self._categories_to_fetch
+        return self._project_id
 
-    @categories_to_fetch.setter
-    def categories_to_fetch(self, categories_to_fetch):
-        """Sets the categories_to_fetch of this GCPConfiguration.
+    @project_id.setter
+    def project_id(self, project_id):
+        """Sets the project_id of this GCPConfiguration.
 
-        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, LOGGING, ML, PUBSUB, ROUTER, SPANNER, STORAGE, VPN  # noqa: E501
+        The Google Cloud Platform (GCP) project id.  # noqa: E501
 
-        :param categories_to_fetch: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
-        :type: list[str]
+        :param project_id: The project_id of this GCPConfiguration.  # noqa: E501
+        :type: str
         """
-        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "INTERCONNECT", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "REDIS", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN"]  # noqa: E501
-        if not set(categories_to_fetch).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `categories_to_fetch` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(categories_to_fetch) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
+        if project_id is None:
+            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
 
-        self._categories_to_fetch = categories_to_fetch
+        self._project_id = project_id
 
     @property
     def metric_filter_regex(self):
@@ -139,29 +134,34 @@ class GCPConfiguration(object):
         self._gcp_json_key = gcp_json_key
 
     @property
-    def project_id(self):
-        """Gets the project_id of this GCPConfiguration.  # noqa: E501
+    def categories_to_fetch(self):
+        """Gets the categories_to_fetch of this GCPConfiguration.  # noqa: E501
 
-        The Google Cloud Platform (GCP) project id.  # noqa: E501
+        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, LOGGING, ML, PUBSUB, ROUTER, SPANNER, STORAGE, VPN  # noqa: E501
 
-        :return: The project_id of this GCPConfiguration.  # noqa: E501
-        :rtype: str
+        :return: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._project_id
+        return self._categories_to_fetch
 
-    @project_id.setter
-    def project_id(self, project_id):
-        """Sets the project_id of this GCPConfiguration.
+    @categories_to_fetch.setter
+    def categories_to_fetch(self, categories_to_fetch):
+        """Sets the categories_to_fetch of this GCPConfiguration.
 
-        The Google Cloud Platform (GCP) project id.  # noqa: E501
+        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, LOGGING, ML, PUBSUB, ROUTER, SPANNER, STORAGE, VPN  # noqa: E501
 
-        :param project_id: The project_id of this GCPConfiguration.  # noqa: E501
-        :type: str
+        :param categories_to_fetch: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
+        :type: list[str]
         """
-        if project_id is None:
-            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
+        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "INTERCONNECT", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "REDIS", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN"]  # noqa: E501
+        if not set(categories_to_fetch).issubset(set(allowed_values)):
+            raise ValueError(
+                "Invalid values for `categories_to_fetch` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(categories_to_fetch) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
 
-        self._project_id = project_id
+        self._categories_to_fetch = categories_to_fetch
 
     def to_dict(self):
         """Returns the model properties as a dict"""

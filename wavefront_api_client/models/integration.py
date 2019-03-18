@@ -37,17 +37,16 @@ class Integration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'version': 'str',
-        'metrics': 'IntegrationMetrics',
-        'icon': 'str',
         'description': 'str',
-        'name': 'str',
-        'id': 'str',
+        'version': 'str',
+        'icon': 'str',
+        'metrics': 'IntegrationMetrics',
         'base_url': 'str',
         'status': 'IntegrationStatus',
         'alerts': 'list[IntegrationAlert]',
         'creator_id': 'str',
         'updater_id': 'str',
+        'id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'alias_of': 'str',
@@ -55,21 +54,21 @@ class Integration(object):
         'dashboards': 'list[IntegrationDashboard]',
         'deleted': 'bool',
         'overview': 'str',
-        'setup': 'str'
+        'setup': 'str',
+        'name': 'str'
     }
 
     attribute_map = {
-        'version': 'version',
-        'metrics': 'metrics',
-        'icon': 'icon',
         'description': 'description',
-        'name': 'name',
-        'id': 'id',
+        'version': 'version',
+        'icon': 'icon',
+        'metrics': 'metrics',
         'base_url': 'baseUrl',
         'status': 'status',
         'alerts': 'alerts',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
+        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'alias_of': 'aliasOf',
@@ -77,23 +76,23 @@ class Integration(object):
         'dashboards': 'dashboards',
         'deleted': 'deleted',
         'overview': 'overview',
-        'setup': 'setup'
+        'setup': 'setup',
+        'name': 'name'
     }
 
-    def __init__(self, version=None, metrics=None, icon=None, description=None, name=None, id=None, base_url=None, status=None, alerts=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, alias_of=None, alias_integrations=None, dashboards=None, deleted=None, overview=None, setup=None):  # noqa: E501
+    def __init__(self, description=None, version=None, icon=None, metrics=None, base_url=None, status=None, alerts=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, alias_of=None, alias_integrations=None, dashboards=None, deleted=None, overview=None, setup=None, name=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
 
-        self._version = None
-        self._metrics = None
-        self._icon = None
         self._description = None
-        self._name = None
-        self._id = None
+        self._version = None
+        self._icon = None
+        self._metrics = None
         self._base_url = None
         self._status = None
         self._alerts = None
         self._creator_id = None
         self._updater_id = None
+        self._id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._alias_of = None
@@ -102,16 +101,14 @@ class Integration(object):
         self._deleted = None
         self._overview = None
         self._setup = None
+        self._name = None
         self.discriminator = None
 
+        self.description = description
         self.version = version
+        self.icon = icon
         if metrics is not None:
             self.metrics = metrics
-        self.icon = icon
-        self.description = description
-        self.name = name
-        if id is not None:
-            self.id = id
         if base_url is not None:
             self.base_url = base_url
         if status is not None:
@@ -122,6 +119,8 @@ class Integration(object):
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
+        if id is not None:
+            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
@@ -138,77 +137,7 @@ class Integration(object):
             self.overview = overview
         if setup is not None:
             self.setup = setup
-
-    @property
-    def version(self):
-        """Gets the version of this Integration.  # noqa: E501
-
-        Integration version string  # noqa: E501
-
-        :return: The version of this Integration.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this Integration.
-
-        Integration version string  # noqa: E501
-
-        :param version: The version of this Integration.  # noqa: E501
-        :type: str
-        """
-        if version is None:
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
-
-        self._version = version
-
-    @property
-    def metrics(self):
-        """Gets the metrics of this Integration.  # noqa: E501
-
-
-        :return: The metrics of this Integration.  # noqa: E501
-        :rtype: IntegrationMetrics
-        """
-        return self._metrics
-
-    @metrics.setter
-    def metrics(self, metrics):
-        """Sets the metrics of this Integration.
-
-
-        :param metrics: The metrics of this Integration.  # noqa: E501
-        :type: IntegrationMetrics
-        """
-
-        self._metrics = metrics
-
-    @property
-    def icon(self):
-        """Gets the icon of this Integration.  # noqa: E501
-
-        URI path to the integration icon  # noqa: E501
-
-        :return: The icon of this Integration.  # noqa: E501
-        :rtype: str
-        """
-        return self._icon
-
-    @icon.setter
-    def icon(self, icon):
-        """Sets the icon of this Integration.
-
-        URI path to the integration icon  # noqa: E501
-
-        :param icon: The icon of this Integration.  # noqa: E501
-        :type: str
-        """
-        if icon is None:
-            raise ValueError("Invalid value for `icon`, must not be `None`")  # noqa: E501
-
-        self._icon = icon
+        self.name = name
 
     @property
     def description(self):
@@ -236,50 +165,75 @@ class Integration(object):
         self._description = description
 
     @property
-    def name(self):
-        """Gets the name of this Integration.  # noqa: E501
+    def version(self):
+        """Gets the version of this Integration.  # noqa: E501
 
-        Integration name  # noqa: E501
+        Integration version string  # noqa: E501
 
-        :return: The name of this Integration.  # noqa: E501
+        :return: The version of this Integration.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._version
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this Integration.
+    @version.setter
+    def version(self, version):
+        """Sets the version of this Integration.
 
-        Integration name  # noqa: E501
+        Integration version string  # noqa: E501
 
-        :param name: The name of this Integration.  # noqa: E501
+        :param version: The version of this Integration.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
-        self._name = name
+        self._version = version
 
     @property
-    def id(self):
-        """Gets the id of this Integration.  # noqa: E501
+    def icon(self):
+        """Gets the icon of this Integration.  # noqa: E501
 
+        URI path to the integration icon  # noqa: E501
 
-        :return: The id of this Integration.  # noqa: E501
+        :return: The icon of this Integration.  # noqa: E501
         :rtype: str
         """
-        return self._id
+        return self._icon
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Integration.
+    @icon.setter
+    def icon(self, icon):
+        """Sets the icon of this Integration.
 
+        URI path to the integration icon  # noqa: E501
 
-        :param id: The id of this Integration.  # noqa: E501
+        :param icon: The icon of this Integration.  # noqa: E501
         :type: str
         """
+        if icon is None:
+            raise ValueError("Invalid value for `icon`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._icon = icon
+
+    @property
+    def metrics(self):
+        """Gets the metrics of this Integration.  # noqa: E501
+
+
+        :return: The metrics of this Integration.  # noqa: E501
+        :rtype: IntegrationMetrics
+        """
+        return self._metrics
+
+    @metrics.setter
+    def metrics(self, metrics):
+        """Sets the metrics of this Integration.
+
+
+        :param metrics: The metrics of this Integration.  # noqa: E501
+        :type: IntegrationMetrics
+        """
+
+        self._metrics = metrics
 
     @property
     def base_url(self):
@@ -389,6 +343,27 @@ class Integration(object):
         """
 
         self._updater_id = updater_id
+
+    @property
+    def id(self):
+        """Gets the id of this Integration.  # noqa: E501
+
+
+        :return: The id of this Integration.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Integration.
+
+
+        :param id: The id of this Integration.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def created_epoch_millis(self):
@@ -567,6 +542,31 @@ class Integration(object):
         """
 
         self._setup = setup
+
+    @property
+    def name(self):
+        """Gets the name of this Integration.  # noqa: E501
+
+        Integration name  # noqa: E501
+
+        :return: The name of this Integration.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this Integration.
+
+        Integration name  # noqa: E501
+
+        :param name: The name of this Integration.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -31,99 +31,68 @@ class Message(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'scope': 'str',
         'attributes': 'dict(str, str)',
         'source': 'str',
+        'scope': 'str',
         'severity': 'str',
-        'id': 'str',
-        'target': 'str',
-        'content': 'str',
+        'read': 'bool',
         'title': 'str',
+        'id': 'str',
+        'content': 'str',
         'start_epoch_millis': 'int',
         'end_epoch_millis': 'int',
         'display': 'str',
-        'read': 'bool'
+        'target': 'str'
     }
 
     attribute_map = {
-        'scope': 'scope',
         'attributes': 'attributes',
         'source': 'source',
+        'scope': 'scope',
         'severity': 'severity',
-        'id': 'id',
-        'target': 'target',
-        'content': 'content',
+        'read': 'read',
         'title': 'title',
+        'id': 'id',
+        'content': 'content',
         'start_epoch_millis': 'startEpochMillis',
         'end_epoch_millis': 'endEpochMillis',
         'display': 'display',
-        'read': 'read'
+        'target': 'target'
     }
 
-    def __init__(self, scope=None, attributes=None, source=None, severity=None, id=None, target=None, content=None, title=None, start_epoch_millis=None, end_epoch_millis=None, display=None, read=None):  # noqa: E501
+    def __init__(self, attributes=None, source=None, scope=None, severity=None, read=None, title=None, id=None, content=None, start_epoch_millis=None, end_epoch_millis=None, display=None, target=None):  # noqa: E501
         """Message - a model defined in Swagger"""  # noqa: E501
 
-        self._scope = None
         self._attributes = None
         self._source = None
+        self._scope = None
         self._severity = None
-        self._id = None
-        self._target = None
-        self._content = None
+        self._read = None
         self._title = None
+        self._id = None
+        self._content = None
         self._start_epoch_millis = None
         self._end_epoch_millis = None
         self._display = None
-        self._read = None
+        self._target = None
         self.discriminator = None
 
-        self.scope = scope
         if attributes is not None:
             self.attributes = attributes
         self.source = source
+        self.scope = scope
         self.severity = severity
+        if read is not None:
+            self.read = read
+        self.title = title
         if id is not None:
             self.id = id
-        if target is not None:
-            self.target = target
         self.content = content
-        self.title = title
         self.start_epoch_millis = start_epoch_millis
         self.end_epoch_millis = end_epoch_millis
         self.display = display
-        if read is not None:
-            self.read = read
-
-    @property
-    def scope(self):
-        """Gets the scope of this Message.  # noqa: E501
-
-        The audience scope that this message should reach  # noqa: E501
-
-        :return: The scope of this Message.  # noqa: E501
-        :rtype: str
-        """
-        return self._scope
-
-    @scope.setter
-    def scope(self, scope):
-        """Sets the scope of this Message.
-
-        The audience scope that this message should reach  # noqa: E501
-
-        :param scope: The scope of this Message.  # noqa: E501
-        :type: str
-        """
-        if scope is None:
-            raise ValueError("Invalid value for `scope`, must not be `None`")  # noqa: E501
-        allowed_values = ["CLUSTER", "CUSTOMER", "USER"]  # noqa: E501
-        if scope not in allowed_values:
-            raise ValueError(
-                "Invalid value for `scope` ({0}), must be one of {1}"  # noqa: E501
-                .format(scope, allowed_values)
-            )
-
-        self._scope = scope
+        if target is not None:
+            self.target = target
 
     @property
     def attributes(self):
@@ -174,6 +143,37 @@ class Message(object):
         self._source = source
 
     @property
+    def scope(self):
+        """Gets the scope of this Message.  # noqa: E501
+
+        The audience scope that this message should reach  # noqa: E501
+
+        :return: The scope of this Message.  # noqa: E501
+        :rtype: str
+        """
+        return self._scope
+
+    @scope.setter
+    def scope(self, scope):
+        """Sets the scope of this Message.
+
+        The audience scope that this message should reach  # noqa: E501
+
+        :param scope: The scope of this Message.  # noqa: E501
+        :type: str
+        """
+        if scope is None:
+            raise ValueError("Invalid value for `scope`, must not be `None`")  # noqa: E501
+        allowed_values = ["CLUSTER", "CUSTOMER", "USER"]  # noqa: E501
+        if scope not in allowed_values:
+            raise ValueError(
+                "Invalid value for `scope` ({0}), must be one of {1}"  # noqa: E501
+                .format(scope, allowed_values)
+            )
+
+        self._scope = scope
+
+    @property
     def severity(self):
         """Gets the severity of this Message.  # noqa: E501
 
@@ -205,73 +205,27 @@ class Message(object):
         self._severity = severity
 
     @property
-    def id(self):
-        """Gets the id of this Message.  # noqa: E501
+    def read(self):
+        """Gets the read of this Message.  # noqa: E501
 
+        A derived field for whether the current user has read this message  # noqa: E501
 
-        :return: The id of this Message.  # noqa: E501
-        :rtype: str
+        :return: The read of this Message.  # noqa: E501
+        :rtype: bool
         """
-        return self._id
+        return self._read
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Message.
+    @read.setter
+    def read(self, read):
+        """Sets the read of this Message.
 
+        A derived field for whether the current user has read this message  # noqa: E501
 
-        :param id: The id of this Message.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def target(self):
-        """Gets the target of this Message.  # noqa: E501
-
-        For scope=CUSTOMER or scope=USER, the individual customer or user id  # noqa: E501
-
-        :return: The target of this Message.  # noqa: E501
-        :rtype: str
-        """
-        return self._target
-
-    @target.setter
-    def target(self, target):
-        """Sets the target of this Message.
-
-        For scope=CUSTOMER or scope=USER, the individual customer or user id  # noqa: E501
-
-        :param target: The target of this Message.  # noqa: E501
-        :type: str
+        :param read: The read of this Message.  # noqa: E501
+        :type: bool
         """
 
-        self._target = target
-
-    @property
-    def content(self):
-        """Gets the content of this Message.  # noqa: E501
-
-        Message content  # noqa: E501
-
-        :return: The content of this Message.  # noqa: E501
-        :rtype: str
-        """
-        return self._content
-
-    @content.setter
-    def content(self, content):
-        """Sets the content of this Message.
-
-        Message content  # noqa: E501
-
-        :param content: The content of this Message.  # noqa: E501
-        :type: str
-        """
-        if content is None:
-            raise ValueError("Invalid value for `content`, must not be `None`")  # noqa: E501
-
-        self._content = content
+        self._read = read
 
     @property
     def title(self):
@@ -297,6 +251,52 @@ class Message(object):
             raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
+
+    @property
+    def id(self):
+        """Gets the id of this Message.  # noqa: E501
+
+
+        :return: The id of this Message.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Message.
+
+
+        :param id: The id of this Message.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def content(self):
+        """Gets the content of this Message.  # noqa: E501
+
+        Message content  # noqa: E501
+
+        :return: The content of this Message.  # noqa: E501
+        :rtype: str
+        """
+        return self._content
+
+    @content.setter
+    def content(self, content):
+        """Sets the content of this Message.
+
+        Message content  # noqa: E501
+
+        :param content: The content of this Message.  # noqa: E501
+        :type: str
+        """
+        if content is None:
+            raise ValueError("Invalid value for `content`, must not be `None`")  # noqa: E501
+
+        self._content = content
 
     @property
     def start_epoch_millis(self):
@@ -380,27 +380,27 @@ class Message(object):
         self._display = display
 
     @property
-    def read(self):
-        """Gets the read of this Message.  # noqa: E501
+    def target(self):
+        """Gets the target of this Message.  # noqa: E501
 
-        A derived field for whether the current user has read this message  # noqa: E501
+        For scope=CUSTOMER or scope=USER, the individual customer or user id  # noqa: E501
 
-        :return: The read of this Message.  # noqa: E501
-        :rtype: bool
+        :return: The target of this Message.  # noqa: E501
+        :rtype: str
         """
-        return self._read
+        return self._target
 
-    @read.setter
-    def read(self, read):
-        """Sets the read of this Message.
+    @target.setter
+    def target(self, target):
+        """Sets the target of this Message.
 
-        A derived field for whether the current user has read this message  # noqa: E501
+        For scope=CUSTOMER or scope=USER, the individual customer or user id  # noqa: E501
 
-        :param read: The read of this Message.  # noqa: E501
-        :type: bool
+        :param target: The target of this Message.  # noqa: E501
+        :type: str
         """
 
-        self._read = read
+        self._target = target
 
     def to_dict(self):
         """Returns the model properties as a dict"""

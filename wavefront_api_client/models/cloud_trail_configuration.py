@@ -33,64 +33,39 @@ class CloudTrailConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'region': 'str',
         'prefix': 'str',
         'base_credentials': 'AWSBaseCredentials',
+        'region': 'str',
         'filter_rule': 'str',
         'bucket_name': 'str'
     }
 
     attribute_map = {
-        'region': 'region',
         'prefix': 'prefix',
         'base_credentials': 'baseCredentials',
+        'region': 'region',
         'filter_rule': 'filterRule',
         'bucket_name': 'bucketName'
     }
 
-    def __init__(self, region=None, prefix=None, base_credentials=None, filter_rule=None, bucket_name=None):  # noqa: E501
+    def __init__(self, prefix=None, base_credentials=None, region=None, filter_rule=None, bucket_name=None):  # noqa: E501
         """CloudTrailConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._region = None
         self._prefix = None
         self._base_credentials = None
+        self._region = None
         self._filter_rule = None
         self._bucket_name = None
         self.discriminator = None
 
-        self.region = region
         if prefix is not None:
             self.prefix = prefix
         if base_credentials is not None:
             self.base_credentials = base_credentials
+        self.region = region
         if filter_rule is not None:
             self.filter_rule = filter_rule
         self.bucket_name = bucket_name
-
-    @property
-    def region(self):
-        """Gets the region of this CloudTrailConfiguration.  # noqa: E501
-
-        The AWS region of the S3 bucket where CloudTrail logs are stored  # noqa: E501
-
-        :return: The region of this CloudTrailConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._region
-
-    @region.setter
-    def region(self, region):
-        """Sets the region of this CloudTrailConfiguration.
-
-        The AWS region of the S3 bucket where CloudTrail logs are stored  # noqa: E501
-
-        :param region: The region of this CloudTrailConfiguration.  # noqa: E501
-        :type: str
-        """
-        if region is None:
-            raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
-
-        self._region = region
 
     @property
     def prefix(self):
@@ -135,6 +110,31 @@ class CloudTrailConfiguration(object):
         """
 
         self._base_credentials = base_credentials
+
+    @property
+    def region(self):
+        """Gets the region of this CloudTrailConfiguration.  # noqa: E501
+
+        The AWS region of the S3 bucket where CloudTrail logs are stored  # noqa: E501
+
+        :return: The region of this CloudTrailConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._region
+
+    @region.setter
+    def region(self, region):
+        """Sets the region of this CloudTrailConfiguration.
+
+        The AWS region of the S3 bucket where CloudTrail logs are stored  # noqa: E501
+
+        :param region: The region of this CloudTrailConfiguration.  # noqa: E501
+        :type: str
+        """
+        if region is None:
+            raise ValueError("Invalid value for `region`, must not be `None`")  # noqa: E501
+
+        self._region = region
 
     @property
     def filter_rule(self):

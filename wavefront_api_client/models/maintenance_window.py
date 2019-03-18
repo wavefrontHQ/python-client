@@ -32,78 +32,76 @@ class MaintenanceWindow(object):
     """
     swagger_types = {
         'reason': 'str',
-        'id': 'str',
         'customer_id': 'str',
+        'relevant_customer_tags': 'list[str]',
         'title': 'str',
         'start_time_in_seconds': 'int',
         'end_time_in_seconds': 'int',
-        'relevant_customer_tags': 'list[str]',
         'relevant_host_tags': 'list[str]',
         'relevant_host_names': 'list[str]',
         'creator_id': 'str',
         'updater_id': 'str',
+        'id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
         'relevant_host_tags_anded': 'bool',
         'host_tag_group_host_names_group_anded': 'bool',
         'event_name': 'str',
-        'running_state': 'str',
-        'sort_attr': 'int'
+        'sort_attr': 'int',
+        'running_state': 'str'
     }
 
     attribute_map = {
         'reason': 'reason',
-        'id': 'id',
         'customer_id': 'customerId',
+        'relevant_customer_tags': 'relevantCustomerTags',
         'title': 'title',
         'start_time_in_seconds': 'startTimeInSeconds',
         'end_time_in_seconds': 'endTimeInSeconds',
-        'relevant_customer_tags': 'relevantCustomerTags',
         'relevant_host_tags': 'relevantHostTags',
         'relevant_host_names': 'relevantHostNames',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
+        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
         'relevant_host_tags_anded': 'relevantHostTagsAnded',
         'host_tag_group_host_names_group_anded': 'hostTagGroupHostNamesGroupAnded',
         'event_name': 'eventName',
-        'running_state': 'runningState',
-        'sort_attr': 'sortAttr'
+        'sort_attr': 'sortAttr',
+        'running_state': 'runningState'
     }
 
-    def __init__(self, reason=None, id=None, customer_id=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, relevant_customer_tags=None, relevant_host_tags=None, relevant_host_names=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None, event_name=None, running_state=None, sort_attr=None):  # noqa: E501
+    def __init__(self, reason=None, customer_id=None, relevant_customer_tags=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, relevant_host_tags=None, relevant_host_names=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None, event_name=None, sort_attr=None, running_state=None):  # noqa: E501
         """MaintenanceWindow - a model defined in Swagger"""  # noqa: E501
 
         self._reason = None
-        self._id = None
         self._customer_id = None
+        self._relevant_customer_tags = None
         self._title = None
         self._start_time_in_seconds = None
         self._end_time_in_seconds = None
-        self._relevant_customer_tags = None
         self._relevant_host_tags = None
         self._relevant_host_names = None
         self._creator_id = None
         self._updater_id = None
+        self._id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._relevant_host_tags_anded = None
         self._host_tag_group_host_names_group_anded = None
         self._event_name = None
-        self._running_state = None
         self._sort_attr = None
+        self._running_state = None
         self.discriminator = None
 
         self.reason = reason
-        if id is not None:
-            self.id = id
         if customer_id is not None:
             self.customer_id = customer_id
+        self.relevant_customer_tags = relevant_customer_tags
         self.title = title
         self.start_time_in_seconds = start_time_in_seconds
         self.end_time_in_seconds = end_time_in_seconds
-        self.relevant_customer_tags = relevant_customer_tags
         if relevant_host_tags is not None:
             self.relevant_host_tags = relevant_host_tags
         if relevant_host_names is not None:
@@ -112,6 +110,8 @@ class MaintenanceWindow(object):
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
+        if id is not None:
+            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
@@ -122,10 +122,10 @@ class MaintenanceWindow(object):
             self.host_tag_group_host_names_group_anded = host_tag_group_host_names_group_anded
         if event_name is not None:
             self.event_name = event_name
-        if running_state is not None:
-            self.running_state = running_state
         if sort_attr is not None:
             self.sort_attr = sort_attr
+        if running_state is not None:
+            self.running_state = running_state
 
     @property
     def reason(self):
@@ -153,27 +153,6 @@ class MaintenanceWindow(object):
         self._reason = reason
 
     @property
-    def id(self):
-        """Gets the id of this MaintenanceWindow.  # noqa: E501
-
-
-        :return: The id of this MaintenanceWindow.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this MaintenanceWindow.
-
-
-        :param id: The id of this MaintenanceWindow.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
     def customer_id(self):
         """Gets the customer_id of this MaintenanceWindow.  # noqa: E501
 
@@ -193,6 +172,31 @@ class MaintenanceWindow(object):
         """
 
         self._customer_id = customer_id
+
+    @property
+    def relevant_customer_tags(self):
+        """Gets the relevant_customer_tags of this MaintenanceWindow.  # noqa: E501
+
+        List of alert tags whose matching alerts will be put into maintenance because of this maintenance window  # noqa: E501
+
+        :return: The relevant_customer_tags of this MaintenanceWindow.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._relevant_customer_tags
+
+    @relevant_customer_tags.setter
+    def relevant_customer_tags(self, relevant_customer_tags):
+        """Sets the relevant_customer_tags of this MaintenanceWindow.
+
+        List of alert tags whose matching alerts will be put into maintenance because of this maintenance window  # noqa: E501
+
+        :param relevant_customer_tags: The relevant_customer_tags of this MaintenanceWindow.  # noqa: E501
+        :type: list[str]
+        """
+        if relevant_customer_tags is None:
+            raise ValueError("Invalid value for `relevant_customer_tags`, must not be `None`")  # noqa: E501
+
+        self._relevant_customer_tags = relevant_customer_tags
 
     @property
     def title(self):
@@ -268,31 +272,6 @@ class MaintenanceWindow(object):
             raise ValueError("Invalid value for `end_time_in_seconds`, must not be `None`")  # noqa: E501
 
         self._end_time_in_seconds = end_time_in_seconds
-
-    @property
-    def relevant_customer_tags(self):
-        """Gets the relevant_customer_tags of this MaintenanceWindow.  # noqa: E501
-
-        List of alert tags whose matching alerts will be put into maintenance because of this maintenance window  # noqa: E501
-
-        :return: The relevant_customer_tags of this MaintenanceWindow.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._relevant_customer_tags
-
-    @relevant_customer_tags.setter
-    def relevant_customer_tags(self, relevant_customer_tags):
-        """Sets the relevant_customer_tags of this MaintenanceWindow.
-
-        List of alert tags whose matching alerts will be put into maintenance because of this maintenance window  # noqa: E501
-
-        :param relevant_customer_tags: The relevant_customer_tags of this MaintenanceWindow.  # noqa: E501
-        :type: list[str]
-        """
-        if relevant_customer_tags is None:
-            raise ValueError("Invalid value for `relevant_customer_tags`, must not be `None`")  # noqa: E501
-
-        self._relevant_customer_tags = relevant_customer_tags
 
     @property
     def relevant_host_tags(self):
@@ -381,6 +360,27 @@ class MaintenanceWindow(object):
         """
 
         self._updater_id = updater_id
+
+    @property
+    def id(self):
+        """Gets the id of this MaintenanceWindow.  # noqa: E501
+
+
+        :return: The id of this MaintenanceWindow.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this MaintenanceWindow.
+
+
+        :param id: The id of this MaintenanceWindow.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def created_epoch_millis(self):
@@ -494,6 +494,29 @@ class MaintenanceWindow(object):
         self._event_name = event_name
 
     @property
+    def sort_attr(self):
+        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
+
+        Numeric value used in default sorting  # noqa: E501
+
+        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :rtype: int
+        """
+        return self._sort_attr
+
+    @sort_attr.setter
+    def sort_attr(self, sort_attr):
+        """Sets the sort_attr of this MaintenanceWindow.
+
+        Numeric value used in default sorting  # noqa: E501
+
+        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :type: int
+        """
+
+        self._sort_attr = sort_attr
+
+    @property
     def running_state(self):
         """Gets the running_state of this MaintenanceWindow.  # noqa: E501
 
@@ -519,29 +542,6 @@ class MaintenanceWindow(object):
             )
 
         self._running_state = running_state
-
-    @property
-    def sort_attr(self):
-        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
-
-        Numeric value used in default sorting  # noqa: E501
-
-        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
-        :rtype: int
-        """
-        return self._sort_attr
-
-    @sort_attr.setter
-    def sort_attr(self, sort_attr):
-        """Sets the sort_attr of this MaintenanceWindow.
-
-        Numeric value used in default sorting  # noqa: E501
-
-        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
-        :type: int
-        """
-
-        self._sort_attr = sort_attr
 
     def to_dict(self):
         """Returns the model properties as a dict"""

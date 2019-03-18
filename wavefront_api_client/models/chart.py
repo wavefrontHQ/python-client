@@ -36,55 +36,56 @@ class Chart(object):
     """
     swagger_types = {
         'base': 'int',
-        'units': 'str',
         'description': 'str',
-        'name': 'str',
+        'units': 'str',
+        'interpolate_points': 'bool',
         'sources': 'list[ChartSourceQuery]',
         'include_obsolete_metrics': 'bool',
         'no_default_events': 'bool',
         'chart_attributes': 'JsonNode',
-        'interpolate_points': 'bool',
+        'summarization': 'str',
         'chart_settings': 'ChartSettings',
-        'summarization': 'str'
+        'name': 'str'
     }
 
     attribute_map = {
         'base': 'base',
-        'units': 'units',
         'description': 'description',
-        'name': 'name',
+        'units': 'units',
+        'interpolate_points': 'interpolatePoints',
         'sources': 'sources',
         'include_obsolete_metrics': 'includeObsoleteMetrics',
         'no_default_events': 'noDefaultEvents',
         'chart_attributes': 'chartAttributes',
-        'interpolate_points': 'interpolatePoints',
+        'summarization': 'summarization',
         'chart_settings': 'chartSettings',
-        'summarization': 'summarization'
+        'name': 'name'
     }
 
-    def __init__(self, base=None, units=None, description=None, name=None, sources=None, include_obsolete_metrics=None, no_default_events=None, chart_attributes=None, interpolate_points=None, chart_settings=None, summarization=None):  # noqa: E501
+    def __init__(self, base=None, description=None, units=None, interpolate_points=None, sources=None, include_obsolete_metrics=None, no_default_events=None, chart_attributes=None, summarization=None, chart_settings=None, name=None):  # noqa: E501
         """Chart - a model defined in Swagger"""  # noqa: E501
 
         self._base = None
-        self._units = None
         self._description = None
-        self._name = None
+        self._units = None
+        self._interpolate_points = None
         self._sources = None
         self._include_obsolete_metrics = None
         self._no_default_events = None
         self._chart_attributes = None
-        self._interpolate_points = None
-        self._chart_settings = None
         self._summarization = None
+        self._chart_settings = None
+        self._name = None
         self.discriminator = None
 
         if base is not None:
             self.base = base
-        if units is not None:
-            self.units = units
         if description is not None:
             self.description = description
-        self.name = name
+        if units is not None:
+            self.units = units
+        if interpolate_points is not None:
+            self.interpolate_points = interpolate_points
         self.sources = sources
         if include_obsolete_metrics is not None:
             self.include_obsolete_metrics = include_obsolete_metrics
@@ -92,12 +93,11 @@ class Chart(object):
             self.no_default_events = no_default_events
         if chart_attributes is not None:
             self.chart_attributes = chart_attributes
-        if interpolate_points is not None:
-            self.interpolate_points = interpolate_points
-        if chart_settings is not None:
-            self.chart_settings = chart_settings
         if summarization is not None:
             self.summarization = summarization
+        if chart_settings is not None:
+            self.chart_settings = chart_settings
+        self.name = name
 
     @property
     def base(self):
@@ -123,29 +123,6 @@ class Chart(object):
         self._base = base
 
     @property
-    def units(self):
-        """Gets the units of this Chart.  # noqa: E501
-
-        String to label the units of the chart on the Y-axis  # noqa: E501
-
-        :return: The units of this Chart.  # noqa: E501
-        :rtype: str
-        """
-        return self._units
-
-    @units.setter
-    def units(self, units):
-        """Sets the units of this Chart.
-
-        String to label the units of the chart on the Y-axis  # noqa: E501
-
-        :param units: The units of this Chart.  # noqa: E501
-        :type: str
-        """
-
-        self._units = units
-
-    @property
     def description(self):
         """Gets the description of this Chart.  # noqa: E501
 
@@ -169,29 +146,50 @@ class Chart(object):
         self._description = description
 
     @property
-    def name(self):
-        """Gets the name of this Chart.  # noqa: E501
+    def units(self):
+        """Gets the units of this Chart.  # noqa: E501
 
-        Name of the source  # noqa: E501
+        String to label the units of the chart on the Y-axis  # noqa: E501
 
-        :return: The name of this Chart.  # noqa: E501
+        :return: The units of this Chart.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._units
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this Chart.
+    @units.setter
+    def units(self, units):
+        """Sets the units of this Chart.
 
-        Name of the source  # noqa: E501
+        String to label the units of the chart on the Y-axis  # noqa: E501
 
-        :param name: The name of this Chart.  # noqa: E501
+        :param units: The units of this Chart.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
-        self._name = name
+        self._units = units
+
+    @property
+    def interpolate_points(self):
+        """Gets the interpolate_points of this Chart.  # noqa: E501
+
+        Whether to interpolate points in the charts produced. Default: true  # noqa: E501
+
+        :return: The interpolate_points of this Chart.  # noqa: E501
+        :rtype: bool
+        """
+        return self._interpolate_points
+
+    @interpolate_points.setter
+    def interpolate_points(self, interpolate_points):
+        """Sets the interpolate_points of this Chart.
+
+        Whether to interpolate points in the charts produced. Default: true  # noqa: E501
+
+        :param interpolate_points: The interpolate_points of this Chart.  # noqa: E501
+        :type: bool
+        """
+
+        self._interpolate_points = interpolate_points
 
     @property
     def sources(self):
@@ -288,50 +286,6 @@ class Chart(object):
         self._chart_attributes = chart_attributes
 
     @property
-    def interpolate_points(self):
-        """Gets the interpolate_points of this Chart.  # noqa: E501
-
-        Whether to interpolate points in the charts produced. Default: true  # noqa: E501
-
-        :return: The interpolate_points of this Chart.  # noqa: E501
-        :rtype: bool
-        """
-        return self._interpolate_points
-
-    @interpolate_points.setter
-    def interpolate_points(self, interpolate_points):
-        """Sets the interpolate_points of this Chart.
-
-        Whether to interpolate points in the charts produced. Default: true  # noqa: E501
-
-        :param interpolate_points: The interpolate_points of this Chart.  # noqa: E501
-        :type: bool
-        """
-
-        self._interpolate_points = interpolate_points
-
-    @property
-    def chart_settings(self):
-        """Gets the chart_settings of this Chart.  # noqa: E501
-
-
-        :return: The chart_settings of this Chart.  # noqa: E501
-        :rtype: ChartSettings
-        """
-        return self._chart_settings
-
-    @chart_settings.setter
-    def chart_settings(self, chart_settings):
-        """Sets the chart_settings of this Chart.
-
-
-        :param chart_settings: The chart_settings of this Chart.  # noqa: E501
-        :type: ChartSettings
-        """
-
-        self._chart_settings = chart_settings
-
-    @property
     def summarization(self):
         """Gets the summarization of this Chart.  # noqa: E501
 
@@ -359,6 +313,52 @@ class Chart(object):
             )
 
         self._summarization = summarization
+
+    @property
+    def chart_settings(self):
+        """Gets the chart_settings of this Chart.  # noqa: E501
+
+
+        :return: The chart_settings of this Chart.  # noqa: E501
+        :rtype: ChartSettings
+        """
+        return self._chart_settings
+
+    @chart_settings.setter
+    def chart_settings(self, chart_settings):
+        """Sets the chart_settings of this Chart.
+
+
+        :param chart_settings: The chart_settings of this Chart.  # noqa: E501
+        :type: ChartSettings
+        """
+
+        self._chart_settings = chart_settings
+
+    @property
+    def name(self):
+        """Gets the name of this Chart.  # noqa: E501
+
+        Name of the source  # noqa: E501
+
+        :return: The name of this Chart.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this Chart.
+
+        Name of the source  # noqa: E501
+
+        :param name: The name of this Chart.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -32,56 +32,59 @@ class ExternalLink(object):
     """
     swagger_types = {
         'description': 'str',
-        'name': 'str',
-        'id': 'str',
         'creator_id': 'str',
         'updater_id': 'str',
+        'id': 'str',
+        'created_epoch_millis': 'int',
+        'updated_epoch_millis': 'int',
         'template': 'str',
         'metric_filter_regex': 'str',
         'source_filter_regex': 'str',
         'point_tag_filter_regexes': 'dict(str, str)',
-        'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int'
+        'name': 'str'
     }
 
     attribute_map = {
         'description': 'description',
-        'name': 'name',
-        'id': 'id',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
+        'id': 'id',
+        'created_epoch_millis': 'createdEpochMillis',
+        'updated_epoch_millis': 'updatedEpochMillis',
         'template': 'template',
         'metric_filter_regex': 'metricFilterRegex',
         'source_filter_regex': 'sourceFilterRegex',
         'point_tag_filter_regexes': 'pointTagFilterRegexes',
-        'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis'
+        'name': 'name'
     }
 
-    def __init__(self, description=None, name=None, id=None, creator_id=None, updater_id=None, template=None, metric_filter_regex=None, source_filter_regex=None, point_tag_filter_regexes=None, created_epoch_millis=None, updated_epoch_millis=None):  # noqa: E501
+    def __init__(self, description=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, metric_filter_regex=None, source_filter_regex=None, point_tag_filter_regexes=None, name=None):  # noqa: E501
         """ExternalLink - a model defined in Swagger"""  # noqa: E501
 
         self._description = None
-        self._name = None
-        self._id = None
         self._creator_id = None
         self._updater_id = None
+        self._id = None
+        self._created_epoch_millis = None
+        self._updated_epoch_millis = None
         self._template = None
         self._metric_filter_regex = None
         self._source_filter_regex = None
         self._point_tag_filter_regexes = None
-        self._created_epoch_millis = None
-        self._updated_epoch_millis = None
+        self._name = None
         self.discriminator = None
 
         self.description = description
-        self.name = name
-        if id is not None:
-            self.id = id
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
+        if id is not None:
+            self.id = id
+        if created_epoch_millis is not None:
+            self.created_epoch_millis = created_epoch_millis
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
         self.template = template
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
@@ -89,10 +92,7 @@ class ExternalLink(object):
             self.source_filter_regex = source_filter_regex
         if point_tag_filter_regexes is not None:
             self.point_tag_filter_regexes = point_tag_filter_regexes
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
+        self.name = name
 
     @property
     def description(self):
@@ -118,52 +118,6 @@ class ExternalLink(object):
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
-
-    @property
-    def name(self):
-        """Gets the name of this ExternalLink.  # noqa: E501
-
-        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
-
-        :return: The name of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this ExternalLink.
-
-        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
-
-        :param name: The name of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def id(self):
-        """Gets the id of this ExternalLink.  # noqa: E501
-
-
-        :return: The id of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this ExternalLink.
-
-
-        :param id: The id of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def creator_id(self):
@@ -206,6 +160,69 @@ class ExternalLink(object):
         """
 
         self._updater_id = updater_id
+
+    @property
+    def id(self):
+        """Gets the id of this ExternalLink.  # noqa: E501
+
+
+        :return: The id of this ExternalLink.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this ExternalLink.
+
+
+        :param id: The id of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this ExternalLink.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this ExternalLink.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this ExternalLink.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this ExternalLink.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this ExternalLink.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this ExternalLink.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this ExternalLink.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this ExternalLink.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
 
     @property
     def template(self):
@@ -302,46 +319,29 @@ class ExternalLink(object):
         self._point_tag_filter_regexes = point_tag_filter_regexes
 
     @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this ExternalLink.  # noqa: E501
+    def name(self):
+        """Gets the name of this ExternalLink.  # noqa: E501
 
+        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
 
-        :return: The created_epoch_millis of this ExternalLink.  # noqa: E501
-        :rtype: int
+        :return: The name of this ExternalLink.  # noqa: E501
+        :rtype: str
         """
-        return self._created_epoch_millis
+        return self._name
 
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this ExternalLink.
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ExternalLink.
 
+        Name of the external link.  Will be displayed in context (right-click) menus on charts  # noqa: E501
 
-        :param created_epoch_millis: The created_epoch_millis of this ExternalLink.  # noqa: E501
-        :type: int
+        :param name: The name of this ExternalLink.  # noqa: E501
+        :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this ExternalLink.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this ExternalLink.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this ExternalLink.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this ExternalLink.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

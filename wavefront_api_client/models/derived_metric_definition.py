@@ -34,17 +34,15 @@ class DerivedMetricDefinition(object):
     """
     swagger_types = {
         'created': 'int',
-        'name': 'str',
-        'id': 'str',
-        'query': 'str',
         'minutes': 'int',
         'tags': 'WFTags',
         'status': 'list[str]',
         'updated': 'int',
-        'include_obsolete_metrics': 'bool',
         'process_rate_minutes': 'int',
         'last_processed_millis': 'int',
         'update_user_id': 'str',
+        'query': 'str',
+        'include_obsolete_metrics': 'bool',
         'additional_information': 'str',
         'last_query_time': 'int',
         'in_trash': 'bool',
@@ -56,27 +54,27 @@ class DerivedMetricDefinition(object):
         'hosts_used': 'list[str]',
         'creator_id': 'str',
         'updater_id': 'str',
+        'id': 'str',
         'query_qb_enabled': 'bool',
         'query_qb_serialization': 'str',
         'last_error_message': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'deleted': 'bool'
+        'deleted': 'bool',
+        'name': 'str'
     }
 
     attribute_map = {
         'created': 'created',
-        'name': 'name',
-        'id': 'id',
-        'query': 'query',
         'minutes': 'minutes',
         'tags': 'tags',
         'status': 'status',
         'updated': 'updated',
-        'include_obsolete_metrics': 'includeObsoleteMetrics',
         'process_rate_minutes': 'processRateMinutes',
         'last_processed_millis': 'lastProcessedMillis',
         'update_user_id': 'updateUserId',
+        'query': 'query',
+        'include_obsolete_metrics': 'includeObsoleteMetrics',
         'additional_information': 'additionalInformation',
         'last_query_time': 'lastQueryTime',
         'in_trash': 'inTrash',
@@ -88,29 +86,29 @@ class DerivedMetricDefinition(object):
         'hosts_used': 'hostsUsed',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
+        'id': 'id',
         'query_qb_enabled': 'queryQBEnabled',
         'query_qb_serialization': 'queryQBSerialization',
         'last_error_message': 'lastErrorMessage',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'deleted': 'deleted'
+        'deleted': 'deleted',
+        'name': 'name'
     }
 
-    def __init__(self, created=None, name=None, id=None, query=None, minutes=None, tags=None, status=None, updated=None, include_obsolete_metrics=None, process_rate_minutes=None, last_processed_millis=None, update_user_id=None, additional_information=None, last_query_time=None, in_trash=None, query_failing=None, create_user_id=None, last_failed_time=None, points_scanned_at_last_query=None, metrics_used=None, hosts_used=None, creator_id=None, updater_id=None, query_qb_enabled=None, query_qb_serialization=None, last_error_message=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None):  # noqa: E501
+    def __init__(self, created=None, minutes=None, tags=None, status=None, updated=None, process_rate_minutes=None, last_processed_millis=None, update_user_id=None, query=None, include_obsolete_metrics=None, additional_information=None, last_query_time=None, in_trash=None, query_failing=None, create_user_id=None, last_failed_time=None, points_scanned_at_last_query=None, metrics_used=None, hosts_used=None, creator_id=None, updater_id=None, id=None, query_qb_enabled=None, query_qb_serialization=None, last_error_message=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None, name=None):  # noqa: E501
         """DerivedMetricDefinition - a model defined in Swagger"""  # noqa: E501
 
         self._created = None
-        self._name = None
-        self._id = None
-        self._query = None
         self._minutes = None
         self._tags = None
         self._status = None
         self._updated = None
-        self._include_obsolete_metrics = None
         self._process_rate_minutes = None
         self._last_processed_millis = None
         self._update_user_id = None
+        self._query = None
+        self._include_obsolete_metrics = None
         self._additional_information = None
         self._last_query_time = None
         self._in_trash = None
@@ -122,20 +120,18 @@ class DerivedMetricDefinition(object):
         self._hosts_used = None
         self._creator_id = None
         self._updater_id = None
+        self._id = None
         self._query_qb_enabled = None
         self._query_qb_serialization = None
         self._last_error_message = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._deleted = None
+        self._name = None
         self.discriminator = None
 
         if created is not None:
             self.created = created
-        self.name = name
-        if id is not None:
-            self.id = id
-        self.query = query
         self.minutes = minutes
         if tags is not None:
             self.tags = tags
@@ -143,14 +139,15 @@ class DerivedMetricDefinition(object):
             self.status = status
         if updated is not None:
             self.updated = updated
-        if include_obsolete_metrics is not None:
-            self.include_obsolete_metrics = include_obsolete_metrics
         if process_rate_minutes is not None:
             self.process_rate_minutes = process_rate_minutes
         if last_processed_millis is not None:
             self.last_processed_millis = last_processed_millis
         if update_user_id is not None:
             self.update_user_id = update_user_id
+        self.query = query
+        if include_obsolete_metrics is not None:
+            self.include_obsolete_metrics = include_obsolete_metrics
         if additional_information is not None:
             self.additional_information = additional_information
         if last_query_time is not None:
@@ -173,6 +170,8 @@ class DerivedMetricDefinition(object):
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
+        if id is not None:
+            self.id = id
         if query_qb_enabled is not None:
             self.query_qb_enabled = query_qb_enabled
         if query_qb_serialization is not None:
@@ -185,6 +184,7 @@ class DerivedMetricDefinition(object):
             self.updated_epoch_millis = updated_epoch_millis
         if deleted is not None:
             self.deleted = deleted
+        self.name = name
 
     @property
     def created(self):
@@ -208,75 +208,6 @@ class DerivedMetricDefinition(object):
         """
 
         self._created = created
-
-    @property
-    def name(self):
-        """Gets the name of this DerivedMetricDefinition.  # noqa: E501
-
-
-        :return: The name of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this DerivedMetricDefinition.
-
-
-        :param name: The name of this DerivedMetricDefinition.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def id(self):
-        """Gets the id of this DerivedMetricDefinition.  # noqa: E501
-
-
-        :return: The id of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this DerivedMetricDefinition.
-
-
-        :param id: The id of this DerivedMetricDefinition.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def query(self):
-        """Gets the query of this DerivedMetricDefinition.  # noqa: E501
-
-        A Wavefront query that is evaluated at regular intervals (default 1m).  # noqa: E501
-
-        :return: The query of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: str
-        """
-        return self._query
-
-    @query.setter
-    def query(self, query):
-        """Sets the query of this DerivedMetricDefinition.
-
-        A Wavefront query that is evaluated at regular intervals (default 1m).  # noqa: E501
-
-        :param query: The query of this DerivedMetricDefinition.  # noqa: E501
-        :type: str
-        """
-        if query is None:
-            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
-
-        self._query = query
 
     @property
     def minutes(self):
@@ -371,29 +302,6 @@ class DerivedMetricDefinition(object):
         self._updated = updated
 
     @property
-    def include_obsolete_metrics(self):
-        """Gets the include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
-
-        Whether to include obsolete metrics in query  # noqa: E501
-
-        :return: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: bool
-        """
-        return self._include_obsolete_metrics
-
-    @include_obsolete_metrics.setter
-    def include_obsolete_metrics(self, include_obsolete_metrics):
-        """Sets the include_obsolete_metrics of this DerivedMetricDefinition.
-
-        Whether to include obsolete metrics in query  # noqa: E501
-
-        :param include_obsolete_metrics: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
-        :type: bool
-        """
-
-        self._include_obsolete_metrics = include_obsolete_metrics
-
-    @property
     def process_rate_minutes(self):
         """Gets the process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
 
@@ -461,6 +369,54 @@ class DerivedMetricDefinition(object):
         """
 
         self._update_user_id = update_user_id
+
+    @property
+    def query(self):
+        """Gets the query of this DerivedMetricDefinition.  # noqa: E501
+
+        A Wavefront query that is evaluated at regular intervals (default 1m).  # noqa: E501
+
+        :return: The query of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: str
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """Sets the query of this DerivedMetricDefinition.
+
+        A Wavefront query that is evaluated at regular intervals (default 1m).  # noqa: E501
+
+        :param query: The query of this DerivedMetricDefinition.  # noqa: E501
+        :type: str
+        """
+        if query is None:
+            raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
+
+        self._query = query
+
+    @property
+    def include_obsolete_metrics(self):
+        """Gets the include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
+
+        Whether to include obsolete metrics in query  # noqa: E501
+
+        :return: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_obsolete_metrics
+
+    @include_obsolete_metrics.setter
+    def include_obsolete_metrics(self, include_obsolete_metrics):
+        """Sets the include_obsolete_metrics of this DerivedMetricDefinition.
+
+        Whether to include obsolete metrics in query  # noqa: E501
+
+        :param include_obsolete_metrics: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_obsolete_metrics = include_obsolete_metrics
 
     @property
     def additional_information(self):
@@ -708,6 +664,27 @@ class DerivedMetricDefinition(object):
         self._updater_id = updater_id
 
     @property
+    def id(self):
+        """Gets the id of this DerivedMetricDefinition.  # noqa: E501
+
+
+        :return: The id of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this DerivedMetricDefinition.
+
+
+        :param id: The id of this DerivedMetricDefinition.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
     def query_qb_enabled(self):
         """Gets the query_qb_enabled of this DerivedMetricDefinition.  # noqa: E501
 
@@ -838,6 +815,29 @@ class DerivedMetricDefinition(object):
         """
 
         self._deleted = deleted
+
+    @property
+    def name(self):
+        """Gets the name of this DerivedMetricDefinition.  # noqa: E501
+
+
+        :return: The name of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this DerivedMetricDefinition.
+
+
+        :param name: The name of this DerivedMetricDefinition.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
 **creator_id** | **str** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
+**id** | **str** |  | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
 **deleted** | **bool** |  | [optional] 

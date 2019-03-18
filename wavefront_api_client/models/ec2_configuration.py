@@ -33,26 +33,47 @@ class EC2Configuration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'host_name_tags': 'list[str]',
-        'base_credentials': 'AWSBaseCredentials'
+        'base_credentials': 'AWSBaseCredentials',
+        'host_name_tags': 'list[str]'
     }
 
     attribute_map = {
-        'host_name_tags': 'hostNameTags',
-        'base_credentials': 'baseCredentials'
+        'base_credentials': 'baseCredentials',
+        'host_name_tags': 'hostNameTags'
     }
 
-    def __init__(self, host_name_tags=None, base_credentials=None):  # noqa: E501
+    def __init__(self, base_credentials=None, host_name_tags=None):  # noqa: E501
         """EC2Configuration - a model defined in Swagger"""  # noqa: E501
 
-        self._host_name_tags = None
         self._base_credentials = None
+        self._host_name_tags = None
         self.discriminator = None
 
-        if host_name_tags is not None:
-            self.host_name_tags = host_name_tags
         if base_credentials is not None:
             self.base_credentials = base_credentials
+        if host_name_tags is not None:
+            self.host_name_tags = host_name_tags
+
+    @property
+    def base_credentials(self):
+        """Gets the base_credentials of this EC2Configuration.  # noqa: E501
+
+
+        :return: The base_credentials of this EC2Configuration.  # noqa: E501
+        :rtype: AWSBaseCredentials
+        """
+        return self._base_credentials
+
+    @base_credentials.setter
+    def base_credentials(self, base_credentials):
+        """Sets the base_credentials of this EC2Configuration.
+
+
+        :param base_credentials: The base_credentials of this EC2Configuration.  # noqa: E501
+        :type: AWSBaseCredentials
+        """
+
+        self._base_credentials = base_credentials
 
     @property
     def host_name_tags(self):
@@ -76,27 +97,6 @@ class EC2Configuration(object):
         """
 
         self._host_name_tags = host_name_tags
-
-    @property
-    def base_credentials(self):
-        """Gets the base_credentials of this EC2Configuration.  # noqa: E501
-
-
-        :return: The base_credentials of this EC2Configuration.  # noqa: E501
-        :rtype: AWSBaseCredentials
-        """
-        return self._base_credentials
-
-    @base_credentials.setter
-    def base_credentials(self, base_credentials):
-        """Sets the base_credentials of this EC2Configuration.
-
-
-        :param base_credentials: The base_credentials of this EC2Configuration.  # noqa: E501
-        :type: AWSBaseCredentials
-        """
-
-        self._base_credentials = base_credentials
 
     def to_dict(self):
         """Returns the model properties as a dict"""

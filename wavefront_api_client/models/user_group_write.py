@@ -32,38 +32,38 @@ class UserGroupWrite(object):
     """
     swagger_types = {
         'permissions': 'list[str]',
-        'name': 'str',
-        'id': 'str',
         'customer': 'str',
-        'created_epoch_millis': 'int'
+        'id': 'str',
+        'created_epoch_millis': 'int',
+        'name': 'str'
     }
 
     attribute_map = {
         'permissions': 'permissions',
-        'name': 'name',
-        'id': 'id',
         'customer': 'customer',
-        'created_epoch_millis': 'createdEpochMillis'
+        'id': 'id',
+        'created_epoch_millis': 'createdEpochMillis',
+        'name': 'name'
     }
 
-    def __init__(self, permissions=None, name=None, id=None, customer=None, created_epoch_millis=None):  # noqa: E501
+    def __init__(self, permissions=None, customer=None, id=None, created_epoch_millis=None, name=None):  # noqa: E501
         """UserGroupWrite - a model defined in Swagger"""  # noqa: E501
 
         self._permissions = None
-        self._name = None
-        self._id = None
         self._customer = None
+        self._id = None
         self._created_epoch_millis = None
+        self._name = None
         self.discriminator = None
 
         self.permissions = permissions
-        self.name = name
-        if id is not None:
-            self.id = id
         if customer is not None:
             self.customer = customer
+        if id is not None:
+            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
+        self.name = name
 
     @property
     def permissions(self):
@@ -91,29 +91,27 @@ class UserGroupWrite(object):
         self._permissions = permissions
 
     @property
-    def name(self):
-        """Gets the name of this UserGroupWrite.  # noqa: E501
+    def customer(self):
+        """Gets the customer of this UserGroupWrite.  # noqa: E501
 
-        The name of the user group  # noqa: E501
+        The id of the customer to which the user group belongs  # noqa: E501
 
-        :return: The name of this UserGroupWrite.  # noqa: E501
+        :return: The customer of this UserGroupWrite.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._customer
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this UserGroupWrite.
+    @customer.setter
+    def customer(self, customer):
+        """Sets the customer of this UserGroupWrite.
 
-        The name of the user group  # noqa: E501
+        The id of the customer to which the user group belongs  # noqa: E501
 
-        :param name: The name of this UserGroupWrite.  # noqa: E501
+        :param customer: The customer of this UserGroupWrite.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
-        self._name = name
+        self._customer = customer
 
     @property
     def id(self):
@@ -139,29 +137,6 @@ class UserGroupWrite(object):
         self._id = id
 
     @property
-    def customer(self):
-        """Gets the customer of this UserGroupWrite.  # noqa: E501
-
-        The id of the customer to which the user group belongs  # noqa: E501
-
-        :return: The customer of this UserGroupWrite.  # noqa: E501
-        :rtype: str
-        """
-        return self._customer
-
-    @customer.setter
-    def customer(self, customer):
-        """Sets the customer of this UserGroupWrite.
-
-        The id of the customer to which the user group belongs  # noqa: E501
-
-        :param customer: The customer of this UserGroupWrite.  # noqa: E501
-        :type: str
-        """
-
-        self._customer = customer
-
-    @property
     def created_epoch_millis(self):
         """Gets the created_epoch_millis of this UserGroupWrite.  # noqa: E501
 
@@ -181,6 +156,31 @@ class UserGroupWrite(object):
         """
 
         self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def name(self):
+        """Gets the name of this UserGroupWrite.  # noqa: E501
+
+        The name of the user group  # noqa: E501
+
+        :return: The name of this UserGroupWrite.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this UserGroupWrite.
+
+        The name of the user group  # noqa: E501
+
+        :param name: The name of this UserGroupWrite.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

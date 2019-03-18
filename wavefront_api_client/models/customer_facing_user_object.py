@@ -33,10 +33,10 @@ class CustomerFacingUserObject(object):
     swagger_types = {
         'user_groups': 'list[str]',
         'identifier': 'str',
-        'id': 'str',
         '_self': 'bool',
         'groups': 'list[str]',
         'customer': 'str',
+        'id': 'str',
         'last_successful_login': 'int',
         'gravatar_url': 'str',
         'escaped_identifier': 'str'
@@ -45,24 +45,24 @@ class CustomerFacingUserObject(object):
     attribute_map = {
         'user_groups': 'userGroups',
         'identifier': 'identifier',
-        'id': 'id',
         '_self': 'self',
         'groups': 'groups',
         'customer': 'customer',
+        'id': 'id',
         'last_successful_login': 'lastSuccessfulLogin',
         'gravatar_url': 'gravatarUrl',
         'escaped_identifier': 'escapedIdentifier'
     }
 
-    def __init__(self, user_groups=None, identifier=None, id=None, _self=None, groups=None, customer=None, last_successful_login=None, gravatar_url=None, escaped_identifier=None):  # noqa: E501
+    def __init__(self, user_groups=None, identifier=None, _self=None, groups=None, customer=None, id=None, last_successful_login=None, gravatar_url=None, escaped_identifier=None):  # noqa: E501
         """CustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
         self._user_groups = None
         self._identifier = None
-        self._id = None
         self.__self = None
         self._groups = None
         self._customer = None
+        self._id = None
         self._last_successful_login = None
         self._gravatar_url = None
         self._escaped_identifier = None
@@ -71,11 +71,11 @@ class CustomerFacingUserObject(object):
         if user_groups is not None:
             self.user_groups = user_groups
         self.identifier = identifier
-        self.id = id
         self._self = _self
         if groups is not None:
             self.groups = groups
         self.customer = customer
+        self.id = id
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
         if gravatar_url is not None:
@@ -130,31 +130,6 @@ class CustomerFacingUserObject(object):
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
 
         self._identifier = identifier
-
-    @property
-    def id(self):
-        """Gets the id of this CustomerFacingUserObject.  # noqa: E501
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :return: The id of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CustomerFacingUserObject.
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :param id: The id of this CustomerFacingUserObject.  # noqa: E501
-        :type: str
-        """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     @property
     def _self(self):
@@ -228,6 +203,31 @@ class CustomerFacingUserObject(object):
             raise ValueError("Invalid value for `customer`, must not be `None`")  # noqa: E501
 
         self._customer = customer
+
+    @property
+    def id(self):
+        """Gets the id of this CustomerFacingUserObject.  # noqa: E501
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :return: The id of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CustomerFacingUserObject.
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :param id: The id of this CustomerFacingUserObject.  # noqa: E501
+        :type: str
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def last_successful_login(self):

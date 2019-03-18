@@ -33,48 +33,25 @@ class DashboardSectionRow(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'height_factor': 'int',
-        'charts': 'list[Chart]'
+        'charts': 'list[Chart]',
+        'height_factor': 'int'
     }
 
     attribute_map = {
-        'height_factor': 'heightFactor',
-        'charts': 'charts'
+        'charts': 'charts',
+        'height_factor': 'heightFactor'
     }
 
-    def __init__(self, height_factor=None, charts=None):  # noqa: E501
+    def __init__(self, charts=None, height_factor=None):  # noqa: E501
         """DashboardSectionRow - a model defined in Swagger"""  # noqa: E501
 
-        self._height_factor = None
         self._charts = None
+        self._height_factor = None
         self.discriminator = None
 
+        self.charts = charts
         if height_factor is not None:
             self.height_factor = height_factor
-        self.charts = charts
-
-    @property
-    def height_factor(self):
-        """Gets the height_factor of this DashboardSectionRow.  # noqa: E501
-
-        Scalar for the height of this row. 100 is normal and default. 50 is half height  # noqa: E501
-
-        :return: The height_factor of this DashboardSectionRow.  # noqa: E501
-        :rtype: int
-        """
-        return self._height_factor
-
-    @height_factor.setter
-    def height_factor(self, height_factor):
-        """Sets the height_factor of this DashboardSectionRow.
-
-        Scalar for the height of this row. 100 is normal and default. 50 is half height  # noqa: E501
-
-        :param height_factor: The height_factor of this DashboardSectionRow.  # noqa: E501
-        :type: int
-        """
-
-        self._height_factor = height_factor
 
     @property
     def charts(self):
@@ -100,6 +77,29 @@ class DashboardSectionRow(object):
             raise ValueError("Invalid value for `charts`, must not be `None`")  # noqa: E501
 
         self._charts = charts
+
+    @property
+    def height_factor(self):
+        """Gets the height_factor of this DashboardSectionRow.  # noqa: E501
+
+        Scalar for the height of this row. 100 is normal and default. 50 is half height  # noqa: E501
+
+        :return: The height_factor of this DashboardSectionRow.  # noqa: E501
+        :rtype: int
+        """
+        return self._height_factor
+
+    @height_factor.setter
+    def height_factor(self, height_factor):
+        """Sets the height_factor of this DashboardSectionRow.
+
+        Scalar for the height of this row. 100 is normal and default. 50 is half height  # noqa: E501
+
+        :param height_factor: The height_factor of this DashboardSectionRow.  # noqa: E501
+        :type: int
+        """
+
+        self._height_factor = height_factor
 
     def to_dict(self):
         """Returns the model properties as a dict"""

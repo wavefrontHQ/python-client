@@ -43,14 +43,12 @@ class CloudIntegration(object):
     """
     swagger_types = {
         'force_save': 'bool',
-        'name': 'str',
-        'id': 'str',
         'service': 'str',
         'in_trash': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
+        'id': 'str',
         'last_error_event': 'Event',
-        'service_refresh_rate_in_mins': 'int',
         'additional_tags': 'dict(str, str)',
         'last_received_data_point_ms': 'int',
         'last_metric_count': 'int',
@@ -70,19 +68,19 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'int',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'deleted': 'bool'
+        'service_refresh_rate_in_mins': 'int',
+        'deleted': 'bool',
+        'name': 'str'
     }
 
     attribute_map = {
         'force_save': 'forceSave',
-        'name': 'name',
-        'id': 'id',
         'service': 'service',
         'in_trash': 'inTrash',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
+        'id': 'id',
         'last_error_event': 'lastErrorEvent',
-        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
         'additional_tags': 'additionalTags',
         'last_received_data_point_ms': 'lastReceivedDataPointMs',
         'last_metric_count': 'lastMetricCount',
@@ -102,21 +100,21 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'lastProcessingTimestamp',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'deleted': 'deleted'
+        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
+        'deleted': 'deleted',
+        'name': 'name'
     }
 
-    def __init__(self, force_save=None, name=None, id=None, service=None, in_trash=None, creator_id=None, updater_id=None, last_error_event=None, service_refresh_rate_in_mins=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None):  # noqa: E501
+    def __init__(self, force_save=None, service=None, in_trash=None, creator_id=None, updater_id=None, id=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None, deleted=None, name=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._force_save = None
-        self._name = None
-        self._id = None
         self._service = None
         self._in_trash = None
         self._creator_id = None
         self._updater_id = None
+        self._id = None
         self._last_error_event = None
-        self._service_refresh_rate_in_mins = None
         self._additional_tags = None
         self._last_received_data_point_ms = None
         self._last_metric_count = None
@@ -136,14 +134,13 @@ class CloudIntegration(object):
         self._last_processing_timestamp = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
+        self._service_refresh_rate_in_mins = None
         self._deleted = None
+        self._name = None
         self.discriminator = None
 
         if force_save is not None:
             self.force_save = force_save
-        self.name = name
-        if id is not None:
-            self.id = id
         self.service = service
         if in_trash is not None:
             self.in_trash = in_trash
@@ -151,10 +148,10 @@ class CloudIntegration(object):
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
+        if id is not None:
+            self.id = id
         if last_error_event is not None:
             self.last_error_event = last_error_event
-        if service_refresh_rate_in_mins is not None:
-            self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
         if additional_tags is not None:
             self.additional_tags = additional_tags
         if last_received_data_point_ms is not None:
@@ -193,8 +190,11 @@ class CloudIntegration(object):
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        if service_refresh_rate_in_mins is not None:
+            self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
         if deleted is not None:
             self.deleted = deleted
+        self.name = name
 
     @property
     def force_save(self):
@@ -216,52 +216,6 @@ class CloudIntegration(object):
         """
 
         self._force_save = force_save
-
-    @property
-    def name(self):
-        """Gets the name of this CloudIntegration.  # noqa: E501
-
-        The human-readable name of this integration  # noqa: E501
-
-        :return: The name of this CloudIntegration.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this CloudIntegration.
-
-        The human-readable name of this integration  # noqa: E501
-
-        :param name: The name of this CloudIntegration.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def id(self):
-        """Gets the id of this CloudIntegration.  # noqa: E501
-
-
-        :return: The id of this CloudIntegration.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CloudIntegration.
-
-
-        :param id: The id of this CloudIntegration.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def service(self):
@@ -358,6 +312,27 @@ class CloudIntegration(object):
         self._updater_id = updater_id
 
     @property
+    def id(self):
+        """Gets the id of this CloudIntegration.  # noqa: E501
+
+
+        :return: The id of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CloudIntegration.
+
+
+        :param id: The id of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
     def last_error_event(self):
         """Gets the last_error_event of this CloudIntegration.  # noqa: E501
 
@@ -377,29 +352,6 @@ class CloudIntegration(object):
         """
 
         self._last_error_event = last_error_event
-
-    @property
-    def service_refresh_rate_in_mins(self):
-        """Gets the service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
-
-        Service refresh rate in minutes.  # noqa: E501
-
-        :return: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
-        :rtype: int
-        """
-        return self._service_refresh_rate_in_mins
-
-    @service_refresh_rate_in_mins.setter
-    def service_refresh_rate_in_mins(self, service_refresh_rate_in_mins):
-        """Sets the service_refresh_rate_in_mins of this CloudIntegration.
-
-        Service refresh rate in minutes.  # noqa: E501
-
-        :param service_refresh_rate_in_mins: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
-        :type: int
-        """
-
-        self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
 
     @property
     def additional_tags(self):
@@ -817,6 +769,29 @@ class CloudIntegration(object):
         self._updated_epoch_millis = updated_epoch_millis
 
     @property
+    def service_refresh_rate_in_mins(self):
+        """Gets the service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
+
+        Service refresh rate in minutes.  # noqa: E501
+
+        :return: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
+        :rtype: int
+        """
+        return self._service_refresh_rate_in_mins
+
+    @service_refresh_rate_in_mins.setter
+    def service_refresh_rate_in_mins(self, service_refresh_rate_in_mins):
+        """Sets the service_refresh_rate_in_mins of this CloudIntegration.
+
+        Service refresh rate in minutes.  # noqa: E501
+
+        :param service_refresh_rate_in_mins: The service_refresh_rate_in_mins of this CloudIntegration.  # noqa: E501
+        :type: int
+        """
+
+        self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
+
+    @property
     def deleted(self):
         """Gets the deleted of this CloudIntegration.  # noqa: E501
 
@@ -836,6 +811,31 @@ class CloudIntegration(object):
         """
 
         self._deleted = deleted
+
+    @property
+    def name(self):
+        """Gets the name of this CloudIntegration.  # noqa: E501
+
+        The human-readable name of this integration  # noqa: E501
+
+        :return: The name of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this CloudIntegration.
+
+        The human-readable name of this integration  # noqa: E501
+
+        :param name: The name of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

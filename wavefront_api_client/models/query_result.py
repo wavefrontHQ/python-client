@@ -35,41 +35,37 @@ class QueryResult(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'query': 'str',
         'warnings': 'str',
         'timeseries': 'list[Timeseries]',
         'stats': 'StatsModel',
         'events': 'list[QueryEvent]',
-        'granularity': 'int'
+        'granularity': 'int',
+        'name': 'str',
+        'query': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
-        'query': 'query',
         'warnings': 'warnings',
         'timeseries': 'timeseries',
         'stats': 'stats',
         'events': 'events',
-        'granularity': 'granularity'
+        'granularity': 'granularity',
+        'name': 'name',
+        'query': 'query'
     }
 
-    def __init__(self, name=None, query=None, warnings=None, timeseries=None, stats=None, events=None, granularity=None):  # noqa: E501
+    def __init__(self, warnings=None, timeseries=None, stats=None, events=None, granularity=None, name=None, query=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
-        self._name = None
-        self._query = None
         self._warnings = None
         self._timeseries = None
         self._stats = None
         self._events = None
         self._granularity = None
+        self._name = None
+        self._query = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
-        if query is not None:
-            self.query = query
         if warnings is not None:
             self.warnings = warnings
         if timeseries is not None:
@@ -80,52 +76,10 @@ class QueryResult(object):
             self.events = events
         if granularity is not None:
             self.granularity = granularity
-
-    @property
-    def name(self):
-        """Gets the name of this QueryResult.  # noqa: E501
-
-        The name of this query  # noqa: E501
-
-        :return: The name of this QueryResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this QueryResult.
-
-        The name of this query  # noqa: E501
-
-        :param name: The name of this QueryResult.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
-
-    @property
-    def query(self):
-        """Gets the query of this QueryResult.  # noqa: E501
-
-        The query used to obtain this result  # noqa: E501
-
-        :return: The query of this QueryResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._query
-
-    @query.setter
-    def query(self, query):
-        """Sets the query of this QueryResult.
-
-        The query used to obtain this result  # noqa: E501
-
-        :param query: The query of this QueryResult.  # noqa: E501
-        :type: str
-        """
-
-        self._query = query
+        if name is not None:
+            self.name = name
+        if query is not None:
+            self.query = query
 
     @property
     def warnings(self):
@@ -235,6 +189,52 @@ class QueryResult(object):
         """
 
         self._granularity = granularity
+
+    @property
+    def name(self):
+        """Gets the name of this QueryResult.  # noqa: E501
+
+        The name of this query  # noqa: E501
+
+        :return: The name of this QueryResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this QueryResult.
+
+        The name of this query  # noqa: E501
+
+        :param name: The name of this QueryResult.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def query(self):
+        """Gets the query of this QueryResult.  # noqa: E501
+
+        The query used to obtain this result  # noqa: E501
+
+        :return: The query of this QueryResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._query
+
+    @query.setter
+    def query(self, query):
+        """Sets the query of this QueryResult.
+
+        The query used to obtain this result  # noqa: E501
+
+        :param query: The query of this QueryResult.  # noqa: E501
+        :type: str
+        """
+
+        self._query = query
 
     def to_dict(self):
         """Returns the model properties as a dict"""

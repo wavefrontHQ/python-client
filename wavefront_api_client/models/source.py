@@ -31,87 +31,64 @@ class Source(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'hidden': 'bool',
         'description': 'str',
-        'id': 'str',
+        'hidden': 'bool',
+        'source_name': 'str',
         'tags': 'dict(str, bool)',
         'creator_id': 'str',
         'updater_id': 'str',
+        'id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'marked_new_epoch_millis': 'int',
-        'source_name': 'str'
+        'marked_new_epoch_millis': 'int'
     }
 
     attribute_map = {
-        'hidden': 'hidden',
         'description': 'description',
-        'id': 'id',
+        'hidden': 'hidden',
+        'source_name': 'sourceName',
         'tags': 'tags',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
+        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'marked_new_epoch_millis': 'markedNewEpochMillis',
-        'source_name': 'sourceName'
+        'marked_new_epoch_millis': 'markedNewEpochMillis'
     }
 
-    def __init__(self, hidden=None, description=None, id=None, tags=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, marked_new_epoch_millis=None, source_name=None):  # noqa: E501
+    def __init__(self, description=None, hidden=None, source_name=None, tags=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, marked_new_epoch_millis=None):  # noqa: E501
         """Source - a model defined in Swagger"""  # noqa: E501
 
-        self._hidden = None
         self._description = None
-        self._id = None
+        self._hidden = None
+        self._source_name = None
         self._tags = None
         self._creator_id = None
         self._updater_id = None
+        self._id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._marked_new_epoch_millis = None
-        self._source_name = None
         self.discriminator = None
 
-        if hidden is not None:
-            self.hidden = hidden
         if description is not None:
             self.description = description
-        self.id = id
+        if hidden is not None:
+            self.hidden = hidden
+        self.source_name = source_name
         if tags is not None:
             self.tags = tags
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
+        self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
         if marked_new_epoch_millis is not None:
             self.marked_new_epoch_millis = marked_new_epoch_millis
-        self.source_name = source_name
-
-    @property
-    def hidden(self):
-        """Gets the hidden of this Source.  # noqa: E501
-
-        A derived field denoting whether this source has been hidden (e.g. excluding it from query autocomplete among other things)  # noqa: E501
-
-        :return: The hidden of this Source.  # noqa: E501
-        :rtype: bool
-        """
-        return self._hidden
-
-    @hidden.setter
-    def hidden(self, hidden):
-        """Sets the hidden of this Source.
-
-        A derived field denoting whether this source has been hidden (e.g. excluding it from query autocomplete among other things)  # noqa: E501
-
-        :param hidden: The hidden of this Source.  # noqa: E501
-        :type: bool
-        """
-
-        self._hidden = hidden
 
     @property
     def description(self):
@@ -137,29 +114,52 @@ class Source(object):
         self._description = description
 
     @property
-    def id(self):
-        """Gets the id of this Source.  # noqa: E501
+    def hidden(self):
+        """Gets the hidden of this Source.  # noqa: E501
 
-        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
+        A derived field denoting whether this source has been hidden (e.g. excluding it from query autocomplete among other things)  # noqa: E501
 
-        :return: The id of this Source.  # noqa: E501
+        :return: The hidden of this Source.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hidden
+
+    @hidden.setter
+    def hidden(self, hidden):
+        """Sets the hidden of this Source.
+
+        A derived field denoting whether this source has been hidden (e.g. excluding it from query autocomplete among other things)  # noqa: E501
+
+        :param hidden: The hidden of this Source.  # noqa: E501
+        :type: bool
+        """
+
+        self._hidden = hidden
+
+    @property
+    def source_name(self):
+        """Gets the source_name of this Source.  # noqa: E501
+
+        The name of the source, usually set by ingested telemetry  # noqa: E501
+
+        :return: The source_name of this Source.  # noqa: E501
         :rtype: str
         """
-        return self._id
+        return self._source_name
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Source.
+    @source_name.setter
+    def source_name(self, source_name):
+        """Sets the source_name of this Source.
 
-        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
+        The name of the source, usually set by ingested telemetry  # noqa: E501
 
-        :param id: The id of this Source.  # noqa: E501
+        :param source_name: The source_name of this Source.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if source_name is None:
+            raise ValueError("Invalid value for `source_name`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._source_name = source_name
 
     @property
     def tags(self):
@@ -227,6 +227,31 @@ class Source(object):
         self._updater_id = updater_id
 
     @property
+    def id(self):
+        """Gets the id of this Source.  # noqa: E501
+
+        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
+
+        :return: The id of this Source.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Source.
+
+        id of this source, must be exactly equivalent to 'sourceName'  # noqa: E501
+
+        :param id: The id of this Source.  # noqa: E501
+        :type: str
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
     def created_epoch_millis(self):
         """Gets the created_epoch_millis of this Source.  # noqa: E501
 
@@ -290,31 +315,6 @@ class Source(object):
         """
 
         self._marked_new_epoch_millis = marked_new_epoch_millis
-
-    @property
-    def source_name(self):
-        """Gets the source_name of this Source.  # noqa: E501
-
-        The name of the source, usually set by ingested telemetry  # noqa: E501
-
-        :return: The source_name of this Source.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_name
-
-    @source_name.setter
-    def source_name(self, source_name):
-        """Sets the source_name of this Source.
-
-        The name of the source, usually set by ingested telemetry  # noqa: E501
-
-        :param source_name: The source_name of this Source.  # noqa: E501
-        :type: str
-        """
-        if source_name is None:
-            raise ValueError("Invalid value for `source_name`, must not be `None`")  # noqa: E501
-
-        self._source_name = source_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

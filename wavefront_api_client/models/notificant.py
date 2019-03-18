@@ -31,17 +31,17 @@ class Notificant(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'content_type': 'str',
-        'method': 'str',
         'description': 'str',
-        'id': 'str',
+        'method': 'str',
+        'content_type': 'str',
         'customer_id': 'str',
         'title': 'str',
         'creator_id': 'str',
         'updater_id': 'str',
-        'template': 'str',
+        'id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
+        'template': 'str',
         'triggers': 'list[str]',
         'recipient': 'str',
         'custom_http_headers': 'dict(str, str)',
@@ -50,17 +50,17 @@ class Notificant(object):
     }
 
     attribute_map = {
-        'content_type': 'contentType',
-        'method': 'method',
         'description': 'description',
-        'id': 'id',
+        'method': 'method',
+        'content_type': 'contentType',
         'customer_id': 'customerId',
         'title': 'title',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
-        'template': 'template',
+        'id': 'id',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
+        'template': 'template',
         'triggers': 'triggers',
         'recipient': 'recipient',
         'custom_http_headers': 'customHttpHeaders',
@@ -68,20 +68,20 @@ class Notificant(object):
         'is_html_content': 'isHtmlContent'
     }
 
-    def __init__(self, content_type=None, method=None, description=None, id=None, customer_id=None, title=None, creator_id=None, updater_id=None, template=None, created_epoch_millis=None, updated_epoch_millis=None, triggers=None, recipient=None, custom_http_headers=None, email_subject=None, is_html_content=None):  # noqa: E501
+    def __init__(self, description=None, method=None, content_type=None, customer_id=None, title=None, creator_id=None, updater_id=None, id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, triggers=None, recipient=None, custom_http_headers=None, email_subject=None, is_html_content=None):  # noqa: E501
         """Notificant - a model defined in Swagger"""  # noqa: E501
 
-        self._content_type = None
-        self._method = None
         self._description = None
-        self._id = None
+        self._method = None
+        self._content_type = None
         self._customer_id = None
         self._title = None
         self._creator_id = None
         self._updater_id = None
-        self._template = None
+        self._id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
+        self._template = None
         self._triggers = None
         self._recipient = None
         self._custom_http_headers = None
@@ -89,12 +89,10 @@ class Notificant(object):
         self._is_html_content = None
         self.discriminator = None
 
+        self.description = description
+        self.method = method
         if content_type is not None:
             self.content_type = content_type
-        self.method = method
-        self.description = description
-        if id is not None:
-            self.id = id
         if customer_id is not None:
             self.customer_id = customer_id
         self.title = title
@@ -102,11 +100,13 @@ class Notificant(object):
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
-        self.template = template
+        if id is not None:
+            self.id = id
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        self.template = template
         self.triggers = triggers
         self.recipient = recipient
         if custom_http_headers is not None:
@@ -117,33 +117,29 @@ class Notificant(object):
             self.is_html_content = is_html_content
 
     @property
-    def content_type(self):
-        """Gets the content_type of this Notificant.  # noqa: E501
+    def description(self):
+        """Gets the description of this Notificant.  # noqa: E501
 
-        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+        Description  # noqa: E501
 
-        :return: The content_type of this Notificant.  # noqa: E501
+        :return: The description of this Notificant.  # noqa: E501
         :rtype: str
         """
-        return self._content_type
+        return self._description
 
-    @content_type.setter
-    def content_type(self, content_type):
-        """Sets the content_type of this Notificant.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Notificant.
 
-        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+        Description  # noqa: E501
 
-        :param content_type: The content_type of this Notificant.  # noqa: E501
+        :param description: The description of this Notificant.  # noqa: E501
         :type: str
         """
-        allowed_values = ["application/json", "text/html", "text/plain", "application/x-www-form-urlencoded", ""]  # noqa: E501
-        if content_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(content_type, allowed_values)
-            )
+        if description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
-        self._content_type = content_type
+        self._description = description
 
     @property
     def method(self):
@@ -177,50 +173,33 @@ class Notificant(object):
         self._method = method
 
     @property
-    def description(self):
-        """Gets the description of this Notificant.  # noqa: E501
+    def content_type(self):
+        """Gets the content_type of this Notificant.  # noqa: E501
 
-        Description  # noqa: E501
+        The value of the Content-Type header of the webhook POST request.  # noqa: E501
 
-        :return: The description of this Notificant.  # noqa: E501
+        :return: The content_type of this Notificant.  # noqa: E501
         :rtype: str
         """
-        return self._description
+        return self._content_type
 
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Notificant.
+    @content_type.setter
+    def content_type(self, content_type):
+        """Sets the content_type of this Notificant.
 
-        Description  # noqa: E501
+        The value of the Content-Type header of the webhook POST request.  # noqa: E501
 
-        :param description: The description of this Notificant.  # noqa: E501
+        :param content_type: The content_type of this Notificant.  # noqa: E501
         :type: str
         """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+        allowed_values = ["application/json", "text/html", "text/plain", "application/x-www-form-urlencoded", ""]  # noqa: E501
+        if content_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(content_type, allowed_values)
+            )
 
-        self._description = description
-
-    @property
-    def id(self):
-        """Gets the id of this Notificant.  # noqa: E501
-
-
-        :return: The id of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Notificant.
-
-
-        :param id: The id of this Notificant.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
+        self._content_type = content_type
 
     @property
     def customer_id(self):
@@ -311,29 +290,25 @@ class Notificant(object):
         self._updater_id = updater_id
 
     @property
-    def template(self):
-        """Gets the template of this Notificant.  # noqa: E501
+    def id(self):
+        """Gets the id of this Notificant.  # noqa: E501
 
-        A mustache template that will form the body of the POST request, email and summary of the PagerDuty.  # noqa: E501
 
-        :return: The template of this Notificant.  # noqa: E501
+        :return: The id of this Notificant.  # noqa: E501
         :rtype: str
         """
-        return self._template
+        return self._id
 
-    @template.setter
-    def template(self, template):
-        """Sets the template of this Notificant.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Notificant.
 
-        A mustache template that will form the body of the POST request, email and summary of the PagerDuty.  # noqa: E501
 
-        :param template: The template of this Notificant.  # noqa: E501
+        :param id: The id of this Notificant.  # noqa: E501
         :type: str
         """
-        if template is None:
-            raise ValueError("Invalid value for `template`, must not be `None`")  # noqa: E501
 
-        self._template = template
+        self._id = id
 
     @property
     def created_epoch_millis(self):
@@ -376,6 +351,31 @@ class Notificant(object):
         """
 
         self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def template(self):
+        """Gets the template of this Notificant.  # noqa: E501
+
+        A mustache template that will form the body of the POST request, email and summary of the PagerDuty.  # noqa: E501
+
+        :return: The template of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._template
+
+    @template.setter
+    def template(self, template):
+        """Sets the template of this Notificant.
+
+        A mustache template that will form the body of the POST request, email and summary of the PagerDuty.  # noqa: E501
+
+        :param template: The template of this Notificant.  # noqa: E501
+        :type: str
+        """
+        if template is None:
+            raise ValueError("Invalid value for `template`, must not be `None`")  # noqa: E501
+
+        self._template = template
 
     @property
     def triggers(self):

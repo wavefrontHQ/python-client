@@ -34,45 +34,45 @@ class CloudWatchConfiguration(object):
     """
     swagger_types = {
         'base_credentials': 'AWSBaseCredentials',
-        'instance_selection_tags': 'dict(str, str)',
-        'volume_selection_tags': 'dict(str, str)',
-        'point_tag_filter_regex': 'str',
+        'metric_filter_regex': 'str',
         'namespaces': 'list[str]',
-        'metric_filter_regex': 'str'
+        'point_tag_filter_regex': 'str',
+        'volume_selection_tags': 'dict(str, str)',
+        'instance_selection_tags': 'dict(str, str)'
     }
 
     attribute_map = {
         'base_credentials': 'baseCredentials',
-        'instance_selection_tags': 'instanceSelectionTags',
-        'volume_selection_tags': 'volumeSelectionTags',
-        'point_tag_filter_regex': 'pointTagFilterRegex',
+        'metric_filter_regex': 'metricFilterRegex',
         'namespaces': 'namespaces',
-        'metric_filter_regex': 'metricFilterRegex'
+        'point_tag_filter_regex': 'pointTagFilterRegex',
+        'volume_selection_tags': 'volumeSelectionTags',
+        'instance_selection_tags': 'instanceSelectionTags'
     }
 
-    def __init__(self, base_credentials=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None, namespaces=None, metric_filter_regex=None):  # noqa: E501
+    def __init__(self, base_credentials=None, metric_filter_regex=None, namespaces=None, point_tag_filter_regex=None, volume_selection_tags=None, instance_selection_tags=None):  # noqa: E501
         """CloudWatchConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._base_credentials = None
-        self._instance_selection_tags = None
-        self._volume_selection_tags = None
-        self._point_tag_filter_regex = None
-        self._namespaces = None
         self._metric_filter_regex = None
+        self._namespaces = None
+        self._point_tag_filter_regex = None
+        self._volume_selection_tags = None
+        self._instance_selection_tags = None
         self.discriminator = None
 
         if base_credentials is not None:
             self.base_credentials = base_credentials
-        if instance_selection_tags is not None:
-            self.instance_selection_tags = instance_selection_tags
-        if volume_selection_tags is not None:
-            self.volume_selection_tags = volume_selection_tags
-        if point_tag_filter_regex is not None:
-            self.point_tag_filter_regex = point_tag_filter_regex
-        if namespaces is not None:
-            self.namespaces = namespaces
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
+        if namespaces is not None:
+            self.namespaces = namespaces
+        if point_tag_filter_regex is not None:
+            self.point_tag_filter_regex = point_tag_filter_regex
+        if volume_selection_tags is not None:
+            self.volume_selection_tags = volume_selection_tags
+        if instance_selection_tags is not None:
+            self.instance_selection_tags = instance_selection_tags
 
     @property
     def base_credentials(self):
@@ -96,73 +96,27 @@ class CloudWatchConfiguration(object):
         self._base_credentials = base_credentials
 
     @property
-    def instance_selection_tags(self):
-        """Gets the instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
+    def metric_filter_regex(self):
+        """Gets the metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
 
-        A comma-separated white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
 
-        :return: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._instance_selection_tags
-
-    @instance_selection_tags.setter
-    def instance_selection_tags(self, instance_selection_tags):
-        """Sets the instance_selection_tags of this CloudWatchConfiguration.
-
-        A comma-separated white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
-
-        :param instance_selection_tags: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._instance_selection_tags = instance_selection_tags
-
-    @property
-    def volume_selection_tags(self):
-        """Gets the volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
-
-        A comma-separated white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
-
-        :return: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._volume_selection_tags
-
-    @volume_selection_tags.setter
-    def volume_selection_tags(self, volume_selection_tags):
-        """Sets the volume_selection_tags of this CloudWatchConfiguration.
-
-        A comma-separated white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
-
-        :param volume_selection_tags: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._volume_selection_tags = volume_selection_tags
-
-    @property
-    def point_tag_filter_regex(self):
-        """Gets the point_tag_filter_regex of this CloudWatchConfiguration.  # noqa: E501
-
-        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested  # noqa: E501
-
-        :return: The point_tag_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :return: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
         :rtype: str
         """
-        return self._point_tag_filter_regex
+        return self._metric_filter_regex
 
-    @point_tag_filter_regex.setter
-    def point_tag_filter_regex(self, point_tag_filter_regex):
-        """Sets the point_tag_filter_regex of this CloudWatchConfiguration.
+    @metric_filter_regex.setter
+    def metric_filter_regex(self, metric_filter_regex):
+        """Sets the metric_filter_regex of this CloudWatchConfiguration.
 
-        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested  # noqa: E501
+        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
 
-        :param point_tag_filter_regex: The point_tag_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :param metric_filter_regex: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
         :type: str
         """
 
-        self._point_tag_filter_regex = point_tag_filter_regex
+        self._metric_filter_regex = metric_filter_regex
 
     @property
     def namespaces(self):
@@ -188,27 +142,73 @@ class CloudWatchConfiguration(object):
         self._namespaces = namespaces
 
     @property
-    def metric_filter_regex(self):
-        """Gets the metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+    def point_tag_filter_regex(self):
+        """Gets the point_tag_filter_regex of this CloudWatchConfiguration.  # noqa: E501
 
-        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested  # noqa: E501
 
-        :return: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :return: The point_tag_filter_regex of this CloudWatchConfiguration.  # noqa: E501
         :rtype: str
         """
-        return self._metric_filter_regex
+        return self._point_tag_filter_regex
 
-    @metric_filter_regex.setter
-    def metric_filter_regex(self, metric_filter_regex):
-        """Sets the metric_filter_regex of this CloudWatchConfiguration.
+    @point_tag_filter_regex.setter
+    def point_tag_filter_regex(self, point_tag_filter_regex):
+        """Sets the point_tag_filter_regex of this CloudWatchConfiguration.
 
-        A regular expression that a CloudWatch metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested  # noqa: E501
 
-        :param metric_filter_regex: The metric_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :param point_tag_filter_regex: The point_tag_filter_regex of this CloudWatchConfiguration.  # noqa: E501
         :type: str
         """
 
-        self._metric_filter_regex = metric_filter_regex
+        self._point_tag_filter_regex = point_tag_filter_regex
+
+    @property
+    def volume_selection_tags(self):
+        """Gets the volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
+
+        A comma-separated white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
+
+        :return: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._volume_selection_tags
+
+    @volume_selection_tags.setter
+    def volume_selection_tags(self, volume_selection_tags):
+        """Sets the volume_selection_tags of this CloudWatchConfiguration.
+
+        A comma-separated white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
+
+        :param volume_selection_tags: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._volume_selection_tags = volume_selection_tags
+
+    @property
+    def instance_selection_tags(self):
+        """Gets the instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
+
+        A comma-separated white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
+
+        :return: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._instance_selection_tags
+
+    @instance_selection_tags.setter
+    def instance_selection_tags(self, instance_selection_tags):
+        """Sets the instance_selection_tags of this CloudWatchConfiguration.
+
+        A comma-separated white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
+
+        :param instance_selection_tags: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._instance_selection_tags = instance_selection_tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

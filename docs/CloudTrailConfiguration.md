@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**region** | **str** | The AWS region of the S3 bucket where CloudTrail logs are stored | 
 **prefix** | **str** | The common prefix, if any, appended to all CloudTrail log files | [optional] 
 **base_credentials** | [**AWSBaseCredentials**](AWSBaseCredentials.md) |  | [optional] 
+**region** | **str** | The AWS region of the S3 bucket where CloudTrail logs are stored | 
 **filter_rule** | **str** | Rule to filter cloud trail log event. | [optional] 
 **bucket_name** | **str** | Name of the S3 bucket where CloudTrail logs are stored | 
 

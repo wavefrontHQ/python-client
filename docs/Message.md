@@ -3,18 +3,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scope** | **str** | The audience scope that this message should reach | 
 **attributes** | **dict(str, str)** | A string-&gt;string map of additional properties associated with this message | [optional] 
 **source** | **str** | Message source.  System messages will com from &#39;system@wavefront.com&#39; | 
+**scope** | **str** | The audience scope that this message should reach | 
 **severity** | **str** | Message severity | 
-**id** | **str** |  | [optional] 
-**target** | **str** | For scope&#x3D;CUSTOMER or scope&#x3D;USER, the individual customer or user id | [optional] 
-**content** | **str** | Message content | 
+**read** | **bool** | A derived field for whether the current user has read this message | [optional] 
 **title** | **str** | Title of this message | 
+**id** | **str** |  | [optional] 
+**content** | **str** | Message content | 
 **start_epoch_millis** | **int** | When this message will begin to be displayed, in epoch millis | 
 **end_epoch_millis** | **int** | When this message will stop being displayed, in epoch millis | 
 **display** | **str** | The form of display for this message | 
-**read** | **bool** | A derived field for whether the current user has read this message | [optional] 
+**target** | **str** | For scope&#x3D;CUSTOMER or scope&#x3D;USER, the individual customer or user id | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

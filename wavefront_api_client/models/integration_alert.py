@@ -34,32 +34,32 @@ class IntegrationAlert(object):
     """
     swagger_types = {
         'description': 'str',
-        'name': 'str',
         'url': 'str',
-        'alert_obj': 'Alert'
+        'alert_obj': 'Alert',
+        'name': 'str'
     }
 
     attribute_map = {
         'description': 'description',
-        'name': 'name',
         'url': 'url',
-        'alert_obj': 'alertObj'
+        'alert_obj': 'alertObj',
+        'name': 'name'
     }
 
-    def __init__(self, description=None, name=None, url=None, alert_obj=None):  # noqa: E501
+    def __init__(self, description=None, url=None, alert_obj=None, name=None):  # noqa: E501
         """IntegrationAlert - a model defined in Swagger"""  # noqa: E501
 
         self._description = None
-        self._name = None
         self._url = None
         self._alert_obj = None
+        self._name = None
         self.discriminator = None
 
         self.description = description
-        self.name = name
         self.url = url
         if alert_obj is not None:
             self.alert_obj = alert_obj
+        self.name = name
 
     @property
     def description(self):
@@ -85,31 +85,6 @@ class IntegrationAlert(object):
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
-
-    @property
-    def name(self):
-        """Gets the name of this IntegrationAlert.  # noqa: E501
-
-        Alert name  # noqa: E501
-
-        :return: The name of this IntegrationAlert.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this IntegrationAlert.
-
-        Alert name  # noqa: E501
-
-        :param name: The name of this IntegrationAlert.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
 
     @property
     def url(self):
@@ -156,6 +131,31 @@ class IntegrationAlert(object):
         """
 
         self._alert_obj = alert_obj
+
+    @property
+    def name(self):
+        """Gets the name of this IntegrationAlert.  # noqa: E501
+
+        Alert name  # noqa: E501
+
+        :return: The name of this IntegrationAlert.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this IntegrationAlert.
+
+        Alert name  # noqa: E501
+
+        :param name: The name of this IntegrationAlert.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

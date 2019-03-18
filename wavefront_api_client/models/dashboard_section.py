@@ -33,49 +33,24 @@ class DashboardSection(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'rows': 'list[DashboardSectionRow]'
+        'rows': 'list[DashboardSectionRow]',
+        'name': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
-        'rows': 'rows'
+        'rows': 'rows',
+        'name': 'name'
     }
 
-    def __init__(self, name=None, rows=None):  # noqa: E501
+    def __init__(self, rows=None, name=None):  # noqa: E501
         """DashboardSection - a model defined in Swagger"""  # noqa: E501
 
-        self._name = None
         self._rows = None
+        self._name = None
         self.discriminator = None
 
-        self.name = name
         self.rows = rows
-
-    @property
-    def name(self):
-        """Gets the name of this DashboardSection.  # noqa: E501
-
-        Name of this section  # noqa: E501
-
-        :return: The name of this DashboardSection.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this DashboardSection.
-
-        Name of this section  # noqa: E501
-
-        :param name: The name of this DashboardSection.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
+        self.name = name
 
     @property
     def rows(self):
@@ -101,6 +76,31 @@ class DashboardSection(object):
             raise ValueError("Invalid value for `rows`, must not be `None`")  # noqa: E501
 
         self._rows = rows
+
+    @property
+    def name(self):
+        """Gets the name of this DashboardSection.  # noqa: E501
+
+        Name of this section  # noqa: E501
+
+        :return: The name of this DashboardSection.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this DashboardSection.
+
+        Name of this section  # noqa: E501
+
+        :param name: The name of this DashboardSection.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
