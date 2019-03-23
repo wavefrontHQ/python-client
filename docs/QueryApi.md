@@ -1,6 +1,6 @@
 # wavefront_api_client.QueryApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **query_api**
-> QueryResult query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted)
+> QueryResult query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached)
 
 Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
 
@@ -44,10 +44,11 @@ list_mode = true # bool | retrieve events more optimally displayed for a list (o
 strict = true # bool | do not return points outside the query window [s;e), defaults to false (optional)
 include_obsolete_metrics = true # bool | include metrics that have not been reporting recently, defaults to false (optional)
 sorted = false # bool | sorts the output so that returned series are in order, defaults to false (optional) (default to false)
+cached = true # bool | whether the query cache is used, defaults to true (optional) (default to true)
 
 try:
     # Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
-    api_response = api_instance.query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted)
+    api_response = api_instance.query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling QueryApi->query_api: %s\n" % e)
@@ -70,6 +71,7 @@ Name | Type | Description  | Notes
  **strict** | **bool**| do not return points outside the query window [s;e), defaults to false | [optional] 
  **include_obsolete_metrics** | **bool**| include metrics that have not been reporting recently, defaults to false | [optional] 
  **sorted** | **bool**| sorts the output so that returned series are in order, defaults to false | [optional] [default to false]
+ **cached** | **bool**| whether the query cache is used, defaults to true | [optional] [default to true]
 
 ### Return type
 
