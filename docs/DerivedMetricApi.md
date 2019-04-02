@@ -1,6 +1,6 @@
 # wavefront_api_client.DerivedMetricApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -97,7 +97,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.DerivedMetricApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.DerivedMetricDefinition() # DerivedMetricDefinition | Example Body:  <pre>{   \"name\": \"Query Name\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"derrivedMetricTag1\"     ]   } }</pre> (optional)
+body = wavefront_api_client.DerivedMetricDefinition() # DerivedMetricDefinition | Example Body:  <pre>{   \"name\": \"Query Name\",   \"query\": \"aliasMetric(ts(~sample.cpu.loadavg.1m), \\\"my.new.metric\\\")\",   \"minutes\": 5,   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"derivedMetricTag1\"     ]   } }</pre> (optional)
 
 try:
     # Create a specific derived metric definition
@@ -111,7 +111,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DerivedMetricDefinition**](DerivedMetricDefinition.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Query Name\&quot;,   \&quot;query\&quot;: \&quot;aliasMetric(ts(~sample.cpu.loadavg.1m), \\\&quot;my.new.metric\\\&quot;)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;derrivedMetricTag1\&quot;     ]   } }&lt;/pre&gt; | [optional] 
+ **body** | [**DerivedMetricDefinition**](DerivedMetricDefinition.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Query Name\&quot;,   \&quot;query\&quot;: \&quot;aliasMetric(ts(~sample.cpu.loadavg.1m), \\\&quot;my.new.metric\\\&quot;)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;derivedMetricTag1\&quot;     ]   } }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
