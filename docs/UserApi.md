@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**revoke_permission_from_users**](UserApi.md#revoke_permission_from_users) | **POST** /api/v2/user/revoke/{permission} | Revokes a specific user permission from multiple users
 [**revoke_user_permission**](UserApi.md#revoke_user_permission) | **POST** /api/v2/user/{id}/revoke | Revokes a specific user permission
 [**update_user**](UserApi.md#update_user) | **PUT** /api/v2/user/{id} | Update user with given user groups and permissions.
+[**validate_users**](UserApi.md#validate_users) | **POST** /api/v2/user/validateUsers | Returns valid users and invalid identifiers from the given list
 
 
 # **add_user_to_user_groups**
@@ -720,6 +721,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserModel**](UserModel.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate_users**
+> ResponseContainerValidatedUsersDTO validate_users(body=body)
+
+Returns valid users and invalid identifiers from the given list
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
+body = [wavefront_api_client.list[str]()] # list[str] |  (optional)
+
+try:
+    # Returns valid users and invalid identifiers from the given list
+    api_response = api_instance.validate_users(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->validate_users: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **list[str]**|  | [optional] 
+
+### Return type
+
+[**ResponseContainerValidatedUsersDTO**](ResponseContainerValidatedUsersDTO.md)
 
 ### Authorization
 

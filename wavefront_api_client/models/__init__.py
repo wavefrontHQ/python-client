@@ -140,6 +140,7 @@ from wavefront_api_client.models.response_container_saved_search import Response
 from wavefront_api_client.models.response_container_source import ResponseContainerSource
 from wavefront_api_client.models.response_container_tags_response import ResponseContainerTagsResponse
 from wavefront_api_client.models.response_container_user_group import ResponseContainerUserGroup
+from wavefront_api_client.models.response_container_validated_users_dto import ResponseContainerValidatedUsersDTO
 from wavefront_api_client.models.response_status import ResponseStatus
 from wavefront_api_client.models.saved_search import SavedSearch
 from wavefront_api_client.models.search_query import SearchQuery
@@ -154,6 +155,7 @@ from wavefront_api_client.models.target_info import TargetInfo
 from wavefront_api_client.models.tesla_configuration import TeslaConfiguration
 from wavefront_api_client.models.timeseries import Timeseries
 from wavefront_api_client.models.user import User
+from wavefront_api_client.models.user_dto import UserDTO
 from wavefront_api_client.models.user_group import UserGroup
 from wavefront_api_client.models.user_group_properties_dto import UserGroupPropertiesDTO
 from wavefront_api_client.models.user_group_write import UserGroupWrite
@@ -161,4 +163,5 @@ from wavefront_api_client.models.user_model import UserModel
 from wavefront_api_client.models.user_request_dto import UserRequestDTO
 from wavefront_api_client.models.user_settings import UserSettings
 from wavefront_api_client.models.user_to_create import UserToCreate
+from wavefront_api_client.models.validated_users_dto import ValidatedUsersDTO
 from wavefront_api_client.models.wf_tags import WFTags

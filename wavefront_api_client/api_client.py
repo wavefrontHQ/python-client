@@ -66,18 +66,26 @@ class ApiClient(object):
             configuration = Configuration()
         self.configuration = configuration
 
-        self.pool = ThreadPool()
+        # Use the pool property to lazily initialize the ThreadPool.
+        self._pool = None
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/2.9.39/python'
+        self.user_agent = 'Swagger-Codegen/2.29.47/python'
 
     def __del__(self):
-        self.pool.close()
-        self.pool.join()
+        if self._pool is not None:
+            self._pool.close()
+            self._pool.join()
+
+    @property
+    def pool(self):
+        if self._pool is None:
+            self._pool = ThreadPool()
+        return self._pool
 
     @property
     def user_agent(self):

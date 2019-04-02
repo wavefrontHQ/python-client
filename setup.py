@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "wavefront-api-client"
-VERSION = "2.9.39"
+VERSION = "2.29.47"
 # To install the library, run the following
 #
 # python setup.py install
@@ -28,6 +28,7 @@ REQUIRES = [
     "six>=1.10",
     "urllib3>=1.23"
 ]
+    
 
 setup(
     name=NAME,
