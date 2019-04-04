@@ -451,5 +451,5 @@ Class | Method | HTTP request | Description
 
 ## Author
 
-support@wavefront.com
+chitimba@wavefront.com
 

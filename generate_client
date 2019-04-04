@@ -15,7 +15,7 @@ io/swagger/swagger-codegen-cli/${CGEN_VER}/${CGEN_JAR_NAME}"
 
 CONFIG_FILE=".swagger-codegen/config.json"
 EXTRA_PROPS="basePath=https://YOUR_INSTANCE.wavefront.com"
-EXTRA_PROPS+=",infoEmail=support@wavefront.com"
+EXTRA_PROPS+=",infoEmail=chitimba@wavefront.com"
 
 SWGR_JSON="swagger.json"
 SWGR_URL="https://$1.wavefront.com/api/v2/${SWGR_JSON}"
