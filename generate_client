@@ -26,7 +26,7 @@ PYTHON=$(command -v python3 || command -v python)
 # Check if config file exists in '.swagger-codegen' directory.
 [[ -f "${CONFIG_FILE}" ]] || echo "Config file '${CONFIG_FILE}' not found!"
 # Get the current version from the config file.
-CONFIG_VER=$(PYTHON -c "import json, sys;\
+CONFIG_VER=$($PYTHON -c "import json, sys;\
   sys.stdout.write(json.load(sys.stdin)['packageVersion'][2:]+'\n')"\
   < "${CONFIG_FILE}"
 )
@@ -51,7 +51,7 @@ else
   curl -s "${CGEN_JAR_URL}" -o "${CGEN_JAR_BINARY}"
 
   echo "Step 2: Fetching the latest swagger.json..."
-  curl -s "${SWGR_URL}" | PYTHON -m json.tool --sort-keys > "${SWAGGER_FILE}"
+  curl -s "${SWGR_URL}" | $PYTHON -m json.tool --sort-keys > "${SWAGGER_FILE}"
 
   echo "Step 3: Generating the client..."
   java -jar "${CGEN_JAR_BINARY}" generate -l python \
