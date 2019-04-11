@@ -1298,7 +1298,7 @@ class ChartSettings(object):
     def stack_type(self):
         """Gets the stack_type of this ChartSettings.  # noqa: E501
 
-        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream  # noqa: E501
+        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream, bars means Stacked Columns  # noqa: E502
 
         :return: The stack_type of this ChartSettings.  # noqa: E501
         :rtype: str
@@ -1309,12 +1309,12 @@ class ChartSettings(object):
     def stack_type(self, stack_type):
         """Sets the stack_type of this ChartSettings.
 
-        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream  # noqa: E501
+        Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y=0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream, bars means Stacked Columns  # noqa: E501
 
         :param stack_type: The stack_type of this ChartSettings.  # noqa: E501
         :type: str
         """
-        allowed_values = ["zero", "expand", "wiggle", "silhouette"]  # noqa: E501
+        allowed_values = ["zero", "expand", "wiggle", "silhouette", "bars"]  # noqa: E501
         if stack_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `stack_type` ({0}), must be one of {1}"  # noqa: E501
