@@ -58,7 +58,7 @@ else
   echo "Step 1: Fetching the latest swagger-codegen..."
   curl -s "${CGEN_JAR_URL}" -o "${CGEN_JAR_BINARY}"
 
-  echo "Step 2: Fetching the latest ${SWGR_JSON} config..."
+  echo "Step 2: Fetching the config from '${SWGR_URL}'..."
   curl -s "${SWGR_URL}" | $PYTHON -m json.tool --sort-keys > "${SWAGGER_FILE}"
 
   # Exit if swagger file is missing at this point.
@@ -84,6 +84,5 @@ else
 
     echo "Please run git push in order to push commit to GitHub... Bye."
   fi
-  echo "Cleaning up..."
-  rm -rv "${TEMP_DIR_NAME}"
+  echo "Cleaning up..." && rm -rv "${TEMP_DIR_NAME}"
 fi
