@@ -1,9 +1,12 @@
 #!/bin/bash
 
-if [[ "$1" == "" ]]; then
-    echo "Please specify the name of the cluster as an argument."
+function _exit {
+    echo "$1" >&2
     exit 1
-fi
+}
+
+# Exit if cluster name was not specified as a first argument.
+[[ "$1" ]] || _exit "Please specify cluster as an argument."
 
 CGEN_NAME="swagger-codegen-cli"
 CGEN_VER="2.4.5"  # For 3.x use CGEN_VER="3.0.7"
@@ -23,31 +26,27 @@ VERSION_URL="https://$1.wavefront.com/auth/forgetPassword"
 
 PYTHON=$(command -v python3 || command -v python)
 
-if [[ -z "$($PYTHON -V | grep 'Python 3')" ]]; then
-  echo "Obsolete Python version found. Please update."
-  exit 1
-elif [[ -z "$(command -v curl)" ]]; then
-  echo "The curl command was not found on the system."
-  exit 1
-fi
+# Make sure required python version and curl tool are present or exit.
+$PYTHON -V | grep -q "Python 3" || _exit "Python ^^^ is obsolete. Aborting."
+[[ "$(command -v curl)" ]] || _exit "The curl command was not found. Aborting."
 
 # Check if config file exists in '.swagger-codegen' directory.
-[[ -f "${CONFIG_FILE}" ]] || echo "Config file '${CONFIG_FILE}' not found!"
+[[ -f "${CONFIG_FILE}" ]] || _exit "File '${CONFIG_FILE}' not found."
+
 # Get the current version from the config file.
 CONFIG_VER=$($PYTHON -c "import json, sys;\
   sys.stdout.write(json.load(sys.stdin)['packageVersion'][2:]+'\n')"\
   < "${CONFIG_FILE}"
 )
 echo "Fetching the current version from '$1' cluster..."
-SERVER_VER=$(curl -s "${VERSION_URL}" | grep 'version: ' | \
+SERVER_VER=$(curl -s "${VERSION_URL}" | grep 'version: ' |\
              grep -o '[0-9]\+\.[0-9]\+')
 
 echo "Current Version on server is: ${SERVER_VER}"
 echo "Current Version in config is: ${CONFIG_VER}"
 
 if [[ -z "${CONFIG_VER}" || -z "${SERVER_VER}" ]]; then
-  echo "Unable to determine the version for '$1' cluster."
-  exit 1
+  _exit "Unable to determine the version for '$1' cluster."
 elif [[ "${CONFIG_VER}" == "${SERVER_VER}" ]]; then
   echo "No Version Change Detected. Bye."
 else
@@ -59,13 +58,11 @@ else
   echo "Step 1: Fetching the latest swagger-codegen..."
   curl -s "${CGEN_JAR_URL}" -o "${CGEN_JAR_BINARY}"
 
-  echo "Step 2: Fetching the latest swagger.json..."
+  echo "Step 2: Fetching the latest ${SWGR_JSON} config..."
   curl -s "${SWGR_URL}" | $PYTHON -m json.tool --sort-keys > "${SWAGGER_FILE}"
 
-  if [[ ! -f "${SWAGGER_FILE}" ]]; then  # swagger file not found
-      echo "Failed to fetch swagger.json... Aborting..."
-      exit 1
-  fi
+  # Exit if swagger file is missing at this point.
+  [[ -f "${SWAGGER_FILE}" ]] || _exit "Failed to fetch ${SWGR_JSON}."
 
   echo "Step 3: Generating the client..."
   java -jar "${CGEN_JAR_BINARY}" generate -l python \
