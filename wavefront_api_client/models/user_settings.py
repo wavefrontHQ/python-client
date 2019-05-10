@@ -33,6 +33,7 @@ class UserSettings(object):
     swagger_types = {
         'always_hide_querybuilder': 'bool',
         'chart_title_scalar': 'int',
+        'favorite_qb_functions': 'list[str]',
         'hide_ts_when_querybuilder_shown': 'bool',
         'landing_dashboard_slug': 'str',
         'preferred_time_zone': 'str',
@@ -45,6 +46,7 @@ class UserSettings(object):
     attribute_map = {
         'always_hide_querybuilder': 'alwaysHideQuerybuilder',
         'chart_title_scalar': 'chartTitleScalar',
+        'favorite_qb_functions': 'favoriteQBFunctions',
         'hide_ts_when_querybuilder_shown': 'hideTSWhenQuerybuilderShown',
         'landing_dashboard_slug': 'landingDashboardSlug',
         'preferred_time_zone': 'preferredTimeZone',
@@ -54,11 +56,12 @@ class UserSettings(object):
         'use_dark_theme': 'useDarkTheme'
     }
 
-    def __init__(self, always_hide_querybuilder=None, chart_title_scalar=None, hide_ts_when_querybuilder_shown=None, landing_dashboard_slug=None, preferred_time_zone=None, show_onboarding=None, show_querybuilder_by_default=None, use24_hour_time=None, use_dark_theme=None):  # noqa: E501
+    def __init__(self, always_hide_querybuilder=None, chart_title_scalar=None, favorite_qb_functions=None, hide_ts_when_querybuilder_shown=None, landing_dashboard_slug=None, preferred_time_zone=None, show_onboarding=None, show_querybuilder_by_default=None, use24_hour_time=None, use_dark_theme=None):  # noqa: E501
         """UserSettings - a model defined in Swagger"""  # noqa: E501
 
         self._always_hide_querybuilder = None
         self._chart_title_scalar = None
+        self._favorite_qb_functions = None
         self._hide_ts_when_querybuilder_shown = None
         self._landing_dashboard_slug = None
         self._preferred_time_zone = None
@@ -72,6 +75,8 @@ class UserSettings(object):
             self.always_hide_querybuilder = always_hide_querybuilder
         if chart_title_scalar is not None:
             self.chart_title_scalar = chart_title_scalar
+        if favorite_qb_functions is not None:
+            self.favorite_qb_functions = favorite_qb_functions
         if hide_ts_when_querybuilder_shown is not None:
             self.hide_ts_when_querybuilder_shown = hide_ts_when_querybuilder_shown
         if landing_dashboard_slug is not None:
@@ -128,6 +133,27 @@ class UserSettings(object):
         """
 
         self._chart_title_scalar = chart_title_scalar
+
+    @property
+    def favorite_qb_functions(self):
+        """Gets the favorite_qb_functions of this UserSettings.  # noqa: E501
+
+
+        :return: The favorite_qb_functions of this UserSettings.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._favorite_qb_functions
+
+    @favorite_qb_functions.setter
+    def favorite_qb_functions(self, favorite_qb_functions):
+        """Sets the favorite_qb_functions of this UserSettings.
+
+
+        :param favorite_qb_functions: The favorite_qb_functions of this UserSettings.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._favorite_qb_functions = favorite_qb_functions
 
     @property
     def hide_ts_when_querybuilder_shown(self):

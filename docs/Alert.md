@@ -3,12 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**acl** | [**AccessControlListSimple**](AccessControlListSimple.md) |  | [optional] 
 **active_maintenance_windows** | **list[str]** | The names of the active maintenance windows that are affecting this alert | [optional] 
 **additional_information** | **str** | User-supplied additional explanatory information for this alert.  Useful for linking runbooks, mitigations,, etc | [optional] 
 **alert_type** | **str** | Alert type. | [optional] 
 **alerts_last_day** | **int** |  | [optional] 
 **alerts_last_month** | **int** |  | [optional] 
 **alerts_last_week** | **int** |  | [optional] 
+**can_user_modify** | **bool** | Whether the user can modify the alert. | [optional] 
 **condition** | **str** | A Wavefront query that is evaluated at regular intervals (default 1m).  The alert fires and notifications are triggered when a data series matching this query evaluates to a non-zero value for a set number of consecutive minutes | 
 **condition_qb_enabled** | **bool** | Whether the condition query was created using the Query Builder.  Default false | [optional] 
 **condition_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true | [optional] 
@@ -42,6 +44,7 @@ Name | Type | Description | Notes
 **notificants** | **list[str]** | A derived field listing the webhook ids used by this alert | [optional] 
 **notification_resend_frequency_minutes** | **int** | How often to re-trigger a continually failing alert. If absent or &lt;&#x3D; 0, no retriggering occurs | [optional] 
 **num_points_in_failure_frame** | **int** | Number of points scanned in alert query time frame. | [optional] 
+**orphan** | **bool** |  | [optional] 
 **points_scanned_at_last_query** | **int** | A derived field recording the number of data points scanned when the system last computed this alert&#39;s condition | [optional] 
 **prefiring_host_label_pairs** | [**list[SourceLabelPair]**](SourceLabelPair.md) | Lists the series that are starting to fail, defined as failing for greater than 50% of the checks in the window determined by the \&quot;minutes\&quot; parameter | [optional] 
 **process_rate_minutes** | **int** | The interval between checks for this alert, in minutes.  Defaults to 1 minute | [optional] 

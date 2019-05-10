@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from wavefront_api_client.models.access_control_list_simple import AccessControlListSimple  # noqa: F401,E501
 from wavefront_api_client.models.event import Event  # noqa: F401,E501
 from wavefront_api_client.models.source_label_pair import SourceLabelPair  # noqa: F401,E501
 from wavefront_api_client.models.target_info import TargetInfo  # noqa: F401,E501
@@ -36,12 +37,14 @@ class Alert(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'acl': 'AccessControlListSimple',
         'active_maintenance_windows': 'list[str]',
         'additional_information': 'str',
         'alert_type': 'str',
         'alerts_last_day': 'int',
         'alerts_last_month': 'int',
         'alerts_last_week': 'int',
+        'can_user_modify': 'bool',
         'condition': 'str',
         'condition_qb_enabled': 'bool',
         'condition_qb_serialization': 'str',
@@ -75,6 +78,7 @@ class Alert(object):
         'notificants': 'list[str]',
         'notification_resend_frequency_minutes': 'int',
         'num_points_in_failure_frame': 'int',
+        'orphan': 'bool',
         'points_scanned_at_last_query': 'int',
         'prefiring_host_label_pairs': 'list[SourceLabelPair]',
         'process_rate_minutes': 'int',
@@ -97,12 +101,14 @@ class Alert(object):
     }
 
     attribute_map = {
+        'acl': 'acl',
         'active_maintenance_windows': 'activeMaintenanceWindows',
         'additional_information': 'additionalInformation',
         'alert_type': 'alertType',
         'alerts_last_day': 'alertsLastDay',
         'alerts_last_month': 'alertsLastMonth',
         'alerts_last_week': 'alertsLastWeek',
+        'can_user_modify': 'canUserModify',
         'condition': 'condition',
         'condition_qb_enabled': 'conditionQBEnabled',
         'condition_qb_serialization': 'conditionQBSerialization',
@@ -136,6 +142,7 @@ class Alert(object):
         'notificants': 'notificants',
         'notification_resend_frequency_minutes': 'notificationResendFrequencyMinutes',
         'num_points_in_failure_frame': 'numPointsInFailureFrame',
+        'orphan': 'orphan',
         'points_scanned_at_last_query': 'pointsScannedAtLastQuery',
         'prefiring_host_label_pairs': 'prefiringHostLabelPairs',
         'process_rate_minutes': 'processRateMinutes',
@@ -157,15 +164,17 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, event=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_owned=None, tags=None, target=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, can_user_modify=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, event=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_owned=None, tags=None, target=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
+        self._acl = None
         self._active_maintenance_windows = None
         self._additional_information = None
         self._alert_type = None
         self._alerts_last_day = None
         self._alerts_last_month = None
         self._alerts_last_week = None
+        self._can_user_modify = None
         self._condition = None
         self._condition_qb_enabled = None
         self._condition_qb_serialization = None
@@ -199,6 +208,7 @@ class Alert(object):
         self._notificants = None
         self._notification_resend_frequency_minutes = None
         self._num_points_in_failure_frame = None
+        self._orphan = None
         self._points_scanned_at_last_query = None
         self._prefiring_host_label_pairs = None
         self._process_rate_minutes = None
@@ -220,6 +230,8 @@ class Alert(object):
         self._updater_id = None
         self.discriminator = None
 
+        if acl is not None:
+            self.acl = acl
         if active_maintenance_windows is not None:
             self.active_maintenance_windows = active_maintenance_windows
         if additional_information is not None:
@@ -232,6 +244,8 @@ class Alert(object):
             self.alerts_last_month = alerts_last_month
         if alerts_last_week is not None:
             self.alerts_last_week = alerts_last_week
+        if can_user_modify is not None:
+            self.can_user_modify = can_user_modify
         self.condition = condition
         if condition_qb_enabled is not None:
             self.condition_qb_enabled = condition_qb_enabled
@@ -295,6 +309,8 @@ class Alert(object):
             self.notification_resend_frequency_minutes = notification_resend_frequency_minutes
         if num_points_in_failure_frame is not None:
             self.num_points_in_failure_frame = num_points_in_failure_frame
+        if orphan is not None:
+            self.orphan = orphan
         if points_scanned_at_last_query is not None:
             self.points_scanned_at_last_query = points_scanned_at_last_query
         if prefiring_host_label_pairs is not None:
@@ -333,6 +349,27 @@ class Alert(object):
             self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
             self.updater_id = updater_id
+
+    @property
+    def acl(self):
+        """Gets the acl of this Alert.  # noqa: E501
+
+
+        :return: The acl of this Alert.  # noqa: E501
+        :rtype: AccessControlListSimple
+        """
+        return self._acl
+
+    @acl.setter
+    def acl(self, acl):
+        """Sets the acl of this Alert.
+
+
+        :param acl: The acl of this Alert.  # noqa: E501
+        :type: AccessControlListSimple
+        """
+
+        self._acl = acl
 
     @property
     def active_maintenance_windows(self):
@@ -471,6 +508,29 @@ class Alert(object):
         """
 
         self._alerts_last_week = alerts_last_week
+
+    @property
+    def can_user_modify(self):
+        """Gets the can_user_modify of this Alert.  # noqa: E501
+
+        Whether the user can modify the alert.  # noqa: E501
+
+        :return: The can_user_modify of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._can_user_modify
+
+    @can_user_modify.setter
+    def can_user_modify(self, can_user_modify):
+        """Sets the can_user_modify of this Alert.
+
+        Whether the user can modify the alert.  # noqa: E501
+
+        :param can_user_modify: The can_user_modify of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._can_user_modify = can_user_modify
 
     @property
     def condition(self):
@@ -1218,6 +1278,27 @@ class Alert(object):
         """
 
         self._num_points_in_failure_frame = num_points_in_failure_frame
+
+    @property
+    def orphan(self):
+        """Gets the orphan of this Alert.  # noqa: E501
+
+
+        :return: The orphan of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._orphan
+
+    @orphan.setter
+    def orphan(self, orphan):
+        """Sets the orphan of this Alert.
+
+
+        :param orphan: The orphan of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._orphan = orphan
 
     @property
     def points_scanned_at_last_query(self):

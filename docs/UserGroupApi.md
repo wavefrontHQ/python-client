@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **add_users_to_user_group**
-> ResponseContainerUserGroup add_users_to_user_group(id, body=body)
+> ResponseContainerUserGroupModel add_users_to_user_group(id, body=body)
 
 Add multiple users to a specific user group
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_user_group**
-> ResponseContainerUserGroup create_user_group(body=body)
+> ResponseContainerUserGroupModel create_user_group(body=body)
 
 Create a specific user group
 
@@ -94,7 +94,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.UserGroupApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ] }</pre> (optional)
+body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"UserGroup description\" }</pre> (optional)
 
 try:
     # Create a specific user group
@@ -108,11 +108,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;permissions\&quot;: [   \&quot;permission1\&quot;,   \&quot;permission2\&quot;,   \&quot;permission3\&quot;   ] }&lt;/pre&gt; | [optional] 
+ **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;permissions\&quot;: [   \&quot;permission1\&quot;,   \&quot;permission2\&quot;,   \&quot;permission3\&quot;   ],   \&quot;description\&quot;: \&quot;UserGroup description\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_user_group**
-> ResponseContainerUserGroup delete_user_group(id)
+> ResponseContainerUserGroupModel delete_user_group(id)
 
 Delete a specific user group
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_user_groups**
-> ResponseContainerPagedUserGroup get_all_user_groups(offset=offset, limit=limit)
+> ResponseContainerPagedUserGroupModel get_all_user_groups(offset=offset, limit=limit)
 
 Get all user groups for a customer
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerPagedUserGroup**](ResponseContainerPagedUserGroup.md)
+[**ResponseContainerPagedUserGroupModel**](ResponseContainerPagedUserGroupModel.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_group**
-> ResponseContainerUserGroup get_user_group(id)
+> ResponseContainerUserGroupModel get_user_group(id)
 
 Get a specific user group
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **grant_permission_to_user_groups**
-> ResponseContainerUserGroup grant_permission_to_user_groups(permission, body=body)
+> ResponseContainerUserGroupModel grant_permission_to_user_groups(permission, body=body)
 
 Grants a single permission to user group(s)
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_users_from_user_group**
-> ResponseContainerUserGroup remove_users_from_user_group(id, body=body)
+> ResponseContainerUserGroupModel remove_users_from_user_group(id, body=body)
 
 Remove multiple users from a specific user group
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **revoke_permission_from_user_groups**
-> ResponseContainerUserGroup revoke_permission_from_user_groups(permission, body=body)
+> ResponseContainerUserGroupModel revoke_permission_from_user_groups(permission, body=body)
 
 Revokes a single permission from user group(s)
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_group**
-> ResponseContainerUserGroup update_user_group(id, body=body)
+> ResponseContainerUserGroupModel update_user_group(id, body=body)
 
 Update a specific user group
 
@@ -481,7 +481,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserGroupApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ] }</pre> (optional)
+body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"UserGroup description\" }</pre> (optional)
 
 try:
     # Update a specific user group
@@ -496,11 +496,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;UserGroup identifier\&quot;,   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;permissions\&quot;: [   \&quot;permission1\&quot;,   \&quot;permission2\&quot;,   \&quot;permission3\&quot;   ] }&lt;/pre&gt; | [optional] 
+ **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;UserGroup identifier\&quot;,   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;permissions\&quot;: [   \&quot;permission1\&quot;,   \&quot;permission2\&quot;,   \&quot;permission3\&quot;   ],   \&quot;description\&quot;: \&quot;UserGroup description\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
-[**ResponseContainerUserGroup**](ResponseContainerUserGroup.md)
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
 
 ### Authorization
 

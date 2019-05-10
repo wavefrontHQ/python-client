@@ -33,26 +33,31 @@ class SearchQuery(object):
     swagger_types = {
         'key': 'str',
         'matching_method': 'str',
+        'negated': 'bool',
         'value': 'str'
     }
 
     attribute_map = {
         'key': 'key',
         'matching_method': 'matchingMethod',
+        'negated': 'negated',
         'value': 'value'
     }
 
-    def __init__(self, key=None, matching_method=None, value=None):  # noqa: E501
+    def __init__(self, key=None, matching_method=None, negated=None, value=None):  # noqa: E501
         """SearchQuery - a model defined in Swagger"""  # noqa: E501
 
         self._key = None
         self._matching_method = None
+        self._negated = None
         self._value = None
         self.discriminator = None
 
         self.key = key
         if matching_method is not None:
             self.matching_method = matching_method
+        if negated is not None:
+            self.negated = negated
         self.value = value
 
     @property
@@ -108,6 +113,29 @@ class SearchQuery(object):
             )
 
         self._matching_method = matching_method
+
+    @property
+    def negated(self):
+        """Gets the negated of this SearchQuery.  # noqa: E501
+
+        The flag to create a NOT operation. Default: false  # noqa: E501
+
+        :return: The negated of this SearchQuery.  # noqa: E501
+        :rtype: bool
+        """
+        return self._negated
+
+    @negated.setter
+    def negated(self, negated):
+        """Sets the negated of this SearchQuery.
+
+        The flag to create a NOT operation. Default: false  # noqa: E501
+
+        :param negated: The negated of this SearchQuery.  # noqa: E501
+        :type: bool
+        """
+
+        self._negated = negated
 
     @property
     def value(self):

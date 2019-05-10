@@ -47,7 +47,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.DashboardApi(wavefront_api_client.ApiClient(configuration))
-body = [wavefront_api_client.ACL()] # list[ACL] |  (optional)
+body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlListWriteDTO] |  (optional)
 
 try:
     # Adds the specified ids to the given dashboards' ACL
@@ -60,7 +60,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[ACL]**](ACL.md)|  | [optional] 
+ **body** | [**list[AccessControlListWriteDTO]**](AccessControlListWriteDTO.md)|  | [optional] 
 
 ### Return type
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_access_control_list**
-> ResponseContainerListACL get_access_control_list(id=id)
+> ResponseContainerListAccessControlListReadDTO get_access_control_list(id=id)
 
 Get list of Access Control Lists for the specified dashboards
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerListACL**](ResponseContainerListACL.md)
+[**ResponseContainerListAccessControlListReadDTO**](ResponseContainerListAccessControlListReadDTO.md)
 
 ### Authorization
 
@@ -650,7 +650,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.DashboardApi(wavefront_api_client.ApiClient(configuration))
-body = [wavefront_api_client.ACL()] # list[ACL] |  (optional)
+body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlListWriteDTO] |  (optional)
 
 try:
     # Removes the specified ids from the given dashboards' ACL
@@ -663,7 +663,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[ACL]**](ACL.md)|  | [optional] 
+ **body** | [**list[AccessControlListWriteDTO]**](AccessControlListWriteDTO.md)|  | [optional] 
 
 ### Return type
 
@@ -759,7 +759,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.DashboardApi(wavefront_api_client.ApiClient(configuration))
-body = [wavefront_api_client.ACL()] # list[ACL] |  (optional)
+body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlListWriteDTO] |  (optional)
 
 try:
     # Set ACL for the specified dashboards
@@ -772,7 +772,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[ACL]**](ACL.md)|  | [optional] 
+ **body** | [**list[AccessControlListWriteDTO]**](AccessControlListWriteDTO.md)|  | [optional] 
 
 ### Return type
 

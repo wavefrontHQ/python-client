@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **created_epoch_millis** | **int** |  | [optional] 
 **creator_id** | **str** |  | [optional] 
 **customer_id** | **str** | The id of the customer preferences are attached to | 
-**default_user_groups** | [**list[UserGroup]**](UserGroup.md) | List of default user groups of the customer | [optional] 
+**default_user_groups** | [**list[UserGroupModel]**](UserGroupModel.md) | List of default user groups of the customer | [optional] 
 **deleted** | **bool** |  | [optional] 
 **grant_modify_access_to_everyone** | **bool** | Whether modify access of new entites is granted to Everyone or to the Creator | 
 **hidden_metric_prefixes** | **dict(str, int)** | Metric prefixes which should be hidden from user | [optional] 

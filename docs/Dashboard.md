@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **acl** | [**AccessControlListSimple**](AccessControlListSimple.md) |  | [optional] 
-**can_user_modify** | **bool** |  | [optional] 
+**can_user_modify** | **bool** | Whether the user can modify the dashboard. | [optional] 
 **chart_title_bg_color** | **str** | Background color of the chart title text area, in rgba(rvalue,gvalue,bvalue,avalue) | [optional] 
 **chart_title_color** | **str** | Text color of the chart title text are, in rgba(rvalue,gvalue,bvalue,avalue) | [optional] 
 **chart_title_scalar** | **int** | Scale (normally 100) of chart title text size | [optional] 

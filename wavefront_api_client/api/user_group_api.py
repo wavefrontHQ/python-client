@@ -45,7 +45,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str id: (required)
         :param list[str] body: List of users that should be added to user group
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,7 +68,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str id: (required)
         :param list[str] body: List of users that should be added to user group
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -128,7 +128,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -146,8 +146,8 @@ class UserGroupApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ] }</pre>
-        :return: ResponseContainerUserGroup
+        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -168,8 +168,8 @@ class UserGroupApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ] }</pre>
-        :return: ResponseContainerUserGroup
+        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -223,7 +223,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -242,7 +242,7 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -264,7 +264,7 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -318,7 +318,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -338,7 +338,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param int offset:
         :param int limit:
-        :return: ResponseContainerPagedUserGroup
+        :return: ResponseContainerPagedUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -361,7 +361,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param int offset:
         :param int limit:
-        :return: ResponseContainerPagedUserGroup
+        :return: ResponseContainerPagedUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -413,7 +413,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerPagedUserGroup',  # noqa: E501
+            response_type='ResponseContainerPagedUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -432,7 +432,7 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -454,7 +454,7 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -508,7 +508,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -528,7 +528,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str permission: Permission to grant to user group(s). (required)
         :param list[str] body: List of user groups.
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -551,7 +551,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str permission: Permission to grant to user group(s). (required)
         :param list[str] body: List of user groups.
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -611,7 +611,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -631,7 +631,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str id: (required)
         :param list[str] body: List of users that should be removed from user group
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -654,7 +654,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str id: (required)
         :param list[str] body: List of users that should be removed from user group
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -714,7 +714,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -734,7 +734,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str permission: Permission to revoke from user group(s). (required)
         :param list[str] body: List of user groups.
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -757,7 +757,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param str permission: Permission to revoke from user group(s). (required)
         :param list[str] body: List of user groups.
-        :return: ResponseContainerUserGroup
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -817,7 +817,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -836,8 +836,8 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ] }</pre>
-        :return: ResponseContainerUserGroup
+        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -859,8 +859,8 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ] }</pre>
-        :return: ResponseContainerUserGroup
+        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -920,7 +920,7 @@ class UserGroupApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainerUserGroup',  # noqa: E501
+            response_type='ResponseContainerUserGroupModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**create_or_update_user**](UserApi.md#create_or_update_user) | **POST** /api/v2/user | Creates or updates a user
 [**delete_multiple_users**](UserApi.md#delete_multiple_users) | **POST** /api/v2/user/deleteUsers | Deletes multiple users
 [**delete_user**](UserApi.md#delete_user) | **DELETE** /api/v2/user/{id} | Deletes a user identified by id
-[**get_all_user**](UserApi.md#get_all_user) | **GET** /api/v2/user | Get all users
-[**get_user**](UserApi.md#get_user) | **GET** /api/v2/user/{id} | Retrieves a user by identifier (email addr)
+[**get_all_users**](UserApi.md#get_all_users) | **GET** /api/v2/user | Get all users
+[**get_user**](UserApi.md#get_user) | **GET** /api/v2/user/{id} | Retrieves a user by identifier (email address)
 [**grant_permission_to_users**](UserApi.md#grant_permission_to_users) | **POST** /api/v2/user/grant/{permission} | Grants a specific user permission to multiple users
 [**grant_user_permission**](UserApi.md#grant_user_permission) | **POST** /api/v2/user/{id}/grant | Grants a specific user permission
 [**invite_users**](UserApi.md#invite_users) | **POST** /api/v2/user/invite | Invite users with given user groups and permissions.
@@ -239,8 +239,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_all_user**
-> list[UserModel] get_all_user()
+# **get_all_users**
+> list[UserModel] get_all_users()
 
 Get all users
 
@@ -265,10 +265,10 @@ api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(confi
 
 try:
     # Get all users
-    api_response = api_instance.get_all_user()
+    api_response = api_instance.get_all_users()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UserApi->get_all_user: %s\n" % e)
+    print("Exception when calling UserApi->get_all_users: %s\n" % e)
 ```
 
 ### Parameters
@@ -292,7 +292,7 @@ This endpoint does not need any parameter.
 # **get_user**
 > UserModel get_user(id)
 
-Retrieves a user by identifier (email addr)
+Retrieves a user by identifier (email address)
 
 
 
@@ -315,7 +315,7 @@ api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(confi
 id = 'id_example' # str | 
 
 try:
-    # Retrieves a user by identifier (email addr)
+    # Retrieves a user by identifier (email address)
     api_response = api_instance.get_user(id)
     pprint(api_response)
 except ApiException as e:
@@ -367,7 +367,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 permission = 'permission_example' # str | Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
-body = [wavefront_api_client.list[str]()] # list[str] | list of users which should be revoked by specified permission (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | List of users which should be granted by specified permission (optional)
 
 try:
     # Grants a specific user permission to multiple users
@@ -382,7 +382,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **permission** | **str**| Permission to grant to the users. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
- **body** | **list[str]**| list of users which should be revoked by specified permission | [optional] 
+ **body** | **list[str]**| List of users which should be granted by specified permission | [optional] 
 
 ### Return type
 
@@ -589,7 +589,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 permission = 'permission_example' # str | Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
-body = [wavefront_api_client.list[str]()] # list[str] | list of users which should be revoked by specified permission (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | List of users which should be revoked by specified permission (optional)
 
 try:
     # Revokes a specific user permission from multiple users
@@ -604,7 +604,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **permission** | **str**| Permission to grant to the users. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
- **body** | **list[str]**| list of users which should be revoked by specified permission | [optional] 
+ **body** | **list[str]**| List of users which should be revoked by specified permission | [optional] 
 
 ### Return type
 

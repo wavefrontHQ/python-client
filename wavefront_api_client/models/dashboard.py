@@ -248,6 +248,7 @@ class Dashboard(object):
     def can_user_modify(self):
         """Gets the can_user_modify of this Dashboard.  # noqa: E501
 
+        Whether the user can modify the dashboard.  # noqa: E501
 
         :return: The can_user_modify of this Dashboard.  # noqa: E501
         :rtype: bool
@@ -258,6 +259,7 @@ class Dashboard(object):
     def can_user_modify(self, can_user_modify):
         """Sets the can_user_modify of this Dashboard.
 
+        Whether the user can modify the dashboard.  # noqa: E501
 
         :param can_user_modify: The can_user_modify of this Dashboard.  # noqa: E501
         :type: bool

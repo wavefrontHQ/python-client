@@ -33,6 +33,7 @@ class UserGroupWrite(object):
     swagger_types = {
         'created_epoch_millis': 'int',
         'customer': 'str',
+        'description': 'str',
         'id': 'str',
         'name': 'str',
         'permissions': 'list[str]'
@@ -41,16 +42,18 @@ class UserGroupWrite(object):
     attribute_map = {
         'created_epoch_millis': 'createdEpochMillis',
         'customer': 'customer',
+        'description': 'description',
         'id': 'id',
         'name': 'name',
         'permissions': 'permissions'
     }
 
-    def __init__(self, created_epoch_millis=None, customer=None, id=None, name=None, permissions=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, permissions=None):  # noqa: E501
         """UserGroupWrite - a model defined in Swagger"""  # noqa: E501
 
         self._created_epoch_millis = None
         self._customer = None
+        self._description = None
         self._id = None
         self._name = None
         self._permissions = None
@@ -60,6 +63,8 @@ class UserGroupWrite(object):
             self.created_epoch_millis = created_epoch_millis
         if customer is not None:
             self.customer = customer
+        if description is not None:
+            self.description = description
         if id is not None:
             self.id = id
         self.name = name
@@ -108,6 +113,29 @@ class UserGroupWrite(object):
         """
 
         self._customer = customer
+
+    @property
+    def description(self):
+        """Gets the description of this UserGroupWrite.  # noqa: E501
+
+        The description of the user group  # noqa: E501
+
+        :return: The description of this UserGroupWrite.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this UserGroupWrite.
+
+        The description of the user group  # noqa: E501
+
+        :param description: The description of this UserGroupWrite.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def id(self):

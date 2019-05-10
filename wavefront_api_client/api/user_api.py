@@ -425,13 +425,13 @@ class UserApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_all_user(self, **kwargs):  # noqa: E501
+    def get_all_users(self, **kwargs):  # noqa: E501
         """Get all users  # noqa: E501
 
         Returns all users  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_user(async_req=True)
+        >>> thread = api.get_all_users(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -441,18 +441,18 @@ class UserApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_all_user_with_http_info(**kwargs)  # noqa: E501
+            return self.get_all_users_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.get_all_user_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.get_all_users_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def get_all_user_with_http_info(self, **kwargs):  # noqa: E501
+    def get_all_users_with_http_info(self, **kwargs):  # noqa: E501
         """Get all users  # noqa: E501
 
         Returns all users  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_user_with_http_info(async_req=True)
+        >>> thread = api.get_all_users_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -472,7 +472,7 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_all_user" % key
+                    " to method get_all_users" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -513,7 +513,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def get_user(self, id, **kwargs):  # noqa: E501
-        """Retrieves a user by identifier (email addr)  # noqa: E501
+        """Retrieves a user by identifier (email address)  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -535,7 +535,7 @@ class UserApi(object):
             return data
 
     def get_user_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Retrieves a user by identifier (email addr)  # noqa: E501
+        """Retrieves a user by identifier (email address)  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -618,7 +618,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str permission: Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
-        :param list[str] body: list of users which should be revoked by specified permission
+        :param list[str] body: List of users which should be granted by specified permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -641,7 +641,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str permission: Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
-        :param list[str] body: list of users which should be revoked by specified permission
+        :param list[str] body: List of users which should be granted by specified permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1022,7 +1022,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str permission: Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
-        :param list[str] body: list of users which should be revoked by specified permission
+        :param list[str] body: List of users which should be revoked by specified permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1045,7 +1045,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str permission: Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
-        :param list[str] body: list of users which should be revoked by specified permission
+        :param list[str] body: List of users which should be revoked by specified permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.

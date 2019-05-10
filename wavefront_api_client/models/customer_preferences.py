@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from wavefront_api_client.models.user_group import UserGroup  # noqa: F401,E501
+from wavefront_api_client.models.user_group_model import UserGroupModel  # noqa: F401,E501
 
 
 class CustomerPreferences(object):
@@ -37,7 +37,7 @@ class CustomerPreferences(object):
         'created_epoch_millis': 'int',
         'creator_id': 'str',
         'customer_id': 'str',
-        'default_user_groups': 'list[UserGroup]',
+        'default_user_groups': 'list[UserGroupModel]',
         'deleted': 'bool',
         'grant_modify_access_to_everyone': 'bool',
         'hidden_metric_prefixes': 'dict(str, int)',
@@ -216,7 +216,7 @@ class CustomerPreferences(object):
         List of default user groups of the customer  # noqa: E501
 
         :return: The default_user_groups of this CustomerPreferences.  # noqa: E501
-        :rtype: list[UserGroup]
+        :rtype: list[UserGroupModel]
         """
         return self._default_user_groups
 
@@ -227,7 +227,7 @@ class CustomerPreferences(object):
         List of default user groups of the customer  # noqa: E501
 
         :param default_user_groups: The default_user_groups of this CustomerPreferences.  # noqa: E501
-        :type: list[UserGroup]
+        :type: list[UserGroupModel]
         """
 
         self._default_user_groups = default_user_groups

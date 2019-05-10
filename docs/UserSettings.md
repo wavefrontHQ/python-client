@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **always_hide_querybuilder** | **bool** |  | [optional] 
 **chart_title_scalar** | **int** |  | [optional] 
+**favorite_qb_functions** | **list[str]** |  | [optional] 
 **hide_ts_when_querybuilder_shown** | **bool** |  | [optional] 
 **landing_dashboard_slug** | **str** |  | [optional] 
 **preferred_time_zone** | **str** |  | [optional] 

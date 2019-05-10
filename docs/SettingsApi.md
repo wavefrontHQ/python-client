@@ -111,7 +111,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_default_user_groups**
-> ResponseContainerListUserGroup get_default_user_groups(body=body)
+> ResponseContainerListUserGroupModel get_default_user_groups(body=body)
 
 Get default user groups customer preferences
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerListUserGroup**](ResponseContainerListUserGroup.md)
+[**ResponseContainerListUserGroupModel**](ResponseContainerListUserGroupModel.md)
 
 ### Authorization
 

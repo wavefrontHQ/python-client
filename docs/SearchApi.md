@@ -2685,7 +2685,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_user_group_entities**
-> ResponseContainerPagedUserGroup search_user_group_entities(body=body)
+> ResponseContainerPagedUserGroupModel search_user_group_entities(body=body)
 
 Search over a customer's user groups
 
@@ -2725,7 +2725,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerPagedUserGroup**](ResponseContainerPagedUserGroup.md)
+[**ResponseContainerPagedUserGroupModel**](ResponseContainerPagedUserGroupModel.md)
 
 ### Authorization
 

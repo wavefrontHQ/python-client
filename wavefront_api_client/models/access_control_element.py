@@ -31,26 +31,52 @@ class AccessControlElement(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'description': 'str',
         'id': 'str',
         'name': 'str'
     }
 
     attribute_map = {
+        'description': 'description',
         'id': 'id',
         'name': 'name'
     }
 
-    def __init__(self, id=None, name=None):  # noqa: E501
+    def __init__(self, description=None, id=None, name=None):  # noqa: E501
         """AccessControlElement - a model defined in Swagger"""  # noqa: E501
 
+        self._description = None
         self._id = None
         self._name = None
         self.discriminator = None
 
+        if description is not None:
+            self.description = description
         if id is not None:
             self.id = id
         if name is not None:
             self.name = name
+
+    @property
+    def description(self):
+        """Gets the description of this AccessControlElement.  # noqa: E501
+
+
+        :return: The description of this AccessControlElement.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this AccessControlElement.
+
+
+        :param description: The description of this AccessControlElement.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def id(self):
