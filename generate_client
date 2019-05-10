@@ -72,7 +72,7 @@ else
   echo "Step 4: Checking if anything has changed..."
   if [[ -n "$(git status --porcelain)" ]]; then  # non-zero diff detected.
     echo "Step 5: Updating the version in the config..."
-    sed -i '' "s/${CONFIG_VER//./\\.}/${SERVER_VER//./\\.}/" "${CONFIG_FILE}"
+    sed -ie "s/${CONFIG_VER//./\\.}/${SERVER_VER//./\\.}/" "${CONFIG_FILE}"
 
     echo "Step 6: Generating the updated client..."
     java -jar "${CGEN_JAR_BINARY}" generate -l python \
