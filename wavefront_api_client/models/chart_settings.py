@@ -1314,7 +1314,7 @@ class ChartSettings(object):
         :param stack_type: The stack_type of this ChartSettings.  # noqa: E501
         :type: str
         """
-        allowed_values = ["zero", "expand", "wiggle", "silhouette", "bars"]  # noqa: E501
+        allowed_values = ["zero", "expand", "wiggle", "silhouette"]  # noqa: E501
         if stack_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `stack_type` ({0}), must be one of {1}"  # noqa: E501

@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **preferred_time_zone** | **str** |  | [optional] 
 **show_onboarding** | **bool** |  | [optional] 
 **show_querybuilder_by_default** | **bool** |  | [optional] 
-**ui_default** | **str** |  | [optional] 
 **use24_hour_time** | **bool** |  | [optional] 
 **use_dark_theme** | **bool** |  | [optional] 
 

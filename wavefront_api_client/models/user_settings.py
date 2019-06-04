@@ -39,7 +39,6 @@ class UserSettings(object):
         'preferred_time_zone': 'str',
         'show_onboarding': 'bool',
         'show_querybuilder_by_default': 'bool',
-        'ui_default': 'str',
         'use24_hour_time': 'bool',
         'use_dark_theme': 'bool'
     }
@@ -53,12 +52,11 @@ class UserSettings(object):
         'preferred_time_zone': 'preferredTimeZone',
         'show_onboarding': 'showOnboarding',
         'show_querybuilder_by_default': 'showQuerybuilderByDefault',
-        'ui_default': 'uiDefault',
         'use24_hour_time': 'use24HourTime',
         'use_dark_theme': 'useDarkTheme'
     }
 
-    def __init__(self, always_hide_querybuilder=None, chart_title_scalar=None, favorite_qb_functions=None, hide_ts_when_querybuilder_shown=None, landing_dashboard_slug=None, preferred_time_zone=None, show_onboarding=None, show_querybuilder_by_default=None, ui_default=None, use24_hour_time=None, use_dark_theme=None):  # noqa: E501
+    def __init__(self, always_hide_querybuilder=None, chart_title_scalar=None, favorite_qb_functions=None, hide_ts_when_querybuilder_shown=None, landing_dashboard_slug=None, preferred_time_zone=None, show_onboarding=None, show_querybuilder_by_default=None, use24_hour_time=None, use_dark_theme=None):  # noqa: E501
         """UserSettings - a model defined in Swagger"""  # noqa: E501
 
         self._always_hide_querybuilder = None
@@ -69,7 +67,6 @@ class UserSettings(object):
         self._preferred_time_zone = None
         self._show_onboarding = None
         self._show_querybuilder_by_default = None
-        self._ui_default = None
         self._use24_hour_time = None
         self._use_dark_theme = None
         self.discriminator = None
@@ -90,8 +87,6 @@ class UserSettings(object):
             self.show_onboarding = show_onboarding
         if show_querybuilder_by_default is not None:
             self.show_querybuilder_by_default = show_querybuilder_by_default
-        if ui_default is not None:
-            self.ui_default = ui_default
         if use24_hour_time is not None:
             self.use24_hour_time = use24_hour_time
         if use_dark_theme is not None:
@@ -264,33 +259,6 @@ class UserSettings(object):
         """
 
         self._show_querybuilder_by_default = show_querybuilder_by_default
-
-    @property
-    def ui_default(self):
-        """Gets the ui_default of this UserSettings.  # noqa: E501
-
-
-        :return: The ui_default of this UserSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._ui_default
-
-    @ui_default.setter
-    def ui_default(self, ui_default):
-        """Sets the ui_default of this UserSettings.
-
-
-        :param ui_default: The ui_default of this UserSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["V1", "V2"]  # noqa: E501
-        if ui_default not in allowed_values:
-            raise ValueError(
-                "Invalid value for `ui_default` ({0}), must be one of {1}"  # noqa: E501
-                .format(ui_default, allowed_values)
-            )
-
-        self._ui_default = ui_default
 
     @property
     def use24_hour_time(self):
