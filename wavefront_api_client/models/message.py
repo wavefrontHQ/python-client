@@ -164,7 +164,7 @@ class Message(object):
         """
         if display is None:
             raise ValueError("Invalid value for `display`, must not be `None`")  # noqa: E501
-        allowed_values = ["BANNER", "TOASTER"]  # noqa: E501
+        allowed_values = ["BANNER", "TOASTER", "MODAL"]  # noqa: E501
         if display not in allowed_values:
             raise ValueError(
                 "Invalid value for `display` ({0}), must be one of {1}"  # noqa: E501
