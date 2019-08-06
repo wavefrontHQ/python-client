@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **alerts_last_day** | **int** |  | [optional] 
 **alerts_last_month** | **int** |  | [optional] 
 **alerts_last_week** | **int** |  | [optional] 
-**can_user_modify** | **bool** | Whether the user can modify the alert. | [optional] 
 **condition** | **str** | A Wavefront query that is evaluated at regular intervals (default 1m).  The alert fires and notifications are triggered when a data series matching this query evaluates to a non-zero value for a set number of consecutive minutes | 
 **condition_qb_enabled** | **bool** | Whether the condition query was created using the Query Builder.  Default false | [optional] 
 **condition_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true | [optional] 
@@ -39,6 +38,7 @@ Name | Type | Description | Notes
 **last_query_time** | **int** | Last query time of the alert, averaged on hourly basis | [optional] 
 **metrics_used** | **list[str]** | Number of metrics checked by the alert condition | [optional] 
 **minutes** | **int** | The number of consecutive minutes that a series matching the condition query must evaluate to \&quot;true\&quot; (non-zero value) before the alert fires | 
+**modify_acl_access** | **bool** | Whether the user has modify ACL access to the alert. | [optional] 
 **name** | **str** |  | 
 **no_data_event** | [**Event**](Event.md) | No data event related to the alert | [optional] 
 **notificants** | **list[str]** | A derived field listing the webhook ids used by this alert | [optional] 

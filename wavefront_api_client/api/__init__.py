@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from wavefront_api_client.api.account__service_account_api import AccountServiceAccountApi
 from wavefront_api_client.api.alert_api import AlertApi
 from wavefront_api_client.api.api_token_api import ApiTokenApi
 from wavefront_api_client.api.cloud_integration_api import CloudIntegrationApi

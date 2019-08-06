@@ -34,7 +34,7 @@ class UserApi(object):
         self.api_client = api_client
 
     def add_user_to_user_groups(self, id, **kwargs):  # noqa: E501
-        """Adds specific user groups to the user  # noqa: E501
+        """Adds specific user groups to the user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -44,7 +44,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be added to the user
+        :param list[str] body: The list of user groups that should be added to the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -57,7 +57,7 @@ class UserApi(object):
             return data
 
     def add_user_to_user_groups_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Adds specific user groups to the user  # noqa: E501
+        """Adds specific user groups to the user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -67,7 +67,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be added to the user
+        :param list[str] body: The list of user groups that should be added to the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -236,7 +236,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def delete_multiple_users(self, **kwargs):  # noqa: E501
-        """Deletes multiple users  # noqa: E501
+        """Deletes multiple users or service accounts  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -258,7 +258,7 @@ class UserApi(object):
             return data
 
     def delete_multiple_users_with_http_info(self, **kwargs):  # noqa: E501
-        """Deletes multiple users  # noqa: E501
+        """Deletes multiple users or service accounts  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -331,7 +331,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def delete_user(self, id, **kwargs):  # noqa: E501
-        """Deletes a user identified by id  # noqa: E501
+        """Deletes a user or service account identified by id  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -353,7 +353,7 @@ class UserApi(object):
             return data
 
     def delete_user_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Deletes a user identified by id  # noqa: E501
+        """Deletes a user or service account identified by id  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -608,7 +608,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def grant_permission_to_users(self, permission, **kwargs):  # noqa: E501
-        """Grants a specific user permission to multiple users  # noqa: E501
+        """Grants a specific permission to multiple users or service accounts  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -631,7 +631,7 @@ class UserApi(object):
             return data
 
     def grant_permission_to_users_with_http_info(self, permission, **kwargs):  # noqa: E501
-        """Grants a specific user permission to multiple users  # noqa: E501
+        """Grants a specific permission to multiple users or service accounts  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -711,7 +711,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def grant_user_permission(self, id, **kwargs):  # noqa: E501
-        """Grants a specific user permission  # noqa: E501
+        """Grants a specific permission to user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -721,7 +721,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param str group: Permission group to grant to this user.  Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
+        :param str group: Permission group to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -734,7 +734,7 @@ class UserApi(object):
             return data
 
     def grant_user_permission_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Grants a specific user permission  # noqa: E501
+        """Grants a specific permission to user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -744,7 +744,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param str group: Permission group to grant to this user.  Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
+        :param str group: Permission group to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -909,7 +909,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def remove_user_from_user_groups(self, id, **kwargs):  # noqa: E501
-        """Removes specific user groups from the user  # noqa: E501
+        """Removes specific user groups from the user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -919,7 +919,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be removed from the user
+        :param list[str] body: The list of user groups that should be removed from the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -932,7 +932,7 @@ class UserApi(object):
             return data
 
     def remove_user_from_user_groups_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Removes specific user groups from the user  # noqa: E501
+        """Removes specific user groups from the user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -942,7 +942,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be removed from the user
+        :param list[str] body: The list of user groups that should be removed from the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1012,7 +1012,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def revoke_permission_from_users(self, permission, **kwargs):  # noqa: E501
-        """Revokes a specific user permission from multiple users  # noqa: E501
+        """Revokes a specific permission from multiple users or service accounts  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1021,8 +1021,8 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
-        :param list[str] body: List of users which should be revoked by specified permission
+        :param str permission: Permission to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
+        :param list[str] body: List of users or service accounts which should be revoked by specified permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1035,7 +1035,7 @@ class UserApi(object):
             return data
 
     def revoke_permission_from_users_with_http_info(self, permission, **kwargs):  # noqa: E501
-        """Revokes a specific user permission from multiple users  # noqa: E501
+        """Revokes a specific permission from multiple users or service accounts  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1044,8 +1044,8 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
-        :param list[str] body: List of users which should be revoked by specified permission
+        :param str permission: Permission to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
+        :param list[str] body: List of users or service accounts which should be revoked by specified permission
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1115,7 +1115,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def revoke_user_permission(self, id, **kwargs):  # noqa: E501
-        """Revokes a specific user permission  # noqa: E501
+        """Revokes a specific permission from user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1138,7 +1138,7 @@ class UserApi(object):
             return data
 
     def revoke_user_permission_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Revokes a specific user permission  # noqa: E501
+        """Revokes a specific permission from user or service account  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1321,7 +1321,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def validate_users(self, **kwargs):  # noqa: E501
-        """Returns valid users and invalid identifiers from the given list  # noqa: E501
+        """Returns valid users and service accounts, also invalid identifiers from the given list  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1343,7 +1343,7 @@ class UserApi(object):
             return data
 
     def validate_users_with_http_info(self, **kwargs):  # noqa: E501
-        """Returns valid users and invalid identifiers from the given list  # noqa: E501
+        """Returns valid users and service accounts, also invalid identifiers from the given list  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

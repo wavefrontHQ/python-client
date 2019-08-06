@@ -17,8 +17,10 @@ import re  # noqa: F401
 import six
 
 from wavefront_api_client.models.query_event import QueryEvent  # noqa: F401,E501
-from wavefront_api_client.models.stats_model import StatsModel  # noqa: F401,E501
+from wavefront_api_client.models.span import Span  # noqa: F401,E501
+from wavefront_api_client.models.stats_model_internal_use import StatsModelInternalUse  # noqa: F401,E501
 from wavefront_api_client.models.timeseries import Timeseries  # noqa: F401,E501
+from wavefront_api_client.models.trace import Trace  # noqa: F401,E501
 
 
 class QueryResult(object):
@@ -35,37 +37,53 @@ class QueryResult(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'error_message': 'str',
+        'error_type': 'str',
         'events': 'list[QueryEvent]',
         'granularity': 'int',
         'name': 'str',
         'query': 'str',
-        'stats': 'StatsModel',
+        'spans': 'list[Span]',
+        'stats': 'StatsModelInternalUse',
         'timeseries': 'list[Timeseries]',
+        'traces': 'list[Trace]',
         'warnings': 'str'
     }
 
     attribute_map = {
+        'error_message': 'errorMessage',
+        'error_type': 'errorType',
         'events': 'events',
         'granularity': 'granularity',
         'name': 'name',
         'query': 'query',
+        'spans': 'spans',
         'stats': 'stats',
         'timeseries': 'timeseries',
+        'traces': 'traces',
         'warnings': 'warnings'
     }
 
-    def __init__(self, events=None, granularity=None, name=None, query=None, stats=None, timeseries=None, warnings=None):  # noqa: E501
+    def __init__(self, error_message=None, error_type=None, events=None, granularity=None, name=None, query=None, spans=None, stats=None, timeseries=None, traces=None, warnings=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
+        self._error_message = None
+        self._error_type = None
         self._events = None
         self._granularity = None
         self._name = None
         self._query = None
+        self._spans = None
         self._stats = None
         self._timeseries = None
+        self._traces = None
         self._warnings = None
         self.discriminator = None
 
+        if error_message is not None:
+            self.error_message = error_message
+        if error_type is not None:
+            self.error_type = error_type
         if events is not None:
             self.events = events
         if granularity is not None:
@@ -74,12 +92,68 @@ class QueryResult(object):
             self.name = name
         if query is not None:
             self.query = query
+        if spans is not None:
+            self.spans = spans
         if stats is not None:
             self.stats = stats
         if timeseries is not None:
             self.timeseries = timeseries
+        if traces is not None:
+            self.traces = traces
         if warnings is not None:
             self.warnings = warnings
+
+    @property
+    def error_message(self):
+        """Gets the error_message of this QueryResult.  # noqa: E501
+
+        Error message, if query execution did not finish successfully  # noqa: E501
+
+        :return: The error_message of this QueryResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_message
+
+    @error_message.setter
+    def error_message(self, error_message):
+        """Sets the error_message of this QueryResult.
+
+        Error message, if query execution did not finish successfully  # noqa: E501
+
+        :param error_message: The error_message of this QueryResult.  # noqa: E501
+        :type: str
+        """
+
+        self._error_message = error_message
+
+    @property
+    def error_type(self):
+        """Gets the error_type of this QueryResult.  # noqa: E501
+
+        Error type, if query execution did not finish successfully  # noqa: E501
+
+        :return: The error_type of this QueryResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_type
+
+    @error_type.setter
+    def error_type(self, error_type):
+        """Sets the error_type of this QueryResult.
+
+        Error type, if query execution did not finish successfully  # noqa: E501
+
+        :param error_type: The error_type of this QueryResult.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["N/A", "QuerySyntaxError", "QueryExecutionError", "Timeout"]  # noqa: E501
+        if error_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `error_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(error_type, allowed_values)
+            )
+
+        self._error_type = error_type
 
     @property
     def events(self):
@@ -172,12 +246,33 @@ class QueryResult(object):
         self._query = query
 
     @property
+    def spans(self):
+        """Gets the spans of this QueryResult.  # noqa: E501
+
+
+        :return: The spans of this QueryResult.  # noqa: E501
+        :rtype: list[Span]
+        """
+        return self._spans
+
+    @spans.setter
+    def spans(self, spans):
+        """Sets the spans of this QueryResult.
+
+
+        :param spans: The spans of this QueryResult.  # noqa: E501
+        :type: list[Span]
+        """
+
+        self._spans = spans
+
+    @property
     def stats(self):
         """Gets the stats of this QueryResult.  # noqa: E501
 
 
         :return: The stats of this QueryResult.  # noqa: E501
-        :rtype: StatsModel
+        :rtype: StatsModelInternalUse
         """
         return self._stats
 
@@ -187,7 +282,7 @@ class QueryResult(object):
 
 
         :param stats: The stats of this QueryResult.  # noqa: E501
-        :type: StatsModel
+        :type: StatsModelInternalUse
         """
 
         self._stats = stats
@@ -212,6 +307,27 @@ class QueryResult(object):
         """
 
         self._timeseries = timeseries
+
+    @property
+    def traces(self):
+        """Gets the traces of this QueryResult.  # noqa: E501
+
+
+        :return: The traces of this QueryResult.  # noqa: E501
+        :rtype: list[Trace]
+        """
+        return self._traces
+
+    @traces.setter
+    def traces(self, traces):
+        """Sets the traces of this QueryResult.
+
+
+        :param traces: The traces of this QueryResult.  # noqa: E501
+        :type: list[Trace]
+        """
+
+        self._traces = traces
 
     @property
     def warnings(self):

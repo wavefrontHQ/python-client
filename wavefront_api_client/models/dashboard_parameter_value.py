@@ -38,10 +38,12 @@ class DashboardParameterValue(object):
         'hide_from_view': 'bool',
         'label': 'str',
         'multivalue': 'bool',
+        'order': 'int',
         'parameter_type': 'str',
         'query_value': 'str',
         'reverse_dyn_sort': 'bool',
         'tag_key': 'str',
+        'value_ordering': 'list[str]',
         'values_to_readable_strings': 'dict(str, str)'
     }
 
@@ -53,14 +55,16 @@ class DashboardParameterValue(object):
         'hide_from_view': 'hideFromView',
         'label': 'label',
         'multivalue': 'multivalue',
+        'order': 'order',
         'parameter_type': 'parameterType',
         'query_value': 'queryValue',
         'reverse_dyn_sort': 'reverseDynSort',
         'tag_key': 'tagKey',
+        'value_ordering': 'valueOrdering',
         'values_to_readable_strings': 'valuesToReadableStrings'
     }
 
-    def __init__(self, allow_all=None, default_value=None, description=None, dynamic_field_type=None, hide_from_view=None, label=None, multivalue=None, parameter_type=None, query_value=None, reverse_dyn_sort=None, tag_key=None, values_to_readable_strings=None):  # noqa: E501
+    def __init__(self, allow_all=None, default_value=None, description=None, dynamic_field_type=None, hide_from_view=None, label=None, multivalue=None, order=None, parameter_type=None, query_value=None, reverse_dyn_sort=None, tag_key=None, value_ordering=None, values_to_readable_strings=None):  # noqa: E501
         """DashboardParameterValue - a model defined in Swagger"""  # noqa: E501
 
         self._allow_all = None
@@ -70,10 +74,12 @@ class DashboardParameterValue(object):
         self._hide_from_view = None
         self._label = None
         self._multivalue = None
+        self._order = None
         self._parameter_type = None
         self._query_value = None
         self._reverse_dyn_sort = None
         self._tag_key = None
+        self._value_ordering = None
         self._values_to_readable_strings = None
         self.discriminator = None
 
@@ -91,6 +97,8 @@ class DashboardParameterValue(object):
             self.label = label
         if multivalue is not None:
             self.multivalue = multivalue
+        if order is not None:
+            self.order = order
         if parameter_type is not None:
             self.parameter_type = parameter_type
         if query_value is not None:
@@ -99,6 +107,8 @@ class DashboardParameterValue(object):
             self.reverse_dyn_sort = reverse_dyn_sort
         if tag_key is not None:
             self.tag_key = tag_key
+        if value_ordering is not None:
+            self.value_ordering = value_ordering
         if values_to_readable_strings is not None:
             self.values_to_readable_strings = values_to_readable_strings
 
@@ -256,6 +266,27 @@ class DashboardParameterValue(object):
         self._multivalue = multivalue
 
     @property
+    def order(self):
+        """Gets the order of this DashboardParameterValue.  # noqa: E501
+
+
+        :return: The order of this DashboardParameterValue.  # noqa: E501
+        :rtype: int
+        """
+        return self._order
+
+    @order.setter
+    def order(self, order):
+        """Sets the order of this DashboardParameterValue.
+
+
+        :param order: The order of this DashboardParameterValue.  # noqa: E501
+        :type: int
+        """
+
+        self._order = order
+
+    @property
     def parameter_type(self):
         """Gets the parameter_type of this DashboardParameterValue.  # noqa: E501
 
@@ -346,6 +377,27 @@ class DashboardParameterValue(object):
         """
 
         self._tag_key = tag_key
+
+    @property
+    def value_ordering(self):
+        """Gets the value_ordering of this DashboardParameterValue.  # noqa: E501
+
+
+        :return: The value_ordering of this DashboardParameterValue.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._value_ordering
+
+    @value_ordering.setter
+    def value_ordering(self, value_ordering):
+        """Sets the value_ordering of this DashboardParameterValue.
+
+
+        :param value_ordering: The value_ordering of this DashboardParameterValue.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._value_ordering = value_ordering
 
     @property
     def values_to_readable_strings(self):

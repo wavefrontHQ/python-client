@@ -37,7 +37,6 @@ class Dashboard(object):
     """
     swagger_types = {
         'acl': 'AccessControlListSimple',
-        'can_user_modify': 'bool',
         'chart_title_bg_color': 'str',
         'chart_title_color': 'str',
         'chart_title_scalar': 'int',
@@ -57,6 +56,7 @@ class Dashboard(object):
         'favorite': 'bool',
         'hidden': 'bool',
         'id': 'str',
+        'modify_acl_access': 'bool',
         'name': 'str',
         'num_charts': 'int',
         'num_favorites': 'int',
@@ -76,7 +76,6 @@ class Dashboard(object):
 
     attribute_map = {
         'acl': 'acl',
-        'can_user_modify': 'canUserModify',
         'chart_title_bg_color': 'chartTitleBgColor',
         'chart_title_color': 'chartTitleColor',
         'chart_title_scalar': 'chartTitleScalar',
@@ -96,6 +95,7 @@ class Dashboard(object):
         'favorite': 'favorite',
         'hidden': 'hidden',
         'id': 'id',
+        'modify_acl_access': 'modifyAclAccess',
         'name': 'name',
         'num_charts': 'numCharts',
         'num_favorites': 'numFavorites',
@@ -113,11 +113,10 @@ class Dashboard(object):
         'views_last_week': 'viewsLastWeek'
     }
 
-    def __init__(self, acl=None, can_user_modify=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, hidden=None, id=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None):  # noqa: E501
+    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, hidden=None, id=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
-        self._can_user_modify = None
         self._chart_title_bg_color = None
         self._chart_title_color = None
         self._chart_title_scalar = None
@@ -137,6 +136,7 @@ class Dashboard(object):
         self._favorite = None
         self._hidden = None
         self._id = None
+        self._modify_acl_access = None
         self._name = None
         self._num_charts = None
         self._num_favorites = None
@@ -156,8 +156,6 @@ class Dashboard(object):
 
         if acl is not None:
             self.acl = acl
-        if can_user_modify is not None:
-            self.can_user_modify = can_user_modify
         if chart_title_bg_color is not None:
             self.chart_title_bg_color = chart_title_bg_color
         if chart_title_color is not None:
@@ -195,6 +193,8 @@ class Dashboard(object):
         if hidden is not None:
             self.hidden = hidden
         self.id = id
+        if modify_acl_access is not None:
+            self.modify_acl_access = modify_acl_access
         self.name = name
         if num_charts is not None:
             self.num_charts = num_charts
@@ -243,29 +243,6 @@ class Dashboard(object):
         """
 
         self._acl = acl
-
-    @property
-    def can_user_modify(self):
-        """Gets the can_user_modify of this Dashboard.  # noqa: E501
-
-        Whether the user can modify the dashboard.  # noqa: E501
-
-        :return: The can_user_modify of this Dashboard.  # noqa: E501
-        :rtype: bool
-        """
-        return self._can_user_modify
-
-    @can_user_modify.setter
-    def can_user_modify(self, can_user_modify):
-        """Sets the can_user_modify of this Dashboard.
-
-        Whether the user can modify the dashboard.  # noqa: E501
-
-        :param can_user_modify: The can_user_modify of this Dashboard.  # noqa: E501
-        :type: bool
-        """
-
-        self._can_user_modify = can_user_modify
 
     @property
     def chart_title_bg_color(self):
@@ -701,6 +678,29 @@ class Dashboard(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def modify_acl_access(self):
+        """Gets the modify_acl_access of this Dashboard.  # noqa: E501
+
+        Whether the user has modify ACL access to the dashboard.  # noqa: E501
+
+        :return: The modify_acl_access of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._modify_acl_access
+
+    @modify_acl_access.setter
+    def modify_acl_access(self, modify_acl_access):
+        """Sets the modify_acl_access of this Dashboard.
+
+        Whether the user has modify ACL access to the dashboard.  # noqa: E501
+
+        :param modify_acl_access: The modify_acl_access of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._modify_acl_access = modify_acl_access
 
     @property
     def name(self):

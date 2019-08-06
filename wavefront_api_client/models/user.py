@@ -33,16 +33,19 @@ class User(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account_type': 'str',
         'api_token': 'str',
         'api_token2': 'str',
         'credential': 'str',
         'customer': 'str',
+        'description': 'str',
         'extra_api_tokens': 'list[str]',
         'groups': 'list[str]',
         'identifier': 'str',
         'invalid_password_attempts': 'int',
         'last_logout': 'int',
         'last_successful_login': 'int',
+        'last_used': 'int',
         'old_passwords': 'list[str]',
         'onboarding_state': 'str',
         'provider': 'str',
@@ -55,16 +58,19 @@ class User(object):
     }
 
     attribute_map = {
+        'account_type': 'accountType',
         'api_token': 'apiToken',
         'api_token2': 'apiToken2',
         'credential': 'credential',
         'customer': 'customer',
+        'description': 'description',
         'extra_api_tokens': 'extraApiTokens',
         'groups': 'groups',
         'identifier': 'identifier',
         'invalid_password_attempts': 'invalidPasswordAttempts',
         'last_logout': 'lastLogout',
         'last_successful_login': 'lastSuccessfulLogin',
+        'last_used': 'lastUsed',
         'old_passwords': 'oldPasswords',
         'onboarding_state': 'onboardingState',
         'provider': 'provider',
@@ -76,19 +82,22 @@ class User(object):
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, api_token=None, api_token2=None, credential=None, customer=None, extra_api_tokens=None, groups=None, identifier=None, invalid_password_attempts=None, last_logout=None, last_successful_login=None, old_passwords=None, onboarding_state=None, provider=None, reset_token=None, reset_token_creation_millis=None, settings=None, sso_id=None, super_admin=None, user_groups=None):  # noqa: E501
+    def __init__(self, account_type=None, api_token=None, api_token2=None, credential=None, customer=None, description=None, extra_api_tokens=None, groups=None, identifier=None, invalid_password_attempts=None, last_logout=None, last_successful_login=None, last_used=None, old_passwords=None, onboarding_state=None, provider=None, reset_token=None, reset_token_creation_millis=None, settings=None, sso_id=None, super_admin=None, user_groups=None):  # noqa: E501
         """User - a model defined in Swagger"""  # noqa: E501
 
+        self._account_type = None
         self._api_token = None
         self._api_token2 = None
         self._credential = None
         self._customer = None
+        self._description = None
         self._extra_api_tokens = None
         self._groups = None
         self._identifier = None
         self._invalid_password_attempts = None
         self._last_logout = None
         self._last_successful_login = None
+        self._last_used = None
         self._old_passwords = None
         self._onboarding_state = None
         self._provider = None
@@ -100,6 +109,8 @@ class User(object):
         self._user_groups = None
         self.discriminator = None
 
+        if account_type is not None:
+            self.account_type = account_type
         if api_token is not None:
             self.api_token = api_token
         if api_token2 is not None:
@@ -108,6 +119,8 @@ class User(object):
             self.credential = credential
         if customer is not None:
             self.customer = customer
+        if description is not None:
+            self.description = description
         if extra_api_tokens is not None:
             self.extra_api_tokens = extra_api_tokens
         if groups is not None:
@@ -120,6 +133,8 @@ class User(object):
             self.last_logout = last_logout
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
+        if last_used is not None:
+            self.last_used = last_used
         if old_passwords is not None:
             self.old_passwords = old_passwords
         if onboarding_state is not None:
@@ -138,6 +153,33 @@ class User(object):
             self.super_admin = super_admin
         if user_groups is not None:
             self.user_groups = user_groups
+
+    @property
+    def account_type(self):
+        """Gets the account_type of this User.  # noqa: E501
+
+
+        :return: The account_type of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_type
+
+    @account_type.setter
+    def account_type(self, account_type):
+        """Sets the account_type of this User.
+
+
+        :param account_type: The account_type of this User.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["USER_ACCOUNT", "SERVICE_ACCOUNT", "INACTIVE_SERVICE_ACCOUNT"]  # noqa: E501
+        if account_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `account_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(account_type, allowed_values)
+            )
+
+        self._account_type = account_type
 
     @property
     def api_token(self):
@@ -222,6 +264,27 @@ class User(object):
         """
 
         self._customer = customer
+
+    @property
+    def description(self):
+        """Gets the description of this User.  # noqa: E501
+
+
+        :return: The description of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this User.
+
+
+        :param description: The description of this User.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def extra_api_tokens(self):
@@ -348,6 +411,27 @@ class User(object):
         """
 
         self._last_successful_login = last_successful_login
+
+    @property
+    def last_used(self):
+        """Gets the last_used of this User.  # noqa: E501
+
+
+        :return: The last_used of this User.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_used
+
+    @last_used.setter
+    def last_used(self, last_used):
+        """Sets the last_used of this User.
+
+
+        :param last_used: The last_used of this User.  # noqa: E501
+        :type: int
+        """
+
+        self._last_used = last_used
 
     @property
     def old_passwords(self):

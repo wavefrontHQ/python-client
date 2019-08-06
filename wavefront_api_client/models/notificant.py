@@ -451,7 +451,7 @@ class Notificant(object):
         """
         if triggers is None:
             raise ValueError("Invalid value for `triggers`, must not be `None`")  # noqa: E501
-        allowed_values = ["ALERT_OPENED", "ALERT_UPDATED", "ALERT_RESOLVED", "ALERT_MAINTENANCE", "ALERT_SNOOZED", "ALERT_INVALID", "ALERT_NO_LONGER_INVALID", "ALERT_TESTING", "ALERT_RETRIGGERED", "ALERT_NO_DATA", "ALERT_NO_DATA_RESOLVED", "ALERT_NO_DATA_MAINTENANCE", "ALERT_SERIES_SEVERITY_UPDATE", "ALERT_SEVERITY_UPDATE"]  # noqa: E501
+        allowed_values = ["ALERT_OPENED", "ALERT_UPDATED", "ALERT_RESOLVED", "ALERT_MAINTENANCE", "ALERT_SNOOZED", "ALERT_INVALID", "ALERT_NO_LONGER_INVALID", "ALERT_TESTING", "ALERT_RETRIGGERED", "ALERT_NO_DATA", "ALERT_NO_DATA_RESOLVED", "ALERT_NO_DATA_MAINTENANCE", "ALERT_SEVERITY_UPDATE"]  # noqa: E501
         if not set(triggers).issubset(set(allowed_values)):
             raise ValueError(
                 "Invalid values for `triggers` [{0}], must be a subset of [{1}]"  # noqa: E501

@@ -31,25 +31,53 @@ class UserApiToken(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'last_used': 'int',
         'token_id': 'str',
         'token_name': 'str'
     }
 
     attribute_map = {
+        'last_used': 'lastUsed',
         'token_id': 'tokenID',
         'token_name': 'tokenName'
     }
 
-    def __init__(self, token_id=None, token_name=None):  # noqa: E501
+    def __init__(self, last_used=None, token_id=None, token_name=None):  # noqa: E501
         """UserApiToken - a model defined in Swagger"""  # noqa: E501
 
+        self._last_used = None
         self._token_id = None
         self._token_name = None
         self.discriminator = None
 
+        if last_used is not None:
+            self.last_used = last_used
         self.token_id = token_id
         if token_name is not None:
             self.token_name = token_name
+
+    @property
+    def last_used(self):
+        """Gets the last_used of this UserApiToken.  # noqa: E501
+
+        The last time this token was used  # noqa: E501
+
+        :return: The last_used of this UserApiToken.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_used
+
+    @last_used.setter
+    def last_used(self, last_used):
+        """Sets the last_used of this UserApiToken.
+
+        The last time this token was used  # noqa: E501
+
+        :param last_used: The last_used of this UserApiToken.  # noqa: E501
+        :type: int
+        """
+
+        self._last_used = last_used
 
     @property
     def token_id(self):

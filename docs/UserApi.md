@@ -4,26 +4,26 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_user_to_user_groups**](UserApi.md#add_user_to_user_groups) | **POST** /api/v2/user/{id}/addUserGroups | Adds specific user groups to the user
+[**add_user_to_user_groups**](UserApi.md#add_user_to_user_groups) | **POST** /api/v2/user/{id}/addUserGroups | Adds specific user groups to the user or service account
 [**create_or_update_user**](UserApi.md#create_or_update_user) | **POST** /api/v2/user | Creates or updates a user
-[**delete_multiple_users**](UserApi.md#delete_multiple_users) | **POST** /api/v2/user/deleteUsers | Deletes multiple users
-[**delete_user**](UserApi.md#delete_user) | **DELETE** /api/v2/user/{id} | Deletes a user identified by id
+[**delete_multiple_users**](UserApi.md#delete_multiple_users) | **POST** /api/v2/user/deleteUsers | Deletes multiple users or service accounts
+[**delete_user**](UserApi.md#delete_user) | **DELETE** /api/v2/user/{id} | Deletes a user or service account identified by id
 [**get_all_users**](UserApi.md#get_all_users) | **GET** /api/v2/user | Get all users
 [**get_user**](UserApi.md#get_user) | **GET** /api/v2/user/{id} | Retrieves a user by identifier (email address)
-[**grant_permission_to_users**](UserApi.md#grant_permission_to_users) | **POST** /api/v2/user/grant/{permission} | Grants a specific user permission to multiple users
-[**grant_user_permission**](UserApi.md#grant_user_permission) | **POST** /api/v2/user/{id}/grant | Grants a specific user permission
+[**grant_permission_to_users**](UserApi.md#grant_permission_to_users) | **POST** /api/v2/user/grant/{permission} | Grants a specific permission to multiple users or service accounts
+[**grant_user_permission**](UserApi.md#grant_user_permission) | **POST** /api/v2/user/{id}/grant | Grants a specific permission to user or service account
 [**invite_users**](UserApi.md#invite_users) | **POST** /api/v2/user/invite | Invite users with given user groups and permissions.
-[**remove_user_from_user_groups**](UserApi.md#remove_user_from_user_groups) | **POST** /api/v2/user/{id}/removeUserGroups | Removes specific user groups from the user
-[**revoke_permission_from_users**](UserApi.md#revoke_permission_from_users) | **POST** /api/v2/user/revoke/{permission} | Revokes a specific user permission from multiple users
-[**revoke_user_permission**](UserApi.md#revoke_user_permission) | **POST** /api/v2/user/{id}/revoke | Revokes a specific user permission
+[**remove_user_from_user_groups**](UserApi.md#remove_user_from_user_groups) | **POST** /api/v2/user/{id}/removeUserGroups | Removes specific user groups from the user or service account
+[**revoke_permission_from_users**](UserApi.md#revoke_permission_from_users) | **POST** /api/v2/user/revoke/{permission} | Revokes a specific permission from multiple users or service accounts
+[**revoke_user_permission**](UserApi.md#revoke_user_permission) | **POST** /api/v2/user/{id}/revoke | Revokes a specific permission from user or service account
 [**update_user**](UserApi.md#update_user) | **PUT** /api/v2/user/{id} | Update user with given user groups and permissions.
-[**validate_users**](UserApi.md#validate_users) | **POST** /api/v2/user/validateUsers | Returns valid users and invalid identifiers from the given list
+[**validate_users**](UserApi.md#validate_users) | **POST** /api/v2/user/validateUsers | Returns valid users and service accounts, also invalid identifiers from the given list
 
 
 # **add_user_to_user_groups**
 > UserModel add_user_to_user_groups(id, body=body)
 
-Adds specific user groups to the user
+Adds specific user groups to the user or service account
 
 
 
@@ -44,10 +44,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be added to the user (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be added to the account (optional)
 
 try:
-    # Adds specific user groups to the user
+    # Adds specific user groups to the user or service account
     api_response = api_instance.add_user_to_user_groups(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -59,7 +59,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | **list[str]**| The list of user groups that should be added to the user | [optional] 
+ **body** | **list[str]**| The list of user groups that should be added to the account | [optional] 
 
 ### Return type
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 # **delete_multiple_users**
 > ResponseContainerListString delete_multiple_users(body=body)
 
-Deletes multiple users
+Deletes multiple users or service accounts
 
 
 
@@ -158,7 +158,7 @@ api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(confi
 body = [wavefront_api_client.list[str]()] # list[str] | identifiers of list of users which should be deleted (optional)
 
 try:
-    # Deletes multiple users
+    # Deletes multiple users or service accounts
     api_response = api_instance.delete_multiple_users(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 # **delete_user**
 > delete_user(id)
 
-Deletes a user identified by id
+Deletes a user or service account identified by id
 
 
 
@@ -212,7 +212,7 @@ api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(confi
 id = 'id_example' # str | 
 
 try:
-    # Deletes a user identified by id
+    # Deletes a user or service account identified by id
     api_instance.delete_user(id)
 except ApiException as e:
     print("Exception when calling UserApi->delete_user: %s\n" % e)
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 # **grant_permission_to_users**
 > UserModel grant_permission_to_users(permission, body=body)
 
-Grants a specific user permission to multiple users
+Grants a specific permission to multiple users or service accounts
 
 
 
@@ -370,7 +370,7 @@ permission = 'permission_example' # str | Permission to grant to the users. Plea
 body = [wavefront_api_client.list[str]()] # list[str] | List of users which should be granted by specified permission (optional)
 
 try:
-    # Grants a specific user permission to multiple users
+    # Grants a specific permission to multiple users or service accounts
     api_response = api_instance.grant_permission_to_users(permission, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 # **grant_user_permission**
 > UserModel grant_user_permission(id, group=group)
 
-Grants a specific user permission
+Grants a specific permission to user or service account
 
 
 
@@ -423,10 +423,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-group = 'group_example' # str | Permission group to grant to this user.  Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (optional)
+group = 'group_example' # str | Permission group to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (optional)
 
 try:
-    # Grants a specific user permission
+    # Grants a specific permission to user or service account
     api_response = api_instance.grant_user_permission(id, group=group)
     pprint(api_response)
 except ApiException as e:
@@ -438,7 +438,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **group** | **str**| Permission group to grant to this user.  Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | [optional] 
+ **group** | **str**| Permission group to grant to the account. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | [optional] 
 
 ### Return type
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 # **remove_user_from_user_groups**
 > UserModel remove_user_from_user_groups(id, body=body)
 
-Removes specific user groups from the user
+Removes specific user groups from the user or service account
 
 
 
@@ -533,10 +533,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be removed from the user (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be removed from the account (optional)
 
 try:
-    # Removes specific user groups from the user
+    # Removes specific user groups from the user or service account
     api_response = api_instance.remove_user_from_user_groups(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -548,7 +548,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | **list[str]**| The list of user groups that should be removed from the user | [optional] 
+ **body** | **list[str]**| The list of user groups that should be removed from the account | [optional] 
 
 ### Return type
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 # **revoke_permission_from_users**
 > UserModel revoke_permission_from_users(permission, body=body)
 
-Revokes a specific user permission from multiple users
+Revokes a specific permission from multiple users or service accounts
 
 
 
@@ -588,11 +588,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
-permission = 'permission_example' # str | Permission to grant to the users. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
-body = [wavefront_api_client.list[str]()] # list[str] | List of users which should be revoked by specified permission (optional)
+permission = 'permission_example' # str | Permission to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
+body = [wavefront_api_client.list[str]()] # list[str] | List of users or service accounts which should be revoked by specified permission (optional)
 
 try:
-    # Revokes a specific user permission from multiple users
+    # Revokes a specific permission from multiple users or service accounts
     api_response = api_instance.revoke_permission_from_users(permission, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -603,8 +603,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permission** | **str**| Permission to grant to the users. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
- **body** | **list[str]**| List of users which should be revoked by specified permission | [optional] 
+ **permission** | **str**| Permission to grant to the account. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
+ **body** | **list[str]**| List of users or service accounts which should be revoked by specified permission | [optional] 
 
 ### Return type
 
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
 # **revoke_user_permission**
 > UserModel revoke_user_permission(id, group=group)
 
-Revokes a specific user permission
+Revokes a specific permission from user or service account
 
 
 
@@ -648,7 +648,7 @@ id = 'id_example' # str |
 group = 'group_example' # str |  (optional)
 
 try:
-    # Revokes a specific user permission
+    # Revokes a specific permission from user or service account
     api_response = api_instance.revoke_user_permission(id, group=group)
     pprint(api_response)
 except ApiException as e:
@@ -736,7 +736,7 @@ Name | Type | Description  | Notes
 # **validate_users**
 > ResponseContainerValidatedUsersDTO validate_users(body=body)
 
-Returns valid users and invalid identifiers from the given list
+Returns valid users and service accounts, also invalid identifiers from the given list
 
 
 
@@ -759,7 +759,7 @@ api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(confi
 body = [wavefront_api_client.list[str]()] # list[str] |  (optional)
 
 try:
-    # Returns valid users and invalid identifiers from the given list
+    # Returns valid users and service accounts, also invalid identifiers from the given list
     api_response = api_instance.validate_users(body=body)
     pprint(api_response)
 except ApiException as e:

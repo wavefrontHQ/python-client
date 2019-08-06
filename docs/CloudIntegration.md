@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_tags** | **dict(str, str)** | A list of point tag key-values to add to every point ingested using this integration | [optional] 
+**app_dynamics** | [**AppDynamicsConfiguration**](AppDynamicsConfiguration.md) |  | [optional] 
 **azure** | [**AzureConfiguration**](AzureConfiguration.md) |  | [optional] 
 **azure_activity_log** | [**AzureActivityLogConfiguration**](AzureActivityLogConfiguration.md) |  | [optional] 
 **cloud_trail** | [**CloudTrailConfiguration**](CloudTrailConfiguration.md) |  | [optional] 

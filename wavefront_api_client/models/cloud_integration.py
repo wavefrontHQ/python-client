@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from wavefront_api_client.models.app_dynamics_configuration import AppDynamicsConfiguration  # noqa: F401,E501
 from wavefront_api_client.models.azure_activity_log_configuration import AzureActivityLogConfiguration  # noqa: F401,E501
 from wavefront_api_client.models.azure_configuration import AzureConfiguration  # noqa: F401,E501
 from wavefront_api_client.models.cloud_trail_configuration import CloudTrailConfiguration  # noqa: F401,E501
@@ -43,6 +44,7 @@ class CloudIntegration(object):
     """
     swagger_types = {
         'additional_tags': 'dict(str, str)',
+        'app_dynamics': 'AppDynamicsConfiguration',
         'azure': 'AzureConfiguration',
         'azure_activity_log': 'AzureActivityLogConfiguration',
         'cloud_trail': 'CloudTrailConfiguration',
@@ -75,6 +77,7 @@ class CloudIntegration(object):
 
     attribute_map = {
         'additional_tags': 'additionalTags',
+        'app_dynamics': 'appDynamics',
         'azure': 'azure',
         'azure_activity_log': 'azureActivityLog',
         'cloud_trail': 'cloudTrail',
@@ -105,10 +108,11 @@ class CloudIntegration(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, additional_tags=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, service=None, service_refresh_rate_in_mins=None, tesla=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, service=None, service_refresh_rate_in_mins=None, tesla=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._additional_tags = None
+        self._app_dynamics = None
         self._azure = None
         self._azure_activity_log = None
         self._cloud_trail = None
@@ -141,6 +145,8 @@ class CloudIntegration(object):
 
         if additional_tags is not None:
             self.additional_tags = additional_tags
+        if app_dynamics is not None:
+            self.app_dynamics = app_dynamics
         if azure is not None:
             self.azure = azure
         if azure_activity_log is not None:
@@ -218,6 +224,27 @@ class CloudIntegration(object):
         """
 
         self._additional_tags = additional_tags
+
+    @property
+    def app_dynamics(self):
+        """Gets the app_dynamics of this CloudIntegration.  # noqa: E501
+
+
+        :return: The app_dynamics of this CloudIntegration.  # noqa: E501
+        :rtype: AppDynamicsConfiguration
+        """
+        return self._app_dynamics
+
+    @app_dynamics.setter
+    def app_dynamics(self, app_dynamics):
+        """Sets the app_dynamics of this CloudIntegration.
+
+
+        :param app_dynamics: The app_dynamics of this CloudIntegration.  # noqa: E501
+        :type: AppDynamicsConfiguration
+        """
+
+        self._app_dynamics = app_dynamics
 
     @property
     def azure(self):

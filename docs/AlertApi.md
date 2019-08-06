@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_access**](AlertApi.md#add_access) | **POST** /api/v2/alert/acl/add | Adds the specified ids to the given alerts&#39; ACL
 [**add_alert_tag**](AlertApi.md#add_alert_tag) | **PUT** /api/v2/alert/{id}/tag/{tagValue} | Add a tag to a specific alert
-[**can_user_modify**](AlertApi.md#can_user_modify) | **GET** /api/v2/alert/{id}/canUserModify | 
 [**clone_alert**](AlertApi.md#clone_alert) | **POST** /api/v2/alert/{id}/clone | Clones the specified alert
 [**create_alert**](AlertApi.md#create_alert) | **POST** /api/v2/alert | Create a specific alert
 [**delete_alert**](AlertApi.md#delete_alert) | **DELETE** /api/v2/alert/{id} | Delete a specific alert
@@ -134,58 +133,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **can_user_modify**
-> can_user_modify(id, body=body)
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import wavefront_api_client
-from wavefront_api_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = wavefront_api_client.Configuration()
-configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
-id = 'id_example' # str | 
-body = wavefront_api_client.User() # User |  (optional)
-
-try:
-    api_instance.can_user_modify(id, body=body)
-except ApiException as e:
-    print("Exception when calling AlertApi->can_user_modify: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
- **body** | [**User**](User.md)|  | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

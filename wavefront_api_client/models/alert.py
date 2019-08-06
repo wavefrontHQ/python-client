@@ -44,7 +44,6 @@ class Alert(object):
         'alerts_last_day': 'int',
         'alerts_last_month': 'int',
         'alerts_last_week': 'int',
-        'can_user_modify': 'bool',
         'condition': 'str',
         'condition_qb_enabled': 'bool',
         'condition_qb_serialization': 'str',
@@ -73,6 +72,7 @@ class Alert(object):
         'last_query_time': 'int',
         'metrics_used': 'list[str]',
         'minutes': 'int',
+        'modify_acl_access': 'bool',
         'name': 'str',
         'no_data_event': 'Event',
         'notificants': 'list[str]',
@@ -108,7 +108,6 @@ class Alert(object):
         'alerts_last_day': 'alertsLastDay',
         'alerts_last_month': 'alertsLastMonth',
         'alerts_last_week': 'alertsLastWeek',
-        'can_user_modify': 'canUserModify',
         'condition': 'condition',
         'condition_qb_enabled': 'conditionQBEnabled',
         'condition_qb_serialization': 'conditionQBSerialization',
@@ -137,6 +136,7 @@ class Alert(object):
         'last_query_time': 'lastQueryTime',
         'metrics_used': 'metricsUsed',
         'minutes': 'minutes',
+        'modify_acl_access': 'modifyAclAccess',
         'name': 'name',
         'no_data_event': 'noDataEvent',
         'notificants': 'notificants',
@@ -164,7 +164,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, can_user_modify=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, event=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_owned=None, tags=None, target=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, event=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_owned=None, tags=None, target=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
@@ -174,7 +174,6 @@ class Alert(object):
         self._alerts_last_day = None
         self._alerts_last_month = None
         self._alerts_last_week = None
-        self._can_user_modify = None
         self._condition = None
         self._condition_qb_enabled = None
         self._condition_qb_serialization = None
@@ -203,6 +202,7 @@ class Alert(object):
         self._last_query_time = None
         self._metrics_used = None
         self._minutes = None
+        self._modify_acl_access = None
         self._name = None
         self._no_data_event = None
         self._notificants = None
@@ -244,8 +244,6 @@ class Alert(object):
             self.alerts_last_month = alerts_last_month
         if alerts_last_week is not None:
             self.alerts_last_week = alerts_last_week
-        if can_user_modify is not None:
-            self.can_user_modify = can_user_modify
         self.condition = condition
         if condition_qb_enabled is not None:
             self.condition_qb_enabled = condition_qb_enabled
@@ -300,6 +298,8 @@ class Alert(object):
         if metrics_used is not None:
             self.metrics_used = metrics_used
         self.minutes = minutes
+        if modify_acl_access is not None:
+            self.modify_acl_access = modify_acl_access
         self.name = name
         if no_data_event is not None:
             self.no_data_event = no_data_event
@@ -508,29 +508,6 @@ class Alert(object):
         """
 
         self._alerts_last_week = alerts_last_week
-
-    @property
-    def can_user_modify(self):
-        """Gets the can_user_modify of this Alert.  # noqa: E501
-
-        Whether the user can modify the alert.  # noqa: E501
-
-        :return: The can_user_modify of this Alert.  # noqa: E501
-        :rtype: bool
-        """
-        return self._can_user_modify
-
-    @can_user_modify.setter
-    def can_user_modify(self, can_user_modify):
-        """Sets the can_user_modify of this Alert.
-
-        Whether the user can modify the alert.  # noqa: E501
-
-        :param can_user_modify: The can_user_modify of this Alert.  # noqa: E501
-        :type: bool
-        """
-
-        self._can_user_modify = can_user_modify
 
     @property
     def condition(self):
@@ -1163,6 +1140,29 @@ class Alert(object):
             raise ValueError("Invalid value for `minutes`, must not be `None`")  # noqa: E501
 
         self._minutes = minutes
+
+    @property
+    def modify_acl_access(self):
+        """Gets the modify_acl_access of this Alert.  # noqa: E501
+
+        Whether the user has modify ACL access to the alert.  # noqa: E501
+
+        :return: The modify_acl_access of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._modify_acl_access
+
+    @modify_acl_access.setter
+    def modify_acl_access(self, modify_acl_access):
+        """Sets the modify_acl_access of this Alert.
+
+        Whether the user has modify ACL access to the alert.  # noqa: E501
+
+        :param modify_acl_access: The modify_acl_access of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._modify_acl_access = modify_acl_access
 
     @property
     def name(self):
