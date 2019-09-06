@@ -31,6 +31,7 @@ class UserRequestDTO(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'credential': 'str',
         'customer': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
@@ -39,6 +40,7 @@ class UserRequestDTO(object):
     }
 
     attribute_map = {
+        'credential': 'credential',
         'customer': 'customer',
         'groups': 'groups',
         'identifier': 'identifier',
@@ -46,9 +48,10 @@ class UserRequestDTO(object):
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, customer=None, groups=None, identifier=None, sso_id=None, user_groups=None):  # noqa: E501
+    def __init__(self, credential=None, customer=None, groups=None, identifier=None, sso_id=None, user_groups=None):  # noqa: E501
         """UserRequestDTO - a model defined in Swagger"""  # noqa: E501
 
+        self._credential = None
         self._customer = None
         self._groups = None
         self._identifier = None
@@ -56,6 +59,8 @@ class UserRequestDTO(object):
         self._user_groups = None
         self.discriminator = None
 
+        if credential is not None:
+            self.credential = credential
         if customer is not None:
             self.customer = customer
         if groups is not None:
@@ -66,6 +71,27 @@ class UserRequestDTO(object):
             self.sso_id = sso_id
         if user_groups is not None:
             self.user_groups = user_groups
+
+    @property
+    def credential(self):
+        """Gets the credential of this UserRequestDTO.  # noqa: E501
+
+
+        :return: The credential of this UserRequestDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._credential
+
+    @credential.setter
+    def credential(self, credential):
+        """Sets the credential of this UserRequestDTO.
+
+
+        :param credential: The credential of this UserRequestDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._credential = credential
 
     @property
     def customer(self):

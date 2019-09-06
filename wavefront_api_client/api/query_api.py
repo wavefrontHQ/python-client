@@ -54,6 +54,7 @@ class QueryApi(object):
         :param str summarization: summarization strategy to use when bucketing points together
         :param bool list_mode: retrieve events more optimally displayed for a list
         :param bool strict: do not return points outside the query window [s;e), defaults to false
+        :param str view: view of the query result, metric or histogram, defaults to metric
         :param bool include_obsolete_metrics: include metrics that have not been reporting recently, defaults to false
         :param bool sorted: sorts the output so that returned series are in order, defaults to false
         :param bool cached: whether the query cache is used, defaults to true
@@ -89,6 +90,7 @@ class QueryApi(object):
         :param str summarization: summarization strategy to use when bucketing points together
         :param bool list_mode: retrieve events more optimally displayed for a list
         :param bool strict: do not return points outside the query window [s;e), defaults to false
+        :param str view: view of the query result, metric or histogram, defaults to metric
         :param bool include_obsolete_metrics: include metrics that have not been reporting recently, defaults to false
         :param bool sorted: sorts the output so that returned series are in order, defaults to false
         :param bool cached: whether the query cache is used, defaults to true
@@ -97,7 +99,7 @@ class QueryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['q', 's', 'g', 'n', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'include_obsolete_metrics', 'sorted', 'cached']  # noqa: E501
+        all_params = ['q', 's', 'g', 'n', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'view', 'include_obsolete_metrics', 'sorted', 'cached']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -152,6 +154,8 @@ class QueryApi(object):
             query_params.append(('listMode', params['list_mode']))  # noqa: E501
         if 'strict' in params:
             query_params.append(('strict', params['strict']))  # noqa: E501
+        if 'view' in params:
+            query_params.append(('view', params['view']))  # noqa: E501
         if 'include_obsolete_metrics' in params:
             query_params.append(('includeObsoleteMetrics', params['include_obsolete_metrics']))  # noqa: E501
         if 'sorted' in params:

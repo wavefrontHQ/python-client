@@ -43,6 +43,7 @@ class Event(object):
         'id': 'str',
         'is_ephemeral': 'bool',
         'is_user_event': 'bool',
+        'metrics_used': 'list[str]',
         'name': 'str',
         'running_state': 'str',
         'start_time': 'int',
@@ -67,6 +68,7 @@ class Event(object):
         'id': 'id',
         'is_ephemeral': 'isEphemeral',
         'is_user_event': 'isUserEvent',
+        'metrics_used': 'metricsUsed',
         'name': 'name',
         'running_state': 'runningState',
         'start_time': 'startTime',
@@ -78,7 +80,7 @@ class Event(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
         self._annotations = None
@@ -93,6 +95,7 @@ class Event(object):
         self._id = None
         self._is_ephemeral = None
         self._is_user_event = None
+        self._metrics_used = None
         self._name = None
         self._running_state = None
         self._start_time = None
@@ -127,6 +130,8 @@ class Event(object):
             self.is_ephemeral = is_ephemeral
         if is_user_event is not None:
             self.is_user_event = is_user_event
+        if metrics_used is not None:
+            self.metrics_used = metrics_used
         self.name = name
         if running_state is not None:
             self.running_state = running_state
@@ -414,6 +419,29 @@ class Event(object):
         """
 
         self._is_user_event = is_user_event
+
+    @property
+    def metrics_used(self):
+        """Gets the metrics_used of this Event.  # noqa: E501
+
+        A list of metrics affected by the event  # noqa: E501
+
+        :return: The metrics_used of this Event.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._metrics_used
+
+    @metrics_used.setter
+    def metrics_used(self, metrics_used):
+        """Sets the metrics_used of this Event.
+
+        A list of metrics affected by the event  # noqa: E501
+
+        :param metrics_used: The metrics_used of this Event.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._metrics_used = metrics_used
 
     @property
     def name(self):

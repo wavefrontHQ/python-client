@@ -35,6 +35,8 @@ class Proxy(object):
     swagger_types = {
         'bytes_left_for_buffer': 'int',
         'bytes_per_minute_for_buffer': 'int',
+        'collector_rate_limit': 'int',
+        'collector_sets_rate_limit': 'bool',
         'customer_id': 'str',
         'deleted': 'bool',
         'ephemeral': 'bool',
@@ -47,6 +49,7 @@ class Proxy(object):
         'last_known_error': 'str',
         'local_queue_size': 'int',
         'name': 'str',
+        'shutdown': 'bool',
         'ssh_agent': 'bool',
         'status': 'str',
         'status_cause': 'str',
@@ -57,6 +60,8 @@ class Proxy(object):
     attribute_map = {
         'bytes_left_for_buffer': 'bytesLeftForBuffer',
         'bytes_per_minute_for_buffer': 'bytesPerMinuteForBuffer',
+        'collector_rate_limit': 'collectorRateLimit',
+        'collector_sets_rate_limit': 'collectorSetsRateLimit',
         'customer_id': 'customerId',
         'deleted': 'deleted',
         'ephemeral': 'ephemeral',
@@ -69,6 +74,7 @@ class Proxy(object):
         'last_known_error': 'lastKnownError',
         'local_queue_size': 'localQueueSize',
         'name': 'name',
+        'shutdown': 'shutdown',
         'ssh_agent': 'sshAgent',
         'status': 'status',
         'status_cause': 'statusCause',
@@ -76,11 +82,13 @@ class Proxy(object):
         'version': 'version'
     }
 
-    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, customer_id=None, deleted=None, ephemeral=None, hostname=None, id=None, in_trash=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, version=None):  # noqa: E501
+    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, hostname=None, id=None, in_trash=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, shutdown=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, version=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
 
         self._bytes_left_for_buffer = None
         self._bytes_per_minute_for_buffer = None
+        self._collector_rate_limit = None
+        self._collector_sets_rate_limit = None
         self._customer_id = None
         self._deleted = None
         self._ephemeral = None
@@ -93,6 +101,7 @@ class Proxy(object):
         self._last_known_error = None
         self._local_queue_size = None
         self._name = None
+        self._shutdown = None
         self._ssh_agent = None
         self._status = None
         self._status_cause = None
@@ -104,6 +113,10 @@ class Proxy(object):
             self.bytes_left_for_buffer = bytes_left_for_buffer
         if bytes_per_minute_for_buffer is not None:
             self.bytes_per_minute_for_buffer = bytes_per_minute_for_buffer
+        if collector_rate_limit is not None:
+            self.collector_rate_limit = collector_rate_limit
+        if collector_sets_rate_limit is not None:
+            self.collector_sets_rate_limit = collector_sets_rate_limit
         if customer_id is not None:
             self.customer_id = customer_id
         if deleted is not None:
@@ -127,6 +140,8 @@ class Proxy(object):
         if local_queue_size is not None:
             self.local_queue_size = local_queue_size
         self.name = name
+        if shutdown is not None:
+            self.shutdown = shutdown
         if ssh_agent is not None:
             self.ssh_agent = ssh_agent
         if status is not None:
@@ -183,6 +198,52 @@ class Proxy(object):
         """
 
         self._bytes_per_minute_for_buffer = bytes_per_minute_for_buffer
+
+    @property
+    def collector_rate_limit(self):
+        """Gets the collector_rate_limit of this Proxy.  # noqa: E501
+
+        Proxy's rate limit  # noqa: E501
+
+        :return: The collector_rate_limit of this Proxy.  # noqa: E501
+        :rtype: int
+        """
+        return self._collector_rate_limit
+
+    @collector_rate_limit.setter
+    def collector_rate_limit(self, collector_rate_limit):
+        """Sets the collector_rate_limit of this Proxy.
+
+        Proxy's rate limit  # noqa: E501
+
+        :param collector_rate_limit: The collector_rate_limit of this Proxy.  # noqa: E501
+        :type: int
+        """
+
+        self._collector_rate_limit = collector_rate_limit
+
+    @property
+    def collector_sets_rate_limit(self):
+        """Gets the collector_sets_rate_limit of this Proxy.  # noqa: E501
+
+        When true, this proxy's rate limit is controlled remotely  # noqa: E501
+
+        :return: The collector_sets_rate_limit of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._collector_sets_rate_limit
+
+    @collector_sets_rate_limit.setter
+    def collector_sets_rate_limit(self, collector_sets_rate_limit):
+        """Sets the collector_sets_rate_limit of this Proxy.
+
+        When true, this proxy's rate limit is controlled remotely  # noqa: E501
+
+        :param collector_sets_rate_limit: The collector_sets_rate_limit of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._collector_sets_rate_limit = collector_sets_rate_limit
 
     @property
     def customer_id(self):
@@ -451,6 +512,29 @@ class Proxy(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def shutdown(self):
+        """Gets the shutdown of this Proxy.  # noqa: E501
+
+        When true, attempt to shut down this proxy remotely  # noqa: E501
+
+        :return: The shutdown of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._shutdown
+
+    @shutdown.setter
+    def shutdown(self, shutdown):
+        """Sets the shutdown of this Proxy.
+
+        When true, attempt to shut down this proxy remotely  # noqa: E501
+
+        :param shutdown: The shutdown of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._shutdown = shutdown
 
     @property
     def ssh_agent(self):

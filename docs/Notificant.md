@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **is_html_content** | **bool** | Determine whether the email alert target content is sent as html or text. | [optional] 
 **method** | **str** | The notification method used for notification target. | 
 **recipient** | **str** | The end point for the notification target.EMAIL: email address.  PAGERDUTY: PagerDuty routing Key.  WEBHOOK: URL end point | 
+**routes** | [**list[AlertRoute]**](AlertRoute.md) | List of routing targets that this notificant will notify. | [optional] 
 **template** | **str** | A mustache template that will form the body of the POST request, email and summary of the PagerDuty. | 
 **title** | **str** | Title | 
 **triggers** | **list[str]** | A list of occurrences on which this webhook will be fired.  Valid values are ALERT_OPENED, ALERT_UPDATED, ALERT_RESOLVED, ALERT_MAINTENANCE, ALERT_SNOOZED | 

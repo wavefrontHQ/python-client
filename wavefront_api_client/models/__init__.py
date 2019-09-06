@@ -22,6 +22,7 @@ from wavefront_api_client.models.access_control_list_simple import AccessControl
 from wavefront_api_client.models.access_control_list_write_dto import AccessControlListWriteDTO
 from wavefront_api_client.models.account import Account
 from wavefront_api_client.models.alert import Alert
+from wavefront_api_client.models.alert_route import AlertRoute
 from wavefront_api_client.models.app_dynamics_configuration import AppDynamicsConfiguration
 from wavefront_api_client.models.avro_backed_standardized_dto import AvroBackedStandardizedDTO
 from wavefront_api_client.models.azure_activity_log_configuration import AzureActivityLogConfiguration

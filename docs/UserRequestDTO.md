@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**credential** | **str** |  | [optional] 
 **customer** | **str** |  | [optional] 
 **groups** | **list[str]** |  | [optional] 
 **identifier** | **str** |  | [optional] 
