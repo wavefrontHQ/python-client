@@ -9,7 +9,7 @@ function _exit {
 [[ "$1" ]] || _exit "Please specify cluster as an argument."
 
 CGEN_NAME="swagger-codegen-cli"
-CGEN_VER="2.4.5"  # For 3.x use CGEN_VER="3.0.7"
+CGEN_VER="2.4.8"  # For 3.x use CGEN_VER="3.0.7"
 CGEN_JAR_NAME="${CGEN_NAME}-${CGEN_VER}.jar"
 CGEN_JAR_URL="https://search.maven.org/remotecontent?filepath=\
 io/swagger/swagger-codegen-cli/${CGEN_VER}/${CGEN_JAR_NAME}"
