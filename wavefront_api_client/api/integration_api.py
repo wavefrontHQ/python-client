@@ -399,6 +399,8 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
+        :param bool has_content:
+        :param bool return_content:
         :return: ResponseContainerListIntegration
                  If the method is called asynchronously,
                  returns the request thread.
@@ -420,12 +422,14 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
+        :param bool has_content:
+        :param bool return_content:
         :return: ResponseContainerListIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ['has_content', 'return_content']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -446,6 +450,10 @@ class IntegrationApi(object):
         path_params = {}
 
         query_params = []
+        if 'has_content' in params:
+            query_params.append(('hasContent', params['has_content']))  # noqa: E501
+        if 'return_content' in params:
+            query_params.append(('returnContent', params['return_content']))  # noqa: E501
 
         header_params = {}
 

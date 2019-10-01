@@ -769,7 +769,7 @@ class CloudIntegration(object):
         """
         if service is None:
             raise ValueError("Invalid value for `service`, must not be `None`")  # noqa: E501
-        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG"]  # noqa: E501
+        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG", "NEWRELIC", "APPDYNAMICS"]  # noqa: E501
         if service not in allowed_values:
             raise ValueError(
                 "Invalid value for `service` ({0}), must be one of {1}"  # noqa: E501

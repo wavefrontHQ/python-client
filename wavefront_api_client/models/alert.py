@@ -58,6 +58,7 @@ class Alert(object):
         'display_expression_qb_serialization': 'str',
         'evaluate_realtime_data': 'bool',
         'event': 'Event',
+        'failing_host_label_pair_links': 'list[str]',
         'failing_host_label_pairs': 'list[SourceLabelPair]',
         'hidden': 'bool',
         'hosts_used': 'list[str]',
@@ -123,6 +124,7 @@ class Alert(object):
         'display_expression_qb_serialization': 'displayExpressionQBSerialization',
         'evaluate_realtime_data': 'evaluateRealtimeData',
         'event': 'event',
+        'failing_host_label_pair_links': 'failingHostLabelPairLinks',
         'failing_host_label_pairs': 'failingHostLabelPairs',
         'hidden': 'hidden',
         'hosts_used': 'hostsUsed',
@@ -166,7 +168,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, evaluate_realtime_data=None, event=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_owned=None, tags=None, target=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_owned=None, tags=None, target=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
@@ -190,6 +192,7 @@ class Alert(object):
         self._display_expression_qb_serialization = None
         self._evaluate_realtime_data = None
         self._event = None
+        self._failing_host_label_pair_links = None
         self._failing_host_label_pairs = None
         self._hidden = None
         self._hosts_used = None
@@ -274,6 +277,8 @@ class Alert(object):
             self.evaluate_realtime_data = evaluate_realtime_data
         if event is not None:
             self.event = event
+        if failing_host_label_pair_links is not None:
+            self.failing_host_label_pair_links = failing_host_label_pair_links
         if failing_host_label_pairs is not None:
             self.failing_host_label_pairs = failing_host_label_pairs
         if hidden is not None:
@@ -827,6 +832,29 @@ class Alert(object):
         """
 
         self._event = event
+
+    @property
+    def failing_host_label_pair_links(self):
+        """Gets the failing_host_label_pair_links of this Alert.  # noqa: E501
+
+        List of links to tracing applications that caused a failing series  # noqa: E501
+
+        :return: The failing_host_label_pair_links of this Alert.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._failing_host_label_pair_links
+
+    @failing_host_label_pair_links.setter
+    def failing_host_label_pair_links(self, failing_host_label_pair_links):
+        """Sets the failing_host_label_pair_links of this Alert.
+
+        List of links to tracing applications that caused a failing series  # noqa: E501
+
+        :param failing_host_label_pair_links: The failing_host_label_pair_links of this Alert.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._failing_host_label_pair_links = failing_host_label_pair_links
 
     @property
     def failing_host_label_pairs(self):

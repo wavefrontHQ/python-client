@@ -224,7 +224,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_installed_integration**
-> ResponseContainerListIntegration get_installed_integration()
+> ResponseContainerListIntegration get_installed_integration(has_content=has_content, return_content=return_content)
 
 Gets a flat list of all Integrations that are installed, along with their status
 
@@ -246,17 +246,23 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClient(configuration))
+has_content = false # bool |  (optional) (default to false)
+return_content = true # bool |  (optional) (default to true)
 
 try:
     # Gets a flat list of all Integrations that are installed, along with their status
-    api_response = api_instance.get_installed_integration()
+    api_response = api_instance.get_installed_integration(has_content=has_content, return_content=return_content)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling IntegrationApi->get_installed_integration: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **has_content** | **bool**|  | [optional] [default to false]
+ **return_content** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

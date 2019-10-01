@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **display_expression_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the display expression query.  Applicable only when displayExpressionQBEnabled is true | [optional] 
 **evaluate_realtime_data** | **bool** | Whether to alert on the real-time ingestion stream (may be noisy due to late data) | [optional] 
 **event** | [**Event**](Event.md) |  | [optional] 
+**failing_host_label_pair_links** | **list[str]** | List of links to tracing applications that caused a failing series | [optional] 
 **failing_host_label_pairs** | [**list[SourceLabelPair]**](SourceLabelPair.md) | Failing host/metric pairs | [optional] 
 **hidden** | **bool** |  | [optional] 
 **hosts_used** | **list[str]** | Number of hosts checked by the alert condition | [optional] 
