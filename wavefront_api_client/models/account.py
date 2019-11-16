@@ -33,26 +33,31 @@ class Account(object):
     swagger_types = {
         'groups': 'list[str]',
         'identifier': 'str',
+        'ingestion_policy_id': 'str',
         'user_groups': 'list[str]'
     }
 
     attribute_map = {
         'groups': 'groups',
         'identifier': 'identifier',
+        'ingestion_policy_id': 'ingestionPolicyId',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, groups=None, identifier=None, user_groups=None):  # noqa: E501
+    def __init__(self, groups=None, identifier=None, ingestion_policy_id=None, user_groups=None):  # noqa: E501
         """Account - a model defined in Swagger"""  # noqa: E501
 
         self._groups = None
         self._identifier = None
+        self._ingestion_policy_id = None
         self._user_groups = None
         self.discriminator = None
 
         if groups is not None:
             self.groups = groups
         self.identifier = identifier
+        if ingestion_policy_id is not None:
+            self.ingestion_policy_id = ingestion_policy_id
         if user_groups is not None:
             self.user_groups = user_groups
 
@@ -103,6 +108,29 @@ class Account(object):
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policy_id(self):
+        """Gets the ingestion_policy_id of this Account.  # noqa: E501
+
+        The identifier of the ingestion policy linked with account.  # noqa: E501
+
+        :return: The ingestion_policy_id of this Account.  # noqa: E501
+        :rtype: str
+        """
+        return self._ingestion_policy_id
+
+    @ingestion_policy_id.setter
+    def ingestion_policy_id(self, ingestion_policy_id):
+        """Sets the ingestion_policy_id of this Account.
+
+        The identifier of the ingestion policy linked with account.  # noqa: E501
+
+        :param ingestion_policy_id: The ingestion_policy_id of this Account.  # noqa: E501
+        :type: str
+        """
+
+        self._ingestion_policy_id = ingestion_policy_id
 
     @property
     def user_groups(self):

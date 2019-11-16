@@ -31,6 +31,7 @@ class IntegrationAlert(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alert_min_obj': 'AlertMin',
         'alert_obj': 'Alert',
         'description': 'str',
         'name': 'str',
@@ -38,26 +39,51 @@ class IntegrationAlert(object):
     }
 
     attribute_map = {
+        'alert_min_obj': 'alertMinObj',
         'alert_obj': 'alertObj',
         'description': 'description',
         'name': 'name',
         'url': 'url'
     }
 
-    def __init__(self, alert_obj=None, description=None, name=None, url=None):  # noqa: E501
+    def __init__(self, alert_min_obj=None, alert_obj=None, description=None, name=None, url=None):  # noqa: E501
         """IntegrationAlert - a model defined in Swagger"""  # noqa: E501
 
+        self._alert_min_obj = None
         self._alert_obj = None
         self._description = None
         self._name = None
         self._url = None
         self.discriminator = None
 
+        if alert_min_obj is not None:
+            self.alert_min_obj = alert_min_obj
         if alert_obj is not None:
             self.alert_obj = alert_obj
         self.description = description
         self.name = name
         self.url = url
+
+    @property
+    def alert_min_obj(self):
+        """Gets the alert_min_obj of this IntegrationAlert.  # noqa: E501
+
+
+        :return: The alert_min_obj of this IntegrationAlert.  # noqa: E501
+        :rtype: AlertMin
+        """
+        return self._alert_min_obj
+
+    @alert_min_obj.setter
+    def alert_min_obj(self, alert_min_obj):
+        """Sets the alert_min_obj of this IntegrationAlert.
+
+
+        :param alert_min_obj: The alert_min_obj of this IntegrationAlert.  # noqa: E501
+        :type: AlertMin
+        """
+
+        self._alert_min_obj = alert_min_obj
 
     @property
     def alert_obj(self):

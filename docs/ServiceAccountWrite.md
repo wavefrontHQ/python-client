@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the service account to be created. | [optional] 
 **groups** | **list[str]** | The list of permissions, the service account will be granted. | [optional] 
 **identifier** | **str** | The unique identifier for a service account. | 
+**ingestion_policy_id** | **str** | The identifier of the ingestion policy linked with service account. | [optional] 
 **tokens** | **list[str]** | The service account&#39;s API tokens. | [optional] 
 **user_groups** | **list[str]** | The list of user group ids, the service account will be added to. | [optional] 
 

@@ -53,10 +53,14 @@ class IntegrationStatus(object):
         self._metric_statuses = None
         self.discriminator = None
 
-        self.alert_statuses = alert_statuses
-        self.content_status = content_status
-        self.install_status = install_status
-        self.metric_statuses = metric_statuses
+        if alert_statuses is not None:
+            self.alert_statuses = alert_statuses
+        if content_status is not None:
+            self.content_status = content_status
+        if install_status is not None:
+            self.install_status = install_status
+        if metric_statuses is not None:
+            self.metric_statuses = metric_statuses
 
     @property
     def alert_statuses(self):
@@ -78,8 +82,6 @@ class IntegrationStatus(object):
         :param alert_statuses: The alert_statuses of this IntegrationStatus.  # noqa: E501
         :type: dict(str, str)
         """
-        if alert_statuses is None:
-            raise ValueError("Invalid value for `alert_statuses`, must not be `None`")  # noqa: E501
         allowed_values = ["VISIBLE", "HIDDEN", "NOT_LOADED"]  # noqa: E501
         if not set(alert_statuses.keys()).issubset(set(allowed_values)):
             raise ValueError(
@@ -110,8 +112,6 @@ class IntegrationStatus(object):
         :param content_status: The content_status of this IntegrationStatus.  # noqa: E501
         :type: str
         """
-        if content_status is None:
-            raise ValueError("Invalid value for `content_status`, must not be `None`")  # noqa: E501
         allowed_values = ["INVALID", "NOT_LOADED", "HIDDEN", "VISIBLE"]  # noqa: E501
         if content_status not in allowed_values:
             raise ValueError(
@@ -141,8 +141,6 @@ class IntegrationStatus(object):
         :param install_status: The install_status of this IntegrationStatus.  # noqa: E501
         :type: str
         """
-        if install_status is None:
-            raise ValueError("Invalid value for `install_status`, must not be `None`")  # noqa: E501
         allowed_values = ["UNDECIDED", "UNINSTALLED", "INSTALLED"]  # noqa: E501
         if install_status not in allowed_values:
             raise ValueError(
@@ -172,8 +170,6 @@ class IntegrationStatus(object):
         :param metric_statuses: The metric_statuses of this IntegrationStatus.  # noqa: E501
         :type: dict(str, MetricStatus)
         """
-        if metric_statuses is None:
-            raise ValueError("Invalid value for `metric_statuses`, must not be `None`")  # noqa: E501
 
         self._metric_statuses = metric_statuses
 

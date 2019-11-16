@@ -4,22 +4,22 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_access**](AlertApi.md#add_access) | **POST** /api/v2/alert/acl/add | Adds the specified ids to the given alerts&#39; ACL
+[**add_alert_access**](AlertApi.md#add_alert_access) | **POST** /api/v2/alert/acl/add | Adds the specified ids to the given alerts&#39; ACL
 [**add_alert_tag**](AlertApi.md#add_alert_tag) | **PUT** /api/v2/alert/{id}/tag/{tagValue} | Add a tag to a specific alert
 [**clone_alert**](AlertApi.md#clone_alert) | **POST** /api/v2/alert/{id}/clone | Clones the specified alert
 [**create_alert**](AlertApi.md#create_alert) | **POST** /api/v2/alert | Create a specific alert
 [**delete_alert**](AlertApi.md#delete_alert) | **DELETE** /api/v2/alert/{id} | Delete a specific alert
-[**get_access_control_list**](AlertApi.md#get_access_control_list) | **GET** /api/v2/alert/acl | Get Access Control Lists&#39; union for the specified alerts
 [**get_alert**](AlertApi.md#get_alert) | **GET** /api/v2/alert/{id} | Get a specific alert
+[**get_alert_access_control_list**](AlertApi.md#get_alert_access_control_list) | **GET** /api/v2/alert/acl | Get Access Control Lists&#39; union for the specified alerts
 [**get_alert_history**](AlertApi.md#get_alert_history) | **GET** /api/v2/alert/{id}/history | Get the version history of a specific alert
 [**get_alert_tags**](AlertApi.md#get_alert_tags) | **GET** /api/v2/alert/{id}/tag | Get all tags associated with a specific alert
 [**get_alert_version**](AlertApi.md#get_alert_version) | **GET** /api/v2/alert/{id}/history/{version} | Get a specific historical version of a specific alert
 [**get_alerts_summary**](AlertApi.md#get_alerts_summary) | **GET** /api/v2/alert/summary | Count alerts of various statuses for a customer
 [**get_all_alert**](AlertApi.md#get_all_alert) | **GET** /api/v2/alert | Get all alerts for a customer
 [**hide_alert**](AlertApi.md#hide_alert) | **POST** /api/v2/alert/{id}/uninstall | Hide a specific integration alert 
-[**remove_access**](AlertApi.md#remove_access) | **POST** /api/v2/alert/acl/remove | Removes the specified ids from the given alerts&#39; ACL
+[**remove_alert_access**](AlertApi.md#remove_alert_access) | **POST** /api/v2/alert/acl/remove | Removes the specified ids from the given alerts&#39; ACL
 [**remove_alert_tag**](AlertApi.md#remove_alert_tag) | **DELETE** /api/v2/alert/{id}/tag/{tagValue} | Remove a tag from a specific alert
-[**set_acl**](AlertApi.md#set_acl) | **PUT** /api/v2/alert/acl/set | Set ACL for the specified alerts
+[**set_alert_acl**](AlertApi.md#set_alert_acl) | **PUT** /api/v2/alert/acl/set | Set ACL for the specified alerts
 [**set_alert_tags**](AlertApi.md#set_alert_tags) | **POST** /api/v2/alert/{id}/tag | Set all tags associated with a specific alert
 [**snooze_alert**](AlertApi.md#snooze_alert) | **POST** /api/v2/alert/{id}/snooze | Snooze a specific alert for some number of seconds
 [**undelete_alert**](AlertApi.md#undelete_alert) | **POST** /api/v2/alert/{id}/undelete | Undelete a specific alert
@@ -28,8 +28,8 @@ Method | HTTP request | Description
 [**update_alert**](AlertApi.md#update_alert) | **PUT** /api/v2/alert/{id} | Update a specific alert
 
 
-# **add_access**
-> add_access(body=body)
+# **add_alert_access**
+> add_alert_access(body=body)
 
 Adds the specified ids to the given alerts' ACL
 
@@ -55,9 +55,9 @@ body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlLi
 
 try:
     # Adds the specified ids to the given alerts' ACL
-    api_instance.add_access(body=body)
+    api_instance.add_alert_access(body=body)
 except ApiException as e:
-    print("Exception when calling AlertApi->add_access: %s\n" % e)
+    print("Exception when calling AlertApi->add_alert_access: %s\n" % e)
 ```
 
 ### Parameters
@@ -303,60 +303,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_access_control_list**
-> ResponseContainerListAccessControlListReadDTO get_access_control_list(id=id)
-
-Get Access Control Lists' union for the specified alerts
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import wavefront_api_client
-from wavefront_api_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = wavefront_api_client.Configuration()
-configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
-id = ['id_example'] # list[str] |  (optional)
-
-try:
-    # Get Access Control Lists' union for the specified alerts
-    api_response = api_instance.get_access_control_list(id=id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AlertApi->get_access_control_list: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**list[str]**](str.md)|  | [optional] 
-
-### Return type
-
-[**ResponseContainerListAccessControlListReadDTO**](ResponseContainerListAccessControlListReadDTO.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_alert**
 > ResponseContainerAlert get_alert(id)
 
@@ -399,6 +345,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerAlert**](ResponseContainerAlert.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_alert_access_control_list**
+> ResponseContainerListAccessControlListReadDTO get_alert_access_control_list(id=id)
+
+Get Access Control Lists' union for the specified alerts
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
+id = ['id_example'] # list[str] |  (optional)
+
+try:
+    # Get Access Control Lists' union for the specified alerts
+    api_response = api_instance.get_alert_access_control_list(id=id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AlertApi->get_alert_access_control_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**list[str]**](str.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerListAccessControlListReadDTO**](ResponseContainerListAccessControlListReadDTO.md)
 
 ### Authorization
 
@@ -739,8 +739,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **remove_access**
-> remove_access(body=body)
+# **remove_alert_access**
+> remove_alert_access(body=body)
 
 Removes the specified ids from the given alerts' ACL
 
@@ -766,9 +766,9 @@ body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlLi
 
 try:
     # Removes the specified ids from the given alerts' ACL
-    api_instance.remove_access(body=body)
+    api_instance.remove_alert_access(body=body)
 except ApiException as e:
-    print("Exception when calling AlertApi->remove_access: %s\n" % e)
+    print("Exception when calling AlertApi->remove_alert_access: %s\n" % e)
 ```
 
 ### Parameters
@@ -848,8 +848,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **set_acl**
-> set_acl(body=body)
+# **set_alert_acl**
+> set_alert_acl(body=body)
 
 Set ACL for the specified alerts
 
@@ -875,9 +875,9 @@ body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlLi
 
 try:
     # Set ACL for the specified alerts
-    api_instance.set_acl(body=body)
+    api_instance.set_alert_acl(body=body)
 except ApiException as e:
-    print("Exception when calling AlertApi->set_acl: %s\n" % e)
+    print("Exception when calling AlertApi->set_alert_acl: %s\n" % e)
 ```
 
 ### Parameters

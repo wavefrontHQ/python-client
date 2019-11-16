@@ -4,28 +4,28 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_access**](DashboardApi.md#add_access) | **POST** /api/v2/dashboard/acl/add | Adds the specified ids to the given dashboards&#39; ACL
+[**add_dashboard_access**](DashboardApi.md#add_dashboard_access) | **POST** /api/v2/dashboard/acl/add | Adds the specified ids to the given dashboards&#39; ACL
 [**add_dashboard_tag**](DashboardApi.md#add_dashboard_tag) | **PUT** /api/v2/dashboard/{id}/tag/{tagValue} | Add a tag to a specific dashboard
 [**create_dashboard**](DashboardApi.md#create_dashboard) | **POST** /api/v2/dashboard | Create a specific dashboard
 [**delete_dashboard**](DashboardApi.md#delete_dashboard) | **DELETE** /api/v2/dashboard/{id} | Delete a specific dashboard
 [**favorite_dashboard**](DashboardApi.md#favorite_dashboard) | **POST** /api/v2/dashboard/{id}/favorite | Mark a dashboard as favorite
-[**get_access_control_list**](DashboardApi.md#get_access_control_list) | **GET** /api/v2/dashboard/acl | Get list of Access Control Lists for the specified dashboards
 [**get_all_dashboard**](DashboardApi.md#get_all_dashboard) | **GET** /api/v2/dashboard | Get all dashboards for a customer
 [**get_dashboard**](DashboardApi.md#get_dashboard) | **GET** /api/v2/dashboard/{id} | Get a specific dashboard
+[**get_dashboard_access_control_list**](DashboardApi.md#get_dashboard_access_control_list) | **GET** /api/v2/dashboard/acl | Get list of Access Control Lists for the specified dashboards
 [**get_dashboard_history**](DashboardApi.md#get_dashboard_history) | **GET** /api/v2/dashboard/{id}/history | Get the version history of a specific dashboard
 [**get_dashboard_tags**](DashboardApi.md#get_dashboard_tags) | **GET** /api/v2/dashboard/{id}/tag | Get all tags associated with a specific dashboard
 [**get_dashboard_version**](DashboardApi.md#get_dashboard_version) | **GET** /api/v2/dashboard/{id}/history/{version} | Get a specific version of a specific dashboard
-[**remove_access**](DashboardApi.md#remove_access) | **POST** /api/v2/dashboard/acl/remove | Removes the specified ids from the given dashboards&#39; ACL
+[**remove_dashboard_access**](DashboardApi.md#remove_dashboard_access) | **POST** /api/v2/dashboard/acl/remove | Removes the specified ids from the given dashboards&#39; ACL
 [**remove_dashboard_tag**](DashboardApi.md#remove_dashboard_tag) | **DELETE** /api/v2/dashboard/{id}/tag/{tagValue} | Remove a tag from a specific dashboard
-[**set_acl**](DashboardApi.md#set_acl) | **PUT** /api/v2/dashboard/acl/set | Set ACL for the specified dashboards
+[**set_dashboard_acl**](DashboardApi.md#set_dashboard_acl) | **PUT** /api/v2/dashboard/acl/set | Set ACL for the specified dashboards
 [**set_dashboard_tags**](DashboardApi.md#set_dashboard_tags) | **POST** /api/v2/dashboard/{id}/tag | Set all tags associated with a specific dashboard
 [**undelete_dashboard**](DashboardApi.md#undelete_dashboard) | **POST** /api/v2/dashboard/{id}/undelete | Undelete a specific dashboard
 [**unfavorite_dashboard**](DashboardApi.md#unfavorite_dashboard) | **POST** /api/v2/dashboard/{id}/unfavorite | Unmark a dashboard as favorite
 [**update_dashboard**](DashboardApi.md#update_dashboard) | **PUT** /api/v2/dashboard/{id} | Update a specific dashboard
 
 
-# **add_access**
-> add_access(body=body)
+# **add_dashboard_access**
+> add_dashboard_access(body=body)
 
 Adds the specified ids to the given dashboards' ACL
 
@@ -51,9 +51,9 @@ body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlLi
 
 try:
     # Adds the specified ids to the given dashboards' ACL
-    api_instance.add_access(body=body)
+    api_instance.add_dashboard_access(body=body)
 except ApiException as e:
-    print("Exception when calling DashboardApi->add_access: %s\n" % e)
+    print("Exception when calling DashboardApi->add_dashboard_access: %s\n" % e)
 ```
 
 ### Parameters
@@ -295,60 +295,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_access_control_list**
-> ResponseContainerListAccessControlListReadDTO get_access_control_list(id=id)
-
-Get list of Access Control Lists for the specified dashboards
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import wavefront_api_client
-from wavefront_api_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = wavefront_api_client.Configuration()
-configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = wavefront_api_client.DashboardApi(wavefront_api_client.ApiClient(configuration))
-id = ['id_example'] # list[str] |  (optional)
-
-try:
-    # Get list of Access Control Lists for the specified dashboards
-    api_response = api_instance.get_access_control_list(id=id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DashboardApi->get_access_control_list: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**list[str]**](str.md)|  | [optional] 
-
-### Return type
-
-[**ResponseContainerListAccessControlListReadDTO**](ResponseContainerListAccessControlListReadDTO.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_all_dashboard**
 > ResponseContainerPagedDashboard get_all_dashboard(offset=offset, limit=limit)
 
@@ -447,6 +393,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerDashboard**](ResponseContainerDashboard.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_dashboard_access_control_list**
+> ResponseContainerListAccessControlListReadDTO get_dashboard_access_control_list(id=id)
+
+Get list of Access Control Lists for the specified dashboards
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.DashboardApi(wavefront_api_client.ApiClient(configuration))
+id = ['id_example'] # list[str] |  (optional)
+
+try:
+    # Get list of Access Control Lists for the specified dashboards
+    api_response = api_instance.get_dashboard_access_control_list(id=id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DashboardApi->get_dashboard_access_control_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**list[str]**](str.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerListAccessControlListReadDTO**](ResponseContainerListAccessControlListReadDTO.md)
 
 ### Authorization
 
@@ -627,8 +627,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **remove_access**
-> remove_access(body=body)
+# **remove_dashboard_access**
+> remove_dashboard_access(body=body)
 
 Removes the specified ids from the given dashboards' ACL
 
@@ -654,9 +654,9 @@ body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlLi
 
 try:
     # Removes the specified ids from the given dashboards' ACL
-    api_instance.remove_access(body=body)
+    api_instance.remove_dashboard_access(body=body)
 except ApiException as e:
-    print("Exception when calling DashboardApi->remove_access: %s\n" % e)
+    print("Exception when calling DashboardApi->remove_dashboard_access: %s\n" % e)
 ```
 
 ### Parameters
@@ -736,8 +736,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **set_acl**
-> set_acl(body=body)
+# **set_dashboard_acl**
+> set_dashboard_acl(body=body)
 
 Set ACL for the specified dashboards
 
@@ -763,9 +763,9 @@ body = [wavefront_api_client.AccessControlListWriteDTO()] # list[AccessControlLi
 
 try:
     # Set ACL for the specified dashboards
-    api_instance.set_acl(body=body)
+    api_instance.set_dashboard_acl(body=body)
 except ApiException as e:
-    print("Exception when calling DashboardApi->set_acl: %s\n" % e)
+    print("Exception when calling DashboardApi->set_dashboard_acl: %s\n" % e)
 ```
 
 ### Parameters

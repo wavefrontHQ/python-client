@@ -31,6 +31,7 @@ class IntegrationDashboard(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'dashboard_min_obj': 'DashboardMin',
         'dashboard_obj': 'Dashboard',
         'description': 'str',
         'name': 'str',
@@ -38,26 +39,51 @@ class IntegrationDashboard(object):
     }
 
     attribute_map = {
+        'dashboard_min_obj': 'dashboardMinObj',
         'dashboard_obj': 'dashboardObj',
         'description': 'description',
         'name': 'name',
         'url': 'url'
     }
 
-    def __init__(self, dashboard_obj=None, description=None, name=None, url=None):  # noqa: E501
+    def __init__(self, dashboard_min_obj=None, dashboard_obj=None, description=None, name=None, url=None):  # noqa: E501
         """IntegrationDashboard - a model defined in Swagger"""  # noqa: E501
 
+        self._dashboard_min_obj = None
         self._dashboard_obj = None
         self._description = None
         self._name = None
         self._url = None
         self.discriminator = None
 
+        if dashboard_min_obj is not None:
+            self.dashboard_min_obj = dashboard_min_obj
         if dashboard_obj is not None:
             self.dashboard_obj = dashboard_obj
         self.description = description
         self.name = name
         self.url = url
+
+    @property
+    def dashboard_min_obj(self):
+        """Gets the dashboard_min_obj of this IntegrationDashboard.  # noqa: E501
+
+
+        :return: The dashboard_min_obj of this IntegrationDashboard.  # noqa: E501
+        :rtype: DashboardMin
+        """
+        return self._dashboard_min_obj
+
+    @dashboard_min_obj.setter
+    def dashboard_min_obj(self, dashboard_min_obj):
+        """Sets the dashboard_min_obj of this IntegrationDashboard.
+
+
+        :param dashboard_min_obj: The dashboard_min_obj of this IntegrationDashboard.  # noqa: E501
+        :type: DashboardMin
+        """
+
+        self._dashboard_min_obj = dashboard_min_obj
 
     @property
     def dashboard_obj(self):

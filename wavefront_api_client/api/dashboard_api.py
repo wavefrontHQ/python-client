@@ -33,13 +33,13 @@ class DashboardApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_access(self, **kwargs):  # noqa: E501
+    def add_dashboard_access(self, **kwargs):  # noqa: E501
         """Adds the specified ids to the given dashboards' ACL  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_access(async_req=True)
+        >>> thread = api.add_dashboard_access(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -50,18 +50,18 @@ class DashboardApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_access_with_http_info(**kwargs)  # noqa: E501
+            return self.add_dashboard_access_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.add_access_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.add_dashboard_access_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def add_access_with_http_info(self, **kwargs):  # noqa: E501
+    def add_dashboard_access_with_http_info(self, **kwargs):  # noqa: E501
         """Adds the specified ids to the given dashboards' ACL  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_access_with_http_info(async_req=True)
+        >>> thread = api.add_dashboard_access_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -82,7 +82,7 @@ class DashboardApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method add_access" % key
+                    " to method add_dashboard_access" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -520,98 +520,6 @@ class DashboardApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_access_control_list(self, **kwargs):  # noqa: E501
-        """Get list of Access Control Lists for the specified dashboards  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_access_control_list(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param list[str] id:
-        :return: ResponseContainerListAccessControlListReadDTO
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_access_control_list_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_access_control_list_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def get_access_control_list_with_http_info(self, **kwargs):  # noqa: E501
-        """Get list of Access Control Lists for the specified dashboards  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_access_control_list_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param list[str] id:
-        :return: ResponseContainerListAccessControlListReadDTO
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_access_control_list" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'id' in params:
-            query_params.append(('id', params['id']))  # noqa: E501
-            collection_formats['id'] = 'multi'  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['api_key']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/api/v2/dashboard/acl', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ResponseContainerListAccessControlListReadDTO',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_all_dashboard(self, **kwargs):  # noqa: E501
         """Get all dashboards for a customer  # noqa: E501
 
@@ -795,6 +703,98 @@ class DashboardApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ResponseContainerDashboard',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_dashboard_access_control_list(self, **kwargs):  # noqa: E501
+        """Get list of Access Control Lists for the specified dashboards  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dashboard_access_control_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[str] id:
+        :return: ResponseContainerListAccessControlListReadDTO
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_dashboard_access_control_list_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_dashboard_access_control_list_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_dashboard_access_control_list_with_http_info(self, **kwargs):  # noqa: E501
+        """Get list of Access Control Lists for the specified dashboards  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dashboard_access_control_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[str] id:
+        :return: ResponseContainerListAccessControlListReadDTO
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_dashboard_access_control_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'id' in params:
+            query_params.append(('id', params['id']))  # noqa: E501
+            collection_formats['id'] = 'multi'  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/dashboard/acl', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerListAccessControlListReadDTO',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1103,13 +1103,13 @@ class DashboardApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def remove_access(self, **kwargs):  # noqa: E501
+    def remove_dashboard_access(self, **kwargs):  # noqa: E501
         """Removes the specified ids from the given dashboards' ACL  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_access(async_req=True)
+        >>> thread = api.remove_dashboard_access(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1120,18 +1120,18 @@ class DashboardApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.remove_access_with_http_info(**kwargs)  # noqa: E501
+            return self.remove_dashboard_access_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.remove_access_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.remove_dashboard_access_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def remove_access_with_http_info(self, **kwargs):  # noqa: E501
+    def remove_dashboard_access_with_http_info(self, **kwargs):  # noqa: E501
         """Removes the specified ids from the given dashboards' ACL  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_access_with_http_info(async_req=True)
+        >>> thread = api.remove_dashboard_access_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1152,7 +1152,7 @@ class DashboardApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method remove_access" % key
+                    " to method remove_dashboard_access" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -1301,13 +1301,13 @@ class DashboardApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_acl(self, **kwargs):  # noqa: E501
+    def set_dashboard_acl(self, **kwargs):  # noqa: E501
         """Set ACL for the specified dashboards  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_acl(async_req=True)
+        >>> thread = api.set_dashboard_acl(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1318,18 +1318,18 @@ class DashboardApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.set_acl_with_http_info(**kwargs)  # noqa: E501
+            return self.set_dashboard_acl_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.set_acl_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.set_dashboard_acl_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def set_acl_with_http_info(self, **kwargs):  # noqa: E501
+    def set_dashboard_acl_with_http_info(self, **kwargs):  # noqa: E501
         """Set ACL for the specified dashboards  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_acl_with_http_info(async_req=True)
+        >>> thread = api.set_dashboard_acl_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1350,7 +1350,7 @@ class DashboardApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method set_acl" % key
+                    " to method set_dashboard_acl" % key
                 )
             params[key] = val
         del params['kwargs']

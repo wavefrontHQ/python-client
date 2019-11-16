@@ -37,6 +37,7 @@ class UserSettings(object):
         'hide_ts_when_querybuilder_shown': 'bool',
         'landing_dashboard_slug': 'str',
         'preferred_time_zone': 'str',
+        'sample_query_results_by_default': 'bool',
         'show_onboarding': 'bool',
         'show_querybuilder_by_default': 'bool',
         'ui_default': 'str',
@@ -51,6 +52,7 @@ class UserSettings(object):
         'hide_ts_when_querybuilder_shown': 'hideTSWhenQuerybuilderShown',
         'landing_dashboard_slug': 'landingDashboardSlug',
         'preferred_time_zone': 'preferredTimeZone',
+        'sample_query_results_by_default': 'sampleQueryResultsByDefault',
         'show_onboarding': 'showOnboarding',
         'show_querybuilder_by_default': 'showQuerybuilderByDefault',
         'ui_default': 'uiDefault',
@@ -58,7 +60,7 @@ class UserSettings(object):
         'use_dark_theme': 'useDarkTheme'
     }
 
-    def __init__(self, always_hide_querybuilder=None, chart_title_scalar=None, favorite_qb_functions=None, hide_ts_when_querybuilder_shown=None, landing_dashboard_slug=None, preferred_time_zone=None, show_onboarding=None, show_querybuilder_by_default=None, ui_default=None, use24_hour_time=None, use_dark_theme=None):  # noqa: E501
+    def __init__(self, always_hide_querybuilder=None, chart_title_scalar=None, favorite_qb_functions=None, hide_ts_when_querybuilder_shown=None, landing_dashboard_slug=None, preferred_time_zone=None, sample_query_results_by_default=None, show_onboarding=None, show_querybuilder_by_default=None, ui_default=None, use24_hour_time=None, use_dark_theme=None):  # noqa: E501
         """UserSettings - a model defined in Swagger"""  # noqa: E501
 
         self._always_hide_querybuilder = None
@@ -67,6 +69,7 @@ class UserSettings(object):
         self._hide_ts_when_querybuilder_shown = None
         self._landing_dashboard_slug = None
         self._preferred_time_zone = None
+        self._sample_query_results_by_default = None
         self._show_onboarding = None
         self._show_querybuilder_by_default = None
         self._ui_default = None
@@ -86,6 +89,8 @@ class UserSettings(object):
             self.landing_dashboard_slug = landing_dashboard_slug
         if preferred_time_zone is not None:
             self.preferred_time_zone = preferred_time_zone
+        if sample_query_results_by_default is not None:
+            self.sample_query_results_by_default = sample_query_results_by_default
         if show_onboarding is not None:
             self.show_onboarding = show_onboarding
         if show_querybuilder_by_default is not None:
@@ -222,6 +227,27 @@ class UserSettings(object):
         """
 
         self._preferred_time_zone = preferred_time_zone
+
+    @property
+    def sample_query_results_by_default(self):
+        """Gets the sample_query_results_by_default of this UserSettings.  # noqa: E501
+
+
+        :return: The sample_query_results_by_default of this UserSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sample_query_results_by_default
+
+    @sample_query_results_by_default.setter
+    def sample_query_results_by_default(self, sample_query_results_by_default):
+        """Sets the sample_query_results_by_default of this UserSettings.
+
+
+        :param sample_query_results_by_default: The sample_query_results_by_default of this UserSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._sample_query_results_by_default = sample_query_results_by_default
 
     @property
     def show_onboarding(self):

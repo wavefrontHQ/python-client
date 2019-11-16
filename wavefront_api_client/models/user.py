@@ -40,6 +40,7 @@ class User(object):
         'extra_api_tokens': 'list[str]',
         'groups': 'list[str]',
         'identifier': 'str',
+        'ingestion_policy_id': 'str',
         'invalid_password_attempts': 'int',
         'last_logout': 'int',
         'last_successful_login': 'int',
@@ -65,6 +66,7 @@ class User(object):
         'extra_api_tokens': 'extraApiTokens',
         'groups': 'groups',
         'identifier': 'identifier',
+        'ingestion_policy_id': 'ingestionPolicyId',
         'invalid_password_attempts': 'invalidPasswordAttempts',
         'last_logout': 'lastLogout',
         'last_successful_login': 'lastSuccessfulLogin',
@@ -80,7 +82,7 @@ class User(object):
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, account_type=None, api_token=None, api_token2=None, credential=None, customer=None, description=None, extra_api_tokens=None, groups=None, identifier=None, invalid_password_attempts=None, last_logout=None, last_successful_login=None, last_used=None, old_passwords=None, onboarding_state=None, provider=None, reset_token=None, reset_token_creation_millis=None, settings=None, sso_id=None, super_admin=None, user_groups=None):  # noqa: E501
+    def __init__(self, account_type=None, api_token=None, api_token2=None, credential=None, customer=None, description=None, extra_api_tokens=None, groups=None, identifier=None, ingestion_policy_id=None, invalid_password_attempts=None, last_logout=None, last_successful_login=None, last_used=None, old_passwords=None, onboarding_state=None, provider=None, reset_token=None, reset_token_creation_millis=None, settings=None, sso_id=None, super_admin=None, user_groups=None):  # noqa: E501
         """User - a model defined in Swagger"""  # noqa: E501
 
         self._account_type = None
@@ -92,6 +94,7 @@ class User(object):
         self._extra_api_tokens = None
         self._groups = None
         self._identifier = None
+        self._ingestion_policy_id = None
         self._invalid_password_attempts = None
         self._last_logout = None
         self._last_successful_login = None
@@ -125,6 +128,8 @@ class User(object):
             self.groups = groups
         if identifier is not None:
             self.identifier = identifier
+        if ingestion_policy_id is not None:
+            self.ingestion_policy_id = ingestion_policy_id
         if invalid_password_attempts is not None:
             self.invalid_password_attempts = invalid_password_attempts
         if last_logout is not None:
@@ -346,6 +351,27 @@ class User(object):
         """
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policy_id(self):
+        """Gets the ingestion_policy_id of this User.  # noqa: E501
+
+
+        :return: The ingestion_policy_id of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._ingestion_policy_id
+
+    @ingestion_policy_id.setter
+    def ingestion_policy_id(self, ingestion_policy_id):
+        """Sets the ingestion_policy_id of this User.
+
+
+        :param ingestion_policy_id: The ingestion_policy_id of this User.  # noqa: E501
+        :type: str
+        """
+
+        self._ingestion_policy_id = ingestion_policy_id
 
     @property
     def invalid_password_attempts(self):

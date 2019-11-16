@@ -37,6 +37,7 @@ class CustomerFacingUserObject(object):
         'groups': 'list[str]',
         'id': 'str',
         'identifier': 'str',
+        'ingestion_policy_id': 'str',
         'last_successful_login': 'int',
         '_self': 'bool',
         'user_groups': 'list[str]'
@@ -49,12 +50,13 @@ class CustomerFacingUserObject(object):
         'groups': 'groups',
         'id': 'id',
         'identifier': 'identifier',
+        'ingestion_policy_id': 'ingestionPolicyId',
         'last_successful_login': 'lastSuccessfulLogin',
         '_self': 'self',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, customer=None, escaped_identifier=None, gravatar_url=None, groups=None, id=None, identifier=None, last_successful_login=None, _self=None, user_groups=None):  # noqa: E501
+    def __init__(self, customer=None, escaped_identifier=None, gravatar_url=None, groups=None, id=None, identifier=None, ingestion_policy_id=None, last_successful_login=None, _self=None, user_groups=None):  # noqa: E501
         """CustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
         self._customer = None
@@ -63,6 +65,7 @@ class CustomerFacingUserObject(object):
         self._groups = None
         self._id = None
         self._identifier = None
+        self._ingestion_policy_id = None
         self._last_successful_login = None
         self.__self = None
         self._user_groups = None
@@ -77,6 +80,8 @@ class CustomerFacingUserObject(object):
             self.groups = groups
         self.id = id
         self.identifier = identifier
+        if ingestion_policy_id is not None:
+            self.ingestion_policy_id = ingestion_policy_id
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
         self._self = _self
@@ -226,6 +231,29 @@ class CustomerFacingUserObject(object):
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policy_id(self):
+        """Gets the ingestion_policy_id of this CustomerFacingUserObject.  # noqa: E501
+
+        The identifier of the ingestion policy linked with user.  # noqa: E501
+
+        :return: The ingestion_policy_id of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: str
+        """
+        return self._ingestion_policy_id
+
+    @ingestion_policy_id.setter
+    def ingestion_policy_id(self, ingestion_policy_id):
+        """Sets the ingestion_policy_id of this CustomerFacingUserObject.
+
+        The identifier of the ingestion policy linked with user.  # noqa: E501
+
+        :param ingestion_policy_id: The ingestion_policy_id of this CustomerFacingUserObject.  # noqa: E501
+        :type: str
+        """
+
+        self._ingestion_policy_id = ingestion_policy_id
 
     @property
     def last_successful_login(self):

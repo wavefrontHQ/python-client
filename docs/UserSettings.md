@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **hide_ts_when_querybuilder_shown** | **bool** |  | [optional] 
 **landing_dashboard_slug** | **str** |  | [optional] 
 **preferred_time_zone** | **str** |  | [optional] 
+**sample_query_results_by_default** | **bool** |  | [optional] 
 **show_onboarding** | **bool** |  | [optional] 
 **show_querybuilder_by_default** | **bool** |  | [optional] 
 **ui_default** | **str** |  | [optional] 

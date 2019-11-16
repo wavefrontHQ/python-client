@@ -147,7 +147,7 @@ class UserApi(object):
 
         :param async_req bool
         :param bool send_email: Whether to send email notification to the user, if created.  Default: false
-        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] }</pre>
+        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -170,7 +170,7 @@ class UserApi(object):
 
         :param async_req bool
         :param bool send_email: Whether to send email notification to the user, if created.  Default: false
-        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] }</pre>
+        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -608,7 +608,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def get_user_business_functions(self, id, **kwargs):  # noqa: E501
-        """Returns business functions of a specific user.  # noqa: E501
+        """Returns business functions of a specific user or service account.  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -630,7 +630,7 @@ class UserApi(object):
             return data
 
     def get_user_business_functions_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Returns business functions of a specific user.  # noqa: E501
+        """Returns business functions of a specific user or service account.  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -918,7 +918,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] } ]</pre>
+        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" } ]</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -940,7 +940,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] } ]</pre>
+        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" } ]</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1116,7 +1116,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
+        :param str permission: Permission to revoke from the accounts. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
         :param list[str] body: List of users or service accounts which should be revoked by specified permission
         :return: UserModel
                  If the method is called asynchronously,
@@ -1139,7 +1139,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
+        :param str permission: Permission to revoke from the accounts. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission (required)
         :param list[str] body: List of users or service accounts which should be revoked by specified permission
         :return: UserModel
                  If the method is called asynchronously,
@@ -1313,7 +1313,7 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def update_user(self, id, **kwargs):  # noqa: E501
-        """Update user with given user groups and permissions.  # noqa: E501
+        """Update user with given user groups, permissions and ingestion policy.  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1323,7 +1323,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] }</pre>
+        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1336,7 +1336,7 @@ class UserApi(object):
             return data
 
     def update_user_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Update user with given user groups and permissions.  # noqa: E501
+        """Update user with given user groups, permissions and ingestion policy.  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1346,7 +1346,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] }</pre>
+        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.

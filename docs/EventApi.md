@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_all_events_with_time_range**](EventApi.md#get_all_events_with_time_range) | **GET** /api/v2/event | List all the events for a customer within a time range
 [**get_event**](EventApi.md#get_event) | **GET** /api/v2/event/{id} | Get a specific event
 [**get_event_tags**](EventApi.md#get_event_tags) | **GET** /api/v2/event/{id}/tag | Get all tags associated with a specific event
+[**get_related_events_with_time_span**](EventApi.md#get_related_events_with_time_span) | **GET** /api/v2/event/{id}/events | List all related events for a specific firing event with a time span of one hour
 [**remove_event_tag**](EventApi.md#remove_event_tag) | **DELETE** /api/v2/event/{id}/tag/{tagValue} | Remove a tag from a specific event
 [**set_event_tags**](EventApi.md#set_event_tags) | **POST** /api/v2/event/{id}/tag | Set all tags associated with a specific event
 [**update_event**](EventApi.md#update_event) | **PUT** /api/v2/event/{id} | Update a specific event
@@ -390,6 +391,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerTagsResponse**](ResponseContainerTagsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_related_events_with_time_span**
+> ResponseContainerPagedEvent get_related_events_with_time_span(id, is_overlapped=is_overlapped, rendering_method=rendering_method, limit=limit)
+
+List all related events for a specific firing event with a time span of one hour
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.EventApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+is_overlapped = true # bool |  (optional)
+rendering_method = 'rendering_method_example' # str |  (optional)
+limit = 100 # int |  (optional) (default to 100)
+
+try:
+    # List all related events for a specific firing event with a time span of one hour
+    api_response = api_instance.get_related_events_with_time_span(id, is_overlapped=is_overlapped, rendering_method=rendering_method, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventApi->get_related_events_with_time_span: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+ **is_overlapped** | **bool**|  | [optional] 
+ **rendering_method** | **str**|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 100]
+
+### Return type
+
+[**ResponseContainerPagedEvent**](ResponseContainerPagedEvent.md)
 
 ### Authorization
 

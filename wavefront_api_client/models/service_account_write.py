@@ -35,6 +35,7 @@ class ServiceAccountWrite(object):
         'description': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
+        'ingestion_policy_id': 'str',
         'tokens': 'list[str]',
         'user_groups': 'list[str]'
     }
@@ -44,17 +45,19 @@ class ServiceAccountWrite(object):
         'description': 'description',
         'groups': 'groups',
         'identifier': 'identifier',
+        'ingestion_policy_id': 'ingestionPolicyId',
         'tokens': 'tokens',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, active=None, description=None, groups=None, identifier=None, tokens=None, user_groups=None):  # noqa: E501
+    def __init__(self, active=None, description=None, groups=None, identifier=None, ingestion_policy_id=None, tokens=None, user_groups=None):  # noqa: E501
         """ServiceAccountWrite - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
         self._description = None
         self._groups = None
         self._identifier = None
+        self._ingestion_policy_id = None
         self._tokens = None
         self._user_groups = None
         self.discriminator = None
@@ -66,6 +69,8 @@ class ServiceAccountWrite(object):
         if groups is not None:
             self.groups = groups
         self.identifier = identifier
+        if ingestion_policy_id is not None:
+            self.ingestion_policy_id = ingestion_policy_id
         if tokens is not None:
             self.tokens = tokens
         if user_groups is not None:
@@ -164,6 +169,29 @@ class ServiceAccountWrite(object):
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policy_id(self):
+        """Gets the ingestion_policy_id of this ServiceAccountWrite.  # noqa: E501
+
+        The identifier of the ingestion policy linked with service account.  # noqa: E501
+
+        :return: The ingestion_policy_id of this ServiceAccountWrite.  # noqa: E501
+        :rtype: str
+        """
+        return self._ingestion_policy_id
+
+    @ingestion_policy_id.setter
+    def ingestion_policy_id(self, ingestion_policy_id):
+        """Sets the ingestion_policy_id of this ServiceAccountWrite.
+
+        The identifier of the ingestion policy linked with service account.  # noqa: E501
+
+        :param ingestion_policy_id: The ingestion_policy_id of this ServiceAccountWrite.  # noqa: E501
+        :type: str
+        """
+
+        self._ingestion_policy_id = ingestion_policy_id
 
     @property
     def tokens(self):

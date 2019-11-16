@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the service account. | [optional] 
 **groups** | **list[str]** | The list of service account&#39;s permissions. | [optional] 
 **identifier** | **str** | The unique identifier of a service account. | 
+**ingestion_policy** | [**IngestionPolicy**](IngestionPolicy.md) | The ingestion policy object linked with service account. | [optional] 
 **last_used** | **int** | The last time when a token of the service account was used. | [optional] 
 **tokens** | [**list[UserApiToken]**](UserApiToken.md) | The service account&#39;s API tokens. | [optional] 
 **user_groups** | [**list[UserGroup]**](UserGroup.md) | The list of service account&#39;s user groups. | [optional] 

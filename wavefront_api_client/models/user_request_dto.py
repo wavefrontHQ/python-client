@@ -35,6 +35,7 @@ class UserRequestDTO(object):
         'customer': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
+        'ingestion_policy_id': 'str',
         'sso_id': 'str',
         'user_groups': 'list[str]'
     }
@@ -44,17 +45,19 @@ class UserRequestDTO(object):
         'customer': 'customer',
         'groups': 'groups',
         'identifier': 'identifier',
+        'ingestion_policy_id': 'ingestionPolicyId',
         'sso_id': 'ssoId',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, credential=None, customer=None, groups=None, identifier=None, sso_id=None, user_groups=None):  # noqa: E501
+    def __init__(self, credential=None, customer=None, groups=None, identifier=None, ingestion_policy_id=None, sso_id=None, user_groups=None):  # noqa: E501
         """UserRequestDTO - a model defined in Swagger"""  # noqa: E501
 
         self._credential = None
         self._customer = None
         self._groups = None
         self._identifier = None
+        self._ingestion_policy_id = None
         self._sso_id = None
         self._user_groups = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class UserRequestDTO(object):
             self.groups = groups
         if identifier is not None:
             self.identifier = identifier
+        if ingestion_policy_id is not None:
+            self.ingestion_policy_id = ingestion_policy_id
         if sso_id is not None:
             self.sso_id = sso_id
         if user_groups is not None:
@@ -155,6 +160,27 @@ class UserRequestDTO(object):
         """
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policy_id(self):
+        """Gets the ingestion_policy_id of this UserRequestDTO.  # noqa: E501
+
+
+        :return: The ingestion_policy_id of this UserRequestDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._ingestion_policy_id
+
+    @ingestion_policy_id.setter
+    def ingestion_policy_id(self, ingestion_policy_id):
+        """Sets the ingestion_policy_id of this UserRequestDTO.
+
+
+        :param ingestion_policy_id: The ingestion_policy_id of this UserRequestDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._ingestion_policy_id = ingestion_policy_id
 
     @property
     def sso_id(self):

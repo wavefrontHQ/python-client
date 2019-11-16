@@ -10,14 +10,14 @@ Method | HTTP request | Description
 [**delete_user**](UserApi.md#delete_user) | **DELETE** /api/v2/user/{id} | Deletes a user or service account identified by id
 [**get_all_users**](UserApi.md#get_all_users) | **GET** /api/v2/user | Get all users
 [**get_user**](UserApi.md#get_user) | **GET** /api/v2/user/{id} | Retrieves a user by identifier (email address)
-[**get_user_business_functions**](UserApi.md#get_user_business_functions) | **GET** /api/v2/user/{id}/businessFunctions | Returns business functions of a specific user.
+[**get_user_business_functions**](UserApi.md#get_user_business_functions) | **GET** /api/v2/user/{id}/businessFunctions | Returns business functions of a specific user or service account.
 [**grant_permission_to_users**](UserApi.md#grant_permission_to_users) | **POST** /api/v2/user/grant/{permission} | Grants a specific permission to multiple users or service accounts
 [**grant_user_permission**](UserApi.md#grant_user_permission) | **POST** /api/v2/user/{id}/grant | Grants a specific permission to user or service account
 [**invite_users**](UserApi.md#invite_users) | **POST** /api/v2/user/invite | Invite users with given user groups and permissions.
 [**remove_user_from_user_groups**](UserApi.md#remove_user_from_user_groups) | **POST** /api/v2/user/{id}/removeUserGroups | Removes specific user groups from the user or service account
 [**revoke_permission_from_users**](UserApi.md#revoke_permission_from_users) | **POST** /api/v2/user/revoke/{permission} | Revokes a specific permission from multiple users or service accounts
 [**revoke_user_permission**](UserApi.md#revoke_user_permission) | **POST** /api/v2/user/{id}/revoke | Revokes a specific permission from user or service account
-[**update_user**](UserApi.md#update_user) | **PUT** /api/v2/user/{id} | Update user with given user groups and permissions.
+[**update_user**](UserApi.md#update_user) | **PUT** /api/v2/user/{id} | Update user with given user groups, permissions and ingestion policy.
 [**validate_users**](UserApi.md#validate_users) | **POST** /api/v2/user/validateUsers | Returns valid users and service accounts, also invalid identifiers from the given list
 
 
@@ -101,7 +101,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 send_email = true # bool | Whether to send email notification to the user, if created.  Default: false (optional)
-body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] }</pre> (optional)
+body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre> (optional)
 
 try:
     # Creates or updates a user
@@ -116,7 +116,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **send_email** | **bool**| Whether to send email notification to the user, if created.  Default: false | [optional] 
- **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ] }&lt;/pre&gt; | [optional] 
+ **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 # **get_user_business_functions**
 > UserModel get_user_business_functions(id)
 
-Returns business functions of a specific user.
+Returns business functions of a specific user or service account.
 
 
 
@@ -370,7 +370,7 @@ api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(confi
 id = 'id_example' # str | 
 
 try:
-    # Returns business functions of a specific user.
+    # Returns business functions of a specific user or service account.
     api_response = api_instance.get_user_business_functions(id)
     pprint(api_response)
 except ApiException as e:
@@ -533,7 +533,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
-body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] } ]</pre> (optional)
+body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" } ]</pre> (optional)
 
 try:
     # Invite users with given user groups and permissions.
@@ -547,7 +547,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ] } ]&lt;/pre&gt; | [optional] 
+ **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; } ]&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -643,7 +643,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
-permission = 'permission_example' # str | Permission to grant to the account. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
+permission = 'permission_example' # str | Permission to revoke from the accounts. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
 body = [wavefront_api_client.list[str]()] # list[str] | List of users or service accounts which should be revoked by specified permission (optional)
 
 try:
@@ -658,7 +658,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permission** | **str**| Permission to grant to the account. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
+ **permission** | **str**| Permission to revoke from the accounts. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
  **body** | **list[str]**| List of users or service accounts which should be revoked by specified permission | [optional] 
 
 ### Return type
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 # **update_user**
 > UserModel update_user(id, body=body)
 
-Update user with given user groups and permissions.
+Update user with given user groups, permissions and ingestion policy.
 
 
 
@@ -756,10 +756,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ] }</pre> (optional)
+body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre> (optional)
 
 try:
-    # Update user with given user groups and permissions.
+    # Update user with given user groups, permissions and ingestion policy.
     api_response = api_instance.update_user(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -771,7 +771,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ] }&lt;/pre&gt; | [optional] 
+ **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 

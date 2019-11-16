@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**dashboard_min_obj** | [**DashboardMin**](DashboardMin.md) |  | [optional] 
 **dashboard_obj** | [**Dashboard**](Dashboard.md) |  | [optional] 
 **description** | **str** | Dashboard description | 
 **name** | **str** | Dashboard name | 

@@ -35,6 +35,7 @@ class ServiceAccount(object):
         'description': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
+        'ingestion_policy': 'IngestionPolicy',
         'last_used': 'int',
         'tokens': 'list[UserApiToken]',
         'user_groups': 'list[UserGroup]'
@@ -45,18 +46,20 @@ class ServiceAccount(object):
         'description': 'description',
         'groups': 'groups',
         'identifier': 'identifier',
+        'ingestion_policy': 'ingestionPolicy',
         'last_used': 'lastUsed',
         'tokens': 'tokens',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, active=None, description=None, groups=None, identifier=None, last_used=None, tokens=None, user_groups=None):  # noqa: E501
+    def __init__(self, active=None, description=None, groups=None, identifier=None, ingestion_policy=None, last_used=None, tokens=None, user_groups=None):  # noqa: E501
         """ServiceAccount - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
         self._description = None
         self._groups = None
         self._identifier = None
+        self._ingestion_policy = None
         self._last_used = None
         self._tokens = None
         self._user_groups = None
@@ -68,6 +71,8 @@ class ServiceAccount(object):
         if groups is not None:
             self.groups = groups
         self.identifier = identifier
+        if ingestion_policy is not None:
+            self.ingestion_policy = ingestion_policy
         if last_used is not None:
             self.last_used = last_used
         if tokens is not None:
@@ -170,6 +175,29 @@ class ServiceAccount(object):
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policy(self):
+        """Gets the ingestion_policy of this ServiceAccount.  # noqa: E501
+
+        The ingestion policy object linked with service account.  # noqa: E501
+
+        :return: The ingestion_policy of this ServiceAccount.  # noqa: E501
+        :rtype: IngestionPolicy
+        """
+        return self._ingestion_policy
+
+    @ingestion_policy.setter
+    def ingestion_policy(self, ingestion_policy):
+        """Sets the ingestion_policy of this ServiceAccount.
+
+        The ingestion policy object linked with service account.  # noqa: E501
+
+        :param ingestion_policy: The ingestion_policy of this ServiceAccount.  # noqa: E501
+        :type: IngestionPolicy
+        """
+
+        self._ingestion_policy = ingestion_policy
 
     @property
     def last_used(self):

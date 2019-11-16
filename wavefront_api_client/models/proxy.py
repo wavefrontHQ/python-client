@@ -41,6 +41,7 @@ class Proxy(object):
         'hostname': 'str',
         'id': 'str',
         'in_trash': 'bool',
+        'ingestion_policy': 'IngestionPolicy',
         'last_check_in_time': 'int',
         'last_error_event': 'Event',
         'last_error_time': 'int',
@@ -66,6 +67,7 @@ class Proxy(object):
         'hostname': 'hostname',
         'id': 'id',
         'in_trash': 'inTrash',
+        'ingestion_policy': 'ingestionPolicy',
         'last_check_in_time': 'lastCheckInTime',
         'last_error_event': 'lastErrorEvent',
         'last_error_time': 'lastErrorTime',
@@ -80,7 +82,7 @@ class Proxy(object):
         'version': 'version'
     }
 
-    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, hostname=None, id=None, in_trash=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, shutdown=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, version=None):  # noqa: E501
+    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, hostname=None, id=None, in_trash=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, shutdown=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, version=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
 
         self._bytes_left_for_buffer = None
@@ -93,6 +95,7 @@ class Proxy(object):
         self._hostname = None
         self._id = None
         self._in_trash = None
+        self._ingestion_policy = None
         self._last_check_in_time = None
         self._last_error_event = None
         self._last_error_time = None
@@ -127,6 +130,8 @@ class Proxy(object):
             self.id = id
         if in_trash is not None:
             self.in_trash = in_trash
+        if ingestion_policy is not None:
+            self.ingestion_policy = ingestion_policy
         if last_check_in_time is not None:
             self.last_check_in_time = last_check_in_time
         if last_error_event is not None:
@@ -372,6 +377,29 @@ class Proxy(object):
         """
 
         self._in_trash = in_trash
+
+    @property
+    def ingestion_policy(self):
+        """Gets the ingestion_policy of this Proxy.  # noqa: E501
+
+        Ingestion policy associated with the proxy  # noqa: E501
+
+        :return: The ingestion_policy of this Proxy.  # noqa: E501
+        :rtype: IngestionPolicy
+        """
+        return self._ingestion_policy
+
+    @ingestion_policy.setter
+    def ingestion_policy(self, ingestion_policy):
+        """Sets the ingestion_policy of this Proxy.
+
+        Ingestion policy associated with the proxy  # noqa: E501
+
+        :param ingestion_policy: The ingestion_policy of this Proxy.  # noqa: E501
+        :type: IngestionPolicy
+        """
+
+        self._ingestion_policy = ingestion_policy
 
     @property
     def last_check_in_time(self):

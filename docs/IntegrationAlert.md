@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**alert_min_obj** | [**AlertMin**](AlertMin.md) |  | [optional] 
 **alert_obj** | [**Alert**](Alert.md) |  | [optional] 
 **description** | **str** | Alert description | 
 **name** | **str** | Alert name | 

@@ -32,23 +32,28 @@ class DashboardSection(object):
     """
     swagger_types = {
         'name': 'str',
-        'rows': 'list[DashboardSectionRow]'
+        'rows': 'list[DashboardSectionRow]',
+        'section_filter': 'JsonNode'
     }
 
     attribute_map = {
         'name': 'name',
-        'rows': 'rows'
+        'rows': 'rows',
+        'section_filter': 'sectionFilter'
     }
 
-    def __init__(self, name=None, rows=None):  # noqa: E501
+    def __init__(self, name=None, rows=None, section_filter=None):  # noqa: E501
         """DashboardSection - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._rows = None
+        self._section_filter = None
         self.discriminator = None
 
         self.name = name
         self.rows = rows
+        if section_filter is not None:
+            self.section_filter = section_filter
 
     @property
     def name(self):
@@ -99,6 +104,29 @@ class DashboardSection(object):
             raise ValueError("Invalid value for `rows`, must not be `None`")  # noqa: E501
 
         self._rows = rows
+
+    @property
+    def section_filter(self):
+        """Gets the section_filter of this DashboardSection.  # noqa: E501
+
+        Display filter for conditional dashboard section  # noqa: E501
+
+        :return: The section_filter of this DashboardSection.  # noqa: E501
+        :rtype: JsonNode
+        """
+        return self._section_filter
+
+    @section_filter.setter
+    def section_filter(self, section_filter):
+        """Sets the section_filter of this DashboardSection.
+
+        Display filter for conditional dashboard section  # noqa: E501
+
+        :param section_filter: The section_filter of this DashboardSection.  # noqa: E501
+        :type: JsonNode
+        """
+
+        self._section_filter = section_filter
 
     def to_dict(self):
         """Returns the model properties as a dict"""

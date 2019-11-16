@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **extra_api_tokens** | **list[str]** |  | [optional] 
 **groups** | **list[str]** |  | [optional] 
 **identifier** | **str** |  | [optional] 
+**ingestion_policy_id** | **str** |  | [optional] 
 **invalid_password_attempts** | **int** |  | [optional] 
 **last_logout** | **int** |  | [optional] 
 **last_successful_login** | **int** |  | [optional] 
