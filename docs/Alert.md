@@ -57,6 +57,7 @@ Name | Type | Description | Notes
 **snoozed** | **int** | The until which time this alert is snoozed (not checked), in epoch millis.  A negative value implies the alert is snoozed indefinitely | [optional] 
 **sort_attr** | **int** | Attribute used for default alert sort that is derived from state and severity | [optional] 
 **status** | **list[str]** | Lists the current state of the alert. Can be one or more of: FIRING,SNOOZED, IN_MAINTENANCE, INVALID, NONE, CHECKING, TRASH, NO_DATA | [optional] 
+**system_alert_version** | **int** | If this is a system alert, the version of it | [optional] 
 **system_owned** | **bool** | Whether this alert is system-owned and not writeable | [optional] 
 **tags** | [**WFTags**](WFTags.md) |  | [optional] 
 **target** | **str** | The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes | [optional] 
