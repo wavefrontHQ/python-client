@@ -34,6 +34,7 @@ class EventSearchRequest(object):
         'cursor': 'str',
         'limit': 'int',
         'query': 'list[SearchQuery]',
+        'sort_score_method': 'str',
         'sort_time_ascending': 'bool',
         'time_range': 'EventTimeRange'
     }
@@ -42,16 +43,18 @@ class EventSearchRequest(object):
         'cursor': 'cursor',
         'limit': 'limit',
         'query': 'query',
+        'sort_score_method': 'sortScoreMethod',
         'sort_time_ascending': 'sortTimeAscending',
         'time_range': 'timeRange'
     }
 
-    def __init__(self, cursor=None, limit=None, query=None, sort_time_ascending=None, time_range=None):  # noqa: E501
+    def __init__(self, cursor=None, limit=None, query=None, sort_score_method=None, sort_time_ascending=None, time_range=None):  # noqa: E501
         """EventSearchRequest - a model defined in Swagger"""  # noqa: E501
 
         self._cursor = None
         self._limit = None
         self._query = None
+        self._sort_score_method = None
         self._sort_time_ascending = None
         self._time_range = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class EventSearchRequest(object):
             self.limit = limit
         if query is not None:
             self.query = query
+        if sort_score_method is not None:
+            self.sort_score_method = sort_score_method
         if sort_time_ascending is not None:
             self.sort_time_ascending = sort_time_ascending
         if time_range is not None:
@@ -135,6 +140,35 @@ class EventSearchRequest(object):
         """
 
         self._query = query
+
+    @property
+    def sort_score_method(self):
+        """Gets the sort_score_method of this EventSearchRequest.  # noqa: E501
+
+        Whether to sort events on similarity score : {NONE, SCORE_ASC, SCORE_DES}. Default: NONE. If sortScoreMethod is set to SCORE_ASC or SCORE_DES, it will override time sort  # noqa: E501
+
+        :return: The sort_score_method of this EventSearchRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._sort_score_method
+
+    @sort_score_method.setter
+    def sort_score_method(self, sort_score_method):
+        """Sets the sort_score_method of this EventSearchRequest.
+
+        Whether to sort events on similarity score : {NONE, SCORE_ASC, SCORE_DES}. Default: NONE. If sortScoreMethod is set to SCORE_ASC or SCORE_DES, it will override time sort  # noqa: E501
+
+        :param sort_score_method: The sort_score_method of this EventSearchRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["SCORE_ASC", "SCORE_DES", "NONE"]  # noqa: E501
+        if sort_score_method not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sort_score_method` ({0}), must be one of {1}"  # noqa: E501
+                .format(sort_score_method, allowed_values)
+            )
+
+        self._sort_score_method = sort_score_method
 
     @property
     def sort_time_ascending(self):

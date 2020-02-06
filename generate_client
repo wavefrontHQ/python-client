@@ -56,7 +56,7 @@ else
   CGEN_JAR_BINARY="${TEMP_DIR_NAME}/${CGEN_JAR_NAME}"
 
   echo "Step 1: Fetching the latest swagger-codegen..."
-  curl -s "${CGEN_JAR_URL}" -o "${CGEN_JAR_BINARY}"
+  curl -Ls "${CGEN_JAR_URL}" -o "${CGEN_JAR_BINARY}"
 
   echo "Step 2: Fetching the config from '${SWGR_URL}'..."
   curl -s "${SWGR_URL}" | $PYTHON -m json.tool --sort-keys > "${SWAGGER_FILE}"

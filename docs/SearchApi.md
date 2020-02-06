@@ -34,6 +34,9 @@ Method | HTTP request | Description
 [**search_maintenance_window_entities**](SearchApi.md#search_maintenance_window_entities) | **POST** /api/v2/search/maintenancewindow | Search over a customer&#39;s maintenance windows
 [**search_maintenance_window_for_facet**](SearchApi.md#search_maintenance_window_for_facet) | **POST** /api/v2/search/maintenancewindow/{facet} | Lists the values of a specific facet over the customer&#39;s maintenance windows
 [**search_maintenance_window_for_facets**](SearchApi.md#search_maintenance_window_for_facets) | **POST** /api/v2/search/maintenancewindow/facets | Lists the values of one or more facets over the customer&#39;s maintenance windows
+[**search_monitored_cluster_entities**](SearchApi.md#search_monitored_cluster_entities) | **POST** /api/v2/search/monitoredcluster | Search over all the customer&#39;s non-deleted monitored clusters
+[**search_monitored_cluster_for_facet**](SearchApi.md#search_monitored_cluster_for_facet) | **POST** /api/v2/search/monitoredcluster/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted monitored cluster
+[**search_monitored_cluster_for_facets**](SearchApi.md#search_monitored_cluster_for_facets) | **POST** /api/v2/search/monitoredcluster/facets | Lists the values of one or more facets over the customer&#39;s non-deleted monitored clusters
 [**search_notficant_for_facets**](SearchApi.md#search_notficant_for_facets) | **POST** /api/v2/search/notificant/facets | Lists the values of one or more facets over the customer&#39;s notificants
 [**search_notificant_entities**](SearchApi.md#search_notificant_entities) | **POST** /api/v2/search/notificant | Search over a customer&#39;s notificants
 [**search_notificant_for_facet**](SearchApi.md#search_notificant_for_facet) | **POST** /api/v2/search/notificant/{facet} | Lists the values of a specific facet over the customer&#39;s notificants
@@ -49,6 +52,7 @@ Method | HTTP request | Description
 [**search_registered_query_entities**](SearchApi.md#search_registered_query_entities) | **POST** /api/v2/search/derivedmetric | Search over a customer&#39;s non-deleted derived metric definitions
 [**search_registered_query_for_facet**](SearchApi.md#search_registered_query_for_facet) | **POST** /api/v2/search/derivedmetric/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted derived metric definitions
 [**search_registered_query_for_facets**](SearchApi.md#search_registered_query_for_facets) | **POST** /api/v2/search/derivedmetric/facets | Lists the values of one or more facets over the customer&#39;s non-deleted derived metric definition
+[**search_related_report_event_entities**](SearchApi.md#search_related_report_event_entities) | **POST** /api/v2/search/event/related/{eventId} | List the related events over a firing event
 [**search_report_event_entities**](SearchApi.md#search_report_event_entities) | **POST** /api/v2/search/event | Search over a customer&#39;s events
 [**search_report_event_for_facet**](SearchApi.md#search_report_event_for_facet) | **POST** /api/v2/search/event/{facet} | Lists the values of a specific facet over the customer&#39;s events
 [**search_report_event_for_facets**](SearchApi.md#search_report_event_for_facets) | **POST** /api/v2/search/event/facets | Lists the values of one or more facets over the customer&#39;s events
@@ -1709,6 +1713,170 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **search_monitored_cluster_entities**
+> ResponseContainerPagedMonitoredCluster search_monitored_cluster_entities(body=body)
+
+Search over all the customer's non-deleted monitored clusters
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.SortableSearchRequest() # SortableSearchRequest |  (optional)
+
+try:
+    # Search over all the customer's non-deleted monitored clusters
+    api_response = api_instance.search_monitored_cluster_entities(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_monitored_cluster_entities: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SortableSearchRequest**](SortableSearchRequest.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerPagedMonitoredCluster**](ResponseContainerPagedMonitoredCluster.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_monitored_cluster_for_facet**
+> ResponseContainerFacetResponse search_monitored_cluster_for_facet(facet, body=body)
+
+Lists the values of a specific facet over the customer's non-deleted monitored cluster
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+facet = 'facet_example' # str | 
+body = wavefront_api_client.FacetSearchRequestContainer() # FacetSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of a specific facet over the customer's non-deleted monitored cluster
+    api_response = api_instance.search_monitored_cluster_for_facet(facet, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_monitored_cluster_for_facet: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **facet** | **str**|  | 
+ **body** | [**FacetSearchRequestContainer**](FacetSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetResponse**](ResponseContainerFacetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_monitored_cluster_for_facets**
+> ResponseContainerFacetsResponseContainer search_monitored_cluster_for_facets(body=body)
+
+Lists the values of one or more facets over the customer's non-deleted monitored clusters
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.FacetsSearchRequestContainer() # FacetsSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of one or more facets over the customer's non-deleted monitored clusters
+    api_response = api_instance.search_monitored_cluster_for_facets(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_monitored_cluster_for_facets: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**FacetsSearchRequestContainer**](FacetsSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetsResponseContainer**](ResponseContainerFacetsResponseContainer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search_notficant_for_facets**
 > ResponseContainerFacetsResponseContainer search_notficant_for_facets(body=body)
 
@@ -2517,6 +2685,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerFacetsResponseContainer**](ResponseContainerFacetsResponseContainer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_related_report_event_entities**
+> ResponseContainerPagedRelatedEvent search_related_report_event_entities(event_id, body=body)
+
+List the related events over a firing event
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+event_id = 'event_id_example' # str | 
+body = wavefront_api_client.EventSearchRequest() # EventSearchRequest |  (optional)
+
+try:
+    # List the related events over a firing event
+    api_response = api_instance.search_related_report_event_entities(event_id, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_related_report_event_entities: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **event_id** | **str**|  | 
+ **body** | [**EventSearchRequest**](EventSearchRequest.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerPagedRelatedEvent**](ResponseContainerPagedRelatedEvent.md)
 
 ### Authorization
 

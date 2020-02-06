@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **created_epoch_millis** | **int** |  | [optional] 
 **creator_id** | **str** |  | [optional] 
 **creator_type** | **list[str]** |  | [optional] 
+**dimensions** | **dict(str, list[str])** | A string-&gt;&lt;list of strings&gt; map of additional dimension info on the event | [optional] 
 **end_time** | **int** | End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event | [optional] 
 **hosts** | **list[str]** | A list of sources/hosts affected by the event | [optional] 
 **id** | **str** |  | [optional] 

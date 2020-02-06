@@ -38,6 +38,7 @@ class Event(object):
         'created_epoch_millis': 'int',
         'creator_id': 'str',
         'creator_type': 'list[str]',
+        'dimensions': 'dict(str, list[str])',
         'end_time': 'int',
         'hosts': 'list[str]',
         'id': 'str',
@@ -63,6 +64,7 @@ class Event(object):
         'created_epoch_millis': 'createdEpochMillis',
         'creator_id': 'creatorId',
         'creator_type': 'creatorType',
+        'dimensions': 'dimensions',
         'end_time': 'endTime',
         'hosts': 'hosts',
         'id': 'id',
@@ -80,7 +82,7 @@ class Event(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, dimensions=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
         self._annotations = None
@@ -90,6 +92,7 @@ class Event(object):
         self._created_epoch_millis = None
         self._creator_id = None
         self._creator_type = None
+        self._dimensions = None
         self._end_time = None
         self._hosts = None
         self._id = None
@@ -120,6 +123,8 @@ class Event(object):
             self.creator_id = creator_id
         if creator_type is not None:
             self.creator_type = creator_type
+        if dimensions is not None:
+            self.dimensions = dimensions
         if end_time is not None:
             self.end_time = end_time
         if hosts is not None:
@@ -306,6 +311,29 @@ class Event(object):
             )
 
         self._creator_type = creator_type
+
+    @property
+    def dimensions(self):
+        """Gets the dimensions of this Event.  # noqa: E501
+
+        A string-><list of strings> map of additional dimension info on the event  # noqa: E501
+
+        :return: The dimensions of this Event.  # noqa: E501
+        :rtype: dict(str, list[str])
+        """
+        return self._dimensions
+
+    @dimensions.setter
+    def dimensions(self, dimensions):
+        """Sets the dimensions of this Event.
+
+        A string-><list of strings> map of additional dimension info on the event  # noqa: E501
+
+        :param dimensions: The dimensions of this Event.  # noqa: E501
+        :type: dict(str, list[str])
+        """
+
+        self._dimensions = dimensions
 
     @property
     def end_time(self):

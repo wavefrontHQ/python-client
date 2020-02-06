@@ -32,6 +32,7 @@ class GCPConfiguration(object):
     """
     swagger_types = {
         'categories_to_fetch': 'list[str]',
+        'custom_metric_prefix': 'list[str]',
         'gcp_json_key': 'str',
         'metric_filter_regex': 'str',
         'project_id': 'str'
@@ -39,15 +40,17 @@ class GCPConfiguration(object):
 
     attribute_map = {
         'categories_to_fetch': 'categoriesToFetch',
+        'custom_metric_prefix': 'customMetricPrefix',
         'gcp_json_key': 'gcpJsonKey',
         'metric_filter_regex': 'metricFilterRegex',
         'project_id': 'projectId'
     }
 
-    def __init__(self, categories_to_fetch=None, gcp_json_key=None, metric_filter_regex=None, project_id=None):  # noqa: E501
+    def __init__(self, categories_to_fetch=None, custom_metric_prefix=None, gcp_json_key=None, metric_filter_regex=None, project_id=None):  # noqa: E501
         """GCPConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._categories_to_fetch = None
+        self._custom_metric_prefix = None
         self._gcp_json_key = None
         self._metric_filter_regex = None
         self._project_id = None
@@ -55,6 +58,8 @@ class GCPConfiguration(object):
 
         if categories_to_fetch is not None:
             self.categories_to_fetch = categories_to_fetch
+        if custom_metric_prefix is not None:
+            self.custom_metric_prefix = custom_metric_prefix
         self.gcp_json_key = gcp_json_key
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
@@ -89,6 +94,29 @@ class GCPConfiguration(object):
             )
 
         self._categories_to_fetch = categories_to_fetch
+
+    @property
+    def custom_metric_prefix(self):
+        """Gets the custom_metric_prefix of this GCPConfiguration.  # noqa: E501
+
+        List of custom metric prefix to fetch the data from  # noqa: E501
+
+        :return: The custom_metric_prefix of this GCPConfiguration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._custom_metric_prefix
+
+    @custom_metric_prefix.setter
+    def custom_metric_prefix(self, custom_metric_prefix):
+        """Sets the custom_metric_prefix of this GCPConfiguration.
+
+        List of custom metric prefix to fetch the data from  # noqa: E501
+
+        :param custom_metric_prefix: The custom_metric_prefix of this GCPConfiguration.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._custom_metric_prefix = custom_metric_prefix
 
     @property
     def gcp_json_key(self):

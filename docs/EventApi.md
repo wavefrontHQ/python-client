@@ -8,6 +8,9 @@ Method | HTTP request | Description
 [**close_event**](EventApi.md#close_event) | **POST** /api/v2/event/{id}/close | Close a specific event
 [**create_event**](EventApi.md#create_event) | **POST** /api/v2/event | Create a specific event
 [**delete_event**](EventApi.md#delete_event) | **DELETE** /api/v2/event/{id} | Delete a specific event
+[**get_alert_event_queries_slug**](EventApi.md#get_alert_event_queries_slug) | **GET** /api/v2/event/{id}/alertQueriesSlug | If the specified event is associated with an alert, returns a slug encoding the queries having to do with that alert firing or resolution
+[**get_alert_firing_details**](EventApi.md#get_alert_firing_details) | **GET** /api/v2/event/{id}/alertFiringDetails | Return details of a particular alert firing, including all the series that fired during the referred alert firing
+[**get_alert_firing_events**](EventApi.md#get_alert_firing_events) | **GET** /api/v2/event/alertFirings | Get firings events of an alert within a time range
 [**get_all_events_with_time_range**](EventApi.md#get_all_events_with_time_range) | **GET** /api/v2/event | List all the events for a customer within a time range
 [**get_event**](EventApi.md#get_event) | **GET** /api/v2/event/{id} | Get a specific event
 [**get_event_tags**](EventApi.md#get_event_tags) | **GET** /api/v2/event/{id}/tag | Get all tags associated with a specific event
@@ -223,6 +226,174 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerEvent**](ResponseContainerEvent.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_alert_event_queries_slug**
+> ResponseContainerString get_alert_event_queries_slug(id)
+
+If the specified event is associated with an alert, returns a slug encoding the queries having to do with that alert firing or resolution
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.EventApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    # If the specified event is associated with an alert, returns a slug encoding the queries having to do with that alert firing or resolution
+    api_response = api_instance.get_alert_event_queries_slug(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventApi->get_alert_event_queries_slug: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+[**ResponseContainerString**](ResponseContainerString.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_alert_firing_details**
+> ResponseContainerSetSourceLabelPair get_alert_firing_details(id)
+
+Return details of a particular alert firing, including all the series that fired during the referred alert firing
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.EventApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | id of an event of type alert or alert-detail, used to lookup the particular alert firing
+
+try:
+    # Return details of a particular alert firing, including all the series that fired during the referred alert firing
+    api_response = api_instance.get_alert_firing_details(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventApi->get_alert_firing_details: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| id of an event of type alert or alert-detail, used to lookup the particular alert firing | 
+
+### Return type
+
+[**ResponseContainerSetSourceLabelPair**](ResponseContainerSetSourceLabelPair.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_alert_firing_events**
+> ResponseContainerPagedEvent get_alert_firing_events(alert_id, earliest_start_time_epoch_millis=earliest_start_time_epoch_millis, latest_start_time_epoch_millis=latest_start_time_epoch_millis, limit=limit)
+
+Get firings events of an alert within a time range
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.EventApi(wavefront_api_client.ApiClient(configuration))
+alert_id = 'alert_id_example' # str | 
+earliest_start_time_epoch_millis = 789 # int |  (optional)
+latest_start_time_epoch_millis = 789 # int |  (optional)
+limit = 100 # int |  (optional) (default to 100)
+
+try:
+    # Get firings events of an alert within a time range
+    api_response = api_instance.get_alert_firing_events(alert_id, earliest_start_time_epoch_millis=earliest_start_time_epoch_millis, latest_start_time_epoch_millis=latest_start_time_epoch_millis, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventApi->get_alert_firing_events: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **alert_id** | **str**|  | 
+ **earliest_start_time_epoch_millis** | **int**|  | [optional] 
+ **latest_start_time_epoch_millis** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 100]
+
+### Return type
+
+[**ResponseContainerPagedEvent**](ResponseContainerPagedEvent.md)
 
 ### Authorization
 

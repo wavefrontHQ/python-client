@@ -89,6 +89,7 @@ class Alert(object):
         'system_owned': 'bool',
         'tags': 'WFTags',
         'target': 'str',
+        'target_endpoints': 'list[str]',
         'target_info': 'list[TargetInfo]',
         'targets': 'dict(str, str)',
         'update_user_id': 'str',
@@ -156,6 +157,7 @@ class Alert(object):
         'system_owned': 'systemOwned',
         'tags': 'tags',
         'target': 'target',
+        'target_endpoints': 'targetEndpoints',
         'target_info': 'targetInfo',
         'targets': 'targets',
         'update_user_id': 'updateUserId',
@@ -164,7 +166,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tags=None, target=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
@@ -225,6 +227,7 @@ class Alert(object):
         self._system_owned = None
         self._tags = None
         self._target = None
+        self._target_endpoints = None
         self._target_info = None
         self._targets = None
         self._update_user_id = None
@@ -346,6 +349,8 @@ class Alert(object):
             self.tags = tags
         if target is not None:
             self.target = target
+        if target_endpoints is not None:
+            self.target_endpoints = target_endpoints
         if target_info is not None:
             self.target_info = target_info
         if targets is not None:
@@ -1687,6 +1692,27 @@ class Alert(object):
         """
 
         self._target = target
+
+    @property
+    def target_endpoints(self):
+        """Gets the target_endpoints of this Alert.  # noqa: E501
+
+
+        :return: The target_endpoints of this Alert.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._target_endpoints
+
+    @target_endpoints.setter
+    def target_endpoints(self, target_endpoints):
+        """Sets the target_endpoints of this Alert.
+
+
+        :param target_endpoints: The target_endpoints of this Alert.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._target_endpoints = target_endpoints
 
     @property
     def target_info(self):

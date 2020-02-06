@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **created_epoch_millis** | **int** |  | [optional] 
 **creator_id** | **str** |  | [optional] 
 **customer** | **str** | id of the customer to which this dashboard belongs | [optional] 
+**dashboard_attributes** | [**JsonNode**](JsonNode.md) | Experimental Dashboard Attributes | [optional] 
 **default_end_time** | **int** | Default end time in milliseconds to query charts | [optional] 
 **default_start_time** | **int** | Default start time in milliseconds to query charts | [optional] 
 **default_time_window** | **str** | Default time window to query charts | [optional] 
@@ -21,6 +22,7 @@ Name | Type | Description | Notes
 **event_filter_type** | **str** | How charts belonging to this dashboard should display events.  BYCHART is default if unspecified | [optional] 
 **event_query** | **str** | Event query to run on dashboard charts | [optional] 
 **favorite** | **bool** |  | [optional] 
+**force_v2_ui** | **bool** | Whether to force this dashboard to use the V2 UI | [optional] 
 **hidden** | **bool** |  | [optional] 
 **id** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **modify_acl_access** | **bool** | Whether the user has modify ACL access to the dashboard. | [optional] 

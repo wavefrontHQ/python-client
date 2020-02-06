@@ -34,23 +34,26 @@ class SearchQuery(object):
         'key': 'str',
         'matching_method': 'str',
         'negated': 'bool',
-        'value': 'str'
+        'value': 'str',
+        'values': 'list[str]'
     }
 
     attribute_map = {
         'key': 'key',
         'matching_method': 'matchingMethod',
         'negated': 'negated',
-        'value': 'value'
+        'value': 'value',
+        'values': 'values'
     }
 
-    def __init__(self, key=None, matching_method=None, negated=None, value=None):  # noqa: E501
+    def __init__(self, key=None, matching_method=None, negated=None, value=None, values=None):  # noqa: E501
         """SearchQuery - a model defined in Swagger"""  # noqa: E501
 
         self._key = None
         self._matching_method = None
         self._negated = None
         self._value = None
+        self._values = None
         self.discriminator = None
 
         self.key = key
@@ -58,7 +61,10 @@ class SearchQuery(object):
             self.matching_method = matching_method
         if negated is not None:
             self.negated = negated
-        self.value = value
+        if value is not None:
+            self.value = value
+        if values is not None:
+            self.values = values
 
     @property
     def key(self):
@@ -141,7 +147,7 @@ class SearchQuery(object):
     def value(self):
         """Gets the value of this SearchQuery.  # noqa: E501
 
-        The entity facet value for which to search  # noqa: E501
+        The entity facet value for which to search. Either value or values field is required. If both are set, values takes precedence.  # noqa: E501
 
         :return: The value of this SearchQuery.  # noqa: E501
         :rtype: str
@@ -152,15 +158,36 @@ class SearchQuery(object):
     def value(self, value):
         """Sets the value of this SearchQuery.
 
-        The entity facet value for which to search  # noqa: E501
+        The entity facet value for which to search. Either value or values field is required. If both are set, values takes precedence.  # noqa: E501
 
         :param value: The value of this SearchQuery.  # noqa: E501
         :type: str
         """
-        if value is None:
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
+
+    @property
+    def values(self):
+        """Gets the values of this SearchQuery.  # noqa: E501
+
+        The entity facet values for which to search based on OR operation. Either value or values field is required. If both are set, values takes precedence.  # noqa: E501
+
+        :return: The values of this SearchQuery.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._values
+
+    @values.setter
+    def values(self, values):
+        """Sets the values of this SearchQuery.
+
+        The entity facet values for which to search based on OR operation. Either value or values field is required. If both are set, values takes precedence.  # noqa: E501
+
+        :param values: The values of this SearchQuery.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._values = values
 
     def to_dict(self):
         """Returns the model properties as a dict"""

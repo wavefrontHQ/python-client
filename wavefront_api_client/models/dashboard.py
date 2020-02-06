@@ -38,6 +38,7 @@ class Dashboard(object):
         'created_epoch_millis': 'int',
         'creator_id': 'str',
         'customer': 'str',
+        'dashboard_attributes': 'JsonNode',
         'default_end_time': 'int',
         'default_start_time': 'int',
         'default_time_window': 'str',
@@ -49,6 +50,7 @@ class Dashboard(object):
         'event_filter_type': 'str',
         'event_query': 'str',
         'favorite': 'bool',
+        'force_v2_ui': 'bool',
         'hidden': 'bool',
         'id': 'str',
         'modify_acl_access': 'bool',
@@ -77,6 +79,7 @@ class Dashboard(object):
         'created_epoch_millis': 'createdEpochMillis',
         'creator_id': 'creatorId',
         'customer': 'customer',
+        'dashboard_attributes': 'dashboardAttributes',
         'default_end_time': 'defaultEndTime',
         'default_start_time': 'defaultStartTime',
         'default_time_window': 'defaultTimeWindow',
@@ -88,6 +91,7 @@ class Dashboard(object):
         'event_filter_type': 'eventFilterType',
         'event_query': 'eventQuery',
         'favorite': 'favorite',
+        'force_v2_ui': 'forceV2UI',
         'hidden': 'hidden',
         'id': 'id',
         'modify_acl_access': 'modifyAclAccess',
@@ -108,7 +112,7 @@ class Dashboard(object):
         'views_last_week': 'viewsLastWeek'
     }
 
-    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, hidden=None, id=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None):  # noqa: E501
+    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, dashboard_attributes=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, force_v2_ui=None, hidden=None, id=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
@@ -118,6 +122,7 @@ class Dashboard(object):
         self._created_epoch_millis = None
         self._creator_id = None
         self._customer = None
+        self._dashboard_attributes = None
         self._default_end_time = None
         self._default_start_time = None
         self._default_time_window = None
@@ -129,6 +134,7 @@ class Dashboard(object):
         self._event_filter_type = None
         self._event_query = None
         self._favorite = None
+        self._force_v2_ui = None
         self._hidden = None
         self._id = None
         self._modify_acl_access = None
@@ -163,6 +169,8 @@ class Dashboard(object):
             self.creator_id = creator_id
         if customer is not None:
             self.customer = customer
+        if dashboard_attributes is not None:
+            self.dashboard_attributes = dashboard_attributes
         if default_end_time is not None:
             self.default_end_time = default_end_time
         if default_start_time is not None:
@@ -185,6 +193,8 @@ class Dashboard(object):
             self.event_query = event_query
         if favorite is not None:
             self.favorite = favorite
+        if force_v2_ui is not None:
+            self.force_v2_ui = force_v2_ui
         if hidden is not None:
             self.hidden = hidden
         self.id = id
@@ -372,6 +382,29 @@ class Dashboard(object):
         """
 
         self._customer = customer
+
+    @property
+    def dashboard_attributes(self):
+        """Gets the dashboard_attributes of this Dashboard.  # noqa: E501
+
+        Experimental Dashboard Attributes  # noqa: E501
+
+        :return: The dashboard_attributes of this Dashboard.  # noqa: E501
+        :rtype: JsonNode
+        """
+        return self._dashboard_attributes
+
+    @dashboard_attributes.setter
+    def dashboard_attributes(self, dashboard_attributes):
+        """Sets the dashboard_attributes of this Dashboard.
+
+        Experimental Dashboard Attributes  # noqa: E501
+
+        :param dashboard_attributes: The dashboard_attributes of this Dashboard.  # noqa: E501
+        :type: JsonNode
+        """
+
+        self._dashboard_attributes = dashboard_attributes
 
     @property
     def default_end_time(self):
@@ -627,6 +660,29 @@ class Dashboard(object):
         """
 
         self._favorite = favorite
+
+    @property
+    def force_v2_ui(self):
+        """Gets the force_v2_ui of this Dashboard.  # noqa: E501
+
+        Whether to force this dashboard to use the V2 UI  # noqa: E501
+
+        :return: The force_v2_ui of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_v2_ui
+
+    @force_v2_ui.setter
+    def force_v2_ui(self, force_v2_ui):
+        """Sets the force_v2_ui of this Dashboard.
+
+        Whether to force this dashboard to use the V2 UI  # noqa: E501
+
+        :param force_v2_ui: The force_v2_ui of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._force_v2_ui = force_v2_ui
 
     @property
     def hidden(self):
