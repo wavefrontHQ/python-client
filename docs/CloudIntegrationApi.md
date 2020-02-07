@@ -4,6 +4,7 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_aws_external_id**](CloudIntegrationApi.md#create_aws_external_id) | **POST** /api/v2/cloudintegration/awsExternalId/create | Create an external id
 [**create_cloud_integration**](CloudIntegrationApi.md#create_cloud_integration) | **POST** /api/v2/cloudintegration | Create a cloud integration
 [**delete_cloud_integration**](CloudIntegrationApi.md#delete_cloud_integration) | **DELETE** /api/v2/cloudintegration/{id} | Delete a specific cloud integration
 [**disable_cloud_integration**](CloudIntegrationApi.md#disable_cloud_integration) | **POST** /api/v2/cloudintegration/{id}/disable | Disable a specific cloud integration
@@ -13,6 +14,56 @@ Method | HTTP request | Description
 [**undelete_cloud_integration**](CloudIntegrationApi.md#undelete_cloud_integration) | **POST** /api/v2/cloudintegration/{id}/undelete | Undelete a specific cloud integration
 [**update_cloud_integration**](CloudIntegrationApi.md#update_cloud_integration) | **PUT** /api/v2/cloudintegration/{id} | Update a specific cloud integration
 
+
+# **create_aws_external_id**
+> ResponseContainerString create_aws_external_id()
+
+Create an external id
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.CloudIntegrationApi(wavefront_api_client.ApiClient(configuration))
+
+try:
+    # Create an external id
+    api_response = api_instance.create_aws_external_id()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CloudIntegrationApi->create_aws_external_id: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ResponseContainerString**](ResponseContainerString.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_cloud_integration**
 > ResponseContainerCloudIntegration create_cloud_integration(body=body)
@@ -69,7 +120,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_cloud_integration**
-> ResponseContainerCloudIntegration delete_cloud_integration(id)
+> ResponseContainerCloudIntegration delete_cloud_integration(id, skip_trash=skip_trash)
 
 Delete a specific cloud integration
 
@@ -92,10 +143,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.CloudIntegrationApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
+skip_trash = false # bool |  (optional) (default to false)
 
 try:
     # Delete a specific cloud integration
-    api_response = api_instance.delete_cloud_integration(id)
+    api_response = api_instance.delete_cloud_integration(id, skip_trash=skip_trash)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CloudIntegrationApi->delete_cloud_integration: %s\n" % e)
@@ -106,6 +158,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **skip_trash** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

@@ -40,6 +40,7 @@ class Integration(object):
         'dashboards': 'list[IntegrationDashboard]',
         'deleted': 'bool',
         'description': 'str',
+        'hidden': 'bool',
         'icon': 'str',
         'id': 'str',
         'metrics': 'IntegrationMetrics',
@@ -62,6 +63,7 @@ class Integration(object):
         'dashboards': 'dashboards',
         'deleted': 'deleted',
         'description': 'description',
+        'hidden': 'hidden',
         'icon': 'icon',
         'id': 'id',
         'metrics': 'metrics',
@@ -74,7 +76,7 @@ class Integration(object):
         'version': 'version'
     }
 
-    def __init__(self, alerts=None, alias_integrations=None, alias_of=None, base_url=None, created_epoch_millis=None, creator_id=None, dashboards=None, deleted=None, description=None, icon=None, id=None, metrics=None, name=None, overview=None, setup=None, status=None, updated_epoch_millis=None, updater_id=None, version=None):  # noqa: E501
+    def __init__(self, alerts=None, alias_integrations=None, alias_of=None, base_url=None, created_epoch_millis=None, creator_id=None, dashboards=None, deleted=None, description=None, hidden=None, icon=None, id=None, metrics=None, name=None, overview=None, setup=None, status=None, updated_epoch_millis=None, updater_id=None, version=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
 
         self._alerts = None
@@ -86,6 +88,7 @@ class Integration(object):
         self._dashboards = None
         self._deleted = None
         self._description = None
+        self._hidden = None
         self._icon = None
         self._id = None
         self._metrics = None
@@ -115,6 +118,7 @@ class Integration(object):
         if deleted is not None:
             self.deleted = deleted
         self.description = description
+        self.hidden = hidden
         self.icon = icon
         if id is not None:
             self.id = id
@@ -335,6 +339,31 @@ class Integration(object):
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def hidden(self):
+        """Gets the hidden of this Integration.  # noqa: E501
+
+        Integration is hidden or not  # noqa: E501
+
+        :return: The hidden of this Integration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hidden
+
+    @hidden.setter
+    def hidden(self, hidden):
+        """Sets the hidden of this Integration.
+
+        Integration is hidden or not  # noqa: E501
+
+        :param hidden: The hidden of this Integration.  # noqa: E501
+        :type: bool
+        """
+        if hidden is None:
+            raise ValueError("Invalid value for `hidden`, must not be `None`")  # noqa: E501
+
+        self._hidden = hidden
 
     @property
     def icon(self):

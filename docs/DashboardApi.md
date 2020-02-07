@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_dashboard**
-> ResponseContainerDashboard delete_dashboard(id)
+> ResponseContainerDashboard delete_dashboard(id, skip_trash=skip_trash)
 
 Delete a specific dashboard
 
@@ -211,10 +211,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.DashboardApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
+skip_trash = false # bool |  (optional) (default to false)
 
 try:
     # Delete a specific dashboard
-    api_response = api_instance.delete_dashboard(id)
+    api_response = api_instance.delete_dashboard(id, skip_trash=skip_trash)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DashboardApi->delete_dashboard: %s\n" % e)
@@ -225,6 +226,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **skip_trash** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

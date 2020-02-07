@@ -31,21 +31,49 @@ class MetricDetailsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'continuation_token': 'str',
         'hosts': 'list[MetricDetails]'
     }
 
     attribute_map = {
+        'continuation_token': 'continuationToken',
         'hosts': 'hosts'
     }
 
-    def __init__(self, hosts=None):  # noqa: E501
+    def __init__(self, continuation_token=None, hosts=None):  # noqa: E501
         """MetricDetailsResponse - a model defined in Swagger"""  # noqa: E501
 
+        self._continuation_token = None
         self._hosts = None
         self.discriminator = None
 
+        if continuation_token is not None:
+            self.continuation_token = continuation_token
         if hosts is not None:
             self.hosts = hosts
+
+    @property
+    def continuation_token(self):
+        """Gets the continuation_token of this MetricDetailsResponse.  # noqa: E501
+
+        Token used for pagination of results  # noqa: E501
+
+        :return: The continuation_token of this MetricDetailsResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._continuation_token
+
+    @continuation_token.setter
+    def continuation_token(self, continuation_token):
+        """Sets the continuation_token of this MetricDetailsResponse.
+
+        Token used for pagination of results  # noqa: E501
+
+        :param continuation_token: The continuation_token of this MetricDetailsResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._continuation_token = continuation_token
 
     @property
     def hosts(self):

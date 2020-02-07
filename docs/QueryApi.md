@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **query_api**
-> QueryResult query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached)
+> QueryResult query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached, dimension_tuples=dimension_tuples, use_raw_qk=use_raw_qk)
 
 Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
 
@@ -46,10 +46,12 @@ view = 'METRIC' # str | view of the query result, metric or histogram, defaults 
 include_obsolete_metrics = true # bool | include metrics that have not been reporting recently, defaults to false (optional)
 sorted = false # bool | sorts the output so that returned series are in order, defaults to false (optional) (default to false)
 cached = true # bool | whether the query cache is used, defaults to true (optional) (default to true)
+dimension_tuples = ['dimension_tuples_example'] # list[str] |  (optional)
+use_raw_qk = false # bool |  (optional) (default to false)
 
 try:
     # Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
-    api_response = api_instance.query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached)
+    api_response = api_instance.query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached, dimension_tuples=dimension_tuples, use_raw_qk=use_raw_qk)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling QueryApi->query_api: %s\n" % e)
@@ -74,6 +76,8 @@ Name | Type | Description  | Notes
  **include_obsolete_metrics** | **bool**| include metrics that have not been reporting recently, defaults to false | [optional] 
  **sorted** | **bool**| sorts the output so that returned series are in order, defaults to false | [optional] [default to false]
  **cached** | **bool**| whether the query cache is used, defaults to true | [optional] [default to true]
+ **dimension_tuples** | [**list[str]**](str.md)|  | [optional] 
+ **use_raw_qk** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

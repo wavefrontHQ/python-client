@@ -58,6 +58,8 @@ class QueryApi(object):
         :param bool include_obsolete_metrics: include metrics that have not been reporting recently, defaults to false
         :param bool sorted: sorts the output so that returned series are in order, defaults to false
         :param bool cached: whether the query cache is used, defaults to true
+        :param list[str] dimension_tuples:
+        :param bool use_raw_qk:
         :return: QueryResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -94,12 +96,14 @@ class QueryApi(object):
         :param bool include_obsolete_metrics: include metrics that have not been reporting recently, defaults to false
         :param bool sorted: sorts the output so that returned series are in order, defaults to false
         :param bool cached: whether the query cache is used, defaults to true
+        :param list[str] dimension_tuples:
+        :param bool use_raw_qk:
         :return: QueryResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['q', 's', 'g', 'n', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'view', 'include_obsolete_metrics', 'sorted', 'cached']  # noqa: E501
+        all_params = ['q', 's', 'g', 'n', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'view', 'include_obsolete_metrics', 'sorted', 'cached', 'dimension_tuples', 'use_raw_qk']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -162,6 +166,11 @@ class QueryApi(object):
             query_params.append(('sorted', params['sorted']))  # noqa: E501
         if 'cached' in params:
             query_params.append(('cached', params['cached']))  # noqa: E501
+        if 'dimension_tuples' in params:
+            query_params.append(('dimensionTuples', params['dimension_tuples']))  # noqa: E501
+            collection_formats['dimensionTuples'] = 'multi'  # noqa: E501
+        if 'use_raw_qk' in params:
+            query_params.append(('useRawQK', params['use_raw_qk']))  # noqa: E501
 
         header_params = {}
 

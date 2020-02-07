@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **delete_proxy**
-> ResponseContainerProxy delete_proxy(id)
+> ResponseContainerProxy delete_proxy(id, skip_trash=skip_trash)
 
 Delete a specific proxy
 
@@ -35,10 +35,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.ProxyApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
+skip_trash = false # bool |  (optional) (default to false)
 
 try:
     # Delete a specific proxy
-    api_response = api_instance.delete_proxy(id)
+    api_response = api_instance.delete_proxy(id, skip_trash=skip_trash)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProxyApi->delete_proxy: %s\n" % e)
@@ -49,6 +50,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **skip_trash** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_alert**
-> ResponseContainerAlert delete_alert(id)
+> ResponseContainerAlert delete_alert(id, skip_trash=skip_trash)
 
 Delete a specific alert
 
@@ -273,10 +273,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
+skip_trash = false # bool |  (optional) (default to false)
 
 try:
     # Delete a specific alert
-    api_response = api_instance.delete_alert(id)
+    api_response = api_instance.delete_alert(id, skip_trash=skip_trash)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AlertApi->delete_alert: %s\n" % e)
@@ -287,6 +288,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **skip_trash** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

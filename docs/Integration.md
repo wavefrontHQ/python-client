@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **dashboards** | [**list[IntegrationDashboard]**](IntegrationDashboard.md) | A list of dashboards belonging to this integration | [optional] 
 **deleted** | **bool** |  | [optional] 
 **description** | **str** | Integration description | 
+**hidden** | **bool** | Integration is hidden or not | 
 **icon** | **str** | URI path to the integration icon | 
 **id** | **str** |  | [optional] 
 **metrics** | [**IntegrationMetrics**](IntegrationMetrics.md) |  | [optional] 

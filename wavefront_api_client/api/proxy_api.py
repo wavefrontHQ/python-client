@@ -44,6 +44,7 @@ class ProxyApi(object):
 
         :param async_req bool
         :param str id: (required)
+        :param bool skip_trash:
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,12 +67,13 @@ class ProxyApi(object):
 
         :param async_req bool
         :param str id: (required)
+        :param bool skip_trash:
         :return: ResponseContainerProxy
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'skip_trash']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -98,6 +100,8 @@ class ProxyApi(object):
             path_params['id'] = params['id']  # noqa: E501
 
         query_params = []
+        if 'skip_trash' in params:
+            query_params.append(('skipTrash', params['skip_trash']))  # noqa: E501
 
         header_params = {}
 

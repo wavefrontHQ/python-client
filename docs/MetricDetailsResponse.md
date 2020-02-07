@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**continuation_token** | **str** | Token used for pagination of results | [optional] 
 **hosts** | [**list[MetricDetails]**](MetricDetails.md) | List of sources/hosts reporting this metric | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
