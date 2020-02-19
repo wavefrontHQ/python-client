@@ -88,7 +88,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.CloudIntegrationApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.CloudIntegration() # CloudIntegration | Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre> (optional)
+body = wavefront_api_client.CloudIntegration() # CloudIntegration | Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre> (optional)
 
 try:
     # Create a cloud integration
@@ -102,7 +102,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CloudIntegration**](CloudIntegration.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;:\&quot;CloudWatch integration\&quot;,   \&quot;service\&quot;:\&quot;CLOUDWATCH\&quot;,   \&quot;cloudWatch\&quot;:{     \&quot;baseCredentials\&quot;:{       \&quot;roleArn\&quot;:\&quot;arn:aws:iam::&amp;lt;accountid&amp;gt;:role/&amp;lt;rolename&amp;gt;\&quot;,       \&quot;externalId\&quot;:\&quot;wave123\&quot;     },     \&quot;metricFilterRegex\&quot;:\&quot;^aws.(sqs|ec2|ebs|elb).*$\&quot;,     \&quot;pointTagFilterRegex\&quot;:\&quot;(region|name)\&quot;   },   \&quot;serviceRefreshRateInMins\&quot;:5 }&lt;/pre&gt; | [optional] 
+ **body** | [**CloudIntegration**](CloudIntegration.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;:\&quot;CloudWatch integration\&quot;,   \&quot;service\&quot;:\&quot;CLOUDWATCH\&quot;,   \&quot;cloudWatch\&quot;:{     \&quot;baseCredentials\&quot;:{       \&quot;roleArn\&quot;:\&quot;arn:aws:iam::&amp;lt;accountid&amp;gt;:role/&amp;lt;rolename&amp;gt;\&quot;     },     \&quot;metricFilterRegex\&quot;:\&quot;^aws.(sqs|ec2|ebs|elb).*$\&quot;,     \&quot;pointTagFilterRegex\&quot;:\&quot;(region|name)\&quot;   },   \&quot;serviceRefreshRateInMins\&quot;:5 }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -471,7 +471,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.CloudIntegrationApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.CloudIntegration() # CloudIntegration | Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\",       \"externalId\":\"wave123\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre> (optional)
+body = wavefront_api_client.CloudIntegration() # CloudIntegration | Example Body:  <pre>{   \"name\":\"CloudWatch integration\",   \"service\":\"CLOUDWATCH\",   \"cloudWatch\":{     \"baseCredentials\":{       \"roleArn\":\"arn:aws:iam::&lt;accountid&gt;:role/&lt;rolename&gt;\"     },     \"metricFilterRegex\":\"^aws.(sqs|ec2|ebs|elb).*$\",     \"pointTagFilterRegex\":\"(region|name)\"   },   \"serviceRefreshRateInMins\":5 }</pre> (optional)
 
 try:
     # Update a specific cloud integration
@@ -486,7 +486,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**CloudIntegration**](CloudIntegration.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;:\&quot;CloudWatch integration\&quot;,   \&quot;service\&quot;:\&quot;CLOUDWATCH\&quot;,   \&quot;cloudWatch\&quot;:{     \&quot;baseCredentials\&quot;:{       \&quot;roleArn\&quot;:\&quot;arn:aws:iam::&amp;lt;accountid&amp;gt;:role/&amp;lt;rolename&amp;gt;\&quot;,       \&quot;externalId\&quot;:\&quot;wave123\&quot;     },     \&quot;metricFilterRegex\&quot;:\&quot;^aws.(sqs|ec2|ebs|elb).*$\&quot;,     \&quot;pointTagFilterRegex\&quot;:\&quot;(region|name)\&quot;   },   \&quot;serviceRefreshRateInMins\&quot;:5 }&lt;/pre&gt; | [optional] 
+ **body** | [**CloudIntegration**](CloudIntegration.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;:\&quot;CloudWatch integration\&quot;,   \&quot;service\&quot;:\&quot;CLOUDWATCH\&quot;,   \&quot;cloudWatch\&quot;:{     \&quot;baseCredentials\&quot;:{       \&quot;roleArn\&quot;:\&quot;arn:aws:iam::&amp;lt;accountid&amp;gt;:role/&amp;lt;rolename&amp;gt;\&quot;     },     \&quot;metricFilterRegex\&quot;:\&quot;^aws.(sqs|ec2|ebs|elb).*$\&quot;,     \&quot;pointTagFilterRegex\&quot;:\&quot;(region|name)\&quot;   },   \&quot;serviceRefreshRateInMins\&quot;:5 }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
