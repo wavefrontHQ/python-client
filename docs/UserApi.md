@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**get_user_business_functions**](UserApi.md#get_user_business_functions) | **GET** /api/v2/user/{id}/businessFunctions | Returns business functions of a specific user or service account.
 [**grant_permission_to_users**](UserApi.md#grant_permission_to_users) | **POST** /api/v2/user/grant/{permission} | Grants a specific permission to multiple users or service accounts
 [**grant_user_permission**](UserApi.md#grant_user_permission) | **POST** /api/v2/user/{id}/grant | Grants a specific permission to user or service account
-[**hard_delete_user**](UserApi.md#hard_delete_user) | **DELETE** /admin/api/v2/user/{id}/{customerId} | 
 [**invite_users**](UserApi.md#invite_users) | **POST** /api/v2/user/invite | Invite users with given user groups and permissions.
 [**remove_user_from_user_groups**](UserApi.md#remove_user_from_user_groups) | **POST** /api/v2/user/{id}/removeUserGroups | Removes specific user groups from the user or service account
 [**revoke_permission_from_users**](UserApi.md#revoke_permission_from_users) | **POST** /api/v2/user/revoke/{permission} | Revokes a specific permission from multiple users or service accounts
@@ -507,59 +506,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **hard_delete_user**
-> ResponseContainerUserHardDelete hard_delete_user(id, customer_id)
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import wavefront_api_client
-from wavefront_api_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = wavefront_api_client.Configuration()
-configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
-id = 'id_example' # str | 
-customer_id = 'customer_id_example' # str | 
-
-try:
-    api_response = api_instance.hard_delete_user(id, customer_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->hard_delete_user: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
- **customer_id** | **str**|  | 
-
-### Return type
-
-[**ResponseContainerUserHardDelete**](ResponseContainerUserHardDelete.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -4,12 +4,14 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_aws_external_id**](CloudIntegrationApi.md#create_aws_external_id) | **POST** /api/v2/cloudintegration/awsExternalId/create | Create an external id
+[**create_aws_external_id**](CloudIntegrationApi.md#create_aws_external_id) | **POST** /api/v2/cloudintegration/awsExternalId | Create an external id
 [**create_cloud_integration**](CloudIntegrationApi.md#create_cloud_integration) | **POST** /api/v2/cloudintegration | Create a cloud integration
+[**delete_aws_external_id**](CloudIntegrationApi.md#delete_aws_external_id) | **DELETE** /api/v2/cloudintegration/awsExternalId/{id} | DELETEs an external id that was created by Wavefront
 [**delete_cloud_integration**](CloudIntegrationApi.md#delete_cloud_integration) | **DELETE** /api/v2/cloudintegration/{id} | Delete a specific cloud integration
 [**disable_cloud_integration**](CloudIntegrationApi.md#disable_cloud_integration) | **POST** /api/v2/cloudintegration/{id}/disable | Disable a specific cloud integration
 [**enable_cloud_integration**](CloudIntegrationApi.md#enable_cloud_integration) | **POST** /api/v2/cloudintegration/{id}/enable | Enable a specific cloud integration
 [**get_all_cloud_integration**](CloudIntegrationApi.md#get_all_cloud_integration) | **GET** /api/v2/cloudintegration | Get all cloud integrations for a customer
+[**get_aws_external_id**](CloudIntegrationApi.md#get_aws_external_id) | **GET** /api/v2/cloudintegration/awsExternalId/{id} | GETs (confirms) a valid external id that was created by Wavefront
 [**get_cloud_integration**](CloudIntegrationApi.md#get_cloud_integration) | **GET** /api/v2/cloudintegration/{id} | Get a specific cloud integration
 [**undelete_cloud_integration**](CloudIntegrationApi.md#undelete_cloud_integration) | **POST** /api/v2/cloudintegration/{id}/undelete | Undelete a specific cloud integration
 [**update_cloud_integration**](CloudIntegrationApi.md#update_cloud_integration) | **PUT** /api/v2/cloudintegration/{id} | Update a specific cloud integration
@@ -107,6 +109,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerCloudIntegration**](ResponseContainerCloudIntegration.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_aws_external_id**
+> ResponseContainerString delete_aws_external_id(id)
+
+DELETEs an external id that was created by Wavefront
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.CloudIntegrationApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    # DELETEs an external id that was created by Wavefront
+    api_response = api_instance.delete_aws_external_id(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CloudIntegrationApi->delete_aws_external_id: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+[**ResponseContainerString**](ResponseContainerString.md)
 
 ### Authorization
 
@@ -335,6 +391,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_aws_external_id**
+> ResponseContainerString get_aws_external_id(id)
+
+GETs (confirms) a valid external id that was created by Wavefront
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.CloudIntegrationApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    # GETs (confirms) a valid external id that was created by Wavefront
+    api_response = api_instance.get_aws_external_id(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CloudIntegrationApi->get_aws_external_id: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+[**ResponseContainerString**](ResponseContainerString.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
