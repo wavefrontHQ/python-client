@@ -36,7 +36,8 @@ class UserGroupWrite(object):
         'description': 'str',
         'id': 'str',
         'name': 'str',
-        'permissions': 'list[str]'
+        'permissions': 'list[str]',
+        'role_i_ds': 'list[str]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class UserGroupWrite(object):
         'description': 'description',
         'id': 'id',
         'name': 'name',
-        'permissions': 'permissions'
+        'permissions': 'permissions',
+        'role_i_ds': 'roleIDs'
     }
 
-    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, permissions=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, permissions=None, role_i_ds=None):  # noqa: E501
         """UserGroupWrite - a model defined in Swagger"""  # noqa: E501
 
         self._created_epoch_millis = None
@@ -57,6 +59,7 @@ class UserGroupWrite(object):
         self._id = None
         self._name = None
         self._permissions = None
+        self._role_i_ds = None
         self.discriminator = None
 
         if created_epoch_millis is not None:
@@ -69,6 +72,7 @@ class UserGroupWrite(object):
             self.id = id
         self.name = name
         self.permissions = permissions
+        self.role_i_ds = role_i_ds
 
     @property
     def created_epoch_millis(self):
@@ -189,7 +193,7 @@ class UserGroupWrite(object):
     def permissions(self):
         """Gets the permissions of this UserGroupWrite.  # noqa: E501
 
-        List of permissions the user group has been granted access to  # noqa: E501
+        List of permissions the user group has been granted access to. Become obsolete. Use Roles parameter to setup group permission.  # noqa: E501
 
         :return: The permissions of this UserGroupWrite.  # noqa: E501
         :rtype: list[str]
@@ -200,7 +204,7 @@ class UserGroupWrite(object):
     def permissions(self, permissions):
         """Sets the permissions of this UserGroupWrite.
 
-        List of permissions the user group has been granted access to  # noqa: E501
+        List of permissions the user group has been granted access to. Become obsolete. Use Roles parameter to setup group permission.  # noqa: E501
 
         :param permissions: The permissions of this UserGroupWrite.  # noqa: E501
         :type: list[str]
@@ -209,6 +213,31 @@ class UserGroupWrite(object):
             raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
 
         self._permissions = permissions
+
+    @property
+    def role_i_ds(self):
+        """Gets the role_i_ds of this UserGroupWrite.  # noqa: E501
+
+        List of role IDs the user group has been linked to.  # noqa: E501
+
+        :return: The role_i_ds of this UserGroupWrite.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._role_i_ds
+
+    @role_i_ds.setter
+    def role_i_ds(self, role_i_ds):
+        """Sets the role_i_ds of this UserGroupWrite.
+
+        List of role IDs the user group has been linked to.  # noqa: E501
+
+        :param role_i_ds: The role_i_ds of this UserGroupWrite.  # noqa: E501
+        :type: list[str]
+        """
+        if role_i_ds is None:
+            raise ValueError("Invalid value for `role_i_ds`, must not be `None`")  # noqa: E501
+
+        self._role_i_ds = role_i_ds
 
     def to_dict(self):
         """Returns the model properties as a dict"""

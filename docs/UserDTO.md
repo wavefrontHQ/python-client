@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **identifier** | **str** |  | [optional] 
 **ingestion_policy** | [**IngestionPolicy**](IngestionPolicy.md) |  | [optional] 
 **last_successful_login** | **int** |  | [optional] 
+**roles** | [**list[RoleDTO]**](RoleDTO.md) |  | [optional] 
 **sso_id** | **str** |  | [optional] 
 **user_groups** | [**list[UserGroup]**](UserGroup.md) |  | [optional] 
 

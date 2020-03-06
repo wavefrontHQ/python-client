@@ -37,6 +37,7 @@ class UserGroup(object):
         'name': 'str',
         'permissions': 'list[str]',
         'properties': 'UserGroupPropertiesDTO',
+        'roles': 'list[RoleDTO]',
         'user_count': 'int',
         'users': 'list[str]'
     }
@@ -48,11 +49,12 @@ class UserGroup(object):
         'name': 'name',
         'permissions': 'permissions',
         'properties': 'properties',
+        'roles': 'roles',
         'user_count': 'userCount',
         'users': 'users'
     }
 
-    def __init__(self, customer=None, description=None, id=None, name=None, permissions=None, properties=None, user_count=None, users=None):  # noqa: E501
+    def __init__(self, customer=None, description=None, id=None, name=None, permissions=None, properties=None, roles=None, user_count=None, users=None):  # noqa: E501
         """UserGroup - a model defined in Swagger"""  # noqa: E501
 
         self._customer = None
@@ -61,6 +63,7 @@ class UserGroup(object):
         self._name = None
         self._permissions = None
         self._properties = None
+        self._roles = None
         self._user_count = None
         self._users = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class UserGroup(object):
             self.permissions = permissions
         if properties is not None:
             self.properties = properties
+        if roles is not None:
+            self.roles = roles
         if user_count is not None:
             self.user_count = user_count
         if users is not None:
@@ -219,6 +224,29 @@ class UserGroup(object):
         """
 
         self._properties = properties
+
+    @property
+    def roles(self):
+        """Gets the roles of this UserGroup.  # noqa: E501
+
+        List of roles the user group has been linked to  # noqa: E501
+
+        :return: The roles of this UserGroup.  # noqa: E501
+        :rtype: list[RoleDTO]
+        """
+        return self._roles
+
+    @roles.setter
+    def roles(self, roles):
+        """Sets the roles of this UserGroup.
+
+        List of roles the user group has been linked to  # noqa: E501
+
+        :param roles: The roles of this UserGroup.  # noqa: E501
+        :type: list[RoleDTO]
+        """
+
+        self._roles = roles
 
     @property
     def user_count(self):

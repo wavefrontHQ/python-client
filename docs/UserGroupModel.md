@@ -8,8 +8,10 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the user group | [optional] 
 **id** | **str** | The unique identifier of the user group | [optional] 
 **name** | **str** | The name of the user group | 
-**permissions** | **list[str]** | List of permissions the user group has been granted access to | 
+**permissions** | **list[str]** | List of permissions the user group has been granted access to. Become obsolete. Use Roles parameter to setup group permission. | 
 **properties** | [**UserGroupPropertiesDTO**](UserGroupPropertiesDTO.md) | The properties of the user group(name editable, users editable, etc.) | [optional] 
+**role_count** | **int** | Total number of roles that are linked the the user group | [optional] 
+**roles** | [**list[RoleDTO]**](RoleDTO.md) | List of roles that are linked to the user group. | [optional] 
 **user_count** | **int** | Total number of users that are members of the user group | [optional] 
 **users** | **list[str]** | List(may be incomplete) of users that are members of the user group. | [optional] 
 

@@ -33,20 +33,23 @@ class UserGroupPropertiesDTO(object):
     swagger_types = {
         'name_editable': 'bool',
         'permissions_editable': 'bool',
+        'roles_editable': 'bool',
         'users_editable': 'bool'
     }
 
     attribute_map = {
         'name_editable': 'nameEditable',
         'permissions_editable': 'permissionsEditable',
+        'roles_editable': 'rolesEditable',
         'users_editable': 'usersEditable'
     }
 
-    def __init__(self, name_editable=None, permissions_editable=None, users_editable=None):  # noqa: E501
+    def __init__(self, name_editable=None, permissions_editable=None, roles_editable=None, users_editable=None):  # noqa: E501
         """UserGroupPropertiesDTO - a model defined in Swagger"""  # noqa: E501
 
         self._name_editable = None
         self._permissions_editable = None
+        self._roles_editable = None
         self._users_editable = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class UserGroupPropertiesDTO(object):
             self.name_editable = name_editable
         if permissions_editable is not None:
             self.permissions_editable = permissions_editable
+        if roles_editable is not None:
+            self.roles_editable = roles_editable
         if users_editable is not None:
             self.users_editable = users_editable
 
@@ -98,6 +103,27 @@ class UserGroupPropertiesDTO(object):
         """
 
         self._permissions_editable = permissions_editable
+
+    @property
+    def roles_editable(self):
+        """Gets the roles_editable of this UserGroupPropertiesDTO.  # noqa: E501
+
+
+        :return: The roles_editable of this UserGroupPropertiesDTO.  # noqa: E501
+        :rtype: bool
+        """
+        return self._roles_editable
+
+    @roles_editable.setter
+    def roles_editable(self, roles_editable):
+        """Sets the roles_editable of this UserGroupPropertiesDTO.
+
+
+        :param roles_editable: The roles_editable of this UserGroupPropertiesDTO.  # noqa: E501
+        :type: bool
+        """
+
+        self._roles_editable = roles_editable
 
     @property
     def users_editable(self):

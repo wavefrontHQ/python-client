@@ -101,7 +101,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 send_email = true # bool | Whether to send email notification to the user, if created.  Default: false (optional)
-body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre> (optional)
+body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre> (optional)
 
 try:
     # Creates or updates a user
@@ -116,7 +116,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **send_email** | **bool**| Whether to send email notification to the user, if created.  Default: false | [optional] 
- **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot;,   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -533,7 +533,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
-body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" } ]</pre> (optional)
+body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] } ]</pre> (optional)
 
 try:
     # Invite users with given user groups and permissions.
@@ -547,7 +547,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; } ]&lt;/pre&gt; | [optional] 
+ **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot;,   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] } ]&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -756,7 +756,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre> (optional)
+body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre> (optional)
 
 try:
     # Update user with given user groups, permissions and ingestion policy.
@@ -771,7 +771,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot;,   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] }&lt;/pre&gt; | [optional] 
 
 ### Return type
 

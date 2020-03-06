@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **ingestion_policy_id** | **str** | The identifier of the ingestion policy linked with user. | [optional] 
 **last_successful_login** | **int** | The last time the user logged in, in epoch milliseconds | [optional] 
 **_self** | **bool** | Whether this user is the one calling the API | 
+**united_permissions** | **list[str]** | The list of account&#39;s permissions assigned directly or through united roles assigned to it | [optional] 
+**united_roles** | **list[str]** | The list of account&#39;s roles assigned directly or through user groups assigned to it | [optional] 
 **user_groups** | **list[str]** | List of user group identifiers this user belongs to | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

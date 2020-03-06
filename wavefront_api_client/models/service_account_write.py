@@ -36,6 +36,7 @@ class ServiceAccountWrite(object):
         'groups': 'list[str]',
         'identifier': 'str',
         'ingestion_policy_id': 'str',
+        'roles': 'list[str]',
         'tokens': 'list[str]',
         'user_groups': 'list[str]'
     }
@@ -46,11 +47,12 @@ class ServiceAccountWrite(object):
         'groups': 'groups',
         'identifier': 'identifier',
         'ingestion_policy_id': 'ingestionPolicyId',
+        'roles': 'roles',
         'tokens': 'tokens',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, active=None, description=None, groups=None, identifier=None, ingestion_policy_id=None, tokens=None, user_groups=None):  # noqa: E501
+    def __init__(self, active=None, description=None, groups=None, identifier=None, ingestion_policy_id=None, roles=None, tokens=None, user_groups=None):  # noqa: E501
         """ServiceAccountWrite - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
@@ -58,6 +60,7 @@ class ServiceAccountWrite(object):
         self._groups = None
         self._identifier = None
         self._ingestion_policy_id = None
+        self._roles = None
         self._tokens = None
         self._user_groups = None
         self.discriminator = None
@@ -71,6 +74,8 @@ class ServiceAccountWrite(object):
         self.identifier = identifier
         if ingestion_policy_id is not None:
             self.ingestion_policy_id = ingestion_policy_id
+        if roles is not None:
+            self.roles = roles
         if tokens is not None:
             self.tokens = tokens
         if user_groups is not None:
@@ -192,6 +197,29 @@ class ServiceAccountWrite(object):
         """
 
         self._ingestion_policy_id = ingestion_policy_id
+
+    @property
+    def roles(self):
+        """Gets the roles of this ServiceAccountWrite.  # noqa: E501
+
+        The list of role ids, the service account will be added to.\"  # noqa: E501
+
+        :return: The roles of this ServiceAccountWrite.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._roles
+
+    @roles.setter
+    def roles(self, roles):
+        """Sets the roles of this ServiceAccountWrite.
+
+        The list of role ids, the service account will be added to.\"  # noqa: E501
+
+        :param roles: The roles of this ServiceAccountWrite.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._roles = roles
 
     @property
     def tokens(self):

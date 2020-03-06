@@ -31,6 +31,7 @@ class Event(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'alert_tags': 'list[str]',
         'annotations': 'dict(str, str)',
         'can_close': 'bool',
         'can_delete': 'bool',
@@ -57,6 +58,7 @@ class Event(object):
     }
 
     attribute_map = {
+        'alert_tags': 'alertTags',
         'annotations': 'annotations',
         'can_close': 'canClose',
         'can_delete': 'canDelete',
@@ -82,9 +84,10 @@ class Event(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, dimensions=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, alert_tags=None, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, dimensions=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
+        self._alert_tags = None
         self._annotations = None
         self._can_close = None
         self._can_delete = None
@@ -110,6 +113,8 @@ class Event(object):
         self._updater_id = None
         self.discriminator = None
 
+        if alert_tags is not None:
+            self.alert_tags = alert_tags
         self.annotations = annotations
         if can_close is not None:
             self.can_close = can_close
@@ -153,6 +158,29 @@ class Event(object):
             self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
             self.updater_id = updater_id
+
+    @property
+    def alert_tags(self):
+        """Gets the alert_tags of this Event.  # noqa: E501
+
+        The list of tags on the alert which created this event.  # noqa: E501
+
+        :return: The alert_tags of this Event.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._alert_tags
+
+    @alert_tags.setter
+    def alert_tags(self, alert_tags):
+        """Sets the alert_tags of this Event.
+
+        The list of tags on the alert which created this event.  # noqa: E501
+
+        :param alert_tags: The alert_tags of this Event.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._alert_tags = alert_tags
 
     @property
     def annotations(self):

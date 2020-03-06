@@ -38,6 +38,8 @@ class UserGroupModel(object):
         'name': 'str',
         'permissions': 'list[str]',
         'properties': 'UserGroupPropertiesDTO',
+        'role_count': 'int',
+        'roles': 'list[RoleDTO]',
         'user_count': 'int',
         'users': 'list[str]'
     }
@@ -50,11 +52,13 @@ class UserGroupModel(object):
         'name': 'name',
         'permissions': 'permissions',
         'properties': 'properties',
+        'role_count': 'roleCount',
+        'roles': 'roles',
         'user_count': 'userCount',
         'users': 'users'
     }
 
-    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, permissions=None, properties=None, user_count=None, users=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, permissions=None, properties=None, role_count=None, roles=None, user_count=None, users=None):  # noqa: E501
         """UserGroupModel - a model defined in Swagger"""  # noqa: E501
 
         self._created_epoch_millis = None
@@ -64,6 +68,8 @@ class UserGroupModel(object):
         self._name = None
         self._permissions = None
         self._properties = None
+        self._role_count = None
+        self._roles = None
         self._user_count = None
         self._users = None
         self.discriminator = None
@@ -80,6 +86,10 @@ class UserGroupModel(object):
         self.permissions = permissions
         if properties is not None:
             self.properties = properties
+        if role_count is not None:
+            self.role_count = role_count
+        if roles is not None:
+            self.roles = roles
         if user_count is not None:
             self.user_count = user_count
         if users is not None:
@@ -204,7 +214,7 @@ class UserGroupModel(object):
     def permissions(self):
         """Gets the permissions of this UserGroupModel.  # noqa: E501
 
-        List of permissions the user group has been granted access to  # noqa: E501
+        List of permissions the user group has been granted access to. Become obsolete. Use Roles parameter to setup group permission.  # noqa: E501
 
         :return: The permissions of this UserGroupModel.  # noqa: E501
         :rtype: list[str]
@@ -215,7 +225,7 @@ class UserGroupModel(object):
     def permissions(self, permissions):
         """Sets the permissions of this UserGroupModel.
 
-        List of permissions the user group has been granted access to  # noqa: E501
+        List of permissions the user group has been granted access to. Become obsolete. Use Roles parameter to setup group permission.  # noqa: E501
 
         :param permissions: The permissions of this UserGroupModel.  # noqa: E501
         :type: list[str]
@@ -247,6 +257,52 @@ class UserGroupModel(object):
         """
 
         self._properties = properties
+
+    @property
+    def role_count(self):
+        """Gets the role_count of this UserGroupModel.  # noqa: E501
+
+        Total number of roles that are linked the the user group  # noqa: E501
+
+        :return: The role_count of this UserGroupModel.  # noqa: E501
+        :rtype: int
+        """
+        return self._role_count
+
+    @role_count.setter
+    def role_count(self, role_count):
+        """Sets the role_count of this UserGroupModel.
+
+        Total number of roles that are linked the the user group  # noqa: E501
+
+        :param role_count: The role_count of this UserGroupModel.  # noqa: E501
+        :type: int
+        """
+
+        self._role_count = role_count
+
+    @property
+    def roles(self):
+        """Gets the roles of this UserGroupModel.  # noqa: E501
+
+        List of roles that are linked to the user group.  # noqa: E501
+
+        :return: The roles of this UserGroupModel.  # noqa: E501
+        :rtype: list[RoleDTO]
+        """
+        return self._roles
+
+    @roles.setter
+    def roles(self, roles):
+        """Sets the roles of this UserGroupModel.
+
+        List of roles that are linked to the user group.  # noqa: E501
+
+        :param roles: The roles of this UserGroupModel.  # noqa: E501
+        :type: list[RoleDTO]
+        """
+
+        self._roles = roles
 
     @property
     def user_count(self):

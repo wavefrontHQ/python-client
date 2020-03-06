@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**alert_tags** | **list[str]** | The list of tags on the alert which created this event. | [optional] 
 **annotations** | **dict(str, str)** | A string-&gt;string map of additional annotations on the event | 
 **can_close** | **bool** |  | [optional] 
 **can_delete** | **bool** |  | [optional] 

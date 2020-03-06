@@ -5,6 +5,7 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activate_account**](AccountUserAndServiceAccountApi.md#activate_account) | **POST** /api/v2/account/serviceaccount/{id}/activate | Activates the given service account
+[**add_account_to_roles**](AccountUserAndServiceAccountApi.md#add_account_to_roles) | **POST** /api/v2/account/{id}/addRoles | Adds specific roles to the account (user or service account)
 [**add_account_to_user_groups**](AccountUserAndServiceAccountApi.md#add_account_to_user_groups) | **POST** /api/v2/account/{id}/addUserGroups | Adds specific user groups to the account (user or service account)
 [**add_ingestion_policy**](AccountUserAndServiceAccountApi.md#add_ingestion_policy) | **POST** /api/v2/account/addingestionpolicy | Add a specific ingestion policy to multiple accounts
 [**create_or_update_user_account**](AccountUserAndServiceAccountApi.md#create_or_update_user_account) | **POST** /api/v2/account/user | Creates or updates a user account
@@ -22,6 +23,7 @@ Method | HTTP request | Description
 [**grant_account_permission**](AccountUserAndServiceAccountApi.md#grant_account_permission) | **POST** /api/v2/account/{id}/grant/{permission} | Grants a specific permission to account (user or service account)
 [**grant_permission_to_accounts**](AccountUserAndServiceAccountApi.md#grant_permission_to_accounts) | **POST** /api/v2/account/grant/{permission} | Grants a specific permission to multiple accounts (users or service accounts)
 [**invite_user_accounts**](AccountUserAndServiceAccountApi.md#invite_user_accounts) | **POST** /api/v2/account/user/invite | Invite user accounts with given user groups and permissions.
+[**remove_account_from_roles**](AccountUserAndServiceAccountApi.md#remove_account_from_roles) | **POST** /api/v2/account/{id}/removeRoles | Removes specific roles from the account (user or service account)
 [**remove_account_from_user_groups**](AccountUserAndServiceAccountApi.md#remove_account_from_user_groups) | **POST** /api/v2/account/{id}/removeUserGroups | Removes specific user groups from the account (user or service account)
 [**remove_ingestion_policies**](AccountUserAndServiceAccountApi.md#remove_ingestion_policies) | **POST** /api/v2/account/removeingestionpolicies | Removes ingestion policies from multiple accounts
 [**revoke_account_permission**](AccountUserAndServiceAccountApi.md#revoke_account_permission) | **POST** /api/v2/account/{id}/revoke/{permission} | Revokes a specific permission from account (user or service account)
@@ -73,6 +75,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerServiceAccount**](ResponseContainerServiceAccount.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **add_account_to_roles**
+> UserModel add_account_to_roles(id, body=body)
+
+Adds specific roles to the account (user or service account)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+body = [wavefront_api_client.list[str]()] # list[str] | The list of roles that should be added to the account (optional)
+
+try:
+    # Adds specific roles to the account (user or service account)
+    api_response = api_instance.add_account_to_roles(id, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AccountUserAndServiceAccountApi->add_account_to_roles: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+ **body** | **list[str]**| The list of roles that should be added to the account | [optional] 
+
+### Return type
+
+[**UserModel**](UserModel.md)
 
 ### Authorization
 
@@ -219,7 +277,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
 send_email = true # bool | Whether to send email notification to the user, if created.  Default: false (optional)
-body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre> (optional)
+body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre> (optional)
 
 try:
     # Creates or updates a user account
@@ -234,7 +292,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **send_email** | **bool**| Whether to send email notification to the user, if created.  Default: false | [optional] 
- **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot;,   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -974,7 +1032,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
-body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" } ]</pre> (optional)
+body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] } ]</pre> (optional)
 
 try:
     # Invite user accounts with given user groups and permissions.
@@ -988,7 +1046,63 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; } ]&lt;/pre&gt; | [optional] 
+ **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot;,   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] } ]&lt;/pre&gt; | [optional] 
+
+### Return type
+
+[**UserModel**](UserModel.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **remove_account_from_roles**
+> UserModel remove_account_from_roles(id, body=body)
+
+Removes specific roles from the account (user or service account)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+body = [wavefront_api_client.list[str]()] # list[str] | The list of roles that should be removed from the account (optional)
+
+try:
+    # Removes specific roles from the account (user or service account)
+    api_response = api_instance.remove_account_from_roles(id, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AccountUserAndServiceAccountApi->remove_account_from_roles: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+ **body** | **list[str]**| The list of roles that should be removed from the account | [optional] 
 
 ### Return type
 
@@ -1307,7 +1421,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre> (optional)
+body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre> (optional)
 
 try:
     # Update user with given user groups, permissions and ingestion policy.
@@ -1322,7 +1436,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicyId\&quot;: \&quot;ingestionPolicyId\&quot;,   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] }&lt;/pre&gt; | [optional] 
 
 ### Return type
 

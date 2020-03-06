@@ -40,6 +40,8 @@ class CustomerFacingUserObject(object):
         'ingestion_policy_id': 'str',
         'last_successful_login': 'int',
         '_self': 'bool',
+        'united_permissions': 'list[str]',
+        'united_roles': 'list[str]',
         'user_groups': 'list[str]'
     }
 
@@ -53,10 +55,12 @@ class CustomerFacingUserObject(object):
         'ingestion_policy_id': 'ingestionPolicyId',
         'last_successful_login': 'lastSuccessfulLogin',
         '_self': 'self',
+        'united_permissions': 'unitedPermissions',
+        'united_roles': 'unitedRoles',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, customer=None, escaped_identifier=None, gravatar_url=None, groups=None, id=None, identifier=None, ingestion_policy_id=None, last_successful_login=None, _self=None, user_groups=None):  # noqa: E501
+    def __init__(self, customer=None, escaped_identifier=None, gravatar_url=None, groups=None, id=None, identifier=None, ingestion_policy_id=None, last_successful_login=None, _self=None, united_permissions=None, united_roles=None, user_groups=None):  # noqa: E501
         """CustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
         self._customer = None
@@ -68,6 +72,8 @@ class CustomerFacingUserObject(object):
         self._ingestion_policy_id = None
         self._last_successful_login = None
         self.__self = None
+        self._united_permissions = None
+        self._united_roles = None
         self._user_groups = None
         self.discriminator = None
 
@@ -85,6 +91,10 @@ class CustomerFacingUserObject(object):
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
         self._self = _self
+        if united_permissions is not None:
+            self.united_permissions = united_permissions
+        if united_roles is not None:
+            self.united_roles = united_roles
         if user_groups is not None:
             self.user_groups = user_groups
 
@@ -302,6 +312,52 @@ class CustomerFacingUserObject(object):
             raise ValueError("Invalid value for `_self`, must not be `None`")  # noqa: E501
 
         self.__self = _self
+
+    @property
+    def united_permissions(self):
+        """Gets the united_permissions of this CustomerFacingUserObject.  # noqa: E501
+
+        The list of account's permissions assigned directly or through united roles assigned to it  # noqa: E501
+
+        :return: The united_permissions of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._united_permissions
+
+    @united_permissions.setter
+    def united_permissions(self, united_permissions):
+        """Sets the united_permissions of this CustomerFacingUserObject.
+
+        The list of account's permissions assigned directly or through united roles assigned to it  # noqa: E501
+
+        :param united_permissions: The united_permissions of this CustomerFacingUserObject.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._united_permissions = united_permissions
+
+    @property
+    def united_roles(self):
+        """Gets the united_roles of this CustomerFacingUserObject.  # noqa: E501
+
+        The list of account's roles assigned directly or through user groups assigned to it  # noqa: E501
+
+        :return: The united_roles of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._united_roles
+
+    @united_roles.setter
+    def united_roles(self, united_roles):
+        """Sets the united_roles of this CustomerFacingUserObject.
+
+        The list of account's roles assigned directly or through user groups assigned to it  # noqa: E501
+
+        :param united_roles: The united_roles of this CustomerFacingUserObject.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._united_roles = united_roles
 
     @property
     def user_groups(self):

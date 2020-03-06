@@ -147,7 +147,7 @@ class UserApi(object):
 
         :param async_req bool
         :param bool send_email: Whether to send email notification to the user, if created.  Default: false
-        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
+        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -170,7 +170,7 @@ class UserApi(object):
 
         :param async_req bool
         :param bool send_email: Whether to send email notification to the user, if created.  Default: false
-        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
+        :param UserToCreate body: Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -918,7 +918,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" } ]</pre>
+        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] } ]</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -940,7 +940,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" } ]</pre>
+        :param list[UserToCreate] body: Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] } ]</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1323,7 +1323,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
+        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1346,7 +1346,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\" }</pre>
+        :param UserRequestDTO body: Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre>
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.

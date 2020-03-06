@@ -34,6 +34,7 @@ class UserToCreate(object):
         'email_address': 'str',
         'groups': 'list[str]',
         'ingestion_policy_id': 'str',
+        'roles': 'list[str]',
         'user_groups': 'list[str]'
     }
 
@@ -41,15 +42,17 @@ class UserToCreate(object):
         'email_address': 'emailAddress',
         'groups': 'groups',
         'ingestion_policy_id': 'ingestionPolicyId',
+        'roles': 'roles',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, email_address=None, groups=None, ingestion_policy_id=None, user_groups=None):  # noqa: E501
+    def __init__(self, email_address=None, groups=None, ingestion_policy_id=None, roles=None, user_groups=None):  # noqa: E501
         """UserToCreate - a model defined in Swagger"""  # noqa: E501
 
         self._email_address = None
         self._groups = None
         self._ingestion_policy_id = None
+        self._roles = None
         self._user_groups = None
         self.discriminator = None
 
@@ -57,6 +60,8 @@ class UserToCreate(object):
         self.groups = groups
         if ingestion_policy_id is not None:
             self.ingestion_policy_id = ingestion_policy_id
+        if roles is not None:
+            self.roles = roles
         self.user_groups = user_groups
 
     @property
@@ -131,6 +136,29 @@ class UserToCreate(object):
         """
 
         self._ingestion_policy_id = ingestion_policy_id
+
+    @property
+    def roles(self):
+        """Gets the roles of this UserToCreate.  # noqa: E501
+
+        The list of role ids, the user will be added to.\"  # noqa: E501
+
+        :return: The roles of this UserToCreate.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._roles
+
+    @roles.setter
+    def roles(self, roles):
+        """Sets the roles of this UserToCreate.
+
+        The list of role ids, the user will be added to.\"  # noqa: E501
+
+        :param roles: The roles of this UserToCreate.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._roles = roles
 
     @property
     def user_groups(self):

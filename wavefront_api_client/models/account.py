@@ -34,6 +34,9 @@ class Account(object):
         'groups': 'list[str]',
         'identifier': 'str',
         'ingestion_policy_id': 'str',
+        'roles': 'list[str]',
+        'united_permissions': 'list[str]',
+        'united_roles': 'list[str]',
         'user_groups': 'list[str]'
     }
 
@@ -41,15 +44,21 @@ class Account(object):
         'groups': 'groups',
         'identifier': 'identifier',
         'ingestion_policy_id': 'ingestionPolicyId',
+        'roles': 'roles',
+        'united_permissions': 'unitedPermissions',
+        'united_roles': 'unitedRoles',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, groups=None, identifier=None, ingestion_policy_id=None, user_groups=None):  # noqa: E501
+    def __init__(self, groups=None, identifier=None, ingestion_policy_id=None, roles=None, united_permissions=None, united_roles=None, user_groups=None):  # noqa: E501
         """Account - a model defined in Swagger"""  # noqa: E501
 
         self._groups = None
         self._identifier = None
         self._ingestion_policy_id = None
+        self._roles = None
+        self._united_permissions = None
+        self._united_roles = None
         self._user_groups = None
         self.discriminator = None
 
@@ -58,6 +67,12 @@ class Account(object):
         self.identifier = identifier
         if ingestion_policy_id is not None:
             self.ingestion_policy_id = ingestion_policy_id
+        if roles is not None:
+            self.roles = roles
+        if united_permissions is not None:
+            self.united_permissions = united_permissions
+        if united_roles is not None:
+            self.united_roles = united_roles
         if user_groups is not None:
             self.user_groups = user_groups
 
@@ -131,6 +146,75 @@ class Account(object):
         """
 
         self._ingestion_policy_id = ingestion_policy_id
+
+    @property
+    def roles(self):
+        """Gets the roles of this Account.  # noqa: E501
+
+        The list of account's roles.  # noqa: E501
+
+        :return: The roles of this Account.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._roles
+
+    @roles.setter
+    def roles(self, roles):
+        """Sets the roles of this Account.
+
+        The list of account's roles.  # noqa: E501
+
+        :param roles: The roles of this Account.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._roles = roles
+
+    @property
+    def united_permissions(self):
+        """Gets the united_permissions of this Account.  # noqa: E501
+
+        The list of account's permissions assigned directly or through united roles assigned to it  # noqa: E501
+
+        :return: The united_permissions of this Account.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._united_permissions
+
+    @united_permissions.setter
+    def united_permissions(self, united_permissions):
+        """Sets the united_permissions of this Account.
+
+        The list of account's permissions assigned directly or through united roles assigned to it  # noqa: E501
+
+        :param united_permissions: The united_permissions of this Account.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._united_permissions = united_permissions
+
+    @property
+    def united_roles(self):
+        """Gets the united_roles of this Account.  # noqa: E501
+
+        The list of account's roles assigned directly or through user groups assigned to it  # noqa: E501
+
+        :return: The united_roles of this Account.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._united_roles
+
+    @united_roles.setter
+    def united_roles(self, united_roles):
+        """Sets the united_roles of this Account.
+
+        The list of account's roles assigned directly or through user groups assigned to it  # noqa: E501
+
+        :param united_roles: The united_roles of this Account.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._united_roles = united_roles
 
     @property
     def user_groups(self):

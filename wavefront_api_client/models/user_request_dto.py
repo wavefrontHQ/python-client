@@ -36,6 +36,7 @@ class UserRequestDTO(object):
         'groups': 'list[str]',
         'identifier': 'str',
         'ingestion_policy_id': 'str',
+        'roles': 'list[str]',
         'sso_id': 'str',
         'user_groups': 'list[str]'
     }
@@ -46,11 +47,12 @@ class UserRequestDTO(object):
         'groups': 'groups',
         'identifier': 'identifier',
         'ingestion_policy_id': 'ingestionPolicyId',
+        'roles': 'roles',
         'sso_id': 'ssoId',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, credential=None, customer=None, groups=None, identifier=None, ingestion_policy_id=None, sso_id=None, user_groups=None):  # noqa: E501
+    def __init__(self, credential=None, customer=None, groups=None, identifier=None, ingestion_policy_id=None, roles=None, sso_id=None, user_groups=None):  # noqa: E501
         """UserRequestDTO - a model defined in Swagger"""  # noqa: E501
 
         self._credential = None
@@ -58,6 +60,7 @@ class UserRequestDTO(object):
         self._groups = None
         self._identifier = None
         self._ingestion_policy_id = None
+        self._roles = None
         self._sso_id = None
         self._user_groups = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class UserRequestDTO(object):
             self.identifier = identifier
         if ingestion_policy_id is not None:
             self.ingestion_policy_id = ingestion_policy_id
+        if roles is not None:
+            self.roles = roles
         if sso_id is not None:
             self.sso_id = sso_id
         if user_groups is not None:
@@ -181,6 +186,27 @@ class UserRequestDTO(object):
         """
 
         self._ingestion_policy_id = ingestion_policy_id
+
+    @property
+    def roles(self):
+        """Gets the roles of this UserRequestDTO.  # noqa: E501
+
+
+        :return: The roles of this UserRequestDTO.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._roles
+
+    @roles.setter
+    def roles(self, roles):
+        """Sets the roles of this UserRequestDTO.
+
+
+        :param roles: The roles of this UserRequestDTO.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._roles = roles
 
     @property
     def sso_id(self):
