@@ -147,7 +147,7 @@ class FacetsSearchRequestContainer(object):
     def limit(self):
         """Gets the limit of this FacetsSearchRequestContainer.  # noqa: E501
 
-        The number of results to return.  Default 100  # noqa: E501
+        The number of results to return.  Default 100, Maximum allowed: 1000  # noqa: E501
 
         :return: The limit of this FacetsSearchRequestContainer.  # noqa: E501
         :rtype: int
@@ -158,11 +158,15 @@ class FacetsSearchRequestContainer(object):
     def limit(self, limit):
         """Sets the limit of this FacetsSearchRequestContainer.
 
-        The number of results to return.  Default 100  # noqa: E501
+        The number of results to return.  Default 100, Maximum allowed: 1000  # noqa: E501
 
         :param limit: The limit of this FacetsSearchRequestContainer.  # noqa: E501
         :type: int
         """
+        if limit is not None and limit > 1000:  # noqa: E501
+            raise ValueError("Invalid value for `limit`, must be a value less than or equal to `1000`")  # noqa: E501
+        if limit is not None and limit < 1:  # noqa: E501
+            raise ValueError("Invalid value for `limit`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._limit = limit
 
