@@ -1397,7 +1397,7 @@ class ChartSettings(object):
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["line", "scatterplot", "stacked-area", "stacked-column", "table", "scatterplot-xy", "markdown-widget", "sparkline", "globe", "nodemap", "top-k", "status-list"]  # noqa: E501
+        allowed_values = ["line", "scatterplot", "stacked-area", "stacked-column", "table", "scatterplot-xy", "markdown-widget", "sparkline", "globe", "nodemap", "top-k", "status-list", "histogram"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
