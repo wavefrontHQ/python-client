@@ -43,6 +43,7 @@ class DashboardParameterValue(object):
         'query_value': 'str',
         'reverse_dyn_sort': 'bool',
         'tag_key': 'str',
+        'tags_black_list_regex': 'str',
         'value_ordering': 'list[str]',
         'values_to_readable_strings': 'dict(str, str)'
     }
@@ -60,11 +61,12 @@ class DashboardParameterValue(object):
         'query_value': 'queryValue',
         'reverse_dyn_sort': 'reverseDynSort',
         'tag_key': 'tagKey',
+        'tags_black_list_regex': 'tagsBlackListRegex',
         'value_ordering': 'valueOrdering',
         'values_to_readable_strings': 'valuesToReadableStrings'
     }
 
-    def __init__(self, allow_all=None, default_value=None, description=None, dynamic_field_type=None, hide_from_view=None, label=None, multivalue=None, order=None, parameter_type=None, query_value=None, reverse_dyn_sort=None, tag_key=None, value_ordering=None, values_to_readable_strings=None):  # noqa: E501
+    def __init__(self, allow_all=None, default_value=None, description=None, dynamic_field_type=None, hide_from_view=None, label=None, multivalue=None, order=None, parameter_type=None, query_value=None, reverse_dyn_sort=None, tag_key=None, tags_black_list_regex=None, value_ordering=None, values_to_readable_strings=None):  # noqa: E501
         """DashboardParameterValue - a model defined in Swagger"""  # noqa: E501
 
         self._allow_all = None
@@ -79,6 +81,7 @@ class DashboardParameterValue(object):
         self._query_value = None
         self._reverse_dyn_sort = None
         self._tag_key = None
+        self._tags_black_list_regex = None
         self._value_ordering = None
         self._values_to_readable_strings = None
         self.discriminator = None
@@ -107,6 +110,8 @@ class DashboardParameterValue(object):
             self.reverse_dyn_sort = reverse_dyn_sort
         if tag_key is not None:
             self.tag_key = tag_key
+        if tags_black_list_regex is not None:
+            self.tags_black_list_regex = tags_black_list_regex
         if value_ordering is not None:
             self.value_ordering = value_ordering
         if values_to_readable_strings is not None:
@@ -377,6 +382,29 @@ class DashboardParameterValue(object):
         """
 
         self._tag_key = tag_key
+
+    @property
+    def tags_black_list_regex(self):
+        """Gets the tags_black_list_regex of this DashboardParameterValue.  # noqa: E501
+
+        The regular expression to filter out source tags from the Current Values list.  # noqa: E501
+
+        :return: The tags_black_list_regex of this DashboardParameterValue.  # noqa: E501
+        :rtype: str
+        """
+        return self._tags_black_list_regex
+
+    @tags_black_list_regex.setter
+    def tags_black_list_regex(self, tags_black_list_regex):
+        """Sets the tags_black_list_regex of this DashboardParameterValue.
+
+        The regular expression to filter out source tags from the Current Values list.  # noqa: E501
+
+        :param tags_black_list_regex: The tags_black_list_regex of this DashboardParameterValue.  # noqa: E501
+        :type: str
+        """
+
+        self._tags_black_list_regex = tags_black_list_regex
 
     @property
     def value_ordering(self):

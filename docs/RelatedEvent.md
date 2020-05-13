@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **name** | **str** | The name of the event.  If &#39;annotations.prettyName&#39; is present, &#39;name&#39; will be equivalent to that value | 
 **related_data** | [**RelatedData**](RelatedData.md) | Data concerning how this event is related to the event in the request | [optional] 
 **running_state** | **str** |  | [optional] 
+**similarity_score** | **float** | similarity score | [optional] 
 **start_time** | **int** | Start time of the event, in epoch millis.  If the JSON value is missing or set to 0, startTime will be set to the current time | 
 **summarized_events** | **int** | In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one | [optional] 
 **table** | **str** | The customer to which the event belongs | [optional] 

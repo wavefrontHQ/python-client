@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **query_value** | **str** |  | [optional] 
 **reverse_dyn_sort** | **bool** | Whether to reverse alphabetically sort the returned result. | [optional] 
 **tag_key** | **str** |  | [optional] 
+**tags_black_list_regex** | **str** | The regular expression to filter out source tags from the Current Values list. | [optional] 
 **value_ordering** | **list[str]** |  | [optional] 
 **values_to_readable_strings** | **dict(str, str)** |  | [optional] 
 

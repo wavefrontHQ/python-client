@@ -49,6 +49,7 @@ class RelatedEvent(object):
         'name': 'str',
         'related_data': 'RelatedData',
         'running_state': 'str',
+        'similarity_score': 'float',
         'start_time': 'int',
         'summarized_events': 'int',
         'table': 'str',
@@ -77,6 +78,7 @@ class RelatedEvent(object):
         'name': 'name',
         'related_data': 'relatedData',
         'running_state': 'runningState',
+        'similarity_score': 'similarityScore',
         'start_time': 'startTime',
         'summarized_events': 'summarizedEvents',
         'table': 'table',
@@ -86,7 +88,7 @@ class RelatedEvent(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, alert_tags=None, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, dimensions=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, related_data=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, alert_tags=None, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, dimensions=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, related_data=None, running_state=None, similarity_score=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """RelatedEvent - a model defined in Swagger"""  # noqa: E501
 
         self._alert_tags = None
@@ -107,6 +109,7 @@ class RelatedEvent(object):
         self._name = None
         self._related_data = None
         self._running_state = None
+        self._similarity_score = None
         self._start_time = None
         self._summarized_events = None
         self._table = None
@@ -150,6 +153,8 @@ class RelatedEvent(object):
             self.related_data = related_data
         if running_state is not None:
             self.running_state = running_state
+        if similarity_score is not None:
+            self.similarity_score = similarity_score
         self.start_time = start_time
         if summarized_events is not None:
             self.summarized_events = summarized_events
@@ -578,6 +583,29 @@ class RelatedEvent(object):
             )
 
         self._running_state = running_state
+
+    @property
+    def similarity_score(self):
+        """Gets the similarity_score of this RelatedEvent.  # noqa: E501
+
+        similarity score  # noqa: E501
+
+        :return: The similarity_score of this RelatedEvent.  # noqa: E501
+        :rtype: float
+        """
+        return self._similarity_score
+
+    @similarity_score.setter
+    def similarity_score(self, similarity_score):
+        """Sets the similarity_score of this RelatedEvent.
+
+        similarity score  # noqa: E501
+
+        :param similarity_score: The similarity_score of this RelatedEvent.  # noqa: E501
+        :type: float
+        """
+
+        self._similarity_score = similarity_score
 
     @property
     def start_time(self):

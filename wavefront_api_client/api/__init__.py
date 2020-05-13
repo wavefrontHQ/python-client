@@ -13,6 +13,7 @@ from wavefront_api_client.api.derived_metric_api import DerivedMetricApi
 from wavefront_api_client.api.direct_ingestion_api import DirectIngestionApi
 from wavefront_api_client.api.event_api import EventApi
 from wavefront_api_client.api.external_link_api import ExternalLinkApi
+from wavefront_api_client.api.ingestion_spy_api import IngestionSpyApi
 from wavefront_api_client.api.integration_api import IntegrationApi
 from wavefront_api_client.api.maintenance_window_api import MaintenanceWindowApi
 from wavefront_api_client.api.message_api import MessageApi

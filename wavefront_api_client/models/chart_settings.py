@@ -32,6 +32,7 @@ class ChartSettings(object):
     """
     swagger_types = {
         'auto_column_tags': 'bool',
+        'chart_default_color': 'str',
         'column_tags': 'str',
         'custom_tags': 'list[str]',
         'expected_data_spacing': 'int',
@@ -92,6 +93,7 @@ class ChartSettings(object):
 
     attribute_map = {
         'auto_column_tags': 'autoColumnTags',
+        'chart_default_color': 'chartDefaultColor',
         'column_tags': 'columnTags',
         'custom_tags': 'customTags',
         'expected_data_spacing': 'expectedDataSpacing',
@@ -150,10 +152,11 @@ class ChartSettings(object):
         'ymin': 'ymin'
     }
 
-    def __init__(self, auto_column_tags=None, column_tags=None, custom_tags=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None):  # noqa: E501
+    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
 
         self._auto_column_tags = None
+        self._chart_default_color = None
         self._column_tags = None
         self._custom_tags = None
         self._expected_data_spacing = None
@@ -214,6 +217,8 @@ class ChartSettings(object):
 
         if auto_column_tags is not None:
             self.auto_column_tags = auto_column_tags
+        if chart_default_color is not None:
+            self.chart_default_color = chart_default_color
         if column_tags is not None:
             self.column_tags = column_tags
         if custom_tags is not None:
@@ -348,6 +353,29 @@ class ChartSettings(object):
         """
 
         self._auto_column_tags = auto_column_tags
+
+    @property
+    def chart_default_color(self):
+        """Gets the chart_default_color of this ChartSettings.  # noqa: E501
+
+        Default color that will be used in any chart rendering. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
+
+        :return: The chart_default_color of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._chart_default_color
+
+    @chart_default_color.setter
+    def chart_default_color(self, chart_default_color):
+        """Sets the chart_default_color of this ChartSettings.
+
+        Default color that will be used in any chart rendering. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
+
+        :param chart_default_color: The chart_default_color of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._chart_default_color = chart_default_color
 
     @property
     def column_tags(self):
@@ -906,7 +934,7 @@ class ChartSettings(object):
     def sparkline_display_color(self):
         """Gets the sparkline_display_color of this ChartSettings.  # noqa: E501
 
-        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :return: The sparkline_display_color of this ChartSettings.  # noqa: E501
         :rtype: str
@@ -917,7 +945,7 @@ class ChartSettings(object):
     def sparkline_display_color(self, sparkline_display_color):
         """Sets the sparkline_display_color of this ChartSettings.
 
-        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :param sparkline_display_color: The sparkline_display_color of this ChartSettings.  # noqa: E501
         :type: str
@@ -1079,7 +1107,7 @@ class ChartSettings(object):
     def sparkline_fill_color(self):
         """Gets the sparkline_fill_color of this ChartSettings.  # noqa: E501
 
-        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, the color of the background fill. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :return: The sparkline_fill_color of this ChartSettings.  # noqa: E501
         :rtype: str
@@ -1090,7 +1118,7 @@ class ChartSettings(object):
     def sparkline_fill_color(self, sparkline_fill_color):
         """Sets the sparkline_fill_color of this ChartSettings.
 
-        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, the color of the background fill. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :param sparkline_fill_color: The sparkline_fill_color of this ChartSettings.  # noqa: E501
         :type: str
@@ -1102,7 +1130,7 @@ class ChartSettings(object):
     def sparkline_line_color(self):
         """Gets the sparkline_line_color of this ChartSettings.  # noqa: E501
 
-        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, the color of the line. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :return: The sparkline_line_color of this ChartSettings.  # noqa: E501
         :rtype: str
@@ -1113,7 +1141,7 @@ class ChartSettings(object):
     def sparkline_line_color(self, sparkline_line_color):
         """Sets the sparkline_line_color of this ChartSettings.
 
-        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, the color of the line. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :param sparkline_line_color: The sparkline_line_color of this ChartSettings.  # noqa: E501
         :type: str
@@ -1183,7 +1211,7 @@ class ChartSettings(object):
     def sparkline_value_color_map_colors(self):
         """Gets the sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
 
-        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :return: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
         :rtype: list[str]
@@ -1194,7 +1222,7 @@ class ChartSettings(object):
     def sparkline_value_color_map_colors(self, sparkline_value_color_map_colors):
         """Sets the sparkline_value_color_map_colors of this ChartSettings.
 
-        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in \"rgba(&lt;rval&gt;, &lt;gval&gt;, &lt;bval&gt;, &lt;aval&gt;)\" format  # noqa: E501
 
         :param sparkline_value_color_map_colors: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
         :type: list[str]
@@ -1397,7 +1425,7 @@ class ChartSettings(object):
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["line", "scatterplot", "stacked-area", "stacked-column", "table", "scatterplot-xy", "markdown-widget", "sparkline", "globe", "nodemap", "top-k", "status-list", "histogram"]  # noqa: E501
+        allowed_values = ["line", "scatterplot", "stacked-area", "stacked-column", "table", "scatterplot-xy", "markdown-widget", "sparkline", "globe", "nodemap", "top-k", "status-list", "histogram", "heatmap", "gauge"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
