@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **sparkline_value_text_map_thresholds** | **list[float]** | For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText | [optional] 
 **stack_type** | **str** | Type of stacked chart (applicable only if chart type is stacked).  zero (default) means stacked from y&#x3D;0.  expand means Normalized from 0 to 1.  wiggle means Minimize weighted changes. silhouette means to Center the Stream | [optional] 
 **tag_mode** | **str** | For the tabular view, which mode to use to determine which point tags to display | [optional] 
-**time_based_coloring** | **bool** | Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false | [optional] 
+**time_based_coloring** | **bool** | For x-y scatterplots, whether to color more recent points as darker than older points. Default: false | [optional] 
 **type** | **str** | Chart Type.  &#39;line&#39; refers to the Line Plot, &#39;scatter&#39; to the Point Plot, &#39;stacked-area&#39; to the Stacked Area plot, &#39;table&#39; to the Tabular View, &#39;scatterploy-xy&#39; to Scatter Plot, &#39;markdown-widget&#39; to the Markdown display, and &#39;sparkline&#39; to the Single Stat view | 
 **window_size** | **int** | Width, in minutes, of the time window to use for \&quot;last\&quot; windowing | [optional] 
 **windowing** | **str** | For the tabular view, whether to use the full time window for the query or the last X minutes | [optional] 

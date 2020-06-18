@@ -33,6 +33,8 @@ class GCPConfiguration(object):
     swagger_types = {
         'categories_to_fetch': 'list[str]',
         'custom_metric_prefix': 'list[str]',
+        'disable_delta_counts': 'bool',
+        'disable_histogram_to_metric_conversion': 'bool',
         'gcp_json_key': 'str',
         'metric_filter_regex': 'str',
         'project_id': 'str'
@@ -41,16 +43,20 @@ class GCPConfiguration(object):
     attribute_map = {
         'categories_to_fetch': 'categoriesToFetch',
         'custom_metric_prefix': 'customMetricPrefix',
+        'disable_delta_counts': 'disableDeltaCounts',
+        'disable_histogram_to_metric_conversion': 'disableHistogramToMetricConversion',
         'gcp_json_key': 'gcpJsonKey',
         'metric_filter_regex': 'metricFilterRegex',
         'project_id': 'projectId'
     }
 
-    def __init__(self, categories_to_fetch=None, custom_metric_prefix=None, gcp_json_key=None, metric_filter_regex=None, project_id=None):  # noqa: E501
+    def __init__(self, categories_to_fetch=None, custom_metric_prefix=None, disable_delta_counts=None, disable_histogram_to_metric_conversion=None, gcp_json_key=None, metric_filter_regex=None, project_id=None):  # noqa: E501
         """GCPConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._categories_to_fetch = None
         self._custom_metric_prefix = None
+        self._disable_delta_counts = None
+        self._disable_histogram_to_metric_conversion = None
         self._gcp_json_key = None
         self._metric_filter_regex = None
         self._project_id = None
@@ -60,6 +66,10 @@ class GCPConfiguration(object):
             self.categories_to_fetch = categories_to_fetch
         if custom_metric_prefix is not None:
             self.custom_metric_prefix = custom_metric_prefix
+        if disable_delta_counts is not None:
+            self.disable_delta_counts = disable_delta_counts
+        if disable_histogram_to_metric_conversion is not None:
+            self.disable_histogram_to_metric_conversion = disable_histogram_to_metric_conversion
         self.gcp_json_key = gcp_json_key
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
@@ -117,6 +127,52 @@ class GCPConfiguration(object):
         """
 
         self._custom_metric_prefix = custom_metric_prefix
+
+    @property
+    def disable_delta_counts(self):
+        """Gets the disable_delta_counts of this GCPConfiguration.  # noqa: E501
+
+        Whether to disable the ingestion of counts for GCP delta metrics. Ingestion is enabled by default.  # noqa: E501
+
+        :return: The disable_delta_counts of this GCPConfiguration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_delta_counts
+
+    @disable_delta_counts.setter
+    def disable_delta_counts(self, disable_delta_counts):
+        """Sets the disable_delta_counts of this GCPConfiguration.
+
+        Whether to disable the ingestion of counts for GCP delta metrics. Ingestion is enabled by default.  # noqa: E501
+
+        :param disable_delta_counts: The disable_delta_counts of this GCPConfiguration.  # noqa: E501
+        :type: bool
+        """
+
+        self._disable_delta_counts = disable_delta_counts
+
+    @property
+    def disable_histogram_to_metric_conversion(self):
+        """Gets the disable_histogram_to_metric_conversion of this GCPConfiguration.  # noqa: E501
+
+        Whether to disable the ingestion of bucket data for GCP distributions. Ingestion is enabled by default.  # noqa: E501
+
+        :return: The disable_histogram_to_metric_conversion of this GCPConfiguration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_histogram_to_metric_conversion
+
+    @disable_histogram_to_metric_conversion.setter
+    def disable_histogram_to_metric_conversion(self, disable_histogram_to_metric_conversion):
+        """Sets the disable_histogram_to_metric_conversion of this GCPConfiguration.
+
+        Whether to disable the ingestion of bucket data for GCP distributions. Ingestion is enabled by default.  # noqa: E501
+
+        :param disable_histogram_to_metric_conversion: The disable_histogram_to_metric_conversion of this GCPConfiguration.  # noqa: E501
+        :type: bool
+        """
+
+        self._disable_histogram_to_metric_conversion = disable_histogram_to_metric_conversion
 
     @property
     def gcp_json_key(self):

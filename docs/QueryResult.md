@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**dimensions** | [**list[TupleResult]**](TupleResult.md) | List of all dimension tuple results | [optional] 
 **error_message** | **str** | Error message, if query execution did not finish successfully | [optional] 
 **error_type** | **str** | Error type, if query execution did not finish successfully | [optional] 
 **events** | [**list[QueryEvent]**](QueryEvent.md) |  | [optional] 
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **spans** | [**list[Span]**](Span.md) |  | [optional] 
 **stats** | [**StatsModelInternalUse**](StatsModelInternalUse.md) |  | [optional] 
 **timeseries** | [**list[Timeseries]**](Timeseries.md) |  | [optional] 
+**trace_dimensions** | [**list[TupleResult]**](TupleResult.md) | List of all tracing tuple results | [optional] 
 **traces** | [**list[Trace]**](Trace.md) |  | [optional] 
 **warnings** | **str** | The warnings incurred by this query | [optional] 
 

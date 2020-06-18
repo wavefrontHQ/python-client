@@ -230,6 +230,9 @@ from wavefront_api_client.models.target_info import TargetInfo
 from wavefront_api_client.models.tesla_configuration import TeslaConfiguration
 from wavefront_api_client.models.timeseries import Timeseries
 from wavefront_api_client.models.trace import Trace
+from wavefront_api_client.models.tuple import Tuple
+from wavefront_api_client.models.tuple_result import TupleResult
+from wavefront_api_client.models.tuple_value_result import TupleValueResult
 from wavefront_api_client.models.user_api_token import UserApiToken
 from wavefront_api_client.models.user_dto import UserDTO
 from wavefront_api_client.models.user_group import UserGroup

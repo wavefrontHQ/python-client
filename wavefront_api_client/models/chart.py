@@ -31,10 +31,15 @@ class Chart(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'anomaly_sample_size': 'str',
+        'anomaly_severity': 'str',
+        'anomaly_type': 'str',
         'base': 'int',
         'chart_attributes': 'JsonNode',
         'chart_settings': 'ChartSettings',
         'description': 'str',
+        'display_confidence_bounds': 'bool',
+        'filter_out_non_anomalies': 'bool',
         'include_obsolete_metrics': 'bool',
         'interpolate_points': 'bool',
         'name': 'str',
@@ -45,10 +50,15 @@ class Chart(object):
     }
 
     attribute_map = {
+        'anomaly_sample_size': 'anomalySampleSize',
+        'anomaly_severity': 'anomalySeverity',
+        'anomaly_type': 'anomalyType',
         'base': 'base',
         'chart_attributes': 'chartAttributes',
         'chart_settings': 'chartSettings',
         'description': 'description',
+        'display_confidence_bounds': 'displayConfidenceBounds',
+        'filter_out_non_anomalies': 'filterOutNonAnomalies',
         'include_obsolete_metrics': 'includeObsoleteMetrics',
         'interpolate_points': 'interpolatePoints',
         'name': 'name',
@@ -58,13 +68,18 @@ class Chart(object):
         'units': 'units'
     }
 
-    def __init__(self, base=None, chart_attributes=None, chart_settings=None, description=None, include_obsolete_metrics=None, interpolate_points=None, name=None, no_default_events=None, sources=None, summarization=None, units=None):  # noqa: E501
+    def __init__(self, anomaly_sample_size=None, anomaly_severity=None, anomaly_type=None, base=None, chart_attributes=None, chart_settings=None, description=None, display_confidence_bounds=None, filter_out_non_anomalies=None, include_obsolete_metrics=None, interpolate_points=None, name=None, no_default_events=None, sources=None, summarization=None, units=None):  # noqa: E501
         """Chart - a model defined in Swagger"""  # noqa: E501
 
+        self._anomaly_sample_size = None
+        self._anomaly_severity = None
+        self._anomaly_type = None
         self._base = None
         self._chart_attributes = None
         self._chart_settings = None
         self._description = None
+        self._display_confidence_bounds = None
+        self._filter_out_non_anomalies = None
         self._include_obsolete_metrics = None
         self._interpolate_points = None
         self._name = None
@@ -74,6 +89,12 @@ class Chart(object):
         self._units = None
         self.discriminator = None
 
+        if anomaly_sample_size is not None:
+            self.anomaly_sample_size = anomaly_sample_size
+        if anomaly_severity is not None:
+            self.anomaly_severity = anomaly_severity
+        if anomaly_type is not None:
+            self.anomaly_type = anomaly_type
         if base is not None:
             self.base = base
         if chart_attributes is not None:
@@ -82,6 +103,10 @@ class Chart(object):
             self.chart_settings = chart_settings
         if description is not None:
             self.description = description
+        if display_confidence_bounds is not None:
+            self.display_confidence_bounds = display_confidence_bounds
+        if filter_out_non_anomalies is not None:
+            self.filter_out_non_anomalies = filter_out_non_anomalies
         if include_obsolete_metrics is not None:
             self.include_obsolete_metrics = include_obsolete_metrics
         if interpolate_points is not None:
@@ -94,6 +119,93 @@ class Chart(object):
             self.summarization = summarization
         if units is not None:
             self.units = units
+
+    @property
+    def anomaly_sample_size(self):
+        """Gets the anomaly_sample_size of this Chart.  # noqa: E501
+
+        The amount of historical data to use for anomaly detection baselining  # noqa: E501
+
+        :return: The anomaly_sample_size of this Chart.  # noqa: E501
+        :rtype: str
+        """
+        return self._anomaly_sample_size
+
+    @anomaly_sample_size.setter
+    def anomaly_sample_size(self, anomaly_sample_size):
+        """Sets the anomaly_sample_size of this Chart.
+
+        The amount of historical data to use for anomaly detection baselining  # noqa: E501
+
+        :param anomaly_sample_size: The anomaly_sample_size of this Chart.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["2 8 35"]  # noqa: E501
+        if anomaly_sample_size not in allowed_values:
+            raise ValueError(
+                "Invalid value for `anomaly_sample_size` ({0}), must be one of {1}"  # noqa: E501
+                .format(anomaly_sample_size, allowed_values)
+            )
+
+        self._anomaly_sample_size = anomaly_sample_size
+
+    @property
+    def anomaly_severity(self):
+        """Gets the anomaly_severity of this Chart.  # noqa: E501
+
+        Anomaly Severity. Default medium  # noqa: E501
+
+        :return: The anomaly_severity of this Chart.  # noqa: E501
+        :rtype: str
+        """
+        return self._anomaly_severity
+
+    @anomaly_severity.setter
+    def anomaly_severity(self, anomaly_severity):
+        """Sets the anomaly_severity of this Chart.
+
+        Anomaly Severity. Default medium  # noqa: E501
+
+        :param anomaly_severity: The anomaly_severity of this Chart.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["low medium high"]  # noqa: E501
+        if anomaly_severity not in allowed_values:
+            raise ValueError(
+                "Invalid value for `anomaly_severity` ({0}), must be one of {1}"  # noqa: E501
+                .format(anomaly_severity, allowed_values)
+            )
+
+        self._anomaly_severity = anomaly_severity
+
+    @property
+    def anomaly_type(self):
+        """Gets the anomaly_type of this Chart.  # noqa: E501
+
+        Anomaly Type. Default both  # noqa: E501
+
+        :return: The anomaly_type of this Chart.  # noqa: E501
+        :rtype: str
+        """
+        return self._anomaly_type
+
+    @anomaly_type.setter
+    def anomaly_type(self, anomaly_type):
+        """Sets the anomaly_type of this Chart.
+
+        Anomaly Type. Default both  # noqa: E501
+
+        :param anomaly_type: The anomaly_type of this Chart.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["both low high"]  # noqa: E501
+        if anomaly_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `anomaly_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(anomaly_type, allowed_values)
+            )
+
+        self._anomaly_type = anomaly_type
 
     @property
     def base(self):
@@ -184,6 +296,52 @@ class Chart(object):
         """
 
         self._description = description
+
+    @property
+    def display_confidence_bounds(self):
+        """Gets the display_confidence_bounds of this Chart.  # noqa: E501
+
+        Whether to show confidence bounds. Default false  # noqa: E501
+
+        :return: The display_confidence_bounds of this Chart.  # noqa: E501
+        :rtype: bool
+        """
+        return self._display_confidence_bounds
+
+    @display_confidence_bounds.setter
+    def display_confidence_bounds(self, display_confidence_bounds):
+        """Sets the display_confidence_bounds of this Chart.
+
+        Whether to show confidence bounds. Default false  # noqa: E501
+
+        :param display_confidence_bounds: The display_confidence_bounds of this Chart.  # noqa: E501
+        :type: bool
+        """
+
+        self._display_confidence_bounds = display_confidence_bounds
+
+    @property
+    def filter_out_non_anomalies(self):
+        """Gets the filter_out_non_anomalies of this Chart.  # noqa: E501
+
+        Whether to filter out non anomalies. Default false  # noqa: E501
+
+        :return: The filter_out_non_anomalies of this Chart.  # noqa: E501
+        :rtype: bool
+        """
+        return self._filter_out_non_anomalies
+
+    @filter_out_non_anomalies.setter
+    def filter_out_non_anomalies(self, filter_out_non_anomalies):
+        """Sets the filter_out_non_anomalies of this Chart.
+
+        Whether to filter out non anomalies. Default false  # noqa: E501
+
+        :param filter_out_non_anomalies: The filter_out_non_anomalies of this Chart.  # noqa: E501
+        :type: bool
+        """
+
+        self._filter_out_non_anomalies = filter_out_non_anomalies
 
     @property
     def include_obsolete_metrics(self):

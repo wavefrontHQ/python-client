@@ -35,6 +35,7 @@ class ExternalLink(object):
         'creator_id': 'str',
         'description': 'str',
         'id': 'str',
+        'is_log_integration': 'bool',
         'metric_filter_regex': 'str',
         'name': 'str',
         'point_tag_filter_regexes': 'dict(str, str)',
@@ -49,6 +50,7 @@ class ExternalLink(object):
         'creator_id': 'creatorId',
         'description': 'description',
         'id': 'id',
+        'is_log_integration': 'isLogIntegration',
         'metric_filter_regex': 'metricFilterRegex',
         'name': 'name',
         'point_tag_filter_regexes': 'pointTagFilterRegexes',
@@ -58,13 +60,14 @@ class ExternalLink(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, created_epoch_millis=None, creator_id=None, description=None, id=None, metric_filter_regex=None, name=None, point_tag_filter_regexes=None, source_filter_regex=None, template=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, description=None, id=None, is_log_integration=None, metric_filter_regex=None, name=None, point_tag_filter_regexes=None, source_filter_regex=None, template=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """ExternalLink - a model defined in Swagger"""  # noqa: E501
 
         self._created_epoch_millis = None
         self._creator_id = None
         self._description = None
         self._id = None
+        self._is_log_integration = None
         self._metric_filter_regex = None
         self._name = None
         self._point_tag_filter_regexes = None
@@ -81,6 +84,8 @@ class ExternalLink(object):
         self.description = description
         if id is not None:
             self.id = id
+        if is_log_integration is not None:
+            self.is_log_integration = is_log_integration
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
         self.name = name
@@ -181,6 +186,29 @@ class ExternalLink(object):
         """
 
         self._id = id
+
+    @property
+    def is_log_integration(self):
+        """Gets the is_log_integration of this ExternalLink.  # noqa: E501
+
+        Whether this is a \"Log Integration\" subType of external link  # noqa: E501
+
+        :return: The is_log_integration of this ExternalLink.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_log_integration
+
+    @is_log_integration.setter
+    def is_log_integration(self, is_log_integration):
+        """Sets the is_log_integration of this ExternalLink.
+
+        Whether this is a \"Log Integration\" subType of external link  # noqa: E501
+
+        :param is_log_integration: The is_log_integration of this ExternalLink.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_log_integration = is_log_integration
 
     @property
     def metric_filter_regex(self):

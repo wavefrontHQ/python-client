@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **label** | **str** |  | [optional] 
 **observed** | **int** |  | [optional] 
 **severity** | **str** |  | [optional] 
+**start_time** | **int** | Start time of this failing HLP, in epoch millis. | [optional] 
 **tags** | **dict(str, str)** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

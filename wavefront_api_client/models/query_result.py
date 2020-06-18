@@ -31,6 +31,7 @@ class QueryResult(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'dimensions': 'list[TupleResult]',
         'error_message': 'str',
         'error_type': 'str',
         'events': 'list[QueryEvent]',
@@ -40,11 +41,13 @@ class QueryResult(object):
         'spans': 'list[Span]',
         'stats': 'StatsModelInternalUse',
         'timeseries': 'list[Timeseries]',
+        'trace_dimensions': 'list[TupleResult]',
         'traces': 'list[Trace]',
         'warnings': 'str'
     }
 
     attribute_map = {
+        'dimensions': 'dimensions',
         'error_message': 'errorMessage',
         'error_type': 'errorType',
         'events': 'events',
@@ -54,13 +57,15 @@ class QueryResult(object):
         'spans': 'spans',
         'stats': 'stats',
         'timeseries': 'timeseries',
+        'trace_dimensions': 'traceDimensions',
         'traces': 'traces',
         'warnings': 'warnings'
     }
 
-    def __init__(self, error_message=None, error_type=None, events=None, granularity=None, name=None, query=None, spans=None, stats=None, timeseries=None, traces=None, warnings=None):  # noqa: E501
+    def __init__(self, dimensions=None, error_message=None, error_type=None, events=None, granularity=None, name=None, query=None, spans=None, stats=None, timeseries=None, trace_dimensions=None, traces=None, warnings=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
+        self._dimensions = None
         self._error_message = None
         self._error_type = None
         self._events = None
@@ -70,10 +75,13 @@ class QueryResult(object):
         self._spans = None
         self._stats = None
         self._timeseries = None
+        self._trace_dimensions = None
         self._traces = None
         self._warnings = None
         self.discriminator = None
 
+        if dimensions is not None:
+            self.dimensions = dimensions
         if error_message is not None:
             self.error_message = error_message
         if error_type is not None:
@@ -92,10 +100,35 @@ class QueryResult(object):
             self.stats = stats
         if timeseries is not None:
             self.timeseries = timeseries
+        if trace_dimensions is not None:
+            self.trace_dimensions = trace_dimensions
         if traces is not None:
             self.traces = traces
         if warnings is not None:
             self.warnings = warnings
+
+    @property
+    def dimensions(self):
+        """Gets the dimensions of this QueryResult.  # noqa: E501
+
+        List of all dimension tuple results  # noqa: E501
+
+        :return: The dimensions of this QueryResult.  # noqa: E501
+        :rtype: list[TupleResult]
+        """
+        return self._dimensions
+
+    @dimensions.setter
+    def dimensions(self, dimensions):
+        """Sets the dimensions of this QueryResult.
+
+        List of all dimension tuple results  # noqa: E501
+
+        :param dimensions: The dimensions of this QueryResult.  # noqa: E501
+        :type: list[TupleResult]
+        """
+
+        self._dimensions = dimensions
 
     @property
     def error_message(self):
@@ -301,6 +334,29 @@ class QueryResult(object):
         """
 
         self._timeseries = timeseries
+
+    @property
+    def trace_dimensions(self):
+        """Gets the trace_dimensions of this QueryResult.  # noqa: E501
+
+        List of all tracing tuple results  # noqa: E501
+
+        :return: The trace_dimensions of this QueryResult.  # noqa: E501
+        :rtype: list[TupleResult]
+        """
+        return self._trace_dimensions
+
+    @trace_dimensions.setter
+    def trace_dimensions(self, trace_dimensions):
+        """Sets the trace_dimensions of this QueryResult.
+
+        List of all tracing tuple results  # noqa: E501
+
+        :param trace_dimensions: The trace_dimensions of this QueryResult.  # noqa: E501
+        :type: list[TupleResult]
+        """
+
+        self._trace_dimensions = trace_dimensions
 
     @property
     def traces(self):

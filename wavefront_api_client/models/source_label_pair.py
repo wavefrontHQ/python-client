@@ -36,6 +36,7 @@ class SourceLabelPair(object):
         'label': 'str',
         'observed': 'int',
         'severity': 'str',
+        'start_time': 'int',
         'tags': 'dict(str, str)'
     }
 
@@ -45,10 +46,11 @@ class SourceLabelPair(object):
         'label': 'label',
         'observed': 'observed',
         'severity': 'severity',
+        'start_time': 'startTime',
         'tags': 'tags'
     }
 
-    def __init__(self, firing=None, host=None, label=None, observed=None, severity=None, tags=None):  # noqa: E501
+    def __init__(self, firing=None, host=None, label=None, observed=None, severity=None, start_time=None, tags=None):  # noqa: E501
         """SourceLabelPair - a model defined in Swagger"""  # noqa: E501
 
         self._firing = None
@@ -56,6 +58,7 @@ class SourceLabelPair(object):
         self._label = None
         self._observed = None
         self._severity = None
+        self._start_time = None
         self._tags = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class SourceLabelPair(object):
             self.observed = observed
         if severity is not None:
             self.severity = severity
+        if start_time is not None:
+            self.start_time = start_time
         if tags is not None:
             self.tags = tags
 
@@ -184,6 +189,29 @@ class SourceLabelPair(object):
             )
 
         self._severity = severity
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this SourceLabelPair.  # noqa: E501
+
+        Start time of this failing HLP, in epoch millis.  # noqa: E501
+
+        :return: The start_time of this SourceLabelPair.  # noqa: E501
+        :rtype: int
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this SourceLabelPair.
+
+        Start time of this failing HLP, in epoch millis.  # noqa: E501
+
+        :param start_time: The start_time of this SourceLabelPair.  # noqa: E501
+        :type: int
+        """
+
+        self._start_time = start_time
 
     @property
     def tags(self):

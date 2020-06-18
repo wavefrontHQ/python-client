@@ -38,6 +38,8 @@ class Proxy(object):
         'customer_id': 'str',
         'deleted': 'bool',
         'ephemeral': 'bool',
+        'events_rate_limit': 'float',
+        'histogram_rate_limit': 'int',
         'hostname': 'str',
         'id': 'str',
         'in_trash': 'bool',
@@ -48,7 +50,11 @@ class Proxy(object):
         'last_known_error': 'str',
         'local_queue_size': 'int',
         'name': 'str',
+        'preprocessor_rules': 'str',
         'shutdown': 'bool',
+        'source_tags_rate_limit': 'float',
+        'span_logs_rate_limit': 'int',
+        'span_rate_limit': 'int',
         'ssh_agent': 'bool',
         'status': 'str',
         'status_cause': 'str',
@@ -65,6 +71,8 @@ class Proxy(object):
         'customer_id': 'customerId',
         'deleted': 'deleted',
         'ephemeral': 'ephemeral',
+        'events_rate_limit': 'eventsRateLimit',
+        'histogram_rate_limit': 'histogramRateLimit',
         'hostname': 'hostname',
         'id': 'id',
         'in_trash': 'inTrash',
@@ -75,7 +83,11 @@ class Proxy(object):
         'last_known_error': 'lastKnownError',
         'local_queue_size': 'localQueueSize',
         'name': 'name',
+        'preprocessor_rules': 'preprocessorRules',
         'shutdown': 'shutdown',
+        'source_tags_rate_limit': 'sourceTagsRateLimit',
+        'span_logs_rate_limit': 'spanLogsRateLimit',
+        'span_rate_limit': 'spanRateLimit',
         'ssh_agent': 'sshAgent',
         'status': 'status',
         'status_cause': 'statusCause',
@@ -84,7 +96,7 @@ class Proxy(object):
         'version': 'version'
     }
 
-    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, hostname=None, id=None, in_trash=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, shutdown=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, user_id=None, version=None):  # noqa: E501
+    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, user_id=None, version=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
 
         self._bytes_left_for_buffer = None
@@ -94,6 +106,8 @@ class Proxy(object):
         self._customer_id = None
         self._deleted = None
         self._ephemeral = None
+        self._events_rate_limit = None
+        self._histogram_rate_limit = None
         self._hostname = None
         self._id = None
         self._in_trash = None
@@ -104,7 +118,11 @@ class Proxy(object):
         self._last_known_error = None
         self._local_queue_size = None
         self._name = None
+        self._preprocessor_rules = None
         self._shutdown = None
+        self._source_tags_rate_limit = None
+        self._span_logs_rate_limit = None
+        self._span_rate_limit = None
         self._ssh_agent = None
         self._status = None
         self._status_cause = None
@@ -127,6 +145,10 @@ class Proxy(object):
             self.deleted = deleted
         if ephemeral is not None:
             self.ephemeral = ephemeral
+        if events_rate_limit is not None:
+            self.events_rate_limit = events_rate_limit
+        if histogram_rate_limit is not None:
+            self.histogram_rate_limit = histogram_rate_limit
         if hostname is not None:
             self.hostname = hostname
         if id is not None:
@@ -146,8 +168,16 @@ class Proxy(object):
         if local_queue_size is not None:
             self.local_queue_size = local_queue_size
         self.name = name
+        if preprocessor_rules is not None:
+            self.preprocessor_rules = preprocessor_rules
         if shutdown is not None:
             self.shutdown = shutdown
+        if source_tags_rate_limit is not None:
+            self.source_tags_rate_limit = source_tags_rate_limit
+        if span_logs_rate_limit is not None:
+            self.span_logs_rate_limit = span_logs_rate_limit
+        if span_rate_limit is not None:
+            self.span_rate_limit = span_rate_limit
         if ssh_agent is not None:
             self.ssh_agent = ssh_agent
         if status is not None:
@@ -317,6 +347,52 @@ class Proxy(object):
         """
 
         self._ephemeral = ephemeral
+
+    @property
+    def events_rate_limit(self):
+        """Gets the events_rate_limit of this Proxy.  # noqa: E501
+
+        Proxy's rate limit for events  # noqa: E501
+
+        :return: The events_rate_limit of this Proxy.  # noqa: E501
+        :rtype: float
+        """
+        return self._events_rate_limit
+
+    @events_rate_limit.setter
+    def events_rate_limit(self, events_rate_limit):
+        """Sets the events_rate_limit of this Proxy.
+
+        Proxy's rate limit for events  # noqa: E501
+
+        :param events_rate_limit: The events_rate_limit of this Proxy.  # noqa: E501
+        :type: float
+        """
+
+        self._events_rate_limit = events_rate_limit
+
+    @property
+    def histogram_rate_limit(self):
+        """Gets the histogram_rate_limit of this Proxy.  # noqa: E501
+
+        Proxy's rate limit for histograms  # noqa: E501
+
+        :return: The histogram_rate_limit of this Proxy.  # noqa: E501
+        :rtype: int
+        """
+        return self._histogram_rate_limit
+
+    @histogram_rate_limit.setter
+    def histogram_rate_limit(self, histogram_rate_limit):
+        """Sets the histogram_rate_limit of this Proxy.
+
+        Proxy's rate limit for histograms  # noqa: E501
+
+        :param histogram_rate_limit: The histogram_rate_limit of this Proxy.  # noqa: E501
+        :type: int
+        """
+
+        self._histogram_rate_limit = histogram_rate_limit
 
     @property
     def hostname(self):
@@ -545,6 +621,29 @@ class Proxy(object):
         self._name = name
 
     @property
+    def preprocessor_rules(self):
+        """Gets the preprocessor_rules of this Proxy.  # noqa: E501
+
+        Proxy's preprocessor rules  # noqa: E501
+
+        :return: The preprocessor_rules of this Proxy.  # noqa: E501
+        :rtype: str
+        """
+        return self._preprocessor_rules
+
+    @preprocessor_rules.setter
+    def preprocessor_rules(self, preprocessor_rules):
+        """Sets the preprocessor_rules of this Proxy.
+
+        Proxy's preprocessor rules  # noqa: E501
+
+        :param preprocessor_rules: The preprocessor_rules of this Proxy.  # noqa: E501
+        :type: str
+        """
+
+        self._preprocessor_rules = preprocessor_rules
+
+    @property
     def shutdown(self):
         """Gets the shutdown of this Proxy.  # noqa: E501
 
@@ -566,6 +665,75 @@ class Proxy(object):
         """
 
         self._shutdown = shutdown
+
+    @property
+    def source_tags_rate_limit(self):
+        """Gets the source_tags_rate_limit of this Proxy.  # noqa: E501
+
+        Proxy's rate limit for source tag operations  # noqa: E501
+
+        :return: The source_tags_rate_limit of this Proxy.  # noqa: E501
+        :rtype: float
+        """
+        return self._source_tags_rate_limit
+
+    @source_tags_rate_limit.setter
+    def source_tags_rate_limit(self, source_tags_rate_limit):
+        """Sets the source_tags_rate_limit of this Proxy.
+
+        Proxy's rate limit for source tag operations  # noqa: E501
+
+        :param source_tags_rate_limit: The source_tags_rate_limit of this Proxy.  # noqa: E501
+        :type: float
+        """
+
+        self._source_tags_rate_limit = source_tags_rate_limit
+
+    @property
+    def span_logs_rate_limit(self):
+        """Gets the span_logs_rate_limit of this Proxy.  # noqa: E501
+
+        Proxy's rate limit for span logs  # noqa: E501
+
+        :return: The span_logs_rate_limit of this Proxy.  # noqa: E501
+        :rtype: int
+        """
+        return self._span_logs_rate_limit
+
+    @span_logs_rate_limit.setter
+    def span_logs_rate_limit(self, span_logs_rate_limit):
+        """Sets the span_logs_rate_limit of this Proxy.
+
+        Proxy's rate limit for span logs  # noqa: E501
+
+        :param span_logs_rate_limit: The span_logs_rate_limit of this Proxy.  # noqa: E501
+        :type: int
+        """
+
+        self._span_logs_rate_limit = span_logs_rate_limit
+
+    @property
+    def span_rate_limit(self):
+        """Gets the span_rate_limit of this Proxy.  # noqa: E501
+
+        Proxy's rate limit for spans  # noqa: E501
+
+        :return: The span_rate_limit of this Proxy.  # noqa: E501
+        :rtype: int
+        """
+        return self._span_rate_limit
+
+    @span_rate_limit.setter
+    def span_rate_limit(self, span_rate_limit):
+        """Sets the span_rate_limit of this Proxy.
+
+        Proxy's rate limit for spans  # noqa: E501
+
+        :param span_rate_limit: The span_rate_limit of this Proxy.  # noqa: E501
+        :type: int
+        """
+
+        self._span_rate_limit = span_rate_limit
 
     @property
     def ssh_agent(self):

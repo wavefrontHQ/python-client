@@ -97,7 +97,7 @@ class CloudWatchConfiguration(object):
     def instance_selection_tags(self):
         """Gets the instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
 
-        A comma-separated white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :return: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :rtype: dict(str, str)
@@ -108,7 +108,7 @@ class CloudWatchConfiguration(object):
     def instance_selection_tags(self, instance_selection_tags):
         """Sets the instance_selection_tags of this CloudWatchConfiguration.
 
-        A comma-separated white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :param instance_selection_tags: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :type: dict(str, str)
@@ -189,7 +189,7 @@ class CloudWatchConfiguration(object):
     def volume_selection_tags(self):
         """Gets the volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
 
-        A comma-separated white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :return: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :rtype: dict(str, str)
@@ -200,7 +200,7 @@ class CloudWatchConfiguration(object):
     def volume_selection_tags(self, volume_selection_tags):
         """Sets the volume_selection_tags of this CloudWatchConfiguration.
 
-        A comma-separated white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :param volume_selection_tags: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :type: dict(str, str)

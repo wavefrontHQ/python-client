@@ -1384,7 +1384,7 @@ class ChartSettings(object):
     def time_based_coloring(self):
         """Gets the time_based_coloring of this ChartSettings.  # noqa: E501
 
-        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
+        For x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
 
         :return: The time_based_coloring of this ChartSettings.  # noqa: E501
         :rtype: bool
@@ -1395,7 +1395,7 @@ class ChartSettings(object):
     def time_based_coloring(self, time_based_coloring):
         """Sets the time_based_coloring of this ChartSettings.
 
-        Fox x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
+        For x-y scatterplots, whether to color more recent points as darker than older points. Default: false  # noqa: E501
 
         :param time_based_coloring: The time_based_coloring of this ChartSettings.  # noqa: E501
         :type: bool
