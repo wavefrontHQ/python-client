@@ -36,15 +36,19 @@ class StatsModelInternalUse(object):
         'compacted_keys': 'int',
         'compacted_points': 'int',
         'cpu_ns': 'int',
+        'distributions': 'int',
+        'edges': 'int',
         'hosts_used': 'int',
         'keys': 'int',
         'latency': 'int',
+        'metrics': 'int',
         'metrics_used': 'int',
         'points': 'int',
         'queries': 'int',
         'query_tasks': 'int',
         's3_keys': 'int',
         'skipped_compacted_keys': 'int',
+        'spans': 'int',
         'summaries': 'int'
     }
 
@@ -54,19 +58,23 @@ class StatsModelInternalUse(object):
         'compacted_keys': 'compacted_keys',
         'compacted_points': 'compacted_points',
         'cpu_ns': 'cpu_ns',
+        'distributions': 'distributions',
+        'edges': 'edges',
         'hosts_used': 'hosts_used',
         'keys': 'keys',
         'latency': 'latency',
+        'metrics': 'metrics',
         'metrics_used': 'metrics_used',
         'points': 'points',
         'queries': 'queries',
         'query_tasks': 'query_tasks',
         's3_keys': 's3_keys',
         'skipped_compacted_keys': 'skipped_compacted_keys',
+        'spans': 'spans',
         'summaries': 'summaries'
     }
 
-    def __init__(self, buffer_keys=None, cached_compacted_keys=None, compacted_keys=None, compacted_points=None, cpu_ns=None, hosts_used=None, keys=None, latency=None, metrics_used=None, points=None, queries=None, query_tasks=None, s3_keys=None, skipped_compacted_keys=None, summaries=None):  # noqa: E501
+    def __init__(self, buffer_keys=None, cached_compacted_keys=None, compacted_keys=None, compacted_points=None, cpu_ns=None, distributions=None, edges=None, hosts_used=None, keys=None, latency=None, metrics=None, metrics_used=None, points=None, queries=None, query_tasks=None, s3_keys=None, skipped_compacted_keys=None, spans=None, summaries=None):  # noqa: E501
         """StatsModelInternalUse - a model defined in Swagger"""  # noqa: E501
 
         self._buffer_keys = None
@@ -74,15 +82,19 @@ class StatsModelInternalUse(object):
         self._compacted_keys = None
         self._compacted_points = None
         self._cpu_ns = None
+        self._distributions = None
+        self._edges = None
         self._hosts_used = None
         self._keys = None
         self._latency = None
+        self._metrics = None
         self._metrics_used = None
         self._points = None
         self._queries = None
         self._query_tasks = None
         self._s3_keys = None
         self._skipped_compacted_keys = None
+        self._spans = None
         self._summaries = None
         self.discriminator = None
 
@@ -96,12 +108,18 @@ class StatsModelInternalUse(object):
             self.compacted_points = compacted_points
         if cpu_ns is not None:
             self.cpu_ns = cpu_ns
+        if distributions is not None:
+            self.distributions = distributions
+        if edges is not None:
+            self.edges = edges
         if hosts_used is not None:
             self.hosts_used = hosts_used
         if keys is not None:
             self.keys = keys
         if latency is not None:
             self.latency = latency
+        if metrics is not None:
+            self.metrics = metrics
         if metrics_used is not None:
             self.metrics_used = metrics_used
         if points is not None:
@@ -114,6 +132,8 @@ class StatsModelInternalUse(object):
             self.s3_keys = s3_keys
         if skipped_compacted_keys is not None:
             self.skipped_compacted_keys = skipped_compacted_keys
+        if spans is not None:
+            self.spans = spans
         if summaries is not None:
             self.summaries = summaries
 
@@ -223,6 +243,48 @@ class StatsModelInternalUse(object):
         self._cpu_ns = cpu_ns
 
     @property
+    def distributions(self):
+        """Gets the distributions of this StatsModelInternalUse.  # noqa: E501
+
+
+        :return: The distributions of this StatsModelInternalUse.  # noqa: E501
+        :rtype: int
+        """
+        return self._distributions
+
+    @distributions.setter
+    def distributions(self, distributions):
+        """Sets the distributions of this StatsModelInternalUse.
+
+
+        :param distributions: The distributions of this StatsModelInternalUse.  # noqa: E501
+        :type: int
+        """
+
+        self._distributions = distributions
+
+    @property
+    def edges(self):
+        """Gets the edges of this StatsModelInternalUse.  # noqa: E501
+
+
+        :return: The edges of this StatsModelInternalUse.  # noqa: E501
+        :rtype: int
+        """
+        return self._edges
+
+    @edges.setter
+    def edges(self, edges):
+        """Sets the edges of this StatsModelInternalUse.
+
+
+        :param edges: The edges of this StatsModelInternalUse.  # noqa: E501
+        :type: int
+        """
+
+        self._edges = edges
+
+    @property
     def hosts_used(self):
         """Gets the hosts_used of this StatsModelInternalUse.  # noqa: E501
 
@@ -284,6 +346,27 @@ class StatsModelInternalUse(object):
         """
 
         self._latency = latency
+
+    @property
+    def metrics(self):
+        """Gets the metrics of this StatsModelInternalUse.  # noqa: E501
+
+
+        :return: The metrics of this StatsModelInternalUse.  # noqa: E501
+        :rtype: int
+        """
+        return self._metrics
+
+    @metrics.setter
+    def metrics(self, metrics):
+        """Sets the metrics of this StatsModelInternalUse.
+
+
+        :param metrics: The metrics of this StatsModelInternalUse.  # noqa: E501
+        :type: int
+        """
+
+        self._metrics = metrics
 
     @property
     def metrics_used(self):
@@ -410,6 +493,27 @@ class StatsModelInternalUse(object):
         """
 
         self._skipped_compacted_keys = skipped_compacted_keys
+
+    @property
+    def spans(self):
+        """Gets the spans of this StatsModelInternalUse.  # noqa: E501
+
+
+        :return: The spans of this StatsModelInternalUse.  # noqa: E501
+        :rtype: int
+        """
+        return self._spans
+
+    @spans.setter
+    def spans(self, spans):
+        """Sets the spans of this StatsModelInternalUse.
+
+
+        :param spans: The spans of this StatsModelInternalUse.  # noqa: E501
+        :type: int
+        """
+
+        self._spans = spans
 
     @property
     def summaries(self):

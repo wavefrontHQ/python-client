@@ -56,6 +56,7 @@ from wavefront_api_client.models.account import Account
 from wavefront_api_client.models.alert import Alert
 from wavefront_api_client.models.alert_min import AlertMin
 from wavefront_api_client.models.alert_route import AlertRoute
+from wavefront_api_client.models.annotation import Annotation
 from wavefront_api_client.models.anomaly import Anomaly
 from wavefront_api_client.models.app_dynamics_configuration import AppDynamicsConfiguration
 from wavefront_api_client.models.avro_backed_standardized_dto import AvroBackedStandardizedDTO
@@ -65,6 +66,7 @@ from wavefront_api_client.models.azure_configuration import AzureConfiguration
 from wavefront_api_client.models.chart import Chart
 from wavefront_api_client.models.chart_settings import ChartSettings
 from wavefront_api_client.models.chart_source_query import ChartSourceQuery
+from wavefront_api_client.models.class_loader import ClassLoader
 from wavefront_api_client.models.cloud_integration import CloudIntegration
 from wavefront_api_client.models.cloud_trail_configuration import CloudTrailConfiguration
 from wavefront_api_client.models.cloud_watch_configuration import CloudWatchConfiguration
@@ -84,6 +86,7 @@ from wavefront_api_client.models.facet_response import FacetResponse
 from wavefront_api_client.models.facet_search_request_container import FacetSearchRequestContainer
 from wavefront_api_client.models.facets_response_container import FacetsResponseContainer
 from wavefront_api_client.models.facets_search_request_container import FacetsSearchRequestContainer
+from wavefront_api_client.models.fast_reader_builder import FastReaderBuilder
 from wavefront_api_client.models.gcp_billing_configuration import GCPBillingConfiguration
 from wavefront_api_client.models.gcp_configuration import GCPConfiguration
 from wavefront_api_client.models.history_entry import HistoryEntry
@@ -98,9 +101,6 @@ from wavefront_api_client.models.integration_dashboard import IntegrationDashboa
 from wavefront_api_client.models.integration_manifest_group import IntegrationManifestGroup
 from wavefront_api_client.models.integration_metrics import IntegrationMetrics
 from wavefront_api_client.models.integration_status import IntegrationStatus
-from wavefront_api_client.models.iterator_entry_string_json_node import IteratorEntryStringJsonNode
-from wavefront_api_client.models.iterator_json_node import IteratorJsonNode
-from wavefront_api_client.models.iterator_string import IteratorString
 from wavefront_api_client.models.json_node import JsonNode
 from wavefront_api_client.models.kubernetes_component import KubernetesComponent
 from wavefront_api_client.models.logical_type import LogicalType
@@ -109,11 +109,14 @@ from wavefront_api_client.models.message import Message
 from wavefront_api_client.models.metric_details import MetricDetails
 from wavefront_api_client.models.metric_details_response import MetricDetailsResponse
 from wavefront_api_client.models.metric_status import MetricStatus
+from wavefront_api_client.models.module import Module
+from wavefront_api_client.models.module_descriptor import ModuleDescriptor
+from wavefront_api_client.models.module_layer import ModuleLayer
 from wavefront_api_client.models.monitored_cluster import MonitoredCluster
 from wavefront_api_client.models.new_relic_configuration import NewRelicConfiguration
 from wavefront_api_client.models.new_relic_metric_filters import NewRelicMetricFilters
 from wavefront_api_client.models.notificant import Notificant
-from wavefront_api_client.models.number import Number
+from wavefront_api_client.models.package import Package
 from wavefront_api_client.models.paged_account import PagedAccount
 from wavefront_api_client.models.paged_alert import PagedAlert
 from wavefront_api_client.models.paged_alert_with_stats import PagedAlertWithStats
