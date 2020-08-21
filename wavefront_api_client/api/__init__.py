@@ -18,6 +18,7 @@ from wavefront_api_client.api.integration_api import IntegrationApi
 from wavefront_api_client.api.maintenance_window_api import MaintenanceWindowApi
 from wavefront_api_client.api.message_api import MessageApi
 from wavefront_api_client.api.metric_api import MetricApi
+from wavefront_api_client.api.metrics_policy_api import MetricsPolicyApi
 from wavefront_api_client.api.notificant_api import NotificantApi
 from wavefront_api_client.api.proxy_api import ProxyApi
 from wavefront_api_client.api.query_api import QueryApi

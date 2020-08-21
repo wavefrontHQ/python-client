@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **last_processed_millis** | **int** | The last time when the derived metric query was run, in epoch millis | [optional] 
 **last_query_time** | **int** | Time for the query execute, averaged on hourly basis | [optional] 
 **metrics_used** | **list[str]** | Number of metrics checked by the query | [optional] 
-**minutes** | **int** | How frequently the query generating the derived metric is run | 
+**minutes** | **int** | Number of minutes to query for the derived metric | 
 **name** | **str** |  | 
 **points_scanned_at_last_query** | **int** | A derived field recording the number of data points scanned when the system last computed the query | [optional] 
 **process_rate_minutes** | **int** | The interval between executing the query, in minutes.  Defaults to 1 minute | [optional] 

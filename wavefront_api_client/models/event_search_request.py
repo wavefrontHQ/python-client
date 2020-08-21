@@ -34,6 +34,7 @@ class EventSearchRequest(object):
         'cursor': 'str',
         'limit': 'int',
         'query': 'list[SearchQuery]',
+        'related_event_time_range': 'RelatedEventTimeRange',
         'sort_score_method': 'str',
         'sort_time_ascending': 'bool',
         'time_range': 'EventTimeRange'
@@ -43,17 +44,19 @@ class EventSearchRequest(object):
         'cursor': 'cursor',
         'limit': 'limit',
         'query': 'query',
+        'related_event_time_range': 'relatedEventTimeRange',
         'sort_score_method': 'sortScoreMethod',
         'sort_time_ascending': 'sortTimeAscending',
         'time_range': 'timeRange'
     }
 
-    def __init__(self, cursor=None, limit=None, query=None, sort_score_method=None, sort_time_ascending=None, time_range=None):  # noqa: E501
+    def __init__(self, cursor=None, limit=None, query=None, related_event_time_range=None, sort_score_method=None, sort_time_ascending=None, time_range=None):  # noqa: E501
         """EventSearchRequest - a model defined in Swagger"""  # noqa: E501
 
         self._cursor = None
         self._limit = None
         self._query = None
+        self._related_event_time_range = None
         self._sort_score_method = None
         self._sort_time_ascending = None
         self._time_range = None
@@ -65,6 +68,8 @@ class EventSearchRequest(object):
             self.limit = limit
         if query is not None:
             self.query = query
+        if related_event_time_range is not None:
+            self.related_event_time_range = related_event_time_range
         if sort_score_method is not None:
             self.sort_score_method = sort_score_method
         if sort_time_ascending is not None:
@@ -140,6 +145,27 @@ class EventSearchRequest(object):
         """
 
         self._query = query
+
+    @property
+    def related_event_time_range(self):
+        """Gets the related_event_time_range of this EventSearchRequest.  # noqa: E501
+
+
+        :return: The related_event_time_range of this EventSearchRequest.  # noqa: E501
+        :rtype: RelatedEventTimeRange
+        """
+        return self._related_event_time_range
+
+    @related_event_time_range.setter
+    def related_event_time_range(self, related_event_time_range):
+        """Sets the related_event_time_range of this EventSearchRequest.
+
+
+        :param related_event_time_range: The related_event_time_range of this EventSearchRequest.  # noqa: E501
+        :type: RelatedEventTimeRange
+        """
+
+        self._related_event_time_range = related_event_time_range
 
     @property
     def sort_score_method(self):

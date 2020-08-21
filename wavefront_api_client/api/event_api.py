@@ -629,6 +629,7 @@ class EventApi(object):
         :param int earliest_start_time_epoch_millis:
         :param int latest_start_time_epoch_millis:
         :param int limit:
+        :param bool asc:
         :return: ResponseContainerPagedEvent
                  If the method is called asynchronously,
                  returns the request thread.
@@ -654,12 +655,13 @@ class EventApi(object):
         :param int earliest_start_time_epoch_millis:
         :param int latest_start_time_epoch_millis:
         :param int limit:
+        :param bool asc:
         :return: ResponseContainerPagedEvent
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['alert_id', 'earliest_start_time_epoch_millis', 'latest_start_time_epoch_millis', 'limit']  # noqa: E501
+        all_params = ['alert_id', 'earliest_start_time_epoch_millis', 'latest_start_time_epoch_millis', 'limit', 'asc']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -692,6 +694,8 @@ class EventApi(object):
             query_params.append(('latestStartTimeEpochMillis', params['latest_start_time_epoch_millis']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('limit', params['limit']))  # noqa: E501
+        if 'asc' in params:
+            query_params.append(('asc', params['asc']))  # noqa: E501
 
         header_params = {}
 

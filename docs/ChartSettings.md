@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **chart_default_color** | **str** | Default color that will be used in any chart rendering. Values should be in \&quot;rgba(&amp;lt;rval&amp;gt;, &amp;lt;gval&amp;gt;, &amp;lt;bval&amp;gt;, &amp;lt;aval&amp;gt;)\&quot; format | [optional] 
 **column_tags** | **str** | deprecated | [optional] 
 **custom_tags** | **list[str]** | For the tabular view, a list of point tags to display when using the \&quot;custom\&quot; tag display mode | [optional] 
+**default_sort_column** | **str** | For the tabular view, to select column for default sort | [optional] 
 **expected_data_spacing** | **int** | Threshold (in seconds) for time delta between consecutive points in a series above which a dotted line will replace a solid line in line plots.  Default: 60s | [optional] 
 **fixed_legend_display_stats** | **list[str]** | For a chart with a fixed legend, a list of statistics to display in the legend | [optional] 
 **fixed_legend_enabled** | **bool** | Whether to enable a fixed tabular legend adjacent to the chart | [optional] 

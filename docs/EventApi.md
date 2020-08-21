@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_alert_firing_events**
-> ResponseContainerPagedEvent get_alert_firing_events(alert_id, earliest_start_time_epoch_millis=earliest_start_time_epoch_millis, latest_start_time_epoch_millis=latest_start_time_epoch_millis, limit=limit)
+> ResponseContainerPagedEvent get_alert_firing_events(alert_id, earliest_start_time_epoch_millis=earliest_start_time_epoch_millis, latest_start_time_epoch_millis=latest_start_time_epoch_millis, limit=limit, asc=asc)
 
 Get firings events of an alert within a time range
 
@@ -373,10 +373,11 @@ alert_id = 'alert_id_example' # str |
 earliest_start_time_epoch_millis = 789 # int |  (optional)
 latest_start_time_epoch_millis = 789 # int |  (optional)
 limit = 100 # int |  (optional) (default to 100)
+asc = true # bool |  (optional)
 
 try:
     # Get firings events of an alert within a time range
-    api_response = api_instance.get_alert_firing_events(alert_id, earliest_start_time_epoch_millis=earliest_start_time_epoch_millis, latest_start_time_epoch_millis=latest_start_time_epoch_millis, limit=limit)
+    api_response = api_instance.get_alert_firing_events(alert_id, earliest_start_time_epoch_millis=earliest_start_time_epoch_millis, latest_start_time_epoch_millis=latest_start_time_epoch_millis, limit=limit, asc=asc)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EventApi->get_alert_firing_events: %s\n" % e)
@@ -390,6 +391,7 @@ Name | Type | Description  | Notes
  **earliest_start_time_epoch_millis** | **int**|  | [optional] 
  **latest_start_time_epoch_millis** | **int**|  | [optional] 
  **limit** | **int**|  | [optional] [default to 100]
+ **asc** | **bool**|  | [optional] 
 
 ### Return type
 

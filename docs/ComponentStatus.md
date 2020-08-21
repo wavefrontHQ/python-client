@@ -1,11 +1,11 @@
-# KubernetesComponent
+# ComponentStatus
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**last_updated** | **int** |  | [optional] 
+**description** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
-**status** | [**dict(str, ComponentStatus)**](ComponentStatus.md) |  | [optional] 
+**status** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

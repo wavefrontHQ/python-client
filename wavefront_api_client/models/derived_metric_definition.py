@@ -521,7 +521,7 @@ class DerivedMetricDefinition(object):
     def minutes(self):
         """Gets the minutes of this DerivedMetricDefinition.  # noqa: E501
 
-        How frequently the query generating the derived metric is run  # noqa: E501
+        Number of minutes to query for the derived metric  # noqa: E501
 
         :return: The minutes of this DerivedMetricDefinition.  # noqa: E501
         :rtype: int
@@ -532,7 +532,7 @@ class DerivedMetricDefinition(object):
     def minutes(self, minutes):
         """Sets the minutes of this DerivedMetricDefinition.
 
-        How frequently the query generating the derived metric is run  # noqa: E501
+        Number of minutes to query for the derived metric  # noqa: E501
 
         :param minutes: The minutes of this DerivedMetricDefinition.  # noqa: E501
         :type: int

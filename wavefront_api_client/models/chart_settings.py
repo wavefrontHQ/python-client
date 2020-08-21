@@ -35,6 +35,7 @@ class ChartSettings(object):
         'chart_default_color': 'str',
         'column_tags': 'str',
         'custom_tags': 'list[str]',
+        'default_sort_column': 'str',
         'expected_data_spacing': 'int',
         'fixed_legend_display_stats': 'list[str]',
         'fixed_legend_enabled': 'bool',
@@ -96,6 +97,7 @@ class ChartSettings(object):
         'chart_default_color': 'chartDefaultColor',
         'column_tags': 'columnTags',
         'custom_tags': 'customTags',
+        'default_sort_column': 'defaultSortColumn',
         'expected_data_spacing': 'expectedDataSpacing',
         'fixed_legend_display_stats': 'fixedLegendDisplayStats',
         'fixed_legend_enabled': 'fixedLegendEnabled',
@@ -152,13 +154,14 @@ class ChartSettings(object):
         'ymin': 'ymin'
     }
 
-    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None):  # noqa: E501
+    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, default_sort_column=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
 
         self._auto_column_tags = None
         self._chart_default_color = None
         self._column_tags = None
         self._custom_tags = None
+        self._default_sort_column = None
         self._expected_data_spacing = None
         self._fixed_legend_display_stats = None
         self._fixed_legend_enabled = None
@@ -223,6 +226,8 @@ class ChartSettings(object):
             self.column_tags = column_tags
         if custom_tags is not None:
             self.custom_tags = custom_tags
+        if default_sort_column is not None:
+            self.default_sort_column = default_sort_column
         if expected_data_spacing is not None:
             self.expected_data_spacing = expected_data_spacing
         if fixed_legend_display_stats is not None:
@@ -422,6 +427,29 @@ class ChartSettings(object):
         """
 
         self._custom_tags = custom_tags
+
+    @property
+    def default_sort_column(self):
+        """Gets the default_sort_column of this ChartSettings.  # noqa: E501
+
+        For the tabular view, to select column for default sort  # noqa: E501
+
+        :return: The default_sort_column of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_sort_column
+
+    @default_sort_column.setter
+    def default_sort_column(self, default_sort_column):
+        """Sets the default_sort_column of this ChartSettings.
+
+        For the tabular view, to select column for default sort  # noqa: E501
+
+        :param default_sort_column: The default_sort_column of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._default_sort_column = default_sort_column
 
     @property
     def expected_data_spacing(self):
