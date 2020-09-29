@@ -80,6 +80,7 @@ class Alert(object):
         'process_rate_minutes': 'int',
         'query_failing': 'bool',
         'resolve_after_minutes': 'int',
+        'secure_metric_details': 'bool',
         'severity': 'str',
         'severity_list': 'list[str]',
         'snoozed': 'int',
@@ -148,6 +149,7 @@ class Alert(object):
         'process_rate_minutes': 'processRateMinutes',
         'query_failing': 'queryFailing',
         'resolve_after_minutes': 'resolveAfterMinutes',
+        'secure_metric_details': 'secureMetricDetails',
         'severity': 'severity',
         'severity_list': 'severityList',
         'snoozed': 'snoozed',
@@ -166,7 +168,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, secure_metric_details=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
@@ -218,6 +220,7 @@ class Alert(object):
         self._process_rate_minutes = None
         self._query_failing = None
         self._resolve_after_minutes = None
+        self._secure_metric_details = None
         self._severity = None
         self._severity_list = None
         self._snoozed = None
@@ -331,6 +334,8 @@ class Alert(object):
             self.query_failing = query_failing
         if resolve_after_minutes is not None:
             self.resolve_after_minutes = resolve_after_minutes
+        if secure_metric_details is not None:
+            self.secure_metric_details = secure_metric_details
         if severity is not None:
             self.severity = severity
         if severity_list is not None:
@@ -1474,6 +1479,29 @@ class Alert(object):
         """
 
         self._resolve_after_minutes = resolve_after_minutes
+
+    @property
+    def secure_metric_details(self):
+        """Gets the secure_metric_details of this Alert.  # noqa: E501
+
+        Whether to secure sensitive metric details and alert images in alert notifications, to not break Metrics Security.  # noqa: E501
+
+        :return: The secure_metric_details of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._secure_metric_details
+
+    @secure_metric_details.setter
+    def secure_metric_details(self, secure_metric_details):
+        """Sets the secure_metric_details of this Alert.
+
+        Whether to secure sensitive metric details and alert images in alert notifications, to not break Metrics Security.  # noqa: E501
+
+        :param secure_metric_details: The secure_metric_details of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._secure_metric_details = secure_metric_details
 
     @property
     def severity(self):

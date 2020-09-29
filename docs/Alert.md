@@ -52,6 +52,7 @@ Name | Type | Description | Notes
 **process_rate_minutes** | **int** | The interval between checks for this alert, in minutes.  Defaults to 1 minute | [optional] 
 **query_failing** | **bool** | Whether there was an exception when the alert condition last ran | [optional] 
 **resolve_after_minutes** | **int** | The number of consecutive minutes that a firing series matching the condition query must evaluate to \&quot;false\&quot; (zero value) before the alert resolves.  When unset, this defaults to the same value as \&quot;minutes\&quot; | [optional] 
+**secure_metric_details** | **bool** | Whether to secure sensitive metric details and alert images in alert notifications, to not break Metrics Security. | [optional] 
 **severity** | **str** | Severity of the alert | [optional] 
 **severity_list** | **list[str]** | Alert severity list for multi-threshold type. | [optional] 
 **snoozed** | **int** | The until which time this alert is snoozed (not checked), in epoch millis.  A negative value implies the alert is snoozed indefinitely | [optional] 

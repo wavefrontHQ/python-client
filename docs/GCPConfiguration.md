@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**categories_to_fetch** | **list[str]** | A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATAPROC, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, FIRESTORE, INTERCONNECT, LOADBALANCING, LOGGING, ML, MONITORING, PUBSUB, REDIS, ROUTER, SERVICERUNTIME, SPANNER, STORAGE, TPU, VPN | [optional] 
+**categories_to_fetch** | **list[str]** | A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATAPROC, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, FIRESTORE, INTERCONNECT, KUBERNETES, LOADBALANCING, LOGGING, ML, MONITORING, PUBSUB, REDIS, ROUTER, SERVICERUNTIME, SPANNER, STORAGE, TPU, VPN | [optional] 
 **custom_metric_prefix** | **list[str]** | List of custom metric prefix to fetch the data from | [optional] 
 **disable_delta_counts** | **bool** | Whether to disable the ingestion of counts for GCP delta metrics. Ingestion is enabled by default. | [optional] 
 **disable_histogram_to_metric_conversion** | **bool** | Whether to disable the ingestion of bucket data for GCP distributions. Ingestion is enabled by default. | [optional] 

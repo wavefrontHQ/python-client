@@ -32,6 +32,7 @@ class SourceSearchRequestContainer(object):
     """
     swagger_types = {
         'cursor': 'str',
+        'include_obsolete': 'bool',
         'limit': 'int',
         'query': 'list[SearchQuery]',
         'sort_sources_ascending': 'bool'
@@ -39,15 +40,17 @@ class SourceSearchRequestContainer(object):
 
     attribute_map = {
         'cursor': 'cursor',
+        'include_obsolete': 'includeObsolete',
         'limit': 'limit',
         'query': 'query',
         'sort_sources_ascending': 'sortSourcesAscending'
     }
 
-    def __init__(self, cursor=None, limit=None, query=None, sort_sources_ascending=None):  # noqa: E501
+    def __init__(self, cursor=None, include_obsolete=None, limit=None, query=None, sort_sources_ascending=None):  # noqa: E501
         """SourceSearchRequestContainer - a model defined in Swagger"""  # noqa: E501
 
         self._cursor = None
+        self._include_obsolete = None
         self._limit = None
         self._query = None
         self._sort_sources_ascending = None
@@ -55,6 +58,8 @@ class SourceSearchRequestContainer(object):
 
         if cursor is not None:
             self.cursor = cursor
+        if include_obsolete is not None:
+            self.include_obsolete = include_obsolete
         if limit is not None:
             self.limit = limit
         if query is not None:
@@ -84,6 +89,29 @@ class SourceSearchRequestContainer(object):
         """
 
         self._cursor = cursor
+
+    @property
+    def include_obsolete(self):
+        """Gets the include_obsolete of this SourceSearchRequestContainer.  # noqa: E501
+
+        Whether to fetch obsolete sources.  Default: false  # noqa: E501
+
+        :return: The include_obsolete of this SourceSearchRequestContainer.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_obsolete
+
+    @include_obsolete.setter
+    def include_obsolete(self, include_obsolete):
+        """Sets the include_obsolete of this SourceSearchRequestContainer.
+
+        Whether to fetch obsolete sources.  Default: false  # noqa: E501
+
+        :param include_obsolete: The include_obsolete of this SourceSearchRequestContainer.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_obsolete = include_obsolete
 
     @property
     def limit(self):

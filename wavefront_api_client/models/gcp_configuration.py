@@ -79,7 +79,7 @@ class GCPConfiguration(object):
     def categories_to_fetch(self):
         """Gets the categories_to_fetch of this GCPConfiguration.  # noqa: E501
 
-        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATAPROC, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, FIRESTORE, INTERCONNECT, LOADBALANCING, LOGGING, ML, MONITORING, PUBSUB, REDIS, ROUTER, SERVICERUNTIME, SPANNER, STORAGE, TPU, VPN  # noqa: E501
+        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATAPROC, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, FIRESTORE, INTERCONNECT, KUBERNETES, LOADBALANCING, LOGGING, ML, MONITORING, PUBSUB, REDIS, ROUTER, SERVICERUNTIME, SPANNER, STORAGE, TPU, VPN  # noqa: E501
 
         :return: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
         :rtype: list[str]
@@ -90,12 +90,12 @@ class GCPConfiguration(object):
     def categories_to_fetch(self, categories_to_fetch):
         """Sets the categories_to_fetch of this GCPConfiguration.
 
-        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATAPROC, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, FIRESTORE, INTERCONNECT, LOADBALANCING, LOGGING, ML, MONITORING, PUBSUB, REDIS, ROUTER, SERVICERUNTIME, SPANNER, STORAGE, TPU, VPN  # noqa: E501
+        A list of Google Cloud Platform (GCP) services (such as ComputeEngine, PubSub, etc) from which to pull metrics.  Allowable values are APPENGINE, BIGQUERY, BIGTABLE, CLOUDFUNCTIONS, CLOUDIOT, CLOUDSQL, CLOUDTASKS, COMPUTE, CONTAINER, DATAFLOW, DATAPROC, DATASTORE, FIREBASEDATABASE, FIREBASEHOSTING, FIRESTORE, INTERCONNECT, KUBERNETES, LOADBALANCING, LOGGING, ML, MONITORING, PUBSUB, REDIS, ROUTER, SERVICERUNTIME, SPANNER, STORAGE, TPU, VPN  # noqa: E501
 
         :param categories_to_fetch: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "FIRESTORE", "INTERCONNECT", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "REDIS", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN"]  # noqa: E501
+        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "FIRESTORE", "INTERCONNECT", "KUBERNETES", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "REDIS", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN"]  # noqa: E501
         if not set(categories_to_fetch).issubset(set(allowed_values)):
             raise ValueError(
                 "Invalid values for `categories_to_fetch` [{0}], must be a subset of [{1}]"  # noqa: E501
