@@ -140,7 +140,7 @@ class Chart(object):
         :param anomaly_sample_size: The anomaly_sample_size of this Chart.  # noqa: E501
         :type: str
         """
-        allowed_values = ["2 8 35"]  # noqa: E501
+        allowed_values = ["2", "8", "35"]  # noqa: E501
         if anomaly_sample_size not in allowed_values:
             raise ValueError(
                 "Invalid value for `anomaly_sample_size` ({0}), must be one of {1}"  # noqa: E501
@@ -169,7 +169,7 @@ class Chart(object):
         :param anomaly_severity: The anomaly_severity of this Chart.  # noqa: E501
         :type: str
         """
-        allowed_values = ["low medium high"]  # noqa: E501
+        allowed_values = ["low", "medium", "high"]  # noqa: E501
         if anomaly_severity not in allowed_values:
             raise ValueError(
                 "Invalid value for `anomaly_severity` ({0}), must be one of {1}"  # noqa: E501
@@ -198,7 +198,7 @@ class Chart(object):
         :param anomaly_type: The anomaly_type of this Chart.  # noqa: E501
         :type: str
         """
-        allowed_values = ["both low high"]  # noqa: E501
+        allowed_values = ["both", "low", "high"]  # noqa: E501
         if anomaly_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `anomaly_type` ({0}), must be one of {1}"  # noqa: E501
