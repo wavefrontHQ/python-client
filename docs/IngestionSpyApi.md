@@ -4,11 +4,65 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**spy_on_delta_counters**](IngestionSpyApi.md#spy_on_delta_counters) | **GET** /api/spy/deltas | Gets new delta counters that are added to existing time series.
 [**spy_on_histograms**](IngestionSpyApi.md#spy_on_histograms) | **GET** /api/spy/histograms | Gets new histograms that are added to existing time series.
 [**spy_on_id_creations**](IngestionSpyApi.md#spy_on_id_creations) | **GET** /api/spy/ids | Gets newly allocated IDs that correspond to new metric names, source names, point tags, or span tags. A new ID generally indicates that a new time series has been introduced.
 [**spy_on_points**](IngestionSpyApi.md#spy_on_points) | **GET** /api/spy/points | Gets a sampling of new metric data points that are added to existing time series.
 [**spy_on_spans**](IngestionSpyApi.md#spy_on_spans) | **GET** /api/spy/spans | Gets new spans with existing source names and span tags.
 
+
+# **spy_on_delta_counters**
+> spy_on_delta_counters(counter=counter, host=host, counter_tag_key=counter_tag_key, sampling=sampling)
+
+Gets new delta counters that are added to existing time series.
+
+Try it Out button won't work in this case, as it's a streaming API. Endpoint: https://.wavefront.com/api/spy/deltas.  
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = wavefront_api_client.IngestionSpyApi()
+counter = 'counter_example' # str | List a delta counter only if its name starts with the specified case-sensitive prefix.  E.g., counter=orderShirt matches counters named orderShirt and orderShirts, but not OrderShirts. (optional)
+host = 'host_example' # str | List a delta counter only if the name of its source starts with the specified case-sensitive prefix. (optional)
+counter_tag_key = ['counter_tag_key_example'] # list[str] | List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. counterTagKey=cluster&counterTagKey=shard  put cluster in the first line, put shard in the second line as values (optional)
+sampling = 0.01 # float |  (optional) (default to 0.01)
+
+try:
+    # Gets new delta counters that are added to existing time series.
+    api_instance.spy_on_delta_counters(counter=counter, host=host, counter_tag_key=counter_tag_key, sampling=sampling)
+except ApiException as e:
+    print("Exception when calling IngestionSpyApi->spy_on_delta_counters: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **counter** | **str**| List a delta counter only if its name starts with the specified case-sensitive prefix.  E.g., counter&#x3D;orderShirt matches counters named orderShirt and orderShirts, but not OrderShirts. | [optional] 
+ **host** | **str**| List a delta counter only if the name of its source starts with the specified case-sensitive prefix. | [optional] 
+ **counter_tag_key** | [**list[str]**](str.md)| List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. counterTagKey&#x3D;cluster&amp;counterTagKey&#x3D;shard  put cluster in the first line, put shard in the second line as values | [optional] 
+ **sampling** | **float**|  | [optional] [default to 0.01]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **spy_on_histograms**
 > spy_on_histograms(histogram=histogram, host=host, histogram_tag_key=histogram_tag_key, sampling=sampling)

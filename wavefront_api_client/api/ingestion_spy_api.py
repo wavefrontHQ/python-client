@@ -33,6 +33,110 @@ class IngestionSpyApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def spy_on_delta_counters(self, **kwargs):  # noqa: E501
+        """Gets new delta counters that are added to existing time series.  # noqa: E501
+
+        Try it Out button won't work in this case, as it's a streaming API. Endpoint: https://.wavefront.com/api/spy/deltas.    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.spy_on_delta_counters(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str counter: List a delta counter only if its name starts with the specified case-sensitive prefix.  E.g., counter=orderShirt matches counters named orderShirt and orderShirts, but not OrderShirts.
+        :param str host: List a delta counter only if the name of its source starts with the specified case-sensitive prefix.
+        :param list[str] counter_tag_key: List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. counterTagKey=cluster&counterTagKey=shard  put cluster in the first line, put shard in the second line as values
+        :param float sampling:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.spy_on_delta_counters_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.spy_on_delta_counters_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def spy_on_delta_counters_with_http_info(self, **kwargs):  # noqa: E501
+        """Gets new delta counters that are added to existing time series.  # noqa: E501
+
+        Try it Out button won't work in this case, as it's a streaming API. Endpoint: https://.wavefront.com/api/spy/deltas.    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.spy_on_delta_counters_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str counter: List a delta counter only if its name starts with the specified case-sensitive prefix.  E.g., counter=orderShirt matches counters named orderShirt and orderShirts, but not OrderShirts.
+        :param str host: List a delta counter only if the name of its source starts with the specified case-sensitive prefix.
+        :param list[str] counter_tag_key: List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. counterTagKey=cluster&counterTagKey=shard  put cluster in the first line, put shard in the second line as values
+        :param float sampling:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['counter', 'host', 'counter_tag_key', 'sampling']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method spy_on_delta_counters" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'counter' in params:
+            query_params.append(('counter', params['counter']))  # noqa: E501
+        if 'host' in params:
+            query_params.append(('host', params['host']))  # noqa: E501
+        if 'counter_tag_key' in params:
+            query_params.append(('counterTagKey', params['counter_tag_key']))  # noqa: E501
+            collection_formats['counterTagKey'] = 'multi'  # noqa: E501
+        if 'sampling' in params:
+            query_params.append(('sampling', params['sampling']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/spy/deltas', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def spy_on_histograms(self, **kwargs):  # noqa: E501
         """Gets new histograms that are added to existing time series.  # noqa: E501
 
