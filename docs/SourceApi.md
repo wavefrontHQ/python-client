@@ -205,7 +205,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.SourceApi(wavefront_api_client.ApiClient(configuration))
 cursor = 'cursor_example' # str |  (optional)
-limit = 100 # int |  (optional) (default to 100)
+limit = 100 # int | max limit: 1000 (optional) (default to 100)
 
 try:
     # Get all sources for a customer
@@ -220,7 +220,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cursor** | **str**|  | [optional] 
- **limit** | **int**|  | [optional] [default to 100]
+ **limit** | **int**| max limit: 1000 | [optional] [default to 100]
 
 ### Return type
 

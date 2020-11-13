@@ -32,25 +32,45 @@ class EC2Configuration(object):
     """
     swagger_types = {
         'base_credentials': 'AWSBaseCredentials',
-        'host_name_tags': 'list[str]'
+        'host_name_tags': 'list[str]',
+        'instance_selection_tags_expr': 'str',
+        'metric_filter_regex': 'str',
+        'point_tag_filter_regex': 'str',
+        'volume_selection_tags_expr': 'str'
     }
 
     attribute_map = {
         'base_credentials': 'baseCredentials',
-        'host_name_tags': 'hostNameTags'
+        'host_name_tags': 'hostNameTags',
+        'instance_selection_tags_expr': 'instanceSelectionTagsExpr',
+        'metric_filter_regex': 'metricFilterRegex',
+        'point_tag_filter_regex': 'pointTagFilterRegex',
+        'volume_selection_tags_expr': 'volumeSelectionTagsExpr'
     }
 
-    def __init__(self, base_credentials=None, host_name_tags=None):  # noqa: E501
+    def __init__(self, base_credentials=None, host_name_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, point_tag_filter_regex=None, volume_selection_tags_expr=None):  # noqa: E501
         """EC2Configuration - a model defined in Swagger"""  # noqa: E501
 
         self._base_credentials = None
         self._host_name_tags = None
+        self._instance_selection_tags_expr = None
+        self._metric_filter_regex = None
+        self._point_tag_filter_regex = None
+        self._volume_selection_tags_expr = None
         self.discriminator = None
 
         if base_credentials is not None:
             self.base_credentials = base_credentials
         if host_name_tags is not None:
             self.host_name_tags = host_name_tags
+        if instance_selection_tags_expr is not None:
+            self.instance_selection_tags_expr = instance_selection_tags_expr
+        if metric_filter_regex is not None:
+            self.metric_filter_regex = metric_filter_regex
+        if point_tag_filter_regex is not None:
+            self.point_tag_filter_regex = point_tag_filter_regex
+        if volume_selection_tags_expr is not None:
+            self.volume_selection_tags_expr = volume_selection_tags_expr
 
     @property
     def base_credentials(self):
@@ -95,6 +115,98 @@ class EC2Configuration(object):
         """
 
         self._host_name_tags = host_name_tags
+
+    @property
+    def instance_selection_tags_expr(self):
+        """Gets the instance_selection_tags_expr of this EC2Configuration.  # noqa: E501
+
+        A string expressing the allow list of AWS instance tag-value pairs.  If the instance's AWS tags match this allow list, data about this instance is ingested from EC2 APIs  Multiple entries are OR'ed.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :return: The instance_selection_tags_expr of this EC2Configuration.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_selection_tags_expr
+
+    @instance_selection_tags_expr.setter
+    def instance_selection_tags_expr(self, instance_selection_tags_expr):
+        """Sets the instance_selection_tags_expr of this EC2Configuration.
+
+        A string expressing the allow list of AWS instance tag-value pairs.  If the instance's AWS tags match this allow list, data about this instance is ingested from EC2 APIs  Multiple entries are OR'ed.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :param instance_selection_tags_expr: The instance_selection_tags_expr of this EC2Configuration.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_selection_tags_expr = instance_selection_tags_expr
+
+    @property
+    def metric_filter_regex(self):
+        """Gets the metric_filter_regex of this EC2Configuration.  # noqa: E501
+
+        A regular expression that a metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :return: The metric_filter_regex of this EC2Configuration.  # noqa: E501
+        :rtype: str
+        """
+        return self._metric_filter_regex
+
+    @metric_filter_regex.setter
+    def metric_filter_regex(self, metric_filter_regex):
+        """Sets the metric_filter_regex of this EC2Configuration.
+
+        A regular expression that a metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :param metric_filter_regex: The metric_filter_regex of this EC2Configuration.  # noqa: E501
+        :type: str
+        """
+
+        self._metric_filter_regex = metric_filter_regex
+
+    @property
+    def point_tag_filter_regex(self):
+        """Gets the point_tag_filter_regex of this EC2Configuration.  # noqa: E501
+
+        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :return: The point_tag_filter_regex of this EC2Configuration.  # noqa: E501
+        :rtype: str
+        """
+        return self._point_tag_filter_regex
+
+    @point_tag_filter_regex.setter
+    def point_tag_filter_regex(self, point_tag_filter_regex):
+        """Sets the point_tag_filter_regex of this EC2Configuration.
+
+        A regular expression that AWS tag key name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :param point_tag_filter_regex: The point_tag_filter_regex of this EC2Configuration.  # noqa: E501
+        :type: str
+        """
+
+        self._point_tag_filter_regex = point_tag_filter_regex
+
+    @property
+    def volume_selection_tags_expr(self):
+        """Gets the volume_selection_tags_expr of this EC2Configuration.  # noqa: E501
+
+        A string expressing the allow list of AWS volume tag-value pairs.  If the volume's AWS tags match this allow list, Data about this volume is ingested from EBS APIs.  Multiple entries are OR'ed.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :return: The volume_selection_tags_expr of this EC2Configuration.  # noqa: E501
+        :rtype: str
+        """
+        return self._volume_selection_tags_expr
+
+    @volume_selection_tags_expr.setter
+    def volume_selection_tags_expr(self, volume_selection_tags_expr):
+        """Sets the volume_selection_tags_expr of this EC2Configuration.
+
+        A string expressing the allow list of AWS volume tag-value pairs.  If the volume's AWS tags match this allow list, Data about this volume is ingested from EBS APIs.  Multiple entries are OR'ed.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :param volume_selection_tags_expr: The volume_selection_tags_expr of this EC2Configuration.  # noqa: E501
+        :type: str
+        """
+
+        self._volume_selection_tags_expr = volume_selection_tags_expr
 
     def to_dict(self):
         """Returns the model properties as a dict"""

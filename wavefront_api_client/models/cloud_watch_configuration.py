@@ -33,36 +33,44 @@ class CloudWatchConfiguration(object):
     swagger_types = {
         'base_credentials': 'AWSBaseCredentials',
         'instance_selection_tags': 'dict(str, str)',
+        'instance_selection_tags_expr': 'str',
         'metric_filter_regex': 'str',
         'namespaces': 'list[str]',
         'point_tag_filter_regex': 'str',
-        'volume_selection_tags': 'dict(str, str)'
+        'volume_selection_tags': 'dict(str, str)',
+        'volume_selection_tags_expr': 'str'
     }
 
     attribute_map = {
         'base_credentials': 'baseCredentials',
         'instance_selection_tags': 'instanceSelectionTags',
+        'instance_selection_tags_expr': 'instanceSelectionTagsExpr',
         'metric_filter_regex': 'metricFilterRegex',
         'namespaces': 'namespaces',
         'point_tag_filter_regex': 'pointTagFilterRegex',
-        'volume_selection_tags': 'volumeSelectionTags'
+        'volume_selection_tags': 'volumeSelectionTags',
+        'volume_selection_tags_expr': 'volumeSelectionTagsExpr'
     }
 
-    def __init__(self, base_credentials=None, instance_selection_tags=None, metric_filter_regex=None, namespaces=None, point_tag_filter_regex=None, volume_selection_tags=None):  # noqa: E501
+    def __init__(self, base_credentials=None, instance_selection_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, namespaces=None, point_tag_filter_regex=None, volume_selection_tags=None, volume_selection_tags_expr=None):  # noqa: E501
         """CloudWatchConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._base_credentials = None
         self._instance_selection_tags = None
+        self._instance_selection_tags_expr = None
         self._metric_filter_regex = None
         self._namespaces = None
         self._point_tag_filter_regex = None
         self._volume_selection_tags = None
+        self._volume_selection_tags_expr = None
         self.discriminator = None
 
         if base_credentials is not None:
             self.base_credentials = base_credentials
         if instance_selection_tags is not None:
             self.instance_selection_tags = instance_selection_tags
+        if instance_selection_tags_expr is not None:
+            self.instance_selection_tags_expr = instance_selection_tags_expr
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
         if namespaces is not None:
@@ -71,6 +79,8 @@ class CloudWatchConfiguration(object):
             self.point_tag_filter_regex = point_tag_filter_regex
         if volume_selection_tags is not None:
             self.volume_selection_tags = volume_selection_tags
+        if volume_selection_tags_expr is not None:
+            self.volume_selection_tags_expr = volume_selection_tags_expr
 
     @property
     def base_credentials(self):
@@ -97,7 +107,7 @@ class CloudWatchConfiguration(object):
     def instance_selection_tags(self):
         """Gets the instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
 
-        A string->string map of white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of allow list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this allow list, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :return: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :rtype: dict(str, str)
@@ -108,13 +118,36 @@ class CloudWatchConfiguration(object):
     def instance_selection_tags(self, instance_selection_tags):
         """Sets the instance_selection_tags of this CloudWatchConfiguration.
 
-        A string->string map of white list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this whitelist, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of allow list of AWS instance tag-value pairs (in AWS).  If the instance's AWS tags match this allow list, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :param instance_selection_tags: The instance_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :type: dict(str, str)
         """
 
         self._instance_selection_tags = instance_selection_tags
+
+    @property
+    def instance_selection_tags_expr(self):
+        """Gets the instance_selection_tags_expr of this CloudWatchConfiguration.  # noqa: E501
+
+        A string expressing the allow list of AWS instance tag-value pairs.  If the instance's AWS tags match this allow list, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed and also OR'ed with entries from instanceSelectionTags.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :return: The instance_selection_tags_expr of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_selection_tags_expr
+
+    @instance_selection_tags_expr.setter
+    def instance_selection_tags_expr(self, instance_selection_tags_expr):
+        """Sets the instance_selection_tags_expr of this CloudWatchConfiguration.
+
+        A string expressing the allow list of AWS instance tag-value pairs.  If the instance's AWS tags match this allow list, CloudWatch data about this instance is ingested.  Multiple entries are OR'ed and also OR'ed with entries from instanceSelectionTags.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :param instance_selection_tags_expr: The instance_selection_tags_expr of this CloudWatchConfiguration.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_selection_tags_expr = instance_selection_tags_expr
 
     @property
     def metric_filter_regex(self):
@@ -189,7 +222,7 @@ class CloudWatchConfiguration(object):
     def volume_selection_tags(self):
         """Gets the volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
 
-        A string->string map of white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of allow list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this allow list, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :return: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :rtype: dict(str, str)
@@ -200,13 +233,36 @@ class CloudWatchConfiguration(object):
     def volume_selection_tags(self, volume_selection_tags):
         """Sets the volume_selection_tags of this CloudWatchConfiguration.
 
-        A string->string map of white list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this whitelist, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
+        A string->string map of allow list of AWS volume tag-value pairs (in AWS).  If the volume's AWS tags match this allow list, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed  # noqa: E501
 
         :param volume_selection_tags: The volume_selection_tags of this CloudWatchConfiguration.  # noqa: E501
         :type: dict(str, str)
         """
 
         self._volume_selection_tags = volume_selection_tags
+
+    @property
+    def volume_selection_tags_expr(self):
+        """Gets the volume_selection_tags_expr of this CloudWatchConfiguration.  # noqa: E501
+
+        A string expressing the allow list of AWS volume tag-value pairs.  If the volume's AWS tags match this allow list, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed and also OR'ed with entries from volumeSelectionTags.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :return: The volume_selection_tags_expr of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._volume_selection_tags_expr
+
+    @volume_selection_tags_expr.setter
+    def volume_selection_tags_expr(self, volume_selection_tags_expr):
+        """Sets the volume_selection_tags_expr of this CloudWatchConfiguration.
+
+        A string expressing the allow list of AWS volume tag-value pairs.  If the volume's AWS tags match this allow list, CloudWatch data about this volume is ingested.  Multiple entries are OR'ed and also OR'ed with entries from volumeSelectionTags.  Key-value pairs in the string are separated by commas and in the form k=v.  Example: \"k1=v1, k1=v2, k3=v3\".  # noqa: E501
+
+        :param volume_selection_tags_expr: The volume_selection_tags_expr of this CloudWatchConfiguration.  # noqa: E501
+        :type: str
+        """
+
+        self._volume_selection_tags_expr = volume_selection_tags_expr
 
     def to_dict(self):
         """Returns the model properties as a dict"""

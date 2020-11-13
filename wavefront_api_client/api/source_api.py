@@ -337,7 +337,7 @@ class SourceApi(object):
 
         :param async_req bool
         :param str cursor:
-        :param int limit:
+        :param int limit: max limit: 1000
         :return: ResponseContainerPagedSource
                  If the method is called asynchronously,
                  returns the request thread.
@@ -360,7 +360,7 @@ class SourceApi(object):
 
         :param async_req bool
         :param str cursor:
-        :param int limit:
+        :param int limit: max limit: 1000
         :return: ResponseContainerPagedSource
                  If the method is called asynchronously,
                  returns the request thread.
