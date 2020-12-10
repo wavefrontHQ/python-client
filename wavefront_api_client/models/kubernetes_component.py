@@ -33,7 +33,7 @@ class KubernetesComponent(object):
     swagger_types = {
         'last_updated': 'int',
         'name': 'str',
-        'status': 'dict(str, ComponentStatus)'
+        'status': 'dict(str, KubernetesComponentStatus)'
     }
 
     attribute_map = {
@@ -52,8 +52,7 @@ class KubernetesComponent(object):
 
         if last_updated is not None:
             self.last_updated = last_updated
-        if name is not None:
-            self.name = name
+        self.name = name
         if status is not None:
             self.status = status
 
@@ -61,6 +60,7 @@ class KubernetesComponent(object):
     def last_updated(self):
         """Gets the last_updated of this KubernetesComponent.  # noqa: E501
 
+        Last updated time of the monitored cluster component  # noqa: E501
 
         :return: The last_updated of this KubernetesComponent.  # noqa: E501
         :rtype: int
@@ -71,6 +71,7 @@ class KubernetesComponent(object):
     def last_updated(self, last_updated):
         """Sets the last_updated of this KubernetesComponent.
 
+        Last updated time of the monitored cluster component  # noqa: E501
 
         :param last_updated: The last_updated of this KubernetesComponent.  # noqa: E501
         :type: int
@@ -82,6 +83,7 @@ class KubernetesComponent(object):
     def name(self):
         """Gets the name of this KubernetesComponent.  # noqa: E501
 
+        Name of the monitored cluster component  # noqa: E501
 
         :return: The name of this KubernetesComponent.  # noqa: E501
         :rtype: str
@@ -92,10 +94,13 @@ class KubernetesComponent(object):
     def name(self, name):
         """Sets the name of this KubernetesComponent.
 
+        Name of the monitored cluster component  # noqa: E501
 
         :param name: The name of this KubernetesComponent.  # noqa: E501
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -103,9 +108,10 @@ class KubernetesComponent(object):
     def status(self):
         """Gets the status of this KubernetesComponent.  # noqa: E501
 
+        Status of the monitored cluster component  # noqa: E501
 
         :return: The status of this KubernetesComponent.  # noqa: E501
-        :rtype: dict(str, ComponentStatus)
+        :rtype: dict(str, KubernetesComponentStatus)
         """
         return self._status
 
@@ -113,9 +119,10 @@ class KubernetesComponent(object):
     def status(self, status):
         """Sets the status of this KubernetesComponent.
 
+        Status of the monitored cluster component  # noqa: E501
 
         :param status: The status of this KubernetesComponent.  # noqa: E501
-        :type: dict(str, ComponentStatus)
+        :type: dict(str, KubernetesComponentStatus)
         """
 
         self._status = status

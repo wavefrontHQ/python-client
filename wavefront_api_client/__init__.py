@@ -73,7 +73,6 @@ from wavefront_api_client.models.class_loader import ClassLoader
 from wavefront_api_client.models.cloud_integration import CloudIntegration
 from wavefront_api_client.models.cloud_trail_configuration import CloudTrailConfiguration
 from wavefront_api_client.models.cloud_watch_configuration import CloudWatchConfiguration
-from wavefront_api_client.models.component_status import ComponentStatus
 from wavefront_api_client.models.customer_facing_user_object import CustomerFacingUserObject
 from wavefront_api_client.models.dashboard import Dashboard
 from wavefront_api_client.models.dashboard_min import DashboardMin
@@ -107,6 +106,7 @@ from wavefront_api_client.models.integration_metrics import IntegrationMetrics
 from wavefront_api_client.models.integration_status import IntegrationStatus
 from wavefront_api_client.models.json_node import JsonNode
 from wavefront_api_client.models.kubernetes_component import KubernetesComponent
+from wavefront_api_client.models.kubernetes_component_status import KubernetesComponentStatus
 from wavefront_api_client.models.logical_type import LogicalType
 from wavefront_api_client.models.maintenance_window import MaintenanceWindow
 from wavefront_api_client.models.message import Message
