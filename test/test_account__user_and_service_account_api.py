@@ -36,6 +36,13 @@ class TestAccountUserAndServiceAccountApi(unittest.TestCase):
         """
         pass
 
+    def test_add_account_to_roles(self):
+        """Test case for add_account_to_roles
+
+        Adds specific roles to the account (user or service account)  # noqa: E501
+        """
+        pass
+
     def test_add_account_to_user_groups(self):
         """Test case for add_account_to_user_groups
 
@@ -152,6 +159,13 @@ class TestAccountUserAndServiceAccountApi(unittest.TestCase):
         """Test case for invite_user_accounts
 
         Invite user accounts with given user groups and permissions.  # noqa: E501
+        """
+        pass
+
+    def test_remove_account_from_roles(self):
+        """Test case for remove_account_from_roles
+
+        Removes specific roles from the account (user or service account)  # noqa: E501
         """
         pass
 

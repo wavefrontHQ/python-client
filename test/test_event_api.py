@@ -57,6 +57,27 @@ class TestEventApi(unittest.TestCase):
         """
         pass
 
+    def test_get_alert_event_queries_slug(self):
+        """Test case for get_alert_event_queries_slug
+
+        If the specified event is associated with an alert, returns a slug encoding the queries having to do with that alert firing or resolution  # noqa: E501
+        """
+        pass
+
+    def test_get_alert_firing_details(self):
+        """Test case for get_alert_firing_details
+
+        Return details of a particular alert firing, including all the series that fired during the referred alert firing  # noqa: E501
+        """
+        pass
+
+    def test_get_alert_firing_events(self):
+        """Test case for get_alert_firing_events
+
+        Get firings events of an alert within a time range  # noqa: E501
+        """
+        pass
+
     def test_get_all_events_with_time_range(self):
         """Test case for get_all_events_with_time_range
 
@@ -75,6 +96,13 @@ class TestEventApi(unittest.TestCase):
         """Test case for get_event_tags
 
         Get all tags associated with a specific event  # noqa: E501
+        """
+        pass
+
+    def test_get_related_events_with_time_span(self):
+        """Test case for get_related_events_with_time_span
+
+        List all related events for a specific firing event with a time span of one hour  # noqa: E501
         """
         pass
 

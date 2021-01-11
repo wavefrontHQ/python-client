@@ -32,7 +32,7 @@ class TestUserApi(unittest.TestCase):
     def test_add_user_to_user_groups(self):
         """Test case for add_user_to_user_groups
 
-        Adds specific user groups to the user  # noqa: E501
+        Adds specific user groups to the user or service account  # noqa: E501
         """
         pass
 
@@ -46,19 +46,19 @@ class TestUserApi(unittest.TestCase):
     def test_delete_multiple_users(self):
         """Test case for delete_multiple_users
 
-        Deletes multiple users  # noqa: E501
+        Deletes multiple users or service accounts  # noqa: E501
         """
         pass
 
     def test_delete_user(self):
         """Test case for delete_user
 
-        Deletes a user identified by id  # noqa: E501
+        Deletes a user or service account identified by id  # noqa: E501
         """
         pass
 
-    def test_get_all_user(self):
-        """Test case for get_all_user
+    def test_get_all_users(self):
+        """Test case for get_all_users
 
         Get all users  # noqa: E501
         """
@@ -67,21 +67,28 @@ class TestUserApi(unittest.TestCase):
     def test_get_user(self):
         """Test case for get_user
 
-        Retrieves a user by identifier (email addr)  # noqa: E501
+        Retrieves a user by identifier (email address)  # noqa: E501
+        """
+        pass
+
+    def test_get_user_business_functions(self):
+        """Test case for get_user_business_functions
+
+        Returns business functions of a specific user or service account.  # noqa: E501
         """
         pass
 
     def test_grant_permission_to_users(self):
         """Test case for grant_permission_to_users
 
-        Grants a specific user permission to multiple users  # noqa: E501
+        Grants a specific permission to multiple users or service accounts  # noqa: E501
         """
         pass
 
     def test_grant_user_permission(self):
         """Test case for grant_user_permission
 
-        Grants a specific user permission  # noqa: E501
+        Grants a specific permission to user or service account  # noqa: E501
         """
         pass
 
@@ -95,35 +102,35 @@ class TestUserApi(unittest.TestCase):
     def test_remove_user_from_user_groups(self):
         """Test case for remove_user_from_user_groups
 
-        Removes specific user groups from the user  # noqa: E501
+        Removes specific user groups from the user or service account  # noqa: E501
         """
         pass
 
     def test_revoke_permission_from_users(self):
         """Test case for revoke_permission_from_users
 
-        Revokes a specific user permission from multiple users  # noqa: E501
+        Revokes a specific permission from multiple users or service accounts  # noqa: E501
         """
         pass
 
     def test_revoke_user_permission(self):
         """Test case for revoke_user_permission
 
-        Revokes a specific user permission  # noqa: E501
+        Revokes a specific permission from user or service account  # noqa: E501
         """
         pass
 
     def test_update_user(self):
         """Test case for update_user
 
-        Update user with given user groups and permissions.  # noqa: E501
+        Update user with given user groups, permissions and ingestion policy.  # noqa: E501
         """
         pass
 
     def test_validate_users(self):
         """Test case for validate_users
 
-        Returns valid users and invalid identifiers from the given list  # noqa: E501
+        Returns valid users and service accounts, also invalid identifiers from the given list  # noqa: E501
         """
         pass
 

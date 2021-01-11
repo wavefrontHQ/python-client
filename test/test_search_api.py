@@ -29,6 +29,27 @@ class TestSearchApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_search_account_entities(self):
+        """Test case for search_account_entities
+
+        Search over a customer's accounts  # noqa: E501
+        """
+        pass
+
+    def test_search_account_for_facet(self):
+        """Test case for search_account_for_facet
+
+        Lists the values of a specific facet over the customer's accounts  # noqa: E501
+        """
+        pass
+
+    def test_search_account_for_facets(self):
+        """Test case for search_account_for_facets
+
+        Lists the values of one or more facets over the customer's accounts  # noqa: E501
+        """
+        pass
+
     def test_search_alert_deleted_entities(self):
         """Test case for search_alert_deleted_entities
 
@@ -176,6 +197,27 @@ class TestSearchApi(unittest.TestCase):
         """
         pass
 
+    def test_search_ingestion_policy_entities(self):
+        """Test case for search_ingestion_policy_entities
+
+        Search over a customer's ingestion policies  # noqa: E501
+        """
+        pass
+
+    def test_search_ingestion_policy_for_facet(self):
+        """Test case for search_ingestion_policy_for_facet
+
+        Lists the values of a specific facet over the customer's ingestion policies  # noqa: E501
+        """
+        pass
+
+    def test_search_ingestion_policy_for_facets(self):
+        """Test case for search_ingestion_policy_for_facets
+
+        Lists the values of one or more facets over the customer's ingestion policies  # noqa: E501
+        """
+        pass
+
     def test_search_maintenance_window_entities(self):
         """Test case for search_maintenance_window_entities
 
@@ -194,6 +236,48 @@ class TestSearchApi(unittest.TestCase):
         """Test case for search_maintenance_window_for_facets
 
         Lists the values of one or more facets over the customer's maintenance windows  # noqa: E501
+        """
+        pass
+
+    def test_search_monitored_application_entities(self):
+        """Test case for search_monitored_application_entities
+
+        Search over all the customer's non-deleted monitored applications  # noqa: E501
+        """
+        pass
+
+    def test_search_monitored_application_for_facet(self):
+        """Test case for search_monitored_application_for_facet
+
+        Lists the values of a specific facet over the customer's non-deleted monitored application  # noqa: E501
+        """
+        pass
+
+    def test_search_monitored_application_for_facets(self):
+        """Test case for search_monitored_application_for_facets
+
+        Lists the values of one or more facets over the customer's non-deleted monitored clusters  # noqa: E501
+        """
+        pass
+
+    def test_search_monitored_service_entities(self):
+        """Test case for search_monitored_service_entities
+
+        Search over all the customer's non-deleted monitored services  # noqa: E501
+        """
+        pass
+
+    def test_search_monitored_service_for_facet(self):
+        """Test case for search_monitored_service_for_facet
+
+        Lists the values of a specific facet over the customer's non-deleted monitored application  # noqa: E501
+        """
+        pass
+
+    def test_search_monitored_service_for_facets(self):
+        """Test case for search_monitored_service_for_facets
+
+        Lists the values of one or more facets over the customer's non-deleted monitored clusters  # noqa: E501
         """
         pass
 
@@ -302,6 +386,20 @@ class TestSearchApi(unittest.TestCase):
         """
         pass
 
+    def test_search_related_report_event_anomaly_entities(self):
+        """Test case for search_related_report_event_anomaly_entities
+
+        List the related events and anomalies over a firing event  # noqa: E501
+        """
+        pass
+
+    def test_search_related_report_event_entities(self):
+        """Test case for search_related_report_event_entities
+
+        List the related events over a firing event  # noqa: E501
+        """
+        pass
+
     def test_search_report_event_entities(self):
         """Test case for search_report_event_entities
 
@@ -320,6 +418,48 @@ class TestSearchApi(unittest.TestCase):
         """Test case for search_report_event_for_facets
 
         Lists the values of one or more facets over the customer's events  # noqa: E501
+        """
+        pass
+
+    def test_search_role_entities(self):
+        """Test case for search_role_entities
+
+        Search over a customer's roles  # noqa: E501
+        """
+        pass
+
+    def test_search_role_for_facet(self):
+        """Test case for search_role_for_facet
+
+        Lists the values of a specific facet over the customer's roles  # noqa: E501
+        """
+        pass
+
+    def test_search_role_for_facets(self):
+        """Test case for search_role_for_facets
+
+        Lists the values of one or more facets over the customer's roles  # noqa: E501
+        """
+        pass
+
+    def test_search_service_account_entities(self):
+        """Test case for search_service_account_entities
+
+        Search over a customer's service accounts  # noqa: E501
+        """
+        pass
+
+    def test_search_service_account_for_facet(self):
+        """Test case for search_service_account_for_facet
+
+        Lists the values of a specific facet over the customer's service accounts  # noqa: E501
+        """
+        pass
+
+    def test_search_service_account_for_facets(self):
+        """Test case for search_service_account_for_facets
+
+        Lists the values of one or more facets over the customer's service accounts  # noqa: E501
         """
         pass
 

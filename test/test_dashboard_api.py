@@ -29,8 +29,8 @@ class TestDashboardApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_add_access(self):
-        """Test case for add_access
+    def test_add_dashboard_access(self):
+        """Test case for add_dashboard_access
 
         Adds the specified ids to the given dashboards' ACL  # noqa: E501
         """
@@ -64,13 +64,6 @@ class TestDashboardApi(unittest.TestCase):
         """
         pass
 
-    def test_get_access_control_list(self):
-        """Test case for get_access_control_list
-
-        Get list of Access Control Lists for the specified dashboards  # noqa: E501
-        """
-        pass
-
     def test_get_all_dashboard(self):
         """Test case for get_all_dashboard
 
@@ -82,6 +75,13 @@ class TestDashboardApi(unittest.TestCase):
         """Test case for get_dashboard
 
         Get a specific dashboard  # noqa: E501
+        """
+        pass
+
+    def test_get_dashboard_access_control_list(self):
+        """Test case for get_dashboard_access_control_list
+
+        Get list of Access Control Lists for the specified dashboards  # noqa: E501
         """
         pass
 
@@ -106,8 +106,8 @@ class TestDashboardApi(unittest.TestCase):
         """
         pass
 
-    def test_remove_access(self):
-        """Test case for remove_access
+    def test_remove_dashboard_access(self):
+        """Test case for remove_dashboard_access
 
         Removes the specified ids from the given dashboards' ACL  # noqa: E501
         """
@@ -120,8 +120,8 @@ class TestDashboardApi(unittest.TestCase):
         """
         pass
 
-    def test_set_acl(self):
-        """Test case for set_acl
+    def test_set_dashboard_acl(self):
+        """Test case for set_dashboard_acl
 
         Set ACL for the specified dashboards  # noqa: E501
         """

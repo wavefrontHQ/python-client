@@ -29,10 +29,24 @@ class TestAlertApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_add_alert_access(self):
+        """Test case for add_alert_access
+
+        Adds the specified ids to the given alerts' ACL  # noqa: E501
+        """
+        pass
+
     def test_add_alert_tag(self):
         """Test case for add_alert_tag
 
         Add a tag to a specific alert  # noqa: E501
+        """
+        pass
+
+    def test_clone_alert(self):
+        """Test case for clone_alert
+
+        Clones the specified alert  # noqa: E501
         """
         pass
 
@@ -54,6 +68,13 @@ class TestAlertApi(unittest.TestCase):
         """Test case for get_alert
 
         Get a specific alert  # noqa: E501
+        """
+        pass
+
+    def test_get_alert_access_control_list(self):
+        """Test case for get_alert_access_control_list
+
+        Get Access Control Lists' union for the specified alerts  # noqa: E501
         """
         pass
 
@@ -99,10 +120,24 @@ class TestAlertApi(unittest.TestCase):
         """
         pass
 
+    def test_remove_alert_access(self):
+        """Test case for remove_alert_access
+
+        Removes the specified ids from the given alerts' ACL  # noqa: E501
+        """
+        pass
+
     def test_remove_alert_tag(self):
         """Test case for remove_alert_tag
 
         Remove a tag from a specific alert  # noqa: E501
+        """
+        pass
+
+    def test_set_alert_acl(self):
+        """Test case for set_alert_acl
+
+        Set ACL for the specified alerts  # noqa: E501
         """
         pass
 

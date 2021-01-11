@@ -29,10 +29,24 @@ class TestCloudIntegrationApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_aws_external_id(self):
+        """Test case for create_aws_external_id
+
+        Create an external id  # noqa: E501
+        """
+        pass
+
     def test_create_cloud_integration(self):
         """Test case for create_cloud_integration
 
         Create a cloud integration  # noqa: E501
+        """
+        pass
+
+    def test_delete_aws_external_id(self):
+        """Test case for delete_aws_external_id
+
+        DELETEs an external id that was created by Wavefront  # noqa: E501
         """
         pass
 
@@ -61,6 +75,13 @@ class TestCloudIntegrationApi(unittest.TestCase):
         """Test case for get_all_cloud_integration
 
         Get all cloud integrations for a customer  # noqa: E501
+        """
+        pass
+
+    def test_get_aws_external_id(self):
+        """Test case for get_aws_external_id
+
+        GETs (confirms) a valid external id that was created by Wavefront  # noqa: E501
         """
         pass
 

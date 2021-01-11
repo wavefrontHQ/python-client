@@ -43,17 +43,17 @@ class TestAnomalyApi(unittest.TestCase):
         """
         pass
 
-    def test_get_chart_anomalies(self):
-        """Test case for get_chart_anomalies
+    def test_get_chart_anomalies_for_chart(self):
+        """Test case for get_chart_anomalies_for_chart
 
-        Get all anomalies for a dashboard that does not have any dashboard parameters during a time interval  # noqa: E501
+        Get all anomalies for a chart during a time interval  # noqa: E501
         """
         pass
 
-    def test_get_chart_anomalies_0(self):
-        """Test case for get_chart_anomalies_0
+    def test_get_chart_anomalies_of_one_dashboard(self):
+        """Test case for get_chart_anomalies_of_one_dashboard
 
-        Get all anomalies for a chart during a time interval  # noqa: E501
+        Get all anomalies for a dashboard that does not have any dashboard parameters during a time interval  # noqa: E501
         """
         pass
 

@@ -29,6 +29,13 @@ class TestIngestionSpyApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_spy_on_delta_counters(self):
+        """Test case for spy_on_delta_counters
+
+        Gets new delta counters that are added to existing time series.  # noqa: E501
+        """
+        pass
+
     def test_spy_on_histograms(self):
         """Test case for spy_on_histograms
 

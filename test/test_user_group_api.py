@@ -29,6 +29,13 @@ class TestUserGroupApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_add_roles_to_user_group(self):
+        """Test case for add_roles_to_user_group
+
+        Add multiple roles to a specific user group  # noqa: E501
+        """
+        pass
+
     def test_add_users_to_user_group(self):
         """Test case for add_users_to_user_group
 
@@ -64,10 +71,10 @@ class TestUserGroupApi(unittest.TestCase):
         """
         pass
 
-    def test_grant_permission_to_user_groups(self):
-        """Test case for grant_permission_to_user_groups
+    def test_remove_roles_from_user_group(self):
+        """Test case for remove_roles_from_user_group
 
-        Grants a single permission to user group(s)  # noqa: E501
+        Remove multiple roles from a specific user group  # noqa: E501
         """
         pass
 
@@ -75,13 +82,6 @@ class TestUserGroupApi(unittest.TestCase):
         """Test case for remove_users_from_user_group
 
         Remove multiple users from a specific user group  # noqa: E501
-        """
-        pass
-
-    def test_revoke_permission_from_user_groups(self):
-        """Test case for revoke_permission_from_user_groups
-
-        Revokes a single permission from user group(s)  # noqa: E501
         """
         pass
 

@@ -43,6 +43,20 @@ class TestApiTokenApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_token_service_account(self):
+        """Test case for delete_token_service_account
+
+        Delete the specified api token of the given service account  # noqa: E501
+        """
+        pass
+
+    def test_generate_token_service_account(self):
+        """Test case for generate_token_service_account
+
+        Create a new api token for the service account  # noqa: E501
+        """
+        pass
+
     def test_get_all_tokens(self):
         """Test case for get_all_tokens
 
@@ -50,10 +64,24 @@ class TestApiTokenApi(unittest.TestCase):
         """
         pass
 
+    def test_get_tokens_service_account(self):
+        """Test case for get_tokens_service_account
+
+        Get all api tokens for the given service account  # noqa: E501
+        """
+        pass
+
     def test_update_token_name(self):
         """Test case for update_token_name
 
         Update the name of the specified api token  # noqa: E501
+        """
+        pass
+
+    def test_update_token_name_service_account(self):
+        """Test case for update_token_name_service_account
+
+        Update the name of the specified api token for the given service account  # noqa: E501
         """
         pass
 
