@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **display_expression** | **str** | A second query whose results are displayed in the alert user interface instead of the condition query. This field is often used to display a version of the condition query with Boolean operators removed so that numerical values are plotted | [optional] 
 **display_expression_qb_enabled** | **bool** | Whether the display expression query was created using the Query Builder. Default false | [optional] 
 **display_expression_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the display expression query.  Applicable only when displayExpressionQBEnabled is true | [optional] 
+**enable_pd_incident_by_series** | **bool** |  | [optional] 
 **evaluate_realtime_data** | **bool** | Whether to alert on the real-time ingestion stream (may be noisy due to late data) | [optional] 
 **event** | [**Event**](Event.md) |  | [optional] 
 **failing_host_label_pair_links** | **list[str]** | List of links to tracing applications that caused a failing series | [optional] 
