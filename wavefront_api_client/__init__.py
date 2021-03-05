@@ -16,9 +16,9 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
+from wavefront_api_client.api.access_policy_api import AccessPolicyApi
 from wavefront_api_client.api.account__user_and_service_account_api import AccountUserAndServiceAccountApi
 from wavefront_api_client.api.alert_api import AlertApi
-from wavefront_api_client.api.anomaly_api import AnomalyApi
 from wavefront_api_client.api.api_token_api import ApiTokenApi
 from wavefront_api_client.api.cloud_integration_api import CloudIntegrationApi
 from wavefront_api_client.api.dashboard_api import DashboardApi
@@ -55,6 +55,8 @@ from wavefront_api_client.models.access_control_element import AccessControlElem
 from wavefront_api_client.models.access_control_list_read_dto import AccessControlListReadDTO
 from wavefront_api_client.models.access_control_list_simple import AccessControlListSimple
 from wavefront_api_client.models.access_control_list_write_dto import AccessControlListWriteDTO
+from wavefront_api_client.models.access_policy import AccessPolicy
+from wavefront_api_client.models.access_policy_rule_dto import AccessPolicyRuleDTO
 from wavefront_api_client.models.account import Account
 from wavefront_api_client.models.alert import Alert
 from wavefront_api_client.models.alert_min import AlertMin
@@ -165,6 +167,8 @@ from wavefront_api_client.models.related_event import RelatedEvent
 from wavefront_api_client.models.related_event_time_range import RelatedEventTimeRange
 from wavefront_api_client.models.report_event_anomaly_dto import ReportEventAnomalyDTO
 from wavefront_api_client.models.response_container import ResponseContainer
+from wavefront_api_client.models.response_container_access_policy import ResponseContainerAccessPolicy
+from wavefront_api_client.models.response_container_access_policy_action import ResponseContainerAccessPolicyAction
 from wavefront_api_client.models.response_container_account import ResponseContainerAccount
 from wavefront_api_client.models.response_container_alert import ResponseContainerAlert
 from wavefront_api_client.models.response_container_cloud_integration import ResponseContainerCloudIntegration

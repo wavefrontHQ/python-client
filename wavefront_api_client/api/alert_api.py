@@ -139,7 +139,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param str tag_value: (required)
+        :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
         :return: ResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
@@ -162,7 +162,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param str tag_value: (required)
+        :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
         :return: ResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
@@ -352,7 +352,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre>
+        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -374,7 +374,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre>
+        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1407,7 +1407,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param str tag_value: (required)
+        :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
         :return: ResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1430,7 +1430,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param str tag_value: (required)
+        :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
         :return: ResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1605,7 +1605,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body:
+        :param list[str] body: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1628,7 +1628,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body:
+        :param list[str] body: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainer
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2092,7 +2092,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
+        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2115,7 +2115,7 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param Alert body: Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre>
+        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.

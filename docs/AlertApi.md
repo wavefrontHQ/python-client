@@ -105,7 +105,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-tag_value = 'tag_value_example' # str | 
+tag_value = 'tag_value_example' # str | Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
 
 try:
     # Add a tag to a specific alert
@@ -120,7 +120,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **tag_value** | **str**|  | 
+ **tag_value** | **str**| Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | 
 
 ### Return type
 
@@ -218,7 +218,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.Alert() # Alert | Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> (optional)
+body = wavefront_api_client.Alert() # Alert | Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (optional)
 
 try:
     # Create a specific alert
@@ -232,7 +232,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Alert**](Alert.md)| Example Classic Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;success@simulator.amazonses.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; Example Threshold Body:  &lt;pre&gt;{     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,     \&quot;conditions\&quot;: {         \&quot;info\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 0\&quot;,         \&quot;warn\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 2\&quot;     },     \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,     \&quot;minutes\&quot;: 5,     \&quot;additionalInformation\&quot;: \&quot;conditions value entry needs to be of the form: displayExpression operator threshold\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**Alert**](Alert.md)| Example Classic Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;success@simulator.amazonses.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; Example Threshold Body:  &lt;pre&gt;{     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,     \&quot;conditions\&quot;: {         \&quot;info\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 0\&quot;,         \&quot;warn\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 2\&quot;     },     \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,     \&quot;minutes\&quot;: 5,     \&quot;additionalInformation\&quot;: \&quot;conditions value entry needs to be of the form: displayExpression operator threshold\&quot; }&lt;/pre&gt; Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | [optional] 
 
 ### Return type
 
@@ -818,7 +818,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-tag_value = 'tag_value_example' # str | 
+tag_value = 'tag_value_example' # str | Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
 
 try:
     # Remove a tag from a specific alert
@@ -833,7 +833,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **tag_value** | **str**|  | 
+ **tag_value** | **str**| Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | 
 
 ### Return type
 
@@ -927,7 +927,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = [wavefront_api_client.list[str]()] # list[str] |  (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (optional)
 
 try:
     # Set all tags associated with a specific alert
@@ -942,7 +942,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | **list[str]**|  | [optional] 
+ **body** | **list[str]**| Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | [optional] 
 
 ### Return type
 
@@ -1201,7 +1201,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.Alert() # Alert | Example Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> (optional)
+body = wavefront_api_client.Alert() # Alert | Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"success@simulator.amazonses.com\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (optional)
 
 try:
     # Update a specific alert
@@ -1216,7 +1216,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**Alert**](Alert.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;success@simulator.amazonses.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; | [optional] 
+ **body** | [**Alert**](Alert.md)| Example Classic Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;success@simulator.amazonses.com\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; Example Threshold Body:  &lt;pre&gt;{     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,     \&quot;conditions\&quot;: {         \&quot;info\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 0\&quot;,         \&quot;warn\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 2\&quot;     },     \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,     \&quot;minutes\&quot;: 5,     \&quot;additionalInformation\&quot;: \&quot;conditions value entry needs to be of the form: displayExpression operator threshold\&quot; }&lt;/pre&gt; Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | [optional] 
 
 ### Return type
 
