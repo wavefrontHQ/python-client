@@ -61,6 +61,7 @@ Name | Type | Description | Notes
 **status** | **list[str]** | Lists the current state of the alert. Can be one or more of: FIRING,SNOOZED, IN_MAINTENANCE, INVALID, NONE, CHECKING, TRASH, NO_DATA | [optional] 
 **system_alert_version** | **int** | If this is a system alert, the version of it | [optional] 
 **system_owned** | **bool** | Whether this alert is system-owned and not writeable | [optional] 
+**tagpaths** | **list[str]** |  | [optional] 
 **tags** | [**WFTags**](WFTags.md) |  | [optional] 
 **target** | **str** | The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes | [optional] 
 **target_endpoints** | **list[str]** |  | [optional] 
