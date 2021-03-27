@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **last_received_data_point_ms** | **int** | Time that this integration last received a data point, in epoch millis | [optional] 
 **name** | **str** | The human-readable name of this integration | 
 **new_relic** | [**NewRelicConfiguration**](NewRelicConfiguration.md) |  | [optional] 
+**reuse_external_id_credential** | **str** |  | [optional] 
 **service** | **str** | A value denoting which cloud service this integration integrates with | 
 **service_refresh_rate_in_mins** | **int** | Service refresh rate in minutes. | [optional] 
 **tesla** | [**TeslaConfiguration**](TeslaConfiguration.md) |  | [optional] 

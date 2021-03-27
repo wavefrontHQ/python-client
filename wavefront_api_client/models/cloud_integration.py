@@ -56,6 +56,7 @@ class CloudIntegration(object):
         'last_received_data_point_ms': 'int',
         'name': 'str',
         'new_relic': 'NewRelicConfiguration',
+        'reuse_external_id_credential': 'str',
         'service': 'str',
         'service_refresh_rate_in_mins': 'int',
         'tesla': 'TeslaConfiguration',
@@ -89,6 +90,7 @@ class CloudIntegration(object):
         'last_received_data_point_ms': 'lastReceivedDataPointMs',
         'name': 'name',
         'new_relic': 'newRelic',
+        'reuse_external_id_credential': 'reuseExternalIdCredential',
         'service': 'service',
         'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
         'tesla': 'tesla',
@@ -96,7 +98,7 @@ class CloudIntegration(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, service=None, service_refresh_rate_in_mins=None, tesla=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, reuse_external_id_credential=None, service=None, service_refresh_rate_in_mins=None, tesla=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._additional_tags = None
@@ -124,6 +126,7 @@ class CloudIntegration(object):
         self._last_received_data_point_ms = None
         self._name = None
         self._new_relic = None
+        self._reuse_external_id_credential = None
         self._service = None
         self._service_refresh_rate_in_mins = None
         self._tesla = None
@@ -180,6 +183,8 @@ class CloudIntegration(object):
         self.name = name
         if new_relic is not None:
             self.new_relic = new_relic
+        if reuse_external_id_credential is not None:
+            self.reuse_external_id_credential = reuse_external_id_credential
         self.service = service
         if service_refresh_rate_in_mins is not None:
             self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
@@ -734,6 +739,27 @@ class CloudIntegration(object):
         """
 
         self._new_relic = new_relic
+
+    @property
+    def reuse_external_id_credential(self):
+        """Gets the reuse_external_id_credential of this CloudIntegration.  # noqa: E501
+
+
+        :return: The reuse_external_id_credential of this CloudIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._reuse_external_id_credential
+
+    @reuse_external_id_credential.setter
+    def reuse_external_id_credential(self, reuse_external_id_credential):
+        """Sets the reuse_external_id_credential of this CloudIntegration.
+
+
+        :param reuse_external_id_credential: The reuse_external_id_credential of this CloudIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._reuse_external_id_credential = reuse_external_id_credential
 
     @property
     def service(self):
