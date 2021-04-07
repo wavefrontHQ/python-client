@@ -1,4 +1,4 @@
-dist: bionic
+dist: focal
 language: python
 python:
   - "2.7"
@@ -15,11 +15,11 @@ deploy:
   password:
     secure: "FEWc+UJpnhMuTReVgAS2m1sTCUwkoc0zzVNsGOeYpuQ1OZHXBErA34DfkvIvB/5RRQwmR/9bbgNn1P17ThYVRioUZZ9+TiluwSHd/NT2PrAzxMYIXkyPXm6gPIXj4ZaGh5WH/dF6qQ1woc5/K4UoI+cjJW9eKB1WsNAvj/IqRzRL3zRorP/79/yLCBqdkHNv102MbslsjT5ZEhcsU7iOBah+wxFLVim6j6WuGWKLAyXudBHD3GjzK4BUbbPimzIY31VgQuPg47vukiPejmbJhuz/b/q8G7dASDBakTh+jqh4ESIwJOUxSw8EYFOFtKNoB3N+3rQeCj/1QoK+uH0jwSm8I+S3ILT11ulLMmdrJ+qs75XDZHuFBF1vkKLBCeCn6yQiXmL7smppDyArBSIHeT8g0zHyIvujeQXFDlA3zCzrFwCEi32QyksKpPLLpVTji41d9r6O4iD83HxRb+3OBoJefq8R+GRUWamIO4fm24HQNt3P7TJTUAwlBGquYvJE6LnLtZD1u9SyYPLmPZAoZfAVj4hRryRsNr1JwpcQkEOzhbayuEUSVMrcbYl/XIBxaQvmkUwNjPOJv6ztWRKL8aWxU5vCgKKOM0/YSFAkZXy85jZ/vHic7TuyfNPqLmFiVlG0kmrzm5znVGNxVa3eUaY2+yPcODeC8sHwPHhCey0="
   on:
-    python: 3.8
+    python: 3.9
 - provider: pypi
   user: wavefront-cs
   password:
     secure: "FEWc+UJpnhMuTReVgAS2m1sTCUwkoc0zzVNsGOeYpuQ1OZHXBErA34DfkvIvB/5RRQwmR/9bbgNn1P17ThYVRioUZZ9+TiluwSHd/NT2PrAzxMYIXkyPXm6gPIXj4ZaGh5WH/dF6qQ1woc5/K4UoI+cjJW9eKB1WsNAvj/IqRzRL3zRorP/79/yLCBqdkHNv102MbslsjT5ZEhcsU7iOBah+wxFLVim6j6WuGWKLAyXudBHD3GjzK4BUbbPimzIY31VgQuPg47vukiPejmbJhuz/b/q8G7dASDBakTh+jqh4ESIwJOUxSw8EYFOFtKNoB3N+3rQeCj/1QoK+uH0jwSm8I+S3ILT11ulLMmdrJ+qs75XDZHuFBF1vkKLBCeCn6yQiXmL7smppDyArBSIHeT8g0zHyIvujeQXFDlA3zCzrFwCEi32QyksKpPLLpVTji41d9r6O4iD83HxRb+3OBoJefq8R+GRUWamIO4fm24HQNt3P7TJTUAwlBGquYvJE6LnLtZD1u9SyYPLmPZAoZfAVj4hRryRsNr1JwpcQkEOzhbayuEUSVMrcbYl/XIBxaQvmkUwNjPOJv6ztWRKL8aWxU5vCgKKOM0/YSFAkZXy85jZ/vHic7TuyfNPqLmFiVlG0kmrzm5znVGNxVa3eUaY2+yPcODeC8sHwPHhCey0="
   on:
-    python: 3.8
+    python: 3.9
     tags: true
