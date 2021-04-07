@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **alerts_last_day** | **int** |  | [optional] 
 **alerts_last_month** | **int** |  | [optional] 
 **alerts_last_week** | **int** |  | [optional] 
+**application** | **list[str]** | Lists the applications from the failingHostLabelPair of the alert. | [optional] 
 **condition** | **str** | A Wavefront query that is evaluated at regular intervals (default 1m).  The alert fires and notifications are triggered when a data series matching this query evaluates to a non-zero value for a set number of consecutive minutes | 
 **condition_qb_enabled** | **bool** | Whether the condition query was created using the Query Builder.  Default false | [optional] 
 **condition_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true | [optional] 
@@ -54,6 +55,7 @@ Name | Type | Description | Notes
 **query_failing** | **bool** | Whether there was an exception when the alert condition last ran | [optional] 
 **resolve_after_minutes** | **int** | The number of consecutive minutes that a firing series matching the condition query must evaluate to \&quot;false\&quot; (zero value) before the alert resolves.  When unset, this defaults to the same value as \&quot;minutes\&quot; | [optional] 
 **secure_metric_details** | **bool** | Whether to secure sensitive metric details and alert images in alert notifications, to not break Metrics Security. | [optional] 
+**service** | **list[str]** | Lists the services from the failingHostLabelPair of the alert. | [optional] 
 **severity** | **str** | Severity of the alert | [optional] 
 **severity_list** | **list[str]** | Alert severity list for multi-threshold type. | [optional] 
 **snoozed** | **int** | The until which time this alert is snoozed (not checked), in epoch millis.  A negative value implies the alert is snoozed indefinitely | [optional] 

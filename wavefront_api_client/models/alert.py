@@ -38,6 +38,7 @@ class Alert(object):
         'alerts_last_day': 'int',
         'alerts_last_month': 'int',
         'alerts_last_week': 'int',
+        'application': 'list[str]',
         'condition': 'str',
         'condition_qb_enabled': 'bool',
         'condition_qb_serialization': 'str',
@@ -82,6 +83,7 @@ class Alert(object):
         'query_failing': 'bool',
         'resolve_after_minutes': 'int',
         'secure_metric_details': 'bool',
+        'service': 'list[str]',
         'severity': 'str',
         'severity_list': 'list[str]',
         'snoozed': 'int',
@@ -109,6 +111,7 @@ class Alert(object):
         'alerts_last_day': 'alertsLastDay',
         'alerts_last_month': 'alertsLastMonth',
         'alerts_last_week': 'alertsLastWeek',
+        'application': 'application',
         'condition': 'condition',
         'condition_qb_enabled': 'conditionQBEnabled',
         'condition_qb_serialization': 'conditionQBSerialization',
@@ -153,6 +156,7 @@ class Alert(object):
         'query_failing': 'queryFailing',
         'resolve_after_minutes': 'resolveAfterMinutes',
         'secure_metric_details': 'secureMetricDetails',
+        'service': 'service',
         'severity': 'severity',
         'severity_list': 'severityList',
         'snoozed': 'snoozed',
@@ -172,7 +176,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, secure_metric_details=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
@@ -182,6 +186,7 @@ class Alert(object):
         self._alerts_last_day = None
         self._alerts_last_month = None
         self._alerts_last_week = None
+        self._application = None
         self._condition = None
         self._condition_qb_enabled = None
         self._condition_qb_serialization = None
@@ -226,6 +231,7 @@ class Alert(object):
         self._query_failing = None
         self._resolve_after_minutes = None
         self._secure_metric_details = None
+        self._service = None
         self._severity = None
         self._severity_list = None
         self._snoozed = None
@@ -259,6 +265,8 @@ class Alert(object):
             self.alerts_last_month = alerts_last_month
         if alerts_last_week is not None:
             self.alerts_last_week = alerts_last_week
+        if application is not None:
+            self.application = application
         self.condition = condition
         if condition_qb_enabled is not None:
             self.condition_qb_enabled = condition_qb_enabled
@@ -344,6 +352,8 @@ class Alert(object):
             self.resolve_after_minutes = resolve_after_minutes
         if secure_metric_details is not None:
             self.secure_metric_details = secure_metric_details
+        if service is not None:
+            self.service = service
         if severity is not None:
             self.severity = severity
         if severity_list is not None:
@@ -537,6 +547,29 @@ class Alert(object):
         """
 
         self._alerts_last_week = alerts_last_week
+
+    @property
+    def application(self):
+        """Gets the application of this Alert.  # noqa: E501
+
+        Lists the applications from the failingHostLabelPair of the alert.  # noqa: E501
+
+        :return: The application of this Alert.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._application
+
+    @application.setter
+    def application(self, application):
+        """Sets the application of this Alert.
+
+        Lists the applications from the failingHostLabelPair of the alert.  # noqa: E501
+
+        :param application: The application of this Alert.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._application = application
 
     @property
     def condition(self):
@@ -1533,6 +1566,29 @@ class Alert(object):
         """
 
         self._secure_metric_details = secure_metric_details
+
+    @property
+    def service(self):
+        """Gets the service of this Alert.  # noqa: E501
+
+        Lists the services from the failingHostLabelPair of the alert.  # noqa: E501
+
+        :return: The service of this Alert.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._service
+
+    @service.setter
+    def service(self, service):
+        """Sets the service of this Alert.
+
+        Lists the services from the failingHostLabelPair of the alert.  # noqa: E501
+
+        :param service: The service of this Alert.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._service = service
 
     @property
     def severity(self):
