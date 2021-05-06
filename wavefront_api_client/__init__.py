@@ -75,6 +75,7 @@ from wavefront_api_client.models.class_loader import ClassLoader
 from wavefront_api_client.models.cloud_integration import CloudIntegration
 from wavefront_api_client.models.cloud_trail_configuration import CloudTrailConfiguration
 from wavefront_api_client.models.cloud_watch_configuration import CloudWatchConfiguration
+from wavefront_api_client.models.conversion_object import ConversionObject
 from wavefront_api_client.models.customer_facing_user_object import CustomerFacingUserObject
 from wavefront_api_client.models.dashboard import Dashboard
 from wavefront_api_client.models.dashboard_min import DashboardMin
@@ -92,6 +93,7 @@ from wavefront_api_client.models.facet_search_request_container import FacetSear
 from wavefront_api_client.models.facets_response_container import FacetsResponseContainer
 from wavefront_api_client.models.facets_search_request_container import FacetsSearchRequestContainer
 from wavefront_api_client.models.fast_reader_builder import FastReaderBuilder
+from wavefront_api_client.models.field import Field
 from wavefront_api_client.models.gcp_billing_configuration import GCPBillingConfiguration
 from wavefront_api_client.models.gcp_configuration import GCPConfiguration
 from wavefront_api_client.models.history_entry import HistoryEntry
@@ -239,6 +241,7 @@ from wavefront_api_client.models.response_container_validated_users_dto import R
 from wavefront_api_client.models.response_status import ResponseStatus
 from wavefront_api_client.models.role_dto import RoleDTO
 from wavefront_api_client.models.saved_search import SavedSearch
+from wavefront_api_client.models.schema import Schema
 from wavefront_api_client.models.search_query import SearchQuery
 from wavefront_api_client.models.service_account import ServiceAccount
 from wavefront_api_client.models.service_account_write import ServiceAccountWrite
@@ -248,6 +251,7 @@ from wavefront_api_client.models.source import Source
 from wavefront_api_client.models.source_label_pair import SourceLabelPair
 from wavefront_api_client.models.source_search_request_container import SourceSearchRequestContainer
 from wavefront_api_client.models.span import Span
+from wavefront_api_client.models.specific_data import SpecificData
 from wavefront_api_client.models.stats_model_internal_use import StatsModelInternalUse
 from wavefront_api_client.models.stripe import Stripe
 from wavefront_api_client.models.tags_response import TagsResponse
