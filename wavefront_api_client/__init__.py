@@ -64,7 +64,6 @@ from wavefront_api_client.models.alert_route import AlertRoute
 from wavefront_api_client.models.annotation import Annotation
 from wavefront_api_client.models.anomaly import Anomaly
 from wavefront_api_client.models.app_dynamics_configuration import AppDynamicsConfiguration
-from wavefront_api_client.models.avro_backed_standardized_dto import AvroBackedStandardizedDTO
 from wavefront_api_client.models.azure_activity_log_configuration import AzureActivityLogConfiguration
 from wavefront_api_client.models.azure_base_credentials import AzureBaseCredentials
 from wavefront_api_client.models.azure_configuration import AzureConfiguration
@@ -75,6 +74,7 @@ from wavefront_api_client.models.class_loader import ClassLoader
 from wavefront_api_client.models.cloud_integration import CloudIntegration
 from wavefront_api_client.models.cloud_trail_configuration import CloudTrailConfiguration
 from wavefront_api_client.models.cloud_watch_configuration import CloudWatchConfiguration
+from wavefront_api_client.models.conversion import Conversion
 from wavefront_api_client.models.conversion_object import ConversionObject
 from wavefront_api_client.models.customer_facing_user_object import CustomerFacingUserObject
 from wavefront_api_client.models.dashboard import Dashboard
@@ -129,6 +129,7 @@ from wavefront_api_client.models.new_relic_configuration import NewRelicConfigur
 from wavefront_api_client.models.new_relic_metric_filters import NewRelicMetricFilters
 from wavefront_api_client.models.notificant import Notificant
 from wavefront_api_client.models.package import Package
+from wavefront_api_client.models.paged import Paged
 from wavefront_api_client.models.paged_account import PagedAccount
 from wavefront_api_client.models.paged_alert import PagedAlert
 from wavefront_api_client.models.paged_alert_with_stats import PagedAlertWithStats
@@ -162,6 +163,7 @@ from wavefront_api_client.models.policy_rule_write_model import PolicyRuleWriteM
 from wavefront_api_client.models.proxy import Proxy
 from wavefront_api_client.models.query_event import QueryEvent
 from wavefront_api_client.models.query_result import QueryResult
+from wavefront_api_client.models.query_type_dto import QueryTypeDTO
 from wavefront_api_client.models.raw_timeseries import RawTimeseries
 from wavefront_api_client.models.related_anomaly import RelatedAnomaly
 from wavefront_api_client.models.related_data import RelatedData
@@ -227,6 +229,7 @@ from wavefront_api_client.models.response_container_paged_service_account import
 from wavefront_api_client.models.response_container_paged_source import ResponseContainerPagedSource
 from wavefront_api_client.models.response_container_paged_user_group_model import ResponseContainerPagedUserGroupModel
 from wavefront_api_client.models.response_container_proxy import ResponseContainerProxy
+from wavefront_api_client.models.response_container_query_type_dto import ResponseContainerQueryTypeDTO
 from wavefront_api_client.models.response_container_role_dto import ResponseContainerRoleDTO
 from wavefront_api_client.models.response_container_saved_search import ResponseContainerSavedSearch
 from wavefront_api_client.models.response_container_service_account import ResponseContainerServiceAccount

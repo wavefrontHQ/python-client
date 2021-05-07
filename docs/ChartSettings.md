@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **fixed_legend_filter_sort** | **str** | Whether to display \&quot;Top\&quot;- or \&quot;Bottom\&quot;-ranked series in the fixed legend | [optional] 
 **fixed_legend_hide_label** | **bool** | deprecated | [optional] 
 **fixed_legend_position** | **str** | Where the fixed legend should be displayed with respect to the chart | [optional] 
+**fixed_legend_show_metric_name** | **bool** | Whether to display Metric Name fixed legend | [optional] 
+**fixed_legend_show_source_name** | **bool** | Whether to display Source Name fixed legend | [optional] 
 **fixed_legend_use_raw_stats** | **bool** | If true, the legend uses non-summarized stats instead of summarized | [optional] 
 **group_by_source** | **bool** | For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row | [optional] 
 **invert_dynamic_legend_hover_control** | **bool** | Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed) | [optional] 

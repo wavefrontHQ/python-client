@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_alert_access**](AlertApi.md#add_alert_access) | **POST** /api/v2/alert/acl/add | Adds the specified ids to the given alerts&#39; ACL
 [**add_alert_tag**](AlertApi.md#add_alert_tag) | **PUT** /api/v2/alert/{id}/tag/{tagValue} | Add a tag to a specific alert
+[**check_query_type**](AlertApi.md#check_query_type) | **POST** /api/v2/alert/checkQuery | Return the type of provided query.
 [**clone_alert**](AlertApi.md#clone_alert) | **POST** /api/v2/alert/{id}/clone | Clones the specified alert
 [**create_alert**](AlertApi.md#create_alert) | **POST** /api/v2/alert | Create a specific alert
 [**delete_alert**](AlertApi.md#delete_alert) | **DELETE** /api/v2/alert/{id} | Delete a specific alert
@@ -125,6 +126,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainer**](ResponseContainer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **check_query_type**
+> ResponseContainerQueryTypeDTO check_query_type(body=body)
+
+Return the type of provided query.
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.QueryTypeDTO() # QueryTypeDTO |  (optional)
+
+try:
+    # Return the type of provided query.
+    api_response = api_instance.check_query_type(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AlertApi->check_query_type: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**QueryTypeDTO**](QueryTypeDTO.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerQueryTypeDTO**](ResponseContainerQueryTypeDTO.md)
 
 ### Authorization
 

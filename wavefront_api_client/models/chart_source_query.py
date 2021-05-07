@@ -34,6 +34,7 @@ class ChartSourceQuery(object):
         'disabled': 'bool',
         'name': 'str',
         'query': 'str',
+        'query_type': 'str',
         'querybuilder_enabled': 'bool',
         'querybuilder_serialization': 'str',
         'scatter_plot_source': 'str',
@@ -46,6 +47,7 @@ class ChartSourceQuery(object):
         'disabled': 'disabled',
         'name': 'name',
         'query': 'query',
+        'query_type': 'queryType',
         'querybuilder_enabled': 'querybuilderEnabled',
         'querybuilder_serialization': 'querybuilderSerialization',
         'scatter_plot_source': 'scatterPlotSource',
@@ -54,12 +56,13 @@ class ChartSourceQuery(object):
         'source_description': 'sourceDescription'
     }
 
-    def __init__(self, disabled=None, name=None, query=None, querybuilder_enabled=None, querybuilder_serialization=None, scatter_plot_source=None, secondary_axis=None, source_color=None, source_description=None):  # noqa: E501
+    def __init__(self, disabled=None, name=None, query=None, query_type=None, querybuilder_enabled=None, querybuilder_serialization=None, scatter_plot_source=None, secondary_axis=None, source_color=None, source_description=None):  # noqa: E501
         """ChartSourceQuery - a model defined in Swagger"""  # noqa: E501
 
         self._disabled = None
         self._name = None
         self._query = None
+        self._query_type = None
         self._querybuilder_enabled = None
         self._querybuilder_serialization = None
         self._scatter_plot_source = None
@@ -72,6 +75,8 @@ class ChartSourceQuery(object):
             self.disabled = disabled
         self.name = name
         self.query = query
+        if query_type is not None:
+            self.query_type = query_type
         if querybuilder_enabled is not None:
             self.querybuilder_enabled = querybuilder_enabled
         if querybuilder_serialization is not None:
@@ -157,6 +162,35 @@ class ChartSourceQuery(object):
             raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
 
         self._query = query
+
+    @property
+    def query_type(self):
+        """Gets the query_type of this ChartSourceQuery.  # noqa: E501
+
+        Query type of the source  # noqa: E501
+
+        :return: The query_type of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_type
+
+    @query_type.setter
+    def query_type(self, query_type):
+        """Sets the query_type of this ChartSourceQuery.
+
+        Query type of the source  # noqa: E501
+
+        :param query_type: The query_type of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["WQL", "PROMQL", "HYBRID"]  # noqa: E501
+        if query_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `query_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(query_type, allowed_values)
+            )
+
+        self._query_type = query_type
 
     @property
     def querybuilder_enabled(self):

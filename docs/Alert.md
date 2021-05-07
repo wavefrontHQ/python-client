@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **condition** | **str** | A Wavefront query that is evaluated at regular intervals (default 1m).  The alert fires and notifications are triggered when a data series matching this query evaluates to a non-zero value for a set number of consecutive minutes | 
 **condition_qb_enabled** | **bool** | Whether the condition query was created using the Query Builder.  Default false | [optional] 
 **condition_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true | [optional] 
+**condition_query_type** | **str** |  | [optional] 
 **conditions** | **dict(str, str)** | Multi - alert conditions. | [optional] 
 **create_user_id** | **str** |  | [optional] 
 **created** | **int** | When this alert was created, in epoch millis | [optional] 
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **display_expression** | **str** | A second query whose results are displayed in the alert user interface instead of the condition query. This field is often used to display a version of the condition query with Boolean operators removed so that numerical values are plotted | [optional] 
 **display_expression_qb_enabled** | **bool** | Whether the display expression query was created using the Query Builder. Default false | [optional] 
 **display_expression_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the display expression query.  Applicable only when displayExpressionQBEnabled is true | [optional] 
+**display_expression_query_type** | **str** |  | [optional] 
 **enable_pd_incident_by_series** | **bool** |  | [optional] 
 **evaluate_realtime_data** | **bool** | Whether to alert on the real-time ingestion stream (may be noisy due to late data) | [optional] 
 **event** | [**Event**](Event.md) |  | [optional] 

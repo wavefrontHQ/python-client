@@ -47,6 +47,7 @@ class QueryApi(object):
         :param str s: the start time of the query window in epoch milliseconds (required)
         :param str g: the granularity of the points returned (required)
         :param str n: name used to identify the query
+        :param str query_type: the query type of the query
         :param str e: the end time of the query window in epoch milliseconds (null to use now)
         :param str p: the approximate maximum number of points to return (may not limit number of points exactly)
         :param bool i: whether series with only points that are outside of the query window will be returned (defaults to true)
@@ -85,6 +86,7 @@ class QueryApi(object):
         :param str s: the start time of the query window in epoch milliseconds (required)
         :param str g: the granularity of the points returned (required)
         :param str n: name used to identify the query
+        :param str query_type: the query type of the query
         :param str e: the end time of the query window in epoch milliseconds (null to use now)
         :param str p: the approximate maximum number of points to return (may not limit number of points exactly)
         :param bool i: whether series with only points that are outside of the query window will be returned (defaults to true)
@@ -103,7 +105,7 @@ class QueryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['q', 's', 'g', 'n', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'view', 'include_obsolete_metrics', 'sorted', 'cached', 'dimension_tuples', 'use_raw_qk']  # noqa: E501
+        all_params = ['q', 's', 'g', 'n', 'query_type', 'e', 'p', 'i', 'auto_events', 'summarization', 'list_mode', 'strict', 'view', 'include_obsolete_metrics', 'sorted', 'cached', 'dimension_tuples', 'use_raw_qk']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -140,6 +142,8 @@ class QueryApi(object):
             query_params.append(('n', params['n']))  # noqa: E501
         if 'q' in params:
             query_params.append(('q', params['q']))  # noqa: E501
+        if 'query_type' in params:
+            query_params.append(('queryType', params['query_type']))  # noqa: E501
         if 's' in params:
             query_params.append(('s', params['s']))  # noqa: E501
         if 'e' in params:

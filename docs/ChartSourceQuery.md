@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **disabled** | **bool** | Whether the source is disabled | [optional] 
 **name** | **str** | Name of the source | 
 **query** | **str** | Query expression to plot on the chart | 
+**query_type** | **str** | Query type of the source | [optional] 
 **querybuilder_enabled** | **bool** | Whether or not this source line should have the query builder enabled | [optional] 
 **querybuilder_serialization** | **str** | Opaque representation of the querybuilder | [optional] 
 **scatter_plot_source** | **str** | For scatter plots, does this query source the X-axis or the Y-axis | [optional] 

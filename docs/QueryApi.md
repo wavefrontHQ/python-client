@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **query_api**
-> QueryResult query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached, dimension_tuples=dimension_tuples, use_raw_qk=use_raw_qk)
+> QueryResult query_api(q, s, g, n=n, query_type=query_type, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached, dimension_tuples=dimension_tuples, use_raw_qk=use_raw_qk)
 
 Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
 
@@ -35,6 +35,7 @@ q = 'q_example' # str | the query expression to execute
 s = 's_example' # str | the start time of the query window in epoch milliseconds
 g = 'g_example' # str | the granularity of the points returned
 n = 'n_example' # str | name used to identify the query (optional)
+query_type = 'HYBRID' # str | the query type of the query (optional) (default to HYBRID)
 e = 'e_example' # str | the end time of the query window in epoch milliseconds (null to use now) (optional)
 p = 'p_example' # str | the approximate maximum number of points to return (may not limit number of points exactly) (optional)
 i = true # bool | whether series with only points that are outside of the query window will be returned (defaults to true) (optional)
@@ -51,7 +52,7 @@ use_raw_qk = false # bool |  (optional) (default to false)
 
 try:
     # Perform a charting query against Wavefront servers that returns the appropriate points in the specified time window and granularity
-    api_response = api_instance.query_api(q, s, g, n=n, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached, dimension_tuples=dimension_tuples, use_raw_qk=use_raw_qk)
+    api_response = api_instance.query_api(q, s, g, n=n, query_type=query_type, e=e, p=p, i=i, auto_events=auto_events, summarization=summarization, list_mode=list_mode, strict=strict, view=view, include_obsolete_metrics=include_obsolete_metrics, sorted=sorted, cached=cached, dimension_tuples=dimension_tuples, use_raw_qk=use_raw_qk)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling QueryApi->query_api: %s\n" % e)
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
  **s** | **str**| the start time of the query window in epoch milliseconds | 
  **g** | **str**| the granularity of the points returned | 
  **n** | **str**| name used to identify the query | [optional] 
+ **query_type** | **str**| the query type of the query | [optional] [default to HYBRID]
  **e** | **str**| the end time of the query window in epoch milliseconds (null to use now) | [optional] 
  **p** | **str**| the approximate maximum number of points to return (may not limit number of points exactly) | [optional] 
  **i** | **bool**| whether series with only points that are outside of the query window will be returned (defaults to true) | [optional] 

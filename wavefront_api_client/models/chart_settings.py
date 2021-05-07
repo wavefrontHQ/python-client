@@ -44,6 +44,8 @@ class ChartSettings(object):
         'fixed_legend_filter_sort': 'str',
         'fixed_legend_hide_label': 'bool',
         'fixed_legend_position': 'str',
+        'fixed_legend_show_metric_name': 'bool',
+        'fixed_legend_show_source_name': 'bool',
         'fixed_legend_use_raw_stats': 'bool',
         'group_by_source': 'bool',
         'invert_dynamic_legend_hover_control': 'bool',
@@ -106,6 +108,8 @@ class ChartSettings(object):
         'fixed_legend_filter_sort': 'fixedLegendFilterSort',
         'fixed_legend_hide_label': 'fixedLegendHideLabel',
         'fixed_legend_position': 'fixedLegendPosition',
+        'fixed_legend_show_metric_name': 'fixedLegendShowMetricName',
+        'fixed_legend_show_source_name': 'fixedLegendShowSourceName',
         'fixed_legend_use_raw_stats': 'fixedLegendUseRawStats',
         'group_by_source': 'groupBySource',
         'invert_dynamic_legend_hover_control': 'invertDynamicLegendHoverControl',
@@ -154,7 +158,7 @@ class ChartSettings(object):
         'ymin': 'ymin'
     }
 
-    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, default_sort_column=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None):  # noqa: E501
+    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, default_sort_column=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_show_metric_name=None, fixed_legend_show_source_name=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
 
         self._auto_column_tags = None
@@ -170,6 +174,8 @@ class ChartSettings(object):
         self._fixed_legend_filter_sort = None
         self._fixed_legend_hide_label = None
         self._fixed_legend_position = None
+        self._fixed_legend_show_metric_name = None
+        self._fixed_legend_show_source_name = None
         self._fixed_legend_use_raw_stats = None
         self._group_by_source = None
         self._invert_dynamic_legend_hover_control = None
@@ -244,6 +250,10 @@ class ChartSettings(object):
             self.fixed_legend_hide_label = fixed_legend_hide_label
         if fixed_legend_position is not None:
             self.fixed_legend_position = fixed_legend_position
+        if fixed_legend_show_metric_name is not None:
+            self.fixed_legend_show_metric_name = fixed_legend_show_metric_name
+        if fixed_legend_show_source_name is not None:
+            self.fixed_legend_show_source_name = fixed_legend_show_source_name
         if fixed_legend_use_raw_stats is not None:
             self.fixed_legend_use_raw_stats = fixed_legend_use_raw_stats
         if group_by_source is not None:
@@ -652,6 +662,52 @@ class ChartSettings(object):
             )
 
         self._fixed_legend_position = fixed_legend_position
+
+    @property
+    def fixed_legend_show_metric_name(self):
+        """Gets the fixed_legend_show_metric_name of this ChartSettings.  # noqa: E501
+
+        Whether to display Metric Name fixed legend  # noqa: E501
+
+        :return: The fixed_legend_show_metric_name of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fixed_legend_show_metric_name
+
+    @fixed_legend_show_metric_name.setter
+    def fixed_legend_show_metric_name(self, fixed_legend_show_metric_name):
+        """Sets the fixed_legend_show_metric_name of this ChartSettings.
+
+        Whether to display Metric Name fixed legend  # noqa: E501
+
+        :param fixed_legend_show_metric_name: The fixed_legend_show_metric_name of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._fixed_legend_show_metric_name = fixed_legend_show_metric_name
+
+    @property
+    def fixed_legend_show_source_name(self):
+        """Gets the fixed_legend_show_source_name of this ChartSettings.  # noqa: E501
+
+        Whether to display Source Name fixed legend  # noqa: E501
+
+        :return: The fixed_legend_show_source_name of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fixed_legend_show_source_name
+
+    @fixed_legend_show_source_name.setter
+    def fixed_legend_show_source_name(self, fixed_legend_show_source_name):
+        """Sets the fixed_legend_show_source_name of this ChartSettings.
+
+        Whether to display Source Name fixed legend  # noqa: E501
+
+        :param fixed_legend_show_source_name: The fixed_legend_show_source_name of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._fixed_legend_show_source_name = fixed_legend_show_source_name
 
     @property
     def fixed_legend_use_raw_stats(self):
