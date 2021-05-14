@@ -5,7 +5,7 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_user_to_user_groups**](UserApi.md#add_user_to_user_groups) | **POST** /api/v2/user/{id}/addUserGroups | Adds specific user groups to the user or service account
-[**create_or_update_user**](UserApi.md#create_or_update_user) | **POST** /api/v2/user | Creates or updates a user
+[**create_user**](UserApi.md#create_user) | **POST** /api/v2/user | Creates an user if the user doesn&#39;t already exist.
 [**delete_multiple_users**](UserApi.md#delete_multiple_users) | **POST** /api/v2/user/deleteUsers | Deletes multiple users or service accounts
 [**delete_user**](UserApi.md#delete_user) | **DELETE** /api/v2/user/{id} | Deletes a user or service account identified by id
 [**get_all_users**](UserApi.md#get_all_users) | **GET** /api/v2/user | Get all users
@@ -77,10 +77,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_or_update_user**
-> UserModel create_or_update_user(send_email=send_email, body=body)
+# **create_user**
+> UserModel create_user(send_email=send_email, body=body)
 
-Creates or updates a user
+Creates an user if the user doesn't already exist.
 
 
 
@@ -104,11 +104,11 @@ send_email = true # bool | Whether to send email notification to the user, if cr
 body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicyId\": \"ingestionPolicyId\",   \"roles\": [     \"Role\"   ] }</pre> (optional)
 
 try:
-    # Creates or updates a user
-    api_response = api_instance.create_or_update_user(send_email=send_email, body=body)
+    # Creates an user if the user doesn't already exist.
+    api_response = api_instance.create_user(send_email=send_email, body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UserApi->create_or_update_user: %s\n" % e)
+    print("Exception when calling UserApi->create_user: %s\n" % e)
 ```
 
 ### Parameters

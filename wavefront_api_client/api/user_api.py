@@ -136,13 +136,13 @@ class UserApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_or_update_user(self, **kwargs):  # noqa: E501
-        """Creates or updates a user  # noqa: E501
+    def create_user(self, **kwargs):  # noqa: E501
+        """Creates an user if the user doesn't already exist.  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_or_update_user(async_req=True)
+        >>> thread = api.create_user(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -154,18 +154,18 @@ class UserApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_or_update_user_with_http_info(**kwargs)  # noqa: E501
+            return self.create_user_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.create_or_update_user_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.create_user_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def create_or_update_user_with_http_info(self, **kwargs):  # noqa: E501
-        """Creates or updates a user  # noqa: E501
+    def create_user_with_http_info(self, **kwargs):  # noqa: E501
+        """Creates an user if the user doesn't already exist.  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_or_update_user_with_http_info(async_req=True)
+        >>> thread = api.create_user_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -187,7 +187,7 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_or_update_user" % key
+                    " to method create_user" % key
                 )
             params[key] = val
         del params['kwargs']
