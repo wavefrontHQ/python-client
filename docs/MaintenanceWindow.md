@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **reason** | **str** | The purpose of this maintenance window | 
 **relevant_customer_tags** | **list[str]** | List of alert tags whose matching alerts will be put into maintenance because of this maintenance window | 
+**relevant_customer_tags_anded** | **bool** | Whether to AND customer tags listed in relevantCustomerTags. If true, a customer must contain all tags in order for the maintenance window to apply.  If false, the tags are OR&#39;ed, and a customer must contain one of the tags. Default: false | [optional] 
 **relevant_host_names** | **list[str]** | List of source/host names that will be put into maintenance because of this maintenance window | [optional] 
 **relevant_host_tags** | **list[str]** | List of source/host tags whose matching sources/hosts will be put into maintenance because of this maintenance window | [optional] 
 **relevant_host_tags_anded** | **bool** | Whether to AND source/host tags listed in relevantHostTags. If true, a source/host must contain all tags in order for the maintenance window to apply.  If false, the tags are OR&#39;ed, and a source/host must contain one of the tags. Default: false | [optional] 

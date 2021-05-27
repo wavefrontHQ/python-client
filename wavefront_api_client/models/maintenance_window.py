@@ -40,6 +40,7 @@ class MaintenanceWindow(object):
         'id': 'str',
         'reason': 'str',
         'relevant_customer_tags': 'list[str]',
+        'relevant_customer_tags_anded': 'bool',
         'relevant_host_names': 'list[str]',
         'relevant_host_tags': 'list[str]',
         'relevant_host_tags_anded': 'bool',
@@ -61,6 +62,7 @@ class MaintenanceWindow(object):
         'id': 'id',
         'reason': 'reason',
         'relevant_customer_tags': 'relevantCustomerTags',
+        'relevant_customer_tags_anded': 'relevantCustomerTagsAnded',
         'relevant_host_names': 'relevantHostNames',
         'relevant_host_tags': 'relevantHostTags',
         'relevant_host_tags_anded': 'relevantHostTagsAnded',
@@ -72,7 +74,7 @@ class MaintenanceWindow(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, created_epoch_millis=None, creator_id=None, customer_id=None, end_time_in_seconds=None, event_name=None, host_tag_group_host_names_group_anded=None, id=None, reason=None, relevant_customer_tags=None, relevant_host_names=None, relevant_host_tags=None, relevant_host_tags_anded=None, running_state=None, sort_attr=None, start_time_in_seconds=None, title=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, customer_id=None, end_time_in_seconds=None, event_name=None, host_tag_group_host_names_group_anded=None, id=None, reason=None, relevant_customer_tags=None, relevant_customer_tags_anded=None, relevant_host_names=None, relevant_host_tags=None, relevant_host_tags_anded=None, running_state=None, sort_attr=None, start_time_in_seconds=None, title=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """MaintenanceWindow - a model defined in Swagger"""  # noqa: E501
 
         self._created_epoch_millis = None
@@ -84,6 +86,7 @@ class MaintenanceWindow(object):
         self._id = None
         self._reason = None
         self._relevant_customer_tags = None
+        self._relevant_customer_tags_anded = None
         self._relevant_host_names = None
         self._relevant_host_tags = None
         self._relevant_host_tags_anded = None
@@ -110,6 +113,8 @@ class MaintenanceWindow(object):
             self.id = id
         self.reason = reason
         self.relevant_customer_tags = relevant_customer_tags
+        if relevant_customer_tags_anded is not None:
+            self.relevant_customer_tags_anded = relevant_customer_tags_anded
         if relevant_host_names is not None:
             self.relevant_host_names = relevant_host_names
         if relevant_host_tags is not None:
@@ -331,6 +336,29 @@ class MaintenanceWindow(object):
             raise ValueError("Invalid value for `relevant_customer_tags`, must not be `None`")  # noqa: E501
 
         self._relevant_customer_tags = relevant_customer_tags
+
+    @property
+    def relevant_customer_tags_anded(self):
+        """Gets the relevant_customer_tags_anded of this MaintenanceWindow.  # noqa: E501
+
+        Whether to AND customer tags listed in relevantCustomerTags. If true, a customer must contain all tags in order for the maintenance window to apply.  If false, the tags are OR'ed, and a customer must contain one of the tags. Default: false  # noqa: E501
+
+        :return: The relevant_customer_tags_anded of this MaintenanceWindow.  # noqa: E501
+        :rtype: bool
+        """
+        return self._relevant_customer_tags_anded
+
+    @relevant_customer_tags_anded.setter
+    def relevant_customer_tags_anded(self, relevant_customer_tags_anded):
+        """Sets the relevant_customer_tags_anded of this MaintenanceWindow.
+
+        Whether to AND customer tags listed in relevantCustomerTags. If true, a customer must contain all tags in order for the maintenance window to apply.  If false, the tags are OR'ed, and a customer must contain one of the tags. Default: false  # noqa: E501
+
+        :param relevant_customer_tags_anded: The relevant_customer_tags_anded of this MaintenanceWindow.  # noqa: E501
+        :type: bool
+        """
+
+        self._relevant_customer_tags_anded = relevant_customer_tags_anded
 
     @property
     def relevant_host_names(self):

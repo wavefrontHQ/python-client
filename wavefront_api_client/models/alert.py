@@ -84,6 +84,7 @@ class Alert(object):
         'process_rate_minutes': 'int',
         'query_failing': 'bool',
         'resolve_after_minutes': 'int',
+        'runbook_links': 'list[str]',
         'secure_metric_details': 'bool',
         'service': 'list[str]',
         'severity': 'str',
@@ -99,6 +100,7 @@ class Alert(object):
         'target_endpoints': 'list[str]',
         'target_info': 'list[TargetInfo]',
         'targets': 'dict(str, str)',
+        'triage_dashboards': 'list[TriageDashboard]',
         'update_user_id': 'str',
         'updated': 'int',
         'updated_epoch_millis': 'int',
@@ -159,6 +161,7 @@ class Alert(object):
         'process_rate_minutes': 'processRateMinutes',
         'query_failing': 'queryFailing',
         'resolve_after_minutes': 'resolveAfterMinutes',
+        'runbook_links': 'runbookLinks',
         'secure_metric_details': 'secureMetricDetails',
         'service': 'service',
         'severity': 'severity',
@@ -174,13 +177,14 @@ class Alert(object):
         'target_endpoints': 'targetEndpoints',
         'target_info': 'targetInfo',
         'targets': 'targets',
+        'triage_dashboards': 'triageDashboards',
         'update_user_id': 'updateUserId',
         'updated': 'updated',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, runbook_links=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, triage_dashboards=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
         self._acl = None
@@ -236,6 +240,7 @@ class Alert(object):
         self._process_rate_minutes = None
         self._query_failing = None
         self._resolve_after_minutes = None
+        self._runbook_links = None
         self._secure_metric_details = None
         self._service = None
         self._severity = None
@@ -251,6 +256,7 @@ class Alert(object):
         self._target_endpoints = None
         self._target_info = None
         self._targets = None
+        self._triage_dashboards = None
         self._update_user_id = None
         self._updated = None
         self._updated_epoch_millis = None
@@ -360,6 +366,8 @@ class Alert(object):
             self.query_failing = query_failing
         if resolve_after_minutes is not None:
             self.resolve_after_minutes = resolve_after_minutes
+        if runbook_links is not None:
+            self.runbook_links = runbook_links
         if secure_metric_details is not None:
             self.secure_metric_details = secure_metric_details
         if service is not None:
@@ -390,6 +398,8 @@ class Alert(object):
             self.target_info = target_info
         if targets is not None:
             self.targets = targets
+        if triage_dashboards is not None:
+            self.triage_dashboards = triage_dashboards
         if update_user_id is not None:
             self.update_user_id = update_user_id
         if updated is not None:
@@ -1609,6 +1619,29 @@ class Alert(object):
         self._resolve_after_minutes = resolve_after_minutes
 
     @property
+    def runbook_links(self):
+        """Gets the runbook_links of this Alert.  # noqa: E501
+
+        User-supplied runbook links for this alert. Useful for linking wiki page or documentation, etc to refer to when alert is triggered  # noqa: E501
+
+        :return: The runbook_links of this Alert.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._runbook_links
+
+    @runbook_links.setter
+    def runbook_links(self, runbook_links):
+        """Sets the runbook_links of this Alert.
+
+        User-supplied runbook links for this alert. Useful for linking wiki page or documentation, etc to refer to when alert is triggered  # noqa: E501
+
+        :param runbook_links: The runbook_links of this Alert.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._runbook_links = runbook_links
+
+    @property
     def secure_metric_details(self):
         """Gets the secure_metric_details of this Alert.  # noqa: E501
 
@@ -1959,6 +1992,29 @@ class Alert(object):
         """
 
         self._targets = targets
+
+    @property
+    def triage_dashboards(self):
+        """Gets the triage_dashboards of this Alert.  # noqa: E501
+
+        User-supplied dashboard and parameters to create dashboard links  # noqa: E501
+
+        :return: The triage_dashboards of this Alert.  # noqa: E501
+        :rtype: list[TriageDashboard]
+        """
+        return self._triage_dashboards
+
+    @triage_dashboards.setter
+    def triage_dashboards(self, triage_dashboards):
+        """Sets the triage_dashboards of this Alert.
+
+        User-supplied dashboard and parameters to create dashboard links  # noqa: E501
+
+        :param triage_dashboards: The triage_dashboards of this Alert.  # noqa: E501
+        :type: list[TriageDashboard]
+        """
+
+        self._triage_dashboards = triage_dashboards
 
     @property
     def update_user_id(self):
