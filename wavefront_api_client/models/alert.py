@@ -1907,7 +1907,7 @@ class Alert(object):
     def target(self):
         """Gets the target of this Alert.  # noqa: E501
 
-        The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes  # noqa: E501
+        The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes. Comma-separated list of targets. Multiple target types can be in the list. Alert target format: ({email}|pd:{pd_key}|target:{alert target ID})  # noqa: E501
 
         :return: The target of this Alert.  # noqa: E501
         :rtype: str
@@ -1918,7 +1918,7 @@ class Alert(object):
     def target(self, target):
         """Sets the target of this Alert.
 
-        The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes  # noqa: E501
+        The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes. Comma-separated list of targets. Multiple target types can be in the list. Alert target format: ({email}|pd:{pd_key}|target:{alert target ID})  # noqa: E501
 
         :param target: The target of this Alert.  # noqa: E501
         :type: str

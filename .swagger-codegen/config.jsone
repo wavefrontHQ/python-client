@@ -3,5 +3,5 @@
     "gitUserId": "wavefrontHQ",
     "packageName": "wavefront_api_client",
     "packageUrl": "https://github.com/wavefrontHQ/python-client",
-    "packageVersion": "2.85.1"
+    "packageVersion": "2.87.2"
 }
