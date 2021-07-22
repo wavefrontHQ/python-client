@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_notificant**
-> ResponseContainerNotificant delete_notificant(id)
+> ResponseContainerNotificant delete_notificant(id, unlink=unlink)
 
 Delete a specific notification target
 
@@ -90,10 +90,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.NotificantApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
+unlink = false # bool |  (optional) (default to false)
 
 try:
     # Delete a specific notification target
-    api_response = api_instance.delete_notificant(id)
+    api_response = api_instance.delete_notificant(id, unlink=unlink)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling NotificantApi->delete_notificant: %s\n" % e)
@@ -104,6 +105,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **unlink** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

@@ -139,6 +139,7 @@ class NotificantApi(object):
 
         :param async_req bool
         :param str id: (required)
+        :param bool unlink:
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
@@ -161,12 +162,13 @@ class NotificantApi(object):
 
         :param async_req bool
         :param str id: (required)
+        :param bool unlink:
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'unlink']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -193,6 +195,8 @@ class NotificantApi(object):
             path_params['id'] = params['id']  # noqa: E501
 
         query_params = []
+        if 'unlink' in params:
+            query_params.append(('unlink', params['unlink']))  # noqa: E501
 
         header_params = {}
 
