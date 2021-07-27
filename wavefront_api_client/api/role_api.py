@@ -89,8 +89,8 @@ class RoleApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_assignees`")  # noqa: E501
 
         collection_formats = {}
@@ -285,8 +285,8 @@ class RoleApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_role`")  # noqa: E501
 
         collection_formats = {}
@@ -483,8 +483,8 @@ class RoleApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_role`")  # noqa: E501
 
         collection_formats = {}
@@ -584,8 +584,8 @@ class RoleApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `grant_permission_to_roles`")  # noqa: E501
 
         collection_formats = {}
@@ -687,8 +687,8 @@ class RoleApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_assignees`")  # noqa: E501
 
         collection_formats = {}
@@ -790,8 +790,8 @@ class RoleApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `revoke_permission_from_roles`")  # noqa: E501
 
         collection_formats = {}
@@ -893,8 +893,8 @@ class RoleApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_role`")  # noqa: E501
 
         collection_formats = {}

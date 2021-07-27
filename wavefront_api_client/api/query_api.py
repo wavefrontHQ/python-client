@@ -121,16 +121,16 @@ class QueryApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'q' is set
-        if ('q' not in params or
-                params['q'] is None):
+        if self.api_client.client_side_validation and ('q' not in params or
+                                                       params['q'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `q` when calling `query_api`")  # noqa: E501
         # verify the required parameter 's' is set
-        if ('s' not in params or
-                params['s'] is None):
+        if self.api_client.client_side_validation and ('s' not in params or
+                                                       params['s'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `s` when calling `query_api`")  # noqa: E501
         # verify the required parameter 'g' is set
-        if ('g' not in params or
-                params['g'] is None):
+        if self.api_client.client_side_validation and ('g' not in params or
+                                                       params['g'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `g` when calling `query_api`")  # noqa: E501
 
         collection_formats = {}
@@ -267,8 +267,8 @@ class QueryApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'metric' is set
-        if ('metric' not in params or
-                params['metric'] is None):
+        if self.api_client.client_side_validation and ('metric' not in params or
+                                                       params['metric'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `metric` when calling `query_raw`")  # noqa: E501
 
         collection_formats = {}

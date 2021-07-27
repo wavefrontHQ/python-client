@@ -96,6 +96,9 @@ class Configuration(object):
         # Safe chars for path_param
         self.safe_chars_for_path_param = ''
 
+        # Disable client side validation
+        self.client_side_validation = True
+
     @classmethod
     def set_default(cls, default):
         cls._default = default
@@ -205,7 +208,7 @@ class Configuration(object):
 
         if self.refresh_api_key_hook:
             self.refresh_api_key_hook(self)
-        
+
         key = self.api_key.get(identifier)
         if key:
             prefix = self.api_key_prefix.get(identifier)
@@ -248,5 +251,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v2\n"\
-               "SDK Package Version: 2.95.1".\
+               "SDK Package Version: 2.95.2".\
                format(env=sys.platform, pyversion=sys.version)

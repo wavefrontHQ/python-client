@@ -178,8 +178,8 @@ class MetricsPolicyApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'version' is set
-        if ('version' not in params or
-                params['version'] is None):
+        if self.api_client.client_side_validation and ('version' not in params or
+                                                       params['version'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `version` when calling `get_metrics_policy_by_version`")  # noqa: E501
 
         collection_formats = {}
@@ -376,8 +376,8 @@ class MetricsPolicyApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'version' is set
-        if ('version' not in params or
-                params['version'] is None):
+        if self.api_client.client_side_validation and ('version' not in params or
+                                                       params['version'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `version` when calling `revert_metrics_policy_by_version`")  # noqa: E501
 
         collection_formats = {}

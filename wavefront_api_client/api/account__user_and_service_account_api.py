@@ -87,8 +87,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `activate_account`")  # noqa: E501
 
         collection_formats = {}
@@ -188,8 +188,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_account_to_roles`")  # noqa: E501
 
         collection_formats = {}
@@ -291,8 +291,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_account_to_user_groups`")  # noqa: E501
 
         collection_formats = {}
@@ -681,8 +681,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `deactivate_account`")  # noqa: E501
 
         collection_formats = {}
@@ -780,8 +780,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_account`")  # noqa: E501
 
         collection_formats = {}
@@ -970,8 +970,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_account`")  # noqa: E501
 
         collection_formats = {}
@@ -1065,8 +1065,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_account_business_functions`")  # noqa: E501
 
         collection_formats = {}
@@ -1429,8 +1429,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_service_account`")  # noqa: E501
 
         collection_formats = {}
@@ -1524,8 +1524,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_user_account`")  # noqa: E501
 
         collection_formats = {}
@@ -1621,12 +1621,12 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `grant_account_permission`")  # noqa: E501
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `grant_account_permission`")  # noqa: E501
 
         collection_formats = {}
@@ -1728,8 +1728,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `grant_permission_to_accounts`")  # noqa: E501
 
         collection_formats = {}
@@ -1926,8 +1926,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_account_from_roles`")  # noqa: E501
 
         collection_formats = {}
@@ -2029,8 +2029,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_account_from_user_groups`")  # noqa: E501
 
         collection_formats = {}
@@ -2227,12 +2227,12 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `revoke_account_permission`")  # noqa: E501
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `revoke_account_permission`")  # noqa: E501
 
         collection_formats = {}
@@ -2334,8 +2334,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `revoke_permission_from_accounts`")  # noqa: E501
 
         collection_formats = {}
@@ -2437,8 +2437,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_service_account`")  # noqa: E501
 
         collection_formats = {}
@@ -2540,8 +2540,8 @@ class AccountUserAndServiceAccountApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_user_account`")  # noqa: E501
 
         collection_formats = {}

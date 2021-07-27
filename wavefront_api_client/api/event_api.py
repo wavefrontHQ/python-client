@@ -89,12 +89,12 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_event_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `add_event_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -194,8 +194,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `close_event`")  # noqa: E501
 
         collection_formats = {}
@@ -384,8 +384,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_event`")  # noqa: E501
 
         collection_formats = {}
@@ -479,8 +479,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_alert_event_queries_slug`")  # noqa: E501
 
         collection_formats = {}
@@ -574,8 +574,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_alert_firing_details`")  # noqa: E501
 
         collection_formats = {}
@@ -677,8 +677,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'alert_id' is set
-        if ('alert_id' not in params or
-                params['alert_id'] is None):
+        if self.api_client.client_side_validation and ('alert_id' not in params or
+                                                       params['alert_id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `alert_id` when calling `get_alert_firing_events`")  # noqa: E501
 
         collection_formats = {}
@@ -883,8 +883,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_event`")  # noqa: E501
 
         collection_formats = {}
@@ -978,8 +978,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_event_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1079,8 +1079,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_related_events_with_time_span`")  # noqa: E501
 
         collection_formats = {}
@@ -1182,12 +1182,12 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_event_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `remove_event_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -1289,8 +1289,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `set_event_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1392,8 +1392,8 @@ class EventApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_event`")  # noqa: E501
 
         collection_formats = {}

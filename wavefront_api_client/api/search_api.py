@@ -184,8 +184,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_account_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -477,8 +477,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_alert_deleted_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -770,8 +770,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_alert_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -1063,8 +1063,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_cloud_integration_deleted_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -1356,8 +1356,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_cloud_integration_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -1649,8 +1649,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_dashboard_deleted_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -1942,8 +1942,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_dashboard_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -2235,8 +2235,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_external_links_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -2528,8 +2528,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_ingestion_policy_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -2821,8 +2821,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_maintenance_window_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -3114,8 +3114,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_monitored_application_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -3407,8 +3407,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_monitored_service_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -3795,8 +3795,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_notificant_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -3993,8 +3993,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_proxy_deleted_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -4286,8 +4286,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_proxy_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -4579,8 +4579,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_registered_query_deleted_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -4872,8 +4872,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_registered_query_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -5070,8 +5070,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'event_id' is set
-        if ('event_id' not in params or
-                params['event_id'] is None):
+        if self.api_client.client_side_validation and ('event_id' not in params or
+                                                       params['event_id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `event_id` when calling `search_related_report_event_anomaly_entities`")  # noqa: E501
 
         collection_formats = {}
@@ -5173,8 +5173,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'event_id' is set
-        if ('event_id' not in params or
-                params['event_id'] is None):
+        if self.api_client.client_side_validation and ('event_id' not in params or
+                                                       params['event_id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `event_id` when calling `search_related_report_event_entities`")  # noqa: E501
 
         collection_formats = {}
@@ -5371,8 +5371,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_report_event_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -5664,8 +5664,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_role_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -5957,8 +5957,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_service_account_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -6250,8 +6250,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_tagged_source_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -6543,8 +6543,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_user_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -6836,8 +6836,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_user_group_for_facet`")  # noqa: E501
 
         collection_formats = {}
@@ -7129,8 +7129,8 @@ class SearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'facet' is set
-        if ('facet' not in params or
-                params['facet'] is None):
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `facet` when calling `search_web_hook_for_facet`")  # noqa: E501
 
         collection_formats = {}

@@ -89,12 +89,12 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_tag_to_derived_metric`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `add_tag_to_derived_metric`")  # noqa: E501
 
         collection_formats = {}
@@ -291,8 +291,8 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_derived_metric`")  # noqa: E501
 
         collection_formats = {}
@@ -483,8 +483,8 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_derived_metric`")  # noqa: E501
 
         collection_formats = {}
@@ -580,12 +580,12 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_derived_metric_by_version`")  # noqa: E501
         # verify the required parameter 'version' is set
-        if ('version' not in params or
-                params['version'] is None):
+        if self.api_client.client_side_validation and ('version' not in params or
+                                                       params['version'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `version` when calling `get_derived_metric_by_version`")  # noqa: E501
 
         collection_formats = {}
@@ -685,8 +685,8 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_derived_metric_history`")  # noqa: E501
 
         collection_formats = {}
@@ -784,8 +784,8 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_derived_metric_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -881,12 +881,12 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_tag_from_derived_metric`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `remove_tag_from_derived_metric`")  # noqa: E501
 
         collection_formats = {}
@@ -984,8 +984,8 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `set_derived_metric_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1085,8 +1085,8 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `undelete_derived_metric`")  # noqa: E501
 
         collection_formats = {}
@@ -1182,8 +1182,8 @@ class DerivedMetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_derived_metric`")  # noqa: E501
 
         collection_formats = {}

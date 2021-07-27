@@ -74,7 +74,8 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/2.95.1/python'
+        self.user_agent = 'Swagger-Codegen/2.95.2/python'
+        self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
         if self._pool is not None:
@@ -533,7 +534,7 @@ class ApiClient(object):
                                  content_disposition).group(1)
             path = os.path.join(os.path.dirname(path), filename)
 
-        with open(path, "wb") as f:
+        with open(path, "w") as f:
             f.write(response.data)
 
         return path

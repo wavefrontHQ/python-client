@@ -174,8 +174,8 @@ class ApiTokenApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_token`")  # noqa: E501
 
         collection_formats = {}
@@ -271,12 +271,12 @@ class ApiTokenApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_token_service_account`")  # noqa: E501
         # verify the required parameter 'token' is set
-        if ('token' not in params or
-                params['token'] is None):
+        if self.api_client.client_side_validation and ('token' not in params or
+                                                       params['token'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `token` when calling `delete_token_service_account`")  # noqa: E501
 
         collection_formats = {}
@@ -374,8 +374,8 @@ class ApiTokenApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `generate_token_service_account`")  # noqa: E501
 
         collection_formats = {}
@@ -558,8 +558,8 @@ class ApiTokenApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_tokens_service_account`")  # noqa: E501
 
         collection_formats = {}
@@ -655,8 +655,8 @@ class ApiTokenApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_token_name`")  # noqa: E501
 
         collection_formats = {}
@@ -760,12 +760,12 @@ class ApiTokenApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_token_name_service_account`")  # noqa: E501
         # verify the required parameter 'token' is set
-        if ('token' not in params or
-                params['token'] is None):
+        if self.api_client.client_side_validation and ('token' not in params or
+                                                       params['token'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `token` when calling `update_token_name_service_account`")  # noqa: E501
 
         collection_formats = {}

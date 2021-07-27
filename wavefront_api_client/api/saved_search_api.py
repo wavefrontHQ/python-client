@@ -182,8 +182,8 @@ class SavedSearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_saved_search`")  # noqa: E501
 
         collection_formats = {}
@@ -281,8 +281,8 @@ class SavedSearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'entitytype' is set
-        if ('entitytype' not in params or
-                params['entitytype'] is None):
+        if self.api_client.client_side_validation and ('entitytype' not in params or
+                                                       params['entitytype'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `entitytype` when calling `get_all_entity_type_saved_searches`")  # noqa: E501
 
         collection_formats = {}
@@ -475,8 +475,8 @@ class SavedSearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_saved_search`")  # noqa: E501
 
         collection_formats = {}
@@ -572,8 +572,8 @@ class SavedSearchApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_saved_search`")  # noqa: E501
 
         collection_formats = {}

@@ -182,8 +182,8 @@ class UsageApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_ingestion_policy`")  # noqa: E501
 
         collection_formats = {}
@@ -279,8 +279,8 @@ class UsageApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'start_time' is set
-        if ('start_time' not in params or
-                params['start_time'] is None):
+        if self.api_client.client_side_validation and ('start_time' not in params or
+                                                       params['start_time'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `start_time` when calling `export_csv`")  # noqa: E501
 
         collection_formats = {}
@@ -471,8 +471,8 @@ class UsageApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_ingestion_policy`")  # noqa: E501
 
         collection_formats = {}
@@ -568,8 +568,8 @@ class UsageApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_ingestion_policy`")  # noqa: E501
 
         collection_formats = {}

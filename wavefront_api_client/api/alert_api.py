@@ -184,12 +184,12 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_alert_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `add_alert_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -388,8 +388,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `clone_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -588,8 +588,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -685,8 +685,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -876,8 +876,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_alert_history`")  # noqa: E501
 
         collection_formats = {}
@@ -975,8 +975,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_alert_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1072,12 +1072,12 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_alert_version`")  # noqa: E501
         # verify the required parameter 'version' is set
-        if ('version' not in params or
-                params['version'] is None):
+        if self.api_client.client_side_validation and ('version' not in params or
+                                                       params['version'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `version` when calling `get_alert_version`")  # noqa: E501
 
         collection_formats = {}
@@ -1355,8 +1355,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `hide_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -1547,12 +1547,12 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_alert_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `remove_alert_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -1745,8 +1745,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `set_alert_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1848,8 +1848,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `snooze_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -1945,8 +1945,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `undelete_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -2040,8 +2040,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `unhide_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -2135,8 +2135,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `unsnooze_alert`")  # noqa: E501
 
         collection_formats = {}
@@ -2232,8 +2232,8 @@ class AlertApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_alert`")  # noqa: E501
 
         collection_formats = {}

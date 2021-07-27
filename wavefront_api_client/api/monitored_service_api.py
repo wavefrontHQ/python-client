@@ -279,12 +279,12 @@ class MonitoredServiceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'application' is set
-        if ('application' not in params or
-                params['application'] is None):
+        if self.api_client.client_side_validation and ('application' not in params or
+                                                       params['application'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `application` when calling `get_service`")  # noqa: E501
         # verify the required parameter 'service' is set
-        if ('service' not in params or
-                params['service'] is None):
+        if self.api_client.client_side_validation and ('service' not in params or
+                                                       params['service'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `service` when calling `get_service`")  # noqa: E501
 
         collection_formats = {}
@@ -384,8 +384,8 @@ class MonitoredServiceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'application' is set
-        if ('application' not in params or
-                params['application'] is None):
+        if self.api_client.client_side_validation and ('application' not in params or
+                                                       params['application'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `application` when calling `get_services_of_application`")  # noqa: E501
 
         collection_formats = {}
@@ -487,12 +487,12 @@ class MonitoredServiceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'application' is set
-        if ('application' not in params or
-                params['application'] is None):
+        if self.api_client.client_side_validation and ('application' not in params or
+                                                       params['application'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `application` when calling `update_service`")  # noqa: E501
         # verify the required parameter 'service' is set
-        if ('service' not in params or
-                params['service'] is None):
+        if self.api_client.client_side_validation and ('service' not in params or
+                                                       params['service'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `service` when calling `update_service`")  # noqa: E501
 
         collection_formats = {}

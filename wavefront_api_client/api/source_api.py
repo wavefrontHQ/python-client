@@ -89,12 +89,12 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_source_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `add_source_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -285,8 +285,8 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_source`")  # noqa: E501
 
         collection_formats = {}
@@ -475,8 +475,8 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_source`")  # noqa: E501
 
         collection_formats = {}
@@ -570,8 +570,8 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_source_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -665,8 +665,8 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_description`")  # noqa: E501
 
         collection_formats = {}
@@ -762,12 +762,12 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_source_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `remove_source_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -869,8 +869,8 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `set_description`")  # noqa: E501
 
         collection_formats = {}
@@ -972,8 +972,8 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `set_source_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1075,8 +1075,8 @@ class SourceApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_source`")  # noqa: E501
 
         collection_formats = {}

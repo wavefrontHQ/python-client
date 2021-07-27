@@ -89,8 +89,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_user_to_user_groups`")  # noqa: E501
 
         collection_formats = {}
@@ -384,8 +384,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_user`")  # noqa: E501
 
         collection_formats = {}
@@ -566,8 +566,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_user`")  # noqa: E501
 
         collection_formats = {}
@@ -661,8 +661,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_user_business_functions`")  # noqa: E501
 
         collection_formats = {}
@@ -758,8 +758,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `grant_permission_to_users`")  # noqa: E501
 
         collection_formats = {}
@@ -861,8 +861,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `grant_user_permission`")  # noqa: E501
 
         collection_formats = {}
@@ -1059,8 +1059,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_user_from_user_groups`")  # noqa: E501
 
         collection_formats = {}
@@ -1162,8 +1162,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'permission' is set
-        if ('permission' not in params or
-                params['permission'] is None):
+        if self.api_client.client_side_validation and ('permission' not in params or
+                                                       params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `revoke_permission_from_users`")  # noqa: E501
 
         collection_formats = {}
@@ -1265,8 +1265,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `revoke_user_permission`")  # noqa: E501
 
         collection_formats = {}
@@ -1368,8 +1368,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_user`")  # noqa: E501
 
         collection_formats = {}

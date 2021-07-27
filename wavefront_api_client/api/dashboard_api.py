@@ -184,12 +184,12 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_dashboard_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `add_dashboard_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -386,8 +386,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `delete_dashboard`")  # noqa: E501
 
         collection_formats = {}
@@ -483,8 +483,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `favorite_dashboard`")  # noqa: E501
 
         collection_formats = {}
@@ -673,8 +673,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_dashboard`")  # noqa: E501
 
         collection_formats = {}
@@ -864,8 +864,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_dashboard_history`")  # noqa: E501
 
         collection_formats = {}
@@ -963,8 +963,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_dashboard_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1060,12 +1060,12 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `get_dashboard_version`")  # noqa: E501
         # verify the required parameter 'version' is set
-        if ('version' not in params or
-                params['version'] is None):
+        if self.api_client.client_side_validation and ('version' not in params or
+                                                       params['version'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `version` when calling `get_dashboard_version`")  # noqa: E501
 
         collection_formats = {}
@@ -1258,12 +1258,12 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_dashboard_tag`")  # noqa: E501
         # verify the required parameter 'tag_value' is set
-        if ('tag_value' not in params or
-                params['tag_value'] is None):
+        if self.api_client.client_side_validation and ('tag_value' not in params or
+                                                       params['tag_value'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `tag_value` when calling `remove_dashboard_tag`")  # noqa: E501
 
         collection_formats = {}
@@ -1456,8 +1456,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `set_dashboard_tags`")  # noqa: E501
 
         collection_formats = {}
@@ -1557,8 +1557,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `undelete_dashboard`")  # noqa: E501
 
         collection_formats = {}
@@ -1652,8 +1652,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `unfavorite_dashboard`")  # noqa: E501
 
         collection_formats = {}
@@ -1749,8 +1749,8 @@ class DashboardApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_dashboard`")  # noqa: E501
 
         collection_formats = {}

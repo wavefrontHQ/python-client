@@ -93,8 +93,8 @@ class MetricApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'm' is set
-        if ('m' not in params or
-                params['m'] is None):
+        if self.api_client.client_side_validation and ('m' not in params or
+                                                       params['m'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `m` when calling `get_metric_details`")  # noqa: E501
 
         collection_formats = {}
