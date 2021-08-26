@@ -40,6 +40,7 @@ class MaintenanceWindow(object):
         'event_name': 'str',
         'host_tag_group_host_names_group_anded': 'bool',
         'id': 'str',
+        'point_tag_filter': 'str',
         'reason': 'str',
         'relevant_customer_tags': 'list[str]',
         'relevant_customer_tags_anded': 'bool',
@@ -49,6 +50,7 @@ class MaintenanceWindow(object):
         'running_state': 'str',
         'sort_attr': 'int',
         'start_time_in_seconds': 'int',
+        'targets': 'list[str]',
         'title': 'str',
         'updated_epoch_millis': 'int',
         'updater_id': 'str'
@@ -62,6 +64,7 @@ class MaintenanceWindow(object):
         'event_name': 'eventName',
         'host_tag_group_host_names_group_anded': 'hostTagGroupHostNamesGroupAnded',
         'id': 'id',
+        'point_tag_filter': 'pointTagFilter',
         'reason': 'reason',
         'relevant_customer_tags': 'relevantCustomerTags',
         'relevant_customer_tags_anded': 'relevantCustomerTagsAnded',
@@ -71,12 +74,13 @@ class MaintenanceWindow(object):
         'running_state': 'runningState',
         'sort_attr': 'sortAttr',
         'start_time_in_seconds': 'startTimeInSeconds',
+        'targets': 'targets',
         'title': 'title',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, created_epoch_millis=None, creator_id=None, customer_id=None, end_time_in_seconds=None, event_name=None, host_tag_group_host_names_group_anded=None, id=None, reason=None, relevant_customer_tags=None, relevant_customer_tags_anded=None, relevant_host_names=None, relevant_host_tags=None, relevant_host_tags_anded=None, running_state=None, sort_attr=None, start_time_in_seconds=None, title=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, customer_id=None, end_time_in_seconds=None, event_name=None, host_tag_group_host_names_group_anded=None, id=None, point_tag_filter=None, reason=None, relevant_customer_tags=None, relevant_customer_tags_anded=None, relevant_host_names=None, relevant_host_tags=None, relevant_host_tags_anded=None, running_state=None, sort_attr=None, start_time_in_seconds=None, targets=None, title=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """MaintenanceWindow - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -89,6 +93,7 @@ class MaintenanceWindow(object):
         self._event_name = None
         self._host_tag_group_host_names_group_anded = None
         self._id = None
+        self._point_tag_filter = None
         self._reason = None
         self._relevant_customer_tags = None
         self._relevant_customer_tags_anded = None
@@ -98,6 +103,7 @@ class MaintenanceWindow(object):
         self._running_state = None
         self._sort_attr = None
         self._start_time_in_seconds = None
+        self._targets = None
         self._title = None
         self._updated_epoch_millis = None
         self._updater_id = None
@@ -116,6 +122,8 @@ class MaintenanceWindow(object):
             self.host_tag_group_host_names_group_anded = host_tag_group_host_names_group_anded
         if id is not None:
             self.id = id
+        if point_tag_filter is not None:
+            self.point_tag_filter = point_tag_filter
         self.reason = reason
         self.relevant_customer_tags = relevant_customer_tags
         if relevant_customer_tags_anded is not None:
@@ -131,6 +139,8 @@ class MaintenanceWindow(object):
         if sort_attr is not None:
             self.sort_attr = sort_attr
         self.start_time_in_seconds = start_time_in_seconds
+        if targets is not None:
+            self.targets = targets
         self.title = title
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
@@ -291,6 +301,29 @@ class MaintenanceWindow(object):
         """
 
         self._id = id
+
+    @property
+    def point_tag_filter(self):
+        """Gets the point_tag_filter of this MaintenanceWindow.  # noqa: E501
+
+        Query that filters on point tags of timeseries scanned by alert.  # noqa: E501
+
+        :return: The point_tag_filter of this MaintenanceWindow.  # noqa: E501
+        :rtype: str
+        """
+        return self._point_tag_filter
+
+    @point_tag_filter.setter
+    def point_tag_filter(self, point_tag_filter):
+        """Sets the point_tag_filter of this MaintenanceWindow.
+
+        Query that filters on point tags of timeseries scanned by alert.  # noqa: E501
+
+        :param point_tag_filter: The point_tag_filter of this MaintenanceWindow.  # noqa: E501
+        :type: str
+        """
+
+        self._point_tag_filter = point_tag_filter
 
     @property
     def reason(self):
@@ -509,6 +542,29 @@ class MaintenanceWindow(object):
             raise ValueError("Invalid value for `start_time_in_seconds`, must not be `None`")  # noqa: E501
 
         self._start_time_in_seconds = start_time_in_seconds
+
+    @property
+    def targets(self):
+        """Gets the targets of this MaintenanceWindow.  # noqa: E501
+
+        List of targets to notify, overriding the alert's targets.  # noqa: E501
+
+        :return: The targets of this MaintenanceWindow.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._targets
+
+    @targets.setter
+    def targets(self, targets):
+        """Sets the targets of this MaintenanceWindow.
+
+        List of targets to notify, overriding the alert's targets.  # noqa: E501
+
+        :param targets: The targets of this MaintenanceWindow.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._targets = targets
 
     @property
     def title(self):
