@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **annotations** | **dict(str, str)** | A string-&gt;string map of additional annotations on the event | 
 **can_close** | **bool** |  | [optional] 
 **can_delete** | **bool** |  | [optional] 
+**computed_hlps** | [**list[SourceLabelPair]**](SourceLabelPair.md) | All the host/label/tags of the event. | [optional] 
 **created_at** | **int** |  | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 
 **creator_id** | **str** |  | [optional] 

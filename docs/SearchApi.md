@@ -66,6 +66,12 @@ Method | HTTP request | Description
 [**search_service_account_entities**](SearchApi.md#search_service_account_entities) | **POST** /api/v2/search/serviceaccount | Search over a customer&#39;s service accounts
 [**search_service_account_for_facet**](SearchApi.md#search_service_account_for_facet) | **POST** /api/v2/search/serviceaccount/{facet} | Lists the values of a specific facet over the customer&#39;s service accounts
 [**search_service_account_for_facets**](SearchApi.md#search_service_account_for_facets) | **POST** /api/v2/search/serviceaccount/facets | Lists the values of one or more facets over the customer&#39;s service accounts
+[**search_span_sampling_policy_deleted_entities**](SearchApi.md#search_span_sampling_policy_deleted_entities) | **POST** /api/v2/search/spansamplingpolicy/deleted | Search over a customer&#39;s deleted span sampling policies
+[**search_span_sampling_policy_deleted_for_facet**](SearchApi.md#search_span_sampling_policy_deleted_for_facet) | **POST** /api/v2/search/spansamplingpolicy/deleted/{facet} | Lists the values of a specific facet over the customer&#39;s deleted span sampling policies
+[**search_span_sampling_policy_deleted_for_facets**](SearchApi.md#search_span_sampling_policy_deleted_for_facets) | **POST** /api/v2/search/spansamplingpolicy/deleted/facets | Lists the values of one or more facets over the customer&#39;s deleted span sampling policies
+[**search_span_sampling_policy_entities**](SearchApi.md#search_span_sampling_policy_entities) | **POST** /api/v2/search/spansamplingpolicy | Search over a customer&#39;s non-deleted span sampling policies
+[**search_span_sampling_policy_for_facet**](SearchApi.md#search_span_sampling_policy_for_facet) | **POST** /api/v2/search/spansamplingpolicy/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted span sampling policies
+[**search_span_sampling_policy_for_facets**](SearchApi.md#search_span_sampling_policy_for_facets) | **POST** /api/v2/search/spansamplingpolicy/facets | Lists the values of one or more facets over the customer&#39;s non-deleted span sampling policies
 [**search_tagged_source_entities**](SearchApi.md#search_tagged_source_entities) | **POST** /api/v2/search/source | Search over a customer&#39;s sources
 [**search_tagged_source_for_facet**](SearchApi.md#search_tagged_source_for_facet) | **POST** /api/v2/search/source/{facet} | Lists the values of a specific facet over the customer&#39;s sources
 [**search_tagged_source_for_facets**](SearchApi.md#search_tagged_source_for_facets) | **POST** /api/v2/search/source/facets | Lists the values of one or more facets over the customer&#39;s sources
@@ -3449,6 +3455,334 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SearchApi->search_service_account_for_facets: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**FacetsSearchRequestContainer**](FacetsSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetsResponseContainer**](ResponseContainerFacetsResponseContainer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_span_sampling_policy_deleted_entities**
+> ResponseContainerPagedSpanSamplingPolicy search_span_sampling_policy_deleted_entities(body=body)
+
+Search over a customer's deleted span sampling policies
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.SortableSearchRequest() # SortableSearchRequest |  (optional)
+
+try:
+    # Search over a customer's deleted span sampling policies
+    api_response = api_instance.search_span_sampling_policy_deleted_entities(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_span_sampling_policy_deleted_entities: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SortableSearchRequest**](SortableSearchRequest.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerPagedSpanSamplingPolicy**](ResponseContainerPagedSpanSamplingPolicy.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_span_sampling_policy_deleted_for_facet**
+> ResponseContainerFacetResponse search_span_sampling_policy_deleted_for_facet(facet, body=body)
+
+Lists the values of a specific facet over the customer's deleted span sampling policies
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+facet = 'facet_example' # str | 
+body = wavefront_api_client.FacetSearchRequestContainer() # FacetSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of a specific facet over the customer's deleted span sampling policies
+    api_response = api_instance.search_span_sampling_policy_deleted_for_facet(facet, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_span_sampling_policy_deleted_for_facet: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **facet** | **str**|  | 
+ **body** | [**FacetSearchRequestContainer**](FacetSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetResponse**](ResponseContainerFacetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_span_sampling_policy_deleted_for_facets**
+> ResponseContainerFacetsResponseContainer search_span_sampling_policy_deleted_for_facets(body=body)
+
+Lists the values of one or more facets over the customer's deleted span sampling policies
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.FacetsSearchRequestContainer() # FacetsSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of one or more facets over the customer's deleted span sampling policies
+    api_response = api_instance.search_span_sampling_policy_deleted_for_facets(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_span_sampling_policy_deleted_for_facets: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**FacetsSearchRequestContainer**](FacetsSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetsResponseContainer**](ResponseContainerFacetsResponseContainer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_span_sampling_policy_entities**
+> ResponseContainerPagedSpanSamplingPolicy search_span_sampling_policy_entities(body=body)
+
+Search over a customer's non-deleted span sampling policies
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.SortableSearchRequest() # SortableSearchRequest |  (optional)
+
+try:
+    # Search over a customer's non-deleted span sampling policies
+    api_response = api_instance.search_span_sampling_policy_entities(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_span_sampling_policy_entities: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SortableSearchRequest**](SortableSearchRequest.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerPagedSpanSamplingPolicy**](ResponseContainerPagedSpanSamplingPolicy.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_span_sampling_policy_for_facet**
+> ResponseContainerFacetResponse search_span_sampling_policy_for_facet(facet, body=body)
+
+Lists the values of a specific facet over the customer's non-deleted span sampling policies
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+facet = 'facet_example' # str | 
+body = wavefront_api_client.FacetSearchRequestContainer() # FacetSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of a specific facet over the customer's non-deleted span sampling policies
+    api_response = api_instance.search_span_sampling_policy_for_facet(facet, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_span_sampling_policy_for_facet: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **facet** | **str**|  | 
+ **body** | [**FacetSearchRequestContainer**](FacetSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetResponse**](ResponseContainerFacetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_span_sampling_policy_for_facets**
+> ResponseContainerFacetsResponseContainer search_span_sampling_policy_for_facets(body=body)
+
+Lists the values of one or more facets over the customer's non-deleted span sampling policies
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.FacetsSearchRequestContainer() # FacetsSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of one or more facets over the customer's non-deleted span sampling policies
+    api_response = api_instance.search_span_sampling_policy_for_facets(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_span_sampling_policy_for_facets: %s\n" % e)
 ```
 
 ### Parameters

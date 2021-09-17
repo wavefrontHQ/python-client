@@ -37,6 +37,7 @@ class Event(object):
         'annotations': 'dict(str, str)',
         'can_close': 'bool',
         'can_delete': 'bool',
+        'computed_hlps': 'list[SourceLabelPair]',
         'created_at': 'int',
         'created_epoch_millis': 'int',
         'creator_id': 'str',
@@ -64,6 +65,7 @@ class Event(object):
         'annotations': 'annotations',
         'can_close': 'canClose',
         'can_delete': 'canDelete',
+        'computed_hlps': 'computedHlps',
         'created_at': 'createdAt',
         'created_epoch_millis': 'createdEpochMillis',
         'creator_id': 'creatorId',
@@ -86,7 +88,7 @@ class Event(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, alert_tags=None, annotations=None, can_close=None, can_delete=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, dimensions=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_tags=None, annotations=None, can_close=None, can_delete=None, computed_hlps=None, created_at=None, created_epoch_millis=None, creator_id=None, creator_type=None, dimensions=None, end_time=None, hosts=None, id=None, is_ephemeral=None, is_user_event=None, metrics_used=None, name=None, running_state=None, start_time=None, summarized_events=None, table=None, tags=None, updated_at=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class Event(object):
         self._annotations = None
         self._can_close = None
         self._can_delete = None
+        self._computed_hlps = None
         self._created_at = None
         self._created_epoch_millis = None
         self._creator_id = None
@@ -125,6 +128,8 @@ class Event(object):
             self.can_close = can_close
         if can_delete is not None:
             self.can_delete = can_delete
+        if computed_hlps is not None:
+            self.computed_hlps = computed_hlps
         if created_at is not None:
             self.created_at = created_at
         if created_epoch_millis is not None:
@@ -253,6 +258,29 @@ class Event(object):
         """
 
         self._can_delete = can_delete
+
+    @property
+    def computed_hlps(self):
+        """Gets the computed_hlps of this Event.  # noqa: E501
+
+        All the host/label/tags of the event.  # noqa: E501
+
+        :return: The computed_hlps of this Event.  # noqa: E501
+        :rtype: list[SourceLabelPair]
+        """
+        return self._computed_hlps
+
+    @computed_hlps.setter
+    def computed_hlps(self, computed_hlps):
+        """Sets the computed_hlps of this Event.
+
+        All the host/label/tags of the event.  # noqa: E501
+
+        :param computed_hlps: The computed_hlps of this Event.  # noqa: E501
+        :type: list[SourceLabelPair]
+        """
+
+        self._computed_hlps = computed_hlps
 
     @property
     def created_at(self):
