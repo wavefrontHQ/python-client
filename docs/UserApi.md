@@ -4,7 +4,7 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_user_to_user_groups**](UserApi.md#add_user_to_user_groups) | **POST** /api/v2/user/{id}/addUserGroups | Adds specific user groups to the user or service account
+[**add_user_to_user_groups**](UserApi.md#add_user_to_user_groups) | **POST** /api/v2/user/{id}/addUserGroups | Adds specific groups to the user or service account
 [**create_user**](UserApi.md#create_user) | **POST** /api/v2/user | Creates an user if the user doesn&#39;t already exist.
 [**delete_multiple_users**](UserApi.md#delete_multiple_users) | **POST** /api/v2/user/deleteUsers | Deletes multiple users or service accounts
 [**delete_user**](UserApi.md#delete_user) | **DELETE** /api/v2/user/{id} | Deletes a user or service account identified by id
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**grant_permission_to_users**](UserApi.md#grant_permission_to_users) | **POST** /api/v2/user/grant/{permission} | Grants a specific permission to multiple users or service accounts
 [**grant_user_permission**](UserApi.md#grant_user_permission) | **POST** /api/v2/user/{id}/grant | Grants a specific permission to user or service account
 [**invite_users**](UserApi.md#invite_users) | **POST** /api/v2/user/invite | Invite users with given user groups and permissions.
-[**remove_user_from_user_groups**](UserApi.md#remove_user_from_user_groups) | **POST** /api/v2/user/{id}/removeUserGroups | Removes specific user groups from the user or service account
+[**remove_user_from_user_groups**](UserApi.md#remove_user_from_user_groups) | **POST** /api/v2/user/{id}/removeUserGroups | Removes specific groups from the user or service account
 [**revoke_permission_from_users**](UserApi.md#revoke_permission_from_users) | **POST** /api/v2/user/revoke/{permission} | Revokes a specific permission from multiple users or service accounts
 [**revoke_user_permission**](UserApi.md#revoke_user_permission) | **POST** /api/v2/user/{id}/revoke | Revokes a specific permission from user or service account
 [**update_user**](UserApi.md#update_user) | **PUT** /api/v2/user/{id} | Update user with given user groups, permissions and ingestion policy.
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 # **add_user_to_user_groups**
 > UserModel add_user_to_user_groups(id, body=body)
 
-Adds specific user groups to the user or service account
+Adds specific groups to the user or service account
 
 
 
@@ -45,10 +45,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be added to the account (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | The list of groups that should be added to the account (optional)
 
 try:
-    # Adds specific user groups to the user or service account
+    # Adds specific groups to the user or service account
     api_response = api_instance.add_user_to_user_groups(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -60,7 +60,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | **list[str]**| The list of user groups that should be added to the account | [optional] 
+ **body** | **list[str]**| The list of groups that should be added to the account | [optional] 
 
 ### Return type
 
@@ -567,7 +567,7 @@ Name | Type | Description  | Notes
 # **remove_user_from_user_groups**
 > UserModel remove_user_from_user_groups(id, body=body)
 
-Removes specific user groups from the user or service account
+Removes specific groups from the user or service account
 
 
 
@@ -588,10 +588,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be removed from the account (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | The list of groups that should be removed from the account (optional)
 
 try:
-    # Removes specific user groups from the user or service account
+    # Removes specific groups from the user or service account
     api_response = api_instance.remove_user_from_user_groups(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -603,7 +603,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | **list[str]**| The list of user groups that should be removed from the account | [optional] 
+ **body** | **list[str]**| The list of groups that should be removed from the account | [optional] 
 
 ### Return type
 

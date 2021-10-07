@@ -57,6 +57,7 @@ class DerivedMetricDefinition(object):
         'query_qb_enabled': 'bool',
         'query_qb_serialization': 'str',
         'status': 'list[str]',
+        'tagpaths': 'list[str]',
         'tags': 'WFTags',
         'update_user_id': 'str',
         'updated': 'int',
@@ -89,6 +90,7 @@ class DerivedMetricDefinition(object):
         'query_qb_enabled': 'queryQBEnabled',
         'query_qb_serialization': 'queryQBSerialization',
         'status': 'status',
+        'tagpaths': 'tagpaths',
         'tags': 'tags',
         'update_user_id': 'updateUserId',
         'updated': 'updated',
@@ -96,7 +98,7 @@ class DerivedMetricDefinition(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, additional_information=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, hosts_used=None, id=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_failed_time=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, name=None, points_scanned_at_last_query=None, process_rate_minutes=None, query=None, query_failing=None, query_qb_enabled=None, query_qb_serialization=None, status=None, tags=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_information=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, hosts_used=None, id=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_failed_time=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, name=None, points_scanned_at_last_query=None, process_rate_minutes=None, query=None, query_failing=None, query_qb_enabled=None, query_qb_serialization=None, status=None, tagpaths=None, tags=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """DerivedMetricDefinition - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -126,6 +128,7 @@ class DerivedMetricDefinition(object):
         self._query_qb_enabled = None
         self._query_qb_serialization = None
         self._status = None
+        self._tagpaths = None
         self._tags = None
         self._update_user_id = None
         self._updated = None
@@ -178,6 +181,8 @@ class DerivedMetricDefinition(object):
             self.query_qb_serialization = query_qb_serialization
         if status is not None:
             self.status = status
+        if tagpaths is not None:
+            self.tagpaths = tagpaths
         if tags is not None:
             self.tags = tags
         if update_user_id is not None:
@@ -732,6 +737,27 @@ class DerivedMetricDefinition(object):
         """
 
         self._status = status
+
+    @property
+    def tagpaths(self):
+        """Gets the tagpaths of this DerivedMetricDefinition.  # noqa: E501
+
+
+        :return: The tagpaths of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tagpaths
+
+    @tagpaths.setter
+    def tagpaths(self, tagpaths):
+        """Sets the tagpaths of this DerivedMetricDefinition.
+
+
+        :param tagpaths: The tagpaths of this DerivedMetricDefinition.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tagpaths = tagpaths
 
     @property
     def tags(self):

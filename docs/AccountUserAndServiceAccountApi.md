@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activate_account**](AccountUserAndServiceAccountApi.md#activate_account) | **POST** /api/v2/account/serviceaccount/{id}/activate | Activates the given service account
 [**add_account_to_roles**](AccountUserAndServiceAccountApi.md#add_account_to_roles) | **POST** /api/v2/account/{id}/addRoles | Adds specific roles to the account (user or service account)
-[**add_account_to_user_groups**](AccountUserAndServiceAccountApi.md#add_account_to_user_groups) | **POST** /api/v2/account/{id}/addUserGroups | Adds specific user groups to the account (user or service account)
+[**add_account_to_user_groups**](AccountUserAndServiceAccountApi.md#add_account_to_user_groups) | **POST** /api/v2/account/{id}/addUserGroups | Adds specific groups to the account (user or service account)
 [**add_ingestion_policy**](AccountUserAndServiceAccountApi.md#add_ingestion_policy) | **POST** /api/v2/account/addingestionpolicy | Add a specific ingestion policy to multiple accounts
 [**create_or_update_user_account**](AccountUserAndServiceAccountApi.md#create_or_update_user_account) | **POST** /api/v2/account/user | Creates or updates a user account
 [**create_service_account**](AccountUserAndServiceAccountApi.md#create_service_account) | **POST** /api/v2/account/serviceaccount | Creates a service account
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**grant_permission_to_accounts**](AccountUserAndServiceAccountApi.md#grant_permission_to_accounts) | **POST** /api/v2/account/grant/{permission} | Grants a specific permission to multiple accounts (users or service accounts)
 [**invite_user_accounts**](AccountUserAndServiceAccountApi.md#invite_user_accounts) | **POST** /api/v2/account/user/invite | Invite user accounts with given user groups and permissions.
 [**remove_account_from_roles**](AccountUserAndServiceAccountApi.md#remove_account_from_roles) | **POST** /api/v2/account/{id}/removeRoles | Removes specific roles from the account (user or service account)
-[**remove_account_from_user_groups**](AccountUserAndServiceAccountApi.md#remove_account_from_user_groups) | **POST** /api/v2/account/{id}/removeUserGroups | Removes specific user groups from the account (user or service account)
+[**remove_account_from_user_groups**](AccountUserAndServiceAccountApi.md#remove_account_from_user_groups) | **POST** /api/v2/account/{id}/removeUserGroups | Removes specific groups from the account (user or service account)
 [**remove_ingestion_policies**](AccountUserAndServiceAccountApi.md#remove_ingestion_policies) | **POST** /api/v2/account/removeingestionpolicies | Removes ingestion policies from multiple accounts
 [**revoke_account_permission**](AccountUserAndServiceAccountApi.md#revoke_account_permission) | **POST** /api/v2/account/{id}/revoke/{permission} | Revokes a specific permission from account (user or service account)
 [**revoke_permission_from_accounts**](AccountUserAndServiceAccountApi.md#revoke_permission_from_accounts) | **POST** /api/v2/account/revoke/{permission} | Revokes a specific permission from multiple accounts (users or service accounts)
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 # **add_account_to_user_groups**
 > UserModel add_account_to_user_groups(id, body=body)
 
-Adds specific user groups to the account (user or service account)
+Adds specific groups to the account (user or service account)
 
 
 
@@ -167,10 +167,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be added to the account (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | The list of groups that should be added to the account (optional)
 
 try:
-    # Adds specific user groups to the account (user or service account)
+    # Adds specific groups to the account (user or service account)
     api_response = api_instance.add_account_to_user_groups(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -182,7 +182,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | **list[str]**| The list of user groups that should be added to the account | [optional] 
+ **body** | **list[str]**| The list of groups that should be added to the account | [optional] 
 
 ### Return type
 
@@ -1122,7 +1122,7 @@ Name | Type | Description  | Notes
 # **remove_account_from_user_groups**
 > UserModel remove_account_from_user_groups(id, body=body)
 
-Removes specific user groups from the account (user or service account)
+Removes specific groups from the account (user or service account)
 
 
 
@@ -1143,10 +1143,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = [wavefront_api_client.list[str]()] # list[str] | The list of user groups that should be removed from the account (optional)
+body = [wavefront_api_client.list[str]()] # list[str] | The list of groups that should be removed from the account (optional)
 
 try:
-    # Removes specific user groups from the account (user or service account)
+    # Removes specific groups from the account (user or service account)
     api_response = api_instance.remove_account_from_user_groups(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -1158,7 +1158,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | **list[str]**| The list of user groups that should be removed from the account | [optional] 
+ **body** | **list[str]**| The list of groups that should be removed from the account | [optional] 
 
 ### Return type
 

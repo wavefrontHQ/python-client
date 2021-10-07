@@ -85,6 +85,7 @@ class Alert(object):
         'prefiring_host_label_pairs': 'list[SourceLabelPair]',
         'process_rate_minutes': 'int',
         'query_failing': 'bool',
+        'query_syntax_error': 'bool',
         'resolve_after_minutes': 'int',
         'runbook_links': 'list[str]',
         'secure_metric_details': 'bool',
@@ -162,6 +163,7 @@ class Alert(object):
         'prefiring_host_label_pairs': 'prefiringHostLabelPairs',
         'process_rate_minutes': 'processRateMinutes',
         'query_failing': 'queryFailing',
+        'query_syntax_error': 'querySyntaxError',
         'resolve_after_minutes': 'resolveAfterMinutes',
         'runbook_links': 'runbookLinks',
         'secure_metric_details': 'secureMetricDetails',
@@ -186,7 +188,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, resolve_after_minutes=None, runbook_links=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, triage_dashboards=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, query_syntax_error=None, resolve_after_minutes=None, runbook_links=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, triage_dashboards=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -244,6 +246,7 @@ class Alert(object):
         self._prefiring_host_label_pairs = None
         self._process_rate_minutes = None
         self._query_failing = None
+        self._query_syntax_error = None
         self._resolve_after_minutes = None
         self._runbook_links = None
         self._secure_metric_details = None
@@ -369,6 +372,8 @@ class Alert(object):
             self.process_rate_minutes = process_rate_minutes
         if query_failing is not None:
             self.query_failing = query_failing
+        if query_syntax_error is not None:
+            self.query_syntax_error = query_syntax_error
         if resolve_after_minutes is not None:
             self.resolve_after_minutes = resolve_after_minutes
         if runbook_links is not None:
@@ -1602,6 +1607,29 @@ class Alert(object):
         """
 
         self._query_failing = query_failing
+
+    @property
+    def query_syntax_error(self):
+        """Gets the query_syntax_error of this Alert.  # noqa: E501
+
+        Whether there was an query syntax exception when the alert condition last ran  # noqa: E501
+
+        :return: The query_syntax_error of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._query_syntax_error
+
+    @query_syntax_error.setter
+    def query_syntax_error(self, query_syntax_error):
+        """Sets the query_syntax_error of this Alert.
+
+        Whether there was an query syntax exception when the alert condition last ran  # noqa: E501
+
+        :param query_syntax_error: The query_syntax_error of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._query_syntax_error = query_syntax_error
 
     @property
     def resolve_after_minutes(self):

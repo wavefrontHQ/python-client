@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **query_qb_enabled** | **bool** | Whether the query was created using the Query Builder. Default false | [optional] 
 **query_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the query.  Applicable only when queryQBEnabled is true | [optional] 
 **status** | **list[str]** | Lists the current state of the derived metric. Can be one or more of: INVALID, ACTIVE, TRASH, NO_DATA | [optional] 
+**tagpaths** | **list[str]** |  | [optional] 
 **tags** | [**WFTags**](WFTags.md) |  | [optional] 
 **update_user_id** | **str** | The user that last updated this derived metric definition | [optional] 
 **updated** | **int** | When the derived metric definition was last updated, in epoch millis | [optional] 

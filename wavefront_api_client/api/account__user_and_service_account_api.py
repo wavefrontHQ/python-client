@@ -236,7 +236,7 @@ class AccountUserAndServiceAccountApi(object):
             collection_formats=collection_formats)
 
     def add_account_to_user_groups(self, id, **kwargs):  # noqa: E501
-        """Adds specific user groups to the account (user or service account)  # noqa: E501
+        """Adds specific groups to the account (user or service account)  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -246,7 +246,7 @@ class AccountUserAndServiceAccountApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be added to the account
+        :param list[str] body: The list of groups that should be added to the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -259,7 +259,7 @@ class AccountUserAndServiceAccountApi(object):
             return data
 
     def add_account_to_user_groups_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Adds specific user groups to the account (user or service account)  # noqa: E501
+        """Adds specific groups to the account (user or service account)  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -269,7 +269,7 @@ class AccountUserAndServiceAccountApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be added to the account
+        :param list[str] body: The list of groups that should be added to the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1974,7 +1974,7 @@ class AccountUserAndServiceAccountApi(object):
             collection_formats=collection_formats)
 
     def remove_account_from_user_groups(self, id, **kwargs):  # noqa: E501
-        """Removes specific user groups from the account (user or service account)  # noqa: E501
+        """Removes specific groups from the account (user or service account)  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1984,7 +1984,7 @@ class AccountUserAndServiceAccountApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be removed from the account
+        :param list[str] body: The list of groups that should be removed from the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1997,7 +1997,7 @@ class AccountUserAndServiceAccountApi(object):
             return data
 
     def remove_account_from_user_groups_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Removes specific user groups from the account (user or service account)  # noqa: E501
+        """Removes specific groups from the account (user or service account)  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2007,7 +2007,7 @@ class AccountUserAndServiceAccountApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param list[str] body: The list of user groups that should be removed from the account
+        :param list[str] body: The list of groups that should be removed from the account
         :return: UserModel
                  If the method is called asynchronously,
                  returns the request thread.

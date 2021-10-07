@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **prefiring_host_label_pairs** | [**list[SourceLabelPair]**](SourceLabelPair.md) | Lists the series that are starting to fail, defined as failing for greater than 50% of the checks in the window determined by the \&quot;minutes\&quot; parameter | [optional] 
 **process_rate_minutes** | **int** | The interval between checks for this alert, in minutes.  Defaults to 1 minute | [optional] 
 **query_failing** | **bool** | Whether there was an exception when the alert condition last ran | [optional] 
+**query_syntax_error** | **bool** | Whether there was an query syntax exception when the alert condition last ran | [optional] 
 **resolve_after_minutes** | **int** | The number of consecutive minutes that a firing series matching the condition query must evaluate to \&quot;false\&quot; (zero value) before the alert resolves.  When unset, this defaults to the same value as \&quot;minutes\&quot; | [optional] 
 **runbook_links** | **list[str]** | User-supplied runbook links for this alert. Useful for linking wiki page or documentation, etc to refer to when alert is triggered | [optional] 
 **secure_metric_details** | **bool** | Whether to secure sensitive metric details and alert images in alert notifications, to not break Metrics Security. | [optional] 
