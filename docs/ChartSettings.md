@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **show_hosts** | **bool** | For the tabular view, whether to display sources.  Default: true | [optional] 
 **show_labels** | **bool** | For the tabular view, whether to display labels.  Default: true | [optional] 
 **show_raw_values** | **bool** | For the tabular view, whether to display raw values.  Default: false | [optional] 
+**show_value_column** | **bool** | For the tabular view, whether to display value column.  Default: true | [optional] 
 **sort_values_descending** | **bool** | For the tabular view, whether to display display values in descending order.  Default: false | [optional] 
 **sparkline_decimal_precision** | **int** | For the single stat view, the decimal precision of the displayed number | [optional] 
 **sparkline_display_color** | **str** | For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in \&quot;rgba(&amp;lt;rval&amp;gt;, &amp;lt;gval&amp;gt;, &amp;lt;bval&amp;gt;, &amp;lt;aval&amp;gt;)\&quot; format | [optional] 

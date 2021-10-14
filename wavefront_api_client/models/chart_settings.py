@@ -59,6 +59,7 @@ class ChartSettings(object):
         'show_hosts': 'bool',
         'show_labels': 'bool',
         'show_raw_values': 'bool',
+        'show_value_column': 'bool',
         'sort_values_descending': 'bool',
         'sparkline_decimal_precision': 'int',
         'sparkline_display_color': 'str',
@@ -123,6 +124,7 @@ class ChartSettings(object):
         'show_hosts': 'showHosts',
         'show_labels': 'showLabels',
         'show_raw_values': 'showRawValues',
+        'show_value_column': 'showValueColumn',
         'sort_values_descending': 'sortValuesDescending',
         'sparkline_decimal_precision': 'sparklineDecimalPrecision',
         'sparkline_display_color': 'sparklineDisplayColor',
@@ -160,7 +162,7 @@ class ChartSettings(object):
         'ymin': 'ymin'
     }
 
-    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, default_sort_column=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_show_metric_name=None, fixed_legend_show_source_name=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, default_sort_column=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_show_metric_name=None, fixed_legend_show_source_name=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, show_value_column=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None, _configuration=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -192,6 +194,7 @@ class ChartSettings(object):
         self._show_hosts = None
         self._show_labels = None
         self._show_raw_values = None
+        self._show_value_column = None
         self._sort_values_descending = None
         self._sparkline_decimal_precision = None
         self._sparkline_display_color = None
@@ -281,6 +284,8 @@ class ChartSettings(object):
             self.show_labels = show_labels
         if show_raw_values is not None:
             self.show_raw_values = show_raw_values
+        if show_value_column is not None:
+            self.show_value_column = show_value_column
         if sort_values_descending is not None:
             self.sort_values_descending = sort_values_descending
         if sparkline_decimal_precision is not None:
@@ -976,6 +981,29 @@ class ChartSettings(object):
         """
 
         self._show_raw_values = show_raw_values
+
+    @property
+    def show_value_column(self):
+        """Gets the show_value_column of this ChartSettings.  # noqa: E501
+
+        For the tabular view, whether to display value column.  Default: true  # noqa: E501
+
+        :return: The show_value_column of this ChartSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_value_column
+
+    @show_value_column.setter
+    def show_value_column(self, show_value_column):
+        """Sets the show_value_column of this ChartSettings.
+
+        For the tabular view, whether to display value column.  Default: true  # noqa: E501
+
+        :param show_value_column: The show_value_column of this ChartSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_value_column = show_value_column
 
     @property
     def sort_values_descending(self):
