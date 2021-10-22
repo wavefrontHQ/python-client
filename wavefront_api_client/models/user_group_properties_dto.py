@@ -34,34 +34,29 @@ class UserGroupPropertiesDTO(object):
     """
     swagger_types = {
         'name_editable': 'bool',
-        'permissions_editable': 'bool',
         'roles_editable': 'bool',
         'users_editable': 'bool'
     }
 
     attribute_map = {
         'name_editable': 'nameEditable',
-        'permissions_editable': 'permissionsEditable',
         'roles_editable': 'rolesEditable',
         'users_editable': 'usersEditable'
     }
 
-    def __init__(self, name_editable=None, permissions_editable=None, roles_editable=None, users_editable=None, _configuration=None):  # noqa: E501
+    def __init__(self, name_editable=None, roles_editable=None, users_editable=None, _configuration=None):  # noqa: E501
         """UserGroupPropertiesDTO - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._name_editable = None
-        self._permissions_editable = None
         self._roles_editable = None
         self._users_editable = None
         self.discriminator = None
 
         if name_editable is not None:
             self.name_editable = name_editable
-        if permissions_editable is not None:
-            self.permissions_editable = permissions_editable
         if roles_editable is not None:
             self.roles_editable = roles_editable
         if users_editable is not None:
@@ -87,27 +82,6 @@ class UserGroupPropertiesDTO(object):
         """
 
         self._name_editable = name_editable
-
-    @property
-    def permissions_editable(self):
-        """Gets the permissions_editable of this UserGroupPropertiesDTO.  # noqa: E501
-
-
-        :return: The permissions_editable of this UserGroupPropertiesDTO.  # noqa: E501
-        :rtype: bool
-        """
-        return self._permissions_editable
-
-    @permissions_editable.setter
-    def permissions_editable(self, permissions_editable):
-        """Sets the permissions_editable of this UserGroupPropertiesDTO.
-
-
-        :param permissions_editable: The permissions_editable of this UserGroupPropertiesDTO.  # noqa: E501
-        :type: bool
-        """
-
-        self._permissions_editable = permissions_editable
 
     @property
     def roles_editable(self):

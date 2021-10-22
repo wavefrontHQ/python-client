@@ -38,7 +38,6 @@ class UserGroupModel(object):
         'description': 'str',
         'id': 'str',
         'name': 'str',
-        'permissions': 'list[str]',
         'properties': 'UserGroupPropertiesDTO',
         'role_count': 'int',
         'roles': 'list[RoleDTO]',
@@ -52,7 +51,6 @@ class UserGroupModel(object):
         'description': 'description',
         'id': 'id',
         'name': 'name',
-        'permissions': 'permissions',
         'properties': 'properties',
         'role_count': 'roleCount',
         'roles': 'roles',
@@ -60,7 +58,7 @@ class UserGroupModel(object):
         'users': 'users'
     }
 
-    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, permissions=None, properties=None, role_count=None, roles=None, user_count=None, users=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, properties=None, role_count=None, roles=None, user_count=None, users=None, _configuration=None):  # noqa: E501
         """UserGroupModel - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,7 +69,6 @@ class UserGroupModel(object):
         self._description = None
         self._id = None
         self._name = None
-        self._permissions = None
         self._properties = None
         self._role_count = None
         self._roles = None
@@ -88,7 +85,6 @@ class UserGroupModel(object):
         if id is not None:
             self.id = id
         self.name = name
-        self.permissions = permissions
         if properties is not None:
             self.properties = properties
         if role_count is not None:
@@ -214,31 +210,6 @@ class UserGroupModel(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def permissions(self):
-        """Gets the permissions of this UserGroupModel.  # noqa: E501
-
-        List of permissions the user group has been granted access to. Become obsolete. Use Roles parameter to setup group permission.  # noqa: E501
-
-        :return: The permissions of this UserGroupModel.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._permissions
-
-    @permissions.setter
-    def permissions(self, permissions):
-        """Sets the permissions of this UserGroupModel.
-
-        List of permissions the user group has been granted access to. Become obsolete. Use Roles parameter to setup group permission.  # noqa: E501
-
-        :param permissions: The permissions of this UserGroupModel.  # noqa: E501
-        :type: list[str]
-        """
-        if self._configuration.client_side_validation and permissions is None:
-            raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
-
-        self._permissions = permissions
 
     @property
     def properties(self):

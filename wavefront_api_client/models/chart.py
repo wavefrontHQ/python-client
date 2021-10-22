@@ -33,6 +33,7 @@ class Chart(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'anomaly_detection_on': 'bool',
         'anomaly_sample_size': 'str',
         'anomaly_severity': 'str',
         'anomaly_type': 'str',
@@ -52,6 +53,7 @@ class Chart(object):
     }
 
     attribute_map = {
+        'anomaly_detection_on': 'anomalyDetectionOn',
         'anomaly_sample_size': 'anomalySampleSize',
         'anomaly_severity': 'anomalySeverity',
         'anomaly_type': 'anomalyType',
@@ -70,12 +72,13 @@ class Chart(object):
         'units': 'units'
     }
 
-    def __init__(self, anomaly_sample_size=None, anomaly_severity=None, anomaly_type=None, base=None, chart_attributes=None, chart_settings=None, description=None, display_confidence_bounds=None, filter_out_non_anomalies=None, include_obsolete_metrics=None, interpolate_points=None, name=None, no_default_events=None, sources=None, summarization=None, units=None, _configuration=None):  # noqa: E501
+    def __init__(self, anomaly_detection_on=None, anomaly_sample_size=None, anomaly_severity=None, anomaly_type=None, base=None, chart_attributes=None, chart_settings=None, description=None, display_confidence_bounds=None, filter_out_non_anomalies=None, include_obsolete_metrics=None, interpolate_points=None, name=None, no_default_events=None, sources=None, summarization=None, units=None, _configuration=None):  # noqa: E501
         """Chart - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._anomaly_detection_on = None
         self._anomaly_sample_size = None
         self._anomaly_severity = None
         self._anomaly_type = None
@@ -94,6 +97,8 @@ class Chart(object):
         self._units = None
         self.discriminator = None
 
+        if anomaly_detection_on is not None:
+            self.anomaly_detection_on = anomaly_detection_on
         if anomaly_sample_size is not None:
             self.anomaly_sample_size = anomaly_sample_size
         if anomaly_severity is not None:
@@ -124,6 +129,29 @@ class Chart(object):
             self.summarization = summarization
         if units is not None:
             self.units = units
+
+    @property
+    def anomaly_detection_on(self):
+        """Gets the anomaly_detection_on of this Chart.  # noqa: E501
+
+        Whether anomaly detection is on or of, default false  # noqa: E501
+
+        :return: The anomaly_detection_on of this Chart.  # noqa: E501
+        :rtype: bool
+        """
+        return self._anomaly_detection_on
+
+    @anomaly_detection_on.setter
+    def anomaly_detection_on(self, anomaly_detection_on):
+        """Sets the anomaly_detection_on of this Chart.
+
+        Whether anomaly detection is on or of, default false  # noqa: E501
+
+        :param anomaly_detection_on: The anomaly_detection_on of this Chart.  # noqa: E501
+        :type: bool
+        """
+
+        self._anomaly_detection_on = anomaly_detection_on
 
     @property
     def anomaly_sample_size(self):

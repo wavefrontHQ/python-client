@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name_editable** | **bool** |  | [optional] 
-**permissions_editable** | **bool** |  | [optional] 
 **roles_editable** | **bool** |  | [optional] 
 **users_editable** | **bool** |  | [optional] 
 

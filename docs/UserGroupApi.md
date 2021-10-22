@@ -150,7 +150,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.UserGroupApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre> (optional)
+body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre> (optional)
 
 try:
     # Create a specific user group
@@ -164,7 +164,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;permissions\&quot;: [   \&quot;permission1\&quot;,   \&quot;permission2\&quot;,   \&quot;permission3\&quot;   ],   \&quot;roleIDs\&quot;: [   \&quot;role1\&quot;,   \&quot;role2\&quot;,   \&quot;role3\&quot;   ],   \&quot;description\&quot;: \&quot;UserGroup description\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;roleIDs\&quot;: [   \&quot;role1\&quot;,   \&quot;role2\&quot;,   \&quot;role3\&quot;   ],   \&quot;description\&quot;: \&quot;UserGroup description\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -481,7 +481,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.UserGroupApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre> (optional)
+body = wavefront_api_client.UserGroupWrite() # UserGroupWrite | Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre> (optional)
 
 try:
     # Update a specific user group
@@ -496,7 +496,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;UserGroup identifier\&quot;,   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;permissions\&quot;: [   \&quot;permission1\&quot;,   \&quot;permission2\&quot;,   \&quot;permission3\&quot;   ],   \&quot;roleIDs\&quot;: [   \&quot;role1\&quot;,   \&quot;role2\&quot;,   \&quot;role3\&quot;   ],   \&quot;description\&quot;: \&quot;UserGroup description\&quot; }&lt;/pre&gt; | [optional] 
+ **body** | [**UserGroupWrite**](UserGroupWrite.md)| Example Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;UserGroup identifier\&quot;,   \&quot;name\&quot;: \&quot;UserGroup name\&quot;,   \&quot;roleIDs\&quot;: [   \&quot;role1\&quot;,   \&quot;role2\&quot;,   \&quot;role3\&quot;   ],   \&quot;description\&quot;: \&quot;UserGroup description\&quot; }&lt;/pre&gt; | [optional] 
 
 ### Return type
 

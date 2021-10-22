@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**anomaly_detection_on** | **bool** | Whether anomaly detection is on or of, default false | [optional] 
 **anomaly_sample_size** | **str** | The amount of historical data to use for anomaly detection baselining | [optional] 
 **anomaly_severity** | **str** | Anomaly Severity. Default medium | [optional] 
 **anomaly_type** | **str** | Anomaly Type. Default both | [optional] 

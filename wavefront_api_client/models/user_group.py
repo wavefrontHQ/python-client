@@ -37,7 +37,6 @@ class UserGroup(object):
         'description': 'str',
         'id': 'str',
         'name': 'str',
-        'permissions': 'list[str]',
         'properties': 'UserGroupPropertiesDTO',
         'roles': 'list[RoleDTO]',
         'user_count': 'int',
@@ -49,14 +48,13 @@ class UserGroup(object):
         'description': 'description',
         'id': 'id',
         'name': 'name',
-        'permissions': 'permissions',
         'properties': 'properties',
         'roles': 'roles',
         'user_count': 'userCount',
         'users': 'users'
     }
 
-    def __init__(self, customer=None, description=None, id=None, name=None, permissions=None, properties=None, roles=None, user_count=None, users=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer=None, description=None, id=None, name=None, properties=None, roles=None, user_count=None, users=None, _configuration=None):  # noqa: E501
         """UserGroup - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,7 +64,6 @@ class UserGroup(object):
         self._description = None
         self._id = None
         self._name = None
-        self._permissions = None
         self._properties = None
         self._roles = None
         self._user_count = None
@@ -81,8 +78,6 @@ class UserGroup(object):
             self.id = id
         if name is not None:
             self.name = name
-        if permissions is not None:
-            self.permissions = permissions
         if properties is not None:
             self.properties = properties
         if roles is not None:
@@ -183,29 +178,6 @@ class UserGroup(object):
         """
 
         self._name = name
-
-    @property
-    def permissions(self):
-        """Gets the permissions of this UserGroup.  # noqa: E501
-
-        Permission assigned to the user group  # noqa: E501
-
-        :return: The permissions of this UserGroup.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._permissions
-
-    @permissions.setter
-    def permissions(self, permissions):
-        """Sets the permissions of this UserGroup.
-
-        Permission assigned to the user group  # noqa: E501
-
-        :param permissions: The permissions of this UserGroup.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._permissions = permissions
 
     @property
     def properties(self):

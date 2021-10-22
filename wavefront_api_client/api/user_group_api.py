@@ -249,7 +249,7 @@ class UserGroupApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
         :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -271,7 +271,7 @@ class UserGroupApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :param UserGroupWrite body: Example Body:  <pre>{   \"name\": \"UserGroup name\",   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
         :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -836,7 +836,7 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
         :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
@@ -859,7 +859,7 @@ class UserGroupApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
+        :param UserGroupWrite body: Example Body:  <pre>{   \"id\": \"UserGroup identifier\",   \"name\": \"UserGroup name\",   \"roleIDs\": [   \"role1\",   \"role2\",   \"role3\"   ],   \"description\": \"UserGroup description\" }</pre>
         :return: ResponseContainerUserGroupModel
                  If the method is called asynchronously,
                  returns the request thread.
