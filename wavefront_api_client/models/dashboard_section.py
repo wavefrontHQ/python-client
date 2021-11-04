@@ -33,32 +33,60 @@ class DashboardSection(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'str',
         'name': 'str',
         'rows': 'list[DashboardSectionRow]',
         'section_filter': 'JsonNode'
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'rows': 'rows',
         'section_filter': 'sectionFilter'
     }
 
-    def __init__(self, name=None, rows=None, section_filter=None, _configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, rows=None, section_filter=None, _configuration=None):  # noqa: E501
         """DashboardSection - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._id = None
         self._name = None
         self._rows = None
         self._section_filter = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         self.name = name
         self.rows = rows
         if section_filter is not None:
             self.section_filter = section_filter
+
+    @property
+    def id(self):
+        """Gets the id of this DashboardSection.  # noqa: E501
+
+        Id of this section  # noqa: E501
+
+        :return: The id of this DashboardSection.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this DashboardSection.
+
+        Id of this section  # noqa: E501
+
+        :param id: The id of this DashboardSection.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def name(self):

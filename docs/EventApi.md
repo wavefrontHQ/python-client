@@ -5,9 +5,9 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_event_tag**](EventApi.md#add_event_tag) | **PUT** /api/v2/event/{id}/tag/{tagValue} | Add a tag to a specific event
-[**close_event**](EventApi.md#close_event) | **POST** /api/v2/event/{id}/close | Close a specific event
+[**close_user_event**](EventApi.md#close_user_event) | **POST** /api/v2/event/{id}/close | Close a specific event
 [**create_event**](EventApi.md#create_event) | **POST** /api/v2/event | Create a specific event
-[**delete_event**](EventApi.md#delete_event) | **DELETE** /api/v2/event/{id} | Delete a specific event
+[**delete_user_event**](EventApi.md#delete_user_event) | **DELETE** /api/v2/event/{id} | Delete a specific user event
 [**get_alert_event_queries_slug**](EventApi.md#get_alert_event_queries_slug) | **GET** /api/v2/event/{id}/alertQueriesSlug | If the specified event is associated with an alert, returns a slug encoding the queries having to do with that alert firing or resolution
 [**get_alert_firing_details**](EventApi.md#get_alert_firing_details) | **GET** /api/v2/event/{id}/alertFiringDetails | Return details of a particular alert firing, including all the series that fired during the referred alert firing
 [**get_alert_firing_events**](EventApi.md#get_alert_firing_events) | **GET** /api/v2/event/alertFirings | Get firings events of an alert within a time range
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**get_related_events_with_time_span**](EventApi.md#get_related_events_with_time_span) | **GET** /api/v2/event/{id}/events | List all related events for a specific firing event with a time span of one hour
 [**remove_event_tag**](EventApi.md#remove_event_tag) | **DELETE** /api/v2/event/{id}/tag/{tagValue} | Remove a tag from a specific event
 [**set_event_tags**](EventApi.md#set_event_tags) | **POST** /api/v2/event/{id}/tag | Set all tags associated with a specific event
-[**update_event**](EventApi.md#update_event) | **PUT** /api/v2/event/{id} | Update a specific event
+[**update_user_event**](EventApi.md#update_user_event) | **PUT** /api/v2/event/{id} | Update a specific user event.
 
 
 # **add_event_tag**
@@ -76,12 +76,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **close_event**
-> ResponseContainerEvent close_event(id)
+# **close_user_event**
+> ResponseContainerEvent close_user_event(id)
 
 Close a specific event
 
-
+This API supports only user events. The API does <strong>not</strong> support close of system events (e.g. alert events).
 
 ### Example
 ```python
@@ -103,10 +103,10 @@ id = 'id_example' # str |
 
 try:
     # Close a specific event
-    api_response = api_instance.close_event(id)
+    api_response = api_instance.close_user_event(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EventApi->close_event: %s\n" % e)
+    print("Exception when calling EventApi->close_user_event: %s\n" % e)
 ```
 
 ### Parameters
@@ -184,12 +184,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_event**
-> ResponseContainerEvent delete_event(id)
+# **delete_user_event**
+> ResponseContainerEvent delete_user_event(id)
 
-Delete a specific event
+Delete a specific user event
 
-
+This API supports only user events. The API does <strong>not</strong> support deletion of system events (e.g. alert events).
 
 ### Example
 ```python
@@ -210,11 +210,11 @@ api_instance = wavefront_api_client.EventApi(wavefront_api_client.ApiClient(conf
 id = 'id_example' # str | 
 
 try:
-    # Delete a specific event
-    api_response = api_instance.delete_event(id)
+    # Delete a specific user event
+    api_response = api_instance.delete_user_event(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EventApi->delete_event: %s\n" % e)
+    print("Exception when calling EventApi->delete_user_event: %s\n" % e)
 ```
 
 ### Parameters
@@ -748,12 +748,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_event**
-> ResponseContainerEvent update_event(id, body=body)
+# **update_user_event**
+> ResponseContainerEvent update_user_event(id, body=body)
 
-Update a specific event
+Update a specific user event.
 
-The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>
+This API supports only user events. The API does <strong>not</strong> support update of system events (e.g. alert events). The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>
 
 ### Example
 ```python
@@ -775,11 +775,11 @@ id = 'id_example' # str |
 body = wavefront_api_client.Event() # Event | Example Body:  <pre>{   \"name\": \"Event API Example\",   \"annotations\": {     \"severity\": \"info\",     \"type\": \"event type\",     \"details\": \"description\"   },   \"tags\" : [     \"eventTag1\"   ],   \"startTime\": 1490000000000,   \"endTime\": 1490000000001 }</pre> (optional)
 
 try:
-    # Update a specific event
-    api_response = api_instance.update_event(id, body=body)
+    # Update a specific user event.
+    api_response = api_instance.update_user_event(id, body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EventApi->update_event: %s\n" % e)
+    print("Exception when calling EventApi->update_user_event: %s\n" % e)
 ```
 
 ### Parameters

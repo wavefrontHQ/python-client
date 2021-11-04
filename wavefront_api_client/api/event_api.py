@@ -140,13 +140,13 @@ class EventApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def close_event(self, id, **kwargs):  # noqa: E501
+    def close_user_event(self, id, **kwargs):  # noqa: E501
         """Close a specific event  # noqa: E501
 
-          # noqa: E501
+        This API supports only user events. The API does <strong>not</strong> support close of system events (e.g. alert events).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.close_event(id, async_req=True)
+        >>> thread = api.close_user_event(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -157,18 +157,18 @@ class EventApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.close_event_with_http_info(id, **kwargs)  # noqa: E501
+            return self.close_user_event_with_http_info(id, **kwargs)  # noqa: E501
         else:
-            (data) = self.close_event_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.close_user_event_with_http_info(id, **kwargs)  # noqa: E501
             return data
 
-    def close_event_with_http_info(self, id, **kwargs):  # noqa: E501
+    def close_user_event_with_http_info(self, id, **kwargs):  # noqa: E501
         """Close a specific event  # noqa: E501
 
-          # noqa: E501
+        This API supports only user events. The API does <strong>not</strong> support close of system events (e.g. alert events).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.close_event_with_http_info(id, async_req=True)
+        >>> thread = api.close_user_event_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -189,14 +189,14 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method close_event" % key
+                    " to method close_user_event" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in params or
                                                        params['id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `id` when calling `close_event`")  # noqa: E501
+            raise ValueError("Missing the required parameter `id` when calling `close_user_event`")  # noqa: E501
 
         collection_formats = {}
 
@@ -330,13 +330,13 @@ class EventApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_event(self, id, **kwargs):  # noqa: E501
-        """Delete a specific event  # noqa: E501
+    def delete_user_event(self, id, **kwargs):  # noqa: E501
+        """Delete a specific user event  # noqa: E501
 
-          # noqa: E501
+        This API supports only user events. The API does <strong>not</strong> support deletion of system events (e.g. alert events).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_event(id, async_req=True)
+        >>> thread = api.delete_user_event(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -347,18 +347,18 @@ class EventApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_event_with_http_info(id, **kwargs)  # noqa: E501
+            return self.delete_user_event_with_http_info(id, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_event_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.delete_user_event_with_http_info(id, **kwargs)  # noqa: E501
             return data
 
-    def delete_event_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Delete a specific event  # noqa: E501
+    def delete_user_event_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Delete a specific user event  # noqa: E501
 
-          # noqa: E501
+        This API supports only user events. The API does <strong>not</strong> support deletion of system events (e.g. alert events).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_event_with_http_info(id, async_req=True)
+        >>> thread = api.delete_user_event_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -379,14 +379,14 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_event" % key
+                    " to method delete_user_event" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in params or
                                                        params['id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `id` when calling `delete_event`")  # noqa: E501
+            raise ValueError("Missing the required parameter `id` when calling `delete_user_event`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1336,13 +1336,13 @@ class EventApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_event(self, id, **kwargs):  # noqa: E501
-        """Update a specific event  # noqa: E501
+    def update_user_event(self, id, **kwargs):  # noqa: E501
+        """Update a specific user event.  # noqa: E501
 
-        The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
+        This API supports only user events. The API does <strong>not</strong> support update of system events (e.g. alert events). The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_event(id, async_req=True)
+        >>> thread = api.update_user_event(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1354,18 +1354,18 @@ class EventApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_event_with_http_info(id, **kwargs)  # noqa: E501
+            return self.update_user_event_with_http_info(id, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_event_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.update_user_event_with_http_info(id, **kwargs)  # noqa: E501
             return data
 
-    def update_event_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Update a specific event  # noqa: E501
+    def update_user_event_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Update a specific user event.  # noqa: E501
 
-        The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
+        This API supports only user events. The API does <strong>not</strong> support update of system events (e.g. alert events). The following fields are readonly and will be ignored when passed in the request: <code>id</code>, <code>isEphemeral</code>, <code>isUserEvent</code>, <code>runningState</code>, <code>canDelete</code>, <code>canClose</code>, <code>creatorType</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>createdEpochMillis</code>, <code>updatedEpochMillis</code>, <code>updaterId</code>, <code>creatorId</code>, and <code>summarizedEvents</code>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_event_with_http_info(id, async_req=True)
+        >>> thread = api.update_user_event_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1387,14 +1387,14 @@ class EventApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_event" % key
+                    " to method update_user_event" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in params or
                                                        params['id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `id` when calling `update_event`")  # noqa: E501
+            raise ValueError("Missing the required parameter `id` when calling `update_user_event`")  # noqa: E501
 
         collection_formats = {}
 
