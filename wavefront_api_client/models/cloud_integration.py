@@ -63,7 +63,8 @@ class CloudIntegration(object):
         'service_refresh_rate_in_mins': 'int',
         'tesla': 'TeslaConfiguration',
         'updated_epoch_millis': 'int',
-        'updater_id': 'str'
+        'updater_id': 'str',
+        'vrops': 'VropsConfiguration'
     }
 
     attribute_map = {
@@ -97,10 +98,11 @@ class CloudIntegration(object):
         'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
         'tesla': 'tesla',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'updater_id': 'updaterId'
+        'updater_id': 'updaterId',
+        'vrops': 'vrops'
     }
 
-    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, reuse_external_id_credential=None, service=None, service_refresh_rate_in_mins=None, tesla=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, reuse_external_id_credential=None, service=None, service_refresh_rate_in_mins=None, tesla=None, updated_epoch_millis=None, updater_id=None, vrops=None, _configuration=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -137,6 +139,7 @@ class CloudIntegration(object):
         self._tesla = None
         self._updated_epoch_millis = None
         self._updater_id = None
+        self._vrops = None
         self.discriminator = None
 
         if additional_tags is not None:
@@ -199,6 +202,8 @@ class CloudIntegration(object):
             self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
             self.updater_id = updater_id
+        if vrops is not None:
+            self.vrops = vrops
 
     @property
     def additional_tags(self):
@@ -788,7 +793,7 @@ class CloudIntegration(object):
         """
         if self._configuration.client_side_validation and service is None:
             raise ValueError("Invalid value for `service`, must not be `None`")  # noqa: E501
-        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG", "NEWRELIC", "APPDYNAMICS"]  # noqa: E501
+        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG", "NEWRELIC", "APPDYNAMICS", "VROPS"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 service not in allowed_values):
             raise ValueError(
@@ -883,6 +888,27 @@ class CloudIntegration(object):
         """
 
         self._updater_id = updater_id
+
+    @property
+    def vrops(self):
+        """Gets the vrops of this CloudIntegration.  # noqa: E501
+
+
+        :return: The vrops of this CloudIntegration.  # noqa: E501
+        :rtype: VropsConfiguration
+        """
+        return self._vrops
+
+    @vrops.setter
+    def vrops(self, vrops):
+        """Sets the vrops of this CloudIntegration.
+
+
+        :param vrops: The vrops of this CloudIntegration.  # noqa: E501
+        :type: VropsConfiguration
+        """
+
+        self._vrops = vrops
 
     def to_dict(self):
         """Returns the model properties as a dict"""

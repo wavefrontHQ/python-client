@@ -244,4 +244,5 @@ from wavefront_api_client.models.user_model import UserModel
 from wavefront_api_client.models.user_request_dto import UserRequestDTO
 from wavefront_api_client.models.user_to_create import UserToCreate
 from wavefront_api_client.models.validated_users_dto import ValidatedUsersDTO
+from wavefront_api_client.models.vrops_configuration import VropsConfiguration
 from wavefront_api_client.models.wf_tags import WFTags

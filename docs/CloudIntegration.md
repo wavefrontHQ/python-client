@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **tesla** | [**TeslaConfiguration**](TeslaConfiguration.md) |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
+**vrops** | [**VropsConfiguration**](VropsConfiguration.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
