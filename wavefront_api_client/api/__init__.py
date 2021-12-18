@@ -28,6 +28,7 @@ from wavefront_api_client.api.role_api import RoleApi
 from wavefront_api_client.api.saved_search_api import SavedSearchApi
 from wavefront_api_client.api.search_api import SearchApi
 from wavefront_api_client.api.source_api import SourceApi
+from wavefront_api_client.api.span_sampling_policy_api import SpanSamplingPolicyApi
 from wavefront_api_client.api.usage_api import UsageApi
 from wavefront_api_client.api.user_api import UserApi
 from wavefront_api_client.api.user_group_api import UserGroupApi

@@ -486,7 +486,7 @@ class Notificant(object):
         """
         if self._configuration.client_side_validation and triggers is None:
             raise ValueError("Invalid value for `triggers`, must not be `None`")  # noqa: E501
-        allowed_values = ["ALERT_OPENED", "ALERT_UPDATED", "ALERT_RESOLVED", "ALERT_MAINTENANCE", "ALERT_SNOOZED", "ALERT_INVALID", "ALERT_NO_LONGER_INVALID", "ALERT_TESTING", "ALERT_RETRIGGERED", "ALERT_NO_DATA", "ALERT_NO_DATA_RESOLVED", "ALERT_NO_DATA_MAINTENANCE", "ALERT_SEVERITY_UPDATE"]  # noqa: E501
+        allowed_values = ["ALERT_OPENED", "ALERT_UPDATED", "ALERT_RESOLVED", "ALERT_MAINTENANCE", "ALERT_SNOOZED", "ALERT_INVALID", "ALERT_NO_LONGER_INVALID", "ALERT_TESTING", "ALERT_RETRIGGERED", "ALERT_NO_DATA", "ALERT_NO_DATA_RESOLVED", "ALERT_NO_DATA_MAINTENANCE", "ALERT_SEVERITY_UPDATE", "ALERT_NOTIFICATION_PREVIEW"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(triggers).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

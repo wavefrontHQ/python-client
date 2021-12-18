@@ -36,11 +36,15 @@ class Alert(object):
         'acl': 'AccessControlListSimple',
         'active_maintenance_windows': 'list[str]',
         'additional_information': 'str',
+        'alert_sources': 'list[AlertSource]',
+        'alert_triage_dashboards': 'list[AlertDashboard]',
         'alert_type': 'str',
         'alerts_last_day': 'int',
         'alerts_last_month': 'int',
         'alerts_last_week': 'int',
         'application': 'list[str]',
+        'chart_attributes': 'JsonNode',
+        'chart_settings': 'ChartSettings',
         'condition': 'str',
         'condition_qb_enabled': 'bool',
         'condition_qb_serialization': 'str',
@@ -114,11 +118,15 @@ class Alert(object):
         'acl': 'acl',
         'active_maintenance_windows': 'activeMaintenanceWindows',
         'additional_information': 'additionalInformation',
+        'alert_sources': 'alertSources',
+        'alert_triage_dashboards': 'alertTriageDashboards',
         'alert_type': 'alertType',
         'alerts_last_day': 'alertsLastDay',
         'alerts_last_month': 'alertsLastMonth',
         'alerts_last_week': 'alertsLastWeek',
         'application': 'application',
+        'chart_attributes': 'chartAttributes',
+        'chart_settings': 'chartSettings',
         'condition': 'condition',
         'condition_qb_enabled': 'conditionQBEnabled',
         'condition_qb_serialization': 'conditionQBSerialization',
@@ -188,7 +196,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, query_syntax_error=None, resolve_after_minutes=None, runbook_links=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, triage_dashboards=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_sources=None, alert_triage_dashboards=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, chart_attributes=None, chart_settings=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, query_syntax_error=None, resolve_after_minutes=None, runbook_links=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, triage_dashboards=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -197,11 +205,15 @@ class Alert(object):
         self._acl = None
         self._active_maintenance_windows = None
         self._additional_information = None
+        self._alert_sources = None
+        self._alert_triage_dashboards = None
         self._alert_type = None
         self._alerts_last_day = None
         self._alerts_last_month = None
         self._alerts_last_week = None
         self._application = None
+        self._chart_attributes = None
+        self._chart_settings = None
         self._condition = None
         self._condition_qb_enabled = None
         self._condition_qb_serialization = None
@@ -277,6 +289,10 @@ class Alert(object):
             self.active_maintenance_windows = active_maintenance_windows
         if additional_information is not None:
             self.additional_information = additional_information
+        if alert_sources is not None:
+            self.alert_sources = alert_sources
+        if alert_triage_dashboards is not None:
+            self.alert_triage_dashboards = alert_triage_dashboards
         if alert_type is not None:
             self.alert_type = alert_type
         if alerts_last_day is not None:
@@ -287,6 +303,10 @@ class Alert(object):
             self.alerts_last_week = alerts_last_week
         if application is not None:
             self.application = application
+        if chart_attributes is not None:
+            self.chart_attributes = chart_attributes
+        if chart_settings is not None:
+            self.chart_settings = chart_settings
         self.condition = condition
         if condition_qb_enabled is not None:
             self.condition_qb_enabled = condition_qb_enabled
@@ -487,6 +507,52 @@ class Alert(object):
         self._additional_information = additional_information
 
     @property
+    def alert_sources(self):
+        """Gets the alert_sources of this Alert.  # noqa: E501
+
+        A list of queries represent multiple queries in alert. It must contains at least one query with AlertSourceType as CONDITION.  # noqa: E501
+
+        :return: The alert_sources of this Alert.  # noqa: E501
+        :rtype: list[AlertSource]
+        """
+        return self._alert_sources
+
+    @alert_sources.setter
+    def alert_sources(self, alert_sources):
+        """Sets the alert_sources of this Alert.
+
+        A list of queries represent multiple queries in alert. It must contains at least one query with AlertSourceType as CONDITION.  # noqa: E501
+
+        :param alert_sources: The alert_sources of this Alert.  # noqa: E501
+        :type: list[AlertSource]
+        """
+
+        self._alert_sources = alert_sources
+
+    @property
+    def alert_triage_dashboards(self):
+        """Gets the alert_triage_dashboards of this Alert.  # noqa: E501
+
+        User-supplied dashboard and parameters to create dashboard links. Parameters must be specified as constants or variables. Constant parameters currently only supported  # noqa: E501
+
+        :return: The alert_triage_dashboards of this Alert.  # noqa: E501
+        :rtype: list[AlertDashboard]
+        """
+        return self._alert_triage_dashboards
+
+    @alert_triage_dashboards.setter
+    def alert_triage_dashboards(self, alert_triage_dashboards):
+        """Sets the alert_triage_dashboards of this Alert.
+
+        User-supplied dashboard and parameters to create dashboard links. Parameters must be specified as constants or variables. Constant parameters currently only supported  # noqa: E501
+
+        :param alert_triage_dashboards: The alert_triage_dashboards of this Alert.  # noqa: E501
+        :type: list[AlertDashboard]
+        """
+
+        self._alert_triage_dashboards = alert_triage_dashboards
+
+    @property
     def alert_type(self):
         """Gets the alert_type of this Alert.  # noqa: E501
 
@@ -601,6 +667,52 @@ class Alert(object):
         """
 
         self._application = application
+
+    @property
+    def chart_attributes(self):
+        """Gets the chart_attributes of this Alert.  # noqa: E501
+
+        Additional chart settings for the alert (e.g. pie chart has its chart settings in this section).  # noqa: E501
+
+        :return: The chart_attributes of this Alert.  # noqa: E501
+        :rtype: JsonNode
+        """
+        return self._chart_attributes
+
+    @chart_attributes.setter
+    def chart_attributes(self, chart_attributes):
+        """Sets the chart_attributes of this Alert.
+
+        Additional chart settings for the alert (e.g. pie chart has its chart settings in this section).  # noqa: E501
+
+        :param chart_attributes: The chart_attributes of this Alert.  # noqa: E501
+        :type: JsonNode
+        """
+
+        self._chart_attributes = chart_attributes
+
+    @property
+    def chart_settings(self):
+        """Gets the chart_settings of this Alert.  # noqa: E501
+
+        The old chart settings for the alert (e.g. chart type, chart range etc.).  # noqa: E501
+
+        :return: The chart_settings of this Alert.  # noqa: E501
+        :rtype: ChartSettings
+        """
+        return self._chart_settings
+
+    @chart_settings.setter
+    def chart_settings(self, chart_settings):
+        """Sets the chart_settings of this Alert.
+
+        The old chart settings for the alert (e.g. chart type, chart range etc.).  # noqa: E501
+
+        :param chart_settings: The chart_settings of this Alert.  # noqa: E501
+        :type: ChartSettings
+        """
+
+        self._chart_settings = chart_settings
 
     @property
     def condition(self):
@@ -2035,7 +2147,7 @@ class Alert(object):
     def triage_dashboards(self):
         """Gets the triage_dashboards of this Alert.  # noqa: E501
 
-        User-supplied dashboard and parameters to create dashboard links  # noqa: E501
+        Deprecated for alertTriageDashboards  # noqa: E501
 
         :return: The triage_dashboards of this Alert.  # noqa: E501
         :rtype: list[TriageDashboard]
@@ -2046,7 +2158,7 @@ class Alert(object):
     def triage_dashboards(self, triage_dashboards):
         """Sets the triage_dashboards of this Alert.
 
-        User-supplied dashboard and parameters to create dashboard links  # noqa: E501
+        Deprecated for alertTriageDashboards  # noqa: E501
 
         :param triage_dashboards: The triage_dashboards of this Alert.  # noqa: E501
         :type: list[TriageDashboard]

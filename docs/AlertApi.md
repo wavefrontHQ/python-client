@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_alerts_summary**](AlertApi.md#get_alerts_summary) | **GET** /api/v2/alert/summary | Count alerts of various statuses for a customer
 [**get_all_alert**](AlertApi.md#get_all_alert) | **GET** /api/v2/alert | Get all alerts for a customer
 [**hide_alert**](AlertApi.md#hide_alert) | **POST** /api/v2/alert/{id}/uninstall | Hide a specific integration alert 
+[**preview_alert_notification**](AlertApi.md#preview_alert_notification) | **POST** /api/v2/alert/preview | Get all the notification preview for a specific alert
 [**remove_alert_access**](AlertApi.md#remove_alert_access) | **POST** /api/v2/alert/acl/remove | Removes the specified ids from the given alerts&#39; ACL
 [**remove_alert_tag**](AlertApi.md#remove_alert_tag) | **DELETE** /api/v2/alert/{id}/tag/{tagValue} | Remove a tag from a specific alert
 [**set_alert_acl**](AlertApi.md#set_alert_acl) | **PUT** /api/v2/alert/acl/set | Set ACL for the specified alerts
@@ -83,7 +84,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_alert_tag**
-> ResponseContainer add_alert_tag(id, tag_value)
+> ResponseContainerVoid add_alert_tag(id, tag_value)
 
 Add a tag to a specific alert
 
@@ -125,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainer**](ResponseContainer.md)
+[**ResponseContainerVoid**](ResponseContainerVoid.md)
 
 ### Authorization
 
@@ -251,7 +252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_alert**
-> ResponseContainerAlert create_alert(body=body)
+> ResponseContainerAlert create_alert(use_multi_query=use_multi_query, body=body)
 
 Create a specific alert
 
@@ -273,11 +274,12 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.Alert() # Alert | Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (optional)
+use_multi_query = false # bool | A flag indicates whether to use the new multi-query alert structures when thefeature is enabled.<br/> When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.<br/> When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-create $.alertSources  (optional) (default to false)
+body = wavefront_api_client.Alert() # Alert | Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"alertTriageDashboards\": [{     \"dashboardId\": \"dashboard-name\",     \"parameters\": {       \"constants\": {         \"key\": \"value\"         }       },    \"description\": \"dashboard description\"     }   ],   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Classic Body with multi queries:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"CLASSIC\",     \"alertSources\": [        {             \"name\": \"A\",             \"query\": \"${B} > 2\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"CONDITION\"]         },         {             \"name\": \"B\",             \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"AUDIT\"]         }     ],     \"severity\": \"WARN\",     \"minutes\": 5 }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Example Threshold Body with multi queries:  <pre>{   \"name\": \"Alert Name\",   \"alertType\": \"THRESHOLD\",   \"alertSources\": [     {       \"name\": \"A\",       \"query\": \"${B}\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"CONDITION\"]     },     {       \"name\": \"B\",       \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"AUDIT\"]     }   ],   \"conditions\": {     \"info\": \"${B} > bool 0\",     \"warn\": \"${B} > bool 2\"   },   \"minutes\": 5 }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (optional)
 
 try:
     # Create a specific alert
-    api_response = api_instance.create_alert(body=body)
+    api_response = api_instance.create_alert(use_multi_query=use_multi_query, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AlertApi->create_alert: %s\n" % e)
@@ -287,7 +289,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Alert**](Alert.md)| Example Classic Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;target:alert-target-id\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;conditionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;displayExpressionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; Example Threshold Body:  &lt;pre&gt;{     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,     \&quot;conditions\&quot;: {         \&quot;info\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 0\&quot;,         \&quot;warn\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 2\&quot;     },     \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,     \&quot;minutes\&quot;: 5,     \&quot;additionalInformation\&quot;: \&quot;conditions value entry needs to be of the form: displayExpression operator threshold\&quot; }&lt;/pre&gt; Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | [optional] 
+ **use_multi_query** | **bool**| A flag indicates whether to use the new multi-query alert structures when thefeature is enabled.&lt;br/&gt; When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.&lt;br/&gt; When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-create $.alertSources  | [optional] [default to false]
+ **body** | [**Alert**](Alert.md)| Example Classic Body:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;target:alert-target-id\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;conditionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;displayExpressionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;alertTriageDashboards\&quot;: [{     \&quot;dashboardId\&quot;: \&quot;dashboard-name\&quot;,     \&quot;parameters\&quot;: {       \&quot;constants\&quot;: {         \&quot;key\&quot;: \&quot;value\&quot;         }       },    \&quot;description\&quot;: \&quot;dashboard description\&quot;     }   ],   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; Example Classic Body with multi queries:  &lt;pre&gt;{     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;CLASSIC\&quot;,     \&quot;alertSources\&quot;: [        {             \&quot;name\&quot;: \&quot;A\&quot;,             \&quot;query\&quot;: \&quot;${B} &gt; 2\&quot;,             \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,             \&quot;alertSourceType\&quot;: [\&quot;CONDITION\&quot;]         },         {             \&quot;name\&quot;: \&quot;B\&quot;,             \&quot;query\&quot;: \&quot;sum_over_time(~sample.network.bytes.recv[1m])\&quot;,             \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,             \&quot;alertSourceType\&quot;: [\&quot;AUDIT\&quot;]         }     ],     \&quot;severity\&quot;: \&quot;WARN\&quot;,     \&quot;minutes\&quot;: 5 }&lt;/pre&gt; Example Threshold Body:  &lt;pre&gt;{     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,     \&quot;conditions\&quot;: {         \&quot;info\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 0\&quot;,         \&quot;warn\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 2\&quot;     },     \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,     \&quot;minutes\&quot;: 5,     \&quot;additionalInformation\&quot;: \&quot;conditions value entry needs to be of the form: displayExpression operator threshold\&quot; }&lt;/pre&gt; Example Threshold Body with multi queries:  &lt;pre&gt;{   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,   \&quot;alertSources\&quot;: [     {       \&quot;name\&quot;: \&quot;A\&quot;,       \&quot;query\&quot;: \&quot;${B}\&quot;,       \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,       \&quot;alertSourceType\&quot;: [\&quot;CONDITION\&quot;]     },     {       \&quot;name\&quot;: \&quot;B\&quot;,       \&quot;query\&quot;: \&quot;sum_over_time(~sample.network.bytes.recv[1m])\&quot;,       \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,       \&quot;alertSourceType\&quot;: [\&quot;AUDIT\&quot;]     }   ],   \&quot;conditions\&quot;: {     \&quot;info\&quot;: \&quot;${B} &gt; bool 0\&quot;,     \&quot;warn\&quot;: \&quot;${B} &gt; bool 2\&quot;   },   \&quot;minutes\&quot;: 5 }&lt;/pre&gt; Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | [optional] 
 
 ### Return type
 
@@ -796,6 +799,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **preview_alert_notification**
+> ResponseContainerListNotificationMessages preview_alert_notification(body=body)
+
+Get all the notification preview for a specific alert
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.Alert() # Alert |  (optional)
+
+try:
+    # Get all the notification preview for a specific alert
+    api_response = api_instance.preview_alert_notification(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AlertApi->preview_alert_notification: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Alert**](Alert.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerListNotificationMessages**](ResponseContainerListNotificationMessages.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **remove_alert_access**
 > remove_alert_access(body=body)
 
@@ -850,7 +907,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_alert_tag**
-> ResponseContainer remove_alert_tag(id, tag_value)
+> ResponseContainerVoid remove_alert_tag(id, tag_value)
 
 Remove a tag from a specific alert
 
@@ -892,7 +949,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainer**](ResponseContainer.md)
+[**ResponseContainerVoid**](ResponseContainerVoid.md)
 
 ### Authorization
 
@@ -959,7 +1016,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_alert_tags**
-> ResponseContainer set_alert_tags(id, body=body)
+> ResponseContainerVoid set_alert_tags(id, body=body)
 
 Set all tags associated with a specific alert
 
@@ -1001,7 +1058,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainer**](ResponseContainer.md)
+[**ResponseContainerVoid**](ResponseContainerVoid.md)
 
 ### Authorization
 
@@ -1093,7 +1150,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
-id = 'id_example' # str | 
+id = 789 # int | 
 
 try:
     # Undelete a specific alert
@@ -1107,7 +1164,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -1201,7 +1258,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
-id = 'id_example' # str | 
+id = 789 # int | 
 
 try:
     # Unsnooze a specific alert
@@ -1215,7 +1272,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -1233,7 +1290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_alert**
-> ResponseContainerAlert update_alert(id, body=body)
+> ResponseContainerAlert update_alert(id, use_multi_query=use_multi_query, body=body)
 
 Update a specific alert
 
@@ -1256,11 +1313,12 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.Alert() # Alert | Example Classic Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"id\": \"1459375928550\",     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 5\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"resolveAfterMinutes\": 2,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (optional)
+use_multi_query = false # bool | A flag indicates whether to use the new multi-query alert structures when the feature is enabled.<br/> When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.<br/> When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-update $.alertSources  (optional) (default to false)
+body = wavefront_api_client.Alert() # Alert | Example Classic Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Classic Body with multi queries:  <pre>{   \"id\": \"1459375928549\",     \"name\": \"Alert Name\",     \"alertType\": \"CLASSIC\",     \"alertSources\": [        {             \"name\": \"A\",             \"query\": \"${B} > 2\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"CONDITION\"]         },         {             \"name\": \"B\",             \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"AUDIT\"]         }     ],     \"severity\": \"WARN\",     \"minutes\": 5 }</pre> Example Threshold Body:  <pre>{     \"id\": \"1459375928550\",     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 5\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"resolveAfterMinutes\": 2,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Example Threshold Body with multi queries:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"alertType\": \"THRESHOLD\",   \"alertSources\": [     {       \"name\": \"A\",       \"query\": \"${B}\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"CONDITION\"]     },     {       \"name\": \"B\",       \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"AUDIT\"]     }   ],   \"conditions\": {     \"info\": \"${B} > bool 0\",     \"warn\": \"${B} > bool 2\"   },   \"minutes\": 5 }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (optional)
 
 try:
     # Update a specific alert
-    api_response = api_instance.update_alert(id, body=body)
+    api_response = api_instance.update_alert(id, use_multi_query=use_multi_query, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AlertApi->update_alert: %s\n" % e)
@@ -1271,7 +1329,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**Alert**](Alert.md)| Example Classic Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;target:alert-target-id\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;conditionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;displayExpressionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; Example Threshold Body:  &lt;pre&gt;{     \&quot;id\&quot;: \&quot;1459375928550\&quot;,     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,     \&quot;conditions\&quot;: {         \&quot;info\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 0\&quot;,         \&quot;warn\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 5\&quot;     },     \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,     \&quot;minutes\&quot;: 5,     \&quot;resolveAfterMinutes\&quot;: 2,     \&quot;additionalInformation\&quot;: \&quot;conditions value entry needs to be of the form: displayExpression operator threshold\&quot; }&lt;/pre&gt; Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | [optional] 
+ **use_multi_query** | **bool**| A flag indicates whether to use the new multi-query alert structures when the feature is enabled.&lt;br/&gt; When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.&lt;br/&gt; When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-update $.alertSources  | [optional] [default to false]
+ **body** | [**Alert**](Alert.md)| Example Classic Body:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;target\&quot;: \&quot;target:alert-target-id\&quot;,   \&quot;condition\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 1\&quot;,   \&quot;conditionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,   \&quot;displayExpressionQueryType\&quot;: \&quot;WQL\&quot;,   \&quot;minutes\&quot;: 5,   \&quot;resolveAfterMinutes\&quot;: 2,   \&quot;severity\&quot;: \&quot;INFO\&quot;,   \&quot;additionalInformation\&quot;: \&quot;Additional Info\&quot;,   \&quot;tags\&quot;: {     \&quot;customerTags\&quot;: [       \&quot;alertTag1\&quot;     ]   } }&lt;/pre&gt; Example Classic Body with multi queries:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;CLASSIC\&quot;,     \&quot;alertSources\&quot;: [        {             \&quot;name\&quot;: \&quot;A\&quot;,             \&quot;query\&quot;: \&quot;${B} &gt; 2\&quot;,             \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,             \&quot;alertSourceType\&quot;: [\&quot;CONDITION\&quot;]         },         {             \&quot;name\&quot;: \&quot;B\&quot;,             \&quot;query\&quot;: \&quot;sum_over_time(~sample.network.bytes.recv[1m])\&quot;,             \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,             \&quot;alertSourceType\&quot;: [\&quot;AUDIT\&quot;]         }     ],     \&quot;severity\&quot;: \&quot;WARN\&quot;,     \&quot;minutes\&quot;: 5 }&lt;/pre&gt; Example Threshold Body:  &lt;pre&gt;{     \&quot;id\&quot;: \&quot;1459375928550\&quot;,     \&quot;name\&quot;: \&quot;Alert Name\&quot;,     \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,     \&quot;conditions\&quot;: {         \&quot;info\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 0\&quot;,         \&quot;warn\&quot;: \&quot;ts(~sample.cpu.loadavg.1m) &gt; 5\&quot;     },     \&quot;displayExpression\&quot;: \&quot;ts(~sample.cpu.loadavg.1m)\&quot;,     \&quot;minutes\&quot;: 5,     \&quot;resolveAfterMinutes\&quot;: 2,     \&quot;additionalInformation\&quot;: \&quot;conditions value entry needs to be of the form: displayExpression operator threshold\&quot; }&lt;/pre&gt; Example Threshold Body with multi queries:  &lt;pre&gt;{   \&quot;id\&quot;: \&quot;1459375928549\&quot;,   \&quot;name\&quot;: \&quot;Alert Name\&quot;,   \&quot;alertType\&quot;: \&quot;THRESHOLD\&quot;,   \&quot;alertSources\&quot;: [     {       \&quot;name\&quot;: \&quot;A\&quot;,       \&quot;query\&quot;: \&quot;${B}\&quot;,       \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,       \&quot;alertSourceType\&quot;: [\&quot;CONDITION\&quot;]     },     {       \&quot;name\&quot;: \&quot;B\&quot;,       \&quot;query\&quot;: \&quot;sum_over_time(~sample.network.bytes.recv[1m])\&quot;,       \&quot;queryType\&quot;: \&quot;PROMQL\&quot;,       \&quot;alertSourceType\&quot;: [\&quot;AUDIT\&quot;]     }   ],   \&quot;conditions\&quot;: {     \&quot;info\&quot;: \&quot;${B} &gt; bool 0\&quot;,     \&quot;warn\&quot;: \&quot;${B} &gt; bool 2\&quot;   },   \&quot;minutes\&quot;: 5 }&lt;/pre&gt; Supported Characters of Tags:  &lt;pre&gt;Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.&lt;/pre&gt;  | [optional] 
 
 ### Return type
 

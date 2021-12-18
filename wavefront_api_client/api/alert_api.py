@@ -140,7 +140,7 @@ class AlertApi(object):
         :param async_req bool
         :param str id: (required)
         :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
-        :return: ResponseContainer
+        :return: ResponseContainerVoid
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -163,7 +163,7 @@ class AlertApi(object):
         :param async_req bool
         :param str id: (required)
         :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
-        :return: ResponseContainer
+        :return: ResponseContainerVoid
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -227,7 +227,7 @@ class AlertApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainer',  # noqa: E501
+            response_type='ResponseContainerVoid',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -447,7 +447,8 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
+        :param bool use_multi_query: A flag indicates whether to use the new multi-query alert structures when thefeature is enabled.<br/> When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.<br/> When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-create $.alertSources 
+        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"alertTriageDashboards\": [{     \"dashboardId\": \"dashboard-name\",     \"parameters\": {       \"constants\": {         \"key\": \"value\"         }       },    \"description\": \"dashboard description\"     }   ],   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Classic Body with multi queries:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"CLASSIC\",     \"alertSources\": [        {             \"name\": \"A\",             \"query\": \"${B} > 2\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"CONDITION\"]         },         {             \"name\": \"B\",             \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"AUDIT\"]         }     ],     \"severity\": \"WARN\",     \"minutes\": 5 }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Example Threshold Body with multi queries:  <pre>{   \"name\": \"Alert Name\",   \"alertType\": \"THRESHOLD\",   \"alertSources\": [     {       \"name\": \"A\",       \"query\": \"${B}\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"CONDITION\"]     },     {       \"name\": \"B\",       \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"AUDIT\"]     }   ],   \"conditions\": {     \"info\": \"${B} > bool 0\",     \"warn\": \"${B} > bool 2\"   },   \"minutes\": 5 }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -469,13 +470,14 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
+        :param bool use_multi_query: A flag indicates whether to use the new multi-query alert structures when thefeature is enabled.<br/> When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.<br/> When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-create $.alertSources 
+        :param Alert body: Example Classic Body:  <pre>{   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"alertTriageDashboards\": [{     \"dashboardId\": \"dashboard-name\",     \"parameters\": {       \"constants\": {         \"key\": \"value\"         }       },    \"description\": \"dashboard description\"     }   ],   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Classic Body with multi queries:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"CLASSIC\",     \"alertSources\": [        {             \"name\": \"A\",             \"query\": \"${B} > 2\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"CONDITION\"]         },         {             \"name\": \"B\",             \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"AUDIT\"]         }     ],     \"severity\": \"WARN\",     \"minutes\": 5 }</pre> Example Threshold Body:  <pre>{     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 2\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Example Threshold Body with multi queries:  <pre>{   \"name\": \"Alert Name\",   \"alertType\": \"THRESHOLD\",   \"alertSources\": [     {       \"name\": \"A\",       \"query\": \"${B}\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"CONDITION\"]     },     {       \"name\": \"B\",       \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"AUDIT\"]     }   ],   \"conditions\": {     \"info\": \"${B} > bool 0\",     \"warn\": \"${B} > bool 2\"   },   \"minutes\": 5 }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
+        all_params = ['use_multi_query', 'body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -496,6 +498,8 @@ class AlertApi(object):
         path_params = {}
 
         query_params = []
+        if 'use_multi_query' in params:
+            query_params.append(('useMultiQuery', params['use_multi_query']))  # noqa: E501
 
         header_params = {}
 
@@ -1396,6 +1400,97 @@ class AlertApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def preview_alert_notification(self, **kwargs):  # noqa: E501
+        """Get all the notification preview for a specific alert  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_alert_notification(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Alert body:
+        :return: ResponseContainerListNotificationMessages
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.preview_alert_notification_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.preview_alert_notification_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def preview_alert_notification_with_http_info(self, **kwargs):  # noqa: E501
+        """Get all the notification preview for a specific alert  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_alert_notification_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Alert body:
+        :return: ResponseContainerListNotificationMessages
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method preview_alert_notification" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/alert/preview', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerListNotificationMessages',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def remove_alert_access(self, **kwargs):  # noqa: E501
         """Removes the specified ids from the given alerts' ACL  # noqa: E501
 
@@ -1503,7 +1598,7 @@ class AlertApi(object):
         :param async_req bool
         :param str id: (required)
         :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
-        :return: ResponseContainer
+        :return: ResponseContainerVoid
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1526,7 +1621,7 @@ class AlertApi(object):
         :param async_req bool
         :param str id: (required)
         :param str tag_value: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre>  (required)
-        :return: ResponseContainer
+        :return: ResponseContainerVoid
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1586,7 +1681,7 @@ class AlertApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainer',  # noqa: E501
+            response_type='ResponseContainerVoid',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1701,7 +1796,7 @@ class AlertApi(object):
         :param async_req bool
         :param str id: (required)
         :param list[str] body: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
-        :return: ResponseContainer
+        :return: ResponseContainerVoid
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1724,7 +1819,7 @@ class AlertApi(object):
         :param async_req bool
         :param str id: (required)
         :param list[str] body: Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
-        :return: ResponseContainer
+        :return: ResponseContainerVoid
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1784,7 +1879,7 @@ class AlertApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResponseContainer',  # noqa: E501
+            response_type='ResponseContainerVoid',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1901,7 +1996,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param int id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1923,7 +2018,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param int id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2091,7 +2186,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param int id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2113,7 +2208,7 @@ class AlertApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param int id: (required)
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2187,7 +2282,8 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param Alert body: Example Classic Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"id\": \"1459375928550\",     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 5\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"resolveAfterMinutes\": 2,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
+        :param bool use_multi_query: A flag indicates whether to use the new multi-query alert structures when the feature is enabled.<br/> When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.<br/> When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-update $.alertSources 
+        :param Alert body: Example Classic Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Classic Body with multi queries:  <pre>{   \"id\": \"1459375928549\",     \"name\": \"Alert Name\",     \"alertType\": \"CLASSIC\",     \"alertSources\": [        {             \"name\": \"A\",             \"query\": \"${B} > 2\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"CONDITION\"]         },         {             \"name\": \"B\",             \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"AUDIT\"]         }     ],     \"severity\": \"WARN\",     \"minutes\": 5 }</pre> Example Threshold Body:  <pre>{     \"id\": \"1459375928550\",     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 5\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"resolveAfterMinutes\": 2,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Example Threshold Body with multi queries:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"alertType\": \"THRESHOLD\",   \"alertSources\": [     {       \"name\": \"A\",       \"query\": \"${B}\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"CONDITION\"]     },     {       \"name\": \"B\",       \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"AUDIT\"]     }   ],   \"conditions\": {     \"info\": \"${B} > bool 0\",     \"warn\": \"${B} > bool 2\"   },   \"minutes\": 5 }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2210,13 +2306,14 @@ class AlertApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param Alert body: Example Classic Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Threshold Body:  <pre>{     \"id\": \"1459375928550\",     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 5\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"resolveAfterMinutes\": 2,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
+        :param bool use_multi_query: A flag indicates whether to use the new multi-query alert structures when the feature is enabled.<br/> When the flag is true, the $.alertSources is the source of truth and will update $.condition and $.displayExpression with the corresponding expanded queries.<br/> When the flag is false, it goes through the old way and the $.condition and$.displayExpression is the source of truth and will auto-update $.alertSources 
+        :param Alert body: Example Classic Body:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"target\": \"target:alert-target-id\",   \"condition\": \"ts(~sample.cpu.loadavg.1m) > 1\",   \"conditionQueryType\": \"WQL\",   \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",   \"displayExpressionQueryType\": \"WQL\",   \"minutes\": 5,   \"resolveAfterMinutes\": 2,   \"severity\": \"INFO\",   \"additionalInformation\": \"Additional Info\",   \"tags\": {     \"customerTags\": [       \"alertTag1\"     ]   } }</pre> Example Classic Body with multi queries:  <pre>{   \"id\": \"1459375928549\",     \"name\": \"Alert Name\",     \"alertType\": \"CLASSIC\",     \"alertSources\": [        {             \"name\": \"A\",             \"query\": \"${B} > 2\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"CONDITION\"]         },         {             \"name\": \"B\",             \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",             \"queryType\": \"PROMQL\",             \"alertSourceType\": [\"AUDIT\"]         }     ],     \"severity\": \"WARN\",     \"minutes\": 5 }</pre> Example Threshold Body:  <pre>{     \"id\": \"1459375928550\",     \"name\": \"Alert Name\",     \"alertType\": \"THRESHOLD\",     \"conditions\": {         \"info\": \"ts(~sample.cpu.loadavg.1m) > 0\",         \"warn\": \"ts(~sample.cpu.loadavg.1m) > 5\"     },     \"displayExpression\": \"ts(~sample.cpu.loadavg.1m)\",     \"minutes\": 5,     \"resolveAfterMinutes\": 2,     \"additionalInformation\": \"conditions value entry needs to be of the form: displayExpression operator threshold\" }</pre> Example Threshold Body with multi queries:  <pre>{   \"id\": \"1459375928549\",   \"name\": \"Alert Name\",   \"alertType\": \"THRESHOLD\",   \"alertSources\": [     {       \"name\": \"A\",       \"query\": \"${B}\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"CONDITION\"]     },     {       \"name\": \"B\",       \"query\": \"sum_over_time(~sample.network.bytes.recv[1m])\",       \"queryType\": \"PROMQL\",       \"alertSourceType\": [\"AUDIT\"]     }   ],   \"conditions\": {     \"info\": \"${B} > bool 0\",     \"warn\": \"${B} > bool 2\"   },   \"minutes\": 5 }</pre> Supported Characters of Tags:  <pre>Tag names can contain alphanumeric (a-z, A-Z, 0-9),  dash (-), underscore (_), and colon (:) characters. The space character is not supported.</pre> 
         :return: ResponseContainerAlert
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'body']  # noqa: E501
+        all_params = ['id', 'use_multi_query', 'body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2243,6 +2340,8 @@ class AlertApi(object):
             path_params['id'] = params['id']  # noqa: E501
 
         query_params = []
+        if 'use_multi_query' in params:
+            query_params.append(('useMultiQuery', params['use_multi_query']))  # noqa: E501
 
         header_params = {}
 
