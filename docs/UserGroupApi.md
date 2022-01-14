@@ -4,16 +4,72 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_ingestion_policy**](UserGroupApi.md#add_ingestion_policy) | **POST** /api/v2/usergroup/addIngestionPolicy | Add single ingestion policy to multiple groups
 [**add_roles_to_user_group**](UserGroupApi.md#add_roles_to_user_group) | **POST** /api/v2/usergroup/{id}/addRoles | Add multiple roles to a specific user group
 [**add_users_to_user_group**](UserGroupApi.md#add_users_to_user_group) | **POST** /api/v2/usergroup/{id}/addUsers | Add multiple users to a specific user group
 [**create_user_group**](UserGroupApi.md#create_user_group) | **POST** /api/v2/usergroup | Create a specific user group
 [**delete_user_group**](UserGroupApi.md#delete_user_group) | **DELETE** /api/v2/usergroup/{id} | Delete a specific user group
 [**get_all_user_groups**](UserGroupApi.md#get_all_user_groups) | **GET** /api/v2/usergroup | Get all user groups for a customer
 [**get_user_group**](UserGroupApi.md#get_user_group) | **GET** /api/v2/usergroup/{id} | Get a specific user group
+[**remove_ingestion_policy**](UserGroupApi.md#remove_ingestion_policy) | **POST** /api/v2/usergroup/removeIngestionPolicy | Removes single ingestion policy from multiple groups
 [**remove_roles_from_user_group**](UserGroupApi.md#remove_roles_from_user_group) | **POST** /api/v2/usergroup/{id}/removeRoles | Remove multiple roles from a specific user group
 [**remove_users_from_user_group**](UserGroupApi.md#remove_users_from_user_group) | **POST** /api/v2/usergroup/{id}/removeUsers | Remove multiple users from a specific user group
 [**update_user_group**](UserGroupApi.md#update_user_group) | **PUT** /api/v2/usergroup/{id} | Update a specific user group
 
+
+# **add_ingestion_policy**
+> ResponseContainerUserGroupModel add_ingestion_policy(body=body)
+
+Add single ingestion policy to multiple groups
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.UserGroupApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.IngestionPolicyMapping() # IngestionPolicyMapping | Example Body:  <pre>{   \"ingestionPolicyId\": \"Ingestion policy identifier\",   \"accounts\": [   \"account1\",   \"account2\",   \"account3\"   ],   \"groups\": [   \"group1\",   \"group2\"   ] }</pre> (optional)
+
+try:
+    # Add single ingestion policy to multiple groups
+    api_response = api_instance.add_ingestion_policy(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserGroupApi->add_ingestion_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**IngestionPolicyMapping**](IngestionPolicyMapping.md)| Example Body:  &lt;pre&gt;{   \&quot;ingestionPolicyId\&quot;: \&quot;Ingestion policy identifier\&quot;,   \&quot;accounts\&quot;: [   \&quot;account1\&quot;,   \&quot;account2\&quot;,   \&quot;account3\&quot;   ],   \&quot;groups\&quot;: [   \&quot;group1\&quot;,   \&quot;group2\&quot;   ] }&lt;/pre&gt; | [optional] 
+
+### Return type
+
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_roles_to_user_group**
 > ResponseContainerUserGroupModel add_roles_to_user_group(id, body=body)
@@ -341,6 +397,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **remove_ingestion_policy**
+> ResponseContainerUserGroupModel remove_ingestion_policy(body=body)
+
+Removes single ingestion policy from multiple groups
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.UserGroupApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.IngestionPolicyMapping() # IngestionPolicyMapping | Example Body:  <pre>{   \"ingestionPolicyId\": \"Ingestion policy identifier\",   \"accounts\": [   \"account1\",   \"account2\",   \"account3\"   ],   \"groups\": [   \"group1\",   \"group2\"   ] }</pre> (optional)
+
+try:
+    # Removes single ingestion policy from multiple groups
+    api_response = api_instance.remove_ingestion_policy(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserGroupApi->remove_ingestion_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**IngestionPolicyMapping**](IngestionPolicyMapping.md)| Example Body:  &lt;pre&gt;{   \&quot;ingestionPolicyId\&quot;: \&quot;Ingestion policy identifier\&quot;,   \&quot;accounts\&quot;: [   \&quot;account1\&quot;,   \&quot;account2\&quot;,   \&quot;account3\&quot;   ],   \&quot;groups\&quot;: [   \&quot;group1\&quot;,   \&quot;group2\&quot;   ] }&lt;/pre&gt; | [optional] 
+
+### Return type
+
+[**ResponseContainerUserGroupModel**](ResponseContainerUserGroupModel.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

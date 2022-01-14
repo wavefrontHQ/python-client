@@ -33,33 +33,124 @@ class UserApiToken(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'account': 'str',
+        'account_type': 'str',
+        'date_generated': 'int',
         'last_used': 'int',
         'token_id': 'str',
         'token_name': 'str'
     }
 
     attribute_map = {
+        'account': 'account',
+        'account_type': 'accountType',
+        'date_generated': 'dateGenerated',
         'last_used': 'lastUsed',
         'token_id': 'tokenID',
         'token_name': 'tokenName'
     }
 
-    def __init__(self, last_used=None, token_id=None, token_name=None, _configuration=None):  # noqa: E501
+    def __init__(self, account=None, account_type=None, date_generated=None, last_used=None, token_id=None, token_name=None, _configuration=None):  # noqa: E501
         """UserApiToken - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._account = None
+        self._account_type = None
+        self._date_generated = None
         self._last_used = None
         self._token_id = None
         self._token_name = None
         self.discriminator = None
 
+        if account is not None:
+            self.account = account
+        if account_type is not None:
+            self.account_type = account_type
+        if date_generated is not None:
+            self.date_generated = date_generated
         if last_used is not None:
             self.last_used = last_used
         self.token_id = token_id
         if token_name is not None:
             self.token_name = token_name
+
+    @property
+    def account(self):
+        """Gets the account of this UserApiToken.  # noqa: E501
+
+        The account who generated this token.  # noqa: E501
+
+        :return: The account of this UserApiToken.  # noqa: E501
+        :rtype: str
+        """
+        return self._account
+
+    @account.setter
+    def account(self, account):
+        """Sets the account of this UserApiToken.
+
+        The account who generated this token.  # noqa: E501
+
+        :param account: The account of this UserApiToken.  # noqa: E501
+        :type: str
+        """
+
+        self._account = account
+
+    @property
+    def account_type(self):
+        """Gets the account_type of this UserApiToken.  # noqa: E501
+
+        The user or service account generated this token.  # noqa: E501
+
+        :return: The account_type of this UserApiToken.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_type
+
+    @account_type.setter
+    def account_type(self, account_type):
+        """Sets the account_type of this UserApiToken.
+
+        The user or service account generated this token.  # noqa: E501
+
+        :param account_type: The account_type of this UserApiToken.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["USER_ACCOUNT", "SERVICE_ACCOUNT", "INACTIVE_SERVICE_ACCOUNT"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                account_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `account_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(account_type, allowed_values)
+            )
+
+        self._account_type = account_type
+
+    @property
+    def date_generated(self):
+        """Gets the date_generated of this UserApiToken.  # noqa: E501
+
+        The generation date of the token.  # noqa: E501
+
+        :return: The date_generated of this UserApiToken.  # noqa: E501
+        :rtype: int
+        """
+        return self._date_generated
+
+    @date_generated.setter
+    def date_generated(self, date_generated):
+        """Sets the date_generated of this UserApiToken.
+
+        The generation date of the token.  # noqa: E501
+
+        :param date_generated: The date_generated of this UserApiToken.  # noqa: E501
+        :type: int
+        """
+
+        self._date_generated = date_generated
 
     @property
     def last_used(self):

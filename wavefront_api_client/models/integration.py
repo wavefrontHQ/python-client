@@ -42,10 +42,12 @@ class Integration(object):
         'dashboards': 'list[IntegrationDashboard]',
         'deleted': 'bool',
         'description': 'str',
+        'have_metric_dropdown': 'bool',
         'hidden': 'bool',
         'icon': 'str',
         'id': 'str',
         'metrics': 'IntegrationMetrics',
+        'metrics_docs': 'str',
         'name': 'str',
         'overview': 'str',
         'setup': 'str',
@@ -65,10 +67,12 @@ class Integration(object):
         'dashboards': 'dashboards',
         'deleted': 'deleted',
         'description': 'description',
+        'have_metric_dropdown': 'haveMetricDropdown',
         'hidden': 'hidden',
         'icon': 'icon',
         'id': 'id',
         'metrics': 'metrics',
+        'metrics_docs': 'metricsDocs',
         'name': 'name',
         'overview': 'overview',
         'setup': 'setup',
@@ -78,7 +82,7 @@ class Integration(object):
         'version': 'version'
     }
 
-    def __init__(self, alerts=None, alias_integrations=None, alias_of=None, base_url=None, created_epoch_millis=None, creator_id=None, dashboards=None, deleted=None, description=None, hidden=None, icon=None, id=None, metrics=None, name=None, overview=None, setup=None, status=None, updated_epoch_millis=None, updater_id=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, alerts=None, alias_integrations=None, alias_of=None, base_url=None, created_epoch_millis=None, creator_id=None, dashboards=None, deleted=None, description=None, have_metric_dropdown=None, hidden=None, icon=None, id=None, metrics=None, metrics_docs=None, name=None, overview=None, setup=None, status=None, updated_epoch_millis=None, updater_id=None, version=None, _configuration=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -93,10 +97,12 @@ class Integration(object):
         self._dashboards = None
         self._deleted = None
         self._description = None
+        self._have_metric_dropdown = None
         self._hidden = None
         self._icon = None
         self._id = None
         self._metrics = None
+        self._metrics_docs = None
         self._name = None
         self._overview = None
         self._setup = None
@@ -123,12 +129,15 @@ class Integration(object):
         if deleted is not None:
             self.deleted = deleted
         self.description = description
+        self.have_metric_dropdown = have_metric_dropdown
         self.hidden = hidden
         self.icon = icon
         if id is not None:
             self.id = id
         if metrics is not None:
             self.metrics = metrics
+        if metrics_docs is not None:
+            self.metrics_docs = metrics_docs
         self.name = name
         if overview is not None:
             self.overview = overview
@@ -346,6 +355,31 @@ class Integration(object):
         self._description = description
 
     @property
+    def have_metric_dropdown(self):
+        """Gets the have_metric_dropdown of this Integration.  # noqa: E501
+
+        Integration have metric dropdown or not  # noqa: E501
+
+        :return: The have_metric_dropdown of this Integration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._have_metric_dropdown
+
+    @have_metric_dropdown.setter
+    def have_metric_dropdown(self, have_metric_dropdown):
+        """Sets the have_metric_dropdown of this Integration.
+
+        Integration have metric dropdown or not  # noqa: E501
+
+        :param have_metric_dropdown: The have_metric_dropdown of this Integration.  # noqa: E501
+        :type: bool
+        """
+        if self._configuration.client_side_validation and have_metric_dropdown is None:
+            raise ValueError("Invalid value for `have_metric_dropdown`, must not be `None`")  # noqa: E501
+
+        self._have_metric_dropdown = have_metric_dropdown
+
+    @property
     def hidden(self):
         """Gets the hidden of this Integration.  # noqa: E501
 
@@ -436,6 +470,29 @@ class Integration(object):
         """
 
         self._metrics = metrics
+
+    @property
+    def metrics_docs(self):
+        """Gets the metrics_docs of this Integration.  # noqa: E501
+
+        Metric Preview File Name  # noqa: E501
+
+        :return: The metrics_docs of this Integration.  # noqa: E501
+        :rtype: str
+        """
+        return self._metrics_docs
+
+    @metrics_docs.setter
+    def metrics_docs(self, metrics_docs):
+        """Sets the metrics_docs of this Integration.
+
+        Metric Preview File Name  # noqa: E501
+
+        :param metrics_docs: The metrics_docs of this Integration.  # noqa: E501
+        :type: str
+        """
+
+        self._metrics_docs = metrics_docs
 
     @property
     def name(self):

@@ -35,6 +35,7 @@ class UserToCreate(object):
     swagger_types = {
         'email_address': 'str',
         'groups': 'list[str]',
+        'ingestion_policies': 'list[str]',
         'ingestion_policy_id': 'str',
         'roles': 'list[str]',
         'user_groups': 'list[str]'
@@ -43,12 +44,13 @@ class UserToCreate(object):
     attribute_map = {
         'email_address': 'emailAddress',
         'groups': 'groups',
+        'ingestion_policies': 'ingestionPolicies',
         'ingestion_policy_id': 'ingestionPolicyId',
         'roles': 'roles',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, email_address=None, groups=None, ingestion_policy_id=None, roles=None, user_groups=None, _configuration=None):  # noqa: E501
+    def __init__(self, email_address=None, groups=None, ingestion_policies=None, ingestion_policy_id=None, roles=None, user_groups=None, _configuration=None):  # noqa: E501
         """UserToCreate - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +58,7 @@ class UserToCreate(object):
 
         self._email_address = None
         self._groups = None
+        self._ingestion_policies = None
         self._ingestion_policy_id = None
         self._roles = None
         self._user_groups = None
@@ -63,6 +66,8 @@ class UserToCreate(object):
 
         self.email_address = email_address
         self.groups = groups
+        if ingestion_policies is not None:
+            self.ingestion_policies = ingestion_policies
         if ingestion_policy_id is not None:
             self.ingestion_policy_id = ingestion_policy_id
         if roles is not None:
@@ -120,6 +125,29 @@ class UserToCreate(object):
         self._groups = groups
 
     @property
+    def ingestion_policies(self):
+        """Gets the ingestion_policies of this UserToCreate.  # noqa: E501
+
+        The list of ingestion policy ids, the user will be added to.  # noqa: E501
+
+        :return: The ingestion_policies of this UserToCreate.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ingestion_policies
+
+    @ingestion_policies.setter
+    def ingestion_policies(self, ingestion_policies):
+        """Sets the ingestion_policies of this UserToCreate.
+
+        The list of ingestion policy ids, the user will be added to.  # noqa: E501
+
+        :param ingestion_policies: The ingestion_policies of this UserToCreate.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ingestion_policies = ingestion_policies
+
+    @property
     def ingestion_policy_id(self):
         """Gets the ingestion_policy_id of this UserToCreate.  # noqa: E501
 
@@ -146,7 +174,7 @@ class UserToCreate(object):
     def roles(self):
         """Gets the roles of this UserToCreate.  # noqa: E501
 
-        The list of role ids, the user will be added to.\"  # noqa: E501
+        The list of role ids, the user will be added to.  # noqa: E501
 
         :return: The roles of this UserToCreate.  # noqa: E501
         :rtype: list[str]
@@ -157,7 +185,7 @@ class UserToCreate(object):
     def roles(self, roles):
         """Sets the roles of this UserToCreate.
 
-        The list of role ids, the user will be added to.\"  # noqa: E501
+        The list of role ids, the user will be added to.  # noqa: E501
 
         :param roles: The roles of this UserToCreate.  # noqa: E501
         :type: list[str]

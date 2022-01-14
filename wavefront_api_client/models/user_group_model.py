@@ -37,6 +37,7 @@ class UserGroupModel(object):
         'customer': 'str',
         'description': 'str',
         'id': 'str',
+        'ingestion_policies': 'list[IngestionPolicy]',
         'name': 'str',
         'properties': 'UserGroupPropertiesDTO',
         'role_count': 'int',
@@ -50,6 +51,7 @@ class UserGroupModel(object):
         'customer': 'customer',
         'description': 'description',
         'id': 'id',
+        'ingestion_policies': 'ingestionPolicies',
         'name': 'name',
         'properties': 'properties',
         'role_count': 'roleCount',
@@ -58,7 +60,7 @@ class UserGroupModel(object):
         'users': 'users'
     }
 
-    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, name=None, properties=None, role_count=None, roles=None, user_count=None, users=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, ingestion_policies=None, name=None, properties=None, role_count=None, roles=None, user_count=None, users=None, _configuration=None):  # noqa: E501
         """UserGroupModel - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class UserGroupModel(object):
         self._customer = None
         self._description = None
         self._id = None
+        self._ingestion_policies = None
         self._name = None
         self._properties = None
         self._role_count = None
@@ -84,6 +87,8 @@ class UserGroupModel(object):
             self.description = description
         if id is not None:
             self.id = id
+        if ingestion_policies is not None:
+            self.ingestion_policies = ingestion_policies
         self.name = name
         if properties is not None:
             self.properties = properties
@@ -185,6 +190,29 @@ class UserGroupModel(object):
         """
 
         self._id = id
+
+    @property
+    def ingestion_policies(self):
+        """Gets the ingestion_policies of this UserGroupModel.  # noqa: E501
+
+        Ingestion policies linked with the user group  # noqa: E501
+
+        :return: The ingestion_policies of this UserGroupModel.  # noqa: E501
+        :rtype: list[IngestionPolicy]
+        """
+        return self._ingestion_policies
+
+    @ingestion_policies.setter
+    def ingestion_policies(self, ingestion_policies):
+        """Sets the ingestion_policies of this UserGroupModel.
+
+        Ingestion policies linked with the user group  # noqa: E501
+
+        :param ingestion_policies: The ingestion_policies of this UserGroupModel.  # noqa: E501
+        :type: list[IngestionPolicy]
+        """
+
+        self._ingestion_policies = ingestion_policies
 
     @property
     def name(self):

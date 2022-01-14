@@ -45,6 +45,7 @@ class Proxy(object):
         'hostname': 'str',
         'id': 'str',
         'in_trash': 'bool',
+        'ingestion_policies': 'list[IngestionPolicy]',
         'ingestion_policy': 'IngestionPolicy',
         'last_check_in_time': 'int',
         'last_error_event': 'Event',
@@ -78,6 +79,7 @@ class Proxy(object):
         'hostname': 'hostname',
         'id': 'id',
         'in_trash': 'inTrash',
+        'ingestion_policies': 'ingestionPolicies',
         'ingestion_policy': 'ingestionPolicy',
         'last_check_in_time': 'lastCheckInTime',
         'last_error_event': 'lastErrorEvent',
@@ -98,7 +100,7 @@ class Proxy(object):
         'version': 'version'
     }
 
-    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, user_id=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policies=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, user_id=None, version=None, _configuration=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -116,6 +118,7 @@ class Proxy(object):
         self._hostname = None
         self._id = None
         self._in_trash = None
+        self._ingestion_policies = None
         self._ingestion_policy = None
         self._last_check_in_time = None
         self._last_error_event = None
@@ -160,6 +163,8 @@ class Proxy(object):
             self.id = id
         if in_trash is not None:
             self.in_trash = in_trash
+        if ingestion_policies is not None:
+            self.ingestion_policies = ingestion_policies
         if ingestion_policy is not None:
             self.ingestion_policy = ingestion_policy
         if last_check_in_time is not None:
@@ -463,6 +468,29 @@ class Proxy(object):
         """
 
         self._in_trash = in_trash
+
+    @property
+    def ingestion_policies(self):
+        """Gets the ingestion_policies of this Proxy.  # noqa: E501
+
+        Ingestion policies associated with the proxy through user and groups  # noqa: E501
+
+        :return: The ingestion_policies of this Proxy.  # noqa: E501
+        :rtype: list[IngestionPolicy]
+        """
+        return self._ingestion_policies
+
+    @ingestion_policies.setter
+    def ingestion_policies(self, ingestion_policies):
+        """Sets the ingestion_policies of this Proxy.
+
+        Ingestion policies associated with the proxy through user and groups  # noqa: E501
+
+        :param ingestion_policies: The ingestion_policies of this Proxy.  # noqa: E501
+        :type: list[IngestionPolicy]
+        """
+
+        self._ingestion_policies = ingestion_policies
 
     @property
     def ingestion_policy(self):

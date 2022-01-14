@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **customer** | **str** |  | [optional] 
 **groups** | **list[str]** |  | [optional] 
 **identifier** | **str** |  | [optional] 
+**ingestion_policies** | **list[str]** |  | [optional] 
 **ingestion_policy_id** | **str** |  | [optional] 
 **roles** | **list[str]** |  | [optional] 
 **sso_id** | **str** |  | [optional] 

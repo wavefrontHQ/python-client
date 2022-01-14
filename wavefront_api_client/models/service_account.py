@@ -37,6 +37,7 @@ class ServiceAccount(object):
         'description': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
+        'ingestion_policies': 'list[IngestionPolicy]',
         'ingestion_policy': 'IngestionPolicy',
         'last_used': 'int',
         'roles': 'list[RoleDTO]',
@@ -51,6 +52,7 @@ class ServiceAccount(object):
         'description': 'description',
         'groups': 'groups',
         'identifier': 'identifier',
+        'ingestion_policies': 'ingestionPolicies',
         'ingestion_policy': 'ingestionPolicy',
         'last_used': 'lastUsed',
         'roles': 'roles',
@@ -60,7 +62,7 @@ class ServiceAccount(object):
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, active=None, description=None, groups=None, identifier=None, ingestion_policy=None, last_used=None, roles=None, tokens=None, united_permissions=None, united_roles=None, user_groups=None, _configuration=None):  # noqa: E501
+    def __init__(self, active=None, description=None, groups=None, identifier=None, ingestion_policies=None, ingestion_policy=None, last_used=None, roles=None, tokens=None, united_permissions=None, united_roles=None, user_groups=None, _configuration=None):  # noqa: E501
         """ServiceAccount - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -70,6 +72,7 @@ class ServiceAccount(object):
         self._description = None
         self._groups = None
         self._identifier = None
+        self._ingestion_policies = None
         self._ingestion_policy = None
         self._last_used = None
         self._roles = None
@@ -85,6 +88,8 @@ class ServiceAccount(object):
         if groups is not None:
             self.groups = groups
         self.identifier = identifier
+        if ingestion_policies is not None:
+            self.ingestion_policies = ingestion_policies
         if ingestion_policy is not None:
             self.ingestion_policy = ingestion_policy
         if last_used is not None:
@@ -195,6 +200,29 @@ class ServiceAccount(object):
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policies(self):
+        """Gets the ingestion_policies of this ServiceAccount.  # noqa: E501
+
+        The list of service account's ingestion policies.  # noqa: E501
+
+        :return: The ingestion_policies of this ServiceAccount.  # noqa: E501
+        :rtype: list[IngestionPolicy]
+        """
+        return self._ingestion_policies
+
+    @ingestion_policies.setter
+    def ingestion_policies(self, ingestion_policies):
+        """Sets the ingestion_policies of this ServiceAccount.
+
+        The list of service account's ingestion policies.  # noqa: E501
+
+        :param ingestion_policies: The ingestion_policies of this ServiceAccount.  # noqa: E501
+        :type: list[IngestionPolicy]
+        """
+
+        self._ingestion_policies = ingestion_policies
 
     @property
     def ingestion_policy(self):

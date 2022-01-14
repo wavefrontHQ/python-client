@@ -12,10 +12,12 @@ Name | Type | Description | Notes
 **dashboards** | [**list[IntegrationDashboard]**](IntegrationDashboard.md) | A list of dashboards belonging to this integration | [optional] 
 **deleted** | **bool** |  | [optional] 
 **description** | **str** | Integration description | 
+**have_metric_dropdown** | **bool** | Integration have metric dropdown or not | 
 **hidden** | **bool** | Integration is hidden or not | 
 **icon** | **str** | URI path to the integration icon | 
 **id** | **str** |  | [optional] 
 **metrics** | [**IntegrationMetrics**](IntegrationMetrics.md) |  | [optional] 
+**metrics_docs** | **str** | Metric Preview File Name | [optional] 
 **name** | **str** | Integration name | 
 **overview** | **str** | Descriptive text giving an overview of integration functionality | [optional] 
 **setup** | **str** | How the integration will be set-up | [optional] 

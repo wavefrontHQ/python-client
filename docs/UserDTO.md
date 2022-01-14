@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **customer** | **str** |  | [optional] 
 **groups** | **list[str]** |  | [optional] 
 **identifier** | **str** |  | [optional] 
+**ingestion_policies** | [**list[IngestionPolicy]**](IngestionPolicy.md) |  | [optional] 
 **ingestion_policy** | [**IngestionPolicy**](IngestionPolicy.md) |  | [optional] 
 **last_successful_login** | **int** |  | [optional] 
 **roles** | [**list[RoleDTO]**](RoleDTO.md) |  | [optional] 

@@ -37,6 +37,7 @@ class UserRequestDTO(object):
         'customer': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
+        'ingestion_policies': 'list[str]',
         'ingestion_policy_id': 'str',
         'roles': 'list[str]',
         'sso_id': 'str',
@@ -48,13 +49,14 @@ class UserRequestDTO(object):
         'customer': 'customer',
         'groups': 'groups',
         'identifier': 'identifier',
+        'ingestion_policies': 'ingestionPolicies',
         'ingestion_policy_id': 'ingestionPolicyId',
         'roles': 'roles',
         'sso_id': 'ssoId',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, credential=None, customer=None, groups=None, identifier=None, ingestion_policy_id=None, roles=None, sso_id=None, user_groups=None, _configuration=None):  # noqa: E501
+    def __init__(self, credential=None, customer=None, groups=None, identifier=None, ingestion_policies=None, ingestion_policy_id=None, roles=None, sso_id=None, user_groups=None, _configuration=None):  # noqa: E501
         """UserRequestDTO - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class UserRequestDTO(object):
         self._customer = None
         self._groups = None
         self._identifier = None
+        self._ingestion_policies = None
         self._ingestion_policy_id = None
         self._roles = None
         self._sso_id = None
@@ -78,6 +81,8 @@ class UserRequestDTO(object):
             self.groups = groups
         if identifier is not None:
             self.identifier = identifier
+        if ingestion_policies is not None:
+            self.ingestion_policies = ingestion_policies
         if ingestion_policy_id is not None:
             self.ingestion_policy_id = ingestion_policy_id
         if roles is not None:
@@ -170,6 +175,27 @@ class UserRequestDTO(object):
         """
 
         self._identifier = identifier
+
+    @property
+    def ingestion_policies(self):
+        """Gets the ingestion_policies of this UserRequestDTO.  # noqa: E501
+
+
+        :return: The ingestion_policies of this UserRequestDTO.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._ingestion_policies
+
+    @ingestion_policies.setter
+    def ingestion_policies(self, ingestion_policies):
+        """Sets the ingestion_policies of this UserRequestDTO.
+
+
+        :param ingestion_policies: The ingestion_policies of this UserRequestDTO.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._ingestion_policies = ingestion_policies
 
     @property
     def ingestion_policy_id(self):

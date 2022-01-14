@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groups** | **list[str]** | The list of account&#39;s permissions. | [optional] 
 **identifier** | **str** | The unique identifier of an account. | 
+**ingestion_policies** | **list[str]** | The list of ingestion policies associated with the account. | [optional] 
 **ingestion_policy_id** | **str** | The identifier of the ingestion policy linked with account. | [optional] 
 **roles** | **list[str]** | The list of account&#39;s roles. | [optional] 
 **united_permissions** | **list[str]** | The list of account&#39;s permissions assigned directly or through united roles assigned to it | [optional] 

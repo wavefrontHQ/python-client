@@ -34,32 +34,38 @@ class IngestionPolicyMapping(object):
     """
     swagger_types = {
         'accounts': 'list[str]',
+        'groups': 'list[str]',
         'ingestion_policy_id': 'str'
     }
 
     attribute_map = {
         'accounts': 'accounts',
+        'groups': 'groups',
         'ingestion_policy_id': 'ingestionPolicyId'
     }
 
-    def __init__(self, accounts=None, ingestion_policy_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, accounts=None, groups=None, ingestion_policy_id=None, _configuration=None):  # noqa: E501
         """IngestionPolicyMapping - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accounts = None
+        self._groups = None
         self._ingestion_policy_id = None
         self.discriminator = None
 
-        self.accounts = accounts
+        if accounts is not None:
+            self.accounts = accounts
+        if groups is not None:
+            self.groups = groups
         self.ingestion_policy_id = ingestion_policy_id
 
     @property
     def accounts(self):
         """Gets the accounts of this IngestionPolicyMapping.  # noqa: E501
 
-        The list of accounts that should be linked to the ingestion policy  # noqa: E501
+        The list of accounts that should be linked/unlinked to/from the ingestion policy  # noqa: E501
 
         :return: The accounts of this IngestionPolicyMapping.  # noqa: E501
         :rtype: list[str]
@@ -70,15 +76,36 @@ class IngestionPolicyMapping(object):
     def accounts(self, accounts):
         """Sets the accounts of this IngestionPolicyMapping.
 
-        The list of accounts that should be linked to the ingestion policy  # noqa: E501
+        The list of accounts that should be linked/unlinked to/from the ingestion policy  # noqa: E501
 
         :param accounts: The accounts of this IngestionPolicyMapping.  # noqa: E501
         :type: list[str]
         """
-        if self._configuration.client_side_validation and accounts is None:
-            raise ValueError("Invalid value for `accounts`, must not be `None`")  # noqa: E501
 
         self._accounts = accounts
+
+    @property
+    def groups(self):
+        """Gets the groups of this IngestionPolicyMapping.  # noqa: E501
+
+        The list of groups that should be linked/unlinked to/from the ingestion policy  # noqa: E501
+
+        :return: The groups of this IngestionPolicyMapping.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._groups
+
+    @groups.setter
+    def groups(self, groups):
+        """Sets the groups of this IngestionPolicyMapping.
+
+        The list of groups that should be linked/unlinked to/from the ingestion policy  # noqa: E501
+
+        :param groups: The groups of this IngestionPolicyMapping.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._groups = groups
 
     @property
     def ingestion_policy_id(self):
