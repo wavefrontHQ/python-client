@@ -258,6 +258,7 @@ from wavefront_api_client.models.schema import Schema
 from wavefront_api_client.models.search_query import SearchQuery
 from wavefront_api_client.models.service_account import ServiceAccount
 from wavefront_api_client.models.service_account_write import ServiceAccountWrite
+from wavefront_api_client.models.snowflake_configuration import SnowflakeConfiguration
 from wavefront_api_client.models.sortable_search_request import SortableSearchRequest
 from wavefront_api_client.models.sorting import Sorting
 from wavefront_api_client.models.source import Source

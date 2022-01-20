@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **reuse_external_id_credential** | **str** |  | [optional] 
 **service** | **str** | A value denoting which cloud service this integration integrates with | 
 **service_refresh_rate_in_mins** | **int** | Service refresh rate in minutes. | [optional] 
+**snowflake** | [**SnowflakeConfiguration**](SnowflakeConfiguration.md) |  | [optional] 
 **tesla** | [**TeslaConfiguration**](TeslaConfiguration.md) |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
 **updater_id** | **str** |  | [optional] 

@@ -62,6 +62,7 @@ class Proxy(object):
         'status': 'str',
         'status_cause': 'str',
         'time_drift': 'int',
+        'truncate': 'bool',
         'user_id': 'str',
         'version': 'str'
     }
@@ -96,11 +97,12 @@ class Proxy(object):
         'status': 'status',
         'status_cause': 'statusCause',
         'time_drift': 'timeDrift',
+        'truncate': 'truncate',
         'user_id': 'userId',
         'version': 'version'
     }
 
-    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policies=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, user_id=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policies=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, truncate=None, user_id=None, version=None, _configuration=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -135,6 +137,7 @@ class Proxy(object):
         self._status = None
         self._status_cause = None
         self._time_drift = None
+        self._truncate = None
         self._user_id = None
         self._version = None
         self.discriminator = None
@@ -196,6 +199,8 @@ class Proxy(object):
             self.status_cause = status_cause
         if time_drift is not None:
             self.time_drift = time_drift
+        if truncate is not None:
+            self.truncate = truncate
         if user_id is not None:
             self.user_id = user_id
         if version is not None:
@@ -866,6 +871,29 @@ class Proxy(object):
         """
 
         self._time_drift = time_drift
+
+    @property
+    def truncate(self):
+        """Gets the truncate of this Proxy.  # noqa: E501
+
+        When true, attempt to truncate down this proxy backlog remotely  # noqa: E501
+
+        :return: The truncate of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._truncate
+
+    @truncate.setter
+    def truncate(self, truncate):
+        """Sets the truncate of this Proxy.
+
+        When true, attempt to truncate down this proxy backlog remotely  # noqa: E501
+
+        :param truncate: The truncate of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._truncate = truncate
 
     @property
     def user_id(self):

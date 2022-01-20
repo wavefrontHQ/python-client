@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **status** | **str** | the proxy&#39;s status | [optional] 
 **status_cause** | **str** | The reason why the proxy is in current status | [optional] 
 **time_drift** | **int** | Time drift of the proxy&#39;s clock compared to Wavefront servers | [optional] 
+**truncate** | **bool** | When true, attempt to truncate down this proxy backlog remotely | [optional] 
 **user_id** | **str** | The user associated with this proxy | [optional] 
 **version** | **str** |  | [optional] 
 

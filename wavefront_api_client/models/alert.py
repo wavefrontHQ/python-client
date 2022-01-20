@@ -36,6 +36,9 @@ class Alert(object):
         'acl': 'AccessControlListSimple',
         'active_maintenance_windows': 'list[str]',
         'additional_information': 'str',
+        'alert_chart_base': 'int',
+        'alert_chart_description': 'str',
+        'alert_chart_units': 'str',
         'alert_sources': 'list[AlertSource]',
         'alert_triage_dashboards': 'list[AlertDashboard]',
         'alert_type': 'str',
@@ -118,6 +121,9 @@ class Alert(object):
         'acl': 'acl',
         'active_maintenance_windows': 'activeMaintenanceWindows',
         'additional_information': 'additionalInformation',
+        'alert_chart_base': 'alertChartBase',
+        'alert_chart_description': 'alertChartDescription',
+        'alert_chart_units': 'alertChartUnits',
         'alert_sources': 'alertSources',
         'alert_triage_dashboards': 'alertTriageDashboards',
         'alert_type': 'alertType',
@@ -196,7 +202,7 @@ class Alert(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_sources=None, alert_triage_dashboards=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, chart_attributes=None, chart_settings=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, query_syntax_error=None, resolve_after_minutes=None, runbook_links=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, triage_dashboards=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl=None, active_maintenance_windows=None, additional_information=None, alert_chart_base=None, alert_chart_description=None, alert_chart_units=None, alert_sources=None, alert_triage_dashboards=None, alert_type=None, alerts_last_day=None, alerts_last_month=None, alerts_last_week=None, application=None, chart_attributes=None, chart_settings=None, condition=None, condition_qb_enabled=None, condition_qb_serialization=None, condition_query_type=None, conditions=None, create_user_id=None, created=None, created_epoch_millis=None, creator_id=None, deleted=None, display_expression=None, display_expression_qb_enabled=None, display_expression_qb_serialization=None, display_expression_query_type=None, enable_pd_incident_by_series=None, evaluate_realtime_data=None, event=None, failing_host_label_pair_links=None, failing_host_label_pairs=None, hidden=None, hosts_used=None, id=None, in_maintenance_host_label_pairs=None, in_trash=None, include_obsolete_metrics=None, last_error_message=None, last_event_time=None, last_failed_time=None, last_notification_millis=None, last_processed_millis=None, last_query_time=None, metrics_used=None, minutes=None, modify_acl_access=None, name=None, no_data_event=None, notificants=None, notification_resend_frequency_minutes=None, num_points_in_failure_frame=None, orphan=None, points_scanned_at_last_query=None, prefiring_host_label_pairs=None, process_rate_minutes=None, query_failing=None, query_syntax_error=None, resolve_after_minutes=None, runbook_links=None, secure_metric_details=None, service=None, severity=None, severity_list=None, snoozed=None, sort_attr=None, status=None, system_alert_version=None, system_owned=None, tagpaths=None, tags=None, target=None, target_endpoints=None, target_info=None, targets=None, triage_dashboards=None, update_user_id=None, updated=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -205,6 +211,9 @@ class Alert(object):
         self._acl = None
         self._active_maintenance_windows = None
         self._additional_information = None
+        self._alert_chart_base = None
+        self._alert_chart_description = None
+        self._alert_chart_units = None
         self._alert_sources = None
         self._alert_triage_dashboards = None
         self._alert_type = None
@@ -289,6 +298,12 @@ class Alert(object):
             self.active_maintenance_windows = active_maintenance_windows
         if additional_information is not None:
             self.additional_information = additional_information
+        if alert_chart_base is not None:
+            self.alert_chart_base = alert_chart_base
+        if alert_chart_description is not None:
+            self.alert_chart_description = alert_chart_description
+        if alert_chart_units is not None:
+            self.alert_chart_units = alert_chart_units
         if alert_sources is not None:
             self.alert_sources = alert_sources
         if alert_triage_dashboards is not None:
@@ -505,6 +520,75 @@ class Alert(object):
         """
 
         self._additional_information = additional_information
+
+    @property
+    def alert_chart_base(self):
+        """Gets the alert_chart_base of this Alert.  # noqa: E501
+
+        The base of alert chart. A linear chart will have base as 1, while a logarithmic chart will have the other base value.  # noqa: E501
+
+        :return: The alert_chart_base of this Alert.  # noqa: E501
+        :rtype: int
+        """
+        return self._alert_chart_base
+
+    @alert_chart_base.setter
+    def alert_chart_base(self, alert_chart_base):
+        """Sets the alert_chart_base of this Alert.
+
+        The base of alert chart. A linear chart will have base as 1, while a logarithmic chart will have the other base value.  # noqa: E501
+
+        :param alert_chart_base: The alert_chart_base of this Alert.  # noqa: E501
+        :type: int
+        """
+
+        self._alert_chart_base = alert_chart_base
+
+    @property
+    def alert_chart_description(self):
+        """Gets the alert_chart_description of this Alert.  # noqa: E501
+
+        The description of alert chart. Different from alert additional info, this is used to describe the characteristics of the chart.  # noqa: E501
+
+        :return: The alert_chart_description of this Alert.  # noqa: E501
+        :rtype: str
+        """
+        return self._alert_chart_description
+
+    @alert_chart_description.setter
+    def alert_chart_description(self, alert_chart_description):
+        """Sets the alert_chart_description of this Alert.
+
+        The description of alert chart. Different from alert additional info, this is used to describe the characteristics of the chart.  # noqa: E501
+
+        :param alert_chart_description: The alert_chart_description of this Alert.  # noqa: E501
+        :type: str
+        """
+
+        self._alert_chart_description = alert_chart_description
+
+    @property
+    def alert_chart_units(self):
+        """Gets the alert_chart_units of this Alert.  # noqa: E501
+
+        The y-axis unit of Alert chart.  # noqa: E501
+
+        :return: The alert_chart_units of this Alert.  # noqa: E501
+        :rtype: str
+        """
+        return self._alert_chart_units
+
+    @alert_chart_units.setter
+    def alert_chart_units(self, alert_chart_units):
+        """Sets the alert_chart_units of this Alert.
+
+        The y-axis unit of Alert chart.  # noqa: E501
+
+        :param alert_chart_units: The alert_chart_units of this Alert.  # noqa: E501
+        :type: str
+        """
+
+        self._alert_chart_units = alert_chart_units
 
     @property
     def alert_sources(self):
