@@ -43,6 +43,7 @@ class CloudIntegration(object):
         'creator_id': 'str',
         'deleted': 'bool',
         'disabled': 'bool',
+        'dynatrace': 'DynatraceConfiguration',
         'ec2': 'EC2Configuration',
         'force_save': 'bool',
         'gcp': 'GCPConfiguration',
@@ -79,6 +80,7 @@ class CloudIntegration(object):
         'creator_id': 'creatorId',
         'deleted': 'deleted',
         'disabled': 'disabled',
+        'dynatrace': 'dynatrace',
         'ec2': 'ec2',
         'force_save': 'forceSave',
         'gcp': 'gcp',
@@ -104,7 +106,7 @@ class CloudIntegration(object):
         'vrops': 'vrops'
     }
 
-    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, reuse_external_id_credential=None, service=None, service_refresh_rate_in_mins=None, snowflake=None, tesla=None, updated_epoch_millis=None, updater_id=None, vrops=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, dynatrace=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, reuse_external_id_credential=None, service=None, service_refresh_rate_in_mins=None, snowflake=None, tesla=None, updated_epoch_millis=None, updater_id=None, vrops=None, _configuration=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -120,6 +122,7 @@ class CloudIntegration(object):
         self._creator_id = None
         self._deleted = None
         self._disabled = None
+        self._dynatrace = None
         self._ec2 = None
         self._force_save = None
         self._gcp = None
@@ -165,6 +168,8 @@ class CloudIntegration(object):
             self.deleted = deleted
         if disabled is not None:
             self.disabled = disabled
+        if dynatrace is not None:
+            self.dynatrace = dynatrace
         if ec2 is not None:
             self.ec2 = ec2
         if force_save is not None:
@@ -423,6 +428,27 @@ class CloudIntegration(object):
         """
 
         self._disabled = disabled
+
+    @property
+    def dynatrace(self):
+        """Gets the dynatrace of this CloudIntegration.  # noqa: E501
+
+
+        :return: The dynatrace of this CloudIntegration.  # noqa: E501
+        :rtype: DynatraceConfiguration
+        """
+        return self._dynatrace
+
+    @dynatrace.setter
+    def dynatrace(self, dynatrace):
+        """Sets the dynatrace of this CloudIntegration.
+
+
+        :param dynatrace: The dynatrace of this CloudIntegration.  # noqa: E501
+        :type: DynatraceConfiguration
+        """
+
+        self._dynatrace = dynatrace
 
     @property
     def ec2(self):
@@ -798,7 +824,7 @@ class CloudIntegration(object):
         """
         if self._configuration.client_side_validation and service is None:
             raise ValueError("Invalid value for `service`, must not be `None`")  # noqa: E501
-        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG", "NEWRELIC", "APPDYNAMICS", "VROPS", "SNOWFLAKE"]  # noqa: E501
+        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG", "NEWRELIC", "APPDYNAMICS", "VROPS", "SNOWFLAKE", "DYNATRACE"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 service not in allowed_values):
             raise ValueError(

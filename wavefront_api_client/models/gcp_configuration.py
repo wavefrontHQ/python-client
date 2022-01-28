@@ -100,7 +100,7 @@ class GCPConfiguration(object):
         :param categories_to_fetch: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "FIRESTORE", "INTERCONNECT", "KUBERNETES", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "REDIS", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN"]  # noqa: E501
+        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "FIRESTORE", "INTERCONNECT", "KUBERNETES", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "REDIS", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN", "APIGEE"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(categories_to_fetch).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **creator_id** | **str** |  | [optional] 
 **deleted** | **bool** |  | [optional] 
 **disabled** | **bool** | True when an aws credential failed to authenticate. | [optional] 
+**dynatrace** | [**DynatraceConfiguration**](DynatraceConfiguration.md) |  | [optional] 
 **ec2** | [**EC2Configuration**](EC2Configuration.md) |  | [optional] 
 **force_save** | **bool** |  | [optional] 
 **gcp** | [**GCPConfiguration**](GCPConfiguration.md) |  | [optional] 

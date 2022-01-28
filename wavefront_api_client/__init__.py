@@ -86,6 +86,7 @@ from wavefront_api_client.models.dashboard_parameter_value import DashboardParam
 from wavefront_api_client.models.dashboard_section import DashboardSection
 from wavefront_api_client.models.dashboard_section_row import DashboardSectionRow
 from wavefront_api_client.models.derived_metric_definition import DerivedMetricDefinition
+from wavefront_api_client.models.dynatrace_configuration import DynatraceConfiguration
 from wavefront_api_client.models.ec2_configuration import EC2Configuration
 from wavefront_api_client.models.event import Event
 from wavefront_api_client.models.event_search_request import EventSearchRequest
