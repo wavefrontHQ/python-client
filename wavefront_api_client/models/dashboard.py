@@ -55,6 +55,7 @@ class Dashboard(object):
         'force_v2_ui': 'bool',
         'hidden': 'bool',
         'id': 'str',
+        'include_obsolete_metrics': 'bool',
         'modify_acl_access': 'bool',
         'name': 'str',
         'num_charts': 'int',
@@ -96,6 +97,7 @@ class Dashboard(object):
         'force_v2_ui': 'forceV2UI',
         'hidden': 'hidden',
         'id': 'id',
+        'include_obsolete_metrics': 'includeObsoleteMetrics',
         'modify_acl_access': 'modifyAclAccess',
         'name': 'name',
         'num_charts': 'numCharts',
@@ -114,7 +116,7 @@ class Dashboard(object):
         'views_last_week': 'viewsLastWeek'
     }
 
-    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, dashboard_attributes=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, force_v2_ui=None, hidden=None, id=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, dashboard_attributes=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, force_v2_ui=None, hidden=None, id=None, include_obsolete_metrics=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None, _configuration=None):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -142,6 +144,7 @@ class Dashboard(object):
         self._force_v2_ui = None
         self._hidden = None
         self._id = None
+        self._include_obsolete_metrics = None
         self._modify_acl_access = None
         self._name = None
         self._num_charts = None
@@ -203,6 +206,8 @@ class Dashboard(object):
         if hidden is not None:
             self.hidden = hidden
         self.id = id
+        if include_obsolete_metrics is not None:
+            self.include_obsolete_metrics = include_obsolete_metrics
         if modify_acl_access is not None:
             self.modify_acl_access = modify_acl_access
         self.name = name
@@ -735,6 +740,29 @@ class Dashboard(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def include_obsolete_metrics(self):
+        """Gets the include_obsolete_metrics of this Dashboard.  # noqa: E501
+
+        Whether to include the obsolete metrics  # noqa: E501
+
+        :return: The include_obsolete_metrics of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_obsolete_metrics
+
+    @include_obsolete_metrics.setter
+    def include_obsolete_metrics(self, include_obsolete_metrics):
+        """Sets the include_obsolete_metrics of this Dashboard.
+
+        Whether to include the obsolete metrics  # noqa: E501
+
+        :param include_obsolete_metrics: The include_obsolete_metrics of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_obsolete_metrics = include_obsolete_metrics
 
     @property
     def modify_acl_access(self):

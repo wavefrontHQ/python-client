@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **force_v2_ui** | **bool** | Whether to force this dashboard to use the V2 UI | [optional] 
 **hidden** | **bool** |  | [optional] 
 **id** | **str** | Unique identifier, also URL slug, of the dashboard | 
+**include_obsolete_metrics** | **bool** | Whether to include the obsolete metrics | [optional] 
 **modify_acl_access** | **bool** | Whether the user has modify ACL access to the dashboard. | [optional] 
 **name** | **str** | Name of the dashboard | 
 **num_charts** | **int** |  | [optional] 
