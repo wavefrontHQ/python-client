@@ -46,6 +46,7 @@ class Dashboard(object):
         'default_time_window': 'str',
         'deleted': 'bool',
         'description': 'str',
+        'disable_refresh_in_live_mode': 'bool',
         'display_description': 'bool',
         'display_query_parameters': 'bool',
         'display_section_table_of_contents': 'bool',
@@ -88,6 +89,7 @@ class Dashboard(object):
         'default_time_window': 'defaultTimeWindow',
         'deleted': 'deleted',
         'description': 'description',
+        'disable_refresh_in_live_mode': 'disableRefreshInLiveMode',
         'display_description': 'displayDescription',
         'display_query_parameters': 'displayQueryParameters',
         'display_section_table_of_contents': 'displaySectionTableOfContents',
@@ -116,7 +118,7 @@ class Dashboard(object):
         'views_last_week': 'viewsLastWeek'
     }
 
-    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, dashboard_attributes=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, force_v2_ui=None, hidden=None, id=None, include_obsolete_metrics=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, dashboard_attributes=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, disable_refresh_in_live_mode=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, force_v2_ui=None, hidden=None, id=None, include_obsolete_metrics=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None, _configuration=None):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -135,6 +137,7 @@ class Dashboard(object):
         self._default_time_window = None
         self._deleted = None
         self._description = None
+        self._disable_refresh_in_live_mode = None
         self._display_description = None
         self._display_query_parameters = None
         self._display_section_table_of_contents = None
@@ -189,6 +192,8 @@ class Dashboard(object):
             self.deleted = deleted
         if description is not None:
             self.description = description
+        if disable_refresh_in_live_mode is not None:
+            self.disable_refresh_in_live_mode = disable_refresh_in_live_mode
         if display_description is not None:
             self.display_description = display_description
         if display_query_parameters is not None:
@@ -528,6 +533,29 @@ class Dashboard(object):
         """
 
         self._description = description
+
+    @property
+    def disable_refresh_in_live_mode(self):
+        """Gets the disable_refresh_in_live_mode of this Dashboard.  # noqa: E501
+
+        Refresh variables in Live Mode  # noqa: E501
+
+        :return: The disable_refresh_in_live_mode of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_refresh_in_live_mode
+
+    @disable_refresh_in_live_mode.setter
+    def disable_refresh_in_live_mode(self, disable_refresh_in_live_mode):
+        """Sets the disable_refresh_in_live_mode of this Dashboard.
+
+        Refresh variables in Live Mode  # noqa: E501
+
+        :param disable_refresh_in_live_mode: The disable_refresh_in_live_mode of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._disable_refresh_in_live_mode = disable_refresh_in_live_mode
 
     @property
     def display_description(self):

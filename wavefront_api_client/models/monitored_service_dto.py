@@ -34,6 +34,7 @@ class MonitoredServiceDTO(object):
     """
     swagger_types = {
         'application': 'str',
+        'component': 'str',
         'created': 'int',
         'custom_dashboard_link': 'str',
         'hidden': 'bool',
@@ -41,12 +42,15 @@ class MonitoredServiceDTO(object):
         'last_updated': 'int',
         'satisfied_latency_millis': 'int',
         'service': 'str',
+        'service_instance_count': 'int',
+        'source': 'str',
         'status': 'str',
         'update_user_id': 'str'
     }
 
     attribute_map = {
         'application': 'application',
+        'component': 'component',
         'created': 'created',
         'custom_dashboard_link': 'customDashboardLink',
         'hidden': 'hidden',
@@ -54,17 +58,20 @@ class MonitoredServiceDTO(object):
         'last_updated': 'lastUpdated',
         'satisfied_latency_millis': 'satisfiedLatencyMillis',
         'service': 'service',
+        'service_instance_count': 'serviceInstanceCount',
+        'source': 'source',
         'status': 'status',
         'update_user_id': 'updateUserId'
     }
 
-    def __init__(self, application=None, created=None, custom_dashboard_link=None, hidden=None, last_reported=None, last_updated=None, satisfied_latency_millis=None, service=None, status=None, update_user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, application=None, component=None, created=None, custom_dashboard_link=None, hidden=None, last_reported=None, last_updated=None, satisfied_latency_millis=None, service=None, service_instance_count=None, source=None, status=None, update_user_id=None, _configuration=None):  # noqa: E501
         """MonitoredServiceDTO - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._application = None
+        self._component = None
         self._created = None
         self._custom_dashboard_link = None
         self._hidden = None
@@ -72,11 +79,14 @@ class MonitoredServiceDTO(object):
         self._last_updated = None
         self._satisfied_latency_millis = None
         self._service = None
+        self._service_instance_count = None
+        self._source = None
         self._status = None
         self._update_user_id = None
         self.discriminator = None
 
         self.application = application
+        self.component = component
         if created is not None:
             self.created = created
         if custom_dashboard_link is not None:
@@ -90,6 +100,8 @@ class MonitoredServiceDTO(object):
         if satisfied_latency_millis is not None:
             self.satisfied_latency_millis = satisfied_latency_millis
         self.service = service
+        self.service_instance_count = service_instance_count
+        self.source = source
         if status is not None:
             self.status = status
         if update_user_id is not None:
@@ -119,6 +131,31 @@ class MonitoredServiceDTO(object):
             raise ValueError("Invalid value for `application`, must not be `None`")  # noqa: E501
 
         self._application = application
+
+    @property
+    def component(self):
+        """Gets the component of this MonitoredServiceDTO.  # noqa: E501
+
+        Component Name of the monitored service  # noqa: E501
+
+        :return: The component of this MonitoredServiceDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._component
+
+    @component.setter
+    def component(self, component):
+        """Sets the component of this MonitoredServiceDTO.
+
+        Component Name of the monitored service  # noqa: E501
+
+        :param component: The component of this MonitoredServiceDTO.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and component is None:
+            raise ValueError("Invalid value for `component`, must not be `None`")  # noqa: E501
+
+        self._component = component
 
     @property
     def created(self):
@@ -282,6 +319,56 @@ class MonitoredServiceDTO(object):
             raise ValueError("Invalid value for `service`, must not be `None`")  # noqa: E501
 
         self._service = service
+
+    @property
+    def service_instance_count(self):
+        """Gets the service_instance_count of this MonitoredServiceDTO.  # noqa: E501
+
+        Service Instance count of the monitored service  # noqa: E501
+
+        :return: The service_instance_count of this MonitoredServiceDTO.  # noqa: E501
+        :rtype: int
+        """
+        return self._service_instance_count
+
+    @service_instance_count.setter
+    def service_instance_count(self, service_instance_count):
+        """Sets the service_instance_count of this MonitoredServiceDTO.
+
+        Service Instance count of the monitored service  # noqa: E501
+
+        :param service_instance_count: The service_instance_count of this MonitoredServiceDTO.  # noqa: E501
+        :type: int
+        """
+        if self._configuration.client_side_validation and service_instance_count is None:
+            raise ValueError("Invalid value for `service_instance_count`, must not be `None`")  # noqa: E501
+
+        self._service_instance_count = service_instance_count
+
+    @property
+    def source(self):
+        """Gets the source of this MonitoredServiceDTO.  # noqa: E501
+
+        Source of the monitored service  # noqa: E501
+
+        :return: The source of this MonitoredServiceDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this MonitoredServiceDTO.
+
+        Source of the monitored service  # noqa: E501
+
+        :param source: The source of this MonitoredServiceDTO.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and source is None:
+            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
+
+        self._source = source
 
     @property
     def status(self):

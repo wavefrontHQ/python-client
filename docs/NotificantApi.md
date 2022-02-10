@@ -90,7 +90,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.NotificantApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-unlink = false # bool |  (optional) (default to false)
+unlink = false # bool | If set to true, explicitly deletes a notification target even if it’s in use by alerts.<br/>Before deletion, the target is removed from the alert's target list.  (optional) (default to false)
 
 try:
     # Delete a specific notification target
@@ -105,7 +105,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **unlink** | **bool**|  | [optional] [default to false]
+ **unlink** | **bool**| If set to true, explicitly deletes a notification target even if it’s in use by alerts.&lt;br/&gt;Before deletion, the target is removed from the alert&#39;s target list.  | [optional] [default to false]
 
 ### Return type
 

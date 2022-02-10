@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **default_time_window** | **str** | Default time window to query charts | [optional] 
 **deleted** | **bool** |  | [optional] 
 **description** | **str** | Human-readable description of the dashboard | [optional] 
+**disable_refresh_in_live_mode** | **bool** | Refresh variables in Live Mode | [optional] 
 **display_description** | **bool** | Whether the dashboard description section is opened by default when the dashboard is shown | [optional] 
 **display_query_parameters** | **bool** | Whether the dashboard parameters section is opened by default when the dashboard is shown | [optional] 
 **display_section_table_of_contents** | **bool** | Whether the \&quot;pills\&quot; quick-linked the sections of the dashboard are displayed by default when the dashboard is shown | [optional] 

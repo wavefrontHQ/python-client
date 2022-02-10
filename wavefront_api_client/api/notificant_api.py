@@ -139,7 +139,7 @@ class NotificantApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param bool unlink:
+        :param bool unlink: If set to true, explicitly deletes a notification target even if it’s in use by alerts.<br/>Before deletion, the target is removed from the alert's target list. 
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
@@ -162,7 +162,7 @@ class NotificantApi(object):
 
         :param async_req bool
         :param str id: (required)
-        :param bool unlink:
+        :param bool unlink: If set to true, explicitly deletes a notification target even if it’s in use by alerts.<br/>Before deletion, the target is removed from the alert's target list. 
         :return: ResponseContainerNotificant
                  If the method is called asynchronously,
                  returns the request thread.
