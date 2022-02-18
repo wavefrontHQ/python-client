@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **host_tag_group_host_names_group_anded** | **bool** | If true, a source/host must be in &#39;relevantHostNames&#39; and have tags matching the specification formed by &#39;relevantHostTags&#39; and &#39;relevantHostTagsAnded&#39; in order for this maintenance window to apply. If false, a source/host must either be in &#39;relevantHostNames&#39; or match &#39;relevantHostTags&#39; and &#39;relevantHostTagsAnded&#39;. Default: false | [optional] 
 **id** | **str** |  | [optional] 
 **point_tag_filter** | **str** | Query that filters on point tags of timeseries scanned by alert. | [optional] 
+**point_tag_filter_anded** | **bool** | Whether to AND point tags filter listed in pointTagFilter. If true, a timeseries must contain the point tags along with other filters in order for the maintenance window to apply.If false, the tags are OR&#39;ed, the customer must contain one of the tags. Default: false | [optional] 
 **reason** | **str** | The purpose of this maintenance window | 
 **relevant_customer_tags** | **list[str]** | List of alert tags whose matching alerts will be put into maintenance because of this maintenance window | 
 **relevant_customer_tags_anded** | **bool** | Whether to AND customer tags listed in relevantCustomerTags. If true, a customer must contain all tags in order for the maintenance window to apply.  If false, the tags are OR&#39;ed, and a customer must contain one of the tags. Default: false | [optional] 

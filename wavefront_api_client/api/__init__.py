@@ -24,8 +24,14 @@ from wavefront_api_client.api.monitored_service_api import MonitoredServiceApi
 from wavefront_api_client.api.notificant_api import NotificantApi
 from wavefront_api_client.api.proxy_api import ProxyApi
 from wavefront_api_client.api.query_api import QueryApi
+from wavefront_api_client.api.recent_app_map_search_api import RecentAppMapSearchApi
+from wavefront_api_client.api.recent_traces_search_api import RecentTracesSearchApi
 from wavefront_api_client.api.role_api import RoleApi
+from wavefront_api_client.api.saved_app_map_search_api import SavedAppMapSearchApi
+from wavefront_api_client.api.saved_app_map_search_group_api import SavedAppMapSearchGroupApi
 from wavefront_api_client.api.saved_search_api import SavedSearchApi
+from wavefront_api_client.api.saved_traces_search_api import SavedTracesSearchApi
+from wavefront_api_client.api.saved_traces_search_group_api import SavedTracesSearchGroupApi
 from wavefront_api_client.api.search_api import SearchApi
 from wavefront_api_client.api.source_api import SourceApi
 from wavefront_api_client.api.span_sampling_policy_api import SpanSamplingPolicyApi

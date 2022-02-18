@@ -63,6 +63,10 @@ Method | HTTP request | Description
 [**search_role_entities**](SearchApi.md#search_role_entities) | **POST** /api/v2/search/role | Search over a customer&#39;s roles
 [**search_role_for_facet**](SearchApi.md#search_role_for_facet) | **POST** /api/v2/search/role/{facet} | Lists the values of a specific facet over the customer&#39;s roles
 [**search_role_for_facets**](SearchApi.md#search_role_for_facets) | **POST** /api/v2/search/role/facets | Lists the values of one or more facets over the customer&#39;s roles
+[**search_saved_app_map_entities**](SearchApi.md#search_saved_app_map_entities) | **POST** /api/v2/search/savedappmapsearch | Search over all the customer&#39;s non-deleted saved app map searches
+[**search_saved_app_map_for_facet**](SearchApi.md#search_saved_app_map_for_facet) | **POST** /api/v2/search/savedappmapsearch/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted app map searches
+[**search_saved_app_map_for_facets**](SearchApi.md#search_saved_app_map_for_facets) | **POST** /api/v2/search/savedappmapsearch/facets | Lists the values of one or more facets over the customer&#39;s non-deleted app map searches
+[**search_saved_traces_entities**](SearchApi.md#search_saved_traces_entities) | **POST** /api/v2/search/savedtracessearch | Search over all the customer&#39;s non-deleted saved traces searches
 [**search_service_account_entities**](SearchApi.md#search_service_account_entities) | **POST** /api/v2/search/serviceaccount | Search over a customer&#39;s service accounts
 [**search_service_account_for_facet**](SearchApi.md#search_service_account_for_facet) | **POST** /api/v2/search/serviceaccount/{facet} | Lists the values of a specific facet over the customer&#39;s service accounts
 [**search_service_account_for_facets**](SearchApi.md#search_service_account_for_facets) | **POST** /api/v2/search/serviceaccount/facets | Lists the values of one or more facets over the customer&#39;s service accounts
@@ -75,6 +79,8 @@ Method | HTTP request | Description
 [**search_tagged_source_entities**](SearchApi.md#search_tagged_source_entities) | **POST** /api/v2/search/source | Search over a customer&#39;s sources
 [**search_tagged_source_for_facet**](SearchApi.md#search_tagged_source_for_facet) | **POST** /api/v2/search/source/{facet} | Lists the values of a specific facet over the customer&#39;s sources
 [**search_tagged_source_for_facets**](SearchApi.md#search_tagged_source_for_facets) | **POST** /api/v2/search/source/facets | Lists the values of one or more facets over the customer&#39;s sources
+[**search_traces_map_for_facet**](SearchApi.md#search_traces_map_for_facet) | **POST** /api/v2/search/savedtracessearch/{facet} | Lists the values of a specific facet over the customer&#39;s non-deleted traces searches
+[**search_traces_map_for_facets**](SearchApi.md#search_traces_map_for_facets) | **POST** /api/v2/search/savedtracessearch/facets | Lists the values of one or more facets over the customer&#39;s non-deleted traces searches
 [**search_user_entities**](SearchApi.md#search_user_entities) | **POST** /api/v2/search/user | Search over a customer&#39;s users
 [**search_user_for_facet**](SearchApi.md#search_user_for_facet) | **POST** /api/v2/search/user/{facet} | Lists the values of a specific facet over the customer&#39;s users
 [**search_user_for_facets**](SearchApi.md#search_user_for_facets) | **POST** /api/v2/search/user/facets | Lists the values of one or more facets over the customer&#39;s users
@@ -3314,6 +3320,224 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **search_saved_app_map_entities**
+> ResponseContainerPagedSavedAppMapSearch search_saved_app_map_entities(body=body)
+
+Search over all the customer's non-deleted saved app map searches
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.SortableSearchRequest() # SortableSearchRequest |  (optional)
+
+try:
+    # Search over all the customer's non-deleted saved app map searches
+    api_response = api_instance.search_saved_app_map_entities(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_saved_app_map_entities: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SortableSearchRequest**](SortableSearchRequest.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerPagedSavedAppMapSearch**](ResponseContainerPagedSavedAppMapSearch.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_saved_app_map_for_facet**
+> ResponseContainerFacetResponse search_saved_app_map_for_facet(facet, body=body)
+
+Lists the values of a specific facet over the customer's non-deleted app map searches
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+facet = 'facet_example' # str | 
+body = wavefront_api_client.FacetSearchRequestContainer() # FacetSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of a specific facet over the customer's non-deleted app map searches
+    api_response = api_instance.search_saved_app_map_for_facet(facet, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_saved_app_map_for_facet: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **facet** | **str**|  | 
+ **body** | [**FacetSearchRequestContainer**](FacetSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetResponse**](ResponseContainerFacetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_saved_app_map_for_facets**
+> ResponseContainerFacetsResponseContainer search_saved_app_map_for_facets(body=body)
+
+Lists the values of one or more facets over the customer's non-deleted app map searches
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.FacetsSearchRequestContainer() # FacetsSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of one or more facets over the customer's non-deleted app map searches
+    api_response = api_instance.search_saved_app_map_for_facets(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_saved_app_map_for_facets: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**FacetsSearchRequestContainer**](FacetsSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetsResponseContainer**](ResponseContainerFacetsResponseContainer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_saved_traces_entities**
+> ResponseContainerPagedSavedTracesSearch search_saved_traces_entities(body=body)
+
+Search over all the customer's non-deleted saved traces searches
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.SortableSearchRequest() # SortableSearchRequest |  (optional)
+
+try:
+    # Search over all the customer's non-deleted saved traces searches
+    api_response = api_instance.search_saved_traces_entities(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_saved_traces_entities: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SortableSearchRequest**](SortableSearchRequest.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerPagedSavedTracesSearch**](ResponseContainerPagedSavedTracesSearch.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search_service_account_entities**
 > ResponseContainerPagedServiceAccount search_service_account_entities(body=body)
 
@@ -3947,6 +4171,116 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SearchApi->search_tagged_source_for_facets: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**FacetsSearchRequestContainer**](FacetsSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetsResponseContainer**](ResponseContainerFacetsResponseContainer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_traces_map_for_facet**
+> ResponseContainerFacetResponse search_traces_map_for_facet(facet, body=body)
+
+Lists the values of a specific facet over the customer's non-deleted traces searches
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+facet = 'facet_example' # str | 
+body = wavefront_api_client.FacetSearchRequestContainer() # FacetSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of a specific facet over the customer's non-deleted traces searches
+    api_response = api_instance.search_traces_map_for_facet(facet, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_traces_map_for_facet: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **facet** | **str**|  | 
+ **body** | [**FacetSearchRequestContainer**](FacetSearchRequestContainer.md)|  | [optional] 
+
+### Return type
+
+[**ResponseContainerFacetResponse**](ResponseContainerFacetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_traces_map_for_facets**
+> ResponseContainerFacetsResponseContainer search_traces_map_for_facets(body=body)
+
+Lists the values of one or more facets over the customer's non-deleted traces searches
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SearchApi(wavefront_api_client.ApiClient(configuration))
+body = wavefront_api_client.FacetsSearchRequestContainer() # FacetsSearchRequestContainer |  (optional)
+
+try:
+    # Lists the values of one or more facets over the customer's non-deleted traces searches
+    api_response = api_instance.search_traces_map_for_facets(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_traces_map_for_facets: %s\n" % e)
 ```
 
 ### Parameters

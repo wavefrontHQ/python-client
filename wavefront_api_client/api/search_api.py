@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
     <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
@@ -5806,6 +5806,394 @@ class SearchApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def search_saved_app_map_entities(self, **kwargs):  # noqa: E501
+        """Search over all the customer's non-deleted saved app map searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_app_map_entities(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedSavedAppMapSearch
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_saved_app_map_entities_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.search_saved_app_map_entities_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def search_saved_app_map_entities_with_http_info(self, **kwargs):  # noqa: E501
+        """Search over all the customer's non-deleted saved app map searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_app_map_entities_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedSavedAppMapSearch
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_saved_app_map_entities" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/savedappmapsearch', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerPagedSavedAppMapSearch',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_saved_app_map_for_facet(self, facet, **kwargs):  # noqa: E501
+        """Lists the values of a specific facet over the customer's non-deleted app map searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_app_map_for_facet(facet, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_saved_app_map_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_saved_app_map_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
+            return data
+
+    def search_saved_app_map_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
+        """Lists the values of a specific facet over the customer's non-deleted app map searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_app_map_for_facet_with_http_info(facet, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['facet', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_saved_app_map_for_facet" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'facet' is set
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `facet` when calling `search_saved_app_map_for_facet`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'facet' in params:
+            path_params['facet'] = params['facet']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/savedappmapsearch/{facet}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerFacetResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_saved_app_map_for_facets(self, **kwargs):  # noqa: E501
+        """Lists the values of one or more facets over the customer's non-deleted app map searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_app_map_for_facets(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_saved_app_map_for_facets_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.search_saved_app_map_for_facets_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def search_saved_app_map_for_facets_with_http_info(self, **kwargs):  # noqa: E501
+        """Lists the values of one or more facets over the customer's non-deleted app map searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_app_map_for_facets_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_saved_app_map_for_facets" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/savedappmapsearch/facets', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_saved_traces_entities(self, **kwargs):  # noqa: E501
+        """Search over all the customer's non-deleted saved traces searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_traces_entities(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedSavedTracesSearch
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_saved_traces_entities_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.search_saved_traces_entities_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def search_saved_traces_entities_with_http_info(self, **kwargs):  # noqa: E501
+        """Search over all the customer's non-deleted saved traces searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_saved_traces_entities_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedSavedTracesSearch
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_saved_traces_entities" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/savedtracessearch', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerPagedSavedTracesSearch',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def search_service_account_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's service accounts  # noqa: E501
 
@@ -6964,6 +7352,204 @@ class SearchApi(object):
 
         return self.api_client.call_api(
             '/api/v2/search/source/facets', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_traces_map_for_facet(self, facet, **kwargs):  # noqa: E501
+        """Lists the values of a specific facet over the customer's non-deleted traces searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_traces_map_for_facet(facet, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_traces_map_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_traces_map_for_facet_with_http_info(facet, **kwargs)  # noqa: E501
+            return data
+
+    def search_traces_map_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
+        """Lists the values of a specific facet over the customer's non-deleted traces searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_traces_map_for_facet_with_http_info(facet, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str facet: (required)
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['facet', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_traces_map_for_facet" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'facet' is set
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `facet` when calling `search_traces_map_for_facet`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'facet' in params:
+            path_params['facet'] = params['facet']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/savedtracessearch/{facet}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerFacetResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_traces_map_for_facets(self, **kwargs):  # noqa: E501
+        """Lists the values of one or more facets over the customer's non-deleted traces searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_traces_map_for_facets(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_traces_map_for_facets_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.search_traces_map_for_facets_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def search_traces_map_for_facets_with_http_info(self, **kwargs):  # noqa: E501
+        """Lists the values of one or more facets over the customer's non-deleted traces searches  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_traces_map_for_facets_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_traces_map_for_facets" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/savedtracessearch/facets', 'POST',
             path_params,
             query_params,
             header_params,

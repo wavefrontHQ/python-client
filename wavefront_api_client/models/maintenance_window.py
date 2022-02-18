@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
     <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
@@ -41,6 +41,7 @@ class MaintenanceWindow(object):
         'host_tag_group_host_names_group_anded': 'bool',
         'id': 'str',
         'point_tag_filter': 'str',
+        'point_tag_filter_anded': 'bool',
         'reason': 'str',
         'relevant_customer_tags': 'list[str]',
         'relevant_customer_tags_anded': 'bool',
@@ -65,6 +66,7 @@ class MaintenanceWindow(object):
         'host_tag_group_host_names_group_anded': 'hostTagGroupHostNamesGroupAnded',
         'id': 'id',
         'point_tag_filter': 'pointTagFilter',
+        'point_tag_filter_anded': 'pointTagFilterAnded',
         'reason': 'reason',
         'relevant_customer_tags': 'relevantCustomerTags',
         'relevant_customer_tags_anded': 'relevantCustomerTagsAnded',
@@ -80,7 +82,7 @@ class MaintenanceWindow(object):
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, created_epoch_millis=None, creator_id=None, customer_id=None, end_time_in_seconds=None, event_name=None, host_tag_group_host_names_group_anded=None, id=None, point_tag_filter=None, reason=None, relevant_customer_tags=None, relevant_customer_tags_anded=None, relevant_host_names=None, relevant_host_tags=None, relevant_host_tags_anded=None, running_state=None, sort_attr=None, start_time_in_seconds=None, targets=None, title=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, creator_id=None, customer_id=None, end_time_in_seconds=None, event_name=None, host_tag_group_host_names_group_anded=None, id=None, point_tag_filter=None, point_tag_filter_anded=None, reason=None, relevant_customer_tags=None, relevant_customer_tags_anded=None, relevant_host_names=None, relevant_host_tags=None, relevant_host_tags_anded=None, running_state=None, sort_attr=None, start_time_in_seconds=None, targets=None, title=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """MaintenanceWindow - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -94,6 +96,7 @@ class MaintenanceWindow(object):
         self._host_tag_group_host_names_group_anded = None
         self._id = None
         self._point_tag_filter = None
+        self._point_tag_filter_anded = None
         self._reason = None
         self._relevant_customer_tags = None
         self._relevant_customer_tags_anded = None
@@ -124,6 +127,8 @@ class MaintenanceWindow(object):
             self.id = id
         if point_tag_filter is not None:
             self.point_tag_filter = point_tag_filter
+        if point_tag_filter_anded is not None:
+            self.point_tag_filter_anded = point_tag_filter_anded
         self.reason = reason
         self.relevant_customer_tags = relevant_customer_tags
         if relevant_customer_tags_anded is not None:
@@ -324,6 +329,29 @@ class MaintenanceWindow(object):
         """
 
         self._point_tag_filter = point_tag_filter
+
+    @property
+    def point_tag_filter_anded(self):
+        """Gets the point_tag_filter_anded of this MaintenanceWindow.  # noqa: E501
+
+        Whether to AND point tags filter listed in pointTagFilter. If true, a timeseries must contain the point tags along with other filters in order for the maintenance window to apply.If false, the tags are OR'ed, the customer must contain one of the tags. Default: false  # noqa: E501
+
+        :return: The point_tag_filter_anded of this MaintenanceWindow.  # noqa: E501
+        :rtype: bool
+        """
+        return self._point_tag_filter_anded
+
+    @point_tag_filter_anded.setter
+    def point_tag_filter_anded(self, point_tag_filter_anded):
+        """Sets the point_tag_filter_anded of this MaintenanceWindow.
+
+        Whether to AND point tags filter listed in pointTagFilter. If true, a timeseries must contain the point tags along with other filters in order for the maintenance window to apply.If false, the tags are OR'ed, the customer must contain one of the tags. Default: false  # noqa: E501
+
+        :param point_tag_filter_anded: The point_tag_filter_anded of this MaintenanceWindow.  # noqa: E501
+        :type: bool
+        """
+
+        self._point_tag_filter_anded = point_tag_filter_anded
 
     @property
     def reason(self):

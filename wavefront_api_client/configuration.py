@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
     <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
@@ -251,5 +251,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v2\n"\
-               "SDK Package Version: 2.121.0".\
+               "SDK Package Version: 2.122.1".\
                format(env=sys.platform, pyversion=sys.version)

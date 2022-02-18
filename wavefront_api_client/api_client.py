@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
     <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
@@ -74,7 +74,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/2.121.0/python'
+        self.user_agent = 'Swagger-Codegen/2.122.1/python'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
