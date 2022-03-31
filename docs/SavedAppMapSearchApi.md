@@ -5,6 +5,9 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_saved_app_map_search**](SavedAppMapSearchApi.md#create_saved_app_map_search) | **POST** /api/v2/savedappmapsearch | Create a search
+[**default_app_map_search**](SavedAppMapSearchApi.md#default_app_map_search) | **GET** /api/v2/savedappmapsearch/defaultAppMapSearch | Get default app map search for a user
+[**default_app_map_search_0**](SavedAppMapSearchApi.md#default_app_map_search_0) | **POST** /api/v2/savedappmapsearch/defaultAppMapSearch | Set default app map search at user level
+[**default_customer_app_map_search**](SavedAppMapSearchApi.md#default_customer_app_map_search) | **POST** /api/v2/savedappmapsearch/defaultCustomerAppMapSearch | Set default app map search at customer level
 [**delete_saved_app_map_search**](SavedAppMapSearchApi.md#delete_saved_app_map_search) | **DELETE** /api/v2/savedappmapsearch/{id} | Delete a search
 [**delete_saved_app_map_search_for_user**](SavedAppMapSearchApi.md#delete_saved_app_map_search_for_user) | **DELETE** /api/v2/savedappmapsearch/owned/{id} | Delete a search belonging to the user
 [**get_all_saved_app_map_searches**](SavedAppMapSearchApi.md#get_all_saved_app_map_searches) | **GET** /api/v2/savedappmapsearch | Get all searches for a customer
@@ -56,6 +59,164 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerSavedAppMapSearch**](ResponseContainerSavedAppMapSearch.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **default_app_map_search**
+> ResponseContainerDefaultSavedAppMapSearch default_app_map_search()
+
+Get default app map search for a user
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SavedAppMapSearchApi(wavefront_api_client.ApiClient(configuration))
+
+try:
+    # Get default app map search for a user
+    api_response = api_instance.default_app_map_search()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SavedAppMapSearchApi->default_app_map_search: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ResponseContainerDefaultSavedAppMapSearch**](ResponseContainerDefaultSavedAppMapSearch.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **default_app_map_search_0**
+> ResponseContainerString default_app_map_search_0(default_app_map_search=default_app_map_search)
+
+Set default app map search at user level
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SavedAppMapSearchApi(wavefront_api_client.ApiClient(configuration))
+default_app_map_search = 'default_app_map_search_example' # str |  (optional)
+
+try:
+    # Set default app map search at user level
+    api_response = api_instance.default_app_map_search_0(default_app_map_search=default_app_map_search)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SavedAppMapSearchApi->default_app_map_search_0: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **default_app_map_search** | **str**|  | [optional] 
+
+### Return type
+
+[**ResponseContainerString**](ResponseContainerString.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **default_customer_app_map_search**
+> ResponseContainerString default_customer_app_map_search(default_app_map_search=default_app_map_search)
+
+Set default app map search at customer level
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.SavedAppMapSearchApi(wavefront_api_client.ApiClient(configuration))
+default_app_map_search = 'default_app_map_search_example' # str |  (optional)
+
+try:
+    # Set default app map search at customer level
+    api_response = api_instance.default_customer_app_map_search(default_app_map_search=default_app_map_search)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SavedAppMapSearchApi->default_customer_app_map_search: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **default_app_map_search** | **str**|  | [optional] 
+
+### Return type
+
+[**ResponseContainerString**](ResponseContainerString.md)
 
 ### Authorization
 

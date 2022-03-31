@@ -39,6 +39,7 @@ class CloudWatchConfiguration(object):
         'metric_filter_regex': 'str',
         'namespaces': 'list[str]',
         'point_tag_filter_regex': 'str',
+        'thread_distribution_in_mins': 'int',
         'volume_selection_tags': 'dict(str, str)',
         'volume_selection_tags_expr': 'str'
     }
@@ -50,11 +51,12 @@ class CloudWatchConfiguration(object):
         'metric_filter_regex': 'metricFilterRegex',
         'namespaces': 'namespaces',
         'point_tag_filter_regex': 'pointTagFilterRegex',
+        'thread_distribution_in_mins': 'threadDistributionInMins',
         'volume_selection_tags': 'volumeSelectionTags',
         'volume_selection_tags_expr': 'volumeSelectionTagsExpr'
     }
 
-    def __init__(self, base_credentials=None, instance_selection_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, namespaces=None, point_tag_filter_regex=None, volume_selection_tags=None, volume_selection_tags_expr=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_credentials=None, instance_selection_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, namespaces=None, point_tag_filter_regex=None, thread_distribution_in_mins=None, volume_selection_tags=None, volume_selection_tags_expr=None, _configuration=None):  # noqa: E501
         """CloudWatchConfiguration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,6 +68,7 @@ class CloudWatchConfiguration(object):
         self._metric_filter_regex = None
         self._namespaces = None
         self._point_tag_filter_regex = None
+        self._thread_distribution_in_mins = None
         self._volume_selection_tags = None
         self._volume_selection_tags_expr = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class CloudWatchConfiguration(object):
             self.namespaces = namespaces
         if point_tag_filter_regex is not None:
             self.point_tag_filter_regex = point_tag_filter_regex
+        if thread_distribution_in_mins is not None:
+            self.thread_distribution_in_mins = thread_distribution_in_mins
         if volume_selection_tags is not None:
             self.volume_selection_tags = volume_selection_tags
         if volume_selection_tags_expr is not None:
@@ -222,6 +227,29 @@ class CloudWatchConfiguration(object):
         """
 
         self._point_tag_filter_regex = point_tag_filter_regex
+
+    @property
+    def thread_distribution_in_mins(self):
+        """Gets the thread_distribution_in_mins of this CloudWatchConfiguration.  # noqa: E501
+
+        ThreadDistributionInMins  # noqa: E501
+
+        :return: The thread_distribution_in_mins of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: int
+        """
+        return self._thread_distribution_in_mins
+
+    @thread_distribution_in_mins.setter
+    def thread_distribution_in_mins(self, thread_distribution_in_mins):
+        """Sets the thread_distribution_in_mins of this CloudWatchConfiguration.
+
+        ThreadDistributionInMins  # noqa: E501
+
+        :param thread_distribution_in_mins: The thread_distribution_in_mins of this CloudWatchConfiguration.  # noqa: E501
+        :type: int
+        """
+
+        self._thread_distribution_in_mins = thread_distribution_in_mins
 
     @property
     def volume_selection_tags(self):

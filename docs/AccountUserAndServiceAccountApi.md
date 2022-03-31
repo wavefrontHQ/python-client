@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**add_account_to_roles**](AccountUserAndServiceAccountApi.md#add_account_to_roles) | **POST** /api/v2/account/{id}/addRoles | Adds specific roles to the account (user or service account)
 [**add_account_to_user_groups**](AccountUserAndServiceAccountApi.md#add_account_to_user_groups) | **POST** /api/v2/account/{id}/addUserGroups | Adds specific groups to the account (user or service account)
 [**add_ingestion_policy**](AccountUserAndServiceAccountApi.md#add_ingestion_policy) | **POST** /api/v2/account/addingestionpolicy | Add a specific ingestion policy to multiple accounts
-[**add_single_ingestion_policy**](AccountUserAndServiceAccountApi.md#add_single_ingestion_policy) | **POST** /api/v2/account/addIngestionPolicy | Add single ingestion policy to multiple accounts
 [**create_or_update_user_account**](AccountUserAndServiceAccountApi.md#create_or_update_user_account) | **POST** /api/v2/account/user | Creates or updates a user account
 [**create_service_account**](AccountUserAndServiceAccountApi.md#create_service_account) | **POST** /api/v2/account/serviceaccount | Creates a service account
 [**deactivate_account**](AccountUserAndServiceAccountApi.md#deactivate_account) | **POST** /api/v2/account/serviceaccount/{id}/deactivate | Deactivates the given service account
@@ -27,7 +26,6 @@ Method | HTTP request | Description
 [**remove_account_from_roles**](AccountUserAndServiceAccountApi.md#remove_account_from_roles) | **POST** /api/v2/account/{id}/removeRoles | Removes specific roles from the account (user or service account)
 [**remove_account_from_user_groups**](AccountUserAndServiceAccountApi.md#remove_account_from_user_groups) | **POST** /api/v2/account/{id}/removeUserGroups | Removes specific groups from the account (user or service account)
 [**remove_ingestion_policies**](AccountUserAndServiceAccountApi.md#remove_ingestion_policies) | **POST** /api/v2/account/removeingestionpolicies | Removes ingestion policies from multiple accounts
-[**remove_single_ingestion_policy**](AccountUserAndServiceAccountApi.md#remove_single_ingestion_policy) | **POST** /api/v2/account/removeIngestionPolicy | Removes single ingestion policy from multiple accounts
 [**revoke_account_permission**](AccountUserAndServiceAccountApi.md#revoke_account_permission) | **POST** /api/v2/account/{id}/revoke/{permission} | Revokes a specific permission from account (user or service account)
 [**revoke_permission_from_accounts**](AccountUserAndServiceAccountApi.md#revoke_permission_from_accounts) | **POST** /api/v2/account/revoke/{permission} | Revokes a specific permission from multiple accounts (users or service accounts)
 [**update_service_account**](AccountUserAndServiceAccountApi.md#update_service_account) | **PUT** /api/v2/account/serviceaccount/{id} | Updates the service account
@@ -243,60 +241,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainer**](ResponseContainer.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **add_single_ingestion_policy**
-> ResponseContainerUserDTO add_single_ingestion_policy(body=body)
-
-Add single ingestion policy to multiple accounts
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import wavefront_api_client
-from wavefront_api_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = wavefront_api_client.Configuration()
-configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.IngestionPolicyMapping() # IngestionPolicyMapping | Example Body:  <pre>{   \"ingestionPolicyId\": \"Ingestion policy identifier\",   \"accounts\": [   \"account1\",   \"account2\",   \"account3\"   ],   \"groups\": [   \"group1\",   \"group2\"   ] }</pre> (optional)
-
-try:
-    # Add single ingestion policy to multiple accounts
-    api_response = api_instance.add_single_ingestion_policy(body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AccountUserAndServiceAccountApi->add_single_ingestion_policy: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**IngestionPolicyMapping**](IngestionPolicyMapping.md)| Example Body:  &lt;pre&gt;{   \&quot;ingestionPolicyId\&quot;: \&quot;Ingestion policy identifier\&quot;,   \&quot;accounts\&quot;: [   \&quot;account1\&quot;,   \&quot;account2\&quot;,   \&quot;account3\&quot;   ],   \&quot;groups\&quot;: [   \&quot;group1\&quot;,   \&quot;group2\&quot;   ] }&lt;/pre&gt; | [optional] 
-
-### Return type
-
-[**ResponseContainerUserDTO**](ResponseContainerUserDTO.md)
 
 ### Authorization
 
@@ -1273,60 +1217,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainer**](ResponseContainer.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **remove_single_ingestion_policy**
-> ResponseContainerUserDTO remove_single_ingestion_policy(body=body)
-
-Removes single ingestion policy from multiple accounts
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import wavefront_api_client
-from wavefront_api_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = wavefront_api_client.Configuration()
-configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
-body = wavefront_api_client.IngestionPolicyMapping() # IngestionPolicyMapping | Example Body:  <pre>{   \"ingestionPolicyId\": \"Ingestion policy identifier\",   \"accounts\": [   \"account1\",   \"account2\",   \"account3\"   ],   \"groups\": [   \"group1\",   \"group2\"   ] }</pre> (optional)
-
-try:
-    # Removes single ingestion policy from multiple accounts
-    api_response = api_instance.remove_single_ingestion_policy(body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AccountUserAndServiceAccountApi->remove_single_ingestion_policy: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**IngestionPolicyMapping**](IngestionPolicyMapping.md)| Example Body:  &lt;pre&gt;{   \&quot;ingestionPolicyId\&quot;: \&quot;Ingestion policy identifier\&quot;,   \&quot;accounts\&quot;: [   \&quot;account1\&quot;,   \&quot;account2\&quot;,   \&quot;account3\&quot;   ],   \&quot;groups\&quot;: [   \&quot;group1\&quot;,   \&quot;group2\&quot;   ] }&lt;/pre&gt; | [optional] 
-
-### Return type
-
-[**ResponseContainerUserDTO**](ResponseContainerUserDTO.md)
 
 ### Authorization
 

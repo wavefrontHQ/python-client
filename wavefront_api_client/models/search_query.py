@@ -33,43 +33,76 @@ class SearchQuery(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'end': 'int',
         'key': 'str',
         'matching_method': 'str',
         'negated': 'bool',
+        'start': 'int',
         'value': 'str',
         'values': 'list[str]'
     }
 
     attribute_map = {
+        'end': 'end',
         'key': 'key',
         'matching_method': 'matchingMethod',
         'negated': 'negated',
+        'start': 'start',
         'value': 'value',
         'values': 'values'
     }
 
-    def __init__(self, key=None, matching_method=None, negated=None, value=None, values=None, _configuration=None):  # noqa: E501
+    def __init__(self, end=None, key=None, matching_method=None, negated=None, start=None, value=None, values=None, _configuration=None):  # noqa: E501
         """SearchQuery - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._end = None
         self._key = None
         self._matching_method = None
         self._negated = None
+        self._start = None
         self._value = None
         self._values = None
         self.discriminator = None
 
+        if end is not None:
+            self.end = end
         self.key = key
         if matching_method is not None:
             self.matching_method = matching_method
         if negated is not None:
             self.negated = negated
+        if start is not None:
+            self.start = start
         if value is not None:
             self.value = value
         if values is not None:
             self.values = values
+
+    @property
+    def end(self):
+        """Gets the end of this SearchQuery.  # noqa: E501
+
+        The end point of the range. At least one of start or end points should be available for range search.  # noqa: E501
+
+        :return: The end of this SearchQuery.  # noqa: E501
+        :rtype: int
+        """
+        return self._end
+
+    @end.setter
+    def end(self, end):
+        """Sets the end of this SearchQuery.
+
+        The end point of the range. At least one of start or end points should be available for range search.  # noqa: E501
+
+        :param end: The end of this SearchQuery.  # noqa: E501
+        :type: int
+        """
+
+        self._end = end
 
     @property
     def key(self):
@@ -148,6 +181,29 @@ class SearchQuery(object):
         """
 
         self._negated = negated
+
+    @property
+    def start(self):
+        """Gets the start of this SearchQuery.  # noqa: E501
+
+        The start point of the range. At least one of start or end points should be available for range search.  # noqa: E501
+
+        :return: The start of this SearchQuery.  # noqa: E501
+        :rtype: int
+        """
+        return self._start
+
+    @start.setter
+    def start(self, start):
+        """Sets the start of this SearchQuery.
+
+        The start point of the range. At least one of start or end points should be available for range search.  # noqa: E501
+
+        :param start: The start of this SearchQuery.  # noqa: E501
+        :type: int
+        """
+
+        self._start = start
 
     @property
     def value(self):
