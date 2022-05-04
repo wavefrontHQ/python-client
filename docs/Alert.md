@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **acl** | [**AccessControlListSimple**](AccessControlListSimple.md) |  | [optional] 
 **active_maintenance_windows** | **list[str]** | The names of the active maintenance windows that are affecting this alert | [optional] 
 **additional_information** | **str** | User-supplied additional explanatory information for this alert.  Useful for linking runbooks, mitigations,, etc | [optional] 
-**alert_chart_base** | **int** | The base of alert chart. A linear chart will have base as 1, while a logarithmic chart will have the other base value. | [optional] 
+**alert_chart_base** | **int** | The base of alert chart. A linear chart will have base as 1. A logarithmic chart will have the other base value.The value should be an integer and should greater than or equal to 1. | [optional] 
 **alert_chart_description** | **str** | The description of alert chart. Different from alert additional info, this is used to describe the characteristics of the chart. | [optional] 
 **alert_chart_units** | **str** | The y-axis unit of Alert chart. | [optional] 
 **alert_sources** | [**list[AlertSource]**](AlertSource.md) | A list of queries represent multiple queries in alert. It must contains at least one query with AlertSourceType as CONDITION. | [optional] 

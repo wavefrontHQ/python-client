@@ -33,71 +33,71 @@ class DefaultSavedTracesSearch(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_search_id': 'str',
-        'user_setting': 'bool'
+        'default_customer_search': 'SavedTracesSearch',
+        'default_user_search': 'SavedTracesSearch'
     }
 
     attribute_map = {
-        'default_search_id': 'defaultSearchId',
-        'user_setting': 'userSetting'
+        'default_customer_search': 'defaultCustomerSearch',
+        'default_user_search': 'defaultUserSearch'
     }
 
-    def __init__(self, default_search_id=None, user_setting=None, _configuration=None):  # noqa: E501
+    def __init__(self, default_customer_search=None, default_user_search=None, _configuration=None):  # noqa: E501
         """DefaultSavedTracesSearch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._default_search_id = None
-        self._user_setting = None
+        self._default_customer_search = None
+        self._default_user_search = None
         self.discriminator = None
 
-        if default_search_id is not None:
-            self.default_search_id = default_search_id
-        if user_setting is not None:
-            self.user_setting = user_setting
+        if default_customer_search is not None:
+            self.default_customer_search = default_customer_search
+        if default_user_search is not None:
+            self.default_user_search = default_user_search
 
     @property
-    def default_search_id(self):
-        """Gets the default_search_id of this DefaultSavedTracesSearch.  # noqa: E501
+    def default_customer_search(self):
+        """Gets the default_customer_search of this DefaultSavedTracesSearch.  # noqa: E501
 
 
-        :return: The default_search_id of this DefaultSavedTracesSearch.  # noqa: E501
-        :rtype: str
+        :return: The default_customer_search of this DefaultSavedTracesSearch.  # noqa: E501
+        :rtype: SavedTracesSearch
         """
-        return self._default_search_id
+        return self._default_customer_search
 
-    @default_search_id.setter
-    def default_search_id(self, default_search_id):
-        """Sets the default_search_id of this DefaultSavedTracesSearch.
+    @default_customer_search.setter
+    def default_customer_search(self, default_customer_search):
+        """Sets the default_customer_search of this DefaultSavedTracesSearch.
 
 
-        :param default_search_id: The default_search_id of this DefaultSavedTracesSearch.  # noqa: E501
-        :type: str
+        :param default_customer_search: The default_customer_search of this DefaultSavedTracesSearch.  # noqa: E501
+        :type: SavedTracesSearch
         """
 
-        self._default_search_id = default_search_id
+        self._default_customer_search = default_customer_search
 
     @property
-    def user_setting(self):
-        """Gets the user_setting of this DefaultSavedTracesSearch.  # noqa: E501
+    def default_user_search(self):
+        """Gets the default_user_search of this DefaultSavedTracesSearch.  # noqa: E501
 
 
-        :return: The user_setting of this DefaultSavedTracesSearch.  # noqa: E501
-        :rtype: bool
+        :return: The default_user_search of this DefaultSavedTracesSearch.  # noqa: E501
+        :rtype: SavedTracesSearch
         """
-        return self._user_setting
+        return self._default_user_search
 
-    @user_setting.setter
-    def user_setting(self, user_setting):
-        """Sets the user_setting of this DefaultSavedTracesSearch.
+    @default_user_search.setter
+    def default_user_search(self, default_user_search):
+        """Sets the default_user_search of this DefaultSavedTracesSearch.
 
 
-        :param user_setting: The user_setting of this DefaultSavedTracesSearch.  # noqa: E501
-        :type: bool
+        :param default_user_search: The default_user_search of this DefaultSavedTracesSearch.  # noqa: E501
+        :type: SavedTracesSearch
         """
 
-        self._user_setting = user_setting
+        self._default_user_search = default_user_search
 
     def to_dict(self):
         """Returns the model properties as a dict"""

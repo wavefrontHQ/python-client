@@ -525,7 +525,7 @@ class Alert(object):
     def alert_chart_base(self):
         """Gets the alert_chart_base of this Alert.  # noqa: E501
 
-        The base of alert chart. A linear chart will have base as 1, while a logarithmic chart will have the other base value.  # noqa: E501
+        The base of alert chart. A linear chart will have base as 1. A logarithmic chart will have the other base value.The value should be an integer and should greater than or equal to 1.  # noqa: E501
 
         :return: The alert_chart_base of this Alert.  # noqa: E501
         :rtype: int
@@ -536,7 +536,7 @@ class Alert(object):
     def alert_chart_base(self, alert_chart_base):
         """Sets the alert_chart_base of this Alert.
 
-        The base of alert chart. A linear chart will have base as 1, while a logarithmic chart will have the other base value.  # noqa: E501
+        The base of alert chart. A linear chart will have base as 1. A logarithmic chart will have the other base value.The value should be an integer and should greater than or equal to 1.  # noqa: E501
 
         :param alert_chart_base: The alert_chart_base of this Alert.  # noqa: E501
         :type: int
