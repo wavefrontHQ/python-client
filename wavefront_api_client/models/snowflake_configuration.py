@@ -36,6 +36,7 @@ class SnowflakeConfiguration(object):
         'account_id': 'str',
         'metric_filter_regex': 'str',
         'password': 'str',
+        'private_key': 'str',
         'role': 'str',
         'user_name': 'str',
         'warehouse': 'str'
@@ -45,12 +46,13 @@ class SnowflakeConfiguration(object):
         'account_id': 'accountID',
         'metric_filter_regex': 'metricFilterRegex',
         'password': 'password',
+        'private_key': 'privateKey',
         'role': 'role',
         'user_name': 'userName',
         'warehouse': 'warehouse'
     }
 
-    def __init__(self, account_id=None, metric_filter_regex=None, password=None, role=None, user_name=None, warehouse=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, metric_filter_regex=None, password=None, private_key=None, role=None, user_name=None, warehouse=None, _configuration=None):  # noqa: E501
         """SnowflakeConfiguration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class SnowflakeConfiguration(object):
         self._account_id = None
         self._metric_filter_regex = None
         self._password = None
+        self._private_key = None
         self._role = None
         self._user_name = None
         self._warehouse = None
@@ -67,7 +70,9 @@ class SnowflakeConfiguration(object):
         self.account_id = account_id
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
-        self.password = password
+        if password is not None:
+            self.password = password
+        self.private_key = private_key
         if role is not None:
             self.role = role
         self.user_name = user_name
@@ -142,10 +147,33 @@ class SnowflakeConfiguration(object):
         :param password: The password of this SnowflakeConfiguration.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and password is None:
-            raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
+
+    @property
+    def private_key(self):
+        """Gets the private_key of this SnowflakeConfiguration.  # noqa: E501
+
+        Snowflake Private Key  # noqa: E501
+
+        :return: The private_key of this SnowflakeConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_key
+
+    @private_key.setter
+    def private_key(self, private_key):
+        """Sets the private_key of this SnowflakeConfiguration.
+
+        Snowflake Private Key  # noqa: E501
+
+        :param private_key: The private_key of this SnowflakeConfiguration.  # noqa: E501
+        :type: str
+        """
+        if self._configuration.client_side_validation and private_key is None:
+            raise ValueError("Invalid value for `private_key`, must not be `None`")  # noqa: E501
+
+        self._private_key = private_key
 
     @property
     def role(self):

@@ -5,7 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | **str** | Snowflake AccountID | 
 **metric_filter_regex** | **str** | A regular expression that a metric name must match (case-insensitively) in order to be ingested | [optional] 
-**password** | **str** | Snowflake Password | 
+**password** | **str** | Snowflake Password | [optional] 
+**private_key** | **str** | Snowflake Private Key | 
 **role** | **str** | Role to be used while querying snowflake database | [optional] 
 **user_name** | **str** | Snowflake Username | 
 **warehouse** | **str** | Warehouse to be used while querying snowflake database | [optional] 
