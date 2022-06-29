@@ -34,6 +34,7 @@ class IngestionPolicy(object):
     """
     swagger_types = {
         'account_count': 'int',
+        'alert_id': 'str',
         'customer': 'str',
         'description': 'str',
         'group_count': 'int',
@@ -54,6 +55,7 @@ class IngestionPolicy(object):
 
     attribute_map = {
         'account_count': 'accountCount',
+        'alert_id': 'alertId',
         'customer': 'customer',
         'description': 'description',
         'group_count': 'groupCount',
@@ -72,13 +74,14 @@ class IngestionPolicy(object):
         'user_account_count': 'userAccountCount'
     }
 
-    def __init__(self, account_count=None, customer=None, description=None, group_count=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, name=None, sampled_accounts=None, sampled_groups=None, sampled_service_accounts=None, sampled_user_accounts=None, scope=None, service_account_count=None, user_account_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, account_count=None, alert_id=None, customer=None, description=None, group_count=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, name=None, sampled_accounts=None, sampled_groups=None, sampled_service_accounts=None, sampled_user_accounts=None, scope=None, service_account_count=None, user_account_count=None, _configuration=None):  # noqa: E501
         """IngestionPolicy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._account_count = None
+        self._alert_id = None
         self._customer = None
         self._description = None
         self._group_count = None
@@ -99,6 +102,8 @@ class IngestionPolicy(object):
 
         if account_count is not None:
             self.account_count = account_count
+        if alert_id is not None:
+            self.alert_id = alert_id
         if customer is not None:
             self.customer = customer
         if description is not None:
@@ -154,6 +159,29 @@ class IngestionPolicy(object):
         """
 
         self._account_count = account_count
+
+    @property
+    def alert_id(self):
+        """Gets the alert_id of this IngestionPolicy.  # noqa: E501
+
+        The ingestion policy alert Id  # noqa: E501
+
+        :return: The alert_id of this IngestionPolicy.  # noqa: E501
+        :rtype: str
+        """
+        return self._alert_id
+
+    @alert_id.setter
+    def alert_id(self, alert_id):
+        """Sets the alert_id of this IngestionPolicy.
+
+        The ingestion policy alert Id  # noqa: E501
+
+        :param alert_id: The alert_id of this IngestionPolicy.  # noqa: E501
+        :type: str
+        """
+
+        self._alert_id = alert_id
 
     @property
     def customer(self):

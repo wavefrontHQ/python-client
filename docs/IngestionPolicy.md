@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_count** | **int** | Total number of accounts that are linked to the ingestion policy | [optional] 
+**alert_id** | **str** | The ingestion policy alert Id | [optional] 
 **customer** | **str** | ID of the customer to which the ingestion policy belongs | [optional] 
 **description** | **str** | The description of the ingestion policy | [optional] 
 **group_count** | **int** | Total number of groups that are linked to the ingestion policy | [optional] 
