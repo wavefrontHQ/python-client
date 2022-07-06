@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **linked_groups_count** | **int** | Total number of groups that are linked to the role | [optional] 
 **name** | **str** | The name of the role | [optional] 
 **permissions** | **list[str]** | List of permissions the role has been granted access to | [optional] 
+**properties** | [**RolePropertiesDTO**](RolePropertiesDTO.md) | The properties of the role | [optional] 
+**restricted_permissions** | **list[str]** | The list of permissions that are restricted with the role. Currently only CSP roles have restrictions. | [optional] 
 **sample_linked_accounts** | **list[str]** | A sample of the accounts assigned to this role. Please use the Role facet of the Account Search API to get the full list of accounts for this role | [optional] 
 **sample_linked_groups** | [**list[UserGroup]**](UserGroup.md) | A sample of the groups assigned to this role. Please use the Role facet of the Group Search API to get the full list of groups for this role | [optional] 
 
