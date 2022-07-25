@@ -33,39 +33,65 @@ class RolePropertiesDTO(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'deletable': 'bool',
         'name_editable': 'bool',
-        'roles_editable': 'bool',
+        'perms_editable': 'bool',
         'users_addable': 'bool',
         'users_removable': 'bool'
     }
 
     attribute_map = {
+        'deletable': 'deletable',
         'name_editable': 'nameEditable',
-        'roles_editable': 'rolesEditable',
+        'perms_editable': 'permsEditable',
         'users_addable': 'usersAddable',
         'users_removable': 'usersRemovable'
     }
 
-    def __init__(self, name_editable=None, roles_editable=None, users_addable=None, users_removable=None, _configuration=None):  # noqa: E501
+    def __init__(self, deletable=None, name_editable=None, perms_editable=None, users_addable=None, users_removable=None, _configuration=None):  # noqa: E501
         """RolePropertiesDTO - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._deletable = None
         self._name_editable = None
-        self._roles_editable = None
+        self._perms_editable = None
         self._users_addable = None
         self._users_removable = None
         self.discriminator = None
 
+        if deletable is not None:
+            self.deletable = deletable
         if name_editable is not None:
             self.name_editable = name_editable
-        if roles_editable is not None:
-            self.roles_editable = roles_editable
+        if perms_editable is not None:
+            self.perms_editable = perms_editable
         if users_addable is not None:
             self.users_addable = users_addable
         if users_removable is not None:
             self.users_removable = users_removable
+
+    @property
+    def deletable(self):
+        """Gets the deletable of this RolePropertiesDTO.  # noqa: E501
+
+
+        :return: The deletable of this RolePropertiesDTO.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deletable
+
+    @deletable.setter
+    def deletable(self, deletable):
+        """Sets the deletable of this RolePropertiesDTO.
+
+
+        :param deletable: The deletable of this RolePropertiesDTO.  # noqa: E501
+        :type: bool
+        """
+
+        self._deletable = deletable
 
     @property
     def name_editable(self):
@@ -89,25 +115,25 @@ class RolePropertiesDTO(object):
         self._name_editable = name_editable
 
     @property
-    def roles_editable(self):
-        """Gets the roles_editable of this RolePropertiesDTO.  # noqa: E501
+    def perms_editable(self):
+        """Gets the perms_editable of this RolePropertiesDTO.  # noqa: E501
 
 
-        :return: The roles_editable of this RolePropertiesDTO.  # noqa: E501
+        :return: The perms_editable of this RolePropertiesDTO.  # noqa: E501
         :rtype: bool
         """
-        return self._roles_editable
+        return self._perms_editable
 
-    @roles_editable.setter
-    def roles_editable(self, roles_editable):
-        """Sets the roles_editable of this RolePropertiesDTO.
+    @perms_editable.setter
+    def perms_editable(self, perms_editable):
+        """Sets the perms_editable of this RolePropertiesDTO.
 
 
-        :param roles_editable: The roles_editable of this RolePropertiesDTO.  # noqa: E501
+        :param perms_editable: The perms_editable of this RolePropertiesDTO.  # noqa: E501
         :type: bool
         """
 
-        self._roles_editable = roles_editable
+        self._perms_editable = perms_editable
 
     @property
     def users_addable(self):
