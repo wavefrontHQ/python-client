@@ -55,6 +55,7 @@ class Dashboard(object):
         'favorite': 'bool',
         'force_v2_ui': 'bool',
         'hidden': 'bool',
+        'hide_chart_warning': 'bool',
         'id': 'str',
         'include_obsolete_metrics': 'bool',
         'modify_acl_access': 'bool',
@@ -98,6 +99,7 @@ class Dashboard(object):
         'favorite': 'favorite',
         'force_v2_ui': 'forceV2UI',
         'hidden': 'hidden',
+        'hide_chart_warning': 'hideChartWarning',
         'id': 'id',
         'include_obsolete_metrics': 'includeObsoleteMetrics',
         'modify_acl_access': 'modifyAclAccess',
@@ -118,7 +120,7 @@ class Dashboard(object):
         'views_last_week': 'viewsLastWeek'
     }
 
-    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, dashboard_attributes=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, disable_refresh_in_live_mode=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, force_v2_ui=None, hidden=None, id=None, include_obsolete_metrics=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None, _configuration=None):  # noqa: E501
+    def __init__(self, acl=None, chart_title_bg_color=None, chart_title_color=None, chart_title_scalar=None, created_epoch_millis=None, creator_id=None, customer=None, dashboard_attributes=None, default_end_time=None, default_start_time=None, default_time_window=None, deleted=None, description=None, disable_refresh_in_live_mode=None, display_description=None, display_query_parameters=None, display_section_table_of_contents=None, event_filter_type=None, event_query=None, favorite=None, force_v2_ui=None, hidden=None, hide_chart_warning=None, id=None, include_obsolete_metrics=None, modify_acl_access=None, name=None, num_charts=None, num_favorites=None, orphan=None, parameter_details=None, parameters=None, sections=None, system_owned=None, tags=None, updated_epoch_millis=None, updater_id=None, url=None, views_last_day=None, views_last_month=None, views_last_week=None, _configuration=None):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -146,6 +148,7 @@ class Dashboard(object):
         self._favorite = None
         self._force_v2_ui = None
         self._hidden = None
+        self._hide_chart_warning = None
         self._id = None
         self._include_obsolete_metrics = None
         self._modify_acl_access = None
@@ -210,6 +213,8 @@ class Dashboard(object):
             self.force_v2_ui = force_v2_ui
         if hidden is not None:
             self.hidden = hidden
+        if hide_chart_warning is not None:
+            self.hide_chart_warning = hide_chart_warning
         self.id = id
         if include_obsolete_metrics is not None:
             self.include_obsolete_metrics = include_obsolete_metrics
@@ -743,6 +748,29 @@ class Dashboard(object):
         """
 
         self._hidden = hidden
+
+    @property
+    def hide_chart_warning(self):
+        """Gets the hide_chart_warning of this Dashboard.  # noqa: E501
+
+        Hide chart warning  # noqa: E501
+
+        :return: The hide_chart_warning of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_chart_warning
+
+    @hide_chart_warning.setter
+    def hide_chart_warning(self, hide_chart_warning):
+        """Sets the hide_chart_warning of this Dashboard.
+
+        Hide chart warning  # noqa: E501
+
+        :param hide_chart_warning: The hide_chart_warning of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_chart_warning = hide_chart_warning
 
     @property
     def id(self):
