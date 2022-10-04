@@ -1,10 +1,10 @@
-# Annotation
+# ResponseContainerIngestionPolicyReadModel
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **str** |  | [optional] 
-**value** | **str** |  | [optional] 
+**response** | [**IngestionPolicyReadModel**](IngestionPolicyReadModel.md) |  | [optional] 
+**status** | [**ResponseStatus**](ResponseStatus.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

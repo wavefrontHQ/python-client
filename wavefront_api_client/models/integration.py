@@ -51,6 +51,7 @@ class Integration(object):
         'name': 'str',
         'overview': 'str',
         'setup': 'str',
+        'setups': 'list[Setup]',
         'status': 'IntegrationStatus',
         'updated_epoch_millis': 'int',
         'updater_id': 'str',
@@ -76,13 +77,14 @@ class Integration(object):
         'name': 'name',
         'overview': 'overview',
         'setup': 'setup',
+        'setups': 'setups',
         'status': 'status',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
         'version': 'version'
     }
 
-    def __init__(self, alerts=None, alias_integrations=None, alias_of=None, base_url=None, created_epoch_millis=None, creator_id=None, dashboards=None, deleted=None, description=None, have_metric_dropdown=None, hidden=None, icon=None, id=None, metrics=None, metrics_docs=None, name=None, overview=None, setup=None, status=None, updated_epoch_millis=None, updater_id=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, alerts=None, alias_integrations=None, alias_of=None, base_url=None, created_epoch_millis=None, creator_id=None, dashboards=None, deleted=None, description=None, have_metric_dropdown=None, hidden=None, icon=None, id=None, metrics=None, metrics_docs=None, name=None, overview=None, setup=None, setups=None, status=None, updated_epoch_millis=None, updater_id=None, version=None, _configuration=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,6 +108,7 @@ class Integration(object):
         self._name = None
         self._overview = None
         self._setup = None
+        self._setups = None
         self._status = None
         self._updated_epoch_millis = None
         self._updater_id = None
@@ -143,6 +146,8 @@ class Integration(object):
             self.overview = overview
         if setup is not None:
             self.setup = setup
+        if setups is not None:
+            self.setups = setups
         if status is not None:
             self.status = status
         if updated_epoch_millis is not None:
@@ -564,6 +569,29 @@ class Integration(object):
         """
 
         self._setup = setup
+
+    @property
+    def setups(self):
+        """Gets the setups of this Integration.  # noqa: E501
+
+        A list of setup belonging to this integration  # noqa: E501
+
+        :return: The setups of this Integration.  # noqa: E501
+        :rtype: list[Setup]
+        """
+        return self._setups
+
+    @setups.setter
+    def setups(self, setups):
+        """Sets the setups of this Integration.
+
+        A list of setup belonging to this integration  # noqa: E501
+
+        :param setups: The setups of this Integration.  # noqa: E501
+        :type: list[Setup]
+        """
+
+        self._setups = setups
 
     @property
     def status(self):

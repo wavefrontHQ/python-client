@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **name** | **str** | Integration name | 
 **overview** | **str** | Descriptive text giving an overview of integration functionality | [optional] 
 **setup** | **str** | How the integration will be set-up | [optional] 
+**setups** | [**list[Setup]**](Setup.md) | A list of setup belonging to this integration | [optional] 
 **status** | [**IntegrationStatus**](IntegrationStatus.md) |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
 **updater_id** | **str** |  | [optional] 

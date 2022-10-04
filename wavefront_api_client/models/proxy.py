@@ -41,27 +41,31 @@ class Proxy(object):
         'deleted': 'bool',
         'ephemeral': 'bool',
         'events_rate_limit': 'float',
+        'histo_disabled': 'bool',
         'histogram_rate_limit': 'int',
         'hostname': 'str',
         'id': 'str',
         'in_trash': 'bool',
-        'ingestion_policies': 'list[IngestionPolicy]',
-        'ingestion_policy': 'IngestionPolicy',
+        'ingestion_policies': 'list[IngestionPolicyReadModel]',
+        'ingestion_policy': 'IngestionPolicyReadModel',
         'last_check_in_time': 'int',
         'last_error_event': 'Event',
         'last_error_time': 'int',
         'last_known_error': 'str',
         'local_queue_size': 'int',
+        'logs_disabled': 'bool',
         'name': 'str',
         'preprocessor_rules': 'str',
         'shutdown': 'bool',
         'source_tags_rate_limit': 'float',
+        'span_logs_disabled': 'bool',
         'span_logs_rate_limit': 'int',
         'span_rate_limit': 'int',
         'ssh_agent': 'bool',
         'status': 'str',
         'status_cause': 'str',
         'time_drift': 'int',
+        'trace_disabled': 'bool',
         'truncate': 'bool',
         'user_id': 'str',
         'version': 'str'
@@ -76,6 +80,7 @@ class Proxy(object):
         'deleted': 'deleted',
         'ephemeral': 'ephemeral',
         'events_rate_limit': 'eventsRateLimit',
+        'histo_disabled': 'histoDisabled',
         'histogram_rate_limit': 'histogramRateLimit',
         'hostname': 'hostname',
         'id': 'id',
@@ -87,22 +92,25 @@ class Proxy(object):
         'last_error_time': 'lastErrorTime',
         'last_known_error': 'lastKnownError',
         'local_queue_size': 'localQueueSize',
+        'logs_disabled': 'logsDisabled',
         'name': 'name',
         'preprocessor_rules': 'preprocessorRules',
         'shutdown': 'shutdown',
         'source_tags_rate_limit': 'sourceTagsRateLimit',
+        'span_logs_disabled': 'spanLogsDisabled',
         'span_logs_rate_limit': 'spanLogsRateLimit',
         'span_rate_limit': 'spanRateLimit',
         'ssh_agent': 'sshAgent',
         'status': 'status',
         'status_cause': 'statusCause',
         'time_drift': 'timeDrift',
+        'trace_disabled': 'traceDisabled',
         'truncate': 'truncate',
         'user_id': 'userId',
         'version': 'version'
     }
 
-    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policies=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, truncate=None, user_id=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histo_disabled=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policies=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, logs_disabled=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_disabled=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, trace_disabled=None, truncate=None, user_id=None, version=None, _configuration=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -116,6 +124,7 @@ class Proxy(object):
         self._deleted = None
         self._ephemeral = None
         self._events_rate_limit = None
+        self._histo_disabled = None
         self._histogram_rate_limit = None
         self._hostname = None
         self._id = None
@@ -127,16 +136,19 @@ class Proxy(object):
         self._last_error_time = None
         self._last_known_error = None
         self._local_queue_size = None
+        self._logs_disabled = None
         self._name = None
         self._preprocessor_rules = None
         self._shutdown = None
         self._source_tags_rate_limit = None
+        self._span_logs_disabled = None
         self._span_logs_rate_limit = None
         self._span_rate_limit = None
         self._ssh_agent = None
         self._status = None
         self._status_cause = None
         self._time_drift = None
+        self._trace_disabled = None
         self._truncate = None
         self._user_id = None
         self._version = None
@@ -158,6 +170,8 @@ class Proxy(object):
             self.ephemeral = ephemeral
         if events_rate_limit is not None:
             self.events_rate_limit = events_rate_limit
+        if histo_disabled is not None:
+            self.histo_disabled = histo_disabled
         if histogram_rate_limit is not None:
             self.histogram_rate_limit = histogram_rate_limit
         if hostname is not None:
@@ -180,6 +194,8 @@ class Proxy(object):
             self.last_known_error = last_known_error
         if local_queue_size is not None:
             self.local_queue_size = local_queue_size
+        if logs_disabled is not None:
+            self.logs_disabled = logs_disabled
         self.name = name
         if preprocessor_rules is not None:
             self.preprocessor_rules = preprocessor_rules
@@ -187,6 +203,8 @@ class Proxy(object):
             self.shutdown = shutdown
         if source_tags_rate_limit is not None:
             self.source_tags_rate_limit = source_tags_rate_limit
+        if span_logs_disabled is not None:
+            self.span_logs_disabled = span_logs_disabled
         if span_logs_rate_limit is not None:
             self.span_logs_rate_limit = span_logs_rate_limit
         if span_rate_limit is not None:
@@ -199,6 +217,8 @@ class Proxy(object):
             self.status_cause = status_cause
         if time_drift is not None:
             self.time_drift = time_drift
+        if trace_disabled is not None:
+            self.trace_disabled = trace_disabled
         if truncate is not None:
             self.truncate = truncate
         if user_id is not None:
@@ -387,6 +407,29 @@ class Proxy(object):
         self._events_rate_limit = events_rate_limit
 
     @property
+    def histo_disabled(self):
+        """Gets the histo_disabled of this Proxy.  # noqa: E501
+
+        Proxy's histogram feature disabled  # noqa: E501
+
+        :return: The histo_disabled of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._histo_disabled
+
+    @histo_disabled.setter
+    def histo_disabled(self, histo_disabled):
+        """Sets the histo_disabled of this Proxy.
+
+        Proxy's histogram feature disabled  # noqa: E501
+
+        :param histo_disabled: The histo_disabled of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._histo_disabled = histo_disabled
+
+    @property
     def histogram_rate_limit(self):
         """Gets the histogram_rate_limit of this Proxy.  # noqa: E501
 
@@ -481,7 +524,7 @@ class Proxy(object):
         Ingestion policies associated with the proxy through user and groups  # noqa: E501
 
         :return: The ingestion_policies of this Proxy.  # noqa: E501
-        :rtype: list[IngestionPolicy]
+        :rtype: list[IngestionPolicyReadModel]
         """
         return self._ingestion_policies
 
@@ -492,7 +535,7 @@ class Proxy(object):
         Ingestion policies associated with the proxy through user and groups  # noqa: E501
 
         :param ingestion_policies: The ingestion_policies of this Proxy.  # noqa: E501
-        :type: list[IngestionPolicy]
+        :type: list[IngestionPolicyReadModel]
         """
 
         self._ingestion_policies = ingestion_policies
@@ -504,7 +547,7 @@ class Proxy(object):
         Ingestion policy associated with the proxy  # noqa: E501
 
         :return: The ingestion_policy of this Proxy.  # noqa: E501
-        :rtype: IngestionPolicy
+        :rtype: IngestionPolicyReadModel
         """
         return self._ingestion_policy
 
@@ -515,7 +558,7 @@ class Proxy(object):
         Ingestion policy associated with the proxy  # noqa: E501
 
         :param ingestion_policy: The ingestion_policy of this Proxy.  # noqa: E501
-        :type: IngestionPolicy
+        :type: IngestionPolicyReadModel
         """
 
         self._ingestion_policy = ingestion_policy
@@ -634,6 +677,29 @@ class Proxy(object):
         self._local_queue_size = local_queue_size
 
     @property
+    def logs_disabled(self):
+        """Gets the logs_disabled of this Proxy.  # noqa: E501
+
+        Proxy's logs feature disabled for customer  # noqa: E501
+
+        :return: The logs_disabled of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._logs_disabled
+
+    @logs_disabled.setter
+    def logs_disabled(self, logs_disabled):
+        """Sets the logs_disabled of this Proxy.
+
+        Proxy's logs feature disabled for customer  # noqa: E501
+
+        :param logs_disabled: The logs_disabled of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._logs_disabled = logs_disabled
+
+    @property
     def name(self):
         """Gets the name of this Proxy.  # noqa: E501
 
@@ -726,6 +792,29 @@ class Proxy(object):
         """
 
         self._source_tags_rate_limit = source_tags_rate_limit
+
+    @property
+    def span_logs_disabled(self):
+        """Gets the span_logs_disabled of this Proxy.  # noqa: E501
+
+        Proxy's span logs feature disabled  # noqa: E501
+
+        :return: The span_logs_disabled of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._span_logs_disabled
+
+    @span_logs_disabled.setter
+    def span_logs_disabled(self, span_logs_disabled):
+        """Sets the span_logs_disabled of this Proxy.
+
+        Proxy's span logs feature disabled  # noqa: E501
+
+        :param span_logs_disabled: The span_logs_disabled of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._span_logs_disabled = span_logs_disabled
 
     @property
     def span_logs_rate_limit(self):
@@ -871,6 +960,29 @@ class Proxy(object):
         """
 
         self._time_drift = time_drift
+
+    @property
+    def trace_disabled(self):
+        """Gets the trace_disabled of this Proxy.  # noqa: E501
+
+        Proxy's spans feature disabled  # noqa: E501
+
+        :return: The trace_disabled of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._trace_disabled
+
+    @trace_disabled.setter
+    def trace_disabled(self, trace_disabled):
+        """Sets the trace_disabled of this Proxy.
+
+        Proxy's spans feature disabled  # noqa: E501
+
+        :param trace_disabled: The trace_disabled of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._trace_disabled = trace_disabled
 
     @property
     def truncate(self):
