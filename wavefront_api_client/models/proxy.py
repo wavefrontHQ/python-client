@@ -46,8 +46,8 @@ class Proxy(object):
         'hostname': 'str',
         'id': 'str',
         'in_trash': 'bool',
-        'ingestion_policies': 'list[IngestionPolicyReadModel]',
-        'ingestion_policy': 'IngestionPolicyReadModel',
+        'ingestion_policies': 'list[IngestionPolicy]',
+        'ingestion_policy': 'IngestionPolicy',
         'last_check_in_time': 'int',
         'last_error_event': 'Event',
         'last_error_time': 'int',
@@ -56,6 +56,7 @@ class Proxy(object):
         'logs_disabled': 'bool',
         'name': 'str',
         'preprocessor_rules': 'str',
+        'proxyname': 'str',
         'shutdown': 'bool',
         'source_tags_rate_limit': 'float',
         'span_logs_disabled': 'bool',
@@ -95,6 +96,7 @@ class Proxy(object):
         'logs_disabled': 'logsDisabled',
         'name': 'name',
         'preprocessor_rules': 'preprocessorRules',
+        'proxyname': 'proxyname',
         'shutdown': 'shutdown',
         'source_tags_rate_limit': 'sourceTagsRateLimit',
         'span_logs_disabled': 'spanLogsDisabled',
@@ -110,7 +112,7 @@ class Proxy(object):
         'version': 'version'
     }
 
-    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histo_disabled=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policies=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, logs_disabled=None, name=None, preprocessor_rules=None, shutdown=None, source_tags_rate_limit=None, span_logs_disabled=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, trace_disabled=None, truncate=None, user_id=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, collector_rate_limit=None, collector_sets_rate_limit=None, customer_id=None, deleted=None, ephemeral=None, events_rate_limit=None, histo_disabled=None, histogram_rate_limit=None, hostname=None, id=None, in_trash=None, ingestion_policies=None, ingestion_policy=None, last_check_in_time=None, last_error_event=None, last_error_time=None, last_known_error=None, local_queue_size=None, logs_disabled=None, name=None, preprocessor_rules=None, proxyname=None, shutdown=None, source_tags_rate_limit=None, span_logs_disabled=None, span_logs_rate_limit=None, span_rate_limit=None, ssh_agent=None, status=None, status_cause=None, time_drift=None, trace_disabled=None, truncate=None, user_id=None, version=None, _configuration=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -139,6 +141,7 @@ class Proxy(object):
         self._logs_disabled = None
         self._name = None
         self._preprocessor_rules = None
+        self._proxyname = None
         self._shutdown = None
         self._source_tags_rate_limit = None
         self._span_logs_disabled = None
@@ -199,6 +202,8 @@ class Proxy(object):
         self.name = name
         if preprocessor_rules is not None:
             self.preprocessor_rules = preprocessor_rules
+        if proxyname is not None:
+            self.proxyname = proxyname
         if shutdown is not None:
             self.shutdown = shutdown
         if source_tags_rate_limit is not None:
@@ -524,7 +529,7 @@ class Proxy(object):
         Ingestion policies associated with the proxy through user and groups  # noqa: E501
 
         :return: The ingestion_policies of this Proxy.  # noqa: E501
-        :rtype: list[IngestionPolicyReadModel]
+        :rtype: list[IngestionPolicy]
         """
         return self._ingestion_policies
 
@@ -535,7 +540,7 @@ class Proxy(object):
         Ingestion policies associated with the proxy through user and groups  # noqa: E501
 
         :param ingestion_policies: The ingestion_policies of this Proxy.  # noqa: E501
-        :type: list[IngestionPolicyReadModel]
+        :type: list[IngestionPolicy]
         """
 
         self._ingestion_policies = ingestion_policies
@@ -547,7 +552,7 @@ class Proxy(object):
         Ingestion policy associated with the proxy  # noqa: E501
 
         :return: The ingestion_policy of this Proxy.  # noqa: E501
-        :rtype: IngestionPolicyReadModel
+        :rtype: IngestionPolicy
         """
         return self._ingestion_policy
 
@@ -558,7 +563,7 @@ class Proxy(object):
         Ingestion policy associated with the proxy  # noqa: E501
 
         :param ingestion_policy: The ingestion_policy of this Proxy.  # noqa: E501
-        :type: IngestionPolicyReadModel
+        :type: IngestionPolicy
         """
 
         self._ingestion_policy = ingestion_policy
@@ -746,6 +751,29 @@ class Proxy(object):
         """
 
         self._preprocessor_rules = preprocessor_rules
+
+    @property
+    def proxyname(self):
+        """Gets the proxyname of this Proxy.  # noqa: E501
+
+        Proxy name set by customer  # noqa: E501
+
+        :return: The proxyname of this Proxy.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxyname
+
+    @proxyname.setter
+    def proxyname(self, proxyname):
+        """Sets the proxyname of this Proxy.
+
+        Proxy name set by customer  # noqa: E501
+
+        :param proxyname: The proxyname of this Proxy.  # noqa: E501
+        :type: str
+        """
+
+        self._proxyname = proxyname
 
     @property
     def shutdown(self):

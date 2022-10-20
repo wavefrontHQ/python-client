@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **hostname** | **str** | Host name of the machine running the proxy | [optional] 
 **id** | **str** |  | [optional] 
 **in_trash** | **bool** |  | [optional] 
-**ingestion_policies** | [**list[IngestionPolicyReadModel]**](IngestionPolicyReadModel.md) | Ingestion policies associated with the proxy through user and groups | [optional] 
-**ingestion_policy** | [**IngestionPolicyReadModel**](IngestionPolicyReadModel.md) | Ingestion policy associated with the proxy | [optional] 
+**ingestion_policies** | [**list[IngestionPolicy]**](IngestionPolicy.md) | Ingestion policies associated with the proxy through user and groups | [optional] 
+**ingestion_policy** | [**IngestionPolicy**](IngestionPolicy.md) | Ingestion policy associated with the proxy | [optional] 
 **last_check_in_time** | **int** | Last time when this proxy checked in (in milliseconds since the unix epoch) | [optional] 
 **last_error_event** | [**Event**](Event.md) |  | [optional] 
 **last_error_time** | **int** | deprecated | [optional] 
@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **logs_disabled** | **bool** | Proxy&#39;s logs feature disabled for customer | [optional] 
 **name** | **str** | Proxy name (modifiable) | 
 **preprocessor_rules** | **str** | Proxy&#39;s preprocessor rules | [optional] 
+**proxyname** | **str** | Proxy name set by customer | [optional] 
 **shutdown** | **bool** | When true, attempt to shut down this proxy remotely | [optional] 
 **source_tags_rate_limit** | **float** | Proxy&#39;s rate limit for source tag operations | [optional] 
 **span_logs_disabled** | **bool** | Proxy&#39;s span logs feature disabled | [optional] 
