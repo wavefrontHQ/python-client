@@ -740,7 +740,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_user_accounts**
-> list[UserModel] get_all_user_accounts()
+> ResponseContainerListUserDTO get_all_user_accounts()
 
 Get all user accounts
 
@@ -776,7 +776,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[UserModel]**](UserModel.md)
+[**ResponseContainerListUserDTO**](ResponseContainerListUserDTO.md)
 
 ### Authorization
 
