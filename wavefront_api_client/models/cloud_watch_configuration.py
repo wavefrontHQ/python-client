@@ -39,6 +39,7 @@ class CloudWatchConfiguration(object):
         'metric_filter_regex': 'str',
         'namespaces': 'list[str]',
         'point_tag_filter_regex': 'str',
+        's3_bucket_name_filter_regex': 'str',
         'thread_distribution_in_mins': 'int',
         'volume_selection_tags': 'dict(str, str)',
         'volume_selection_tags_expr': 'str'
@@ -51,12 +52,13 @@ class CloudWatchConfiguration(object):
         'metric_filter_regex': 'metricFilterRegex',
         'namespaces': 'namespaces',
         'point_tag_filter_regex': 'pointTagFilterRegex',
+        's3_bucket_name_filter_regex': 's3BucketNameFilterRegex',
         'thread_distribution_in_mins': 'threadDistributionInMins',
         'volume_selection_tags': 'volumeSelectionTags',
         'volume_selection_tags_expr': 'volumeSelectionTagsExpr'
     }
 
-    def __init__(self, base_credentials=None, instance_selection_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, namespaces=None, point_tag_filter_regex=None, thread_distribution_in_mins=None, volume_selection_tags=None, volume_selection_tags_expr=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_credentials=None, instance_selection_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, namespaces=None, point_tag_filter_regex=None, s3_bucket_name_filter_regex=None, thread_distribution_in_mins=None, volume_selection_tags=None, volume_selection_tags_expr=None, _configuration=None):  # noqa: E501
         """CloudWatchConfiguration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class CloudWatchConfiguration(object):
         self._metric_filter_regex = None
         self._namespaces = None
         self._point_tag_filter_regex = None
+        self._s3_bucket_name_filter_regex = None
         self._thread_distribution_in_mins = None
         self._volume_selection_tags = None
         self._volume_selection_tags_expr = None
@@ -85,6 +88,8 @@ class CloudWatchConfiguration(object):
             self.namespaces = namespaces
         if point_tag_filter_regex is not None:
             self.point_tag_filter_regex = point_tag_filter_regex
+        if s3_bucket_name_filter_regex is not None:
+            self.s3_bucket_name_filter_regex = s3_bucket_name_filter_regex
         if thread_distribution_in_mins is not None:
             self.thread_distribution_in_mins = thread_distribution_in_mins
         if volume_selection_tags is not None:
@@ -227,6 +232,29 @@ class CloudWatchConfiguration(object):
         """
 
         self._point_tag_filter_regex = point_tag_filter_regex
+
+    @property
+    def s3_bucket_name_filter_regex(self):
+        """Gets the s3_bucket_name_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+
+        A regular expression that a AWS S3 Bucket name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :return: The s3_bucket_name_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._s3_bucket_name_filter_regex
+
+    @s3_bucket_name_filter_regex.setter
+    def s3_bucket_name_filter_regex(self, s3_bucket_name_filter_regex):
+        """Sets the s3_bucket_name_filter_regex of this CloudWatchConfiguration.
+
+        A regular expression that a AWS S3 Bucket name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :param s3_bucket_name_filter_regex: The s3_bucket_name_filter_regex of this CloudWatchConfiguration.  # noqa: E501
+        :type: str
+        """
+
+        self._s3_bucket_name_filter_regex = s3_bucket_name_filter_regex
 
     @property
     def thread_distribution_in_mins(self):
