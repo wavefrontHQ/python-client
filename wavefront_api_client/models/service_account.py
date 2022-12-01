@@ -37,8 +37,8 @@ class ServiceAccount(object):
         'description': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
-        'ingestion_policies': 'list[IngestionPolicyReadModel]',
-        'ingestion_policy': 'IngestionPolicyReadModel',
+        'ingestion_policies': 'list[IngestionPolicy]',
+        'ingestion_policy': 'IngestionPolicy',
         'last_used': 'int',
         'roles': 'list[RoleDTO]',
         'tokens': 'list[UserApiToken]',
@@ -208,7 +208,7 @@ class ServiceAccount(object):
         The list of service account's ingestion policies.  # noqa: E501
 
         :return: The ingestion_policies of this ServiceAccount.  # noqa: E501
-        :rtype: list[IngestionPolicyReadModel]
+        :rtype: list[IngestionPolicy]
         """
         return self._ingestion_policies
 
@@ -219,7 +219,7 @@ class ServiceAccount(object):
         The list of service account's ingestion policies.  # noqa: E501
 
         :param ingestion_policies: The ingestion_policies of this ServiceAccount.  # noqa: E501
-        :type: list[IngestionPolicyReadModel]
+        :type: list[IngestionPolicy]
         """
 
         self._ingestion_policies = ingestion_policies
@@ -231,7 +231,7 @@ class ServiceAccount(object):
         The ingestion policy object linked with service account.  # noqa: E501
 
         :return: The ingestion_policy of this ServiceAccount.  # noqa: E501
-        :rtype: IngestionPolicyReadModel
+        :rtype: IngestionPolicy
         """
         return self._ingestion_policy
 
@@ -242,7 +242,7 @@ class ServiceAccount(object):
         The ingestion policy object linked with service account.  # noqa: E501
 
         :param ingestion_policy: The ingestion_policy of this ServiceAccount.  # noqa: E501
-        :type: IngestionPolicyReadModel
+        :type: IngestionPolicy
         """
 
         self._ingestion_policy = ingestion_policy

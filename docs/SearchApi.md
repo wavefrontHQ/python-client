@@ -1408,7 +1408,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_ingestion_policy_entities**
-> ResponseContainerPagedIngestionPolicyReadModel search_ingestion_policy_entities(body=body)
+> ResponseContainerPagedIngestionPolicy search_ingestion_policy_entities(body=body)
 
 Search over a customer's ingestion policies
 
@@ -1448,7 +1448,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseContainerPagedIngestionPolicyReadModel**](ResponseContainerPagedIngestionPolicyReadModel.md)
+[**ResponseContainerPagedIngestionPolicy**](ResponseContainerPagedIngestionPolicy.md)
 
 ### Authorization
 

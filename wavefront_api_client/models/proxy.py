@@ -46,8 +46,8 @@ class Proxy(object):
         'hostname': 'str',
         'id': 'str',
         'in_trash': 'bool',
-        'ingestion_policies': 'list[IngestionPolicyReadModel]',
-        'ingestion_policy': 'IngestionPolicyReadModel',
+        'ingestion_policies': 'list[IngestionPolicy]',
+        'ingestion_policy': 'IngestionPolicy',
         'last_check_in_time': 'int',
         'last_error_event': 'Event',
         'last_error_time': 'int',
@@ -529,7 +529,7 @@ class Proxy(object):
         Ingestion policies associated with the proxy through user and groups  # noqa: E501
 
         :return: The ingestion_policies of this Proxy.  # noqa: E501
-        :rtype: list[IngestionPolicyReadModel]
+        :rtype: list[IngestionPolicy]
         """
         return self._ingestion_policies
 
@@ -540,7 +540,7 @@ class Proxy(object):
         Ingestion policies associated with the proxy through user and groups  # noqa: E501
 
         :param ingestion_policies: The ingestion_policies of this Proxy.  # noqa: E501
-        :type: list[IngestionPolicyReadModel]
+        :type: list[IngestionPolicy]
         """
 
         self._ingestion_policies = ingestion_policies
@@ -552,7 +552,7 @@ class Proxy(object):
         Ingestion policy associated with the proxy  # noqa: E501
 
         :return: The ingestion_policy of this Proxy.  # noqa: E501
-        :rtype: IngestionPolicyReadModel
+        :rtype: IngestionPolicy
         """
         return self._ingestion_policy
 
@@ -563,7 +563,7 @@ class Proxy(object):
         Ingestion policy associated with the proxy  # noqa: E501
 
         :param ingestion_policy: The ingestion_policy of this Proxy.  # noqa: E501
-        :type: IngestionPolicyReadModel
+        :type: IngestionPolicy
         """
 
         self._ingestion_policy = ingestion_policy
