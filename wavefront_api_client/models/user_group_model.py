@@ -37,7 +37,7 @@ class UserGroupModel(object):
         'customer': 'str',
         'description': 'str',
         'id': 'str',
-        'ingestion_policies': 'list[IngestionPolicy]',
+        'ingestion_policies': 'list[IngestionPolicyReadModel]',
         'name': 'str',
         'properties': 'UserGroupPropertiesDTO',
         'role_count': 'int',
@@ -198,7 +198,7 @@ class UserGroupModel(object):
         Ingestion policies linked with the user group  # noqa: E501
 
         :return: The ingestion_policies of this UserGroupModel.  # noqa: E501
-        :rtype: list[IngestionPolicy]
+        :rtype: list[IngestionPolicyReadModel]
         """
         return self._ingestion_policies
 
@@ -209,7 +209,7 @@ class UserGroupModel(object):
         Ingestion policies linked with the user group  # noqa: E501
 
         :param ingestion_policies: The ingestion_policies of this UserGroupModel.  # noqa: E501
-        :type: list[IngestionPolicy]
+        :type: list[IngestionPolicyReadModel]
         """
 
         self._ingestion_policies = ingestion_policies

@@ -63,6 +63,7 @@ class CloudIntegration(object):
         'service': 'str',
         'service_refresh_rate_in_mins': 'int',
         'snowflake': 'SnowflakeConfiguration',
+        'tesla': 'TeslaConfiguration',
         'updated_epoch_millis': 'int',
         'updater_id': 'str',
         'vrops': 'VropsConfiguration'
@@ -99,12 +100,13 @@ class CloudIntegration(object):
         'service': 'service',
         'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
         'snowflake': 'snowflake',
+        'tesla': 'tesla',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId',
         'vrops': 'vrops'
     }
 
-    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, dynatrace=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, reuse_external_id_credential=None, service=None, service_refresh_rate_in_mins=None, snowflake=None, updated_epoch_millis=None, updater_id=None, vrops=None, _configuration=None):  # noqa: E501
+    def __init__(self, additional_tags=None, app_dynamics=None, azure=None, azure_activity_log=None, cloud_trail=None, cloud_watch=None, created_epoch_millis=None, creator_id=None, deleted=None, disabled=None, dynatrace=None, ec2=None, force_save=None, gcp=None, gcp_billing=None, id=None, in_trash=None, last_error=None, last_error_event=None, last_error_ms=None, last_metric_count=None, last_processing_timestamp=None, last_processor_id=None, last_received_data_point_ms=None, name=None, new_relic=None, reuse_external_id_credential=None, service=None, service_refresh_rate_in_mins=None, snowflake=None, tesla=None, updated_epoch_millis=None, updater_id=None, vrops=None, _configuration=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -140,6 +142,7 @@ class CloudIntegration(object):
         self._service = None
         self._service_refresh_rate_in_mins = None
         self._snowflake = None
+        self._tesla = None
         self._updated_epoch_millis = None
         self._updater_id = None
         self._vrops = None
@@ -203,6 +206,8 @@ class CloudIntegration(object):
             self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
         if snowflake is not None:
             self.snowflake = snowflake
+        if tesla is not None:
+            self.tesla = tesla
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
@@ -819,7 +824,7 @@ class CloudIntegration(object):
         """
         if self._configuration.client_side_validation and service is None:
             raise ValueError("Invalid value for `service`, must not be `None`")  # noqa: E501
-        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "AZURE", "AZUREACTIVITYLOG", "NEWRELIC", "APPDYNAMICS", "VROPS", "SNOWFLAKE", "DYNATRACE"]  # noqa: E501
+        allowed_values = ["CLOUDWATCH", "CLOUDTRAIL", "EC2", "GCP", "GCPBILLING", "TESLA", "AZURE", "AZUREACTIVITYLOG", "NEWRELIC", "APPDYNAMICS", "VROPS", "SNOWFLAKE", "DYNATRACE"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 service not in allowed_values):
             raise ValueError(
@@ -872,6 +877,27 @@ class CloudIntegration(object):
         """
 
         self._snowflake = snowflake
+
+    @property
+    def tesla(self):
+        """Gets the tesla of this CloudIntegration.  # noqa: E501
+
+
+        :return: The tesla of this CloudIntegration.  # noqa: E501
+        :rtype: TeslaConfiguration
+        """
+        return self._tesla
+
+    @tesla.setter
+    def tesla(self, tesla):
+        """Sets the tesla of this CloudIntegration.
+
+
+        :param tesla: The tesla of this CloudIntegration.  # noqa: E501
+        :type: TeslaConfiguration
+        """
+
+        self._tesla = tesla
 
     @property
     def updated_epoch_millis(self):

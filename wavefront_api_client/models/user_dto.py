@@ -36,8 +36,8 @@ class UserDTO(object):
         'customer': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
-        'ingestion_policies': 'list[IngestionPolicy]',
-        'ingestion_policy': 'IngestionPolicy',
+        'ingestion_policies': 'list[IngestionPolicyReadModel]',
+        'ingestion_policy': 'IngestionPolicyReadModel',
         'last_successful_login': 'int',
         'roles': 'list[RoleDTO]',
         'sso_id': 'str',
@@ -161,7 +161,7 @@ class UserDTO(object):
 
 
         :return: The ingestion_policies of this UserDTO.  # noqa: E501
-        :rtype: list[IngestionPolicy]
+        :rtype: list[IngestionPolicyReadModel]
         """
         return self._ingestion_policies
 
@@ -171,7 +171,7 @@ class UserDTO(object):
 
 
         :param ingestion_policies: The ingestion_policies of this UserDTO.  # noqa: E501
-        :type: list[IngestionPolicy]
+        :type: list[IngestionPolicyReadModel]
         """
 
         self._ingestion_policies = ingestion_policies
@@ -182,7 +182,7 @@ class UserDTO(object):
 
 
         :return: The ingestion_policy of this UserDTO.  # noqa: E501
-        :rtype: IngestionPolicy
+        :rtype: IngestionPolicyReadModel
         """
         return self._ingestion_policy
 
@@ -192,7 +192,7 @@ class UserDTO(object):
 
 
         :param ingestion_policy: The ingestion_policy of this UserDTO.  # noqa: E501
-        :type: IngestionPolicy
+        :type: IngestionPolicyReadModel
         """
 
         self._ingestion_policy = ingestion_policy

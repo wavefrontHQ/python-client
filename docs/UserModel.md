@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **customer** | **str** | The id of the customer to which this user belongs | 
 **groups** | **list[str]** | The permissions granted to this user | 
 **identifier** | **str** | The unique identifier of this user, which must be their valid email address | 
-**ingestion_policies** | [**list[IngestionPolicy]**](IngestionPolicy.md) |  | [optional] 
-**ingestion_policy** | [**IngestionPolicy**](IngestionPolicy.md) |  | [optional] 
+**ingestion_policies** | [**list[IngestionPolicyReadModel]**](IngestionPolicyReadModel.md) |  | [optional] 
+**ingestion_policy** | [**IngestionPolicyReadModel**](IngestionPolicyReadModel.md) |  | [optional] 
 **last_successful_login** | **int** |  | [optional] 
 **roles** | [**list[RoleDTO]**](RoleDTO.md) |  | [optional] 
 **sso_id** | **str** |  | [optional] 
