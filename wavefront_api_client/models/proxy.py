@@ -933,7 +933,7 @@ class Proxy(object):
         :param status: The status of this Proxy.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ACTIVE", "STOPPED_UNKNOWN", "STOPPED_BY_SERVER"]  # noqa: E501
+        allowed_values = ["ACTIVE", "STOPPED_UNKNOWN", "STOPPED_BY_SERVER", "TOKEN_EXPIRED"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 status not in allowed_values):
             raise ValueError(
