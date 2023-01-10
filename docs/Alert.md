@@ -76,7 +76,7 @@ Name | Type | Description | Notes
 **system_owned** | **bool** | Whether this alert is system-owned and not writeable | [optional] 
 **tagpaths** | **list[str]** |  | [optional] 
 **tags** | [**WFTags**](WFTags.md) |  | [optional] 
-**target** | **str** | The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes. Comma-separated list of targets. Multiple target types can be in the list. Alert target format: ({email}|pd:{pd_key}|target:{alert target ID}) | [optional] 
+**target** | **str** | The email address or integration endpoint (such as PagerDuty or web hook) to notify when the alert status changes. Comma-separated list of targets. Multiple target types can be in the list. Alert target format: ({email}|pd:{pd_key}|target:{alert target ID}). You cannot update this value. | [optional] 
 **target_endpoints** | **list[str]** |  | [optional] 
 **target_info** | [**list[TargetInfo]**](TargetInfo.md) | List of alert targets display information that includes name, id and type. | [optional] 
 **targets** | **dict(str, str)** | Targets for severity. | [optional] 
