@@ -36,8 +36,6 @@ class UserDTO(object):
         'customer': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
-        'ingestion_policies': 'list[IngestionPolicyReadModel]',
-        'ingestion_policy': 'IngestionPolicyReadModel',
         'last_successful_login': 'int',
         'roles': 'list[RoleDTO]',
         'sso_id': 'str',
@@ -48,15 +46,13 @@ class UserDTO(object):
         'customer': 'customer',
         'groups': 'groups',
         'identifier': 'identifier',
-        'ingestion_policies': 'ingestionPolicies',
-        'ingestion_policy': 'ingestionPolicy',
         'last_successful_login': 'lastSuccessfulLogin',
         'roles': 'roles',
         'sso_id': 'ssoId',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, customer=None, groups=None, identifier=None, ingestion_policies=None, ingestion_policy=None, last_successful_login=None, roles=None, sso_id=None, user_groups=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer=None, groups=None, identifier=None, last_successful_login=None, roles=None, sso_id=None, user_groups=None, _configuration=None):  # noqa: E501
         """UserDTO - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,8 +61,6 @@ class UserDTO(object):
         self._customer = None
         self._groups = None
         self._identifier = None
-        self._ingestion_policies = None
-        self._ingestion_policy = None
         self._last_successful_login = None
         self._roles = None
         self._sso_id = None
@@ -79,10 +73,6 @@ class UserDTO(object):
             self.groups = groups
         if identifier is not None:
             self.identifier = identifier
-        if ingestion_policies is not None:
-            self.ingestion_policies = ingestion_policies
-        if ingestion_policy is not None:
-            self.ingestion_policy = ingestion_policy
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
         if roles is not None:
@@ -154,48 +144,6 @@ class UserDTO(object):
         """
 
         self._identifier = identifier
-
-    @property
-    def ingestion_policies(self):
-        """Gets the ingestion_policies of this UserDTO.  # noqa: E501
-
-
-        :return: The ingestion_policies of this UserDTO.  # noqa: E501
-        :rtype: list[IngestionPolicyReadModel]
-        """
-        return self._ingestion_policies
-
-    @ingestion_policies.setter
-    def ingestion_policies(self, ingestion_policies):
-        """Sets the ingestion_policies of this UserDTO.
-
-
-        :param ingestion_policies: The ingestion_policies of this UserDTO.  # noqa: E501
-        :type: list[IngestionPolicyReadModel]
-        """
-
-        self._ingestion_policies = ingestion_policies
-
-    @property
-    def ingestion_policy(self):
-        """Gets the ingestion_policy of this UserDTO.  # noqa: E501
-
-
-        :return: The ingestion_policy of this UserDTO.  # noqa: E501
-        :rtype: IngestionPolicyReadModel
-        """
-        return self._ingestion_policy
-
-    @ingestion_policy.setter
-    def ingestion_policy(self, ingestion_policy):
-        """Sets the ingestion_policy of this UserDTO.
-
-
-        :param ingestion_policy: The ingestion_policy of this UserDTO.  # noqa: E501
-        :type: IngestionPolicyReadModel
-        """
-
-        self._ingestion_policy = ingestion_policy
 
     @property
     def last_successful_login(self):

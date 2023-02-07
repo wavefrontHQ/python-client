@@ -1,4 +1,4 @@
-# Alert
+# IngestionPolicyAlert
 
 ## Properties
 Name | Type | Description | Notes
@@ -19,10 +19,12 @@ Name | Type | Description | Notes
 **chart_attributes** | [**JsonNode**](JsonNode.md) | Additional chart settings for the alert (e.g. pie chart has its chart settings in this section). | [optional] 
 **chart_settings** | [**ChartSettings**](ChartSettings.md) | The old chart settings for the alert (e.g. chart type, chart range etc.). | [optional] 
 **condition** | **str** | A Wavefront query that is evaluated at regular intervals (default 1m).  The alert fires and notifications are triggered when a data series matching this query evaluates to a non-zero value for a set number of consecutive minutes | 
+**condition_percentages** | **dict(str, int)** | Multi - alert conditions. | [optional] 
 **condition_qb_enabled** | **bool** | Whether the condition query was created using the Query Builder.  Default false | [optional] 
 **condition_qb_serialization** | **str** | The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true | [optional] 
 **condition_query_type** | **str** |  | [optional] 
 **conditions** | **dict(str, str)** | Multi - alert conditions. | [optional] 
+**conditions_threshold_operator** | **str** |  | 
 **create_user_id** | **str** |  | [optional] 
 **created** | **int** | When this alert was created, in epoch millis | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 

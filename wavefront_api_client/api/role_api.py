@@ -33,41 +33,41 @@ class RoleApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_assignees(self, id, **kwargs):  # noqa: E501
-        """Add multiple users and user groups to a specific role  # noqa: E501
+    def add_assignees(self, id, body, **kwargs):  # noqa: E501
+        """Add accounts and groups to a role  # noqa: E501
 
-          # noqa: E501
+        Assigns a role with a given ID to a list of user and service accounts and groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_assignees(id, async_req=True)
+        >>> thread = api.add_assignees(id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
-        :param list[str] body: List of users and user groups thatshould be added to role
+        :param str id: The ID of the role to assign. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
+        :param list[str] body: A list of accounts and groups to add to the role. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_assignees_with_http_info(id, **kwargs)  # noqa: E501
+            return self.add_assignees_with_http_info(id, body, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_assignees_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.add_assignees_with_http_info(id, body, **kwargs)  # noqa: E501
             return data
 
-    def add_assignees_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Add multiple users and user groups to a specific role  # noqa: E501
+    def add_assignees_with_http_info(self, id, body, **kwargs):  # noqa: E501
+        """Add accounts and groups to a role  # noqa: E501
 
-          # noqa: E501
+        Assigns a role with a given ID to a list of user and service accounts and groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_assignees_with_http_info(id, async_req=True)
+        >>> thread = api.add_assignees_with_http_info(id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
-        :param list[str] body: List of users and user groups thatshould be added to role
+        :param str id: The ID of the role to assign. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
+        :param list[str] body: A list of accounts and groups to add to the role. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -92,6 +92,10 @@ class RoleApi(object):
         if self.api_client.client_side_validation and ('id' not in params or
                                                        params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `add_assignees`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `add_assignees`")  # noqa: E501
 
         collection_formats = {}
 
@@ -136,39 +140,39 @@ class RoleApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_role(self, **kwargs):  # noqa: E501
-        """Create a specific role  # noqa: E501
+    def create_role(self, body, **kwargs):  # noqa: E501
+        """Create a role  # noqa: E501
 
-          # noqa: E501
+        Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_role(async_req=True)
+        >>> thread = api.create_role(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param RoleDTO body: Example Body:  <pre>{   \"name\": \"Role name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"Role description\" }</pre>
+        :param RoleCreateDTO body: An example body for a role with all permissions:  <pre>{    \"name\": \"<i>Role_name</i>\",    \"permissions\": [        \"agent_management\", \"alerts_management\",        \"application_management\", \"batch_query_priority\",        \"dashboard_management\", \"derived_metrics_management\",        \"embedded_charts\", \"events_management\",        \"external_links_management\", \"host_tag_management\",        \"ingestion\", \"metrics_management\",        \"monitored_application_service_management\", \"saml_sso_management\",        \"token_management\", \"user_management\"    ],    \"description\": \"<i>Role_description</i>\" }</pre> (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_role_with_http_info(**kwargs)  # noqa: E501
+            return self.create_role_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_role_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.create_role_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def create_role_with_http_info(self, **kwargs):  # noqa: E501
-        """Create a specific role  # noqa: E501
+    def create_role_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Create a role  # noqa: E501
 
-          # noqa: E501
+        Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_role_with_http_info(async_req=True)
+        >>> thread = api.create_role_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param RoleDTO body: Example Body:  <pre>{   \"name\": \"Role name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"Role description\" }</pre>
+        :param RoleCreateDTO body: An example body for a role with all permissions:  <pre>{    \"name\": \"<i>Role_name</i>\",    \"permissions\": [        \"agent_management\", \"alerts_management\",        \"application_management\", \"batch_query_priority\",        \"dashboard_management\", \"derived_metrics_management\",        \"embedded_charts\", \"events_management\",        \"external_links_management\", \"host_tag_management\",        \"ingestion\", \"metrics_management\",        \"monitored_application_service_management\", \"saml_sso_management\",        \"token_management\", \"user_management\"    ],    \"description\": \"<i>Role_description</i>\" }</pre> (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -189,6 +193,10 @@ class RoleApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_role`")  # noqa: E501
 
         collection_formats = {}
 
@@ -232,16 +240,16 @@ class RoleApi(object):
             collection_formats=collection_formats)
 
     def delete_role(self, id, **kwargs):  # noqa: E501
-        """Delete a specific role  # noqa: E501
+        """Delete a role by ID  # noqa: E501
 
-          # noqa: E501
+        Deletes a role with a given ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_role(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param str id: The ID of the role to delete. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -254,16 +262,16 @@ class RoleApi(object):
             return data
 
     def delete_role_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Delete a specific role  # noqa: E501
+        """Delete a role by ID  # noqa: E501
 
-          # noqa: E501
+        Deletes a role with a given ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_role_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param str id: The ID of the role to delete. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -331,9 +339,9 @@ class RoleApi(object):
             collection_formats=collection_formats)
 
     def get_all_roles(self, **kwargs):  # noqa: E501
-        """Get all roles for a customer  # noqa: E501
+        """Get all roles  # noqa: E501
 
-          # noqa: E501
+        Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_roles(async_req=True)
@@ -354,9 +362,9 @@ class RoleApi(object):
             return data
 
     def get_all_roles_with_http_info(self, **kwargs):  # noqa: E501
-        """Get all roles for a customer  # noqa: E501
+        """Get all roles  # noqa: E501
 
-          # noqa: E501
+        Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_roles_with_http_info(async_req=True)
@@ -430,16 +438,16 @@ class RoleApi(object):
             collection_formats=collection_formats)
 
     def get_role(self, id, **kwargs):  # noqa: E501
-        """Get a specific role  # noqa: E501
+        """Get a role by ID  # noqa: E501
 
-          # noqa: E501
+        Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_role(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param str id: The ID of the role to get. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -452,16 +460,16 @@ class RoleApi(object):
             return data
 
     def get_role_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Get a specific role  # noqa: E501
+        """Get a role by ID  # noqa: E501
 
-          # noqa: E501
+        Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_role_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
+        :param str id: The ID of the role to get. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -528,41 +536,41 @@ class RoleApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def grant_permission_to_roles(self, permission, **kwargs):  # noqa: E501
-        """Grants a single permission to role(s)  # noqa: E501
+    def grant_permission_to_roles(self, permission, body, **kwargs):  # noqa: E501
+        """Grant a permission to roles  # noqa: E501
 
-          # noqa: E501
+        Grants a given permission to a list of roles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.grant_permission_to_roles(permission, async_req=True)
+        >>> thread = api.grant_permission_to_roles(permission, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to grant to role(s). (required)
-        :param list[str] body: List of roles.
+        :param str permission: The permission to grant. Note that <code>host_tag_management</code> is the equivalent of the **Source Tag Management** permission, <code>monitored_application_service_management</code> is the equivalent of the **Integrations** permission, <code>agent_management</code> is the equivalent of the **Proxies** permission. (required)
+        :param list[str] body: A list of role IDs to which to grant the permission. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.grant_permission_to_roles_with_http_info(permission, **kwargs)  # noqa: E501
+            return self.grant_permission_to_roles_with_http_info(permission, body, **kwargs)  # noqa: E501
         else:
-            (data) = self.grant_permission_to_roles_with_http_info(permission, **kwargs)  # noqa: E501
+            (data) = self.grant_permission_to_roles_with_http_info(permission, body, **kwargs)  # noqa: E501
             return data
 
-    def grant_permission_to_roles_with_http_info(self, permission, **kwargs):  # noqa: E501
-        """Grants a single permission to role(s)  # noqa: E501
+    def grant_permission_to_roles_with_http_info(self, permission, body, **kwargs):  # noqa: E501
+        """Grant a permission to roles  # noqa: E501
 
-          # noqa: E501
+        Grants a given permission to a list of roles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.grant_permission_to_roles_with_http_info(permission, async_req=True)
+        >>> thread = api.grant_permission_to_roles_with_http_info(permission, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to grant to role(s). (required)
-        :param list[str] body: List of roles.
+        :param str permission: The permission to grant. Note that <code>host_tag_management</code> is the equivalent of the **Source Tag Management** permission, <code>monitored_application_service_management</code> is the equivalent of the **Integrations** permission, <code>agent_management</code> is the equivalent of the **Proxies** permission. (required)
+        :param list[str] body: A list of role IDs to which to grant the permission. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -587,6 +595,10 @@ class RoleApi(object):
         if self.api_client.client_side_validation and ('permission' not in params or
                                                        params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `grant_permission_to_roles`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `grant_permission_to_roles`")  # noqa: E501
 
         collection_formats = {}
 
@@ -631,41 +643,41 @@ class RoleApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def remove_assignees(self, id, **kwargs):  # noqa: E501
-        """Remove multiple users and user groups from a specific role  # noqa: E501
+    def remove_assignees(self, id, body, **kwargs):  # noqa: E501
+        """Remove accounts and groups from a role  # noqa: E501
 
-          # noqa: E501
+        Revokes a role with a given ID from a list of user and service accounts and groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_assignees(id, async_req=True)
+        >>> thread = api.remove_assignees(id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
-        :param list[str] body: List of users and user groups thatshould be removed from role
+        :param str id: The ID of the role to revoke. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
+        :param list[str] body: A list of accounts and groups to remove from the role. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.remove_assignees_with_http_info(id, **kwargs)  # noqa: E501
+            return self.remove_assignees_with_http_info(id, body, **kwargs)  # noqa: E501
         else:
-            (data) = self.remove_assignees_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.remove_assignees_with_http_info(id, body, **kwargs)  # noqa: E501
             return data
 
-    def remove_assignees_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Remove multiple users and user groups from a specific role  # noqa: E501
+    def remove_assignees_with_http_info(self, id, body, **kwargs):  # noqa: E501
+        """Remove accounts and groups from a role  # noqa: E501
 
-          # noqa: E501
+        Revokes a role with a given ID from a list of user and service accounts and groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_assignees_with_http_info(id, async_req=True)
+        >>> thread = api.remove_assignees_with_http_info(id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
-        :param list[str] body: List of users and user groups thatshould be removed from role
+        :param str id: The ID of the role to revoke. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
+        :param list[str] body: A list of accounts and groups to remove from the role. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -690,6 +702,10 @@ class RoleApi(object):
         if self.api_client.client_side_validation and ('id' not in params or
                                                        params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `remove_assignees`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `remove_assignees`")  # noqa: E501
 
         collection_formats = {}
 
@@ -734,41 +750,41 @@ class RoleApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def revoke_permission_from_roles(self, permission, **kwargs):  # noqa: E501
-        """Revokes a single permission from role(s)  # noqa: E501
+    def revoke_permission_from_roles(self, permission, body, **kwargs):  # noqa: E501
+        """Revoke a permission from roles  # noqa: E501
 
-          # noqa: E501
+        Revokes a given permission from a list of roles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.revoke_permission_from_roles(permission, async_req=True)
+        >>> thread = api.revoke_permission_from_roles(permission, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to revoke from role(s). (required)
-        :param list[str] body: List of roles.
+        :param str permission: The permission to revoke. Note that <code>host_tag_management</code> is the equivalent of the **Source Tag Management** permission, <code>monitored_application_service_management</code> is the equivalent of the **Integrations** permission, <code>agent_management</code> is the equivalent of the **Proxies** permission. (required)
+        :param list[str] body: A list of role IDs from which to revoke the permission. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.revoke_permission_from_roles_with_http_info(permission, **kwargs)  # noqa: E501
+            return self.revoke_permission_from_roles_with_http_info(permission, body, **kwargs)  # noqa: E501
         else:
-            (data) = self.revoke_permission_from_roles_with_http_info(permission, **kwargs)  # noqa: E501
+            (data) = self.revoke_permission_from_roles_with_http_info(permission, body, **kwargs)  # noqa: E501
             return data
 
-    def revoke_permission_from_roles_with_http_info(self, permission, **kwargs):  # noqa: E501
-        """Revokes a single permission from role(s)  # noqa: E501
+    def revoke_permission_from_roles_with_http_info(self, permission, body, **kwargs):  # noqa: E501
+        """Revoke a permission from roles  # noqa: E501
 
-          # noqa: E501
+        Revokes a given permission from a list of roles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.revoke_permission_from_roles_with_http_info(permission, async_req=True)
+        >>> thread = api.revoke_permission_from_roles_with_http_info(permission, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str permission: Permission to revoke from role(s). (required)
-        :param list[str] body: List of roles.
+        :param str permission: The permission to revoke. Note that <code>host_tag_management</code> is the equivalent of the **Source Tag Management** permission, <code>monitored_application_service_management</code> is the equivalent of the **Integrations** permission, <code>agent_management</code> is the equivalent of the **Proxies** permission. (required)
+        :param list[str] body: A list of role IDs from which to revoke the permission. (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -793,6 +809,10 @@ class RoleApi(object):
         if self.api_client.client_side_validation and ('permission' not in params or
                                                        params['permission'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `permission` when calling `revoke_permission_from_roles`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `revoke_permission_from_roles`")  # noqa: E501
 
         collection_formats = {}
 
@@ -837,41 +857,41 @@ class RoleApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_role(self, id, **kwargs):  # noqa: E501
-        """Update a specific role  # noqa: E501
+    def update_role(self, id, body, **kwargs):  # noqa: E501
+        """Update a role by ID  # noqa: E501
 
-          # noqa: E501
+        Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_role(id, async_req=True)
+        >>> thread = api.update_role(id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
-        :param RoleDTO body: Example Body:  <pre>{   \"id\": \"Role identifier\",   \"name\": \"Role name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"Role description\" }</pre>
+        :param str id: The ID of the role to update. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
+        :param RoleUpdateDTO body: You can first run the <code>Get a role by ID</code> API call, and then you can copy and edit the response body. An example body for a role with all permissions:  <pre>{   \"id\": \"<i>Role_ID</i>\",   \"name\": \"<i>Role_name</i>\",   \"permissions\": [      \"agent_management\", \"alerts_management\",      \"application_management\", \"batch_query_priority\",      \"derived_metrics_management\", \"dashboard_management\",      \"embedded_charts\", \"events_management\",      \"external_links_management\", \"host_tag_management\",      \"ingestion\", \"metrics_management\",      \"monitored_application_service_management\", \"saml_sso_management\",      \"token_management\", \"user_management\"   ],   \"description\": \"<i>Role_description</i>\" }</pre> (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_role_with_http_info(id, **kwargs)  # noqa: E501
+            return self.update_role_with_http_info(id, body, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_role_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.update_role_with_http_info(id, body, **kwargs)  # noqa: E501
             return data
 
-    def update_role_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Update a specific role  # noqa: E501
+    def update_role_with_http_info(self, id, body, **kwargs):  # noqa: E501
+        """Update a role by ID  # noqa: E501
 
-          # noqa: E501
+        Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_role_with_http_info(id, async_req=True)
+        >>> thread = api.update_role_with_http_info(id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: (required)
-        :param RoleDTO body: Example Body:  <pre>{   \"id\": \"Role identifier\",   \"name\": \"Role name\",   \"permissions\": [   \"permission1\",   \"permission2\",   \"permission3\"   ],   \"description\": \"Role description\" }</pre>
+        :param str id: The ID of the role to update. If you don't know the role's ID, run the <code>Get all roles</code> API call to return all roles and their IDs. (required)
+        :param RoleUpdateDTO body: You can first run the <code>Get a role by ID</code> API call, and then you can copy and edit the response body. An example body for a role with all permissions:  <pre>{   \"id\": \"<i>Role_ID</i>\",   \"name\": \"<i>Role_name</i>\",   \"permissions\": [      \"agent_management\", \"alerts_management\",      \"application_management\", \"batch_query_priority\",      \"derived_metrics_management\", \"dashboard_management\",      \"embedded_charts\", \"events_management\",      \"external_links_management\", \"host_tag_management\",      \"ingestion\", \"metrics_management\",      \"monitored_application_service_management\", \"saml_sso_management\",      \"token_management\", \"user_management\"   ],   \"description\": \"<i>Role_description</i>\" }</pre> (required)
         :return: ResponseContainerRoleDTO
                  If the method is called asynchronously,
                  returns the request thread.
@@ -896,6 +916,10 @@ class RoleApi(object):
         if self.api_client.client_side_validation and ('id' not in params or
                                                        params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `update_role`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in params or
+                                                       params['body'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_role`")  # noqa: E501
 
         collection_formats = {}
 

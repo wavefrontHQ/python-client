@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **groups** | **list[str]** | List of permission groups this user has been granted access to | [optional] 
 **id** | **str** | The unique identifier of this user, which should be their valid email address | 
 **identifier** | **str** | The unique identifier of this user, which should be their valid email address | 
-**ingestion_policy_id** | **str** | The identifier of the ingestion policy linked with user. | [optional] 
 **last_successful_login** | **int** | The last time the user logged in, in epoch milliseconds | [optional] 
 **_self** | **bool** | Whether this user is the one calling the API | 
 **united_permissions** | **list[str]** | The list of account&#39;s permissions assigned directly or through united roles assigned to it | [optional] 

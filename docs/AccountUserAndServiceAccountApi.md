@@ -19,15 +19,16 @@ Method | HTTP request | Description
 [**get_all_user_accounts**](AccountUserAndServiceAccountApi.md#get_all_user_accounts) | **GET** /api/v2/account/user | Get all user accounts
 [**get_service_account**](AccountUserAndServiceAccountApi.md#get_service_account) | **GET** /api/v2/account/serviceaccount/{id} | Retrieves a service account by identifier
 [**get_user_account**](AccountUserAndServiceAccountApi.md#get_user_account) | **GET** /api/v2/account/user/{id} | Retrieves a user by identifier (email address)
+[**get_users_with_accounts_permission**](AccountUserAndServiceAccountApi.md#get_users_with_accounts_permission) | **GET** /api/v2/account/user/admin | Get all users with Accounts permission
 [**grant_account_permission**](AccountUserAndServiceAccountApi.md#grant_account_permission) | **POST** /api/v2/account/{id}/grant/{permission} | Grants a specific permission to account (user or service account)
-[**grant_permission_to_accounts**](AccountUserAndServiceAccountApi.md#grant_permission_to_accounts) | **POST** /api/v2/account/grant/{permission} | Grants a specific permission to multiple accounts (users or service accounts)
+[**grant_permission_to_accounts**](AccountUserAndServiceAccountApi.md#grant_permission_to_accounts) | **POST** /api/v2/account/grant/{permission} | Grant a permission to accounts (users or service accounts)
 [**invite_user_accounts**](AccountUserAndServiceAccountApi.md#invite_user_accounts) | **POST** /api/v2/account/user/invite | Invite user accounts with given user groups and permissions.
 [**remove_account_from_roles**](AccountUserAndServiceAccountApi.md#remove_account_from_roles) | **POST** /api/v2/account/{id}/removeRoles | Removes specific roles from the account (user or service account)
 [**remove_account_from_user_groups**](AccountUserAndServiceAccountApi.md#remove_account_from_user_groups) | **POST** /api/v2/account/{id}/removeUserGroups | Removes specific groups from the account (user or service account)
 [**revoke_account_permission**](AccountUserAndServiceAccountApi.md#revoke_account_permission) | **POST** /api/v2/account/{id}/revoke/{permission} | Revokes a specific permission from account (user or service account)
-[**revoke_permission_from_accounts**](AccountUserAndServiceAccountApi.md#revoke_permission_from_accounts) | **POST** /api/v2/account/revoke/{permission} | Revokes a specific permission from multiple accounts (users or service accounts)
+[**revoke_permission_from_accounts**](AccountUserAndServiceAccountApi.md#revoke_permission_from_accounts) | **POST** /api/v2/account/revoke/{permission} | Revoke a permission from accounts (users or service accounts)
 [**update_service_account**](AccountUserAndServiceAccountApi.md#update_service_account) | **PUT** /api/v2/account/serviceaccount/{id} | Updates the service account
-[**update_user_account**](AccountUserAndServiceAccountApi.md#update_user_account) | **PUT** /api/v2/account/user/{id} | Update user with given user groups, permissions and ingestion policy.
+[**update_user_account**](AccountUserAndServiceAccountApi.md#update_user_account) | **PUT** /api/v2/account/user/{id} | Update user with given user groups and permissions.
 [**validate_accounts**](AccountUserAndServiceAccountApi.md#validate_accounts) | **POST** /api/v2/account/validateAccounts | Returns valid accounts (users and service accounts), also invalid identifiers from the given list
 
 
@@ -221,7 +222,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
 send_email = true # bool | Whether to send email notification to the user, if created.  Default: false (optional)
-body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"roles\": [     \"Role\"   ],   \"ingestionPolicies\": [     \"policyId1\",     \"policyId2\"   ] }</pre> (optional)
+body = wavefront_api_client.UserToCreate() # UserToCreate | Example Body:  <pre>{   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"roles\": [     \"Role\"   ], }</pre> (optional)
 
 try:
     # Creates or updates a user account
@@ -236,7 +237,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **send_email** | **bool**| Whether to send email notification to the user, if created.  Default: false | [optional] 
- **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ],   \&quot;ingestionPolicies\&quot;: [     \&quot;policyId1\&quot;,     \&quot;policyId2\&quot;   ] }&lt;/pre&gt; | [optional] 
+ **body** | [**UserToCreate**](UserToCreate.md)| Example Body:  &lt;pre&gt;{   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ], }&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -841,6 +842,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_users_with_accounts_permission**
+> ResponseContainerListString get_users_with_accounts_permission()
+
+Get all users with Accounts permission
+
+Returns all users with Accounts permission
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
+
+try:
+    # Get all users with Accounts permission
+    api_response = api_instance.get_users_with_accounts_permission()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AccountUserAndServiceAccountApi->get_users_with_accounts_permission: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ResponseContainerListString**](ResponseContainerListString.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **grant_account_permission**
 > UserModel grant_account_permission(id, permission)
 
@@ -900,7 +951,7 @@ Name | Type | Description  | Notes
 # **grant_permission_to_accounts**
 > UserModel grant_permission_to_accounts(permission, body=body)
 
-Grants a specific permission to multiple accounts (users or service accounts)
+Grant a permission to accounts (users or service accounts)
 
 
 
@@ -920,11 +971,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
-permission = 'permission_example' # str | Permission to grant to the accounts. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
+permission = 'permission_example' # str | The permission to grant. Note that <code>host_tag_management</code> is the equivalent of the **Source Tag Management** permission, <code>monitored_application_service_management</code> is the equivalent of the **Integrations** permission, <code>agent_management</code> is the equivalent of the **Proxies** permission.
 body = [wavefront_api_client.list[str]()] # list[str] | List of accounts the specified permission to be granted to (optional)
 
 try:
-    # Grants a specific permission to multiple accounts (users or service accounts)
+    # Grant a permission to accounts (users or service accounts)
     api_response = api_instance.grant_permission_to_accounts(permission, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -935,7 +986,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permission** | **str**| Permission to grant to the accounts. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
+ **permission** | **str**| The permission to grant. Note that &lt;code&gt;host_tag_management&lt;/code&gt; is the equivalent of the **Source Tag Management** permission, &lt;code&gt;monitored_application_service_management&lt;/code&gt; is the equivalent of the **Integrations** permission, &lt;code&gt;agent_management&lt;/code&gt; is the equivalent of the **Proxies** permission. | 
  **body** | **list[str]**| List of accounts the specified permission to be granted to | [optional] 
 
 ### Return type
@@ -976,7 +1027,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
-body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"roles\": [     \"Role\"   ],   \"ingestionPolicies\": [     \"policyId1\",     \"policyId2\"   ] } ]</pre> (optional)
+body = [wavefront_api_client.UserToCreate()] # list[UserToCreate] | Example Body:  <pre>[ {   \"emailAddress\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"roles\": [     \"Role\"   ], } ]</pre> (optional)
 
 try:
     # Invite user accounts with given user groups and permissions.
@@ -990,7 +1041,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ],   \&quot;ingestionPolicies\&quot;: [     \&quot;policyId1\&quot;,     \&quot;policyId2\&quot;   ] } ]&lt;/pre&gt; | [optional] 
+ **body** | [**list[UserToCreate]**](UserToCreate.md)| Example Body:  &lt;pre&gt;[ {   \&quot;emailAddress\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ], } ]&lt;/pre&gt; | [optional] 
 
 ### Return type
 
@@ -1178,7 +1229,7 @@ Name | Type | Description  | Notes
 # **revoke_permission_from_accounts**
 > UserModel revoke_permission_from_accounts(permission, body=body)
 
-Revokes a specific permission from multiple accounts (users or service accounts)
+Revoke a permission from accounts (users or service accounts)
 
 
 
@@ -1198,11 +1249,11 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
-permission = 'permission_example' # str | Permission to revoke from the accounts. Please note that 'host_tag_management' is the equivalent of the 'Source Tag Management' permission
+permission = 'permission_example' # str | The permission to revoke. Note that <code>host_tag_management</code> is the equivalent of the **Source Tag Management** permission, <code>monitored_application_service_management</code> is the equivalent of the **Integrations** permission, <code>agent_management</code> is the equivalent of the **Proxies** permission.
 body = [wavefront_api_client.list[str]()] # list[str] | List of accounts the specified permission to be revoked from (optional)
 
 try:
-    # Revokes a specific permission from multiple accounts (users or service accounts)
+    # Revoke a permission from accounts (users or service accounts)
     api_response = api_instance.revoke_permission_from_accounts(permission, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -1213,7 +1264,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permission** | **str**| Permission to revoke from the accounts. Please note that &#39;host_tag_management&#39; is the equivalent of the &#39;Source Tag Management&#39; permission | 
+ **permission** | **str**| The permission to revoke. Note that &lt;code&gt;host_tag_management&lt;/code&gt; is the equivalent of the **Source Tag Management** permission, &lt;code&gt;monitored_application_service_management&lt;/code&gt; is the equivalent of the **Integrations** permission, &lt;code&gt;agent_management&lt;/code&gt; is the equivalent of the **Proxies** permission. | 
  **body** | **list[str]**| List of accounts the specified permission to be revoked from | [optional] 
 
 ### Return type
@@ -1290,7 +1341,7 @@ Name | Type | Description  | Notes
 # **update_user_account**
 > UserModel update_user_account(id, body=body)
 
-Update user with given user groups, permissions and ingestion policy.
+Update user with given user groups and permissions.
 
 
 
@@ -1311,10 +1362,10 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.AccountUserAndServiceAccountApi(wavefront_api_client.ApiClient(configuration))
 id = 'id_example' # str | 
-body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"ingestionPolicies\": [     \"policy_id\"   ],   \"roles\": [     \"Role\"   ] }</pre> (optional)
+body = wavefront_api_client.UserRequestDTO() # UserRequestDTO | Example Body:  <pre>{   \"identifier\": \"user@example.com\",   \"groups\": [     \"user_management\"   ],   \"userGroups\": [     \"8b23136b-ecd2-4cb5-8c92-62477dcc4090\"   ],   \"roles\": [     \"Role\"   ] }</pre> (optional)
 
 try:
-    # Update user with given user groups, permissions and ingestion policy.
+    # Update user with given user groups and permissions.
     api_response = api_instance.update_user_account(id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -1326,7 +1377,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;ingestionPolicies\&quot;: [     \&quot;policy_id\&quot;   ],   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] }&lt;/pre&gt; | [optional] 
+ **body** | [**UserRequestDTO**](UserRequestDTO.md)| Example Body:  &lt;pre&gt;{   \&quot;identifier\&quot;: \&quot;user@example.com\&quot;,   \&quot;groups\&quot;: [     \&quot;user_management\&quot;   ],   \&quot;userGroups\&quot;: [     \&quot;8b23136b-ecd2-4cb5-8c92-62477dcc4090\&quot;   ],   \&quot;roles\&quot;: [     \&quot;Role\&quot;   ] }&lt;/pre&gt; | [optional] 
 
 ### Return type
 

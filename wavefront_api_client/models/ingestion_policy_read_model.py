@@ -33,12 +33,11 @@ class IngestionPolicyReadModel(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'account_count': 'int',
         'accounts': 'list[AccessControlElement]',
+        'alert': 'Alert',
         'alert_id': 'str',
         'customer': 'str',
         'description': 'str',
-        'group_count': 'int',
         'groups': 'list[AccessControlElement]',
         'id': 'str',
         'is_limited': 'bool',
@@ -49,24 +48,17 @@ class IngestionPolicyReadModel(object):
         'name': 'str',
         'namespaces': 'list[str]',
         'point_tags': 'list[Annotation]',
-        'sampled_accounts': 'list[str]',
-        'sampled_groups': 'list[UserGroup]',
-        'sampled_service_accounts': 'list[str]',
-        'sampled_user_accounts': 'list[str]',
         'scope': 'str',
-        'service_account_count': 'int',
         'sources': 'list[str]',
-        'tags_anded': 'bool',
-        'user_account_count': 'int'
+        'tags_anded': 'bool'
     }
 
     attribute_map = {
-        'account_count': 'accountCount',
         'accounts': 'accounts',
+        'alert': 'alert',
         'alert_id': 'alertId',
         'customer': 'customer',
         'description': 'description',
-        'group_count': 'groupCount',
         'groups': 'groups',
         'id': 'id',
         'is_limited': 'isLimited',
@@ -77,29 +69,22 @@ class IngestionPolicyReadModel(object):
         'name': 'name',
         'namespaces': 'namespaces',
         'point_tags': 'pointTags',
-        'sampled_accounts': 'sampledAccounts',
-        'sampled_groups': 'sampledGroups',
-        'sampled_service_accounts': 'sampledServiceAccounts',
-        'sampled_user_accounts': 'sampledUserAccounts',
         'scope': 'scope',
-        'service_account_count': 'serviceAccountCount',
         'sources': 'sources',
-        'tags_anded': 'tagsAnded',
-        'user_account_count': 'userAccountCount'
+        'tags_anded': 'tagsAnded'
     }
 
-    def __init__(self, account_count=None, accounts=None, alert_id=None, customer=None, description=None, group_count=None, groups=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, metadata=None, name=None, namespaces=None, point_tags=None, sampled_accounts=None, sampled_groups=None, sampled_service_accounts=None, sampled_user_accounts=None, scope=None, service_account_count=None, sources=None, tags_anded=None, user_account_count=None, _configuration=None):  # noqa: E501
+    def __init__(self, accounts=None, alert=None, alert_id=None, customer=None, description=None, groups=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, metadata=None, name=None, namespaces=None, point_tags=None, scope=None, sources=None, tags_anded=None, _configuration=None):  # noqa: E501
         """IngestionPolicyReadModel - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._account_count = None
         self._accounts = None
+        self._alert = None
         self._alert_id = None
         self._customer = None
         self._description = None
-        self._group_count = None
         self._groups = None
         self._id = None
         self._is_limited = None
@@ -110,29 +95,21 @@ class IngestionPolicyReadModel(object):
         self._name = None
         self._namespaces = None
         self._point_tags = None
-        self._sampled_accounts = None
-        self._sampled_groups = None
-        self._sampled_service_accounts = None
-        self._sampled_user_accounts = None
         self._scope = None
-        self._service_account_count = None
         self._sources = None
         self._tags_anded = None
-        self._user_account_count = None
         self.discriminator = None
 
-        if account_count is not None:
-            self.account_count = account_count
         if accounts is not None:
             self.accounts = accounts
+        if alert is not None:
+            self.alert = alert
         if alert_id is not None:
             self.alert_id = alert_id
         if customer is not None:
             self.customer = customer
         if description is not None:
             self.description = description
-        if group_count is not None:
-            self.group_count = group_count
         if groups is not None:
             self.groups = groups
         if id is not None:
@@ -153,47 +130,12 @@ class IngestionPolicyReadModel(object):
             self.namespaces = namespaces
         if point_tags is not None:
             self.point_tags = point_tags
-        if sampled_accounts is not None:
-            self.sampled_accounts = sampled_accounts
-        if sampled_groups is not None:
-            self.sampled_groups = sampled_groups
-        if sampled_service_accounts is not None:
-            self.sampled_service_accounts = sampled_service_accounts
-        if sampled_user_accounts is not None:
-            self.sampled_user_accounts = sampled_user_accounts
         if scope is not None:
             self.scope = scope
-        if service_account_count is not None:
-            self.service_account_count = service_account_count
         if sources is not None:
             self.sources = sources
         if tags_anded is not None:
             self.tags_anded = tags_anded
-        if user_account_count is not None:
-            self.user_account_count = user_account_count
-
-    @property
-    def account_count(self):
-        """Gets the account_count of this IngestionPolicyReadModel.  # noqa: E501
-
-        Total number of accounts that are linked to the ingestion policy  # noqa: E501
-
-        :return: The account_count of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: int
-        """
-        return self._account_count
-
-    @account_count.setter
-    def account_count(self, account_count):
-        """Sets the account_count of this IngestionPolicyReadModel.
-
-        Total number of accounts that are linked to the ingestion policy  # noqa: E501
-
-        :param account_count: The account_count of this IngestionPolicyReadModel.  # noqa: E501
-        :type: int
-        """
-
-        self._account_count = account_count
 
     @property
     def accounts(self):
@@ -217,6 +159,29 @@ class IngestionPolicyReadModel(object):
         """
 
         self._accounts = accounts
+
+    @property
+    def alert(self):
+        """Gets the alert of this IngestionPolicyReadModel.  # noqa: E501
+
+        The alert object connected with the ingestion policy.  # noqa: E501
+
+        :return: The alert of this IngestionPolicyReadModel.  # noqa: E501
+        :rtype: Alert
+        """
+        return self._alert
+
+    @alert.setter
+    def alert(self, alert):
+        """Sets the alert of this IngestionPolicyReadModel.
+
+        The alert object connected with the ingestion policy.  # noqa: E501
+
+        :param alert: The alert of this IngestionPolicyReadModel.  # noqa: E501
+        :type: Alert
+        """
+
+        self._alert = alert
 
     @property
     def alert_id(self):
@@ -286,29 +251,6 @@ class IngestionPolicyReadModel(object):
         """
 
         self._description = description
-
-    @property
-    def group_count(self):
-        """Gets the group_count of this IngestionPolicyReadModel.  # noqa: E501
-
-        Total number of groups that are linked to the ingestion policy  # noqa: E501
-
-        :return: The group_count of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: int
-        """
-        return self._group_count
-
-    @group_count.setter
-    def group_count(self, group_count):
-        """Sets the group_count of this IngestionPolicyReadModel.
-
-        Total number of groups that are linked to the ingestion policy  # noqa: E501
-
-        :param group_count: The group_count of this IngestionPolicyReadModel.  # noqa: E501
-        :type: int
-        """
-
-        self._group_count = group_count
 
     @property
     def groups(self):
@@ -541,98 +483,6 @@ class IngestionPolicyReadModel(object):
         self._point_tags = point_tags
 
     @property
-    def sampled_accounts(self):
-        """Gets the sampled_accounts of this IngestionPolicyReadModel.  # noqa: E501
-
-        A sample of the accounts assigned to this ingestion policy. Please use the Ingestion Policy facet of the Account Search API to get the full list of accounts for this policy  # noqa: E501
-
-        :return: The sampled_accounts of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._sampled_accounts
-
-    @sampled_accounts.setter
-    def sampled_accounts(self, sampled_accounts):
-        """Sets the sampled_accounts of this IngestionPolicyReadModel.
-
-        A sample of the accounts assigned to this ingestion policy. Please use the Ingestion Policy facet of the Account Search API to get the full list of accounts for this policy  # noqa: E501
-
-        :param sampled_accounts: The sampled_accounts of this IngestionPolicyReadModel.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._sampled_accounts = sampled_accounts
-
-    @property
-    def sampled_groups(self):
-        """Gets the sampled_groups of this IngestionPolicyReadModel.  # noqa: E501
-
-        A sample of the groups assigned to this ingestion policy. Please use the Ingestion Policy facet of the Group Search API to get the full list of groups for this policy  # noqa: E501
-
-        :return: The sampled_groups of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: list[UserGroup]
-        """
-        return self._sampled_groups
-
-    @sampled_groups.setter
-    def sampled_groups(self, sampled_groups):
-        """Sets the sampled_groups of this IngestionPolicyReadModel.
-
-        A sample of the groups assigned to this ingestion policy. Please use the Ingestion Policy facet of the Group Search API to get the full list of groups for this policy  # noqa: E501
-
-        :param sampled_groups: The sampled_groups of this IngestionPolicyReadModel.  # noqa: E501
-        :type: list[UserGroup]
-        """
-
-        self._sampled_groups = sampled_groups
-
-    @property
-    def sampled_service_accounts(self):
-        """Gets the sampled_service_accounts of this IngestionPolicyReadModel.  # noqa: E501
-
-        A sample of the service accounts accounts assigned to this ingestion policy. Please use the Ingestion Policy facet of the Account Search API to get the full list of service accounts for this policy  # noqa: E501
-
-        :return: The sampled_service_accounts of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._sampled_service_accounts
-
-    @sampled_service_accounts.setter
-    def sampled_service_accounts(self, sampled_service_accounts):
-        """Sets the sampled_service_accounts of this IngestionPolicyReadModel.
-
-        A sample of the service accounts accounts assigned to this ingestion policy. Please use the Ingestion Policy facet of the Account Search API to get the full list of service accounts for this policy  # noqa: E501
-
-        :param sampled_service_accounts: The sampled_service_accounts of this IngestionPolicyReadModel.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._sampled_service_accounts = sampled_service_accounts
-
-    @property
-    def sampled_user_accounts(self):
-        """Gets the sampled_user_accounts of this IngestionPolicyReadModel.  # noqa: E501
-
-        A sample of the user accounts assigned to this ingestion policy. Please use the Ingestion Policy facet of the Account Search API to get the full list of users for this policy  # noqa: E501
-
-        :return: The sampled_user_accounts of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._sampled_user_accounts
-
-    @sampled_user_accounts.setter
-    def sampled_user_accounts(self, sampled_user_accounts):
-        """Sets the sampled_user_accounts of this IngestionPolicyReadModel.
-
-        A sample of the user accounts assigned to this ingestion policy. Please use the Ingestion Policy facet of the Account Search API to get the full list of users for this policy  # noqa: E501
-
-        :param sampled_user_accounts: The sampled_user_accounts of this IngestionPolicyReadModel.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._sampled_user_accounts = sampled_user_accounts
-
-    @property
     def scope(self):
         """Gets the scope of this IngestionPolicyReadModel.  # noqa: E501
 
@@ -661,29 +511,6 @@ class IngestionPolicyReadModel(object):
             )
 
         self._scope = scope
-
-    @property
-    def service_account_count(self):
-        """Gets the service_account_count of this IngestionPolicyReadModel.  # noqa: E501
-
-        Total number of service accounts that are linked to the ingestion policy  # noqa: E501
-
-        :return: The service_account_count of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: int
-        """
-        return self._service_account_count
-
-    @service_account_count.setter
-    def service_account_count(self, service_account_count):
-        """Sets the service_account_count of this IngestionPolicyReadModel.
-
-        Total number of service accounts that are linked to the ingestion policy  # noqa: E501
-
-        :param service_account_count: The service_account_count of this IngestionPolicyReadModel.  # noqa: E501
-        :type: int
-        """
-
-        self._service_account_count = service_account_count
 
     @property
     def sources(self):
@@ -730,29 +557,6 @@ class IngestionPolicyReadModel(object):
         """
 
         self._tags_anded = tags_anded
-
-    @property
-    def user_account_count(self):
-        """Gets the user_account_count of this IngestionPolicyReadModel.  # noqa: E501
-
-        Total number of user accounts that are linked to the ingestion policy  # noqa: E501
-
-        :return: The user_account_count of this IngestionPolicyReadModel.  # noqa: E501
-        :rtype: int
-        """
-        return self._user_account_count
-
-    @user_account_count.setter
-    def user_account_count(self, user_account_count):
-        """Sets the user_account_count of this IngestionPolicyReadModel.
-
-        Total number of user accounts that are linked to the ingestion policy  # noqa: E501
-
-        :param user_account_count: The user_account_count of this IngestionPolicyReadModel.  # noqa: E501
-        :type: int
-        """
-
-        self._user_account_count = user_account_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

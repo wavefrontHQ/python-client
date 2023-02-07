@@ -37,8 +37,6 @@ class ServiceAccountWrite(object):
         'description': 'str',
         'groups': 'list[str]',
         'identifier': 'str',
-        'ingestion_policies': 'list[str]',
-        'ingestion_policy_id': 'str',
         'roles': 'list[str]',
         'tokens': 'list[str]',
         'user_groups': 'list[str]'
@@ -49,14 +47,12 @@ class ServiceAccountWrite(object):
         'description': 'description',
         'groups': 'groups',
         'identifier': 'identifier',
-        'ingestion_policies': 'ingestionPolicies',
-        'ingestion_policy_id': 'ingestionPolicyId',
         'roles': 'roles',
         'tokens': 'tokens',
         'user_groups': 'userGroups'
     }
 
-    def __init__(self, active=None, description=None, groups=None, identifier=None, ingestion_policies=None, ingestion_policy_id=None, roles=None, tokens=None, user_groups=None, _configuration=None):  # noqa: E501
+    def __init__(self, active=None, description=None, groups=None, identifier=None, roles=None, tokens=None, user_groups=None, _configuration=None):  # noqa: E501
         """ServiceAccountWrite - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -66,8 +62,6 @@ class ServiceAccountWrite(object):
         self._description = None
         self._groups = None
         self._identifier = None
-        self._ingestion_policies = None
-        self._ingestion_policy_id = None
         self._roles = None
         self._tokens = None
         self._user_groups = None
@@ -80,10 +74,6 @@ class ServiceAccountWrite(object):
         if groups is not None:
             self.groups = groups
         self.identifier = identifier
-        if ingestion_policies is not None:
-            self.ingestion_policies = ingestion_policies
-        if ingestion_policy_id is not None:
-            self.ingestion_policy_id = ingestion_policy_id
         if roles is not None:
             self.roles = roles
         if tokens is not None:
@@ -184,52 +174,6 @@ class ServiceAccountWrite(object):
             raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
 
         self._identifier = identifier
-
-    @property
-    def ingestion_policies(self):
-        """Gets the ingestion_policies of this ServiceAccountWrite.  # noqa: E501
-
-        The list of ingestion policy ids, the service account will be added to.\"  # noqa: E501
-
-        :return: The ingestion_policies of this ServiceAccountWrite.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._ingestion_policies
-
-    @ingestion_policies.setter
-    def ingestion_policies(self, ingestion_policies):
-        """Sets the ingestion_policies of this ServiceAccountWrite.
-
-        The list of ingestion policy ids, the service account will be added to.\"  # noqa: E501
-
-        :param ingestion_policies: The ingestion_policies of this ServiceAccountWrite.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._ingestion_policies = ingestion_policies
-
-    @property
-    def ingestion_policy_id(self):
-        """Gets the ingestion_policy_id of this ServiceAccountWrite.  # noqa: E501
-
-        The identifier of the ingestion policy linked with service account.  # noqa: E501
-
-        :return: The ingestion_policy_id of this ServiceAccountWrite.  # noqa: E501
-        :rtype: str
-        """
-        return self._ingestion_policy_id
-
-    @ingestion_policy_id.setter
-    def ingestion_policy_id(self, ingestion_policy_id):
-        """Sets the ingestion_policy_id of this ServiceAccountWrite.
-
-        The identifier of the ingestion policy linked with service account.  # noqa: E501
-
-        :param ingestion_policy_id: The ingestion_policy_id of this ServiceAccountWrite.  # noqa: E501
-        :type: str
-        """
-
-        self._ingestion_policy_id = ingestion_policy_id
 
     @property
     def roles(self):

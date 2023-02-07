@@ -34,6 +34,7 @@ class IngestionPolicyWriteModel(object):
     """
     swagger_types = {
         'accounts': 'list[str]',
+        'alert': 'IngestionPolicyAlert',
         'alert_id': 'str',
         'customer': 'str',
         'description': 'str',
@@ -53,6 +54,7 @@ class IngestionPolicyWriteModel(object):
 
     attribute_map = {
         'accounts': 'accounts',
+        'alert': 'alert',
         'alert_id': 'alertId',
         'customer': 'customer',
         'description': 'description',
@@ -70,13 +72,14 @@ class IngestionPolicyWriteModel(object):
         'tags_anded': 'tagsAnded'
     }
 
-    def __init__(self, accounts=None, alert_id=None, customer=None, description=None, groups=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, name=None, namespaces=None, point_tags=None, scope=None, sources=None, tags_anded=None, _configuration=None):  # noqa: E501
+    def __init__(self, accounts=None, alert=None, alert_id=None, customer=None, description=None, groups=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, name=None, namespaces=None, point_tags=None, scope=None, sources=None, tags_anded=None, _configuration=None):  # noqa: E501
         """IngestionPolicyWriteModel - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._accounts = None
+        self._alert = None
         self._alert_id = None
         self._customer = None
         self._description = None
@@ -96,6 +99,8 @@ class IngestionPolicyWriteModel(object):
 
         if accounts is not None:
             self.accounts = accounts
+        if alert is not None:
+            self.alert = alert
         if alert_id is not None:
             self.alert_id = alert_id
         if customer is not None:
@@ -149,6 +154,29 @@ class IngestionPolicyWriteModel(object):
         """
 
         self._accounts = accounts
+
+    @property
+    def alert(self):
+        """Gets the alert of this IngestionPolicyWriteModel.  # noqa: E501
+
+        The alert DTO object associated with the ingestion policy.  # noqa: E501
+
+        :return: The alert of this IngestionPolicyWriteModel.  # noqa: E501
+        :rtype: IngestionPolicyAlert
+        """
+        return self._alert
+
+    @alert.setter
+    def alert(self, alert):
+        """Sets the alert of this IngestionPolicyWriteModel.
+
+        The alert DTO object associated with the ingestion policy.  # noqa: E501
+
+        :param alert: The alert of this IngestionPolicyWriteModel.  # noqa: E501
+        :type: IngestionPolicyAlert
+        """
+
+        self._alert = alert
 
     @property
     def alert_id(self):

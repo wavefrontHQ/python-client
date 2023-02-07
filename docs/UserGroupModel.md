@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **customer** | **str** | The id of the customer to which the user group belongs | [optional] 
 **description** | **str** | The description of the user group | [optional] 
 **id** | **str** | The unique identifier of the user group | [optional] 
-**ingestion_policies** | [**list[IngestionPolicyReadModel]**](IngestionPolicyReadModel.md) | Ingestion policies linked with the user group | [optional] 
 **name** | **str** | The name of the user group | 
 **properties** | [**UserGroupPropertiesDTO**](UserGroupPropertiesDTO.md) | The properties of the user group(name editable, users editable, etc.) | [optional] 
 **role_count** | **int** | Total number of roles that are linked the the user group | [optional] 

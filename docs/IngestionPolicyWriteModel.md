@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accounts** | **list[str]** | The accounts associated with the ingestion policy | [optional] 
+**alert** | [**IngestionPolicyAlert**](IngestionPolicyAlert.md) | The alert DTO object associated with the ingestion policy. | [optional] 
 **alert_id** | **str** | The ingestion policy alert Id | [optional] 
 **customer** | **str** | ID of the customer to which the ingestion policy belongs | [optional] 
 **description** | **str** | The description of the ingestion policy | [optional] 

@@ -16,8 +16,6 @@ Name | Type | Description | Notes
 **hostname** | **str** | Host name of the machine running the proxy | [optional] 
 **id** | **str** |  | [optional] 
 **in_trash** | **bool** |  | [optional] 
-**ingestion_policies** | [**list[IngestionPolicyReadModel]**](IngestionPolicyReadModel.md) | Ingestion policies associated with the proxy through user and groups | [optional] 
-**ingestion_policy** | [**IngestionPolicyReadModel**](IngestionPolicyReadModel.md) | Ingestion policy associated with the proxy | [optional] 
 **last_check_in_time** | **int** | Last time when this proxy checked in (in milliseconds since the unix epoch) | [optional] 
 **last_error_event** | [**Event**](Event.md) |  | [optional] 
 **last_error_time** | **int** | deprecated | [optional] 
