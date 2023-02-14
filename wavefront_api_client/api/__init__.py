@@ -39,4 +39,5 @@ from wavefront_api_client.api.span_sampling_policy_api import SpanSamplingPolicy
 from wavefront_api_client.api.usage_api import UsageApi
 from wavefront_api_client.api.user_api import UserApi
 from wavefront_api_client.api.user_group_api import UserGroupApi
+from wavefront_api_client.api.wavefront_api import WavefrontApi
 from wavefront_api_client.api.webhook_api import WebhookApi
