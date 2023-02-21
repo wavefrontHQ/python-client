@@ -33,7 +33,7 @@ class TupleResult(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'key': 'Tuple',
+        'key': 'list[str]',
         'value_list': 'list[TupleValueResult]'
     }
 
@@ -64,7 +64,7 @@ class TupleResult(object):
         The keys used to surface the dimensions.  # noqa: E501
 
         :return: The key of this TupleResult.  # noqa: E501
-        :rtype: Tuple
+        :rtype: list[str]
         """
         return self._key
 
@@ -75,7 +75,7 @@ class TupleResult(object):
         The keys used to surface the dimensions.  # noqa: E501
 
         :param key: The key of this TupleResult.  # noqa: E501
-        :type: Tuple
+        :type: list[str]
         """
 
         self._key = key

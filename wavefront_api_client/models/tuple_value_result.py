@@ -34,7 +34,7 @@ class TupleValueResult(object):
     """
     swagger_types = {
         'count': 'int',
-        'value': 'Tuple'
+        'value': 'list[str]'
     }
 
     attribute_map = {
@@ -84,10 +84,10 @@ class TupleValueResult(object):
     def value(self):
         """Gets the value of this TupleValueResult.  # noqa: E501
 
-        The possible values for a given key tuple.  # noqa: E501
+        The possible values for a given key list.  # noqa: E501
 
         :return: The value of this TupleValueResult.  # noqa: E501
-        :rtype: Tuple
+        :rtype: list[str]
         """
         return self._value
 
@@ -95,10 +95,10 @@ class TupleValueResult(object):
     def value(self, value):
         """Sets the value of this TupleValueResult.
 
-        The possible values for a given key tuple.  # noqa: E501
+        The possible values for a given key list.  # noqa: E501
 
         :param value: The value of this TupleValueResult.  # noqa: E501
-        :type: Tuple
+        :type: list[str]
         """
 
         self._value = value
