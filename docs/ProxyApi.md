@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**delete_proxy**](ProxyApi.md#delete_proxy) | **DELETE** /api/v2/proxy/{id} | Delete a specific proxy
 [**get_all_proxy**](ProxyApi.md#get_all_proxy) | **GET** /api/v2/proxy | Get all proxies for a customer
 [**get_proxy**](ProxyApi.md#get_proxy) | **GET** /api/v2/proxy/{id} | Get a specific proxy
+[**get_proxy_config**](ProxyApi.md#get_proxy_config) | **GET** /api/v2/proxy/{id}/config | Get a specific proxy config
+[**get_proxy_preprocessor_rules**](ProxyApi.md#get_proxy_preprocessor_rules) | **GET** /api/v2/proxy/{id}/preprocessorRules | Get a specific proxy preprocessor rules
 [**undelete_proxy**](ProxyApi.md#undelete_proxy) | **POST** /api/v2/proxy/{id}/undelete | Undelete a specific proxy
 [**update_proxy**](ProxyApi.md#update_proxy) | **PUT** /api/v2/proxy/{id} | Update the name of a specific proxy
 
@@ -165,6 +167,114 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseContainerProxy**](ResponseContainerProxy.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_proxy_config**
+> ResponseContainerMap get_proxy_config(id)
+
+Get a specific proxy config
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.ProxyApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    # Get a specific proxy config
+    api_response = api_instance.get_proxy_config(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProxyApi->get_proxy_config: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+[**ResponseContainerMap**](ResponseContainerMap.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_proxy_preprocessor_rules**
+> ResponseContainerMap get_proxy_preprocessor_rules(id)
+
+Get a specific proxy preprocessor rules
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.ProxyApi(wavefront_api_client.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    # Get a specific proxy preprocessor rules
+    api_response = api_instance.get_proxy_preprocessor_rules(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProxyApi->get_proxy_preprocessor_rules: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+[**ResponseContainerMap**](ResponseContainerMap.md)
 
 ### Authorization
 

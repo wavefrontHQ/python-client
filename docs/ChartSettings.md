@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **group_by_source** | **bool** | For the tabular view, whether to group multi metrics into a single row by a common source.  If false, each metric for each source is displayed in its own row.  If true, multiple metrics for the same host will be displayed as different columns in the same row | [optional] 
 **invert_dynamic_legend_hover_control** | **bool** | Whether to disable the display of the floating legend (but reenable it when the ctrl-key is pressed) | [optional] 
 **line_type** | **str** | Plot interpolation type.  linear is default | [optional] 
+**logs_table** | [**LogsTable**](LogsTable.md) |  | [optional] 
 **max** | **float** | Max value of Y-axis.  Set to null or leave blank for auto | [optional] 
 **min** | **float** | Min value of Y-axis.  Set to null or leave blank for auto | [optional] 
 **num_tags** | **int** | For the tabular view, how many point tags to display | [optional] 
