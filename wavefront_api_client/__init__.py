@@ -329,7 +329,6 @@ from wavefront_api_client.models.stats_model_internal_use import StatsModelInter
 from wavefront_api_client.models.stripe import Stripe
 from wavefront_api_client.models.tags_response import TagsResponse
 from wavefront_api_client.models.target_info import TargetInfo
-from wavefront_api_client.models.tesla_configuration import TeslaConfiguration
 from wavefront_api_client.models.timeseries import Timeseries
 from wavefront_api_client.models.trace import Trace
 from wavefront_api_client.models.triage_dashboard import TriageDashboard
