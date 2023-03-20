@@ -1,7 +1,7 @@
 name: Publish to PyPI
 
 on:
-  resease:
+  release:
     types:
       - published
 
