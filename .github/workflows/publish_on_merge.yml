@@ -7,10 +7,12 @@ on:
 
 jobs:
   publish:
-    - name: Prepare the Package
-      uses: ./.github/workflows/package.yml
-    - name: Publish the Package on TestPyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository-url: https://test.pypi.org/legacy/
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare the Package
+        uses: ./.github/workflows/package.yml
+      - name: Publish the Package on TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
