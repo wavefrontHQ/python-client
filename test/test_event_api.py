@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
-    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
+    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -36,8 +36,8 @@ class TestEventApi(unittest.TestCase):
         """
         pass
 
-    def test_close_event(self):
-        """Test case for close_event
+    def test_close_user_event(self):
+        """Test case for close_user_event
 
         Close a specific event  # noqa: E501
         """
@@ -50,10 +50,10 @@ class TestEventApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_event(self):
-        """Test case for delete_event
+    def test_delete_user_event(self):
+        """Test case for delete_user_event
 
-        Delete a specific event  # noqa: E501
+        Delete a specific user event  # noqa: E501
         """
         pass
 
@@ -120,10 +120,10 @@ class TestEventApi(unittest.TestCase):
         """
         pass
 
-    def test_update_event(self):
-        """Test case for update_event
+    def test_update_user_event(self):
+        """Test case for update_user_event
 
-        Update a specific event  # noqa: E501
+        Update a specific user event.  # noqa: E501
         """
         pass
 

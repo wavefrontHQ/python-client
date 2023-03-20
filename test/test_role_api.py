@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
-    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
+    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -32,63 +32,63 @@ class TestRoleApi(unittest.TestCase):
     def test_add_assignees(self):
         """Test case for add_assignees
 
-        Add multiple users and user groups to a specific role  # noqa: E501
+        Add accounts and groups to a role  # noqa: E501
         """
         pass
 
     def test_create_role(self):
         """Test case for create_role
 
-        Create a specific role  # noqa: E501
+        Create a role  # noqa: E501
         """
         pass
 
     def test_delete_role(self):
         """Test case for delete_role
 
-        Delete a specific role  # noqa: E501
+        Delete a role by ID  # noqa: E501
         """
         pass
 
     def test_get_all_roles(self):
         """Test case for get_all_roles
 
-        Get all roles for a customer  # noqa: E501
+        Get all roles  # noqa: E501
         """
         pass
 
     def test_get_role(self):
         """Test case for get_role
 
-        Get a specific role  # noqa: E501
+        Get a role by ID  # noqa: E501
         """
         pass
 
     def test_grant_permission_to_roles(self):
         """Test case for grant_permission_to_roles
 
-        Grants a single permission to role(s)  # noqa: E501
+        Grant a permission to roles  # noqa: E501
         """
         pass
 
     def test_remove_assignees(self):
         """Test case for remove_assignees
 
-        Remove multiple users and user groups from a specific role  # noqa: E501
+        Remove accounts and groups from a role  # noqa: E501
         """
         pass
 
     def test_revoke_permission_from_roles(self):
         """Test case for revoke_permission_from_roles
 
-        Revokes a single permission from role(s)  # noqa: E501
+        Revoke a permission from roles  # noqa: E501
         """
         pass
 
     def test_update_role(self):
         """Test case for update_role
 
-        Update a specific role  # noqa: E501
+        Update a role by ID  # noqa: E501
         """
         pass
 

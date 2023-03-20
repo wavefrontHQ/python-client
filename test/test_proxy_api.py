@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
-    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
+    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -47,6 +47,20 @@ class TestProxyApi(unittest.TestCase):
         """Test case for get_proxy
 
         Get a specific proxy  # noqa: E501
+        """
+        pass
+
+    def test_get_proxy_config(self):
+        """Test case for get_proxy_config
+
+        Get a specific proxy config  # noqa: E501
+        """
+        pass
+
+    def test_get_proxy_preprocessor_rules(self):
+        """Test case for get_proxy_preprocessor_rules
+
+        Get a specific proxy preprocessor rules  # noqa: E501
         """
         pass
 

@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
-    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
+    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -442,6 +442,34 @@ class TestSearchApi(unittest.TestCase):
         """
         pass
 
+    def test_search_saved_app_map_entities(self):
+        """Test case for search_saved_app_map_entities
+
+        Search over all the customer's non-deleted saved app map searches  # noqa: E501
+        """
+        pass
+
+    def test_search_saved_app_map_for_facet(self):
+        """Test case for search_saved_app_map_for_facet
+
+        Lists the values of a specific facet over the customer's non-deleted app map searches  # noqa: E501
+        """
+        pass
+
+    def test_search_saved_app_map_for_facets(self):
+        """Test case for search_saved_app_map_for_facets
+
+        Lists the values of one or more facets over the customer's non-deleted app map searches  # noqa: E501
+        """
+        pass
+
+    def test_search_saved_traces_entities(self):
+        """Test case for search_saved_traces_entities
+
+        Search over all the customer's non-deleted saved traces searches  # noqa: E501
+        """
+        pass
+
     def test_search_service_account_entities(self):
         """Test case for search_service_account_entities
 
@@ -463,6 +491,48 @@ class TestSearchApi(unittest.TestCase):
         """
         pass
 
+    def test_search_span_sampling_policy_deleted_entities(self):
+        """Test case for search_span_sampling_policy_deleted_entities
+
+        Search over a customer's deleted span sampling policies  # noqa: E501
+        """
+        pass
+
+    def test_search_span_sampling_policy_deleted_for_facet(self):
+        """Test case for search_span_sampling_policy_deleted_for_facet
+
+        Lists the values of a specific facet over the customer's deleted span sampling policies  # noqa: E501
+        """
+        pass
+
+    def test_search_span_sampling_policy_deleted_for_facets(self):
+        """Test case for search_span_sampling_policy_deleted_for_facets
+
+        Lists the values of one or more facets over the customer's deleted span sampling policies  # noqa: E501
+        """
+        pass
+
+    def test_search_span_sampling_policy_entities(self):
+        """Test case for search_span_sampling_policy_entities
+
+        Search over a customer's non-deleted span sampling policies  # noqa: E501
+        """
+        pass
+
+    def test_search_span_sampling_policy_for_facet(self):
+        """Test case for search_span_sampling_policy_for_facet
+
+        Lists the values of a specific facet over the customer's non-deleted span sampling policies  # noqa: E501
+        """
+        pass
+
+    def test_search_span_sampling_policy_for_facets(self):
+        """Test case for search_span_sampling_policy_for_facets
+
+        Lists the values of one or more facets over the customer's non-deleted span sampling policies  # noqa: E501
+        """
+        pass
+
     def test_search_tagged_source_entities(self):
         """Test case for search_tagged_source_entities
 
@@ -481,6 +551,41 @@ class TestSearchApi(unittest.TestCase):
         """Test case for search_tagged_source_for_facets
 
         Lists the values of one or more facets over the customer's sources  # noqa: E501
+        """
+        pass
+
+    def test_search_token_entities(self):
+        """Test case for search_token_entities
+
+        Search over a customer's api tokens  # noqa: E501
+        """
+        pass
+
+    def test_search_token_for_facet(self):
+        """Test case for search_token_for_facet
+
+        Lists the values of a specific facet over the customer's api tokens  # noqa: E501
+        """
+        pass
+
+    def test_search_token_for_facets(self):
+        """Test case for search_token_for_facets
+
+        Lists the values of one or more facets over the customer's api tokens  # noqa: E501
+        """
+        pass
+
+    def test_search_traces_map_for_facet(self):
+        """Test case for search_traces_map_for_facet
+
+        Lists the values of a specific facet over the customer's non-deleted traces searches  # noqa: E501
+        """
+        pass
+
+    def test_search_traces_map_for_facets(self):
+        """Test case for search_traces_map_for_facets
+
+        Lists the values of one or more facets over the customer's non-deleted traces searches  # noqa: E501
         """
         pass
 

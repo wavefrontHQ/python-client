@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
-    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
+    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -61,6 +61,27 @@ class TestUsageApi(unittest.TestCase):
         """Test case for get_ingestion_policy
 
         Get a specific ingestion policy  # noqa: E501
+        """
+        pass
+
+    def test_get_ingestion_policy_by_version(self):
+        """Test case for get_ingestion_policy_by_version
+
+        Get a specific historical version of a ingestion policy  # noqa: E501
+        """
+        pass
+
+    def test_get_ingestion_policy_history(self):
+        """Test case for get_ingestion_policy_history
+
+        Get the version history of ingestion policy  # noqa: E501
+        """
+        pass
+
+    def test_revert_ingestion_policy_by_version(self):
+        """Test case for revert_ingestion_policy_by_version
+
+        Revert to a specific historical version of a ingestion policy  # noqa: E501
         """
         pass
 
