@@ -19,3 +19,8 @@ jobs:
           python -m pip install -U build
       - name: Build Package
         run: python -m build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist_dir
+          path: dist
+          retention-days: 1

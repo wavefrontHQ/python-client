@@ -9,8 +9,12 @@ jobs:
   prepare:
     uses: ./.github/workflows/package.yml
   publish:
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist_dir
       - name: Publish the Package on TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
