@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v3
-        with:
-          path: dist
       - name: Publish the Package on TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
