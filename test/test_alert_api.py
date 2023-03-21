@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API
+    Wavefront REST API Documentation
 
-    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
+    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -40,6 +40,13 @@ class TestAlertApi(unittest.TestCase):
         """Test case for add_alert_tag
 
         Add a tag to a specific alert  # noqa: E501
+        """
+        pass
+
+    def test_check_query_type(self):
+        """Test case for check_query_type
+
+        Return the type of provided query.  # noqa: E501
         """
         pass
 
@@ -117,6 +124,13 @@ class TestAlertApi(unittest.TestCase):
         """Test case for hide_alert
 
         Hide a specific integration alert   # noqa: E501
+        """
+        pass
+
+    def test_preview_alert_notification(self):
+        """Test case for preview_alert_notification
+
+        Get all the notification preview for a specific alert  # noqa: E501
         """
         pass
 

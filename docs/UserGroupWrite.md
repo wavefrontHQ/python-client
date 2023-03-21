@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the user group | [optional] 
 **id** | **str** | The unique identifier of the user group | [optional] 
 **name** | **str** | The name of the user group | 
-**role_i_ds** | **list[str]** | List of role IDs the user group has been linked to. | 
+**role_ids** | **list[str]** | List of role IDs the user group has been linked to. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

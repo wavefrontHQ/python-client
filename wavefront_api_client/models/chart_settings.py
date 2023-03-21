@@ -87,11 +87,11 @@ class ChartSettings(object):
         'windowing': 'str',
         'xmax': 'float',
         'xmin': 'float',
-        'y0_scale_si_by1024': 'bool',
+        'y0_scale_siby1024': 'bool',
         'y0_unit_autoscaling': 'bool',
         'y1_max': 'float',
         'y1_min': 'float',
-        'y1_scale_si_by1024': 'bool',
+        'y1_scale_siby1024': 'bool',
         'y1_unit_autoscaling': 'bool',
         'y1_units': 'str',
         'ymax': 'float',
@@ -153,18 +153,18 @@ class ChartSettings(object):
         'windowing': 'windowing',
         'xmax': 'xmax',
         'xmin': 'xmin',
-        'y0_scale_si_by1024': 'y0ScaleSIBy1024',
+        'y0_scale_siby1024': 'y0ScaleSIBy1024',
         'y0_unit_autoscaling': 'y0UnitAutoscaling',
         'y1_max': 'y1Max',
         'y1_min': 'y1Min',
-        'y1_scale_si_by1024': 'y1ScaleSIBy1024',
+        'y1_scale_siby1024': 'y1ScaleSIBy1024',
         'y1_unit_autoscaling': 'y1UnitAutoscaling',
         'y1_units': 'y1Units',
         'ymax': 'ymax',
         'ymin': 'ymin'
     }
 
-    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, default_sort_column=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_show_metric_name=None, fixed_legend_show_source_name=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, logs_table=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, show_value_column=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_si_by1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_si_by1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None, _configuration=None):  # noqa: E501
+    def __init__(self, auto_column_tags=None, chart_default_color=None, column_tags=None, custom_tags=None, default_sort_column=None, expected_data_spacing=None, fixed_legend_display_stats=None, fixed_legend_enabled=None, fixed_legend_filter_field=None, fixed_legend_filter_limit=None, fixed_legend_filter_sort=None, fixed_legend_hide_label=None, fixed_legend_position=None, fixed_legend_show_metric_name=None, fixed_legend_show_source_name=None, fixed_legend_use_raw_stats=None, group_by_source=None, invert_dynamic_legend_hover_control=None, line_type=None, logs_table=None, max=None, min=None, num_tags=None, plain_markdown_content=None, show_hosts=None, show_labels=None, show_raw_values=None, show_value_column=None, sort_values_descending=None, sparkline_decimal_precision=None, sparkline_display_color=None, sparkline_display_font_size=None, sparkline_display_horizontal_position=None, sparkline_display_postfix=None, sparkline_display_prefix=None, sparkline_display_value_type=None, sparkline_display_vertical_position=None, sparkline_fill_color=None, sparkline_line_color=None, sparkline_size=None, sparkline_value_color_map_apply_to=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values=None, sparkline_value_color_map_values_v2=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, stack_type=None, tag_mode=None, time_based_coloring=None, type=None, window_size=None, windowing=None, xmax=None, xmin=None, y0_scale_siby1024=None, y0_unit_autoscaling=None, y1_max=None, y1_min=None, y1_scale_siby1024=None, y1_unit_autoscaling=None, y1_units=None, ymax=None, ymin=None, _configuration=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -224,11 +224,11 @@ class ChartSettings(object):
         self._windowing = None
         self._xmax = None
         self._xmin = None
-        self._y0_scale_si_by1024 = None
+        self._y0_scale_siby1024 = None
         self._y0_unit_autoscaling = None
         self._y1_max = None
         self._y1_min = None
-        self._y1_scale_si_by1024 = None
+        self._y1_scale_siby1024 = None
         self._y1_unit_autoscaling = None
         self._y1_units = None
         self._ymax = None
@@ -342,16 +342,16 @@ class ChartSettings(object):
             self.xmax = xmax
         if xmin is not None:
             self.xmin = xmin
-        if y0_scale_si_by1024 is not None:
-            self.y0_scale_si_by1024 = y0_scale_si_by1024
+        if y0_scale_siby1024 is not None:
+            self.y0_scale_siby1024 = y0_scale_siby1024
         if y0_unit_autoscaling is not None:
             self.y0_unit_autoscaling = y0_unit_autoscaling
         if y1_max is not None:
             self.y1_max = y1_max
         if y1_min is not None:
             self.y1_min = y1_min
-        if y1_scale_si_by1024 is not None:
-            self.y1_scale_si_by1024 = y1_scale_si_by1024
+        if y1_scale_siby1024 is not None:
+            self.y1_scale_siby1024 = y1_scale_siby1024
         if y1_unit_autoscaling is not None:
             self.y1_unit_autoscaling = y1_unit_autoscaling
         if y1_units is not None:
@@ -1688,27 +1688,27 @@ class ChartSettings(object):
         self._xmin = xmin
 
     @property
-    def y0_scale_si_by1024(self):
-        """Gets the y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
+    def y0_scale_siby1024(self):
+        """Gets the y0_scale_siby1024 of this ChartSettings.  # noqa: E501
 
         Default: false. Whether to scale numerical magnitude labels for left Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
 
-        :return: The y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :return: The y0_scale_siby1024 of this ChartSettings.  # noqa: E501
         :rtype: bool
         """
-        return self._y0_scale_si_by1024
+        return self._y0_scale_siby1024
 
-    @y0_scale_si_by1024.setter
-    def y0_scale_si_by1024(self, y0_scale_si_by1024):
-        """Sets the y0_scale_si_by1024 of this ChartSettings.
+    @y0_scale_siby1024.setter
+    def y0_scale_siby1024(self, y0_scale_siby1024):
+        """Sets the y0_scale_siby1024 of this ChartSettings.
 
         Default: false. Whether to scale numerical magnitude labels for left Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
 
-        :param y0_scale_si_by1024: The y0_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :param y0_scale_siby1024: The y0_scale_siby1024 of this ChartSettings.  # noqa: E501
         :type: bool
         """
 
-        self._y0_scale_si_by1024 = y0_scale_si_by1024
+        self._y0_scale_siby1024 = y0_scale_siby1024
 
     @property
     def y0_unit_autoscaling(self):
@@ -1780,27 +1780,27 @@ class ChartSettings(object):
         self._y1_min = y1_min
 
     @property
-    def y1_scale_si_by1024(self):
-        """Gets the y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
+    def y1_scale_siby1024(self):
+        """Gets the y1_scale_siby1024 of this ChartSettings.  # noqa: E501
 
         Default: false. Whether to scale numerical magnitude labels for right Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
 
-        :return: The y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :return: The y1_scale_siby1024 of this ChartSettings.  # noqa: E501
         :rtype: bool
         """
-        return self._y1_scale_si_by1024
+        return self._y1_scale_siby1024
 
-    @y1_scale_si_by1024.setter
-    def y1_scale_si_by1024(self, y1_scale_si_by1024):
-        """Sets the y1_scale_si_by1024 of this ChartSettings.
+    @y1_scale_siby1024.setter
+    def y1_scale_siby1024(self, y1_scale_siby1024):
+        """Sets the y1_scale_siby1024 of this ChartSettings.
 
         Default: false. Whether to scale numerical magnitude labels for right Y-axis by 1024 in the IEC/Binary manner (instead of by 1000 like SI)  # noqa: E501
 
-        :param y1_scale_si_by1024: The y1_scale_si_by1024 of this ChartSettings.  # noqa: E501
+        :param y1_scale_siby1024: The y1_scale_siby1024 of this ChartSettings.  # noqa: E501
         :type: bool
         """
 
-        self._y1_scale_si_by1024 = y1_scale_si_by1024
+        self._y1_scale_siby1024 = y1_scale_siby1024
 
     @property
     def y1_unit_autoscaling(self):

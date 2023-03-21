@@ -62,3 +62,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# Other
+.DS_Store
+*.swp
