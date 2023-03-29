@@ -134,6 +134,7 @@ from wavefront_api_client.models.json_node import JsonNode
 from wavefront_api_client.models.kubernetes_component import KubernetesComponent
 from wavefront_api_client.models.kubernetes_component_status import KubernetesComponentStatus
 from wavefront_api_client.models.logical_type import LogicalType
+from wavefront_api_client.models.logs_sort import LogsSort
 from wavefront_api_client.models.logs_table import LogsTable
 from wavefront_api_client.models.maintenance_window import MaintenanceWindow
 from wavefront_api_client.models.message import Message
