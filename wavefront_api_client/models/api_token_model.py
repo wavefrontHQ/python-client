@@ -130,7 +130,7 @@ class ApiTokenModel(object):
         :param account_type: The account_type of this ApiTokenModel.  # noqa: E501
         :type: str
         """
-        allowed_values = ["USER_ACCOUNT", "SERVICE_ACCOUNT", "INACTIVE_SERVICE_ACCOUNT"]  # noqa: E501
+        allowed_values = ["USER_ACCOUNT", "SERVICE_ACCOUNT", "INACTIVE_SERVICE_ACCOUNT", "CSP_USER_ACCOUNT", "CSP_AUTHORIZED_USER_ACCOUNT", "CSP_SERVICE_ACCOUNT", "CSP_AUTHORIZED_SERVICE_ACCOUNT"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 account_type not in allowed_values):
             raise ValueError(

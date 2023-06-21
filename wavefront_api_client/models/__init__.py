@@ -268,7 +268,6 @@ from wavefront_api_client.models.response_container_void import ResponseContaine
 from wavefront_api_client.models.response_status import ResponseStatus
 from wavefront_api_client.models.role_create_dto import RoleCreateDTO
 from wavefront_api_client.models.role_dto import RoleDTO
-from wavefront_api_client.models.role_properties_dto import RolePropertiesDTO
 from wavefront_api_client.models.role_update_dto import RoleUpdateDTO
 from wavefront_api_client.models.saved_app_map_search import SavedAppMapSearch
 from wavefront_api_client.models.saved_app_map_search_group import SavedAppMapSearchGroup

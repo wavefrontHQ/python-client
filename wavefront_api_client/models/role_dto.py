@@ -43,8 +43,6 @@ class RoleDTO(object):
         'linked_groups_count': 'int',
         'name': 'str',
         'permissions': 'list[str]',
-        'properties': 'RolePropertiesDTO',
-        'restricted_permissions': 'list[str]',
         'sample_linked_accounts': 'list[str]',
         'sample_linked_groups': 'list[UserGroup]'
     }
@@ -60,13 +58,11 @@ class RoleDTO(object):
         'linked_groups_count': 'linkedGroupsCount',
         'name': 'name',
         'permissions': 'permissions',
-        'properties': 'properties',
-        'restricted_permissions': 'restrictedPermissions',
         'sample_linked_accounts': 'sampleLinkedAccounts',
         'sample_linked_groups': 'sampleLinkedGroups'
     }
 
-    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, last_updated_account_id=None, last_updated_ms=None, linked_accounts_count=None, linked_groups_count=None, name=None, permissions=None, properties=None, restricted_permissions=None, sample_linked_accounts=None, sample_linked_groups=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_epoch_millis=None, customer=None, description=None, id=None, last_updated_account_id=None, last_updated_ms=None, linked_accounts_count=None, linked_groups_count=None, name=None, permissions=None, sample_linked_accounts=None, sample_linked_groups=None, _configuration=None):  # noqa: E501
         """RoleDTO - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,8 +78,6 @@ class RoleDTO(object):
         self._linked_groups_count = None
         self._name = None
         self._permissions = None
-        self._properties = None
-        self._restricted_permissions = None
         self._sample_linked_accounts = None
         self._sample_linked_groups = None
         self.discriminator = None
@@ -108,10 +102,6 @@ class RoleDTO(object):
             self.name = name
         if permissions is not None:
             self.permissions = permissions
-        if properties is not None:
-            self.properties = properties
-        if restricted_permissions is not None:
-            self.restricted_permissions = restricted_permissions
         if sample_linked_accounts is not None:
             self.sample_linked_accounts = sample_linked_accounts
         if sample_linked_groups is not None:
@@ -344,52 +334,6 @@ class RoleDTO(object):
         """
 
         self._permissions = permissions
-
-    @property
-    def properties(self):
-        """Gets the properties of this RoleDTO.  # noqa: E501
-
-        The properties of the role  # noqa: E501
-
-        :return: The properties of this RoleDTO.  # noqa: E501
-        :rtype: RolePropertiesDTO
-        """
-        return self._properties
-
-    @properties.setter
-    def properties(self, properties):
-        """Sets the properties of this RoleDTO.
-
-        The properties of the role  # noqa: E501
-
-        :param properties: The properties of this RoleDTO.  # noqa: E501
-        :type: RolePropertiesDTO
-        """
-
-        self._properties = properties
-
-    @property
-    def restricted_permissions(self):
-        """Gets the restricted_permissions of this RoleDTO.  # noqa: E501
-
-        The list of permissions that are restricted with the role. Currently only CSP roles have restrictions.  # noqa: E501
-
-        :return: The restricted_permissions of this RoleDTO.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._restricted_permissions
-
-    @restricted_permissions.setter
-    def restricted_permissions(self, restricted_permissions):
-        """Sets the restricted_permissions of this RoleDTO.
-
-        The list of permissions that are restricted with the role. Currently only CSP roles have restrictions.  # noqa: E501
-
-        :param restricted_permissions: The restricted_permissions of this RoleDTO.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._restricted_permissions = restricted_permissions
 
     @property
     def sample_linked_accounts(self):

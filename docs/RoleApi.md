@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Add accounts and groups to a role
 
-Assigns a role with a given ID to a list of user and service accounts and groups.
+Assigns a role with a given ID to a list of user and service accounts and groups. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 Create a role
 
-Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role.
+Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 Delete a role by ID
 
-Deletes a role with a given ID.
+Deletes a role with a given ID. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 Get all roles
 
-Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it.
+Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 Get a role by ID
 
-Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it.
+Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 Grant a permission to roles
 
-Grants a given permission to a list of roles.
+Grants a given permission to a list of roles. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 Remove accounts and groups from a role
 
-Revokes a role with a given ID from a list of user and service accounts and groups.
+Revokes a role with a given ID from a list of user and service accounts and groups. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 
 Revoke a permission from roles
 
-Revokes a given permission from a list of roles.
+Revokes a given permission from a list of roles. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 Update a role by ID
 
-Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description.
+Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
