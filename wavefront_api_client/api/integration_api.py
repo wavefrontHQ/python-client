@@ -44,7 +44,8 @@ class IntegrationApi(object):
 
         :param async_req bool
         :param int offset:
-        :param int limit:
+        :param int limit: Limit the number of queried integrations to reduce the response size
+        :param bool exclude_dashboard: Whether to exclude information on dashboards, default is set to false
         :return: ResponseContainerPagedIntegration
                  If the method is called asynchronously,
                  returns the request thread.
@@ -67,13 +68,14 @@ class IntegrationApi(object):
 
         :param async_req bool
         :param int offset:
-        :param int limit:
+        :param int limit: Limit the number of queried integrations to reduce the response size
+        :param bool exclude_dashboard: Whether to exclude information on dashboards, default is set to false
         :return: ResponseContainerPagedIntegration
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['offset', 'limit']  # noqa: E501
+        all_params = ['offset', 'limit', 'exclude_dashboard']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -98,6 +100,8 @@ class IntegrationApi(object):
             query_params.append(('offset', params['offset']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('limit', params['limit']))  # noqa: E501
+        if 'exclude_dashboard' in params:
+            query_params.append(('excludeDashboard', params['exclude_dashboard']))  # noqa: E501
 
         header_params = {}
 

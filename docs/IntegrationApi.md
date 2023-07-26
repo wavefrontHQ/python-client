@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **get_all_integration**
-> ResponseContainerPagedIntegration get_all_integration(offset=offset, limit=limit)
+> ResponseContainerPagedIntegration get_all_integration(offset=offset, limit=limit, exclude_dashboard=exclude_dashboard)
 
 Gets a flat list of all Wavefront integrations available, along with their status
 
@@ -41,11 +41,12 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClient(configuration))
 offset = 0 # int |  (optional) (default to 0)
-limit = 100 # int |  (optional) (default to 100)
+limit = 100 # int | Limit the number of queried integrations to reduce the response size (optional) (default to 100)
+exclude_dashboard = false # bool | Whether to exclude information on dashboards, default is set to false (optional) (default to false)
 
 try:
     # Gets a flat list of all Wavefront integrations available, along with their status
-    api_response = api_instance.get_all_integration(offset=offset, limit=limit)
+    api_response = api_instance.get_all_integration(offset=offset, limit=limit, exclude_dashboard=exclude_dashboard)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling IntegrationApi->get_all_integration: %s\n" % e)
@@ -56,7 +57,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **int**|  | [optional] [default to 0]
- **limit** | **int**|  | [optional] [default to 100]
+ **limit** | **int**| Limit the number of queried integrations to reduce the response size | [optional] [default to 100]
+ **exclude_dashboard** | **bool**| Whether to exclude information on dashboards, default is set to false | [optional] [default to false]
 
 ### Return type
 
