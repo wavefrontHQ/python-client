@@ -149,7 +149,7 @@ class SavedSearch(object):
         """
         if self._configuration.client_side_validation and entity_type is None:
             raise ValueError("Invalid value for `entity_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["DASHBOARD", "ALERT", "MAINTENANCE_WINDOW", "NOTIFICANT", "EVENT", "SOURCE", "EXTERNAL_LINK", "AGENT", "CLOUD_INTEGRATION", "APPLICATION", "REGISTERED_QUERY", "USER", "USER_GROUP", "SERVICE_ACCOUNT", "INGESTION_POLICY", "ROLE", "TOKEN", "ALERT_ANALYTICS"]  # noqa: E501
+        allowed_values = ["DASHBOARD", "ALERT", "MAINTENANCE_WINDOW", "NOTIFICANT", "EVENT", "SOURCE", "EXTERNAL_LINK", "AGENT", "CLOUD_INTEGRATION", "APPLICATION", "REGISTERED_QUERY", "USER", "USER_GROUP", "SERVICE_ACCOUNT", "INGESTION_POLICY", "ROLE", "TOKEN", "ALERT_ANALYTICS", "LOG_ALERT"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 entity_type not in allowed_values):
             raise ValueError(
