@@ -35,7 +35,6 @@ class IngestionPolicyWriteModel(object):
     swagger_types = {
         'accounts': 'list[str]',
         'alert': 'IngestionPolicyAlert',
-        'alert_id': 'str',
         'customer': 'str',
         'description': 'str',
         'groups': 'list[str]',
@@ -55,7 +54,6 @@ class IngestionPolicyWriteModel(object):
     attribute_map = {
         'accounts': 'accounts',
         'alert': 'alert',
-        'alert_id': 'alertId',
         'customer': 'customer',
         'description': 'description',
         'groups': 'groups',
@@ -72,7 +70,7 @@ class IngestionPolicyWriteModel(object):
         'tags_anded': 'tagsAnded'
     }
 
-    def __init__(self, accounts=None, alert=None, alert_id=None, customer=None, description=None, groups=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, name=None, namespaces=None, point_tags=None, scope=None, sources=None, tags_anded=None, _configuration=None):  # noqa: E501
+    def __init__(self, accounts=None, alert=None, customer=None, description=None, groups=None, id=None, is_limited=None, last_updated_account_id=None, last_updated_ms=None, limit_pps=None, name=None, namespaces=None, point_tags=None, scope=None, sources=None, tags_anded=None, _configuration=None):  # noqa: E501
         """IngestionPolicyWriteModel - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,7 +78,6 @@ class IngestionPolicyWriteModel(object):
 
         self._accounts = None
         self._alert = None
-        self._alert_id = None
         self._customer = None
         self._description = None
         self._groups = None
@@ -101,8 +98,6 @@ class IngestionPolicyWriteModel(object):
             self.accounts = accounts
         if alert is not None:
             self.alert = alert
-        if alert_id is not None:
-            self.alert_id = alert_id
         if customer is not None:
             self.customer = customer
         if description is not None:
@@ -177,29 +172,6 @@ class IngestionPolicyWriteModel(object):
         """
 
         self._alert = alert
-
-    @property
-    def alert_id(self):
-        """Gets the alert_id of this IngestionPolicyWriteModel.  # noqa: E501
-
-        The ingestion policy alert Id  # noqa: E501
-
-        :return: The alert_id of this IngestionPolicyWriteModel.  # noqa: E501
-        :rtype: str
-        """
-        return self._alert_id
-
-    @alert_id.setter
-    def alert_id(self, alert_id):
-        """Sets the alert_id of this IngestionPolicyWriteModel.
-
-        The ingestion policy alert Id  # noqa: E501
-
-        :param alert_id: The alert_id of this IngestionPolicyWriteModel.  # noqa: E501
-        :type: str
-        """
-
-        self._alert_id = alert_id
 
     @property
     def customer(self):

@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accounts** | [**list[AccessControlElement]**](AccessControlElement.md) | The accounts associated with the ingestion policy | [optional] 
 **alert** | [**Alert**](Alert.md) | The alert object connected with the ingestion policy. | [optional] 
-**alert_id** | **str** | The ingestion policy alert Id | [optional] 
 **customer** | **str** | ID of the customer to which the ingestion policy belongs | [optional] 
 **description** | **str** | The description of the ingestion policy | [optional] 
 **groups** | [**list[AccessControlElement]**](AccessControlElement.md) | The groups associated with the ingestion policy | [optional] 
