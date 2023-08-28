@@ -63,7 +63,7 @@ Name | Type | Description | Notes
 **orphan** | **bool** |  | [optional] 
 **points_scanned_at_last_query** | **int** | A derived field recording the number of data points scanned when the system last computed this alert&#39;s condition | [optional] 
 **prefiring_host_label_pairs** | [**list[SourceLabelPair]**](SourceLabelPair.md) | Lists the series that are starting to fail, defined as failing for greater than 50% of the checks in the window determined by the \&quot;minutes\&quot; parameter | [optional] 
-**process_rate_minutes** | **int** | The interval between checks for this alert, in minutes.  Defaults to 1 minute | [optional] 
+**process_rate_minutes** | **int** | The interval between checks for this alert, in minutes.  Defaults to 5 minutes | [optional] 
 **query_failing** | **bool** | Whether there was an exception when the alert condition last ran | [optional] 
 **query_syntax_error** | **bool** | Whether there was an query syntax exception when the alert condition last ran | [optional] 
 **resolve_after_minutes** | **int** | The number of consecutive minutes that a firing series matching the condition query must evaluate to \&quot;false\&quot; (zero value) before the alert resolves.  When unset, this defaults to the same value as \&quot;minutes\&quot; | [optional] 

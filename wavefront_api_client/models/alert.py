@@ -1790,7 +1790,7 @@ class Alert(object):
     def process_rate_minutes(self):
         """Gets the process_rate_minutes of this Alert.  # noqa: E501
 
-        The interval between checks for this alert, in minutes.  Defaults to 1 minute  # noqa: E501
+        The interval between checks for this alert, in minutes.  Defaults to 5 minutes  # noqa: E501
 
         :return: The process_rate_minutes of this Alert.  # noqa: E501
         :rtype: int
@@ -1801,7 +1801,7 @@ class Alert(object):
     def process_rate_minutes(self, process_rate_minutes):
         """Sets the process_rate_minutes of this Alert.
 
-        The interval between checks for this alert, in minutes.  Defaults to 1 minute  # noqa: E501
+        The interval between checks for this alert, in minutes.  Defaults to 5 minutes  # noqa: E501
 
         :param process_rate_minutes: The process_rate_minutes of this Alert.  # noqa: E501
         :type: int

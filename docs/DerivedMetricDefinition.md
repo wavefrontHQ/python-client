@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **minutes** | **int** | Number of minutes to query for the derived metric | 
 **name** | **str** |  | 
 **points_scanned_at_last_query** | **int** | A derived field recording the number of data points scanned when the system last computed the query | [optional] 
-**process_rate_minutes** | **int** | The interval between executing the query, in minutes.  Defaults to 1 minute | [optional] 
+**process_rate_minutes** | **int** | The interval between executing the query, in minutes.  Defaults to 5 minutes | [optional] 
 **query** | **str** | A Wavefront query that is evaluated at regular intervals (default 1m). | 
 **query_failing** | **bool** | Whether there was an exception when the query last ran | [optional] 
 **query_qb_enabled** | **bool** | Whether the query was created using the Query Builder. Default false | [optional] 
