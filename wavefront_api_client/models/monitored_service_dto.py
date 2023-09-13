@@ -34,12 +34,16 @@ class MonitoredServiceDTO(object):
     """
     swagger_types = {
         'application': 'str',
+        'cluster': 'str',
         'component': 'str',
         'created': 'int',
         'custom_dashboard_link': 'str',
+        'favorite': 'bool',
         'hidden': 'bool',
+        'id': 'str',
         'last_reported': 'int',
         'last_updated': 'int',
+        'origin': 'str',
         'satisfied_latency_millis': 'int',
         'service': 'str',
         'service_instance_count': 'int',
@@ -50,12 +54,16 @@ class MonitoredServiceDTO(object):
 
     attribute_map = {
         'application': 'application',
+        'cluster': 'cluster',
         'component': 'component',
         'created': 'created',
         'custom_dashboard_link': 'customDashboardLink',
+        'favorite': 'favorite',
         'hidden': 'hidden',
+        'id': 'id',
         'last_reported': 'lastReported',
         'last_updated': 'lastUpdated',
+        'origin': 'origin',
         'satisfied_latency_millis': 'satisfiedLatencyMillis',
         'service': 'service',
         'service_instance_count': 'serviceInstanceCount',
@@ -64,19 +72,23 @@ class MonitoredServiceDTO(object):
         'update_user_id': 'updateUserId'
     }
 
-    def __init__(self, application=None, component=None, created=None, custom_dashboard_link=None, hidden=None, last_reported=None, last_updated=None, satisfied_latency_millis=None, service=None, service_instance_count=None, source=None, status=None, update_user_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, application=None, cluster=None, component=None, created=None, custom_dashboard_link=None, favorite=None, hidden=None, id=None, last_reported=None, last_updated=None, origin=None, satisfied_latency_millis=None, service=None, service_instance_count=None, source=None, status=None, update_user_id=None, _configuration=None):  # noqa: E501
         """MonitoredServiceDTO - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._application = None
+        self._cluster = None
         self._component = None
         self._created = None
         self._custom_dashboard_link = None
+        self._favorite = None
         self._hidden = None
+        self._id = None
         self._last_reported = None
         self._last_updated = None
+        self._origin = None
         self._satisfied_latency_millis = None
         self._service = None
         self._service_instance_count = None
@@ -86,17 +98,25 @@ class MonitoredServiceDTO(object):
         self.discriminator = None
 
         self.application = application
+        if cluster is not None:
+            self.cluster = cluster
         self.component = component
         if created is not None:
             self.created = created
         if custom_dashboard_link is not None:
             self.custom_dashboard_link = custom_dashboard_link
+        if favorite is not None:
+            self.favorite = favorite
         if hidden is not None:
             self.hidden = hidden
+        if id is not None:
+            self.id = id
         if last_reported is not None:
             self.last_reported = last_reported
         if last_updated is not None:
             self.last_updated = last_updated
+        if origin is not None:
+            self.origin = origin
         if satisfied_latency_millis is not None:
             self.satisfied_latency_millis = satisfied_latency_millis
         self.service = service
@@ -131,6 +151,29 @@ class MonitoredServiceDTO(object):
             raise ValueError("Invalid value for `application`, must not be `None`")  # noqa: E501
 
         self._application = application
+
+    @property
+    def cluster(self):
+        """Gets the cluster of this MonitoredServiceDTO.  # noqa: E501
+
+        Cluster of monitored service  # noqa: E501
+
+        :return: The cluster of this MonitoredServiceDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._cluster
+
+    @cluster.setter
+    def cluster(self, cluster):
+        """Sets the cluster of this MonitoredServiceDTO.
+
+        Cluster of monitored service  # noqa: E501
+
+        :param cluster: The cluster of this MonitoredServiceDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._cluster = cluster
 
     @property
     def component(self):
@@ -204,6 +247,29 @@ class MonitoredServiceDTO(object):
         self._custom_dashboard_link = custom_dashboard_link
 
     @property
+    def favorite(self):
+        """Gets the favorite of this MonitoredServiceDTO.  # noqa: E501
+
+        favorite status of monitored service  # noqa: E501
+
+        :return: The favorite of this MonitoredServiceDTO.  # noqa: E501
+        :rtype: bool
+        """
+        return self._favorite
+
+    @favorite.setter
+    def favorite(self, favorite):
+        """Sets the favorite of this MonitoredServiceDTO.
+
+        favorite status of monitored service  # noqa: E501
+
+        :param favorite: The favorite of this MonitoredServiceDTO.  # noqa: E501
+        :type: bool
+        """
+
+        self._favorite = favorite
+
+    @property
     def hidden(self):
         """Gets the hidden of this MonitoredServiceDTO.  # noqa: E501
 
@@ -225,6 +291,29 @@ class MonitoredServiceDTO(object):
         """
 
         self._hidden = hidden
+
+    @property
+    def id(self):
+        """Gets the id of this MonitoredServiceDTO.  # noqa: E501
+
+        unique ID of monitored service  # noqa: E501
+
+        :return: The id of this MonitoredServiceDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this MonitoredServiceDTO.
+
+        unique ID of monitored service  # noqa: E501
+
+        :param id: The id of this MonitoredServiceDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def last_reported(self):
@@ -271,6 +360,29 @@ class MonitoredServiceDTO(object):
         """
 
         self._last_updated = last_updated
+
+    @property
+    def origin(self):
+        """Gets the origin of this MonitoredServiceDTO.  # noqa: E501
+
+        origin of monitored service  # noqa: E501
+
+        :return: The origin of this MonitoredServiceDTO.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin
+
+    @origin.setter
+    def origin(self, origin):
+        """Sets the origin of this MonitoredServiceDTO.
+
+        origin of monitored service  # noqa: E501
+
+        :param origin: The origin of this MonitoredServiceDTO.  # noqa: E501
+        :type: str
+        """
+
+        self._origin = origin
 
     @property
     def satisfied_latency_millis(self):
