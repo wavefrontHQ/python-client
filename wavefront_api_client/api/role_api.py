@@ -36,7 +36,7 @@ class RoleApi(object):
     def add_assignees(self, id, body, **kwargs):  # noqa: E501
         """Add accounts and groups to a role  # noqa: E501
 
-        Assigns a role with a given ID to a list of user and service accounts and groups. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Assigns a role with a given ID to a list of user and service accounts and groups. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_assignees(id, body, async_req=True)
@@ -59,7 +59,7 @@ class RoleApi(object):
     def add_assignees_with_http_info(self, id, body, **kwargs):  # noqa: E501
         """Add accounts and groups to a role  # noqa: E501
 
-        Assigns a role with a given ID to a list of user and service accounts and groups. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Assigns a role with a given ID to a list of user and service accounts and groups. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_assignees_with_http_info(id, body, async_req=True)
@@ -143,7 +143,7 @@ class RoleApi(object):
     def create_role(self, body, **kwargs):  # noqa: E501
         """Create a role  # noqa: E501
 
-        Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_role(body, async_req=True)
@@ -165,7 +165,7 @@ class RoleApi(object):
     def create_role_with_http_info(self, body, **kwargs):  # noqa: E501
         """Create a role  # noqa: E501
 
-        Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Creates a role with a specific unique name. Optionally, you can grant permissions to the role, assign the role to accounts and groups, specify a description, and configure the management properties of the role. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_role_with_http_info(body, async_req=True)
@@ -242,7 +242,7 @@ class RoleApi(object):
     def delete_role(self, id, **kwargs):  # noqa: E501
         """Delete a role by ID  # noqa: E501
 
-        Deletes a role with a given ID. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Deletes a role with a given ID. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_role(id, async_req=True)
@@ -264,7 +264,7 @@ class RoleApi(object):
     def delete_role_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete a role by ID  # noqa: E501
 
-        Deletes a role with a given ID. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Deletes a role with a given ID. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_role_with_http_info(id, async_req=True)
@@ -341,7 +341,7 @@ class RoleApi(object):
     def get_all_roles(self, **kwargs):  # noqa: E501
         """Get all roles  # noqa: E501
 
-        Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_roles(async_req=True)
@@ -364,7 +364,7 @@ class RoleApi(object):
     def get_all_roles_with_http_info(self, **kwargs):  # noqa: E501
         """Get all roles  # noqa: E501
 
-        Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Returns all existing roles in the service instance with detailed information for each role, including assigned groups and accounts, management properties, permissions, name, ID, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_roles_with_http_info(async_req=True)
@@ -440,7 +440,7 @@ class RoleApi(object):
     def get_role(self, id, **kwargs):  # noqa: E501
         """Get a role by ID  # noqa: E501
 
-        Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_role(id, async_req=True)
@@ -462,7 +462,7 @@ class RoleApi(object):
     def get_role_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a role by ID  # noqa: E501
 
-        Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Returns the details of a role with a given ID. The response includes assigned groups and accounts, management properties, permissions, name, description, and the time of the last update and who has done it. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_role_with_http_info(id, async_req=True)
@@ -539,7 +539,7 @@ class RoleApi(object):
     def grant_permission_to_roles(self, permission, body, **kwargs):  # noqa: E501
         """Grant a permission to roles  # noqa: E501
 
-        Grants a given permission to a list of roles. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Grants a given permission to a list of roles. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.grant_permission_to_roles(permission, body, async_req=True)
@@ -562,7 +562,7 @@ class RoleApi(object):
     def grant_permission_to_roles_with_http_info(self, permission, body, **kwargs):  # noqa: E501
         """Grant a permission to roles  # noqa: E501
 
-        Grants a given permission to a list of roles. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Grants a given permission to a list of roles. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.grant_permission_to_roles_with_http_info(permission, body, async_req=True)
@@ -646,7 +646,7 @@ class RoleApi(object):
     def remove_assignees(self, id, body, **kwargs):  # noqa: E501
         """Remove accounts and groups from a role  # noqa: E501
 
-        Revokes a role with a given ID from a list of user and service accounts and groups. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Revokes a role with a given ID from a list of user and service accounts and groups. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_assignees(id, body, async_req=True)
@@ -669,7 +669,7 @@ class RoleApi(object):
     def remove_assignees_with_http_info(self, id, body, **kwargs):  # noqa: E501
         """Remove accounts and groups from a role  # noqa: E501
 
-        Revokes a role with a given ID from a list of user and service accounts and groups. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Revokes a role with a given ID from a list of user and service accounts and groups. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_assignees_with_http_info(id, body, async_req=True)
@@ -753,7 +753,7 @@ class RoleApi(object):
     def revoke_permission_from_roles(self, permission, body, **kwargs):  # noqa: E501
         """Revoke a permission from roles  # noqa: E501
 
-        Revokes a given permission from a list of roles. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Revokes a given permission from a list of roles. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.revoke_permission_from_roles(permission, body, async_req=True)
@@ -776,7 +776,7 @@ class RoleApi(object):
     def revoke_permission_from_roles_with_http_info(self, permission, body, **kwargs):  # noqa: E501
         """Revoke a permission from roles  # noqa: E501
 
-        Revokes a given permission from a list of roles. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Revokes a given permission from a list of roles. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.revoke_permission_from_roles_with_http_info(permission, body, async_req=True)
@@ -860,7 +860,7 @@ class RoleApi(object):
     def update_role(self, id, body, **kwargs):  # noqa: E501
         """Update a role by ID  # noqa: E501
 
-        Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_role(id, body, async_req=True)
@@ -883,7 +883,7 @@ class RoleApi(object):
     def update_role_with_http_info(self, id, body, **kwargs):  # noqa: E501
         """Update a role by ID  # noqa: E501
 
-        Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Updates a role with a given ID. You can update the assigned groups and accounts, management properties, permissions, ID, name, and description. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_role_with_http_info(id, body, async_req=True)

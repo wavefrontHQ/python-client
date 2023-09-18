@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 Create new api token
 
-Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -72,7 +72,7 @@ This endpoint does not need any parameter.
 
 Delete the specified api token for a customer
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 Delete the specified api token
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 Delete the specified api token of the given service account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 Create a new api token for the service account
 
-Returns the list of all api tokens for the service account. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+Returns the list of all api tokens for the service account. The newly created api token is the last element of returned list. 
 
 ### Example
 ```python
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 Get all api tokens for a user
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -342,7 +342,7 @@ This endpoint does not need any parameter.
 
 Get the specified api token for a customer
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 Get all api tokens for a customer
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -446,7 +446,7 @@ This endpoint does not need any parameter.
 
 Get all api tokens for the given service account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 Update the name of the specified api token
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 Update the name of the specified api token for the given service account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python

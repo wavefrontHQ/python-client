@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Add multiple roles to a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 Add multiple users to a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 Create a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 Delete a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 Get all user groups for a customer
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 Get a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 Remove multiple roles from a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 
 Remove multiple users from a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 Update a specific user group
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python

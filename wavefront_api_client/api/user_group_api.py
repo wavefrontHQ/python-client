@@ -36,7 +36,7 @@ class UserGroupApi(object):
     def add_roles_to_user_group(self, id, **kwargs):  # noqa: E501
         """Add multiple roles to a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_roles_to_user_group(id, async_req=True)
@@ -59,7 +59,7 @@ class UserGroupApi(object):
     def add_roles_to_user_group_with_http_info(self, id, **kwargs):  # noqa: E501
         """Add multiple roles to a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_roles_to_user_group_with_http_info(id, async_req=True)
@@ -139,7 +139,7 @@ class UserGroupApi(object):
     def add_users_to_user_group(self, id, **kwargs):  # noqa: E501
         """Add multiple users to a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_users_to_user_group(id, async_req=True)
@@ -162,7 +162,7 @@ class UserGroupApi(object):
     def add_users_to_user_group_with_http_info(self, id, **kwargs):  # noqa: E501
         """Add multiple users to a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_users_to_user_group_with_http_info(id, async_req=True)
@@ -242,7 +242,7 @@ class UserGroupApi(object):
     def create_user_group(self, **kwargs):  # noqa: E501
         """Create a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_user_group(async_req=True)
@@ -264,7 +264,7 @@ class UserGroupApi(object):
     def create_user_group_with_http_info(self, **kwargs):  # noqa: E501
         """Create a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_user_group_with_http_info(async_req=True)
@@ -337,7 +337,7 @@ class UserGroupApi(object):
     def delete_user_group(self, id, **kwargs):  # noqa: E501
         """Delete a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_user_group(id, async_req=True)
@@ -359,7 +359,7 @@ class UserGroupApi(object):
     def delete_user_group_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_user_group_with_http_info(id, async_req=True)
@@ -432,7 +432,7 @@ class UserGroupApi(object):
     def get_all_user_groups(self, **kwargs):  # noqa: E501
         """Get all user groups for a customer  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_user_groups(async_req=True)
@@ -455,7 +455,7 @@ class UserGroupApi(object):
     def get_all_user_groups_with_http_info(self, **kwargs):  # noqa: E501
         """Get all user groups for a customer  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_user_groups_with_http_info(async_req=True)
@@ -527,7 +527,7 @@ class UserGroupApi(object):
     def get_user_group(self, id, **kwargs):  # noqa: E501
         """Get a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_group(id, async_req=True)
@@ -549,7 +549,7 @@ class UserGroupApi(object):
     def get_user_group_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_group_with_http_info(id, async_req=True)
@@ -622,7 +622,7 @@ class UserGroupApi(object):
     def remove_roles_from_user_group(self, id, **kwargs):  # noqa: E501
         """Remove multiple roles from a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_roles_from_user_group(id, async_req=True)
@@ -645,7 +645,7 @@ class UserGroupApi(object):
     def remove_roles_from_user_group_with_http_info(self, id, **kwargs):  # noqa: E501
         """Remove multiple roles from a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_roles_from_user_group_with_http_info(id, async_req=True)
@@ -725,7 +725,7 @@ class UserGroupApi(object):
     def remove_users_from_user_group(self, id, **kwargs):  # noqa: E501
         """Remove multiple users from a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_users_from_user_group(id, async_req=True)
@@ -748,7 +748,7 @@ class UserGroupApi(object):
     def remove_users_from_user_group_with_http_info(self, id, **kwargs):  # noqa: E501
         """Remove multiple users from a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_users_from_user_group_with_http_info(id, async_req=True)
@@ -828,7 +828,7 @@ class UserGroupApi(object):
     def update_user_group(self, id, **kwargs):  # noqa: E501
         """Update a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_user_group(id, async_req=True)
@@ -851,7 +851,7 @@ class UserGroupApi(object):
     def update_user_group_with_http_info(self, id, **kwargs):  # noqa: E501
         """Update a specific user group  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_user_group_with_http_info(id, async_req=True)

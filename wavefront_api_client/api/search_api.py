@@ -36,7 +36,7 @@ class SearchApi(object):
     def search_account_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_account_entities(async_req=True)
@@ -58,7 +58,7 @@ class SearchApi(object):
     def search_account_entities_with_http_info(self, **kwargs):  # noqa: E501
         """Search over a customer's accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_account_entities_with_http_info(async_req=True)
@@ -131,7 +131,7 @@ class SearchApi(object):
     def search_account_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_account_for_facet(facet, async_req=True)
@@ -154,7 +154,7 @@ class SearchApi(object):
     def search_account_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_account_for_facet_with_http_info(facet, async_req=True)
@@ -234,7 +234,7 @@ class SearchApi(object):
     def search_account_for_facets(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_account_for_facets(async_req=True)
@@ -256,7 +256,7 @@ class SearchApi(object):
     def search_account_for_facets_with_http_info(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_account_for_facets_with_http_info(async_req=True)
@@ -5516,7 +5516,7 @@ class SearchApi(object):
     def search_role_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_entities(async_req=True)
@@ -5538,7 +5538,7 @@ class SearchApi(object):
     def search_role_entities_with_http_info(self, **kwargs):  # noqa: E501
         """Search over a customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_entities_with_http_info(async_req=True)
@@ -5611,7 +5611,7 @@ class SearchApi(object):
     def search_role_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facet(facet, async_req=True)
@@ -5634,7 +5634,7 @@ class SearchApi(object):
     def search_role_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facet_with_http_info(facet, async_req=True)
@@ -5714,7 +5714,7 @@ class SearchApi(object):
     def search_role_for_facets(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facets(async_req=True)
@@ -5736,7 +5736,7 @@ class SearchApi(object):
     def search_role_for_facets_with_http_info(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facets_with_http_info(async_req=True)
@@ -6197,7 +6197,7 @@ class SearchApi(object):
     def search_service_account_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's service accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_service_account_entities(async_req=True)
@@ -6219,7 +6219,7 @@ class SearchApi(object):
     def search_service_account_entities_with_http_info(self, **kwargs):  # noqa: E501
         """Search over a customer's service accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_service_account_entities_with_http_info(async_req=True)
@@ -6292,7 +6292,7 @@ class SearchApi(object):
     def search_service_account_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's service accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_service_account_for_facet(facet, async_req=True)
@@ -6315,7 +6315,7 @@ class SearchApi(object):
     def search_service_account_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's service accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_service_account_for_facet_with_http_info(facet, async_req=True)
@@ -6395,7 +6395,7 @@ class SearchApi(object):
     def search_service_account_for_facets(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's service accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_service_account_for_facets(async_req=True)
@@ -6417,7 +6417,7 @@ class SearchApi(object):
     def search_service_account_for_facets_with_http_info(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's service accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_service_account_for_facets_with_http_info(async_req=True)
@@ -7369,7 +7369,7 @@ class SearchApi(object):
     def search_token_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's api tokens  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_token_entities(async_req=True)
@@ -7391,7 +7391,7 @@ class SearchApi(object):
     def search_token_entities_with_http_info(self, **kwargs):  # noqa: E501
         """Search over a customer's api tokens  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_token_entities_with_http_info(async_req=True)
@@ -7464,7 +7464,7 @@ class SearchApi(object):
     def search_token_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's api tokens  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_token_for_facet(facet, async_req=True)
@@ -7487,7 +7487,7 @@ class SearchApi(object):
     def search_token_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's api tokens  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_token_for_facet_with_http_info(facet, async_req=True)
@@ -7567,7 +7567,7 @@ class SearchApi(object):
     def search_token_for_facets(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's api tokens  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_token_for_facets(async_req=True)
@@ -7589,7 +7589,7 @@ class SearchApi(object):
     def search_token_for_facets_with_http_info(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's api tokens  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_token_for_facets_with_http_info(async_req=True)
@@ -7860,7 +7860,7 @@ class SearchApi(object):
     def search_user_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_entities(async_req=True)
@@ -7882,7 +7882,7 @@ class SearchApi(object):
     def search_user_entities_with_http_info(self, **kwargs):  # noqa: E501
         """Search over a customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_entities_with_http_info(async_req=True)
@@ -7955,7 +7955,7 @@ class SearchApi(object):
     def search_user_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facet(facet, async_req=True)
@@ -7978,7 +7978,7 @@ class SearchApi(object):
     def search_user_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facet_with_http_info(facet, async_req=True)
@@ -8058,7 +8058,7 @@ class SearchApi(object):
     def search_user_for_facets(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facets(async_req=True)
@@ -8080,7 +8080,7 @@ class SearchApi(object):
     def search_user_for_facets_with_http_info(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facets_with_http_info(async_req=True)

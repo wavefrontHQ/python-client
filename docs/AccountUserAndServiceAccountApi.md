@@ -37,7 +37,7 @@ Method | HTTP request | Description
 
 Activates the given service account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 Adds specific roles to the account (user or service account)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 Adds specific groups to the account (user or service account)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 Creates or updates a user account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 Creates a service account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 Deactivates the given service account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 Deletes an account (user or service account) identified by id
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.
 
 ### Example
 ```python
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 
 Deletes multiple accounts (users or service accounts)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.
 
 ### Example
 ```python
@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 
 Get a specific account (user or service account)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 Returns business functions of a specific account (user or service account).
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 Get all accounts (users and service accounts) of a customer
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
 
 Get all service accounts
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -689,7 +689,7 @@ This endpoint does not need any parameter.
 
 Get all user accounts
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -739,7 +739,7 @@ This endpoint does not need any parameter.
 
 Retrieves a service account by identifier
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 
 Retrieves a user by identifier (email address)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -847,7 +847,7 @@ Name | Type | Description  | Notes
 
 Get all users with Accounts permission
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -897,7 +897,7 @@ This endpoint does not need any parameter.
 
 Grants a specific permission to account (user or service account)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.
 
 ### Example
 ```python
@@ -953,7 +953,7 @@ Name | Type | Description  | Notes
 
 Grant a permission to accounts (users or service accounts)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.
 
 ### Example
 ```python
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 Invite user accounts with given user groups and permissions.
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -1063,7 +1063,7 @@ Name | Type | Description  | Notes
 
 Removes specific roles from the account (user or service account)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -1119,7 +1119,7 @@ Name | Type | Description  | Notes
 
 Removes specific groups from the account (user or service account)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -1175,7 +1175,7 @@ Name | Type | Description  | Notes
 
 Revokes a specific permission from account (user or service account)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.
 
 ### Example
 ```python
@@ -1231,7 +1231,7 @@ Name | Type | Description  | Notes
 
 Revoke a permission from accounts (users or service accounts)
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.
 
 ### Example
 ```python
@@ -1287,7 +1287,7 @@ Name | Type | Description  | Notes
 
 Updates the service account
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -1343,7 +1343,7 @@ Name | Type | Description  | Notes
 
 Update user with given user groups and permissions.
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -1399,7 +1399,7 @@ Name | Type | Description  | Notes
 
 Returns valid accounts (users and service accounts), also invalid identifiers from the given list
 
-<b>Note</b>: Applies only to standalone Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
