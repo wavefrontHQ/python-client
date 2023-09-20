@@ -9,12 +9,13 @@ jobs:
   prepare:
     uses: ./.github/workflows/package.yml
   publish:
+    environment: release
     needs: prepare
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v3
       - name: Publish the Package
         if: startsWith(github.ref, 'refs/tags')
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
