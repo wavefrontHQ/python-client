@@ -218,7 +218,7 @@ class ApiTokenApi(object):
     def delete_token(self, id, **kwargs):  # noqa: E501
         """Delete the specified api token  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_token(id, async_req=True)
@@ -240,7 +240,7 @@ class ApiTokenApi(object):
     def delete_token_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete the specified api token  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_token_with_http_info(id, async_req=True)
@@ -515,7 +515,7 @@ class ApiTokenApi(object):
     def get_all_tokens(self, **kwargs):  # noqa: E501
         """Get all api tokens for a user  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_tokens(async_req=True)
@@ -536,7 +536,7 @@ class ApiTokenApi(object):
     def get_all_tokens_with_http_info(self, **kwargs):  # noqa: E501
         """Get all api tokens for a user  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_tokens_with_http_info(async_req=True)
@@ -879,7 +879,7 @@ class ApiTokenApi(object):
     def update_token_name(self, id, **kwargs):  # noqa: E501
         """Update the name of the specified api token  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_token_name(id, async_req=True)
@@ -902,7 +902,7 @@ class ApiTokenApi(object):
     def update_token_name_with_http_info(self, id, **kwargs):  # noqa: E501
         """Update the name of the specified api token  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_token_name_with_http_info(id, async_req=True)

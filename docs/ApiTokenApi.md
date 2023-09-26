@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 Delete the specified api token
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 Get all api tokens for a user
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 Update the name of the specified api token
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+
 
 ### Example
 ```python
