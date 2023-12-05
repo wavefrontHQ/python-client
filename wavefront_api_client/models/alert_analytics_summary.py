@@ -33,29 +33,60 @@ class AlertAnalyticsSummary(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'total_active_no_target': 'int',
         'total_evaluated': 'int',
-        'total_failed': 'int'
+        'total_failed': 'int',
+        'total_no_data': 'int'
     }
 
     attribute_map = {
+        'total_active_no_target': 'totalActiveNoTarget',
         'total_evaluated': 'totalEvaluated',
-        'total_failed': 'totalFailed'
+        'total_failed': 'totalFailed',
+        'total_no_data': 'totalNoData'
     }
 
-    def __init__(self, total_evaluated=None, total_failed=None, _configuration=None):  # noqa: E501
+    def __init__(self, total_active_no_target=None, total_evaluated=None, total_failed=None, total_no_data=None, _configuration=None):  # noqa: E501
         """AlertAnalyticsSummary - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._total_active_no_target = None
         self._total_evaluated = None
         self._total_failed = None
+        self._total_no_data = None
         self.discriminator = None
 
+        if total_active_no_target is not None:
+            self.total_active_no_target = total_active_no_target
         if total_evaluated is not None:
             self.total_evaluated = total_evaluated
         if total_failed is not None:
             self.total_failed = total_failed
+        if total_no_data is not None:
+            self.total_no_data = total_no_data
+
+    @property
+    def total_active_no_target(self):
+        """Gets the total_active_no_target of this AlertAnalyticsSummary.  # noqa: E501
+
+
+        :return: The total_active_no_target of this AlertAnalyticsSummary.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_active_no_target
+
+    @total_active_no_target.setter
+    def total_active_no_target(self, total_active_no_target):
+        """Sets the total_active_no_target of this AlertAnalyticsSummary.
+
+
+        :param total_active_no_target: The total_active_no_target of this AlertAnalyticsSummary.  # noqa: E501
+        :type: int
+        """
+
+        self._total_active_no_target = total_active_no_target
 
     @property
     def total_evaluated(self):
@@ -98,6 +129,27 @@ class AlertAnalyticsSummary(object):
         """
 
         self._total_failed = total_failed
+
+    @property
+    def total_no_data(self):
+        """Gets the total_no_data of this AlertAnalyticsSummary.  # noqa: E501
+
+
+        :return: The total_no_data of this AlertAnalyticsSummary.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_no_data
+
+    @total_no_data.setter
+    def total_no_data(self, total_no_data):
+        """Sets the total_no_data of this AlertAnalyticsSummary.
+
+
+        :param total_no_data: The total_no_data of this AlertAnalyticsSummary.  # noqa: E501
+        :type: int
+        """
+
+        self._total_no_data = total_no_data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

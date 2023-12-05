@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**debug_info** | **list[str]** |  | [optional] 
 **response** | [**ClusterInfoDTO**](ClusterInfoDTO.md) |  | [optional] 
 **status** | [**ResponseStatus**](ResponseStatus.md) |  | 
 

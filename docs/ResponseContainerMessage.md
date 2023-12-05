@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**debug_info** | **list[str]** |  | [optional] 
 **response** | [**Message**](Message.md) |  | [optional] 
 **status** | [**ResponseStatus**](ResponseStatus.md) |  | 
 

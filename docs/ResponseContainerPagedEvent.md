@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**debug_info** | **list[str]** |  | [optional] 
 **response** | [**PagedEvent**](PagedEvent.md) |  | [optional] 
 **status** | [**ResponseStatus**](ResponseStatus.md) |  | 
 

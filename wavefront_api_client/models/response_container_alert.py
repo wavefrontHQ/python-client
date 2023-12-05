@@ -33,28 +33,54 @@ class ResponseContainerAlert(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'debug_info': 'list[str]',
         'response': 'Alert',
         'status': 'ResponseStatus'
     }
 
     attribute_map = {
+        'debug_info': 'debugInfo',
         'response': 'response',
         'status': 'status'
     }
 
-    def __init__(self, response=None, status=None, _configuration=None):  # noqa: E501
+    def __init__(self, debug_info=None, response=None, status=None, _configuration=None):  # noqa: E501
         """ResponseContainerAlert - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._debug_info = None
         self._response = None
         self._status = None
         self.discriminator = None
 
+        if debug_info is not None:
+            self.debug_info = debug_info
         if response is not None:
             self.response = response
         self.status = status
+
+    @property
+    def debug_info(self):
+        """Gets the debug_info of this ResponseContainerAlert.  # noqa: E501
+
+
+        :return: The debug_info of this ResponseContainerAlert.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._debug_info
+
+    @debug_info.setter
+    def debug_info(self, debug_info):
+        """Sets the debug_info of this ResponseContainerAlert.
+
+
+        :param debug_info: The debug_info of this ResponseContainerAlert.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._debug_info = debug_info
 
     @property
     def response(self):

@@ -43,6 +43,11 @@ class AlertAnalyticsSummaryDetail(object):
         'error_groups_summary': 'list[AlertErrorGroupSummary]',
         'failure_percentage': 'float',
         'failure_percentage_range': 'str',
+        'is_no_data': 'bool',
+        'is_no_target': 'bool',
+        'last_event_time': 'str',
+        'last_updated_time': 'str',
+        'last_updated_user_id': 'str',
         'tags': 'list[str]',
         'total_evaluated': 'int',
         'total_failed': 'int'
@@ -59,12 +64,17 @@ class AlertAnalyticsSummaryDetail(object):
         'error_groups_summary': 'errorGroupsSummary',
         'failure_percentage': 'failurePercentage',
         'failure_percentage_range': 'failurePercentageRange',
+        'is_no_data': 'isNoData',
+        'is_no_target': 'isNoTarget',
+        'last_event_time': 'lastEventTime',
+        'last_updated_time': 'lastUpdatedTime',
+        'last_updated_user_id': 'lastUpdatedUserId',
         'tags': 'tags',
         'total_evaluated': 'totalEvaluated',
         'total_failed': 'totalFailed'
     }
 
-    def __init__(self, alert_id=None, alert_name=None, avg_key_cardinality=None, avg_latency=None, avg_points=None, checking_frequency=None, creator_id=None, error_groups_summary=None, failure_percentage=None, failure_percentage_range=None, tags=None, total_evaluated=None, total_failed=None, _configuration=None):  # noqa: E501
+    def __init__(self, alert_id=None, alert_name=None, avg_key_cardinality=None, avg_latency=None, avg_points=None, checking_frequency=None, creator_id=None, error_groups_summary=None, failure_percentage=None, failure_percentage_range=None, is_no_data=None, is_no_target=None, last_event_time=None, last_updated_time=None, last_updated_user_id=None, tags=None, total_evaluated=None, total_failed=None, _configuration=None):  # noqa: E501
         """AlertAnalyticsSummaryDetail - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -80,6 +90,11 @@ class AlertAnalyticsSummaryDetail(object):
         self._error_groups_summary = None
         self._failure_percentage = None
         self._failure_percentage_range = None
+        self._is_no_data = None
+        self._is_no_target = None
+        self._last_event_time = None
+        self._last_updated_time = None
+        self._last_updated_user_id = None
         self._tags = None
         self._total_evaluated = None
         self._total_failed = None
@@ -105,6 +120,16 @@ class AlertAnalyticsSummaryDetail(object):
             self.failure_percentage = failure_percentage
         if failure_percentage_range is not None:
             self.failure_percentage_range = failure_percentage_range
+        if is_no_data is not None:
+            self.is_no_data = is_no_data
+        if is_no_target is not None:
+            self.is_no_target = is_no_target
+        if last_event_time is not None:
+            self.last_event_time = last_event_time
+        if last_updated_time is not None:
+            self.last_updated_time = last_updated_time
+        if last_updated_user_id is not None:
+            self.last_updated_user_id = last_updated_user_id
         if tags is not None:
             self.tags = tags
         if total_evaluated is not None:
@@ -333,6 +358,111 @@ class AlertAnalyticsSummaryDetail(object):
         """
 
         self._failure_percentage_range = failure_percentage_range
+
+    @property
+    def is_no_data(self):
+        """Gets the is_no_data of this AlertAnalyticsSummaryDetail.  # noqa: E501
+
+
+        :return: The is_no_data of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_no_data
+
+    @is_no_data.setter
+    def is_no_data(self, is_no_data):
+        """Sets the is_no_data of this AlertAnalyticsSummaryDetail.
+
+
+        :param is_no_data: The is_no_data of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_no_data = is_no_data
+
+    @property
+    def is_no_target(self):
+        """Gets the is_no_target of this AlertAnalyticsSummaryDetail.  # noqa: E501
+
+
+        :return: The is_no_target of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_no_target
+
+    @is_no_target.setter
+    def is_no_target(self, is_no_target):
+        """Sets the is_no_target of this AlertAnalyticsSummaryDetail.
+
+
+        :param is_no_target: The is_no_target of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_no_target = is_no_target
+
+    @property
+    def last_event_time(self):
+        """Gets the last_event_time of this AlertAnalyticsSummaryDetail.  # noqa: E501
+
+
+        :return: The last_event_time of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_event_time
+
+    @last_event_time.setter
+    def last_event_time(self, last_event_time):
+        """Sets the last_event_time of this AlertAnalyticsSummaryDetail.
+
+
+        :param last_event_time: The last_event_time of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._last_event_time = last_event_time
+
+    @property
+    def last_updated_time(self):
+        """Gets the last_updated_time of this AlertAnalyticsSummaryDetail.  # noqa: E501
+
+
+        :return: The last_updated_time of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_updated_time
+
+    @last_updated_time.setter
+    def last_updated_time(self, last_updated_time):
+        """Sets the last_updated_time of this AlertAnalyticsSummaryDetail.
+
+
+        :param last_updated_time: The last_updated_time of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._last_updated_time = last_updated_time
+
+    @property
+    def last_updated_user_id(self):
+        """Gets the last_updated_user_id of this AlertAnalyticsSummaryDetail.  # noqa: E501
+
+
+        :return: The last_updated_user_id of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_updated_user_id
+
+    @last_updated_user_id.setter
+    def last_updated_user_id(self, last_updated_user_id):
+        """Sets the last_updated_user_id of this AlertAnalyticsSummaryDetail.
+
+
+        :param last_updated_user_id: The last_updated_user_id of this AlertAnalyticsSummaryDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._last_updated_user_id = last_updated_user_id
 
     @property
     def tags(self):
