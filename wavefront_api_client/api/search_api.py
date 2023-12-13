@@ -714,6 +714,335 @@ class SearchApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def search_alert_execution_summary_entities(self, start, **kwargs):  # noqa: E501
+        """Search over a customer's alert executions summaries  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_execution_summary_entities(start, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int start: Start time in epoch seconds (required)
+        :param int end: End time in epoch seconds
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedAlertAnalyticsSummaryDetail
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_alert_execution_summary_entities_with_http_info(start, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_alert_execution_summary_entities_with_http_info(start, **kwargs)  # noqa: E501
+            return data
+
+    def search_alert_execution_summary_entities_with_http_info(self, start, **kwargs):  # noqa: E501
+        """Search over a customer's alert executions summaries  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_execution_summary_entities_with_http_info(start, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int start: Start time in epoch seconds (required)
+        :param int end: End time in epoch seconds
+        :param SortableSearchRequest body:
+        :return: ResponseContainerPagedAlertAnalyticsSummaryDetail
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['start', 'end', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_alert_execution_summary_entities" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'start' is set
+        if self.api_client.client_side_validation and ('start' not in params or
+                                                       params['start'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `start` when calling `search_alert_execution_summary_entities`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'start' in params:
+            query_params.append(('start', params['start']))  # noqa: E501
+        if 'end' in params:
+            query_params.append(('end', params['end']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/alert-analytics-summary', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerPagedAlertAnalyticsSummaryDetail',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_alert_execution_summary_for_facet(self, facet, start, **kwargs):  # noqa: E501
+        """Lists the values of a specific facet over the customer's alert executions summaries  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_execution_summary_for_facet(facet, start, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str facet: (required)
+        :param int start: Start time in epoch seconds (required)
+        :param int end: End time in epoch seconds
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_alert_execution_summary_for_facet_with_http_info(facet, start, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_alert_execution_summary_for_facet_with_http_info(facet, start, **kwargs)  # noqa: E501
+            return data
+
+    def search_alert_execution_summary_for_facet_with_http_info(self, facet, start, **kwargs):  # noqa: E501
+        """Lists the values of a specific facet over the customer's alert executions summaries  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_execution_summary_for_facet_with_http_info(facet, start, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str facet: (required)
+        :param int start: Start time in epoch seconds (required)
+        :param int end: End time in epoch seconds
+        :param FacetSearchRequestContainer body:
+        :return: ResponseContainerFacetResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['facet', 'start', 'end', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_alert_execution_summary_for_facet" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'facet' is set
+        if self.api_client.client_side_validation and ('facet' not in params or
+                                                       params['facet'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `facet` when calling `search_alert_execution_summary_for_facet`")  # noqa: E501
+        # verify the required parameter 'start' is set
+        if self.api_client.client_side_validation and ('start' not in params or
+                                                       params['start'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `start` when calling `search_alert_execution_summary_for_facet`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'facet' in params:
+            path_params['facet'] = params['facet']  # noqa: E501
+
+        query_params = []
+        if 'start' in params:
+            query_params.append(('start', params['start']))  # noqa: E501
+        if 'end' in params:
+            query_params.append(('end', params['end']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/alert-analytics-summary/{facet}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerFacetResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_alert_execution_summary_for_facets(self, start, **kwargs):  # noqa: E501
+        """Lists the values of one or more facets over the customer's alert executions summaries  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_execution_summary_for_facets(start, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int start: Start time in epoch seconds (required)
+        :param int end: End time in epoch seconds
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_alert_execution_summary_for_facets_with_http_info(start, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_alert_execution_summary_for_facets_with_http_info(start, **kwargs)  # noqa: E501
+            return data
+
+    def search_alert_execution_summary_for_facets_with_http_info(self, start, **kwargs):  # noqa: E501
+        """Lists the values of one or more facets over the customer's alert executions summaries  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_alert_execution_summary_for_facets_with_http_info(start, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int start: Start time in epoch seconds (required)
+        :param int end: End time in epoch seconds
+        :param FacetsSearchRequestContainer body:
+        :return: ResponseContainerFacetsResponseContainer
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['start', 'end', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_alert_execution_summary_for_facets" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'start' is set
+        if self.api_client.client_side_validation and ('start' not in params or
+                                                       params['start'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `start` when calling `search_alert_execution_summary_for_facets`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'start' in params:
+            query_params.append(('start', params['start']))  # noqa: E501
+        if 'end' in params:
+            query_params.append(('end', params['end']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v2/search/alert-analytics-summary/facets', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResponseContainerFacetsResponseContainer',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def search_alert_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's non-deleted alerts  # noqa: E501
 
