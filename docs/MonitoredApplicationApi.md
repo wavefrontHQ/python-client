@@ -4,7 +4,7 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_all_applications**](MonitoredApplicationApi.md#get_all_applications) | **GET** /api/v2/monitoredapplication | Get all monitored services
+[**get_all_applications**](MonitoredApplicationApi.md#get_all_applications) | **GET** /api/v2/monitoredapplication | Get all monitored applications
 [**get_application**](MonitoredApplicationApi.md#get_application) | **GET** /api/v2/monitoredapplication/{application} | Get a specific application
 [**update_service**](MonitoredApplicationApi.md#update_service) | **PUT** /api/v2/monitoredapplication/{application} | Update a specific service
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **get_all_applications**
 > ResponseContainerPagedMonitoredApplicationDTO get_all_applications(offset=offset, limit=limit)
 
-Get all monitored services
+Get all monitored applications
 
 
 
@@ -36,7 +36,7 @@ offset = 0 # int |  (optional) (default to 0)
 limit = 100 # int |  (optional) (default to 100)
 
 try:
-    # Get all monitored services
+    # Get all monitored applications
     api_response = api_instance.get_all_applications(offset=offset, limit=limit)
     pprint(api_response)
 except ApiException as e:

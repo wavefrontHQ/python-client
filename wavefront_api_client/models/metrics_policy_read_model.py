@@ -35,6 +35,7 @@ class MetricsPolicyReadModel(object):
     swagger_types = {
         'customer': 'str',
         'policy_rules': 'list[PolicyRuleReadModel]',
+        'type': 'str',
         'updated_epoch_millis': 'int',
         'updater_id': 'str'
     }
@@ -42,11 +43,12 @@ class MetricsPolicyReadModel(object):
     attribute_map = {
         'customer': 'customer',
         'policy_rules': 'policyRules',
+        'type': 'type',
         'updated_epoch_millis': 'updatedEpochMillis',
         'updater_id': 'updaterId'
     }
 
-    def __init__(self, customer=None, policy_rules=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, customer=None, policy_rules=None, type=None, updated_epoch_millis=None, updater_id=None, _configuration=None):  # noqa: E501
         """MetricsPolicyReadModel - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,6 +56,7 @@ class MetricsPolicyReadModel(object):
 
         self._customer = None
         self._policy_rules = None
+        self._type = None
         self._updated_epoch_millis = None
         self._updater_id = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class MetricsPolicyReadModel(object):
             self.customer = customer
         if policy_rules is not None:
             self.policy_rules = policy_rules
+        if type is not None:
+            self.type = type
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
         if updater_id is not None:
@@ -71,7 +76,7 @@ class MetricsPolicyReadModel(object):
     def customer(self):
         """Gets the customer of this MetricsPolicyReadModel.  # noqa: E501
 
-        The customer identifier of the metrics policy  # noqa: E501
+        The customer identifier of the security policy  # noqa: E501
 
         :return: The customer of this MetricsPolicyReadModel.  # noqa: E501
         :rtype: str
@@ -82,7 +87,7 @@ class MetricsPolicyReadModel(object):
     def customer(self, customer):
         """Sets the customer of this MetricsPolicyReadModel.
 
-        The customer identifier of the metrics policy  # noqa: E501
+        The customer identifier of the security policy  # noqa: E501
 
         :param customer: The customer of this MetricsPolicyReadModel.  # noqa: E501
         :type: str
@@ -112,6 +117,36 @@ class MetricsPolicyReadModel(object):
         """
 
         self._policy_rules = policy_rules
+
+    @property
+    def type(self):
+        """Gets the type of this MetricsPolicyReadModel.  # noqa: E501
+
+        The type of the security policy  # noqa: E501
+
+        :return: The type of this MetricsPolicyReadModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this MetricsPolicyReadModel.
+
+        The type of the security policy  # noqa: E501
+
+        :param type: The type of this MetricsPolicyReadModel.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["metric", "tracing"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
 
     @property
     def updated_epoch_millis(self):

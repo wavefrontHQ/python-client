@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**get_all_services**](MonitoredServiceApi.md#get_all_services) | **GET** /api/v2/monitoredservice | Get all monitored services
 [**get_component**](MonitoredServiceApi.md#get_component) | **GET** /api/v2/monitoredservice/{application}/{service}/{component} | Get a specific application
 [**get_service**](MonitoredServiceApi.md#get_service) | **GET** /api/v2/monitoredservice/{application}/{service} | Get a specific application
-[**get_services_of_application**](MonitoredServiceApi.md#get_services_of_application) | **GET** /api/v2/monitoredservice/{application} | Get a specific application
+[**get_services_of_application**](MonitoredServiceApi.md#get_services_of_application) | **GET** /api/v2/monitoredservice/{application} | Get services for a specific application
 [**update_service**](MonitoredServiceApi.md#update_service) | **PUT** /api/v2/monitoredservice/{application}/{service} | Update a specific service
 
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 # **get_services_of_application**
 > ResponseContainerPagedMonitoredServiceDTO get_services_of_application(application, include_component=include_component, offset=offset, limit=limit)
 
-Get a specific application
+Get services for a specific application
 
 
 
@@ -322,7 +322,7 @@ offset = 0 # int |  (optional) (default to 0)
 limit = 100 # int |  (optional) (default to 100)
 
 try:
-    # Get a specific application
+    # Get services for a specific application
     api_response = api_instance.get_services_of_application(application, include_component=include_component, offset=offset, limit=limit)
     pprint(api_response)
 except ApiException as e:

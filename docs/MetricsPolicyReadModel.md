@@ -3,8 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer** | **str** | The customer identifier of the metrics policy | [optional] 
+**customer** | **str** | The customer identifier of the security policy | [optional] 
 **policy_rules** | [**list[PolicyRuleReadModel]**](PolicyRuleReadModel.md) | The list of policy rules of the metrics policy | [optional] 
+**type** | **str** | The type of the security policy | [optional] 
 **updated_epoch_millis** | **int** | The date time of the metrics policy update | [optional] 
 **updater_id** | **str** | The id of the metrics policy updater | [optional] 
 

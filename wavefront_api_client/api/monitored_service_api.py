@@ -533,7 +533,7 @@ class MonitoredServiceApi(object):
             collection_formats=collection_formats)
 
     def get_services_of_application(self, application, **kwargs):  # noqa: E501
-        """Get a specific application  # noqa: E501
+        """Get services for a specific application  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -558,7 +558,7 @@ class MonitoredServiceApi(object):
             return data
 
     def get_services_of_application_with_http_info(self, application, **kwargs):  # noqa: E501
-        """Get a specific application  # noqa: E501
+        """Get services for a specific application  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

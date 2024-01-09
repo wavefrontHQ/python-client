@@ -34,7 +34,7 @@ class MonitoredApplicationApi(object):
         self.api_client = api_client
 
     def get_all_applications(self, **kwargs):  # noqa: E501
-        """Get all monitored services  # noqa: E501
+        """Get all monitored applications  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -57,7 +57,7 @@ class MonitoredApplicationApi(object):
             return data
 
     def get_all_applications_with_http_info(self, **kwargs):  # noqa: E501
-        """Get all monitored services  # noqa: E501
+        """Get all monitored applications  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
