@@ -34,6 +34,7 @@ class EC2Configuration(object):
     """
     swagger_types = {
         'base_credentials': 'AWSBaseCredentials',
+        'custom_namespaces': 'list[str]',
         'host_name_tags': 'list[str]',
         'instance_selection_tags_expr': 'str',
         'metric_filter_regex': 'str',
@@ -43,6 +44,7 @@ class EC2Configuration(object):
 
     attribute_map = {
         'base_credentials': 'baseCredentials',
+        'custom_namespaces': 'customNamespaces',
         'host_name_tags': 'hostNameTags',
         'instance_selection_tags_expr': 'instanceSelectionTagsExpr',
         'metric_filter_regex': 'metricFilterRegex',
@@ -50,13 +52,14 @@ class EC2Configuration(object):
         'volume_selection_tags_expr': 'volumeSelectionTagsExpr'
     }
 
-    def __init__(self, base_credentials=None, host_name_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, point_tag_filter_regex=None, volume_selection_tags_expr=None, _configuration=None):  # noqa: E501
+    def __init__(self, base_credentials=None, custom_namespaces=None, host_name_tags=None, instance_selection_tags_expr=None, metric_filter_regex=None, point_tag_filter_regex=None, volume_selection_tags_expr=None, _configuration=None):  # noqa: E501
         """EC2Configuration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._base_credentials = None
+        self._custom_namespaces = None
         self._host_name_tags = None
         self._instance_selection_tags_expr = None
         self._metric_filter_regex = None
@@ -66,6 +69,8 @@ class EC2Configuration(object):
 
         if base_credentials is not None:
             self.base_credentials = base_credentials
+        if custom_namespaces is not None:
+            self.custom_namespaces = custom_namespaces
         if host_name_tags is not None:
             self.host_name_tags = host_name_tags
         if instance_selection_tags_expr is not None:
@@ -97,6 +102,29 @@ class EC2Configuration(object):
         """
 
         self._base_credentials = base_credentials
+
+    @property
+    def custom_namespaces(self):
+        """Gets the custom_namespaces of this EC2Configuration.  # noqa: E501
+
+        A list of custom namespace that limit what we query from metric plus  # noqa: E501
+
+        :return: The custom_namespaces of this EC2Configuration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._custom_namespaces
+
+    @custom_namespaces.setter
+    def custom_namespaces(self, custom_namespaces):
+        """Sets the custom_namespaces of this EC2Configuration.
+
+        A list of custom namespace that limit what we query from metric plus  # noqa: E501
+
+        :param custom_namespaces: The custom_namespaces of this EC2Configuration.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._custom_namespaces = custom_namespaces
 
     @property
     def host_name_tags(self):
