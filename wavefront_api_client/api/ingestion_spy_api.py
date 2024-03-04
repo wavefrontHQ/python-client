@@ -137,6 +137,110 @@ class IngestionSpyApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def spy_on_ephemeral_points(self, **kwargs):  # noqa: E501
+        """Gets a sampling of new ephemeral metric data points that are added to existing time series.  # noqa: E501
+
+        Try it Out button won't work in this case, as it's a streaming API.  Endpoint: https://<cluster>.wavefront.com/api/spy/ephemeral.   Details usage can be find at: https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-metric-points-with-spy  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.spy_on_ephemeral_points(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str metric: List a point only if its metric name starts with the specified case-sensitive prefix. E.g., metric=Cust matches metrics named Customer, Customers, Customer.alerts, but not customer.
+        :param str host: List a point only if its source name starts with the specified case-sensitive prefix.
+        :param list[str] point_tag_key: List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., pointTagKey=env&pointTagKey=datacenter  put env in the first line and datacenter in the second line as values
+        :param float sampling: goes from 0 to 1 with 0.01 being 1%
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.spy_on_ephemeral_points_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.spy_on_ephemeral_points_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def spy_on_ephemeral_points_with_http_info(self, **kwargs):  # noqa: E501
+        """Gets a sampling of new ephemeral metric data points that are added to existing time series.  # noqa: E501
+
+        Try it Out button won't work in this case, as it's a streaming API.  Endpoint: https://<cluster>.wavefront.com/api/spy/ephemeral.   Details usage can be find at: https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-metric-points-with-spy  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.spy_on_ephemeral_points_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str metric: List a point only if its metric name starts with the specified case-sensitive prefix. E.g., metric=Cust matches metrics named Customer, Customers, Customer.alerts, but not customer.
+        :param str host: List a point only if its source name starts with the specified case-sensitive prefix.
+        :param list[str] point_tag_key: List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., pointTagKey=env&pointTagKey=datacenter  put env in the first line and datacenter in the second line as values
+        :param float sampling: goes from 0 to 1 with 0.01 being 1%
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['metric', 'host', 'point_tag_key', 'sampling']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method spy_on_ephemeral_points" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'metric' in params:
+            query_params.append(('metric', params['metric']))  # noqa: E501
+        if 'host' in params:
+            query_params.append(('host', params['host']))  # noqa: E501
+        if 'point_tag_key' in params:
+            query_params.append(('pointTagKey', params['point_tag_key']))  # noqa: E501
+            collection_formats['pointTagKey'] = 'multi'  # noqa: E501
+        if 'sampling' in params:
+            query_params.append(('sampling', params['sampling']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/spy/ephemeral', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def spy_on_histograms(self, **kwargs):  # noqa: E501
         """Gets new histograms that are added to existing time series.  # noqa: E501
 
