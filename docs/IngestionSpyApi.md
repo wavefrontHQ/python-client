@@ -5,7 +5,6 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**spy_on_delta_counters**](IngestionSpyApi.md#spy_on_delta_counters) | **GET** /api/spy/deltas | Gets new delta counters that are added to existing time series.
-[**spy_on_ephemeral_points**](IngestionSpyApi.md#spy_on_ephemeral_points) | **GET** /api/spy/ephemeral | Gets a sampling of new ephemeral metric data points that are added to existing time series.
 [**spy_on_histograms**](IngestionSpyApi.md#spy_on_histograms) | **GET** /api/spy/histograms | Gets new histograms that are added to existing time series.
 [**spy_on_id_creations**](IngestionSpyApi.md#spy_on_id_creations) | **GET** /api/spy/ids | Gets newly allocated IDs that correspond to new metric names, source names, point tags, or span tags. A new ID generally indicates that a new time series has been introduced.
 [**spy_on_points**](IngestionSpyApi.md#spy_on_points) | **GET** /api/spy/points | Gets a sampling of new metric data points that are added to existing time series.
@@ -49,59 +48,6 @@ Name | Type | Description  | Notes
  **host** | **str**| List a delta counter only if the name of its source starts with the specified case-sensitive prefix. | [optional] 
  **counter_tag_key** | [**list[str]**](str.md)| List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. counterTagKey&#x3D;cluster&amp;counterTagKey&#x3D;shard  put cluster in the first line, put shard in the second line as values | [optional] 
  **sampling** | **float**|  | [optional] [default to 0.01]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **spy_on_ephemeral_points**
-> spy_on_ephemeral_points(metric=metric, host=host, point_tag_key=point_tag_key, sampling=sampling)
-
-Gets a sampling of new ephemeral metric data points that are added to existing time series.
-
-Try it Out button won't work in this case, as it's a streaming API.  Endpoint: https://<cluster>.wavefront.com/api/spy/ephemeral.   Details usage can be find at: https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-metric-points-with-spy
-
-### Example
-```python
-from __future__ import print_function
-import time
-import wavefront_api_client
-from wavefront_api_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = wavefront_api_client.IngestionSpyApi()
-metric = 'metric_example' # str | List a point only if its metric name starts with the specified case-sensitive prefix. E.g., metric=Cust matches metrics named Customer, Customers, Customer.alerts, but not customer. (optional)
-host = 'host_example' # str | List a point only if its source name starts with the specified case-sensitive prefix. (optional)
-point_tag_key = ['point_tag_key_example'] # list[str] | List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., pointTagKey=env&pointTagKey=datacenter  put env in the first line and datacenter in the second line as values (optional)
-sampling = 0.01 # float | goes from 0 to 1 with 0.01 being 1% (optional) (default to 0.01)
-
-try:
-    # Gets a sampling of new ephemeral metric data points that are added to existing time series.
-    api_instance.spy_on_ephemeral_points(metric=metric, host=host, point_tag_key=point_tag_key, sampling=sampling)
-except ApiException as e:
-    print("Exception when calling IngestionSpyApi->spy_on_ephemeral_points: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **metric** | **str**| List a point only if its metric name starts with the specified case-sensitive prefix. E.g., metric&#x3D;Cust matches metrics named Customer, Customers, Customer.alerts, but not customer. | [optional] 
- **host** | **str**| List a point only if its source name starts with the specified case-sensitive prefix. | [optional] 
- **point_tag_key** | [**list[str]**](str.md)| List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., pointTagKey&#x3D;env&amp;pointTagKey&#x3D;datacenter  put env in the first line and datacenter in the second line as values | [optional] 
- **sampling** | **float**| goes from 0 to 1 with 0.01 being 1% | [optional] [default to 0.01]
 
 ### Return type
 
