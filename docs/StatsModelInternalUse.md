@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buffer_keys** | **int** |  | [optional] 
-**cached_compacted_keys** | **int** |  | [optional] 
+**cached_compacted_points** | **int** |  | [optional] 
 **compacted_keys** | **int** |  | [optional] 
 **compacted_points** | **int** |  | [optional] 
 **cpu_ns** | **int** |  | [optional] 

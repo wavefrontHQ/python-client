@@ -34,7 +34,7 @@ class StatsModelInternalUse(object):
     """
     swagger_types = {
         'buffer_keys': 'int',
-        'cached_compacted_keys': 'int',
+        'cached_compacted_points': 'int',
         'compacted_keys': 'int',
         'compacted_points': 'int',
         'cpu_ns': 'int',
@@ -56,7 +56,7 @@ class StatsModelInternalUse(object):
 
     attribute_map = {
         'buffer_keys': 'buffer_keys',
-        'cached_compacted_keys': 'cached_compacted_keys',
+        'cached_compacted_points': 'cached_compacted_points',
         'compacted_keys': 'compacted_keys',
         'compacted_points': 'compacted_points',
         'cpu_ns': 'cpu_ns',
@@ -76,14 +76,14 @@ class StatsModelInternalUse(object):
         'summaries': 'summaries'
     }
 
-    def __init__(self, buffer_keys=None, cached_compacted_keys=None, compacted_keys=None, compacted_points=None, cpu_ns=None, distributions=None, edges=None, hosts_used=None, keys=None, latency=None, metrics=None, metrics_used=None, points=None, queries=None, query_tasks=None, s3_keys=None, skipped_compacted_keys=None, spans=None, summaries=None, _configuration=None):  # noqa: E501
+    def __init__(self, buffer_keys=None, cached_compacted_points=None, compacted_keys=None, compacted_points=None, cpu_ns=None, distributions=None, edges=None, hosts_used=None, keys=None, latency=None, metrics=None, metrics_used=None, points=None, queries=None, query_tasks=None, s3_keys=None, skipped_compacted_keys=None, spans=None, summaries=None, _configuration=None):  # noqa: E501
         """StatsModelInternalUse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._buffer_keys = None
-        self._cached_compacted_keys = None
+        self._cached_compacted_points = None
         self._compacted_keys = None
         self._compacted_points = None
         self._cpu_ns = None
@@ -105,8 +105,8 @@ class StatsModelInternalUse(object):
 
         if buffer_keys is not None:
             self.buffer_keys = buffer_keys
-        if cached_compacted_keys is not None:
-            self.cached_compacted_keys = cached_compacted_keys
+        if cached_compacted_points is not None:
+            self.cached_compacted_points = cached_compacted_points
         if compacted_keys is not None:
             self.compacted_keys = compacted_keys
         if compacted_points is not None:
@@ -164,25 +164,25 @@ class StatsModelInternalUse(object):
         self._buffer_keys = buffer_keys
 
     @property
-    def cached_compacted_keys(self):
-        """Gets the cached_compacted_keys of this StatsModelInternalUse.  # noqa: E501
+    def cached_compacted_points(self):
+        """Gets the cached_compacted_points of this StatsModelInternalUse.  # noqa: E501
 
 
-        :return: The cached_compacted_keys of this StatsModelInternalUse.  # noqa: E501
+        :return: The cached_compacted_points of this StatsModelInternalUse.  # noqa: E501
         :rtype: int
         """
-        return self._cached_compacted_keys
+        return self._cached_compacted_points
 
-    @cached_compacted_keys.setter
-    def cached_compacted_keys(self, cached_compacted_keys):
-        """Sets the cached_compacted_keys of this StatsModelInternalUse.
+    @cached_compacted_points.setter
+    def cached_compacted_points(self, cached_compacted_points):
+        """Sets the cached_compacted_points of this StatsModelInternalUse.
 
 
-        :param cached_compacted_keys: The cached_compacted_keys of this StatsModelInternalUse.  # noqa: E501
+        :param cached_compacted_points: The cached_compacted_points of this StatsModelInternalUse.  # noqa: E501
         :type: int
         """
 
-        self._cached_compacted_keys = cached_compacted_keys
+        self._cached_compacted_points = cached_compacted_points
 
     @property
     def compacted_keys(self):
