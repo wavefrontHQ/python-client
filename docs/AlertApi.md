@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_alert_tags**](AlertApi.md#get_alert_tags) | **GET** /api/v2/alert/{id}/tag | Get all tags associated with a specific alert
 [**get_alert_version**](AlertApi.md#get_alert_version) | **GET** /api/v2/alert/{id}/history/{version} | Get a specific historical version of a specific alert
 [**get_alerts_summary**](AlertApi.md#get_alerts_summary) | **GET** /api/v2/alert/summary | Count alerts of various statuses for a customer
+[**get_alerts_with_pagination**](AlertApi.md#get_alerts_with_pagination) | **GET** /api/v2/alert/paginated | Get all alerts for a customer with pagination
 [**get_all_alert**](AlertApi.md#get_all_alert) | **GET** /api/v2/alert | Get all alerts for a customer
 [**hide_alert**](AlertApi.md#hide_alert) | **POST** /api/v2/alert/{id}/uninstall | Hide a specific integration alert 
 [**preview_alert_notification**](AlertApi.md#preview_alert_notification) | **POST** /api/v2/alert/preview | Get all the notification preview for a specific alert
@@ -677,6 +678,62 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ResponseContainerMapStringInteger**](ResponseContainerMapStringInteger.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_alerts_with_pagination**
+> ResponseContainerPagedAlert get_alerts_with_pagination(cursor=cursor, limit=limit)
+
+Get all alerts for a customer with pagination
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
+cursor = 789 # int |  (optional)
+limit = 100 # int |  (optional) (default to 100)
+
+try:
+    # Get all alerts for a customer with pagination
+    api_response = api_instance.get_alerts_with_pagination(cursor=cursor, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AlertApi->get_alerts_with_pagination: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cursor** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 100]
+
+### Return type
+
+[**ResponseContainerPagedAlert**](ResponseContainerPagedAlert.md)
 
 ### Authorization
 
