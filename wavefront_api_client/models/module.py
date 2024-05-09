@@ -40,6 +40,7 @@ class Module(object):
         'layer': 'ModuleLayer',
         'name': 'str',
         'named': 'bool',
+        'native_access_enabled': 'bool',
         'packages': 'list[str]'
     }
 
@@ -51,10 +52,11 @@ class Module(object):
         'layer': 'layer',
         'name': 'name',
         'named': 'named',
+        'native_access_enabled': 'nativeAccessEnabled',
         'packages': 'packages'
     }
 
-    def __init__(self, annotations=None, class_loader=None, declared_annotations=None, descriptor=None, layer=None, name=None, named=None, packages=None, _configuration=None):  # noqa: E501
+    def __init__(self, annotations=None, class_loader=None, declared_annotations=None, descriptor=None, layer=None, name=None, named=None, native_access_enabled=None, packages=None, _configuration=None):  # noqa: E501
         """Module - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class Module(object):
         self._layer = None
         self._name = None
         self._named = None
+        self._native_access_enabled = None
         self._packages = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class Module(object):
             self.name = name
         if named is not None:
             self.named = named
+        if native_access_enabled is not None:
+            self.native_access_enabled = native_access_enabled
         if packages is not None:
             self.packages = packages
 
@@ -233,6 +238,27 @@ class Module(object):
         """
 
         self._named = named
+
+    @property
+    def native_access_enabled(self):
+        """Gets the native_access_enabled of this Module.  # noqa: E501
+
+
+        :return: The native_access_enabled of this Module.  # noqa: E501
+        :rtype: bool
+        """
+        return self._native_access_enabled
+
+    @native_access_enabled.setter
+    def native_access_enabled(self, native_access_enabled):
+        """Sets the native_access_enabled of this Module.
+
+
+        :param native_access_enabled: The native_access_enabled of this Module.  # noqa: E501
+        :type: bool
+        """
+
+        self._native_access_enabled = native_access_enabled
 
     @property
     def packages(self):
