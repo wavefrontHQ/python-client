@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API Documentation
+    Tanzu Observability REST API Documentation
 
-    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
+    <p>The REST API enables you to interact with the Tanzu Observability service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Tanzu Observability REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -265,7 +265,7 @@ class AlertSource(object):
     def query_builder_serialization(self):
         """Gets the query_builder_serialization of this AlertSource.  # noqa: E501
 
-        The string serialization of the alert source query builder, mostly used by Wavefront UI.  # noqa: E501
+        The string serialization of the alert source query builder, mostly used by Tanzu Observability UI.  # noqa: E501
 
         :return: The query_builder_serialization of this AlertSource.  # noqa: E501
         :rtype: str
@@ -276,7 +276,7 @@ class AlertSource(object):
     def query_builder_serialization(self, query_builder_serialization):
         """Sets the query_builder_serialization of this AlertSource.
 
-        The string serialization of the alert source query builder, mostly used by Wavefront UI.  # noqa: E501
+        The string serialization of the alert source query builder, mostly used by Tanzu Observability UI.  # noqa: E501
 
         :param query_builder_serialization: The query_builder_serialization of this AlertSource.  # noqa: E501
         :type: str

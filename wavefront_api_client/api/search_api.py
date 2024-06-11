@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API Documentation
+    Tanzu Observability REST API Documentation
 
-    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
+    <p>The REST API enables you to interact with the Tanzu Observability service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Tanzu Observability REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -5845,7 +5845,7 @@ class SearchApi(object):
     def search_role_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_entities(async_req=True)
@@ -5867,7 +5867,7 @@ class SearchApi(object):
     def search_role_entities_with_http_info(self, **kwargs):  # noqa: E501
         """Search over a customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_entities_with_http_info(async_req=True)
@@ -5940,7 +5940,7 @@ class SearchApi(object):
     def search_role_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facet(facet, async_req=True)
@@ -5963,7 +5963,7 @@ class SearchApi(object):
     def search_role_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facet_with_http_info(facet, async_req=True)
@@ -6043,7 +6043,7 @@ class SearchApi(object):
     def search_role_for_facets(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facets(async_req=True)
@@ -6065,7 +6065,7 @@ class SearchApi(object):
     def search_role_for_facets_with_http_info(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's roles  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_role_for_facets_with_http_info(async_req=True)
@@ -8189,7 +8189,7 @@ class SearchApi(object):
     def search_user_entities(self, **kwargs):  # noqa: E501
         """Search over a customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_entities(async_req=True)
@@ -8211,7 +8211,7 @@ class SearchApi(object):
     def search_user_entities_with_http_info(self, **kwargs):  # noqa: E501
         """Search over a customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_entities_with_http_info(async_req=True)
@@ -8284,7 +8284,7 @@ class SearchApi(object):
     def search_user_for_facet(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facet(facet, async_req=True)
@@ -8307,7 +8307,7 @@ class SearchApi(object):
     def search_user_for_facet_with_http_info(self, facet, **kwargs):  # noqa: E501
         """Lists the values of a specific facet over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facet_with_http_info(facet, async_req=True)
@@ -8387,7 +8387,7 @@ class SearchApi(object):
     def search_user_for_facets(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facets(async_req=True)
@@ -8409,7 +8409,7 @@ class SearchApi(object):
     def search_user_for_facets_with_http_info(self, **kwargs):  # noqa: E501
         """Lists the values of one or more facets over the customer's users  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_user_for_facets_with_http_info(async_req=True)

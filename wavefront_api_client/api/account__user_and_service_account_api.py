@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API Documentation
+    Tanzu Observability REST API Documentation
 
-    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
+    <p>The REST API enables you to interact with the Tanzu Observability service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Tanzu Observability REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -135,7 +135,7 @@ class AccountUserAndServiceAccountApi(object):
     def add_account_to_roles(self, id, **kwargs):  # noqa: E501
         """Adds specific roles to the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_account_to_roles(id, async_req=True)
@@ -158,7 +158,7 @@ class AccountUserAndServiceAccountApi(object):
     def add_account_to_roles_with_http_info(self, id, **kwargs):  # noqa: E501
         """Adds specific roles to the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_account_to_roles_with_http_info(id, async_req=True)
@@ -238,7 +238,7 @@ class AccountUserAndServiceAccountApi(object):
     def add_account_to_user_groups(self, id, **kwargs):  # noqa: E501
         """Adds specific groups to the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_account_to_user_groups(id, async_req=True)
@@ -261,7 +261,7 @@ class AccountUserAndServiceAccountApi(object):
     def add_account_to_user_groups_with_http_info(self, id, **kwargs):  # noqa: E501
         """Adds specific groups to the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_account_to_user_groups_with_http_info(id, async_req=True)
@@ -341,7 +341,7 @@ class AccountUserAndServiceAccountApi(object):
     def create_or_update_user_account(self, **kwargs):  # noqa: E501
         """Creates or updates a user account  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_or_update_user_account(async_req=True)
@@ -364,7 +364,7 @@ class AccountUserAndServiceAccountApi(object):
     def create_or_update_user_account_with_http_info(self, **kwargs):  # noqa: E501
         """Creates or updates a user account  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_or_update_user_account_with_http_info(async_req=True)
@@ -634,7 +634,7 @@ class AccountUserAndServiceAccountApi(object):
     def delete_account(self, id, **kwargs):  # noqa: E501
         """Deletes an account (user or service account) identified by id  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_account(id, async_req=True)
@@ -656,7 +656,7 @@ class AccountUserAndServiceAccountApi(object):
     def delete_account_with_http_info(self, id, **kwargs):  # noqa: E501
         """Deletes an account (user or service account) identified by id  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_account_with_http_info(id, async_req=True)
@@ -729,7 +729,7 @@ class AccountUserAndServiceAccountApi(object):
     def delete_multiple_accounts(self, **kwargs):  # noqa: E501
         """Deletes multiple accounts (users or service accounts)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_multiple_accounts(async_req=True)
@@ -751,7 +751,7 @@ class AccountUserAndServiceAccountApi(object):
     def delete_multiple_accounts_with_http_info(self, **kwargs):  # noqa: E501
         """Deletes multiple accounts (users or service accounts)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_multiple_accounts_with_http_info(async_req=True)
@@ -824,7 +824,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_account(self, id, **kwargs):  # noqa: E501
         """Get a specific account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_account(id, async_req=True)
@@ -846,7 +846,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_account_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a specific account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_account_with_http_info(id, async_req=True)
@@ -1014,7 +1014,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_all_accounts(self, **kwargs):  # noqa: E501
         """Get all accounts (users and service accounts) of a customer  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_accounts(async_req=True)
@@ -1037,7 +1037,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_all_accounts_with_http_info(self, **kwargs):  # noqa: E501
         """Get all accounts (users and service accounts) of a customer  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_accounts_with_http_info(async_req=True)
@@ -1196,7 +1196,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_all_user_accounts(self, **kwargs):  # noqa: E501
         """Get all user accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_user_accounts(async_req=True)
@@ -1217,7 +1217,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_all_user_accounts_with_http_info(self, **kwargs):  # noqa: E501
         """Get all user accounts  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_user_accounts_with_http_info(async_req=True)
@@ -1378,7 +1378,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_user_account(self, id, **kwargs):  # noqa: E501
         """Retrieves a user by identifier (email address)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_account(id, async_req=True)
@@ -1400,7 +1400,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_user_account_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieves a user by identifier (email address)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_account_with_http_info(id, async_req=True)
@@ -1473,7 +1473,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_users_with_accounts_permission(self, **kwargs):  # noqa: E501
         """Get all users with Accounts permission  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_with_accounts_permission(async_req=True)
@@ -1494,7 +1494,7 @@ class AccountUserAndServiceAccountApi(object):
     def get_users_with_accounts_permission_with_http_info(self, **kwargs):  # noqa: E501
         """Get all users with Accounts permission  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_with_accounts_permission_with_http_info(async_req=True)
@@ -1560,7 +1560,7 @@ class AccountUserAndServiceAccountApi(object):
     def grant_account_permission(self, id, permission, **kwargs):  # noqa: E501
         """Grants a specific permission to account (user or service account)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.grant_account_permission(id, permission, async_req=True)
@@ -1583,7 +1583,7 @@ class AccountUserAndServiceAccountApi(object):
     def grant_account_permission_with_http_info(self, id, permission, **kwargs):  # noqa: E501
         """Grants a specific permission to account (user or service account)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.grant_account_permission_with_http_info(id, permission, async_req=True)
@@ -1667,7 +1667,7 @@ class AccountUserAndServiceAccountApi(object):
     def grant_permission_to_accounts(self, permission, **kwargs):  # noqa: E501
         """Grant a permission to accounts (users or service accounts)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.grant_permission_to_accounts(permission, async_req=True)
@@ -1690,7 +1690,7 @@ class AccountUserAndServiceAccountApi(object):
     def grant_permission_to_accounts_with_http_info(self, permission, **kwargs):  # noqa: E501
         """Grant a permission to accounts (users or service accounts)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.grant_permission_to_accounts_with_http_info(permission, async_req=True)
@@ -1770,7 +1770,7 @@ class AccountUserAndServiceAccountApi(object):
     def invite_user_accounts(self, **kwargs):  # noqa: E501
         """Invite user accounts with given user groups and permissions.  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.invite_user_accounts(async_req=True)
@@ -1792,7 +1792,7 @@ class AccountUserAndServiceAccountApi(object):
     def invite_user_accounts_with_http_info(self, **kwargs):  # noqa: E501
         """Invite user accounts with given user groups and permissions.  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.invite_user_accounts_with_http_info(async_req=True)
@@ -1865,7 +1865,7 @@ class AccountUserAndServiceAccountApi(object):
     def remove_account_from_roles(self, id, **kwargs):  # noqa: E501
         """Removes specific roles from the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_account_from_roles(id, async_req=True)
@@ -1888,7 +1888,7 @@ class AccountUserAndServiceAccountApi(object):
     def remove_account_from_roles_with_http_info(self, id, **kwargs):  # noqa: E501
         """Removes specific roles from the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_account_from_roles_with_http_info(id, async_req=True)
@@ -1968,7 +1968,7 @@ class AccountUserAndServiceAccountApi(object):
     def remove_account_from_user_groups(self, id, **kwargs):  # noqa: E501
         """Removes specific groups from the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_account_from_user_groups(id, async_req=True)
@@ -1991,7 +1991,7 @@ class AccountUserAndServiceAccountApi(object):
     def remove_account_from_user_groups_with_http_info(self, id, **kwargs):  # noqa: E501
         """Removes specific groups from the account (user or service account)  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_account_from_user_groups_with_http_info(id, async_req=True)
@@ -2071,7 +2071,7 @@ class AccountUserAndServiceAccountApi(object):
     def revoke_account_permission(self, id, permission, **kwargs):  # noqa: E501
         """Revokes a specific permission from account (user or service account)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.revoke_account_permission(id, permission, async_req=True)
@@ -2094,7 +2094,7 @@ class AccountUserAndServiceAccountApi(object):
     def revoke_account_permission_with_http_info(self, id, permission, **kwargs):  # noqa: E501
         """Revokes a specific permission from account (user or service account)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.revoke_account_permission_with_http_info(id, permission, async_req=True)
@@ -2178,7 +2178,7 @@ class AccountUserAndServiceAccountApi(object):
     def revoke_permission_from_accounts(self, permission, **kwargs):  # noqa: E501
         """Revoke a permission from accounts (users or service accounts)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.revoke_permission_from_accounts(permission, async_req=True)
@@ -2201,7 +2201,7 @@ class AccountUserAndServiceAccountApi(object):
     def revoke_permission_from_accounts_with_http_info(self, permission, **kwargs):  # noqa: E501
         """Revoke a permission from accounts (users or service accounts)  # noqa: E501
 
-        <b>Note</b>: For original Operations for Applications instances, applies to user accounts and service accounts. For Operations for Applications instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
+        <b>Note</b>: For original Tanzu Observability instances, applies to user accounts and service accounts. For Tanzu Observability instances that are onboarded to VMware Cloud services, applies only to service accounts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.revoke_permission_from_accounts_with_http_info(permission, async_req=True)
@@ -2384,7 +2384,7 @@ class AccountUserAndServiceAccountApi(object):
     def update_user_account(self, id, **kwargs):  # noqa: E501
         """Update user with given user groups and permissions.  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_user_account(id, async_req=True)
@@ -2407,7 +2407,7 @@ class AccountUserAndServiceAccountApi(object):
     def update_user_account_with_http_info(self, id, **kwargs):  # noqa: E501
         """Update user with given user groups and permissions.  # noqa: E501
 
-        <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_user_account_with_http_info(id, async_req=True)

@@ -3343,7 +3343,7 @@ Name | Type | Description  | Notes
 
 Search over a customer's roles
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -3397,7 +3397,7 @@ Name | Type | Description  | Notes
 
 Lists the values of a specific facet over the customer's roles
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -3453,7 +3453,7 @@ Name | Type | Description  | Notes
 
 Lists the values of one or more facets over the customer's roles
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -4655,7 +4655,7 @@ Name | Type | Description  | Notes
 
 Search over a customer's users
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -4709,7 +4709,7 @@ Name | Type | Description  | Notes
 
 Lists the values of a specific facet over the customer's users
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python
@@ -4765,7 +4765,7 @@ Name | Type | Description  | Notes
 
 Lists the values of one or more facets over the customer's users
 
-<b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+<b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python

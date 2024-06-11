@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 Create new api token
 
-Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.
+Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.
 
 ### Example
 ```python

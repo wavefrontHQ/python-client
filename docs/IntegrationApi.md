@@ -4,23 +4,23 @@ All URIs are relative to *https://YOUR_INSTANCE.wavefront.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_all_integration**](IntegrationApi.md#get_all_integration) | **GET** /api/v2/integration | Gets a flat list of all Wavefront integrations available, along with their status
-[**get_all_integration_in_manifests**](IntegrationApi.md#get_all_integration_in_manifests) | **GET** /api/v2/integration/manifests | Gets all Wavefront integrations as structured in their integration manifests, along with their status and content
-[**get_all_integration_in_manifests_min**](IntegrationApi.md#get_all_integration_in_manifests_min) | **GET** /api/v2/integration/manifests/min | Gets all Wavefront integrations as structured in their integration manifests.
-[**get_all_integration_statuses**](IntegrationApi.md#get_all_integration_statuses) | **GET** /api/v2/integration/status | Gets the status of all Wavefront integrations
+[**get_all_integration**](IntegrationApi.md#get_all_integration) | **GET** /api/v2/integration | Gets a flat list of all Tanzu Observability integrations available, along with their status
+[**get_all_integration_in_manifests**](IntegrationApi.md#get_all_integration_in_manifests) | **GET** /api/v2/integration/manifests | Gets all Tanzu Observability integrations as structured in their integration manifests, along with their status and content
+[**get_all_integration_in_manifests_min**](IntegrationApi.md#get_all_integration_in_manifests_min) | **GET** /api/v2/integration/manifests/min | Gets all Tanzu Observability integrations as structured in their integration manifests.
+[**get_all_integration_statuses**](IntegrationApi.md#get_all_integration_statuses) | **GET** /api/v2/integration/status | Gets the status of all Tanzu Observability integrations
 [**get_installed_integration**](IntegrationApi.md#get_installed_integration) | **GET** /api/v2/integration/installed | Gets a flat list of all Integrations that are installed, along with their status
-[**get_integration**](IntegrationApi.md#get_integration) | **GET** /api/v2/integration/{id} | Gets a single Wavefront integration by its id, along with its status
-[**get_integration_status**](IntegrationApi.md#get_integration_status) | **GET** /api/v2/integration/{id}/status | Gets the status of a single Wavefront integration
+[**get_integration**](IntegrationApi.md#get_integration) | **GET** /api/v2/integration/{id} | Gets a single Tanzu Observability integration by its id, along with its status
+[**get_integration_status**](IntegrationApi.md#get_integration_status) | **GET** /api/v2/integration/{id}/status | Gets the status of a single Tanzu Observability integration
 [**install_all_integration_alerts**](IntegrationApi.md#install_all_integration_alerts) | **POST** /api/v2/integration/{id}/install-all-alerts | Enable all alerts associated with this integration
-[**install_integration**](IntegrationApi.md#install_integration) | **POST** /api/v2/integration/{id}/install | Installs a Wavefront integration
+[**install_integration**](IntegrationApi.md#install_integration) | **POST** /api/v2/integration/{id}/install | Installs a Tanzu Observability integration
 [**uninstall_all_integration_alerts**](IntegrationApi.md#uninstall_all_integration_alerts) | **POST** /api/v2/integration/{id}/uninstall-all-alerts | Disable all alerts associated with this integration
-[**uninstall_integration**](IntegrationApi.md#uninstall_integration) | **POST** /api/v2/integration/{id}/uninstall | Uninstalls a Wavefront integration
+[**uninstall_integration**](IntegrationApi.md#uninstall_integration) | **POST** /api/v2/integration/{id}/uninstall | Uninstalls a Tanzu Observability integration
 
 
 # **get_all_integration**
 > ResponseContainerPagedIntegration get_all_integration(offset=offset, limit=limit, exclude_dashboard=exclude_dashboard)
 
-Gets a flat list of all Wavefront integrations available, along with their status
+Gets a flat list of all Tanzu Observability integrations available, along with their status
 
 
 
@@ -45,7 +45,7 @@ limit = 100 # int | Limit the number of queried integrations to reduce the respo
 exclude_dashboard = false # bool | Whether to exclude information on dashboards, default is set to false (optional) (default to false)
 
 try:
-    # Gets a flat list of all Wavefront integrations available, along with their status
+    # Gets a flat list of all Tanzu Observability integrations available, along with their status
     api_response = api_instance.get_all_integration(offset=offset, limit=limit, exclude_dashboard=exclude_dashboard)
     pprint(api_response)
 except ApiException as e:
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 # **get_all_integration_in_manifests**
 > ResponseContainerListIntegrationManifestGroup get_all_integration_in_manifests()
 
-Gets all Wavefront integrations as structured in their integration manifests, along with their status and content
+Gets all Tanzu Observability integrations as structured in their integration manifests, along with their status and content
 
 
 
@@ -100,7 +100,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClient(configuration))
 
 try:
-    # Gets all Wavefront integrations as structured in their integration manifests, along with their status and content
+    # Gets all Tanzu Observability integrations as structured in their integration manifests, along with their status and content
     api_response = api_instance.get_all_integration_in_manifests()
     pprint(api_response)
 except ApiException as e:
@@ -128,7 +128,7 @@ This endpoint does not need any parameter.
 # **get_all_integration_in_manifests_min**
 > ResponseContainerListIntegrationManifestGroup get_all_integration_in_manifests_min()
 
-Gets all Wavefront integrations as structured in their integration manifests.
+Gets all Tanzu Observability integrations as structured in their integration manifests.
 
 
 
@@ -150,7 +150,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClient(configuration))
 
 try:
-    # Gets all Wavefront integrations as structured in their integration manifests.
+    # Gets all Tanzu Observability integrations as structured in their integration manifests.
     api_response = api_instance.get_all_integration_in_manifests_min()
     pprint(api_response)
 except ApiException as e:
@@ -178,7 +178,7 @@ This endpoint does not need any parameter.
 # **get_all_integration_statuses**
 > ResponseContainerMapStringIntegrationStatus get_all_integration_statuses()
 
-Gets the status of all Wavefront integrations
+Gets the status of all Tanzu Observability integrations
 
 
 
@@ -200,7 +200,7 @@ configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
 api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClient(configuration))
 
 try:
-    # Gets the status of all Wavefront integrations
+    # Gets the status of all Tanzu Observability integrations
     api_response = api_instance.get_all_integration_statuses()
     pprint(api_response)
 except ApiException as e:
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 # **get_integration**
 > ResponseContainerIntegration get_integration(id, refresh=refresh)
 
-Gets a single Wavefront integration by its id, along with its status
+Gets a single Tanzu Observability integration by its id, along with its status
 
 
 
@@ -308,7 +308,7 @@ id = 'id_example' # str |
 refresh = true # bool |  (optional)
 
 try:
-    # Gets a single Wavefront integration by its id, along with its status
+    # Gets a single Tanzu Observability integration by its id, along with its status
     api_response = api_instance.get_integration(id, refresh=refresh)
     pprint(api_response)
 except ApiException as e:
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 # **get_integration_status**
 > ResponseContainerIntegrationStatus get_integration_status(id)
 
-Gets the status of a single Wavefront integration
+Gets the status of a single Tanzu Observability integration
 
 
 
@@ -363,7 +363,7 @@ api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClien
 id = 'id_example' # str | 
 
 try:
-    # Gets the status of a single Wavefront integration
+    # Gets the status of a single Tanzu Observability integration
     api_response = api_instance.get_integration_status(id)
     pprint(api_response)
 except ApiException as e:
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 # **install_integration**
 > ResponseContainerIntegrationStatus install_integration(id)
 
-Installs a Wavefront integration
+Installs a Tanzu Observability integration
 
 
 
@@ -473,7 +473,7 @@ api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClien
 id = 'id_example' # str | 
 
 try:
-    # Installs a Wavefront integration
+    # Installs a Tanzu Observability integration
     api_response = api_instance.install_integration(id)
     pprint(api_response)
 except ApiException as e:
@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 # **uninstall_integration**
 > ResponseContainerIntegrationStatus uninstall_integration(id)
 
-Uninstalls a Wavefront integration
+Uninstalls a Tanzu Observability integration
 
 
 
@@ -581,7 +581,7 @@ api_instance = wavefront_api_client.IntegrationApi(wavefront_api_client.ApiClien
 id = 'id_example' # str | 
 
 try:
-    # Uninstalls a Wavefront integration
+    # Uninstalls a Tanzu Observability integration
     api_response = api_instance.uninstall_integration(id)
     pprint(api_response)
 except ApiException as e:

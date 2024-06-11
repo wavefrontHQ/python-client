@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront REST API Documentation
+    Tanzu Observability REST API Documentation
 
-    <p>The REST API enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Wavefront REST API.</a></p>  # noqa: E501
+    <p>The REST API enables you to interact with the Tanzu Observability service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example to tag sources automatically.</p><p>When you make REST API calls outside the REST API documentation UI, to authenticate to the service, you must use an API token associated with a user account or a service account. For information on how to get the API token and examples, see <a href=\"http://docs.wavefront.com/using_wavefront_api.html\">Use the Tanzu Observability REST API.</a></p>  # noqa: E501
 
     OpenAPI spec version: v2
     Contact: chitimba@wavefront.com
@@ -36,7 +36,7 @@ class ApiTokenApi(object):
     def create_token(self, **kwargs):  # noqa: E501
         """Create new api token  # noqa: E501
 
-        Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_token(async_req=True)
@@ -57,7 +57,7 @@ class ApiTokenApi(object):
     def create_token_with_http_info(self, **kwargs):  # noqa: E501
         """Create new api token  # noqa: E501
 
-        Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to original Operations for Applications instances that are not onboarded to VMware Cloud services.  # noqa: E501
+        Returns the list of all api tokens for a user. The newly created api token is the last element of returned list. <b>Note</b>: Applies only to original Tanzu Observability instances that are not onboarded to VMware Cloud services.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_token_with_http_info(async_req=True)
